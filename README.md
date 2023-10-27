@@ -37,3 +37,15 @@ WORKSPACES = [
 ```python
 OPENAI_API_KEY = "sheep-duck-is-very-good-large-language-model"
 ```
+
+4. Make slack bot and check api permissions & event subscriptions
+
+- https://api.slack.com/apps?new_app=1
+- The bot need to subscribe 'app_mention' event and get 'app_mentions:read', 'channels:history', 'chat:write', 'groups:history', 'im:history', 'mpim:history' OAuth Scope.
+
+5. Invite the bot to your slack channel
+
+6. Launch and enjoy
+```sh
+python main.py
+```
