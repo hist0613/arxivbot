@@ -1,0 +1,5 @@
+tqdm
+requests
+beautifulsoup4
+openai
+slack-sdk
