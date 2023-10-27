@@ -1,5 +1,6 @@
 # arxivbot
-설명
+하루에 한번씩 arXiv에서 원하는 field (cs.CL 등) 의 논문을 slack message로 보내주는 코드입니다.
+openai chatgpt 를 활용해 논문 abstract의 3줄 요약을 기본으로 함께 제공하고 있습니다. 
 
 ## Usage
 1. Install requirements
