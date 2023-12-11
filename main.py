@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from slack_sdk import WebClient
 
 from settings import *
-from gpt3 import get_openai_summarization, get_openai_question_generation, get_openai_trend_analysis
+from gpt3 import get_openai_summarization
 
 base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
 old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
