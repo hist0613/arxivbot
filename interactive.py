@@ -7,6 +7,9 @@ from gpt3 import get_openai_summarization
 from settings import WORKSPACES
 
 app = Flask(__name__)
+# Flask 를 로컬에서 구동 시 슬랙에서 로컬 PC에 접근할 수 없기 떄문에
+# ngrok 을 사용하여 로컬 서버를 외부에 공개해야 함
+# ```ngrok http --domain={slack app에 등록된 domain} 5000``` 명령어를 통해 5000번 포트를 공개
 
 def get_slack_token(workspace_name):
     for workspace in WORKSPACES:
