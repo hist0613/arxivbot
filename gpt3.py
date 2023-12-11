@@ -5,27 +5,25 @@ from tqdm import tqdm
 import concurrent.futures
 
 import openai
+from openai import OpenAI
 
 from settings import OPENAI_API_KEY, MAX_NB_GPT3_ATTEMPT
-from settings import PROMPT_SUMMARIZATION, PROMPT_QUESTION_GENERATION
+from prompts import PROMPT_SUMMARIZATION, PROMPT_QUESTION_GENERATION
 
-openai.api_key = OPENAI_API_KEY
-
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 def call_chatgpt(prompt):
     for trial in range(MAX_NB_GPT3_ATTEMPT):
         try:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{
-                    "role": "user", 
-                    "content": prompt
-                    }
-                ],
-                max_tokens=1024
-            )
-            return response['choices'][0]['message']['content'].strip()
-        except (openai.error.RateLimitError, openai.error.APIError, openai.error.Timeout, openai.error.ServiceUnavailableError, openai.error.APIConnectionError) as e:
+            response = client.chat.completions.create(model="gpt-3.5-turbo",
+            messages=[{
+                "role": "user", 
+                "content": prompt
+                }
+            ],
+            max_tokens=1024)
+            return response.choices[0].message.content.strip()
+        except (openai.RateLimitError, openai.APIError, openai.APITimeoutError, openai.InternalServerError, openai.APIConnectionError) as e:
             print(e)
             time.sleep(trial * 30 + 15)
     return ""

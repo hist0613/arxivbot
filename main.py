@@ -59,7 +59,14 @@ def get_paper_set_of(field):
 
     # list_url = "https://arxiv.org/list/{}/recent".format(field)
     list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(field, 500)
-    list_page = requests.get(list_url)
+    for trial in range(MAX_NB_GPT3_ATTEMPT):
+        try:
+            list_page = requests.get(list_url)
+            if list_page.status_code == 200:
+                break
+        except requests.exceptions.ConnectionError as e:
+            print(e)
+            time.sleep(trial * 30 + 15)
     list_soup = BeautifulSoup(list_page.text, "html.parser")
 
     # <dd> 태그 추출
@@ -101,6 +108,8 @@ def get_paper_abstract(paper_url):
     for trial in range(MAX_NB_GPT3_ATTEMPT):
         try:
             paper_page = requests.get(paper_url)
+            if paper_page.status_code == 200:
+                break
         except requests.exceptions.ConnectionError as e:
             print(e)
             time.sleep(trial * 30 + 15)
