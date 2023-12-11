@@ -193,25 +193,6 @@ def main():
                     with open(paper_summarizations_path, 'wb') as fp:
                         pickle.dump(paper_summarizations, fp)
 
-        # if SHOW_QUESTION:
-        #     print("Generating multiple choice questions of papers by GPT3.5...")
-        #     paper_questions = get_paper_questions()
-        #     for field in workspace['fields']:
-        #         print("  - Processing {} field...".format(field))
-        #         for paper_url, paper_title in tqdm(new_papers[field]):
-        #             # remove duplicates
-        #             paper_info = get_paper_info(paper_url, paper_title)
-        #             if paper_info in paper_questions:
-        #                 continue
-
-        #             paper_abstract = paper_abstracts[paper_info]
-        #             paper_question = get_openai_question_generation(paper_abstract)
-        #             paper_questions[paper_info] = paper_question
-
-        #             # pickling after question generation
-        #             with open(paper_questions_path, 'wb') as fp:
-        #                 pickle.dump(paper_questions, fp)
-
         nb_total_messages = 0
         nb_messages = 0
         for field in tqdm(workspace['fields']):
@@ -262,28 +243,6 @@ def main():
         # pickling after messaging
         with open(old_paper_set_path.format(workspace_name), 'wb') as fp:
             pickle.dump(old_paper_set, fp)
-
-        # nb_total_messages = 339
-        # if nb_total_messages > 0:
-        #     trend_analyses = get_openai_trend_analysis(paper_summarizations, nb_total_messages=nb_total_messages)
-
-        #     # make a parent message first
-        #     sc.chat_postMessage(
-        #         channel=workspace['allowed_channel'],
-        #         text="Trend analysis on Today's arXiv\n"
-        #     )
-
-        #     # get the timestamp of the parent message
-        #     result = sc.conversations_history(channel=workspace["allowed_channel_id"])
-        #     conversation_history = result["messages"]  # [0] is the most recent message
-        #     message_ts = conversation_history[0]['ts']
-        
-        #     for trend_analysis in trend_analyses:
-        #         sc.chat_postMessage(
-        #             channel=workspace['allowed_channel'],
-        #             text=trend_analysis,
-        #             thread_ts=message_ts
-        #         )
 
 if __name__ == "__main__":
     main()
