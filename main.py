@@ -316,14 +316,14 @@ def main():
         nb_total_messages = 0
         nb_messages = 0
         for field in tqdm(workspace["fields"]):
-            # if not has_new_papers(new_papers[field], old_paper_set):
-            #     continue
+            if not has_new_papers(new_papers[field], old_paper_set):
+                continue
 
-            # # make a parent message first
-            # sc.chat_postMessage(
-            #     channel=workspace["allowed_channel"],
-            #     text="New uploads on arXiv({})\n".format(field),
-            # )
+            # make a parent message first
+            sc.chat_postMessage(
+                channel=workspace["allowed_channel"],
+                text="New uploads on arXiv({})\n".format(field),
+            )
 
             today_summaries_field_path = os.path.join(
                 today_summaries_dir, field + ".md"
@@ -340,8 +340,8 @@ def main():
                 paper_info = get_paper_info(paper_url, paper_title)
 
                 # remove duplicates
-                # if paper_info in old_paper_set:
-                #     continue
+                if paper_info in old_paper_set:
+                    continue
 
                 content = paper_info
                 file_content = "### " + paper_info + "\n"
@@ -358,19 +358,19 @@ def main():
 
                 old_paper_set.add(paper_info)
 
-                # sc.chat_postMessage(
-                #     channel=workspace["allowed_channel"],
-                #     text=content,
-                #     thread_ts=message_ts,
-                # )
+                sc.chat_postMessage(
+                    channel=workspace["allowed_channel"],
+                    text=content,
+                    thread_ts=message_ts,
+                )
 
                 fp.write(file_content + "\n\n")
 
-                # nb_total_messages += 1
-                # nb_messages += 1
-                # if nb_messages >= MAX_NB_SHOW:
-                #     nb_messages = 0
-                #     time.sleep(TIME_PAUSE_SEC)
+                nb_total_messages += 1
+                nb_messages += 1
+                if nb_messages >= MAX_NB_SHOW:
+                    nb_messages = 0
+                    time.sleep(TIME_PAUSE_SEC)
             fp.close()
 
         # pickling after messaging
