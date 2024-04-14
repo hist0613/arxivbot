@@ -10,6 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from slack_sdk import WebClient
 import tiktoken
+import git
 
 from settings import *
 from gpt3 import get_openai_summarization
@@ -21,6 +22,10 @@ paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle"
 paper_questions_path = os.path.join(base_dir, "paper_questions.pickle")
 paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
 encoding = tiktoken.encoding_for_model(MODEL)
+
+summaries_dir = os.path.join(base_dir, "summaries")
+today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
+os.makedirs(today_summaries_dir, exist_ok=True)
 
 
 def get_old_paper_set(workspace):
@@ -311,14 +316,19 @@ def main():
         nb_total_messages = 0
         nb_messages = 0
         for field in tqdm(workspace["fields"]):
-            if not has_new_papers(new_papers[field], old_paper_set):
-                continue
+            # if not has_new_papers(new_papers[field], old_paper_set):
+            #     continue
 
-            # make a parent message first
-            sc.chat_postMessage(
-                channel=workspace["allowed_channel"],
-                text="New uploads on arXiv({})\n".format(field),
+            # # make a parent message first
+            # sc.chat_postMessage(
+            #     channel=workspace["allowed_channel"],
+            #     text="New uploads on arXiv({})\n".format(field),
+            # )
+
+            today_summaries_field_path = os.path.join(
+                today_summaries_dir, field + ".md"
             )
+            fp = open(today_summaries_field_path, "w", encoding="utf-8")
 
             # get the timestamp of the parent messagew
             result = sc.conversations_history(channel=workspace["allowed_channel_id"])
@@ -330,39 +340,47 @@ def main():
                 paper_info = get_paper_info(paper_url, paper_title)
 
                 # remove duplicates
-                if paper_info in old_paper_set:
-                    continue
+                # if paper_info in old_paper_set:
+                #     continue
 
                 content = paper_info
+                file_content = "### " + paper_info + "\n"
                 if paper_comment != "":
                     content += f"\n{paper_comment}"
+                    file_content += f"{paper_comment}\n\n"
                 if SHOW_SUMMARIZATION:
                     paper_summarization = json.loads(paper_summarizations[paper_info])
                     if type(paper_summarization) is list:
-                        for item in paper_summarization:
-                            for key, value in item.items():
-                                content += f"\n\n*{key}*: {value}"
-                    else:
-                        for key, value in paper_summarization.items():
-                            content += f"\n\n*{key}*: {value}"
+                        paper_summarization = paper_summarization[0]
+                    for key, value in paper_summarization.items():
+                        content += f"\n\n*{key}*: {value}"
+                        file_content += f"- **{key}**: {value}\n\n"
 
                 old_paper_set.add(paper_info)
 
-                sc.chat_postMessage(
-                    channel=workspace["allowed_channel"],
-                    text=content,
-                    thread_ts=message_ts,
-                )
+                # sc.chat_postMessage(
+                #     channel=workspace["allowed_channel"],
+                #     text=content,
+                #     thread_ts=message_ts,
+                # )
 
-                nb_total_messages += 1
-                nb_messages += 1
-                if nb_messages >= MAX_NB_SHOW:
-                    nb_messages = 0
-                    time.sleep(TIME_PAUSE_SEC)
+                fp.write(file_content + "\n\n")
+
+                # nb_total_messages += 1
+                # nb_messages += 1
+                # if nb_messages >= MAX_NB_SHOW:
+                #     nb_messages = 0
+                #     time.sleep(TIME_PAUSE_SEC)
+            fp.close()
 
         # pickling after messaging
         with open(old_paper_set_path.format(workspace_name), "wb") as fp:
             pickle.dump(old_paper_set, fp)
+
+    repo = git.Repo(".")
+    repo.git.add(today_summaries_dir)
+    repo.git.commit("-m", f"Update summaries: {time.strftime('%Y-%m-%d')}")
+    repo.git.push(force=True)
 
 
 if __name__ == "__main__":
