@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+MAX_NB_CRAWL = 500
 MAX_NB_SHOW = 20
 MAX_NB_GPT3_ATTEMPT = 3
 TIME_PAUSE_SEC = 15
@@ -11,7 +12,8 @@ SHOW_QUESTION = False
 MODEL = "gpt-4-turbo"
 MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
-# $24.68 per week (assuming average 482 papres)
+NB_THREADS = 5
+# $24.68 per week (assuming average 482 papers)
 
 WORKSPACES = [
     {

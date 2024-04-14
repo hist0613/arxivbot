@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import json
 from tqdm import tqdm
 import concurrent.futures
 
@@ -32,6 +33,11 @@ def call_chatgpt(system_prompt, user_prompt):
                     "type": "json_object",
                 },
             )
+
+            assert type(json.loads(response.choices[0].message.content.strip())) in [
+                list,
+                dict,
+            ], f"Invalid response: {response.choices[0].message.content.strip()}"
             return response.choices[0].message.content.strip()
         except (
             openai.RateLimitError,
@@ -48,7 +54,7 @@ def call_chatgpt(system_prompt, user_prompt):
 def get_openai_summarization(content):
     system_prompt = SYSTEM_PROMPT_SUMMARIZATION
     # user_prompt = USER_PROMPT_SUMMARIZATION + f'''\nabstract: "{content}"'''
-    user_prompt = f'''abstract: "{content}"'''
+    user_prompt = f"""{content}"""
     return call_chatgpt(system_prompt, user_prompt)
 
 

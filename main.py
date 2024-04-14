@@ -1,5 +1,6 @@
 import os
 import time
+import json
 import pickle
 from tqdm import tqdm
 from collections import defaultdict
@@ -70,7 +71,9 @@ def get_paper_set_of(field):
     paper_set = []
 
     # list_url = "https://arxiv.org/list/{}/recent".format(field)
-    list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(field, 500)
+    list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(
+        field, MAX_NB_CRAWL
+    )
     for trial in range(MAX_NB_GPT3_ATTEMPT):
         try:
             list_page = requests.get(list_url)
@@ -245,7 +248,7 @@ def main():
                         pickle.dump(paper_full_contents, fp)
 
         if SHOW_SUMMARIZATION:
-            print("Summarizing the abstract of papers by GPT3.5...")
+            print(f"Summarizing the abstract of papers by {MODEL}...")
             paper_summarizations = get_paper_summarizations()
 
             encoding = tiktoken.encoding_for_model(MODEL)
@@ -254,9 +257,8 @@ def main():
                 print("  - Processing {} field...".format(field))
 
                 all_papers = list(new_papers[field])
-                nb_threads = 10
-                for i in tqdm(range(0, len(all_papers), nb_threads)):
-                    subset_papers = all_papers[i : i + nb_threads]
+                for i in tqdm(range(0, len(all_papers), NB_THREADS)):
+                    subset_papers = all_papers[i : i + NB_THREADS]
 
                     with concurrent.futures.ThreadPoolExecutor() as executor:
                         futures = {}
@@ -274,19 +276,21 @@ def main():
                             paper_full_content = paper_full_contents[paper_info]
 
                             summarization_input = f"Abstract: {paper_abstract}\n\n"
-                            for _, section in paper_full_content.items():
-                                if section["title"] == "No title found":
-                                    continue
-                                if section["content"] == "":
-                                    continue
+                            if type(paper_full_content) is not str:
+                                for _, section in paper_full_content.items():
+                                    if section["title"] == "No title found":
+                                        continue
+                                    if section["content"] == "":
+                                        continue
 
-                                summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
+                                    summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
 
                             summarization_input = encoding.decode(
                                 encoding.encode(summarization_input)[
                                     :MAX_INPUT_TOKENS_FOR_SUMMARIZATION
                                 ]
                             )
+
                             futures[
                                 executor.submit(
                                     get_openai_summarization, summarization_input
@@ -329,9 +333,14 @@ def main():
                 if paper_comment != "":
                     content += f"\n{paper_comment}"
                 if SHOW_SUMMARIZATION:
-                    content += f"\n{paper_summarizations[paper_info]}"
-                # if SHOW_QUESTION:
-                #     content += f"\n\n{paper_questions[paper_info]}"
+                    paper_summarization = json.loads(paper_summarizations[paper_info])
+                    if type(paper_summarization) is list:
+                        for item in paper_summarization:
+                            for key, value in item.items():
+                                content += f"\n\n*{key}*: {value}"
+                    else:
+                        for key, value in paper_summarization.items():
+                            content += f"\n\n*{key}*: {value}"
 
                 old_paper_set.add(paper_info)
 
