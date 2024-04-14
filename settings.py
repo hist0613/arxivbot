@@ -8,22 +8,26 @@ MAX_NB_GPT3_ATTEMPT = 3
 TIME_PAUSE_SEC = 15
 SHOW_SUMMARIZATION = True
 SHOW_QUESTION = False
+MODEL = "gpt-4-turbo"
+MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
+MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
+# $24.68 per week (assuming average 482 papres)
 
 WORKSPACES = [
     {
-        'workspace': 'ai-research-kr',
-        'allowed_channel': 'nlp-research',
-        'allowed_channel_id': 'C062ZEG7U1K',
-        'slack_token': os.getenv("SLACK_TOKEN_AIRKR"),
-        'fields': ["cs.CL", "cs.IR", "eess.AS"]
+        "workspace": "ai-research-kr",
+        "allowed_channel": "nlp-research",
+        "allowed_channel_id": "C062ZEG7U1K",
+        "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
+        "fields": ["cs.CL", "cs.IR"],
     },
-    {
-        'workspace': 'ai-research-kr',
-        'allowed_channel': 'vision-research',
-        'allowed_channel_id': 'C0632M8CSCS',
-        'slack_token': os.getenv("SLACK_TOKEN_AIRKR"),
-        'fields': ["cs.CV", "cs.AI"]
-    },
+    # {
+    #     "workspace": "ai-research-kr",
+    #     "allowed_channel": "vision-research",
+    #     "allowed_channel_id": "C0632M8CSCS",
+    #     "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
+    #     "fields": ["cs.CV", "cs.AI"],
+    # },
     # {
     #     'workspace': 'riiid',
     #     'allowed_channel': 'research_nlp',

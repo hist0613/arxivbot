@@ -14,6 +14,8 @@ app = Flask(__name__)
 # Flask 를 로컬에서 구동 시 슬랙에서 로컬 PC에 접근할 수 없기 떄문에
 # ngrok 을 사용하여 로컬 서버를 외부에 공개해야 함
 # ```ngrok http --domain={slack app에 등록된 domain} 5000``` 명령어를 통해 5000번 포트를 공개
+# https://api.slack.com/apps/A062W14425U/slash-commands? 여기 혹은
+# https://dashboard.ngrok.com/get-started/setup/windows (Static Domain) 에서 찾을 수 있음
 
 
 def get_slack_token(workspace_name):
@@ -120,7 +122,8 @@ def process_command(data):
 def arxivbot():
     data = request.form
     threading.Thread(target=process_command, args=(data,)).start()
-    return "", 200  # 빈 응답과 200 OK 상태 코드 반환
+    # return "", 200  # 빈 응답과 200 OK 상태 코드 반환
+    return jsonify(response_type="in_channel")
     # return jsonify(response_type='in_channel', text="논문 요약을 처리 중입니다. 잠시 후 결과를 전송해 드리겠습니다.")
 
 

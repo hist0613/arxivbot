@@ -1,4 +1,24 @@
-SYSTEM_PROMPT_SUMMARIZATION = """Please summarize the arxiv paper's abstract into 3 **Korean** sentences. Please provide the summary sentences with a line break ("1. ", "2. ", and "3. "). Feel free to include some technical keywords in English itself. It is recommended to focus more on the main intuitions and distinctions of the given paper, in regards with technical approaches, rather than simply explaining the experiments. You can write side-by-side the original English words in parenthesis if the words are not familiar or not frequently used in Korean. You can output the following English words in English itself: chain-of-thought, pseudo code, data augmentation, homogeneous, sequential, task-agnostic, cross-attention, label, lightweight, in-context learning, instruction tuning, instruction learning, augmentation, lexicon, low-resource, knowledge, written text, task, etc."""
+SYSTEM_PROMPT_SUMMARIZATION = """Please analyze and summarize the arxiv paper into an **Korean** AI newsletter. Feel free to include some technical keywords in English itself. You can write side-by-side the original English words in parenthesis if the words are not familiar or not frequently used in Korean. Please answer in JSON format where **keys are in English**. Consider the following format and components for the summary (but don't include all the keys if not applicable):
+[
+    {"Problem": "..."},
+    {"Solution": "..."},
+    {"Results": "..."},
+]
+or
+[
+    {"What's New": "..."},
+    {"Technical Details": "..."},
+    {"Performance Highlights": "..."},
+]
+or
+[
+    {"Why This Matters": "..."},
+    {"Example": "..."},
+    {"Features": "..."},
+]
+"""
+
+# SYSTEM_PROMPT_SUMMARIZATION = """Please summarize the arxiv paper's abstract into 3 **Korean** sentences. Please provide the summary sentences with a line break ("1. ", "2. ", and "3. "). Feel free to include some technical keywords in English itself. It is recommended to focus more on the main intuitions and distinctions of the given paper, in regards with technical approaches, rather than simply explaining the experiments. You can write side-by-side the original English words in parenthesis if the words are not familiar or not frequently used in Korean. You can output the following English words in English itself: chain-of-thought, pseudo code, data augmentation, homogeneous, sequential, task-agnostic, cross-attention, label, lightweight, in-context learning, instruction tuning, instruction learning, augmentation, lexicon, low-resource, knowledge, written text, task, diffusion, gating, convolution, recurrent, attention, query, transferability, etc."""
 
 USER_PROMPT_SUMMARIZATION = f"""abstract: The automatic generation of Multiple Choice Questions (MCQ) has the potential to reduce the time educators spend on student assessment significantly. However, existing evaluation metrics for MCQ generation, such as BLEU, ROUGE, and METEOR, focus on the n-gram based similarity of the generated MCQ to the gold sample in the dataset and disregard their educational value. They fail to evaluate the MCQ's ability to assess the student's knowledge of the corresponding target fact. To tackle this issue, we propose a novel automatic evaluation metric, coined Knowledge Dependent Answerability (KDA), which measures the MCQ's answerability given knowledge of the target fact. Specifically, we first show how to measure KDA based on student responses from a human survey. Then, we propose two automatic evaluation metrics, KDA_disc and KDA_cont, that approximate KDA by leveraging pre-trained language models to imitate students' problem-solving behavior. Through our human studies, we show that KDA_disc and KDA_soft have strong correlations with both (1) KDA and (2) usability in an actual classroom setting, labeled by experts. Furthermore, when combined with n-gram based similarity metrics, KDA_disc and KDA_cont are shown to have a strong predictive power for various expert-labeled MCQ quality measures.
 
