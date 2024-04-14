@@ -20,6 +20,7 @@ paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
 paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
 paper_questions_path = os.path.join(base_dir, "paper_questions.pickle")
 paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
+encoding = tiktoken.encoding_for_model(MODEL)
 
 
 def get_old_paper_set(workspace):
@@ -200,6 +201,15 @@ def has_new_papers(new_papers, old_paper_set):
     return False
 
 
+def truncate_text(text):
+    return encoding.decode(
+        encoding.encode(
+            text,
+            allowed_special={"<|endoftext|>"},
+        )[:MAX_INPUT_TOKENS_FOR_SUMMARIZATION]
+    )
+
+
 def main():
     for workspace in WORKSPACES:
         workspace_name = f"{workspace['workspace']}-{workspace['allowed_channel']}"
@@ -251,8 +261,6 @@ def main():
             print(f"Summarizing the abstract of papers by {MODEL}...")
             paper_summarizations = get_paper_summarizations()
 
-            encoding = tiktoken.encoding_for_model(MODEL)
-
             for field in workspace["fields"]:
                 print("  - Processing {} field...".format(field))
 
@@ -285,11 +293,7 @@ def main():
 
                                     summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
 
-                            summarization_input = encoding.decode(
-                                encoding.encode(summarization_input)[
-                                    :MAX_INPUT_TOKENS_FOR_SUMMARIZATION
-                                ]
-                            )
+                            summarization_input = truncate_text(summarization_input)
 
                             futures[
                                 executor.submit(
