@@ -1,104 +1,106 @@
-### MaGGIe: Masked Guided Gradual Human Instance Matting (https://arxiv.org/abs/2404.16035)
-Comments: CVPR 2024. Project link: this https URL
+### The Third Monocular Depth Estimation Challeng (https://arxiv.org/abs/2404.16831)
+Comments: To appear in CVPRW2024
 
-- **What's New**: MaGGIe (Masked Guided Gradual Human Instance Matting)는 입력 속의 인간 포그라운드를 추출하는 이미지 및 비디오 처리의 기본 작업인 인간 마팅에 사용되는 새로운 프레임워크입니다. 이는 transformer attention과 sparse convolution을 포함한 최신 아키텍처를 활용하여 여러 인스턴스의 알파 매트를 동시에 출력하는 것을 가능케 합니다. 복잡한 계산 비용과 일관성을 유지하면서도, 비디오 입력에 적합한 효율적인 아키텍처를 제안합니다.
+- **What's New**: 이 논문은 단안(모노큘러) 깊이 추정 챌린지(Monocular Depth Estimation Challenge, MDEC)의 세 번째 판에 대한 결과를 논의하고 있습니다. 본 챌린지는 자연 및 실내 환경에서 복잡한 장면을 특징으로 하는 SYNS-Patches 데이터셋에 대한 제로샷 일반화(zero-shot generalization)에 중점을 두고 있습니다.
 
-- **Technical Details**: MaGGIe는 AOT에서 영감을 받은 마스크 가이던스 임베딩을 사용하여 입력 크기를 상수로 줄이고, transformer attention을 통해 한 번의 포워드 패스에서 인스턴스 매트를 예측합니다. 이는 인스턴스 간의 상호작용을 attention 메커니즘을 통해 처리하고, 이로 인한 복잡한 정제(refinement)를 대체합니다. 또한, sparse convolution을 사용하여 효율적인 refinement를 진행하며, 비디오 입력에 대한 높은 효율과 정밀도를 보장하는 동시에, 여러 스케일에서 점진적인 정제를 적용하여 계산 비용을 절감합니다.
+- **Technical Details**: 이번 챌린지는 이전과 마찬가지로 감독형(supervised) 또는 자기감독형(self-supervised)의 모든 형태의 감독을 사용할 수 있습니다. 총 19개의 제출물이 기준 베이스라인을 초과하는 성능을 보였으며, 그 중 10개는 접근 방법을 설명하는 보고서를 제출했습니다. 이 중 'Depth Anything'과 같은 기초 모델(foundational models)의 사용이 널리 퍼진 것으로 강조되었습니다.
 
-- **Performance Highlights**: 이 프레임워크는 다중 인스턴스 시나리오에서 일관된 추론 비용을 유지하면서도, 제안된 합성 벤치마크에서 강인하고 다양한 성능을 보여줍니다. 높은 품질의 이미지와 비디오 마팅 벤치마크를 통해 모델의 일반화 능력이 실제 시나리오에서 향상되었습니다. 또한, MaGGIe는 인스턴스 간 상호작용을 한 번의 포워드 패스로 처리하고 비디오에서 매트의 시간적 일관성을 유지하는 새로운 접근 방식을 제안합니다.
-
-
-
-### Cantor: Inspiring Multimodal Chain-of-Thought of MLLM (https://arxiv.org/abs/2404.16033)
-Comments: The project page is available at this https URL
-
-- **What's New**: 이 논문은 시각적 추론 문제를 해결하기 위해 멀티모달 연쇄 사고 (CoT: Chain-of-Thought) 방법론을 활용한 새로운 프레임워크, 칸토르(Cantor)를 제안합니다. 이는 기존의 시각적 정보와 논리적 추론을 통합하여 복잡한 시각적 추론 작업을 해결하는 구조로 설계되었습니다.
-
-- **Technical Details**: 칸토르 프레임워크는 두 부분, 결정 생성(Decision-Generation) 부분과 실행(Execution) 부분으로 나뉩니다. 처음에는 MLLM 혹은 LLM을 사용하여 문제의 시각적 및 텍스트 맥락을 동시에 처리하고 복잡한 추론 과정을 거칩니다. 이후 여러 '전문가' 역할을 하는 하나의 MLLM에 의해 수행됩니다. 전문가들은 각자 다른 역할과 요구사항을 가지고 참여하여 높은 수준의 정보를 제공합니다.
-
-- **Performance Highlights**: 칸토르 프레임워크는 ScinceQA 및 Mathvista 데이터셋에서 상태-의-기술(SOTA: State-of-the-Art) 성능을 달성했습니다. Gemini를 사용할 때 각각 4.11%, 5.9%의 정확도 향상을 보였고, GPT-3.5를 사용했을 때는 2.24%, 9.2%의 정확도 향상을 보였습니다. 이는 기존 방법들을 크게 앞서는 결과입니다.
+- **Performance Highlights**: 챌린지 우승자들은 3D F-Score 성능을 17.51%에서 23.72%로 크게 개선할 수 있었습니다. 이것은 복잡한 장면에서의 깊이 추정의 정확성을 향상시키는 데 중요한 발전을 나타내며, 실내외 환경에서의 깊이 인식 애플리케이션에 유의미한 기여를 제공할 것입니다.
 
 
 
-### MoDE: CLIP Data Experts via Clustering (https://arxiv.org/abs/2404.16030)
-Comments: IEEE CVPR 2024 Camera Ready. Code Link: this https URL
-
-- **What's New**: 이 연구에서는 웹에서 수집한 데이터 셋의 잡음 문제를 집중적으로 다루고, 특히 CLIP 학습에 있어 흔히 발생하는 거짓 음성(false negatives)에 대한 해결 방안을 제시합니다. Mixture of Data Experts (MoDE)라는 새로운 프레임워크를 도입하여, 데이터 클러스터링을 통해 다수의 데이터 전문가 시스템을 학습하고, 추론 시점에서는 작업 메타데이터(task metadata)와 클러스터 조건 간의 상관관계를 통해 동적으로 데이터 전문가들을 앙상블합니다.
-
-- **Technical Details**: MoDE 프레임워크는 데이터를 클러스터링한 뒤, 각 클러스터를 기반으로 별도의 CLIP 데이터 전문가 모델을 훈련합니다. 이러한 접근 방식은 클러스터 내에서 의미론적으로 유사한 캡션을 사용하여 대조적 학습을 수행함으로써, 훈련 중 거짓 음성의 영향을 줄이고 훈련 효율을 높입니다. 추론 시에는 각 데이터 전문가의 출력을 우선 순위를 두고 결합하여 최종 분류 결과를 도출합니다.
-
-- **Performance Highlights**: MoDE는 여러 벤치마크에서 최신 기술 대비 우수한 성능을 보여 주었습니다. 예를 들어, 이미지 분류에서 CLIP 벤치마크 기준 3.7% 향상됐으며, 이미지-텍스트 및 텍스트-이미지 검색에서 각각 3.3% 및 2.7% 향상을 달성했습니다. 또한, MoDE는 새로운 데이터 전문가를 유연하게 포함할 수 있고, 대규모의 이미지-캡션 쌍 데이터셋을 효율적으로 훈련할 수 있는 장점을 보유하고 있습니다.
-
-
-
-### Editable Image Elements for Controllable Synthesis (https://arxiv.org/abs/2404.16029)
-Comments: Project page: this https URL
-
-- **What's New**: 이 작업에서는 사용자가 제공한 이미지를 편집하는 것이 여전히 어려운 문제임에도 불구하고, 디퓨전 모델(diffusion models)을 이용하여 입력 이미지의 공간적 편집을 촉진하는 이미지 표현을 제안합니다. 입력을 '이미지 요소(image elements)'로 인코딩하여 입력 이미지를 정확히 재구성하고, 이 요소들을 사용자가 직관적으로 편집할 수 있게 하여, 디퓨전 모델로 사실적인 이미지를 디코드할 수 있습니다.
-
-- **Technical Details**: 이미지 요소는 사용자가 직관적으로 조작할 수 있는 형태로 인코딩되며, 디퓨전 모델을 통해 디코드될 때 사실적이고 자연스러운 이미지로 재현됩니다. 디퓨전 모델의 고차원 잡음 입력 공간(high dimensional noise input space)을 이용하지 않고, '이미지 요소'라는 새로운 형태의 이미지 표현을 통해 다양한 이미지 편집 작업에 효과성을 입증합니다.
-
-- **Performance Highlights**: 제안된 방법은 객체의 크기 조정(object resizing), 재배열(rearrangement), 드래그(dragging), 가리기 해제(de-occlusion), 제거(removal), 변형(variation), 및 이미지 구성(image composition)과 같은 다양한 이미지 편집 작업에서 효과를 보였습니다. 이 표현은 사용자가 이미지를 더 쉽고 직관적으로 편집할 수 있게 해주며, 결과 이미지는 사실적이고 자연스러운 외관을 유지합니다.
-
-
-
-### PuLID: Pure and Lightning ID Customization via Contrastive Alignmen (https://arxiv.org/abs/2404.16022)
-Comments: Tech Report. Codes and models will be available at this https URL
-
-- **What's New**: 우리는 PuLID라는 신개념의 튜닝이 필요 없는 신원(ID) 맞춤 방식을 제안합니다. 이 방법은 표준 확산 분기(diffusion branch)와 함께 Lightning T2I(branch)를 도입하여 원본 모델에 미치는 영향을 최소화하고 ID 충실도(fidelity)를 높이는 것을 목표로 합니다. PuLID는 ID 정보의 삽입(insertion)이 주변 환경(background), 조명(lightning), 구성(composition), 스타일(style)에 영향을 주지 않도록 설계되었습니다.
-
-- **Technical Details**: PuLID는 두 가지 주요 기술적 접근법을 사용합니다. 첫째, Lightning T2I 분기는 노이즈에서 고품질 이미지를 생성할 수 있는 빠른 샘플링 방법을 활용합니다. 또한, contrastive alignment loss와 accurate ID loss를 도입하여 ID가 삽입된 이미지와 삽입되지 않은 이미지 간의 UNet 특징을 의미론적으로 정렬합니다. 둘째, 이 분기를 통해 생성된 고품질 이미지에서 추출된 얼굴 임베디딩(face embedding)을 사용하여 정확한 ID 손실을 계산하여 ID 유사도를 높입니다.
-
-- **Performance Highlights**: PuLID는 ID fidelity와 editability 모두에서 SOTA(state-of-the-art) 성능을 달성했습니다. 실험 결과, 기존 방법들과 비교할 때 PuLID는 모델에 미치는 간섭이 적고, 실용적인 응용에서의 유연성을 더 많이 제공하는 것으로 나타났습니다.
-
-
-
-### RetinaRegNet: A Versatile Approach for Retinal Image Registration (https://arxiv.org/abs/2404.16017)
-- **What's New**: 새로운 RetinaRegNet 모델은 홍채 이미지 등록(registration) 작업에서 최첨단(state-of-the-art) 성능을 달성할 수 있습니다. 이 모델은 홍채 이미지 학습 없이도 사용할 수 있으며, SIFT (Scale-Invariant Feature Transform) 알고리즘을 통해 이동 이미지의 특징 점을 선택하고 확률적 포인트 샘플링을 사용합니다. 우리는 또한 복잡한 이미지 데이터를 처리할 때 일관된 결과를 보장하고 계산 시간을 절약하는 새로운 이상치 탐지기(outlier detector)를 개발했습니다.
-
-- **Technical Details**: RetinaRegNet은 최초로 두 홍채 이미지 간의 점 대응을 설정하기 위하여 확산 모델에서 파생된 이미지 특징을 사용합니다. 점 대응 평가에 있어서 역 일관성 제약(inverse consistency constraint)을 적용하고 변환 기반 이상치 감지기를 사용하였습니다. 뿐만 아니라, 큰 변형을 처리하기 위해 두 단계의 이미지 등록 프레임워크를 사용했습니다. 첫 번째 단계에서는 배경 변환(homography transformation)을 사용하고 두 번째 단계에서는 보다 정확한 3차 다항식 변환을 사용합니다.
-
-- **Performance Highlights**: RetinaRegNet은 색각 막상 이미지(color fundus images), 형광 안저촬영 이미지(fluorescein angiography images), 레이저 스페클 유동도 영상(laser speckle flowgraphy images) 등 세 가지 홍채 이미지 데이터셋에서 현재 최고의 방법들을 능가했습니다. 특히 큰 변위와 스케일링 변형이 있는 이미지 쌍을 등록하는 데 효과적이었습니다. 이 모델은 홍채 이미지 분석의 다양한 응용 프로그램에 유망한 혁신을 제공합니다.
-
-
-
-### GaussianTalker: Real-Time High-Fidelity Talking Head Synthesis with  Audio-Driven 3D Gaussian Splatting (https://arxiv.org/abs/2404.16012)
+### Make-it-Real: Unleashing Large Multimodal Model's Ability for Painting  3D Objects with Realistic Materials (https://arxiv.org/abs/2404.16829)
 Comments: Project Page: this https URL
 
-- **What's New**: GaussianTalker는 실시간으로 포즈 제어가 가능한 토킹 헤드(Talking Head)를 생성하는 새로운 프레임워크를 제안합니다. 이는 3D Gaussian Splatting(3DGS)의 빠른 렌더링 능력을 활용하며, 음성 오디오로 직접 3DGS를 제어하는 데 있어 과제를 해결합니다. GaussianTalker는 표준 3DGS 표현을 구성하고 오디오와 동기화하여 변형합니다.
+- **What's New**: 이 논문에서는 Multimodal Large Language Models (MLLMs), 특히 GPT-4V를 이용하여 3D 오브젝트에 현실적 재료 속성을 자동 할당하는 새로운 접근법 'Make-it-Real'을 제시합니다. 이 방식은 3D 자산의 현실감을 개선하고자 하는 새로운 기술적 진보를 보여줍니다.
 
-- **Technical Details**: GaussianTalker는 3D Gaussian 속성을 공유된 암시적 특성(implicit feature) 표현으로 인코딩하고, 이를 오디오 특성과 결합하여 각 Gaussian 속성을 조작합니다. 이 설계는 공간적 인식 기능을 이용하고 인접 포인트 간 상호 작용을 강제합니다. 특성 임베딩은 공간-오디오 주의 모듈(spatial-audio attention module)에 공급되어 각 Gaussian의 속성에 대한 프레임별 오프셋을 예측합니다. 이 모듈은 이전의 연결(concatenation)이나 곱셈(multiplication) 방식보다 더 안정적인 방법을 제공합니다.
+- **Technical Details**: GPT-4V를 사용하여 재료를 인식하고 묘사할 수 있으며, 이는 자세한 재료 라이브러리의 구축을 가능하게 합니다. 또한, 시각적 단서와 계층적인 텍스트 프롬프트를 결합하여 3D 객체의 해당 구성 요소에 재료를 정확하게 식별하고 매치합니다. 이렇게 식별된 재료는 오리지널 diffuse map (디퓨즈 맵)에 따라 새로운 SVBRDF (Spatially Varying Bidirectional Reflectance Distribution Function) 재료 생성을 위한 참조로 세심하게 적용됩니다.
 
-- **Performance Highlights**: GaussianTalker는 얼굴의 충실도, 입술 동기화 정확도 및 렌더링 속도에서 이전 방법들과 비교하여 우수한 성능을 보였습니다. 특히 놀라운 120 FPS의 렌더링 속도를 달성하여 이전 벤치마크를 초과합니다. 이와 관련된 코드는 제공된 URL에서 확인할 수 있습니다.
-
-
-
-### MMT-Bench: A Comprehensive Multimodal Benchmark for Evaluating Large  Vision-Language Models Towards Multitask AGI (https://arxiv.org/abs/2404.16006)
-Comments: 77 pages, 41 figures
-
-- **What's New**: MMT-Bench 소개, LVLMs 제풼모델을 위한 새로운 포괄적인 벤치마크입니다. 이는 다양한 전문 지식을 요구하며, 복잡한 시각 인지, 위치 파악, 추론 및 계획과 같은 과업을 포함한 방대한 멀티모달 과업을 평가할 수 있는 도구로 설계되었습니다.
-
-- **Technical Details**: MMT-Bench는 차량 운전, 실체화 탐색(embodied navigation)과 같은 여러 시나리오에서 31,325개의 멀티-초이스 시각 질문을 다룹니다. 이 벤치마크는 32개의 핵심 메타태스크(core meta-tasks)와 162개의 서브태스크(sub-tasks)를 포함하여 멀티모달 이해(multimodal understanding)를 평가합니다.
-
-- **Performance Highlights**: 30개의 LVLMs를 평가한 결과, MMT-Bench가 제기하는 상당한 도전을 강조합니다. GPT-4V, GeminiProVision, 그리고 open-sourced InternVL-Chat과 같은 모델들이 포함된 테스트로 이 벤치마크가 어떺게 LVLMs의 발전에 도움을 줄 수 있는지를 보여줍니다.
+- **Performance Highlights**: Make-it-Real은 3D 컨텐츠 생성 워크플로우에 손쉽게 통합되며, 3D 자산 개발자에게 필수 도구로서의 유틸리티를 입증합니다. 복잡하고 시간이 많이 소요되는 수동 재료 할당 작업을 효과적으로 간소화하고, 3D 자산의 시각적 진위성을 크게 향상시킬 수 있습니다.
 
 
 
-### A comprehensive and easy-to-use multi-domain multi-task medical imaging  meta-dataset (MedIMeta) (https://arxiv.org/abs/2404.16000)
-- **What's New**: MedIMeta, 새로운 의료 이미지 메타데이터셋을 소개합니다. 이 데이터셋은 10개의 다양한 도메인(domain)에서 19개의 의료 이미지 데이터셋을 아우르고, 총 54개의 다양한 의료 작업(medical tasks)을 포함하고 있습니다. 모든 데이터는 표준화되어 PyTorch 및 기타 ML 프레임워크에서 즉시 사용할 수 있도록 준비되어 있습니다. 이것은 특별히 크로스-도메인 퓨샷 학습(CD-FSL, Cross-Domain Few-Shot Learning)에 있어서 큰 진전을 나타냅니다.
+### Made to Order: Discovering monotonic temporal changes via  self-supervised video ordering (https://arxiv.org/abs/2404.16828)
+Comments: Project page: this https URL
 
-- **Technical Details**: MedIMeta는 모든 이미지를 224×224 픽셀로 표준화하고, 사전 훈련된 모델(pre-trained models)에서 일반적으로 사용되는 이미지 크기와 일치시킵니다. 또한, 데이터를 사용하기 쉽게 사전 설정된 분할(pre-made splits)을 제공하여 표준화된 벤치마킹을 보장합니다. 파이썬 패키지를 통해 PyTorch에서 이미지를 직접 로드할 수 있게 함으로써 사용자 친화적 접근성을 제공합니다.
+- **What's New**: 새로운 연구에서, 일련의 이미지에서 시간이 지나면서 단조롭게 변하는 변화를 발견하고 지역화하는 것이 목표입니다. 이를 위해 혼합된 이미지 순서를 배열하는 간단한 프록시 작업을 활용하며, '시간'을 감독 신호로 사용하여 시간에 따라 단조로운 변화만이 올바른 순서를 낳을 수 있습니다.
 
-- **Performance Highlights**: 기술 검증을 통해 MedIMeta의 유틸리티를 입증했습니다. 전적으로 감독된 학습(fully supervised learning) 및 CD-FSL기준을 사용하여 데이터셋의 신뢰성과 강건성을 확인하고, 의료 이미지 분석에서 ML 연구를 위한 신뢰할 수 있는 벤치마크로서 자리매김하고 있습니다. 다양한 작업과 도메인에서 퓨샷 학습 기술을 연구하고 개발할 수 있는 탁월한 기회를 제공합니다.
+- **Technical Details**: 본 연구는 임의의 길이의 이미지 시퀀스에 대한 일반적인 목적의 정렬 (ordering)과 함께 내장된 속성 맵(attribution maps)을 제공하는 유연한 트랜스포머 기반 모델(transformer-based model)을 소개합니다. 이 모델은 교육 후 단조로운 변화를 성공적으로 발견하고 지역화하면서 주기적(cyclic) 및 확률적(stochastic) 변화는 무시합니다.
+
+- **Performance Highlights**: 이 모델은 다양한 비디오 설정에서 시험되었으며, 객체 수준과 환경 변화를 미리 보지 않은 시퀀스에서 발견하는 데 성공했습니다. 또한, 주목 기반 속성 맵은 변화하는 영역을 분할하는 데 효과적인 프롬프트로 기능하며, 학습된 표현은 하류 애플리케이션(downstream applications)에 사용될 수 있습니다. 최종적으로, 이 모델은 이미지 세트 정렬에 대한 표준 벤치마크에서 최고의 성능(state of the art)을 달성했습니다.
 
 
 
-### HDDGAN: A Heterogeneous Dual-Discriminator Generative Adversarial  Network for Infrared and Visible Image Fusion (https://arxiv.org/abs/2404.15992)
-- **What's New**: 새롭게 개발된 이기종 이중 판별자 생성적 적대 신경망 (HDDGAN)는 적외선 및 가시 광선 이미지 융합 (IVIF; Infrared and Visible Image Fusion) 문제를 다룹니다. 이 모델은 특히 다양한 규모의 기능을 추출하고 융합하기 위해 다중 규모의 건너뛰기 연결 구조를 사용하며 주목 메커니즘을 활용하여 정보 융합 계층을 구축합니다. 또한, 적외선 및 가시 광선 이미지 각각에 최적화된 두 개의 구조가 다른 판별자를 도입하여 모델이 보다 효율적으로 중요 기능을 학습할 수 있도록 설계되었습니다.
+### ResVR: Joint Rescaling and Viewport Rendering of Omnidirectional Images (https://arxiv.org/abs/2404.16825)
+- **What's New**: 이 연구는 가상현실 기술의 발전으로 보다 실현화된 전망을 제공합니다. ResVR은 전 세계적 이미지 (ODI: omnidirectional image) 재조정 및 뷰포트 렌더링을 동시에 처리할 수 있는 최초의 포괄적 프레임워크를 제시합니다. 기존의 ODI 재조정 방법들이 equirectangular projection (ERP) 이미지의 품질 향상에 집중했던 것과 다르게, ResVR은 사용자가 헤드 마운트 디스플레이 (HMD)에서 실제로 경험하는 뷰포트의 비주얼 품질을 강조합니다.
 
-- **Technical Details**: HDDGAN은 생성기(generator)에 다중 규모의 건너뛰기 연결 구조를 적용함으로써 중요 정보의 검출 및 통합 수행을 개선합니다. 주목 메커니즘(attention mechanism)을 사용하여 적외선 및 가시 광선 이미지 간의 차이를 활용하여 융합 계층을 구성합니다. 또한, 글로벌 판별자(global discriminator)와 마르코프 판별자(Markovian discriminator)라는 두 가지 다른 구조의 판별자를 설계함으로써 각각 적외선 영역의 특징과 가시 이미지의 상세 정보 학습에 초점을 맞춥니다. 이 구조는 학습 과정 중에 서로 다른 이미지 소스에서 정보를 효과적으로 추출하고 학습할 수 있도록 지원합니다.
+- **Technical Details**: ResVR은 전송을 위해 저해상도의 ERP 이미지를 얻으면서 사용자가 HMD에서 고품질의 뷰포트를 볼 수 있게 하는 기술을 개발하였습니다. 이를 위해 디스크리트 픽셀 샘플링(discrete pixel sampling) 전략을 개발하여 뷰포트와 ERP 간의 복잡한 매핑을 해결하였고, 이는 ResVR 파이프라인의 end-to-end 트레이닝을 가능하게 합니다. 또한, 구면 차별화(spherical differentiation)에서 파생된 구면 픽셀 형태 표현 기술을 혁신적으로 도입하여 렌더링된 뷰포트의 시각적 품질을 크게 개선했습니다.
 
-- **Performance Highlights**: 다양한 공개 데이터셋에 대한 광범위한 실험을 통해 HDDGAN이 다른 최신 기술(SOTA; State-of-the-Art) 알고리즘들보다 우수함을 입증하였습니다. 특히, HDDGAN은 감소 저항성(degradation resistance), 다운스트림 애플리케이션 분석, 확장된 실험에서도 뛰어난 성능을 보여줍니다. 이는 HDDGAN이 실제 응용 프로그램에서 매우 유망한 기술임을 시사합니다.
+- **Performance Highlights**: ResVR은 다양한 시야각(field of view), 해상도, 및 시청 방향에서 기존 방법들보다 뷰포트 렌더링 작업에서 우수한 성능을 입증하였습니다. 또한 전송 오버헤드를 낮게 유지하면서 이러한 성능을 달성하였습니다. 전반적으로, ResVR은 ODI를 처리하는 새로운 접근 방식을 제공하면서, 가상현실 환경에서 사용자 경험을 크게 향상시키는 데 기여할 것입니다.
+
+
+
+### V2A-Mark: Versatile Deep Visual-Audio Watermarking for Manipulation  Localization and Copyright Protection (https://arxiv.org/abs/2404.16824)
+- **What's New**: AI가 생성하는 비디오는 짧은 비디오 제작, 영화 제작 및 맞춤형 미디어에서 혁명을 일으켰으며, 이로 인해 비디오 로컬 편집(Video Local Editing)이 필수 도구가 되었습니다. 그러나 이러한 진보는 또한 현실과 허구의 경계를 흐리게 만들어 멀티미디어 포렌식(Multimedia Forensics) 분야에서 도전을 야기합니다. V2A-Mark는 현재의 비디오 변조 포렌식의 제한을 해결하기 위해 제안되었습니다. 이 방법은 일반화 능력이 떨어지고, 단일 기능에 집중되며, 단일 모달리티에만 초점을 맞춘 기존의 접근법들을 개선합니다.
+
+- **Technical Details**: V2A-Mark는 비디오 내 비디오 스테가노그래피(Video-into-Video Steganography)의 취약성과 깊은 강인한 워터마킹(Deep Robust Watermarking)을 결합하여 원본 비디오 프레임과 오디오에 보이지 않는 시각-청각 로컬라이제이션 워터마크와 저작권 워터마크를 삽입할 수 있습니다. 이를 통해 정확한 조작 로컬라이제이션(Manipulation Localization)과 저작권 보호가 가능합니다. 또한, 로컬라이제이션 정확도와 디코딩 강인성을 향상시키기 위해 시간 정렬 및 퓨전 모듈(Temporal Alignment and Fusion Module)과 디그레이드 프롬프트 학습(Degradation Prompt Learning)을 설계했습니다. 그리고, 오디오와 비디오 프레임의 정보를 결합하는 샘플 레벨 오디오 로컬라이제이션 방법과 크로스-모달 저작권 추출 메커니즘(Cross-Modal Copyright Extraction Mechanism)을 도입했습니다.
+
+- **Performance Highlights**: V2A-Mark의 효과는 시각-청각 변조 데이터셋(Visual-Audio Tampering Dataset)에서 검증되었으며, 로컬라이제이션 정밀성과 저작권 정확성에서 뛰어난 우수성을 강조했습니다. 이는 AIGC 비디오 시대에서 비디오 편집의 지속 가능한 발전에 매우 중요합니다.
+
+
+
+### How Far Are We to GPT-4V? Closing the Gap to Commercial Multimodal  Models with Open-Source Suites (https://arxiv.org/abs/2404.16821)
+Comments: Technical report
+
+- **What's New**: InternVL 1.5에서는 MLLM (multimodal large language model)을 향상하여 오픈 소스와 상업적인 모델 사이의 기능 격차를 해소합니다. 세 가지 주요 개선 점을 도입하였는데, 첫 번째로 강력한 시각 인코더(Strong Vision Encoder), 동적 고해상도(Dynamic High-Resolution), 그리고 고품질 이중 언어 데이터셋(High-Quality Bilingual Dataset)입니다.
+
+- **Technical Details**: InternVL 1.5는 세 개의 기술적 개선을 포함합니다. 첫 번째, '강력한 시각 인코더'(Strong Vision Encoder)는 대규모 시각 기반 모델인 InternViT-6B를 지속적으로 학습시켜 시각적 이해 능력을 향상시켰습니다. 두 번째, '동적 고해상도'(Dynamic High-Resolution)는 입력 이미지의 종횡비와 해상도에 따라 이미지를 1부터 40개의 448×448 픽셀 타일로 분할하여 최대 4K 해상도 입력을 지원합니다. 세 번째, '고품질 이중 언어 데이터셋'(High-Quality Bilingual Dataset)은 일반적인 장면과 문서 이미지를 상세히 수집하고, 영어와 중국어의 질문-답변 쌍으로 주석을 달아 OCR 및 중국어 관련 작업 성능을 크게 향상시켰습니다.
+
+- **Performance Highlights**: InternVL 1.5는 오픈 소스 및 상업적인 모델과 비교하여 경쟁력 있는 성능을 보여주었으며, 18개의 벤치마크 중 8개에서 최고의 결과(State-of-the-art)를 달성하였습니다. 또한, 이번 모델의 코드는 공개적으로 공유되었습니다.
+
+
+
+### Revisiting Text-to-Image Evaluation with Gecko: On Metrics, Prompts, and  Human Ratings (https://arxiv.org/abs/2404.16820)
+Comments: Data and code will be released at: this https URL
+
+- **What's New**: 본 논문에서는 텍스트-투-이미지(text-to-image, T2I) 생성 모델이 주어진 프롬프트와 일치하는 이미지를 생성하지 않는 문제를 다룹니다. 이 문제에 대응하기 위해 새로운 기술적 접근 방식과 벤치마크를 제안하며, 특히 T2I 모델의 성능을 정밀하게 평가할 수 있는 새로운 QA(Question-Answering)-기반 자동 평가 메트릭(auto-eval metric)을 도입합니다.
+
+- **Technical Details**: 이 연구에서는 100,000개 이상의 주석(annotation)을 포함하여 네 가지 T2I 모델과 네 가지 인간 평가 템플릿(human templates)을 사용하여 인간 평가를 수집하였습니다. 또한, 제안된 '기술 기반 벤치마크'(skills-based benchmark)는 프롬프트를 하위 기술(sub-skills)로 분류하여, 어떤 기술이 어려운지, 그리고 어떤 복잡성 수준에서 기술이 도전적인지를 정확히 지적할 수 있게 합니다.
+
+- **Performance Highlights**: 새로운 QA기반 자동 평가 메트릭은 기존의 메트릭보다 인간의 평가와 더 높은 상관성을 보이며, TIFA160(TIFA160 dataset)을 포함한 다양한 휴먼 템플릿(human templates)과 T2I 모델에 걸쳐 성능이 향상되었습니다.
+
+
+
+### Boosting Unsupervised Semantic Segmentation with Principal Mask  Proposals (https://arxiv.org/abs/2404.16818)
+Comments: Code: this https URL
+
+- **What's New**: PriMaPs - Principal Mask Proposals - 는 이미지를 시맨틱적(semantic)으로 의미있는 마스크(mask)로 분해하고, PriMaPs-EM (PriMaPs with a stochastic expectation-maximization algorithm)을 통해 무감독(unsupervised) 시맨틱 분할(semantic segmentation)을 구현합니다. DINO와 DINOv2와 같은 다양한 사전 학습된 모델(pre-trained models) 및 Cityscapes, COCO-Stuff, Potsdam-3와 같은 데이터셋에서 경쟁력 있는 결과를 제공합니다.
+
+- **Technical Details**: PriMaPs는 무감독 시맨틱 분할을 위해 자기 감독 학습(self-supervised learning)에서 얻은 전 세계 범주(global categories)를 식별하여 이미지를 자동으로 파티션(partition)합니다. PriMaPs-EM은 기대값 최대화 알고리즘(expectation-maximization algorithm)을 사용하여 클래스 프로토타입(class prototypes)을 PriMaPs에 적합하게 만듭니다.
+
+- **Performance Highlights**: 이 방법은 개념적으로 단순함에도 불구하고, 다양한 사전 훈련된 백본 모델 및 데이터셋에서 경쟁력 있는 결과를 낼 수 있습니다. 또한, 최신의 무감독 시맨틱 분할 파이프라인에 수직적으로 적용되어 결과를 향상시킬 수 있는 능력을 가집니다.
+
+
+
+### Meta-Transfer Derm-Diagnosis: Exploring Few-Shot Learning and Transfer  Learning for Skin Disease Classification in Long-Tail Distribution (https://arxiv.org/abs/2404.16814)
+Comments: 17 pages, 5 figures, 6 tables, submitted to IEEE Journal of Biomedical and Health Informatics
+
+- **What's New**: 본 연구에서는 희귀 피부 질환을 대상으로 한장 길이 데이터(distributions)의 문제를 해결하기 위하여 적은 수의 사례 데이터로도 효과적인 모델을 구축할 수 있는 새로운 접근 방식을 제시합니다. 특히 에피소드(Episodic)와 전통적인 교육 방법론을 비교 분석하면서, 소수샷 학습(Few-shot learning)과 전이 학습(Transfer learning)을 결합하여 효율적인 방안을 모색하였습니다.
+
+- **Technical Details**: 연구는 ISIC2018, Derm7pt 및 SD-198 데이터셋을 사용하여 모델을 평가했습니다. 주요 실험은 DenseNet121과 MobileNetV2 모델에 ImageNet에서 사전 훈련된 모델을 사용하여 클래스 내 유사성을 증가시키는 방식으로 특징을 표현하는 능력이 향상되었다는 것을 확인했습니다. 또한, 데이터 증강(Data augmentation) 기술을 활용하여 전이 학습 기반 모델의 성능을 개선시키는 실험을 진행하였습니다.
+
+- **Performance Highlights**: 본 모델은 2-way에서 5-way 분류, 최대 10개의 예제를 사용한 실험에서 전통적인 전이 학습 방법이 예제 수가 증가함에 따라 성공률이 높아지는 것을 보였습니다. 특히 SD-198과 ISIC2018 데이터셋에서 기존 방법들보다 더 높은 성능을 보이며, 적은 레이블의 예시에서도 높은 정보 획득과 성능 향상을 실현하였습니다. 연구와 관련된 모든 소스 코드는 곧 공개될 예정입니다.
+
+
+
+### AAPL: Adding Attributes to Prompt Learning for Vision-Language Models (https://arxiv.org/abs/2404.16804)
+Comments: Accepted to CVPR 2024 Workshop on Prompting in Vision, Project Page: this https URL
+
+- **What's New**: 본 논문은 'AAPL(Adding Attributes to Prompt Learning)'이라는 새로운 메커니즘을 제안하여, 기존의 프롬프트 학습 방식에 대한 한계를 극복하고자 합니다. AAPL은 learnable prompts(학습 가능 프롬프트)에 고급 특성을 추가함으로써, 클래스 특성을 더 효과적으로 이해하고 추출하는 데 중점을 두었습니다. 이 방법은 특히 보이지 않는(seen) 클래스에 대해 일반화 성능을 크게 향상시키는 것을 목표로 합니다.
+
+- **Technical Details**: AAPL은 learnable contexts(학습 가능한 문맥)에 'delta meta token'을 도입하여, 이 token이 특정 클래스 관련 세밀한 특성(attribute-specific) 정보를 담을 수 있도록 합니다. 또한, AAPL은 AdTriplet loss를 사용하여 이미지 증강(augmentation)이 추가된 learnable prompt에 대한 조건부 bias를 강화하고 안정화합니다. 이러한 접근법은 특히 zero-shot learning(제로샷 학습)과 few-shot learning(퓨샷 학습), cross-dataset(교차 데이터셋) 태스크 및 도메인 일반화(domain generalization) 작업에서 유리합니다.
+
+- **Performance Highlights**: AAPL은 11개의 데이터셋을 거쳐 실험을 진행하였으며, 일반적으로 기존 방법들에 비해 유리한 성능을 보였습니다. 특히, few-shot learning, zero-shot learning, cross-dataset 및 도메인 일반화 작업에서의 성능 향상을 입증하였습니다. 이는 AAPL이 고급 특성에 초점을 맞춤으로써, 더 정교하고 일반화된 텍스트 특성 추출이 가능함을 보여줍니다.
 
 
 
