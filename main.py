@@ -22,6 +22,7 @@ paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle"
 paper_questions_path = os.path.join(base_dir, "paper_questions.pickle")
 paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
 encoding = tiktoken.encoding_for_model(MODEL)
+# encoding = tiktoken.get_encoding(MODEL)
 
 summaries_dir = os.path.join(base_dir, "summaries")
 today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
@@ -99,8 +100,8 @@ def get_paper_set_of(field):
     papers_comment = []
     for dt_tag, dd_tag in zip(dt_tags, dd_tags):
         # <dd> 태그 내에서 <span class="list-identifier"> 태그 추출
-        identifier_tag = dt_tag.find("span", class_="list-identifier")
-        paper_url = identifier_tag.find("a", {"title": "Abstract"})["href"]
+        # identifier_tag = dt_tag.find("span", class_="list-identifier")
+        paper_url = dt_tag.find("a", {"title": "Abstract"})["href"]
         paper_url = "https://arxiv.org" + paper_url
         papers_url.append(paper_url)
 

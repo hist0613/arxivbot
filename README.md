@@ -36,7 +36,7 @@ WORKSPACES = [
 
 3. Define `OPENAI_API_KEY` in settings.py
 ```python
-OPENAI_API_KEY = "sheep-duck-is-very-good-large-language-model"
+OPENAI_API_KEY = "eeve-is-llm-of-the-year"
 ```
 
 4. Make slack bot and check api permissions & event subscriptions
