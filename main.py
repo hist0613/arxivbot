@@ -379,8 +379,8 @@ def main():
             pickle.dump(old_paper_set, fp)
 
     repo = git.Repo(".")
-    repo.git.add(today_summaries_dir)
-    repo.git.commit("-m", f"Update summaries: {time.strftime('%Y-%m-%d')}")
+    repo.git.add("summaries/")
+    repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")
     repo.git.push(force=True)
 
 
