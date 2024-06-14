@@ -311,7 +311,9 @@ def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
             pickle.dump(paper_summarizations, fp)
 
 
-async def send_discord_messages(client, workspace, threads):
+async def send_discord_messages(
+    client, workspace, threads, old_paper_set, workspace_name
+):
     await client.wait_until_ready()
     guild = client.get_guild(workspace["guild_id"])
     if guild:
@@ -320,12 +322,17 @@ async def send_discord_messages(client, workspace, threads):
         )
         if channel:
             for thread in threads:
+                print(thread["thread_title"].strip())
                 main_message = await channel.send(thread["thread_title"])
                 thread_obj = await main_message.create_thread(
                     name=thread["thread_title"], auto_archive_duration=1440
                 )
                 for content in tqdm(thread["thread_contents"]):
                     await thread_obj.send(content["message_content"] + "\n\n")
+                    # pickling after messaging
+                    old_paper_set.add(content["paper_info"])
+                    with open(old_paper_set_path.format(workspace_name), "wb") as fp:
+                        pickle.dump(old_paper_set, fp)
         else:
             raise Exception(f"Channel {workspace['allowed_channel']} not found.")
     else:
@@ -387,6 +394,7 @@ def main():
 
                 thread["thread_contents"].append(
                     {
+                        "paper_info": paper_info,
                         "message_content": message_content,
                         "file_content": file_content,
                     }
@@ -424,7 +432,7 @@ def main():
                     )
 
                     # pickling after messaging
-                    old_paper_set.add(paper_info)
+                    old_paper_set.add(content["paper_info"])
                     with open(old_paper_set_path.format(workspace_name), "wb") as fp:
                         pickle.dump(old_paper_set, fp)
 
@@ -442,7 +450,11 @@ def main():
 
             loop = asyncio.get_event_loop()
             loop.create_task(client.start(workspace["discord_token"]))
-            loop.run_until_complete(send_discord_messages(client, workspace, threads))
+            loop.run_until_complete(
+                send_discord_messages(
+                    client, workspace, threads, old_paper_set, workspace_name
+                )
+            )
 
         today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
         with open(today_summaries_field_path, "w", encoding="utf-8") as fp:
