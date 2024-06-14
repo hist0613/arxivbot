@@ -324,65 +324,94 @@ def main():
         paper_set, paper_abstracts, paper_full_contents = crawl_arxiv(field)
         summarize_arxiv(paper_set, paper_abstracts, paper_full_contents)
 
-    print("Connecting", workspace["workspace"], "...")
-    sc = WebClient(workspace["slack_token"])
+    new_papers = defaultdict(list)
+    for field in fields:
+        new_papers[field] = paper_set
 
-    old_paper_set = get_old_paper_set(workspace_name)
+    paper_summarizations = get_paper_summarizations()
 
-    nb_total_messages = 0
-    nb_messages = 0
-    for field in tqdm(workspace["fields"]):
-        if not has_new_papers(new_papers[field], old_paper_set):
-            continue
+    for workspace in WORKSPACES:
+        workspace_name = f"{workspace['workspace']}-{workspace['allowed_channel']}"
 
-        # make a parent message first
-        sc.chat_postMessage(
-            channel=workspace["allowed_channel"],
-            text="New uploads on arXiv({})\n".format(field),
-        )
-
-        today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
-        fp = open(today_summaries_field_path, "w", encoding="utf-8")
-
-        # get the timestamp of the parent messagew
-        result = sc.conversations_history(channel=workspace["allowed_channel_id"])
-        conversation_history = result["messages"]  # [0] is the most recent message
-        message_ts = conversation_history[0]["ts"]
-
-        # make a thread by replying to the parent message
-        for paper_url, paper_title, paper_comment in new_papers[field]:
-            paper_info = get_paper_info(paper_url, paper_title)
-
-            # remove duplicates
-            if paper_info in old_paper_set:
+        # prepare messages
+        threads = []
+        old_paper_set = get_old_paper_set(workspace_name)
+        for field in tqdm(workspace["fields"]):
+            if not has_new_papers(new_papers[field], old_paper_set):
                 continue
 
-            message_content, file_content = prepare_content(
-                paper_info,
-                paper_comment,
-                paper_summarizations,
-            )
+            thread = {
+                "thread_title": f"New uploads on arXiv({field})\n",
+                "thread_contents": [],
+            }
 
-            old_paper_set.add(paper_info)
+            # make a thread by replying to the parent message
+            for paper_url, paper_title, paper_comment in new_papers[field]:
+                paper_info = get_paper_info(paper_url, paper_title)
 
-            sc.chat_postMessage(
-                channel=workspace["allowed_channel"],
-                text=message_content,
-                thread_ts=message_ts,
-            )
+                # remove duplicates
+                if paper_info in old_paper_set:
+                    continue
 
-            fp.write(file_content + "\n\n")
+                message_content, file_content = prepare_content(
+                    paper_info,
+                    paper_comment,
+                    paper_summarizations,
+                )
 
-            nb_total_messages += 1
-            nb_messages += 1
-            if nb_messages >= MAX_NB_SHOW:
-                nb_messages = 0
-                time.sleep(TIME_PAUSE_SEC)
-        fp.close()
+                thread["thread_contents"].append(
+                    {
+                        "message_content": message_content,
+                        "file_content": file_content,
+                    }
+                )
 
-    # pickling after messaging
-    with open(old_paper_set_path.format(workspace_name), "wb") as fp:
-        pickle.dump(old_paper_set, fp)
+            threads.append(thread)
+
+        # send messages
+        if workspace["service_type"] == "slack":
+            print("Connecting", workspace["workspace"], "...")
+            sc = WebClient(workspace["slack_token"])
+
+            nb_messages = 0
+            for thread in threads:
+                sc.chat_postMessage(
+                    channel=workspace["allowed_channel"],
+                    text=thread["thread_title"],
+                )
+
+                # get the timestamp of the parent messagew
+                result = sc.conversations_history(
+                    channel=workspace["allowed_channel_id"]
+                )
+                conversation_history = result[
+                    "messages"
+                ]  # [0] is the most recent message
+                message_ts = conversation_history[0]["ts"]
+
+                for content in thread["thread_contents"]:
+                    sc.chat_postMessage(
+                        channel=workspace["allowed_channel"],
+                        text=content["message_content"],
+                        thread_ts=message_ts,
+                    )
+
+                    # pickling after messaging
+                    old_paper_set.add(paper_info)
+                    with open(old_paper_set_path.format(workspace_name), "wb") as fp:
+                        pickle.dump(old_paper_set, fp)
+
+                    nb_messages += 1
+                    if nb_messages >= MAX_NB_SHOW:
+                        nb_messages = 0
+                        time.sleep(TIME_PAUSE_SEC)
+
+        today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
+        with open(today_summaries_field_path, "w", encoding="utf-8") as fp:
+            for thread in threads:
+                fp.write(thread["thread_title"] + "\n")
+                for content in thread["thread_contents"]:
+                    fp.write(content["file_content"] + "\n\n")
 
     repo = git.Repo(base_dir)
     repo.git.add(os.path.join(base_dir, "summaries"))
