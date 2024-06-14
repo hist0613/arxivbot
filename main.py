@@ -229,8 +229,6 @@ def main():
 
         print("Connecting", workspace["workspace"], "...")
 
-        sc = WebClient(workspace["slack_token"])
-
         old_paper_set = get_old_paper_set(workspace_name)
 
         # abstract crawling
@@ -313,6 +311,8 @@ def main():
                     # pickling after summarization
                     with open(paper_summarizations_path, "wb") as fp:
                         pickle.dump(paper_summarizations, fp)
+
+        sc = WebClient(workspace["slack_token"])
 
         nb_total_messages = 0
         nb_messages = 0
