@@ -5,10 +5,12 @@ import pickle
 from tqdm import tqdm
 from collections import defaultdict
 import concurrent.futures
+import asyncio
 
 import requests
 from bs4 import BeautifulSoup
 from slack_sdk import WebClient
+import discord
 import tiktoken
 import git
 
@@ -207,16 +209,17 @@ def truncate_text(text):
 
 
 def prepare_content(paper_info, paper_comment, paper_summarizations):
-    message_content = paper_info
+    message_content = f"**{paper_info}**"
     file_content = "### " + paper_info + "\n"
     if paper_comment != "":
+        paper_comment = paper_comment.strip()
         message_content += f"\n{paper_comment}"
         file_content += f"{paper_comment}\n\n"
     paper_summarization = json.loads(paper_summarizations[paper_info])
     if type(paper_summarization) is list:
         paper_summarization = paper_summarization[0]
     for key, value in paper_summarization.items():
-        message_content += f"\n\n*{key}*: {value}"
+        message_content += f"\n\n- **{key}**: {value}"
         file_content += f"- **{key}**: {value}\n\n"
 
     return message_content, file_content
@@ -308,6 +311,29 @@ def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
             pickle.dump(paper_summarizations, fp)
 
 
+async def send_discord_messages(client, workspace, threads):
+    await client.wait_until_ready()
+    guild = client.get_guild(workspace["guild_id"])
+    if guild:
+        channel = discord.utils.get(
+            guild.text_channels, name=workspace["allowed_channel"]
+        )
+        if channel:
+            for thread in threads:
+                main_message = await channel.send(thread["thread_title"])
+                thread_obj = await main_message.create_thread(
+                    name=thread["thread_title"], auto_archive_duration=1440
+                )
+                for content in tqdm(thread["thread_contents"]):
+                    await thread_obj.send(content["message_content"] + "\n\n")
+        else:
+            raise Exception(f"Channel {workspace['allowed_channel']} not found.")
+    else:
+        raise Exception(f"Guild {workspace['guild_id']} not found.")
+
+    await client.close()
+
+
 def main():
     # 전체 흐름은 다음과 같습니다.
     # 1. arXiv의 새 논문을 수집합니다.
@@ -369,6 +395,7 @@ def main():
             threads.append(thread)
 
         # send messages
+        print("Sending messages...")
         if workspace["service_type"] == "slack":
             print("Connecting", workspace["workspace"], "...")
             sc = WebClient(workspace["slack_token"])
@@ -389,7 +416,7 @@ def main():
                 ]  # [0] is the most recent message
                 message_ts = conversation_history[0]["ts"]
 
-                for content in thread["thread_contents"]:
+                for content in tqdm(thread["thread_contents"]):
                     sc.chat_postMessage(
                         channel=workspace["allowed_channel"],
                         text=content["message_content"],
@@ -405,6 +432,17 @@ def main():
                     if nb_messages >= MAX_NB_SHOW:
                         nb_messages = 0
                         time.sleep(TIME_PAUSE_SEC)
+
+        # 왜 discord.py 라이브러리는 async 만 된다는거야 대체
+        elif workspace["service_type"] == "discord":
+            intents = discord.Intents.default()
+            intents.messages = True
+
+            client = discord.Client(intents=intents)
+
+            loop = asyncio.get_event_loop()
+            loop.create_task(client.start(workspace["discord_token"]))
+            loop.run_until_complete(send_discord_messages(client, workspace, threads))
 
         today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
         with open(today_summaries_field_path, "w", encoding="utf-8") as fp:
