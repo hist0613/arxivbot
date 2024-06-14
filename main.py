@@ -19,7 +19,6 @@ base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
 old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
 paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
 paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
-paper_questions_path = os.path.join(base_dir, "paper_questions.pickle")
 paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
 encoding = tiktoken.encoding_for_model(MODEL)
 # encoding = tiktoken.get_encoding(MODEL)
@@ -54,15 +53,6 @@ def get_paper_summarizations():
     else:
         paper_summarizations = defaultdict(str)
     return paper_summarizations
-
-
-def get_paper_questions():
-    if os.path.exists(paper_questions_path):
-        with open(paper_questions_path, "rb") as fp:
-            paper_questions = pickle.load(fp)
-    else:
-        paper_questions = defaultdict(str)
-    return paper_questions
 
 
 def get_paper_full_contents():
@@ -261,56 +251,55 @@ def main():
                     with open(paper_full_contents_path, "wb") as fp:
                         pickle.dump(paper_full_contents, fp)
 
-        if SHOW_SUMMARIZATION:
-            print(f"Summarizing the abstract of papers by {MODEL}...")
-            paper_summarizations = get_paper_summarizations()
+        print(f"Summarizing the abstract of papers by {MODEL}...")
+        paper_summarizations = get_paper_summarizations()
 
-            for field in workspace["fields"]:
-                print("  - Processing {} field...".format(field))
+        for field in workspace["fields"]:
+            print("  - Processing {} field...".format(field))
 
-                all_papers = list(new_papers[field])
-                for i in tqdm(range(0, len(all_papers), NB_THREADS)):
-                    subset_papers = all_papers[i : i + NB_THREADS]
+            all_papers = list(new_papers[field])
+            for i in tqdm(range(0, len(all_papers), NB_THREADS)):
+                subset_papers = all_papers[i : i + NB_THREADS]
 
-                    with concurrent.futures.ThreadPoolExecutor() as executor:
-                        futures = {}
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    futures = {}
 
-                        for paper_url, paper_title, _ in subset_papers:
-                            # remove duplicates
-                            paper_info = get_paper_info(paper_url, paper_title)
-                            if (
-                                paper_info in paper_summarizations
-                                and paper_summarizations[paper_info] != ""
-                            ):
-                                continue
+                    for paper_url, paper_title, _ in subset_papers:
+                        # remove duplicates
+                        paper_info = get_paper_info(paper_url, paper_title)
+                        if (
+                            paper_info in paper_summarizations
+                            and paper_summarizations[paper_info] != ""
+                        ):
+                            continue
 
-                            paper_abstract = paper_abstracts[paper_info]
-                            paper_full_content = paper_full_contents[paper_info]
+                        paper_abstract = paper_abstracts[paper_info]
+                        paper_full_content = paper_full_contents[paper_info]
 
-                            summarization_input = f"Abstract: {paper_abstract}\n\n"
-                            if type(paper_full_content) is not str:
-                                for _, section in paper_full_content.items():
-                                    if section["title"] == "No title found":
-                                        continue
-                                    if section["content"] == "":
-                                        continue
+                        summarization_input = f"Abstract: {paper_abstract}\n\n"
+                        if type(paper_full_content) is not str:
+                            for _, section in paper_full_content.items():
+                                if section["title"] == "No title found":
+                                    continue
+                                if section["content"] == "":
+                                    continue
 
-                                    summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
+                                summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
 
-                            summarization_input = truncate_text(summarization_input)
+                        summarization_input = truncate_text(summarization_input)
 
-                            futures[
-                                executor.submit(
-                                    get_openai_summarization, summarization_input
-                                )
-                            ] = paper_info
+                        futures[
+                            executor.submit(
+                                get_openai_summarization, summarization_input
+                            )
+                        ] = paper_info
 
-                        for f in concurrent.futures.as_completed(futures):
-                            paper_summarizations[futures[f]] = f.result()
+                    for f in concurrent.futures.as_completed(futures):
+                        paper_summarizations[futures[f]] = f.result()
 
-                    # pickling after summarization
-                    with open(paper_summarizations_path, "wb") as fp:
-                        pickle.dump(paper_summarizations, fp)
+                # pickling after summarization
+                with open(paper_summarizations_path, "wb") as fp:
+                    pickle.dump(paper_summarizations, fp)
 
         sc = WebClient(workspace["slack_token"])
 
@@ -349,13 +338,12 @@ def main():
                 if paper_comment != "":
                     content += f"\n{paper_comment}"
                     file_content += f"{paper_comment}\n\n"
-                if SHOW_SUMMARIZATION:
-                    paper_summarization = json.loads(paper_summarizations[paper_info])
-                    if type(paper_summarization) is list:
-                        paper_summarization = paper_summarization[0]
-                    for key, value in paper_summarization.items():
-                        content += f"\n\n*{key}*: {value}"
-                        file_content += f"- **{key}**: {value}\n\n"
+                paper_summarization = json.loads(paper_summarizations[paper_info])
+                if type(paper_summarization) is list:
+                    paper_summarization = paper_summarization[0]
+                for key, value in paper_summarization.items():
+                    content += f"\n\n*{key}*: {value}"
+                    file_content += f"- **{key}**: {value}\n\n"
 
                 old_paper_set.add(paper_info)
 
