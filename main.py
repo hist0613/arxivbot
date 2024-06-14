@@ -206,6 +206,22 @@ def truncate_text(text):
     )
 
 
+def prepare_content(paper_info, paper_comment, paper_summarizations):
+    message_content = paper_info
+    file_content = "### " + paper_info + "\n"
+    if paper_comment != "":
+        message_content += f"\n{paper_comment}"
+        file_content += f"{paper_comment}\n\n"
+    paper_summarization = json.loads(paper_summarizations[paper_info])
+    if type(paper_summarization) is list:
+        paper_summarization = paper_summarization[0]
+    for key, value in paper_summarization.items():
+        message_content += f"\n\n*{key}*: {value}"
+        file_content += f"- **{key}**: {value}\n\n"
+
+    return message_content, file_content
+
+
 def main():
     for workspace in WORKSPACES:
         workspace_name = f"{workspace['workspace']}-{workspace['allowed_channel']}"
@@ -333,23 +349,17 @@ def main():
                 if paper_info in old_paper_set:
                     continue
 
-                content = paper_info
-                file_content = "### " + paper_info + "\n"
-                if paper_comment != "":
-                    content += f"\n{paper_comment}"
-                    file_content += f"{paper_comment}\n\n"
-                paper_summarization = json.loads(paper_summarizations[paper_info])
-                if type(paper_summarization) is list:
-                    paper_summarization = paper_summarization[0]
-                for key, value in paper_summarization.items():
-                    content += f"\n\n*{key}*: {value}"
-                    file_content += f"- **{key}**: {value}\n\n"
+                message_content, file_content = prepare_content(
+                    paper_info,
+                    paper_comment,
+                    paper_summarizations,
+                )
 
                 old_paper_set.add(paper_info)
 
                 sc.chat_postMessage(
                     channel=workspace["allowed_channel"],
-                    text=content,
+                    text=message_content,
                     thread_ts=message_ts,
                 )
 
