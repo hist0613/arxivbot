@@ -378,8 +378,8 @@ def main():
         with open(old_paper_set_path.format(workspace_name), "wb") as fp:
             pickle.dump(old_paper_set, fp)
 
-    repo = git.Repo(".")
-    repo.git.add("summaries/")
+    repo = git.Repo(base_dir)
+    repo.git.add(os.path.join(base_dir, "summaries"))
     repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")
     repo.git.push(force=True)
 
