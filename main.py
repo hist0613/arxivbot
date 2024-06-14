@@ -222,159 +222,167 @@ def prepare_content(paper_info, paper_comment, paper_summarizations):
     return message_content, file_content
 
 
-def main():
-    for workspace in WORKSPACES:
-        workspace_name = f"{workspace['workspace']}-{workspace['allowed_channel']}"
+def crawl_arxiv(field):
+    # collect new arXiv papers
+    print("- Collecting new arXiv papers...")
+    paper_set = get_paper_set_of(field)
 
-        # collect new arXiv papers
-        print("Collecting new arXiv papers...")
-        new_papers = defaultdict(list)
-        for field in workspace["fields"]:
-            paper_set = get_paper_set_of(field)
-            new_papers[field] = paper_set
+    # abstract crawling
+    print("- Crawling the abstracts of papers ...")
+    paper_abstracts = get_paper_abstracts()
+    paper_full_contents = get_paper_full_contents()
+    for paper_url, paper_title, _ in tqdm(paper_set):
+        # remove duplicates
+        paper_info = get_paper_info(paper_url, paper_title)
+        if paper_info in paper_abstracts:
+            continue
 
-        print("Connecting", workspace["workspace"], "...")
+        paper_abstract = get_paper_abstract(paper_url)
+        paper_abstracts[paper_info] = paper_abstract
 
-        old_paper_set = get_old_paper_set(workspace_name)
+        with open(paper_abstracts_path, "wb") as fp:
+            pickle.dump(paper_abstracts, fp)
 
-        # abstract crawling
-        print("Crawling the abstracts of papers ...")
-        paper_abstracts = get_paper_abstracts()
-        paper_full_contents = get_paper_full_contents()
-        for field in workspace["fields"]:
-            print("  - Processing {} field...".format(field))
-            for paper_url, paper_title, _ in tqdm(new_papers[field]):
+        # remove duplicates
+        if paper_info in paper_full_contents:
+            continue
+
+        html_experimental_link = get_html_experimental_link(paper_url)
+        if html_experimental_link != "Link not found":
+            paper_full_contents[paper_info] = get_paper_full_content(
+                html_experimental_link
+            )
+
+            with open(paper_full_contents_path, "wb") as fp:
+                pickle.dump(paper_full_contents, fp)
+
+    return paper_set, paper_abstracts, paper_full_contents
+
+
+def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
+    print(f"- Summarizing the abstract of papers by {MODEL}...")
+    paper_summarizations = get_paper_summarizations()
+
+    all_papers = list(paper_set)
+    for i in tqdm(range(0, len(all_papers), NB_THREADS)):
+        subset_papers = all_papers[i : i + NB_THREADS]
+
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = {}
+
+            for paper_url, paper_title, _ in subset_papers:
                 # remove duplicates
                 paper_info = get_paper_info(paper_url, paper_title)
-                if paper_info in paper_abstracts:
+                if (
+                    paper_info in paper_summarizations
+                    and paper_summarizations[paper_info] != ""
+                ):
                     continue
 
-                paper_abstract = get_paper_abstract(paper_url)
-                paper_abstracts[paper_info] = paper_abstract
+                paper_abstract = paper_abstracts[paper_info]
+                paper_full_content = paper_full_contents[paper_info]
 
-                with open(paper_abstracts_path, "wb") as fp:
-                    pickle.dump(paper_abstracts, fp)
-
-                if paper_info in paper_full_contents:
-                    continue
-
-                html_experimental_link = get_html_experimental_link(paper_url)
-                if html_experimental_link != "Link not found":
-                    paper_full_contents[paper_info] = get_paper_full_content(
-                        html_experimental_link
-                    )
-
-                    with open(paper_full_contents_path, "wb") as fp:
-                        pickle.dump(paper_full_contents, fp)
-
-        print(f"Summarizing the abstract of papers by {MODEL}...")
-        paper_summarizations = get_paper_summarizations()
-
-        for field in workspace["fields"]:
-            print("  - Processing {} field...".format(field))
-
-            all_papers = list(new_papers[field])
-            for i in tqdm(range(0, len(all_papers), NB_THREADS)):
-                subset_papers = all_papers[i : i + NB_THREADS]
-
-                with concurrent.futures.ThreadPoolExecutor() as executor:
-                    futures = {}
-
-                    for paper_url, paper_title, _ in subset_papers:
-                        # remove duplicates
-                        paper_info = get_paper_info(paper_url, paper_title)
-                        if (
-                            paper_info in paper_summarizations
-                            and paper_summarizations[paper_info] != ""
-                        ):
+                summarization_input = f"Abstract: {paper_abstract}\n\n"
+                if type(paper_full_content) is not str:
+                    for _, section in paper_full_content.items():
+                        if section["title"] == "No title found":
+                            continue
+                        if section["content"] == "":
                             continue
 
-                        paper_abstract = paper_abstracts[paper_info]
-                        paper_full_content = paper_full_contents[paper_info]
+                        summarization_input += (
+                            f"Section: {section['title']}\n{section['content']}\n\n"
+                        )
 
-                        summarization_input = f"Abstract: {paper_abstract}\n\n"
-                        if type(paper_full_content) is not str:
-                            for _, section in paper_full_content.items():
-                                if section["title"] == "No title found":
-                                    continue
-                                if section["content"] == "":
-                                    continue
+                summarization_input = truncate_text(summarization_input)
 
-                                summarization_input += f"Section: {section['title']}\n{section['content']}\n\n"
+                futures[
+                    executor.submit(get_openai_summarization, summarization_input)
+                ] = paper_info
 
-                        summarization_input = truncate_text(summarization_input)
+            for f in concurrent.futures.as_completed(futures):
+                paper_summarizations[futures[f]] = f.result()
 
-                        futures[
-                            executor.submit(
-                                get_openai_summarization, summarization_input
-                            )
-                        ] = paper_info
+        # pickling after summarization
+        with open(paper_summarizations_path, "wb") as fp:
+            pickle.dump(paper_summarizations, fp)
 
-                    for f in concurrent.futures.as_completed(futures):
-                        paper_summarizations[futures[f]] = f.result()
 
-                # pickling after summarization
-                with open(paper_summarizations_path, "wb") as fp:
-                    pickle.dump(paper_summarizations, fp)
+def main():
+    # 전체 흐름은 다음과 같습니다.
+    # 1. arXiv의 새 논문을 수집합니다.
+    # 2. 수집한 논문의 초록을 크롤링합니다.
+    # 3. 수집한 논문의 초록을 GPT-4o로 요약합니다.
+    # 4. 요약된 내용을 Slack 또는 Discord에 전송합니다.
+    fields = set()
+    for workspace in WORKSPACES:
+        for field in workspace["fields"]:
+            fields.add(field)
 
-        sc = WebClient(workspace["slack_token"])
+    for field in fields:
+        print("Processing {} field...".format(field))
+        paper_set, paper_abstracts, paper_full_contents = crawl_arxiv(field)
+        summarize_arxiv(paper_set, paper_abstracts, paper_full_contents)
 
-        nb_total_messages = 0
-        nb_messages = 0
-        for field in tqdm(workspace["fields"]):
-            if not has_new_papers(new_papers[field], old_paper_set):
+    print("Connecting", workspace["workspace"], "...")
+    sc = WebClient(workspace["slack_token"])
+
+    old_paper_set = get_old_paper_set(workspace_name)
+
+    nb_total_messages = 0
+    nb_messages = 0
+    for field in tqdm(workspace["fields"]):
+        if not has_new_papers(new_papers[field], old_paper_set):
+            continue
+
+        # make a parent message first
+        sc.chat_postMessage(
+            channel=workspace["allowed_channel"],
+            text="New uploads on arXiv({})\n".format(field),
+        )
+
+        today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
+        fp = open(today_summaries_field_path, "w", encoding="utf-8")
+
+        # get the timestamp of the parent messagew
+        result = sc.conversations_history(channel=workspace["allowed_channel_id"])
+        conversation_history = result["messages"]  # [0] is the most recent message
+        message_ts = conversation_history[0]["ts"]
+
+        # make a thread by replying to the parent message
+        for paper_url, paper_title, paper_comment in new_papers[field]:
+            paper_info = get_paper_info(paper_url, paper_title)
+
+            # remove duplicates
+            if paper_info in old_paper_set:
                 continue
 
-            # make a parent message first
+            message_content, file_content = prepare_content(
+                paper_info,
+                paper_comment,
+                paper_summarizations,
+            )
+
+            old_paper_set.add(paper_info)
+
             sc.chat_postMessage(
                 channel=workspace["allowed_channel"],
-                text="New uploads on arXiv({})\n".format(field),
+                text=message_content,
+                thread_ts=message_ts,
             )
 
-            today_summaries_field_path = os.path.join(
-                today_summaries_dir, field + ".md"
-            )
-            fp = open(today_summaries_field_path, "w", encoding="utf-8")
+            fp.write(file_content + "\n\n")
 
-            # get the timestamp of the parent messagew
-            result = sc.conversations_history(channel=workspace["allowed_channel_id"])
-            conversation_history = result["messages"]  # [0] is the most recent message
-            message_ts = conversation_history[0]["ts"]
+            nb_total_messages += 1
+            nb_messages += 1
+            if nb_messages >= MAX_NB_SHOW:
+                nb_messages = 0
+                time.sleep(TIME_PAUSE_SEC)
+        fp.close()
 
-            # make a thread by replying to the parent message
-            for paper_url, paper_title, paper_comment in new_papers[field]:
-                paper_info = get_paper_info(paper_url, paper_title)
-
-                # remove duplicates
-                if paper_info in old_paper_set:
-                    continue
-
-                message_content, file_content = prepare_content(
-                    paper_info,
-                    paper_comment,
-                    paper_summarizations,
-                )
-
-                old_paper_set.add(paper_info)
-
-                sc.chat_postMessage(
-                    channel=workspace["allowed_channel"],
-                    text=message_content,
-                    thread_ts=message_ts,
-                )
-
-                fp.write(file_content + "\n\n")
-
-                nb_total_messages += 1
-                nb_messages += 1
-                if nb_messages >= MAX_NB_SHOW:
-                    nb_messages = 0
-                    time.sleep(TIME_PAUSE_SEC)
-            fp.close()
-
-        # pickling after messaging
-        with open(old_paper_set_path.format(workspace_name), "wb") as fp:
-            pickle.dump(old_paper_set, fp)
+    # pickling after messaging
+    with open(old_paper_set_path.format(workspace_name), "wb") as fp:
+        pickle.dump(old_paper_set, fp)
 
     repo = git.Repo(base_dir)
     repo.git.add(os.path.join(base_dir, "summaries"))
