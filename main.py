@@ -380,7 +380,7 @@ def main():
                     text=thread["thread_title"],
                 )
 
-                # get the timestamp of the parent messagew
+                # get the timestamp of the parent message
                 result = sc.conversations_history(
                     channel=workspace["allowed_channel_id"]
                 )
