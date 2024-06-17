@@ -7,22 +7,38 @@ MAX_NB_CRAWL = 500
 MAX_NB_SHOW = 20
 MAX_NB_GPT3_ATTEMPT = 3
 TIME_PAUSE_SEC = 15
-SHOW_SUMMARIZATION = True
-SHOW_QUESTION = False
 MODEL = "gpt-4o"  # "gpt-4-turbo"
 MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
 NB_THREADS = 5
-# $24.68 per week (assuming average 482 papers)
 
 WORKSPACES = [
     {
+        "service_type": "slack",
         "workspace": "ai-research-kr",
         "allowed_channel": "nlp-research",
         "allowed_channel_id": "C062ZEG7U1K",
         "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
         "fields": ["cs.CL", "cs.IR"],
     },
+    {
+        "service_type": "discord",
+        "workspace": "K-LLaMA",
+        "allowed_channel": "arxiv",
+        "guild_id": int(os.getenv("DISCORD_GUILD_ID_KLLAMA")),
+        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_KLLAMA")),
+        "discord_token": os.getenv("DISCORD_BOT_TOKEN_KLLAMA"),
+        "fields": ["cs.CL", "cs.IR"],
+    },
+    # {
+    #     "service_type": "discord",
+    #     "workspace": "arxivbot-test",
+    #     "allowed_channel": "arxiv",
+    #     "guild_id": int(os.getenv("DISCORD_GUILD_ID_TEST")),
+    #     "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_TEST")),
+    #     "discord_token": os.getenv("DISCORD_BOT_TOKEN_TEST"),
+    #     "fields": ["cs.CL", "cs.IR"],
+    # },
     # {
     #     "workspace": "ai-research-kr",
     #     "allowed_channel": "vision-research",
