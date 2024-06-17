@@ -352,13 +352,12 @@ def main():
         for field in workspace["fields"]:
             fields.add(field)
 
+    new_papers = defaultdict(list)
     for field in fields:
         print("Processing {} field...".format(field))
         paper_set, paper_abstracts, paper_full_contents = crawl_arxiv(field)
         summarize_arxiv(paper_set, paper_abstracts, paper_full_contents)
 
-    new_papers = defaultdict(list)
-    for field in fields:
         new_papers[field] = paper_set
 
     paper_summarizations = get_paper_summarizations()
