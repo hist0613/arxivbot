@@ -443,6 +443,7 @@ def main():
 
         # 왜 discord.py 라이브러리는 async 만 된다는거야 대체
         elif workspace["service_type"] == "discord":
+            print("Connecting", workspace["workspace"], "...")
             intents = discord.Intents.default()
             intents.messages = True
 
