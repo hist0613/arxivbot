@@ -73,7 +73,7 @@ def get_paper_set_of(field):
     list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(
         field, MAX_NB_CRAWL
     )
-    for trial in range(MAX_NB_GPT3_ATTEMPT):
+    for trial in range(MAX_LLM_TRIALS):
         try:
             list_page = requests.get(list_url)
             if list_page.status_code == 200:
@@ -119,7 +119,7 @@ def get_paper_info(paper_url, paper_title):
 
 
 def get_paper_abstract(paper_url):
-    for trial in range(MAX_NB_GPT3_ATTEMPT):
+    for trial in range(MAX_LLM_TRIALS):
         try:
             paper_page = requests.get(paper_url)
             if paper_page.status_code == 200:
@@ -151,7 +151,7 @@ def get_html_experimental_link(paper_url):
 
 
 def get_paper_full_content(paper_url):
-    for trial in range(MAX_NB_GPT3_ATTEMPT):
+    for trial in range(MAX_LLM_TRIALS):
         try:
             paper_page = requests.get(paper_url)
             if paper_page.status_code == 200:

@@ -16,8 +16,8 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 from settings import (
     OPENAI_API_KEY,
-    MAX_NB_LLM_ATTEMPT,
-    MODEL,
+    GOOGLE_API_KEY,
+    MAX_LLM_TRIALS,
     MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
 )
 from prompts import SYSTEM_PROMPT_SUMMARIZATION, USER_PROMPT_SUMMARIZATION
@@ -63,7 +63,7 @@ class GptAgent(Agent):
         self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
         self.client = OpenAI(api_key=OPENAI_API_KEY)
 
-    @llm_retry(max_trials=MAX_NB_LLM_ATTEMPT)
+    @llm_retry(max_trials=MAX_LLM_TRIALS)
     def summarize(self, content: str) -> str:
         return self._generate_content(
             self.system_prompt_for_summarization,
@@ -96,6 +96,11 @@ class GptAgent(Agent):
 class GeminiAgent(Agent):
     def __init__(self, model_name: str):
         super().__init__(model_name)
+        self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
+        self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
+
+        genai.configure(api_key=GOOGLE_API_KEY)
+        self.client = OpenAI(api_key=OPENAI_API_KEY)
 
     def generate_content(self, content: str) -> str:
         # Implement the logic to generate content using Gemini model
@@ -113,7 +118,7 @@ if __name__ == "__main__":
         + f'''\nabstract: "Natural language processing researchers develop models of grammar, meaning and human communication based on written text. Due to task and data differences, what is considered text can vary substantially across studies. A conceptual framework for systematically capturing these differences is lacking. We argue that clarity on the notion of text is crucial for reproducible and generalizable NLP. Towards that goal, we propose common terminology to discuss the production and transformation of textual data, and introduce a two-tier taxonomy of linguistic and non-linguistic elements that are available in textual sources and can be used in NLP modeling. We apply this taxonomy to survey existing work that extends the notion of text beyond the conservative language-centered view. We outline key desiderata and challenges of the emerging inclusive approach to text in NLP, and suggest systematic community-level reporting as a crucial next step to consolidate the discussion."''',
     ]
 
-    for model_name in ["gpt-4o"]:  # , "gemini-1.5-flash-latest"]:
+    for model_name in ["gpt-4o", "gemini-1.5-flash-latest"]:
         logger.info(f"Model: {model_name}")
         agent = AutoAgent.from_model_name(model_name)
         for prompt in prompt_list:
