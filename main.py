@@ -260,7 +260,7 @@ def crawl_arxiv(field):
     return paper_set, paper_abstracts, paper_full_contents
 
 
-def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
+def summarize_arxiv(agent, paper_set, paper_abstracts, paper_full_contents):
     logger.info(f"- Summarizing the abstract of papers by {MODEL}...")
     paper_summarizations = get_paper_summarizations()
 
@@ -297,9 +297,9 @@ def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
 
                 summarization_input = truncate_text(summarization_input)
 
-                futures[
-                    executor.submit(get_openai_summarization, summarization_input)
-                ] = paper_info
+                futures[executor.submit(agent.summarize, summarization_input)] = (
+                    paper_info
+                )
 
             for f in concurrent.futures.as_completed(futures):
                 paper_summarizations[futures[f]] = f.result()
@@ -350,11 +350,13 @@ def main():
         for field in workspace["fields"]:
             fields.add(field)
 
+    agent = AutoAgent.from_model_name(MODEL)
+
     new_papers = defaultdict(list)
     for field in fields:
         logger.info("Processing {} field...".format(field))
         paper_set, paper_abstracts, paper_full_contents = crawl_arxiv(field)
-        summarize_arxiv(paper_set, paper_abstracts, paper_full_contents)
+        summarize_arxiv(agent, paper_set, paper_abstracts, paper_full_contents)
 
         new_papers[field] = paper_set
 
@@ -401,8 +403,8 @@ def main():
 
         # send messages
         logger.info("Sending messages...")
+        logger.info(f"Connecting {workspace['workspace']} ...")
         if workspace["service_type"] == "slack":
-            logger.info("Connecting", workspace["workspace"], "...")
             sc = WebClient(workspace["slack_token"])
 
             nb_messages = 0
@@ -440,7 +442,6 @@ def main():
 
         # 왜 discord.py 라이브러리는 async 만 된다는거야 대체
         elif workspace["service_type"] == "discord":
-            logger.info("Connecting", workspace["workspace"], "...")
             intents = discord.Intents.default()
             intents.messages = True
 
