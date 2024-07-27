@@ -47,8 +47,7 @@ class AutoAgent:
         if model_name.lower().startswith("gpt"):
             return GptAgent(model_name, *args, **kwargs)
         elif model_name.lower().startswith("gemini"):
-            pass
-            # return GeminiAgent(model_name, *args, **kwargs)
+            return GeminiAgent(model_name, *args, **kwargs)
         else:
             raise ValueError(
                 f"Unrecognized model name {model_name} for AutoAgent.\n"
@@ -100,14 +99,37 @@ class GeminiAgent(Agent):
         self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
 
         genai.configure(api_key=GOOGLE_API_KEY)
-        self.client = OpenAI(api_key=OPENAI_API_KEY)
+        self.client = GenerativeModel(
+            model_name=self.model_name,
+            system_instruction=self.system_prompt_for_summarization,
+            generation_config={
+                "response_mime_type": "application/json",
+                "max_output_tokens": MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
+            },
+        )
 
-    def generate_content(self, content: str) -> str:
-        # Implement the logic to generate content using Gemini model
-        pass
-
+    @llm_retry(max_trials=MAX_LLM_TRIALS)
     def summarize(self, content: str) -> str:
-        return self.generate_content(content)
+        return self._generate_content(
+            self.user_prompt_for_summarization + f"""\nabstract: "{content}""",
+        )
+
+    def _generate_content(self, user_prompt: str) -> str:
+        response = self.client.generate_content(
+            contents=user_prompt,
+            safety_settings={
+                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+            },
+        )
+
+        assert type(json.loads(response.text)) in [
+            list,
+            dict,
+        ], f"Invalid response: {response.text}"
+        return response.text
 
 
 if __name__ == "__main__":
