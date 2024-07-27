@@ -5,9 +5,9 @@ load_dotenv()
 
 MAX_NB_CRAWL = 500
 MAX_NB_SHOW = 20
-MAX_NB_GPT3_ATTEMPT = 3
+MAX_LLM_TRIALS = 3
 TIME_PAUSE_SEC = 15
-MODEL = "gpt-4o"  # "gpt-4-turbo"
+MODEL = "gemini-1.5-flash-latest"  # "gpt-4o"  # "gpt-4-turbo"
 MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
 NB_THREADS = 5
@@ -70,3 +70,4 @@ WORKSPACES = [
 ]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
