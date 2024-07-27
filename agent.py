@@ -21,6 +21,7 @@ from settings import (
     MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
 )
 from prompts import SYSTEM_PROMPT_SUMMARIZATION, USER_PROMPT_SUMMARIZATION
+from logger import logger
 from utils import llm_retry
 
 
@@ -92,16 +93,16 @@ class GptAgent(Agent):
         return response.choices[0].message.content.strip()
 
 
-# class GeminiAgent(Agent):
-#     def __init__(self, model_name: str):
-#         super().__init__(model_name)
+class GeminiAgent(Agent):
+    def __init__(self, model_name: str):
+        super().__init__(model_name)
 
-#     def generate_content(self, content: str) -> str:
-#         # Implement the logic to generate content using Gemini model
-#         pass
+    def generate_content(self, content: str) -> str:
+        # Implement the logic to generate content using Gemini model
+        pass
 
-#     def summarize(self, content: str) -> str:
-#         return self.generate_content(content)
+    def summarize(self, content: str) -> str:
+        return self.generate_content(content)
 
 
 if __name__ == "__main__":
@@ -112,6 +113,8 @@ if __name__ == "__main__":
         + f'''\nabstract: "Natural language processing researchers develop models of grammar, meaning and human communication based on written text. Due to task and data differences, what is considered text can vary substantially across studies. A conceptual framework for systematically capturing these differences is lacking. We argue that clarity on the notion of text is crucial for reproducible and generalizable NLP. Towards that goal, we propose common terminology to discuss the production and transformation of textual data, and introduce a two-tier taxonomy of linguistic and non-linguistic elements that are available in textual sources and can be used in NLP modeling. We apply this taxonomy to survey existing work that extends the notion of text beyond the conservative language-centered view. We outline key desiderata and challenges of the emerging inclusive approach to text in NLP, and suggest systematic community-level reporting as a crucial next step to consolidate the discussion."''',
     ]
 
-    agent = AutoAgent.from_model_name(MODEL)
-    for prompt in prompt_list:
-        print(agent.summarize(prompt))
+    for model_name in ["gpt-4o"]:  # , "gemini-1.5-flash-latest"]:
+        logger.info(f"Model: {model_name}")
+        agent = AutoAgent.from_model_name(model_name)
+        for prompt in prompt_list:
+            logger.info(agent.summarize(prompt))
