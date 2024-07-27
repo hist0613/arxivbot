@@ -15,15 +15,15 @@ import tiktoken
 import git
 
 from settings import *
-from gpt3 import get_openai_summarization
+from agent import AutoAgent
+from logger import logger
 
 base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
 old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
 paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
 paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
 paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
-encoding = tiktoken.encoding_for_model(MODEL)
-# encoding = tiktoken.get_encoding(MODEL)
+encoding = tiktoken.encoding_for_model("gpt-4o")
 
 summaries_dir = os.path.join(base_dir, "summaries")
 today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
@@ -77,7 +77,7 @@ def get_paper_set_of(field):
             if list_page.status_code == 200:
                 break
         except requests.exceptions.ConnectionError as e:
-            print(e)
+            logger.info(e)
             time.sleep(trial * 30 + 15)
     list_soup = BeautifulSoup(list_page.text, "html.parser")
 
@@ -123,7 +123,7 @@ def get_paper_abstract(paper_url):
             if paper_page.status_code == 200:
                 break
         except requests.exceptions.ConnectionError as e:
-            print(e)
+            logger.info(e)
             time.sleep(trial * 30 + 15)
     paper_soup = BeautifulSoup(paper_page.text, "html.parser")
 
@@ -155,7 +155,7 @@ def get_paper_full_content(paper_url):
             if paper_page.status_code == 200:
                 break
         except requests.exceptions.ConnectionError as e:
-            print(e)
+            logger.info(e)
             time.sleep(trial * 30 + 15)
     paper_soup = BeautifulSoup(paper_page.text, "html.parser")
 
@@ -225,11 +225,11 @@ def prepare_content(paper_info, paper_comment, paper_summarizations):
 
 def crawl_arxiv(field):
     # collect new arXiv papers
-    print("- Collecting new arXiv papers...")
+    logger.info("- Collecting new arXiv papers...")
     paper_set = get_paper_set_of(field)
 
     # abstract crawling
-    print("- Crawling the abstracts of papers ...")
+    logger.info("- Crawling the abstracts of papers ...")
     paper_abstracts = get_paper_abstracts()
     paper_full_contents = get_paper_full_contents()
     for paper_url, paper_title, _ in tqdm(paper_set):
@@ -261,7 +261,7 @@ def crawl_arxiv(field):
 
 
 def summarize_arxiv(paper_set, paper_abstracts, paper_full_contents):
-    print(f"- Summarizing the abstract of papers by {MODEL}...")
+    logger.info(f"- Summarizing the abstract of papers by {MODEL}...")
     paper_summarizations = get_paper_summarizations()
 
     all_papers = list(paper_set)
@@ -320,7 +320,7 @@ async def send_discord_messages(
         )
         if channel:
             for thread in threads:
-                print(thread["thread_title"].strip())
+                logger.info(thread["thread_title"].strip())
                 main_message = await channel.send(thread["thread_title"])
                 thread_obj = await main_message.create_thread(
                     name=thread["thread_title"], auto_archive_duration=1440
@@ -352,7 +352,7 @@ def main():
 
     new_papers = defaultdict(list)
     for field in fields:
-        print("Processing {} field...".format(field))
+        logger.info("Processing {} field...".format(field))
         paper_set, paper_abstracts, paper_full_contents = crawl_arxiv(field)
         summarize_arxiv(paper_set, paper_abstracts, paper_full_contents)
 
@@ -400,9 +400,9 @@ def main():
             threads.append(thread)
 
         # send messages
-        print("Sending messages...")
+        logger.info("Sending messages...")
         if workspace["service_type"] == "slack":
-            print("Connecting", workspace["workspace"], "...")
+            logger.info("Connecting", workspace["workspace"], "...")
             sc = WebClient(workspace["slack_token"])
 
             nb_messages = 0
@@ -440,7 +440,7 @@ def main():
 
         # 왜 discord.py 라이브러리는 async 만 된다는거야 대체
         elif workspace["service_type"] == "discord":
-            print("Connecting", workspace["workspace"], "...")
+            logger.info("Connecting", workspace["workspace"], "...")
             intents = discord.Intents.default()
             intents.messages = True
 
