@@ -67,8 +67,6 @@ def get_paper_full_contents():
 
 
 def get_paper_set_of(field):
-    paper_set = []
-
     # list_url = "https://arxiv.org/list/{}/recent".format(field)
     list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(
         field, MAX_NB_CRAWL
