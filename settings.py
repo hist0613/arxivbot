@@ -22,13 +22,21 @@ WORKSPACES = [
         "fields": ["cs.CL", "cs.IR"],
     },
     {
+        "service_type": "slack",
+        "workspace": "ai-research-kr",
+        "allowed_channel": "vision-research",
+        "allowed_channel_id": "C0632M8CSCS",
+        "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
+        "fields": ["cs.CV", "cs.AI"],
+    },
+    {
         "service_type": "discord",
         "workspace": "K-LLaMA",
         "allowed_channel": "arxiv",
         "guild_id": int(os.getenv("DISCORD_GUILD_ID_KLLAMA")),
         "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_KLLAMA")),
         "discord_token": os.getenv("DISCORD_BOT_TOKEN_KLLAMA"),
-        "fields": ["cs.CL", "cs.IR"],
+        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
     },
     # {
     #     "service_type": "discord",
