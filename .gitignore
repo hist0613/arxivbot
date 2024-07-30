@@ -1,3 +1,5 @@
 .env
 old_paper_set*
 __pycache__/
+*.pickle
+*.bak
