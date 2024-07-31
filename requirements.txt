@@ -3,3 +3,8 @@ requests
 beautifulsoup4
 openai
 slack-sdk
+discord.py
+tiktoken
+GitPython
+python-dotenv
+google-generativeai
