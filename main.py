@@ -11,6 +11,7 @@ import git
 import requests
 import tiktoken
 from bs4 import BeautifulSoup
+from discord import HTTPException
 from slack_sdk import WebClient
 from tqdm import tqdm
 
@@ -333,7 +334,20 @@ async def send_discord_messages(
                     name=thread["thread_title"], auto_archive_duration=1440
                 )
                 for content in tqdm(thread["thread_contents"]):
-                    await thread_obj.send(content["message_content"] + "\n\n")
+                    message_content = content["message_content"] + "\n\n"
+                    try:
+                        await thread_obj.send(message_content)
+                    except HTTPException as e:
+                        if e.code == 50035:  # Invalid Form Body
+                            logger.warning(
+                                f"Message too long for paper: {content['paper_info']}. Skipping this message."
+                            )
+                            logger.warning(
+                                f"Message length: {len(message_content)} characters"
+                            )
+                            logger.warning(f"Message: {message_content}")
+                        else:
+                            logger.error(f"HTTP Exception: {str(e)}")
                     # pickling after messaging
                     old_paper_set.add(content["paper_info"])
                     with open(old_paper_set_path.format(workspace_name), "wb") as fp:
