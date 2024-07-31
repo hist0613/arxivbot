@@ -1,22 +1,22 @@
-import os
-import time
-import json
-import pickle
-from tqdm import tqdm
-from collections import defaultdict
-import concurrent.futures
 import asyncio
+import concurrent.futures
+import json
+import os
+import pickle
+import time
+from collections import defaultdict
 
+import discord
+import git
 import requests
+import tiktoken
 from bs4 import BeautifulSoup
 from slack_sdk import WebClient
-import discord
-import tiktoken
-import git
+from tqdm import tqdm
 
-from settings import *
 from agent import AutoAgent
 from logger import logger
+from settings import *
 
 base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
 old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
@@ -206,8 +206,12 @@ def truncate_text(text):
     )
 
 
-def prepare_content(paper_info, paper_comment, paper_summarizations):
-    message_content = f"**{paper_info}**"
+def prepare_content(paper_info, paper_comment, paper_summarizations, service_type: str):
+    if service_type == "slack":
+        message_content = f"*{paper_info}*"
+    elif service_type == "discord":
+        message_content = f"**{paper_info}**"
+
     file_content = "### " + paper_info + "\n"
     if paper_comment != "":
         paper_comment = paper_comment.strip()
@@ -217,7 +221,10 @@ def prepare_content(paper_info, paper_comment, paper_summarizations):
     if type(paper_summarization) is list:
         paper_summarization = paper_summarization[0]
     for key, value in paper_summarization.items():
-        message_content += f"\n\n- **{key}**: {value}"
+        if service_type == "slack":
+            message_content += f"\n\n- *{key}*: {value}"
+        elif service_type == "discord":
+            message_content += f"\n\n- **{key}**: {value}"
         file_content += f"- **{key}**: {value}\n\n"
 
     return message_content, file_content
@@ -389,6 +396,7 @@ def main():
                     paper_info,
                     paper_comment,
                     paper_summarizations,
+                    service_type=workspace["service_type"],
                 )
 
                 thread["thread_contents"].append(
