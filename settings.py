@@ -49,33 +49,13 @@ WORKSPACES = [
     #     "fields": ["cs.CL", "cs.IR"],
     # },
     # {
-    #     "workspace": "ai-research-kr",
-    #     "allowed_channel": "vision-research",
-    #     "allowed_channel_id": "C0632M8CSCS",
-    #     "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
-    #     "fields": ["cs.CV", "cs.AI"],
+    #     "service_type": "slack",
+    #     "workspace": "hist0613",
+    #     "allowed_channel": "general",
+    #     "allowed_channel_id": "C0GHE21T4",
+    #     "slack_token": os.getenv("SLACK_TOKEN_HIST0613"),
+    #     "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
     # },
-    # {
-    #     'workspace': 'riiid',
-    #     'allowed_channel': 'research_nlp',
-    #     'allowed_channel_id': 'C024QNLBT1Q',
-    #     'slack_token': os.getenv("SLACK_TOKEN_RIIID"),
-    #     'fields': ["cs.CL", "cs.IR", "eess.AS"]
-    # },
-    # {
-    #     'workspace': 'riiid',
-    #     'allowed_channel': 'research_cv_arxiv',
-    #     'allowed_channel_id': 'C03B3KLM8F5',
-    #     'slack_token': os.getenv("SLACK_TOKEN_RIIID"),
-    #     'fields': ["cs.CV", "cs.AI"]
-    # },
-    # {
-    #     'workspace': 'hist0613',
-    #     'allowed_channel': 'general',
-    #     'allowed_channel_id': 'C0GHE21T4',
-    #     'slack_token': os.getenv("SLACK_TOKEN_HIST0613"),
-    #     'fields': ["cs.CL", "cs.IR", "cs.CV", "cs.AI"]
-    # }
 ]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
