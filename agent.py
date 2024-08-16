@@ -7,13 +7,13 @@ from abc import ABC, abstractmethod
 
 import google.generativeai as genai
 import openai
-from google.generativeai import GenerativeModel
+from google.generativeai import GenerationConfig, GenerativeModel
 from google.generativeai.types import HarmBlockThreshold, HarmCategory
 from openai import OpenAI
 from tqdm import tqdm
 
 from logger import logger
-from prompts import SYSTEM_PROMPT_SUMMARIZATION
+from prompts import SYSTEM_PROMPT_SUMMARIZATION, GEMINI_RESPONSE_SCHEMA_SUMMARIZATION
 from settings import (
     GOOGLE_API_KEY,
     MAX_LLM_TRIALS,
@@ -21,7 +21,7 @@ from settings import (
     OPENAI_API_KEY,
 )
 from utils import llm_retry
-
+from prompts import GptSummarizationResponse
 
 class Agent(ABC):
     def __init__(self, model_name):
@@ -59,6 +59,7 @@ class GptAgent(Agent):
         self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
         # self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
         self.client = OpenAI(api_key=OPENAI_API_KEY)
+        self.response_format = GptSummarizationResponse
 
     @llm_retry(max_trials=MAX_LLM_TRIALS)
     def summarize(self, content: str) -> str:
@@ -71,29 +72,30 @@ class GptAgent(Agent):
     def _generate_content(
         self, system_prompt: str, user_prompt: str, max_tokens=None
     ) -> str:
-        response = self.client.chat.completions.create(
+        response = self.client.beta.chat.completions.parse(
             model=self.model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             max_tokens=max_tokens,
-            response_format={
-                "type": "json_object",
-            },
+            response_format=self.response_format
         )
-
-        assert type(json.loads(response.choices[0].message.content.strip())) in [
-            list,
-            dict,
-        ], f"Invalid response: {response.choices[0].message.content.strip()}"
-        return response.choices[0].message.content.strip()
+        # 기존 코드를 안 바꾸려면
+        response = response.choices[0].message.parsed
+        response_text = {
+            "What's New": response.whats_new,
+            "Technical Details": response.technical_details,
+            "Performance Highlights": response.performance_highlights,
+        }
+        return json.dumps(response_text)
 
 
 class GeminiAgent(Agent):
     def __init__(self, model_name: str):
         super().__init__(model_name)
         self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
+        self.response_schema = GEMINI_RESPONSE_SCHEMA_SUMMARIZATION
         # self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
 
         genai.configure(api_key=GOOGLE_API_KEY)
@@ -121,7 +123,9 @@ class GeminiAgent(Agent):
                 HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
                 HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
             },
+            generation_config=GenerationConfig(response_schema=self.response_schema)
         )
+        response.text = response.text.lstrip("```json").rstrip("```")
 
         assert type(json.loads(response.text)) in [
             list,
