@@ -9,7 +9,6 @@ from collections import defaultdict
 import discord
 import git
 import requests
-import tiktoken
 from bs4 import BeautifulSoup
 from discord import HTTPException
 from slack_sdk import WebClient
@@ -18,17 +17,6 @@ from tqdm import tqdm
 from agent import AutoAgent
 from logger import logger
 from settings import *
-
-base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
-old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
-paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
-paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
-paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
-encoding = tiktoken.encoding_for_model("gpt-4o")
-
-summaries_dir = os.path.join(base_dir, "summaries")
-today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
-os.makedirs(today_summaries_dir, exist_ok=True)
 
 
 def get_old_paper_set(workspace):
@@ -477,6 +465,7 @@ def main():
                 )
             )
 
+        os.makedirs(today_summaries_dir, exist_ok=True)
         today_summaries_field_path = os.path.join(today_summaries_dir, field + ".md")
         with open(today_summaries_field_path, "w", encoding="utf-8") as fp:
             for thread in threads:

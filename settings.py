@@ -1,6 +1,8 @@
 import os
+import time
 
 from dotenv import load_dotenv
+import tiktoken
 
 load_dotenv()
 
@@ -69,3 +71,13 @@ WORKSPACES = [
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
+old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
+paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
+paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
+paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
+encoding = tiktoken.encoding_for_model("gpt-4o")
+
+summaries_dir = os.path.join(base_dir, "summaries")
+today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
