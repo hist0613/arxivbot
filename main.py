@@ -6,16 +6,16 @@ import pickle
 import time
 from collections import defaultdict
 
-import discord
 import git
 import requests
 from bs4 import BeautifulSoup
-from discord import HTTPException
-from slack_sdk import WebClient
 from tqdm import tqdm
 
-from agent import AutoAgent
-from logger import logger
+from api.arxiv import ArxivClient
+from api.agent import AutoAgent
+from api.cache import CacheManager
+from api.logger import logger
+from api.workspace import Workspace
 from settings import *
 
 
@@ -354,10 +354,8 @@ def main():
     # 2. 수집한 논문의 초록을 크롤링합니다.
     # 3. 수집한 논문의 초록을 GPT-4o로 요약합니다.
     # 4. 요약된 내용을 Slack 또는 Discord에 전송합니다.
-    fields = set()
-    for workspace in WORKSPACES:
-        for field in workspace["fields"]:
-            fields.add(field)
+    workspaces = [Workspace(workspace) for workspace in WORKSPACES]
+    fields = set(field for workspace in workspaces for field in workspace.fields)
 
     agent = AutoAgent.from_model_name(MODEL)
 
