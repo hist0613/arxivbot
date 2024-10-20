@@ -2,7 +2,6 @@ import os
 import time
 
 from dotenv import load_dotenv
-import tiktoken
 
 load_dotenv()
 
@@ -16,7 +15,7 @@ MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
 NB_THREADS = 5
 
-WORKSPACES = [
+WORKSPACE_CONFIGS = [
     {
         "service_type": "slack",
         "workspace": "ai-research-kr",
@@ -24,6 +23,15 @@ WORKSPACES = [
         "allowed_channel_id": "C07PLM4LJGN",
         "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.LG"],
+    },
+    {
+        "service_type": "discord",
+        "workspace": "K-LLaMA",
+        "allowed_channel": "arxiv",
+        "guild_id": int(os.getenv("DISCORD_GUILD_ID_KLLAMA")),
+        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_KLLAMA")),
+        "discord_token": os.getenv("DISCORD_BOT_TOKEN_KLLAMA"),
+        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
     },
     # {
     #     "service_type": "slack",
@@ -41,15 +49,6 @@ WORKSPACES = [
     #     "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
     #     "fields": ["cs.CV", "cs.AI"],
     # },
-    {
-        "service_type": "discord",
-        "workspace": "K-LLaMA",
-        "allowed_channel": "arxiv",
-        "guild_id": int(os.getenv("DISCORD_GUILD_ID_KLLAMA")),
-        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_KLLAMA")),
-        "discord_token": os.getenv("DISCORD_BOT_TOKEN_KLLAMA"),
-        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
-    },
     # {
     #     "service_type": "discord",
     #     "workspace": "arxivbot-test",
@@ -72,12 +71,11 @@ WORKSPACES = [
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-base_dir = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
-old_paper_set_path = os.path.join(base_dir, "old_paper_set_{}.pickle")
-paper_abstracts_path = os.path.join(base_dir, "paper_abstracts.pickle")
-paper_summarizations_path = os.path.join(base_dir, "paper_summarizations.pickle")
-paper_full_contents_path = os.path.join(base_dir, "paper_full_contents.pickle")
-encoding = tiktoken.encoding_for_model("gpt-4o")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
+OLD_PAPER_SET_PATH = os.path.join(BASE_DIR, "old_paper_set_{}.pickle")
+PAPER_ABSTRACTS_PATH = os.path.join(BASE_DIR, "paper_abstracts.pickle")
+PAPER_FULL_CONTENTS_PATH = os.path.join(BASE_DIR, "paper_full_contents.pickle")
+PAPER_SUMMARIZATIONS_PATH = os.path.join(BASE_DIR, "paper_summarizations.pickle")
 
-summaries_dir = os.path.join(base_dir, "summaries")
-today_summaries_dir = os.path.join(summaries_dir, time.strftime("%Y-%m-%d"))
+SUMMARIES_DIR = os.path.join(BASE_DIR, "summaries")
+TODAY_SUMMARIES_DIR = os.path.join(SUMMARIES_DIR, time.strftime("%Y-%m-%d"))

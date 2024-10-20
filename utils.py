@@ -1,6 +1,6 @@
 import time
 from functools import wraps
-from logger import logger
+from api.logger import logger
 from settings import TIME_PAUSE_SEC
 
 
