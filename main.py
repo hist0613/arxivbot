@@ -475,8 +475,12 @@ def main():
 
     repo = git.Repo(base_dir)
     repo.git.add(os.path.join(base_dir, "summaries"))
-    repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")
-    repo.git.push(force=True)
+
+    if repo.is_dirty():
+        repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")
+        repo.git.push(force=True)
+    else:
+        logger.info("No changes to commit.")
 
 
 if __name__ == "__main__":
