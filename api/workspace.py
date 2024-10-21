@@ -3,10 +3,10 @@ import json
 import pickle
 import asyncio
 from tqdm import tqdm
-import aiohttp
 
 from slack_sdk import WebClient
-from discord import Webhook
+import discord
+from discord import HTTPException
 
 from api.arxiv import get_paper_info
 from api.cache import CacheManager
@@ -41,6 +41,17 @@ class Workspace:
         self.old_paper_set = self._get_old_paper_set()
         self.workspace_name = f"{self.workspace}-{self.allowed_channel}"
         self._message_count = 0
+
+        if self.service_type == "discord":
+            intents = discord.Intents.default()
+            intents.messages = True
+            self.discord_client = discord.Client(intents=intents)
+            self.discord_ready = asyncio.Event()
+
+            @self.discord_client.event
+            async def on_ready():
+                self.discord_ready.set()
+                logger.info(f"Logged in as {self.discord_client.user}")
 
     def _get_old_paper_set(self) -> set[str]:
         if os.path.exists(OLD_PAPER_SET_PATH.format(self.workspace)):
@@ -133,7 +144,14 @@ class Workspace:
         if self.service_type == "slack":
             await self._send_slack_messages(threads)
         elif self.service_type == "discord":
-            await self._send_discord_messages(threads)
+            try:
+                # 클라이언트 연결을 백그라운드 태스크로 실행
+                asyncio.create_task(self.discord_client.start(self.discord_token))
+                await self.discord_ready.wait()  # 클라이언트가 준비될 때까지 대기
+                await self._send_discord_messages(threads)
+            finally:
+                if not self.discord_client.is_closed():
+                    await self.discord_client.close()
         else:
             logger.error(f"Unsupported service type: {self.service_type}")
 
@@ -155,18 +173,43 @@ class Workspace:
                 await self._apply_rate_limit()
 
     async def _send_discord_messages(self, threads: list[dict]):
-        async with aiohttp.ClientSession() as session:
-            webhook = Webhook.from_url(self.discord_webhook_url, session=session)
+        try:
+            guild = self.discord_client.get_guild(self.guild_id)
+            if not guild:
+                raise Exception(f"Guild {self.guild_id} not found.")
+
+            channel = discord.utils.get(guild.text_channels, name=self.allowed_channel)
+            if not channel:
+                raise Exception(f"Channel {self.allowed_channel} not found.")
+
             for thread in threads:
-                main_message = await webhook.send(thread["thread_title"], wait=True)
+                logger.info(thread["thread_title"].strip())
+                main_message = await channel.send(thread["thread_title"])
                 thread_obj = await main_message.create_thread(
-                    name=thread["thread_title"]
+                    name=thread["thread_title"], auto_archive_duration=1440
                 )
 
-                for content in thread["thread_contents"]:
-                    await thread_obj.send(content["message_content"])
+                for content in tqdm(thread["thread_contents"]):
+                    message_content = content["message_content"] + "\n\n"
+                    try:
+                        await thread_obj.send(message_content)
+                    except HTTPException as e:
+                        if e.code == 50035:  # Invalid Form Body
+                            logger.warning(
+                                f"Message too long for paper: {content['paper_info']}. Skipping this message."
+                            )
+                            logger.warning(
+                                f"Message length: {len(message_content)} characters"
+                            )
+                            logger.warning(f"Message: {message_content}")
+                        else:
+                            logger.error(f"HTTP Exception: {str(e)}")
+
                     self._update_old_paper_set(content["paper_info"])
                     await self._apply_rate_limit()
+
+        except Exception as e:
+            logger.error(f"Error in sending Discord messages: {e}")
 
     async def _apply_rate_limit(self):
         self._message_count += 1
