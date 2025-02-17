@@ -17,7 +17,7 @@ from settings import (
     OPENAI_API_KEY,
 )
 from utils import llm_retry
-from prompts import GptSummarizationResponse
+from prompts import SummarizationResponse
 
 
 class Agent(ABC):
@@ -70,7 +70,7 @@ class GptAgent(Agent):
         self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
         # self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
         self.client = OpenAI(api_key=OPENAI_API_KEY)
-        self.response_format = GptSummarizationResponse
+        self.response_format = SummarizationResponse
 
     @llm_retry(max_trials=MAX_LLM_TRIALS)
     def summarize(self, content: str) -> str:
