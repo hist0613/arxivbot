@@ -8,7 +8,7 @@ from openai import OpenAI
 import tiktoken
 
 from api.logger import logger
-from prompts import SYSTEM_PROMPT_SUMMARIZATION, GEMINI_RESPONSE_SCHEMA_SUMMARIZATION
+from prompts import SYSTEM_PROMPT_SUMMARIZATION
 from settings import (
     GOOGLE_API_KEY,
     MAX_LLM_TRIALS,
@@ -56,10 +56,16 @@ class Encoder:
         self.encoding = tiktoken.encoding_for_model(model_name)
 
     def truncate_text(self, text: str) -> str:
+        # Calculate the set of disallowed special tokens, excluding '<|endofprompt|>'
+        # disallowed = self.encoding.special_tokens_set - {"<|endofprompt|>"} # Removed this line
         return self.encoding.decode(
             self.encoding.encode(
                 text,
+                # Keep allowing <|endoftext|> if needed, otherwise it could be removed too
                 allowed_special={"<|endoftext|>"},
+                # Pass the calculated disallowed set
+                # disallowed_special=disallowed, # Replaced with empty tuple
+                disallowed_special=(),  # Treat all special tokens as normal text
             )[:MAX_INPUT_TOKENS_FOR_SUMMARIZATION]
         )
 
@@ -102,47 +108,47 @@ class GptAgent(Agent):
         return json.dumps(response_text)
 
 
-class GeminiAgent(Agent):
-    def __init__(self, model_name: str):
-        super().__init__(model_name)
-        self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
-        self.response_schema = GEMINI_RESPONSE_SCHEMA_SUMMARIZATION
-        # self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
+# class GeminiAgent(Agent):
+#     def __init__(self, model_name: str):
+#         super().__init__(model_name)
+#         self.system_prompt_for_summarization = SYSTEM_PROMPT_SUMMARIZATION
+#         self.response_schema = GEMINI_RESPONSE_SCHEMA_SUMMARIZATION
+#         # self.user_prompt_for_summarization = USER_PROMPT_SUMMARIZATION
 
-        genai.configure(api_key=GOOGLE_API_KEY)
-        self.client = GenerativeModel(
-            model_name=self.model_name,
-            system_instruction=self.system_prompt_for_summarization,
-            generation_config={
-                "response_mime_type": "application/json",
-                "max_output_tokens": MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
-            },
-        )
+#         genai.configure(api_key=GOOGLE_API_KEY)
+#         self.client = GenerativeModel(
+#             model_name=self.model_name,
+#             system_instruction=self.system_prompt_for_summarization,
+#             generation_config={
+#                 "response_mime_type": "application/json",
+#                 "max_output_tokens": MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
+#             },
+#         )
 
-    @llm_retry(max_trials=MAX_LLM_TRIALS)
-    def summarize(self, content: str) -> str:
-        return self._generate_content(
-            user_prompt=content,
-        )
+#     @llm_retry(max_trials=MAX_LLM_TRIALS)
+#     def summarize(self, content: str) -> str:
+#         return self._generate_content(
+#             user_prompt=content,
+#         )
 
-    def _generate_content(self, user_prompt: str) -> str:
-        response = self.client.generate_content(
-            contents=user_prompt,
-            safety_settings={
-                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
-            },
-            generation_config=GenerationConfig(response_schema=self.response_schema),
-        )
-        response.text = response.text.lstrip("```json").rstrip("```")
+#     def _generate_content(self, user_prompt: str) -> str:
+#         response = self.client.generate_content(
+#             contents=user_prompt,
+#             safety_settings={
+#                 HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+#                 HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+#                 HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+#                 HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+#             },
+#             generation_config=GenerationConfig(response_schema=self.response_schema),
+#         )
+#         response.text = response.text.lstrip("```json").rstrip("```")
 
-        assert type(json.loads(response.text)) in [
-            list,
-            dict,
-        ], f"Invalid response: {response.text}"
-        return response.text
+#         assert type(json.loads(response.text)) in [
+#             list,
+#             dict,
+#         ], f"Invalid response: {response.text}"
+#         return response.text
 
 
 if __name__ == "__main__":

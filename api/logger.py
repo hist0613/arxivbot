@@ -14,6 +14,13 @@ def setup_logger():
         level=logging.INFO,
     )
 
+    # Reduce verbosity of external libraries
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger("openai").setLevel(logging.WARNING)
+    logging.getLogger("requests").setLevel(logging.WARNING)
+
 
 # Global logger
 setup_logger()
