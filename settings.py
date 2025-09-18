@@ -11,6 +11,7 @@ MAX_LLM_TRIALS = 3
 TIME_PAUSE_SEC = 15
 # MODEL = "gpt-4o"  # "gpt-4-turbo", "gemini-1.5-flash-latest"
 MODEL = "gpt-4o-mini"
+EMBEDDING_MODEL = "text-embedding-3-small"
 MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
 NB_THREADS = 5
@@ -26,11 +27,11 @@ WORKSPACE_CONFIGS = [
     },
     {
         "service_type": "discord",
-        "workspace": "K-LLaMA",
-        "allowed_channel": "arxiv",
-        "guild_id": int(os.getenv("DISCORD_GUILD_ID_KLLAMA")),
-        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_KLLAMA")),
-        "discord_token": os.getenv("DISCORD_BOT_TOKEN_KLLAMA"),
+        "workspace": "seungtaek-lab",
+        "allowed_channel": "arxivbot",
+        "guild_id": int(os.getenv("DISCORD_GUILD_ID_SEUNGTAEK_LAB")),
+        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_SEUNGTAEK_LAB")),
+        "discord_token": os.getenv("DISCORD_BOT_TOKEN_SEUNGTAEK_LAB"),
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
     },
     # {
@@ -71,7 +72,12 @@ WORKSPACE_CONFIGS = [
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # os.getcwd()
+BASE_DIR = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "cache"  # os.getcwd()
+)
+if not os.path.exists(BASE_DIR):
+    os.makedirs(BASE_DIR)
+
 OLD_PAPER_SET_PATH = os.path.join(BASE_DIR, "old_paper_set_{}.pickle")
 PAPER_ABSTRACTS_PATH = os.path.join(BASE_DIR, "paper_abstracts.pickle")
 PAPER_FULL_CONTENTS_PATH = os.path.join(BASE_DIR, "paper_full_contents.pickle")
