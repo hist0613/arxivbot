@@ -8,3 +8,5 @@ tiktoken
 GitPython
 python-dotenv
 google-generativeai
+llama-index 
+slack-bolt
