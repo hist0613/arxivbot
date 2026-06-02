@@ -47,7 +47,7 @@ async def main():
 
     if repo.is_dirty():
         repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")
-        repo.git.push(force=True)
+        repo.git.push()
     else:
         logger.info("No changes to commit.")
 
