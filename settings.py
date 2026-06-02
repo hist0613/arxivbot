@@ -17,21 +17,29 @@ MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
 NB_THREADS = 5
 
 WORKSPACE_CONFIGS = [
+    # {
+    #     "service_type": "slack",
+    #     "workspace": "ai-research-kr",
+    #     "allowed_channel": "arxiv",
+    #     "allowed_channel_id": "C07PLM4LJGN",
+    #     "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
+    #     "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.LG"],
+    # },
+    # {
+    #     "service_type": "discord",
+    #     "workspace": "seungtaek-lab",
+    #     "allowed_channel": "arxivbot",
+    #     "guild_id": int(os.getenv("DISCORD_GUILD_ID_SEUNGTAEK_LAB")),
+    #     "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_SEUNGTAEK_LAB")),
+    #     "discord_token": os.getenv("DISCORD_BOT_TOKEN_SEUNGTAEK_LAB"),
+    #     "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
+    # },
     {
         "service_type": "slack",
-        "workspace": "ai-research-kr",
-        "allowed_channel": "arxiv",
-        "allowed_channel_id": "C07PLM4LJGN",
-        "slack_token": os.getenv("SLACK_TOKEN_AIRKR"),
-        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.LG"],
-    },
-    {
-        "service_type": "discord",
         "workspace": "seungtaek-lab",
-        "allowed_channel": "arxivbot",
-        "guild_id": int(os.getenv("DISCORD_GUILD_ID_SEUNGTAEK_LAB")),
-        "allowed_channel_id": int(os.getenv("DISCORD_CHANNEL_ID_SEUNGTAEK_LAB")),
-        "discord_token": os.getenv("DISCORD_BOT_TOKEN_SEUNGTAEK_LAB"),
+        "allowed_channel": "arxivbot",          # Slack 채널 이름
+        "allowed_channel_id": "C0B7V0V8U7N",        # Slack 채널 ID
+        "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
     },
     # {
