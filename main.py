@@ -1,5 +1,4 @@
 import asyncio
-import os
 import time
 
 import git
@@ -10,7 +9,7 @@ from api.agent import AutoAgent, Encoder
 from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
-from settings import WORKSPACE_CONFIGS, MODEL, BASE_DIR
+from settings import WORKSPACE_CONFIGS, MODEL, REPO_DIR, SUMMARIES_DIR
 
 
 async def main():
@@ -43,8 +42,8 @@ async def main():
         # save summaries
         workspace.save_summaries(threads)
 
-    repo = git.Repo(BASE_DIR)
-    repo.git.add(os.path.join(BASE_DIR, "summaries"))
+    repo = git.Repo(REPO_DIR)
+    repo.git.add(SUMMARIES_DIR)
 
     if repo.is_dirty():
         repo.git.commit("-m", f"\"Update summaries: {time.strftime('%Y-%m-%d')}\"")

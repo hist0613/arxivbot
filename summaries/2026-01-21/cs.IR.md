@@ -1,0 +1,10632 @@
+New uploads on arXiv(cs.CL)
+
+### Which Reasoning Trajectories Teach Students to Reason Better? A Simple Metric of Informative Alignmen (https://arxiv.org/abs/2601.14249)
+Comments:
+          26 pages. Project page: this https URL
+
+- **What's New**: 이 논문에서는 긴 chain-of-thought (CoT) 궤적이 교사 모델에서 학생 LLM으로의 추론(distillation)을 위한 강력한 감독 신호를 제공한다고 강조하고 있습니다. 그러나 강력한 교사 모델이 항상 더 나은 학생 모델을 낳는 것은 아니라는 점을 실험을 통해 보여주었습니다. 이러한 배경에서, Rank-Surprisal Ratio (RSR)를 제안하여 궤적의 적합성을 정량화하려고 노력합니다.
+
+- **Technical Details**: RSR은 궤적의 평균 토큰 순위와 평균 음의 로그 우도 간의 비율로 정의됩니다. 이 지표는 정보성과 정렬을 동시에 반영하여 효과적인 궤적을 식별할 수 있도록 돕습니다. 실험 결과, RSR은 5개의 학생 모델과 11개의 교사 모델에서 궤적 선택과 교사 모델 선택에서 우수한 성능을 보여주었습니다.
+
+- **Performance Highlights**: RSR은 훈련 후 성과와 강한 상관관계를 보이며 평균 Spearman 상관계수 0.86을 기록했습니다. 기존의 선택 방법보다 학생 모델에 더 적합한 훈련 궤적과 교사 모델을 효과적으로 선택하여, 전체 5개의 학생 모델 모두에서 일관되게 뛰어난 성과를 보였습니다.
+
+
+
+### APEX-Agents (https://arxiv.org/abs/2601.14242)
+- **What's New**: 우리는 AI Productivity Index for Agents(APEX-Agents)를 소개합니다. 이 벤치마크는 투자 은행 분석가, 경영 컨설턴트, 기업 변호사가 만든 장기적인 크로스 애플리케이션(task) 과제를 AI 에이전트가 수행할 수 있는지를 평가합니다. 또한, APEX-Agents는 파일 및 도구가 포함된 현실적인 업무 환경을 탐색해야 합니다.
+
+- **Technical Details**: APEX-Agents 벤치마크에서는 총 8개의 AI 에이전트를 사용하여 Pass@1 기준으로 평가했습니다. 여기서 Gemini 3 Flash(Thinking=High)가 24.0%로 최고 점수를 기록했으며, 그 다음으로 GPT-5.2(Thinking=High), Claude Opus 4.5(Thinking=High), Gemini 3 Pro(Thinking=High)가 있습니다. 이 연구에서는 480개의 벤치마크 프롬프트, 평가 기준, 정답 출력, 파일 및 메타데이터를 공개합니다.
+
+- **Performance Highlights**: APEX-Agents의 성과는 다양한 에이전트들이 얼마나 효과적으로 복잡한 업무를 수행할 수 있는지를 보여줍니다. 특히, Gemini 3 Flash는 매우 높은 점수를 기록하며 해당 분야에서의 가능성을 강조합니다. 본 연구는 또한 Archipelago라는 에이전트 실행 및 평가를 위한 인프라를 오픈 소스로 제공합니다.
+
+
+
+### MASCOT: Towards Multi-Agent Socio-Collaborative Companion Systems (https://arxiv.org/abs/2601.14230)
+Comments:
+          15 pages, 9 figures
+
+- **What's New**: 최근 다중 에이전트 시스템(Multi-Agent System, MAS)은 정서적 및 인지적 지원을 제공하는 유망한 사회적 협력 동반자로 떠오르고 있습니다. 하지만 이러한 시스템은 종종 개인 정체성 붕괴(persona collapse)와 사회적 아첨(social sycophancy) 문제에 직면합니다. 본 논문에서는 이러한 문제를 해결하기 위해 MASCOT이라는 새로운 프레임워크를 제안합니다.
+
+- **Technical Details**: MASCOT은 개인과 집단 행동을 조화롭게 하도록 설계된 이중 최적화(bi-level optimization) 전략을 도입합니다. 이 전략은 1) 개인 에이전트의 정체성 보존을 위한 persona-aware behavioral alignment와 2) 집단 보상에 의해 안내되는 협업 대화 최적화(Collaborative Dialogue Optimization)로 구성됩니다. 이를 통해 개인의 정체성을 유지하면서도 상호작용의 효율성을 개선할 수 있습니다.
+
+- **Performance Highlights**: MASCOT은 심리적 지원 및 직장 환경을 포함한 다양한 평가에서 기존 최첨단 모델 대비 성능이 크게 향상되었습니다. 특히, Persona Consistency에서 최대 +14.1, Social Contribution에서 +10.6의 개선을 달성했습니다. 이러한 성과는 다중 관점 사회 협동 동반자의 엔지니어링을 위한 실용적인 로드맵을 제공합니다.
+
+
+
+### HALT: Hallucination Assessment via Latent Testing (https://arxiv.org/abs/2601.14210)
+- **What's New**: 이번 논문에서는 대형 언어 모델(LLM)에서 발생하는 환각(hallucination) 현상을 줄이기 위해 경량의 잔여 프로브(residual probes)를 제안합니다. 이 프로브는 질문의 중간 숨겨진 상태(intermediate hidden states)에서 환각 위험을 직접 읽어내며, 최종 디코딩 단계에서 약화된 인지 신호(epistemic signals)를 활용하는데 초점을 맞춥니다. 추가적인 계산 비용이 거의 발생하지 않으며, 빠른 대답을 위해 LLM의 효율적인 라우팅을 가능하게 합니다.
+
+- **Technical Details**: 제안된 방법은 사용자 질문에 대해 LLM의 중간 레이어에서 숨겨진 표현(h_hidden representations)을 수집하여, 그 표현을 경량의 보조 네트워크(auxiliary network)를 통해 처리합니다. 이 방식은 LLM이 생성 단계에서 발생할 수 있는 확신 부재나 환각의 가능성을 빠르게 추정할 수 있도록 하며, 대기 시간을 거의 추가하지 않습니다. 예를 들어, 질문의 중간 표현만 사용하여 환각 위험 추정의 정확도를 높입니다.
+
+- **Performance Highlights**: 많은 QA 벤치마크에서 이 방법은 AUROC와 AURAC 지표에서 강력한 성능을 보였으며, 데이터셋 변화에도 잘 일반화되었습니다. 중간 표현을 통해 대형 언어 모델의 환각을 감지할 수 있는 구조를 직관적으로 파악할 수 있으며, 이는 신뢰할 수 있는 에이전시 AI의 기초로 작용하게 됩니다. 실험 결과, 이 방법은 기존의 NLP 모델과 비교했을 때 신뢰성 및 정확성을 높였습니다.
+
+
+
+### Human Values in a Single Sentence: Moral Presence, Hierarchies, and Transformer Ensembles on the Schwartz Continuum (https://arxiv.org/abs/2601.14172)
+Comments:
+          Code: this https URL, 37 pages, 4 figures,
+
+- **What's New**: 이 연구는 텍스트에서 인간의 가치 탐지를 구체적으로 형성하기 위해 Schwartz의 19가지 가치 연속체에 대한 문장 수준 식별을 다룹니다. 뉴스 및 정치 강령의 문맥이 부족한 문장에서, 도덕적 단서가 드물고 클래스 불균형이 심한 환경에서 실제로 이루어집니다. 이는 고급 현대 신경 모델조차도 세밀한 문장 수준 가치 탐지를 intrinsically 어렵게 만듭니다.
+
+- **Technical Details**: 연구에서는 먼저 이진 도덕 존재 작업을 설정하여 단일 문장에서 훈련 가능성을 보여줍니다. 두 가지 접근법, 즉 presence-gated hierarchy와 직접 다중 라벨 분류기를 비교하여 계산량이 같음에도 불구하고 계층적 방식이 직접 예측을 능가하지 못함을 확인했습니다. 또한, Gemma 2 9B, Llama 3.1 8B 등의 instruction-tuned LLMs를 도입하여 zero-/few-shot 및 QLoRA 셋업에서 벤치마크를 수행했습니다.
+
+- **Performance Highlights**: 소프트-보팅(supervised ensemble) 접근법을 통해 macro-F1 0.332를 달성하여 최상위 단일 모델을 상당히 초과했고 이전의 English-only 기준을 초과했습니다. 연구는 높은 성능을 위해서는 경량 신호와 소규모 앙상블이 가장 신뢰할 수 있는 개선을 제공하며, 계층적 게이팅은 제한된 이점만 제공함을 강조합니다. 마지막으로, 8GB의 싱글 GPU 제약하에 세심하게 조정된 감독 인코더가 구조화된 인간 가치 탐지의 강력하고 계산적으로 효율적인 기준으로 남아있음을 주장합니다.
+
+
+
+### Domain-Adaptation through Synthetic Data: Fine-Tuning Large Language Models for German Law (https://arxiv.org/abs/2601.14160)
+- **What's New**: 이번 논문은 독일 법률 질의 응답에 적합하도록 대형 언어 모델(LLM)을 조정하기 위한 새로운 합성 데이터 생성 방법을 제안합니다. 이 방법은 고가의 사람 민감 데이터가 아닌, 권위 있는 독일 법령에서 직접 생성된 고품질 법률 질문-답변 쌍을 제공합니다. 연구진은 엄격한 자동 필터링 방법과 파라미터 효율적인 미세 조정 기법을 활용하여, 합성 데이터에 의해 조정된 LLM이 기존 모델보다 현저히 우수한 성능을 보인다는 것을 입증하였습니다.
+
+- **Technical Details**: 연구는 독일 법률에 기반한 질의 응답 데이터의 합성을 목표로 두 가지 접근 방식을 탐구합니다: (i) 단순한 지침 스타일 생성 및 (ii) 난이도에 따라 질문을 생성하는 전략입니다. 이 모델들은 NLG(Natural Language Generation) 스타일의 필터링 단계가 추가되어 사실적 일관성을 향상시킵니다. 연구진은 LLaMA 3.1과 Gemma 3이라는 두 개의 현대적인 오픈소스 LLM을 활용하여 조정 과정에서 파라미터 효율적인 LoRA 기법을 적용하였습니다.
+
+- **Performance Highlights**: 제안된 방법은 평가 데이터세트에서 쉽게 확인할 수 있으며, 난이도 기반 생성을 통해 기본 모델보다 일관된 상승세를 보이는 결과를 나타냅니다. 독일 법률 질의 응답의 적절한 정확도를 보여줌과 동시에 일반적인 성능 저하가 없습니다. 연구 결과와 함께 세밀하게 설계된 합성 데이터의 사용이 고위험, 지식 집약적 도메인에서 수작업 주석의 실용적인 대안이 될 수 있음을 강조하였습니다.
+
+
+
+### Lost in the Prompt Order: Revealing the Limitations of Causal Attention in Language Models (https://arxiv.org/abs/2601.14152)
+Comments:
+          preprint
+
+- **What's New**: 이번 연구는 대규모 언어 모델(Large Language Models, LLMs)의 프롬프트 구조에 대한 민감성을 심층적으로 조사합니다. 특히 다중 선택 질문 답변(MCQA)에서 문맥을 질문과 옵션 앞에 배치하는 경우(CQO)가 반대 순서(QOC)보다 평균적으로 14%p 개선된 성능을 보이는 사례를 다룹니다. 이러한 발견은 LLM의 성능을 향상시키기 위한 새로운 관점을 제공합니다.
+
+- **Technical Details**: 이 연구의 핵심 메커니즘은 인과적 주의(causal attention)로, QOC 프롬프트의 인과적 마스크가 옵션 토큰이 문맥에 주목하지 못하게 하여 정보 병목을 생성하는 것으로 나타났습니다. 다양한 모델과 데이터셋에서 QOC의 성능 저하 원인으로 세 가지 가설을 세우고, 인과적 주의가 가장 일관된 설명임을 입증하기 위해 여러 실험을 수행했습니다. 실험 결과, 문맥 길이와 옵션 위치가 인과적 마스킹의 영향을 미칠 수 있다는 사실도 발견했습니다.
+
+- **Performance Highlights**: 모델 비교 실험을 통해 디코더 전용(를) 모델에서 14.72%의 성능 격차를 보이는 반면, 인코더-디코더 및 인코더 전용 모델에서는 유의미한 차이가 없다는 결과를 얻었습니다. 이로써 인과적 주의가 MCQA에서 문맥 순서 민감성의 주요 메커니즘임을 확인했습니다. 또한 CQO에서 문맥이 더 잘 활용되는 반면 QOC에서는 옵션 자체에 대한 의존도가 증가하는 경향이 관찰되었습니다.
+
+
+
+### Style Transfer as Bias Mitigation: Diffusion Models for Synthetic Mental Health Text for Arabic (https://arxiv.org/abs/2601.14124)
+- **What's New**: 이 연구는 정신 건강 분석에서 데이터 부족과 성별 편향을 줄이기 위한 새로운 접근법인 프리트레이닝(Pretraining) 없는 확산 기반(diffusion-based) 기법을 제안합니다. 기존 대형 언어 모델(LLMs)에 의존하지 않고, 성별 편향 완화를 스타일 전이(style transfer) 문제로 재구성하여 고유한 데이터 생성을 가능하게 합니다. CARMA 아랍어 정신 건강 코퍼스를 활용하여 남성-여성 스타일 전이를 통해 여성 작가의 콘텐츠를 보강하는 데 중점을 두었습니다.
+
+- **Technical Details**: 이 연구에서는 아랍어 데이터셋의 성별 표현을 캡처하기 위해 다섯 개의 데이터셋을 구성하고 각각의 설정에서 별도의 확산 모델을 훈련했습니다. 확산 기반 스타일 전이 방식을 통해 생성된 데이터는 원본 텍스트와의 의미적 충실도를 유지하며, 성별 변환을 가능하게 하는 언어적 진실성을 확보했습니다. 텍스트 스타일 전이 확산 모델은 아랍어 호환 토크나이저(tokenizer)를 사용하여 훈련 목표를 단순화하여 설정하였습니다.
+
+- **Performance Highlights**: 제작된 합성 데이터는 원본 데이터와 비교할 때 상대적으로 높은 엔트로피(entropy)를 나타내어 다양성을 확보하고 있으며, 명확한 스타일 변화가 확인되었습니다. 연구 결과는 확산 기반 스타일 전이가 프리트레인된 LLM에 의존하지 않고도 성 féminin 데이터를 효과적으로 생성할 수 있음을 보여주었습니다. 이는 정신 건강 분야와 같이 데이터 자원이 부족한 민감한 주제에서 성별 편향을 완화하는데 효과적이고 유연한 프레임워크를 제공합니다.
+
+
+
+### A Systematic Analysis of Chunking Strategies for Reliable Question Answering (https://arxiv.org/abs/2601.14123)
+Comments:
+          3 pages, 2 figures, 1 table, pre-print
+
+- **What's New**: 이 논문은 산업에서 Retrieval-Augmented Generation (RAG) 시스템의 문서 청크(chunk) 선택이 신뢰성에 미치는 영향을 연구합니다. 청크 방법(토큰, 문장, 의미 및 코드)의 변인을 체계적으로 분석하여 실산업 환경에서의 적용 가능성을 높이고자 하였습니다. 특히, 중복 청크를 지양하고 문장 청크를 선호하며, 맥락 길이에 주의를 기울일 것을 권장합니다.
+
+- **Technical Details**: 본 연구는 두 단계의 RAG 파이프라인을 평가합니다. 이 과정에서 청크된 문서를 인덱싱하는 스파스 리트리버(sparse retriever)와, 문맥에서 답변하도록 조정된 LLM을 사용합니다. 표준 데이터를 기반으로 문맥 길이 및 청크 크기 변화에 따라 정확도 및 비율을 측정합니다.
+
+- **Performance Highlights**: 실험 결과, 문장 청크를 사용할 경우 신뢰성과 비용 효율성이 가장 높았으며, 중복 청크는 성능을 향상시키지 못하는 것으로 나타났습니다. 최적의 문맥 범위는 약 2.5k 토큰에서 성능이 저하되는 'context cliff'를 경계해야 하며, 문서 요약 및 질문 응답(task)에 따라 조정이 필요합니다.
+
+
+
+### NewsRECON: News article REtrieval for image CONtextualization (https://arxiv.org/abs/2601.14121)
+Comments:
+          Preprint under review. Code available at this https URL
+
+- **What's New**: 본 연구에서는 뉴스 이미지를 맥락화하는 과정에서 RIS (reverse image search) 엔진이 사용 불가능한 경우를 다루기 위해 NewsRECON을 소개합니다. 기존의 방법들이 웹 페이지 주변 내용에서 날짜나 위치를 유추하는 데 의존하는 반면, NewsRECON은 90,000개 이상의 뉴스 기사를 활용하여 직접적으로 날짜와 위치 추측을 가능하게 합니다. 또한, 실험 결과 NewsRECON이 이전 연구들보다 우수한 성능을 보여준다.
+
+- **Technical Details**: NewsRECON은 세 가지 주요 구성 요소로 이루어져 있습니다: 1) 이중 인코더(bi-encoder)는 주어진 이미지에 대한 이벤트 관련 기사를 검색합니다. 2) 첫 번째 크로스 인코더(cross-encoder)는 이미지와 위치의 유사성을 바탕으로 기사를 재정렬합니다. 3) 두 번째 크로스 인코더는 이벤트의 일관성에 따라 기사 클러스터를 재정렬합니다. 이러한 방법을 통해 NewsRECON은 이미지 날짜와 위치를 효과적으로 예측할 수 있습니다.
+
+- **Performance Highlights**: TARA 벤치마크에서 NewsRECON은 이전의 검색 기반 방법에 비해 9.7% 높은 GREAT 점수로 성능을 입증했습니다. 또한, top-3 기사를 다중 모달 대형 언어 모델(MLLM)에 입력하여 새로운 SOTA 결과를 달성하였습니다. NewsRECON은 TARA에서 훈련된 후 5Pils-OOC 벤치마크에서도 이러한 성능을 일반화하여 지속적으로 뛰어난 결과를 나타냈습니다.
+
+
+
+### Learning to Explain: Supervised Token Attribution from Transformer Attention Patterns (https://arxiv.org/abs/2601.14112)
+- **What's New**: 본 논문에서는 Explanation Network (ExpNet)을 소개하여, transformer 모델의 attention 패턴을 토큰 수준의 중요도 점수로 명시적으로 매핑하는 방법을 제안합니다. 기존의 attention 기반 설명 방법들은 수작업으로 정의된 집계 전략에 의존했으나, ExpNet은 최적의 attention 기능 조합을 자동으로 발견합니다. 이는 인간의 합리적 판단에 기초한 학습 접근 방식을 통해 설명 가능성을 한층 강화합니다.
+
+- **Technical Details**: ExpNet은 BERT-base 모델을 활용하여, 입력 문서의 attention 패턴을 분석함으로써 각 토큰의 중요도를 학습합니다. 클래스 토큰 [CLS]를 시작으로 각 레이어에서 수집된 정보를 통해 예측을 형성하며, 두 가지 주요 attention feature를 추출하여 토큰의 중요성을 평가합니다. 이러한 학습된 강조는 다양한 모델을 위한 일반화 가능성을 갖추고 있으며, 추상화된 설명 체계를 통해 기존의 특정 규칙이나 수치에 의존하지 않습니다.
+
+- **Performance Highlights**: ExpNet은 여러 모델-불가지론적 접근 방식과 기존의 attention 기반 기술에 대해 종합적인 성능 평가를 실시하였습니다. cross-task 환경에서의 설명 가능성을 입증하며, 기존의 기준 방법들보다 일관되게 개선된 성능을 보여주었습니다. 광범위한 실증적 검사를 통해 최첨단 성과를 달성함으로써, 리팩토링된 해석 가능성의 새로운 기준을 제시합니다.
+
+
+
+### Truth with a Twist: The Rhetoric of Persuasion in Professional vs. Community-Authored Fact-Checks (https://arxiv.org/abs/2601.14105)
+Comments:
+          In Proceedings of the ACM Web Conference 2026 (WWW 2026)
+
+- **What's New**: 본 연구는 Crowd(군중) 및 전문가가 작성한 디벙크(부정확한 정보에 대한 반박)의 설득 기법을 대규모로 비교한 첫 번째 연구입니다. Community Notes(CNs), EUvsDisinfo, 그리고 Database of Known Fakes(DBKF)로부터 방대한 데이터 세트를 이용하여, 이러한 사실 확인 생태계에서 설득 기법의 존재와 종류를 정량화했습니다. 놀랍게도, 커뮤니티가 생성한 디벙크가 전문가 디벙크보다 더 주관적이거나 설득적인 언어를 사용하는 경향이 없음을 발견했습니다.
+
+- **Technical Details**: 이 연구는 Crowd(군중) 작성 디벙크를 나타내는 CN 데이터 세트와 전문가가 작성한 두 가지 데이터 세트, EUvsDisinfo 및 DBKF를 활용하여 진행되었습니다. CN 데이터 세트는 2,016,841개의 디벙크를 포함하고 있으며, 특히 DBKF는 전 세계적으로 681,346개의 디벙크를 포함하는 방대한 데이터베이스입니다. 텍스트에서 설득 기법은 Wu et al.(2023)이 개발한 최첨단 다국어 분류기를 통해 감지되며, 각 텍스트는 최대 512개의 토큰으로 제한됩니다.
+
+- **Performance Highlights**: 연구 결과, CNs가 전문가가 작성한 디벙크보다 설득적인 언어를 더 많이 사용하지 않는다는 것을 밝혔습니다. 또한, 설득적인 요소가 더 많은 CN이 상대적으로 더 높은 유용성 평가를 받을 수 있지만, 이들은 특정한 문제가 있는 수사적 수단의 사용에 대해 효과적으로 처벌하는 경향이 있음을 보여주었습니다. 이러한 결과는 커뮤니티가 자율적으로 관리하는 방식이 설득 기술 사용을 탐지하고 처벌할 수 있는 능력을 나타냅니다.
+
+
+
+### XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs (https://arxiv.org/abs/2601.14063)
+Comments:
+          30 Pages, 13 Figures
+
+- **What's New**: 이번 연구에서는 XCR-Bench라는 크로스 문화적 추론 벤치마크를 소개합니다. XCR-Bench는 4,900개의 병렬 문장과 1,098개의 문화 특정 아이템(CSI)를 포함하며, 세 가지 별도의 추론 과제로 구성되어 있습니다. 이 데이터셋은 Newmark의 CSI 프레임워크와 Hall의 문화 3요소를 통합하여 보다 체계적인 문화적 추론을 가능하게 합니다.
+
+- **Technical Details**: XCR-Bench는 CSI 식별, CSI 예측, CSI 적응의 세 가지 과제를 정의하고 있습니다. 각 과제는 문화적 추론을 조작화하며, 모델이 문화적 단서를 해석하고 맥락에 적합성을 평가하며 문화적으로 기반이 있는 결정을 정당화하는 과정을 요구합니다. 문화적 요소의 측정은 가시적, 반가시적, 비가시적 문화적 수준을 포함하여 구조화됩니다.
+
+- **Performance Highlights**: 최신 LLM들이 서양 문화 관련 요소를 예측하는 데에서는 비교적 강한 성능을 보이지만, CSI를 식별하거나 문화적 맥락에 맞춰 적응하는 데 있어서는 상당히 약한 성능을 보였습니다. 이러한 결과는 단일 언어 내에서 지역적 편향도 드러내며, 특정 문화 변형 간의 적응 성능에 차이가 있음을 보여줍니다.
+
+
+
+### Kakugo: Distillation of Low-Resource Languages into Small Language Models (https://arxiv.org/abs/2601.14051)
+- **What's New**: Kakugo는 낮은 자원이 있는 언어를 위한 일반 목적의 Small Language Models (SLMs)를 훈련시키기 위해 설계된 혁신적이며 비용 효율적인 파이프라인입니다. 언어 이름만을 입력으로 사용하여 다양하고 효과적인 훈련 데이터를 생성하고, 54개의 낮은 자원 언어에 대한 SLM을 생산했습니다. Kakugo는 언어 특화 AI 도구 개발을 위한 접근성을 대폭 향상시킵니다.
+
+- **Technical Details**: Kakugo는 모델 증류(model distillation)를 활용하여 전체 개발 프로세스를 자동화합니다. 큰 teacher model인 GPT-OSS 120B를 사용하여 다양한 합성 프롬프트와 응답을 생성하고, 고품질 instruction datasets를 목표 언어로 번역함으로써 훈련 데이터를 생성합니다. 이를 통해 학생 모델인 IBM의 Granite 4 Micro를 미세 조정(fine-tuning)합니다.
+
+- **Performance Highlights**: Kakugo는 번역, 분류(classification), 질문 응답(question answering) 등 여러 일반 NLP 작업에서 성능을 향상시킵니다. 이 파이프라인은 기존 모델들에 비해 여러 작업에서 일관되게 성능이 개선되는 것을 보여줍니다. 또한, 언어당 50달러 이하의 비용으로 언어 특화 SLM을 개발할 수 있는 방법을 제공합니다.
+
+
+
+### Understanding Multilingualism in Mixture-of-Experts LLMs: Routing Mechanism, Expert Specialization, and Layerwise Steering (https://arxiv.org/abs/2601.14050)
+- **What's New**: 이 연구에서는 Mixture-of-Experts (MoE) 아키텍처의 다국어 처리 능력을 체계적으로 분석했습니다. 내부 메커니즘이 성능 향상과 언어 간 차이에 어떻게 기여하는지를 탐구하며, MoE 모델의 라우팅 행동과 전문가 특화(expert specialization)가 언어 및 네트워크 깊이에 따라 어떻게 달라지는지를 조사했습니다.
+
+- **Technical Details**: 분석 결과, MoE 모델의 다국어 처리는 매우 구조적임을 발견했습니다. 라우팅은 언어군에 맞춰 정렬되며, 전문가 활용은 명확한 레이어별 패턴을 따릅니다. 고자원 언어는 공유 전문가에 의존하는 반면, 저자원 언어는 성능이 약함에도 불구하고 언어 전용 전문가에 의존하는 경향이 있습니다.
+
+- **Performance Highlights**: 레이어별 개입을 통해 초기 및 최종 MoE 레이어가 언어 특정 처리를 지원하고 중간 레이어는 언어 비독점적인 용량 허브로 작용한다는 것을 보여주었습니다. 이러한 통찰을 기반으로, 우리는 중간 레이어에서 지배적인 언어와 관련된 공유 전문가로 라우팅 동작을 유도하는 방법을 제안하여, 특히 언어적으로 관련된 언어 쌍에 대해 일관된 다국어 성능 개선을 이끌어냈습니다.
+
+
+
+### PRiSM: Benchmarking Phone Realization in Speech Models (https://arxiv.org/abs/2601.14046)
+- **What's New**: 이 논문에서는 음성 인식(Phone Recognition, PR) 시스템을 위한 최초의 오픈 소스 벤치마크인 PRiSM을 소개합니다. PRiSM은 PR 시스템의 내재적 및 외재적 평가를 통해 음성 인식의 맹점을 드러내기 위해 설계되었습니다. 이 시스템은 전통적인 평가 방법이 가지는 한계를 극복하고 임상, 교육, 다국어 환경에서의 유용성을 평가하는 데 중점을 둡니다.
+
+- **Technical Details**: PRiSM은 음성 데이터를 음소 기호로 변환하는 PR 기술을 다루며, 이는 언어 무관한 방식으로 음성 처리가 가능합니다. 본 연구에서는 PR 시스템을 독립적으로 평가하기 위해 전사 오류율(Phonetic Feature Error Rate, PFER) 및 내부 표현을 통한 외재적 평가를 활용합니다. 다양한 언어 노출이 PR 성능에 미치는 영향을 조사하고, 인코더-CTC 아키텍처가 더 안정적임을 발견했습니다.
+
+- **Performance Highlights**: 연구 결과, 보이는 언어에 대한 노출은 친숙한 패턴을 통해 이점을 제공하고, 보이지 않는 언어는 다국어 훈련을 통해 혜택을 받는 것으로 나타났습니다. 또한, 특수 PR 모델이 대형 오디오 언어 모델(Large Audio Language Models, LALMs)보다 향상된 성능을 보임을 확인했습니다. 마지막으로, PRiSM은 코드, 레시피 및 데이터셋을 제공하여 다국어 음성 모델 구축을 촉진하는데 기여합니다.
+
+
+
+### Top 10 Open Challenges Steering the Future of Diffusion Language Model and Its Variants (https://arxiv.org/abs/2601.14041)
+- **What's New**: 대규모 언어 모델(LLMs)의 발전은 현재 순차적인 텍스트 생성 방식을 사용하는 자가 회귀(auto-regressive, AR) 아키텍처에 의해 정의되고 있습니다. 그러나 이러한 AR 모델은 인과적 병목 현상(causal bottleneck)으로 인해 즐겨 사용되는 구조적 예측과 반복적인 수정의 한계를 지니고 있습니다. 여기서 확산 언어 모델(Diffusion Language Models, DLMs)이 대안으로 제시되며, 이는 텍스트 생성을 조각을 다듬는 조각가의 모습에 비유하여 더 나은 보고서, 계획, 또는 이론 등의 구조적 출력을 iteratively refinements 할 수 있습니다.
+
+- **Technical Details**: DLM은 전체 텍스트를 동시적으로 정제하는 과정을 특징으로 하며, 비순차적 생성(non-sequential generation), 양방향 문맥 모델링(bidirectional context modeling), 유연한 텍스트 편집을 지원하는 장점이 있습니다. 하지만 현재 DLM들은 주로 AR 모델을 위해 최적화된 구조적 인프라와 데이터 파이프라인 제약으로 인해 비효율적입니다. 이러한 문제를 해결하기 위해 DLM의 기반 인프라와 알고리즘 최적화 방식, 인지적 추론(cognitive reasoning) 및 통합된 멀티모달 인공지능의 필요성이 강조되고 있습니다.
+
+- **Performance Highlights**: DLM이 다음 세대 AI 모델인 복잡한 구조적 추론 및 동적인 자기 수정 기능을 갖출 수 있도록 하는 것이 중요하다고 주장합니다. Diffusion-native 시스템은 다중 규모의 토큰화와 활동적 리마스킹(active remasking)을 통해 인과적 한계를 초월하는 방향으로 나아가야 하며, 이러한 방향성을 갖추어 나가면서 이론적 가능성을 높일 수 있습니다. 특히, 기존의 기계 모델들이 겪는 생산성 저하와 구조적 지능 부족 문제를 해결하는 데 있어 DLM은 더 우수한 대안을 제공할 수 있습니다.
+
+
+
+### RM-Distiller: Exploiting Generative LLM for Reward Model Distillation (https://arxiv.org/abs/2601.14032)
+- **What's New**: 이번 연구에서는 생성적 대형 언어 모델(LLM)로부터 보상 모델(RM)을 체계적으로 증류하는 RM-Distiller라는 프레임워크를 제안합니다. 기존의 방법들이 주로 이진 주석자(binary annotators)로 LLM을 사용한 반면, RM-Distiller는 교사 모델의 다양한 능력을 활용하여 더 효과적인 보상 모델을 생성하는 데 중점을 둡니다. 이러한 접근은 보상의 정밀한 강도를 포착하고 기본적인 언어 프로세싱 능력을 보존하는 데 중요한 역할을 합니다.
+
+- **Technical Details**: RM-Distiller는 세 가지 기능, 즉 Refinement capability (정제 능력), Scoring capability (점수 매기기 능력), Generation capability (생성 능력)를 통해 LLM의 다면적 능력을 활용하여 보상 모델을 개선합니다. 정제 능력은 거부된 응답을 목표로 수정하여 선호의 차이를 반영하는 세밀하고 대조적인 응답 쌍을 생성합니다. 점수 매기기 능력은 이진 주석 대신 연속적인 선호 점수를 제공하여 RM의 최적화를 마진 기반의 목표와 함께 수행합니다.
+
+- **Performance Highlights**: RM-Distiller는 RM 벤치마크 및 강화 학습 기반 정합 작업에서 기존의 증류 방법보다 더 뛰어난 성능을 보였습니다. 또한, 이번 연구는 생성적 LLM으로부터 보상 모델을 증류하는 체계적인 접근 방식을 최초로 제시하며, 여기에 대한 실험 결과 RM 정확도 및 RL 정합성을 유의미하게 향상시켰습니다. RM-Distiller는 다양한 상황에서 강력한 효과를 발휘하여, 보상 모델에서의 새로운 기준을 설정하는 데 기여하고 있습니다.
+
+
+
+### BACH-V: Bridging Abstract and Concrete Human-Values in Large Language Models (https://arxiv.org/abs/2601.14007)
+Comments:
+          34 pagess, 16 figures, 6 tables, submitted to ACL 2026
+
+- **What's New**: 이 논문에서는 대형 언어 모델(LLMs)의 추상 개념 이해 능력을 평가하기 위해 새로운 추상화-기반 프레임워크를 제안합니다. 이 프레임워크는 추상적 개념의 해석(추상-추상, A-A), 구체적인 사건에서의 추상 개념의 기초화(추상-구체, A-C), 그리고 구체적인 결정을 조절하기 위한 추상 원칙의 적용(구체-구체, C-C)이라는 세 가지 능력으로 구성됩니다. 이를 통해 LLM이 진정한 개념적 이해를 보이는지 여부를 검사합니다.
+
+- **Technical Details**: 연구에서는 인간 가치 개념을 테스트베드로 사용하여 LLMs의 내부 표현을 평가하기 위한 두 가지 방법, 즉 패시브 프로빙(Passive Probing)과 액티브 스티어링(Active Steering)을 적용합니다. 패시브 프로빙은 가치 개념이 LLM의 내부 상태에 남기는 흔적을 식별하는 것을 목표로 하며, 액티브 스티어링은 이러한 표현을 수정하여 예측 가능한 행동 변화를 일으키는지를 검증합니다. 이 연구는 각 LLM의 트랜스포머 아키텍처에서 내부 활동을 추출하여 실험을 진행했습니다.
+
+- **Performance Highlights**: 실험 결과, LLM은 추상 가치 설명만으로 훈련된 진단 프로브가 구체적 사건 내러티브 및 결정 추론에서 같은 가치를 안정적으로 감지한다는 것을 보여주었습니다. 또한, 스티어링 실험에서는 가치 표현 수정이 구체적 판단 및 결정(A-C, C-C)에 causal한 변화를 일으키지만, 추상적 해석(A-A)은 변하지 않아, 인코딩된 추상 값이 상대적으로 안정적이라는 것을 시사합니다. 이런 결과는 LLM이 추상화와 행동을 연결하는 구조적 가치 표현을 유지하고 있음을 나타냅니다.
+
+
+
+### Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models (https://arxiv.org/abs/2601.14004)
+- **What's New**: 이 논문에서는 대형 언어 모델(LLM)의 불투명한 의사결정 과정을 해명하기 위한 기계 해석 가능성(Mechanistic Interpretability, MI) 접근 방식의 중요성을 강조하고, 이를 통해 실행 가능한 개입(intervention)을 위한 체계적인 프레임워크를 제공하고 있습니다. 특히, MI를 단순 관찰 과학으로 취급하는 기존의 리뷰와 달리, 'Locate, Steer, and Improve'라는 새로운 프로세스를 제안하여 실제 모델 최적화에 필요한 구조를 명확히 하고 있습니다.
+
+- **Technical Details**: 논문에서 제안하는 구조는 MI 적용을 위한 두 단계로 나뉘며, 진단(Diagnosis) 단계에서 특정 행동에 대한 인과적 구성 요소를 식별하고, 개입(Intervention) 단계에서 이러한 요소를 조작하여 모델 출력을 변경합니다. LLM의 핵심 해석 가능한 객체에 대한 통합 수학적 공식화를 마련하고, 디코더 전용 트랜스포머 아키텍처를 다루면서 관련 수학적 기호와 구조를 명확히 설명합니다.
+
+- **Performance Highlights**: 이 연구는 MI를 통해 Alignment, Capability 및 Efficiency를 향상시킬 수 있는 구체적인 시나리오로 구성된 광범위한 MI 응용 사례를 제공합니다. 또한 200편 이상의 관련 논문이 체계적으로 정리되어 있어 MI 기법의 실제적 활용에 있어 유용한 참고 자료가 될 것으로 기대됩니다.
+
+
+
+### From Tags to Trees: Structuring Fine-Grained Knowledge for Controllable Data Selection in LLM Instruction Tuning (https://arxiv.org/abs/2601.13995)
+- **What's New**: 이번 연구에서는 TAGS(Tree-aware Aligned Global Sampling)라는 새로운 프레임워크를 제안하여 데이터 선택의 효율성을 크게 향상시켰습니다. 기존의 데이터 선택 방법들은 instance-level quality scores나 단순한 diversity metrics에 의존했으나, 이는 세부적인 지식을 간과하게 만듭니다. TAGS는 세분화된 태그를 기반으로 한 지식 트리를 활용하여 데이터의 품질, 다양성 및 목표를 동시에 조절할 수 있는 방법을 제공합니다.
+
+- **Technical Details**: TAGS는 글로벌 지식 구조를 파악하기 위해 하향식 클러스터링을 통해 구성된 글로벌 지식 트리를 사용합니다. 이 프레임워크는 데이터 인스턴스를 트리에 고정시키고, 데이터의 유용성을 평가할 때 정보 흐름을 사용하여 데이터 품질을 정량화합니다. 여기에 적용된 concave aggregation function은 중복된 개념에 대한 수익을 감소시켜 지역적 품질과 글로벌 다양성을 균형 있게 유지합니다.
+
+- **Performance Highlights**: TAGS는 다양한 지식 기반 평가에서 기존의 최신 기술보다 우수한 성과를 나타냈습니다. 특히, 전체 데이터를 사용하는 모델보다 단 5%의 데이터로도 5.84% 향상된 성능을 보였으며, 지식 정렬 샘플링 전략을 통해 평균 성능이 추가로 4.24% 향상되었습니다. 이와 같은 결과는 TAGS의 효과적인 도메인 특화 적응을 강조합니다.
+
+
+
+### "The Whole Is Greater Than the Sum of Its Parts": A Compatibility-Aware Multi-Teacher CoT Distillation Framework (https://arxiv.org/abs/2601.13992)
+Comments:
+          11pages, 9figures
+
+- **What's New**: 본 논문에서는 COMPACT라는 새로운 프레임워크를 소개합니다. 이는 다양한 Teacher로부터의 Supervision을 동적으로 융합하여 Student Model(학생 모델)이 보다 강력한 Reasoning(추론) 능력을 발휘할 수 있도록 합니다. 기존의 단일 Teacher 모델에 의존하는 한계를 극복하고, 여러 Teacher의 지식을 효과적으로 통합하는 체계적인 접근 방식을 제안합니다.
+
+- **Technical Details**: COMPACT는 세 가지 주요 지표인 Graph-based Consensus(그래프 기반 합의), Mutual-Information-based Adaptability(상호정보 기반 적응성), Loss-based Difficulty(손실 기반 난이도)를 통해 Teacher와 Student의 호환성을 평가합니다. 이를 통해 학생은 가장 적합하고 질 높은 Teacher의 Gradient(기울기)를 선택적으로 조합할 수 있어 파라미터 간의 간섭(cancellation effects)을 방지할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, COMPACT는 In-Distribution(ID) 및 Out-of-Distribution(OOD) 벤치마크에서 최첨단 성능을 달성하였습니다. 또한, 교수자의 지식을 내부화하면서도 원래의 표현 공간을 방해하지 않는다는 것을 증명하여 재난적 망각(catastrophic forgetting)을 완화할 수 있음을 입증했습니다.
+
+
+
+### Automatic Prompt Optimization for Dataset-Level Feature Discovery (https://arxiv.org/abs/2601.13922)
+Comments:
+          5 Figures, 1 Table
+
+- **What's New**: 이 연구는 비구조화된 텍스트에서의 특징 발견(feature discovery)을 데이터셋 수준의 프롬프트 최적화 문제로 정의합니다. 기존의 수작업 프롬프트나 고정된 특징 스키마에 의존하는 대신, 언어 모델(LM) 에이전트들이 함께 협력하여 특징 정의를 제안하고, 특징 값을 추출하며, 특징 품질을 평가하는 다중 에이전트 프롬프트 최적화 프레임워크를 제안합니다.
+
+- **Technical Details**: 이 방법은 LLM(대형 언어 모델) 에이전트를 활용하여 특징 정의를 제안하는 FeatureProposer, 주어진 정의에 따라 텍스트에서 특징을 추출하는 Extractor, 이러한 특징의 해석 가능성을 평가하는 InterpretabilityScorer로 구성된 협동 시스템을 사용합니다. 이 알고리즘은 데이터셋 수준 피드백을 기반으로 하여 특징을 최적화하는 것을 목표로 합니다.
+
+- **Performance Highlights**: 연구 결과, 제안된 프롬프트 최적화 방법이 수작업 프롬프트에 의존하는 기존의 LM 기반 특징 발견 접근법은 물론, 샘플별 피드백용으로 설계된 현존하는 프롬프트 최적화 방법인 MIPRO를 초월하는 성능을 보여주었습니다. 그 결과, 본 연구는 비구조화된 텍스트로부터의 자동화된 특징 발견을 가능하게 하는 정량적 메커니즘을 제공합니다.
+
+
+
+### HyperWalker: Dynamic Hypergraph-Based Deep Diagnosis for Multi-Hop Clinical Modeling across EHR and X-Ray in Medical VLMs (https://arxiv.org/abs/2601.13919)
+Comments:
+          Under Review
+
+- **What's New**: 이번 논문에서는 의료 AI의 핵심 도전 과제인 자동 임상 진단을 해결하기 위해 새로운 프레임워크인 	extbf{HyperWalker}를 제안합니다. HyperWalker는 다이나믹 하이퍼그래프와 테스트 시 학습(test-time training) 접근 방식을 통해 기존의 샘플 격리 인퍼런스(paradigm)를 넘어서려 합니다. 이 모델은 환자의 전자 건강 기록(EHR)과 진단 결과를 통합하여 더 정확한 진단을 가능하게 하며, 임상 정보의 다차원 상관관계를 모델링합니다.
+
+- **Technical Details**: HyperWalker는 'iBrochure'라는 다이나믹 하이퍼그래프를 구성하여 EHR 데이터의 구조적 이질성과 다중 모달 임상 정보 간의 연관성을 모델링합니다. 또한, 이 모델에는 강화 학습 에이전트인 	extbf{Walker}가 포함되어있어 최적의 진단 경로를 찾아내는 작업을 수행합니다. 테스트 샘플의 다양한 특성을 포괄적으로 커버하기 위해 'linger mechanism'을 도입하여 여러 번의 외부 환자 사례를 iteratively 선택하는 전략을 사용합니다.
+
+- **Performance Highlights**: 실험 결과, HyperWalker는 MIMIC 및 EHRXQA 데이터셋에서 최첨단 성과를 달성하였으며, 이는 의학 VQA 및 의료 보고서 생성(MRG) 분야에서의 효율성을 입증합니다. 이러한 성과는 임상에서 발생하는 특정한 상황들에 맞춰 모델이 적응할 수 있도록 하여, 통합된 진단 이론과 실증 근거 기반의 사고 과정을 상징합니다.
+
+
+
+### AgentEHR: Advancing Autonomous Clinical Decision-Making via Retrospective Summarization (https://arxiv.org/abs/2601.13918)
+Comments:
+          37 pages, 12 figures
+
+- **What's New**: 이번 논문은 응급의료기록(EHRs)의 탐색을 위해 복잡한 의사결정 작업을 수행하는 에이전트인 AgentEHR을 소개합니다. 기존 연구의 한계를 극복하고真实세계의 임상 환경에서의 실제 데이터에서의 상호작용을 포함하여 다단계 정보 검색 및 임상 추론을 요구하는 새로운 벤치마크입니다. 이 연구는 단순히 사실 기반 정보 검색을 넘어서, 정확한 진단 및 치료 예측을 위한 적극적인 참여를 요구하고 있습니다.
+
+- **Technical Details**: RetroSum이라고 불리는 새로운 프레임워크를 통해, 임상 EHR 분석의 복잡성을 해결합니다. 이 메커니즘은 과거의 상호작용 기록을 역설적으로 요약하고, 지속적인 논리 일관성을 유지하는 방식으로 설계되었습니다. 이는 에이전트가 긴 상호작용 기록을 관리하면서 발생할 수 있는 정보 손실을 방지하도록 돕습니다.
+
+- **Performance Highlights**: RetroSum은 기존의 성능 기준을 상회하는 성능 향상을 보여주며, 최대 29.16%의 성과 향상과 함께 총 상호작용 오류를 92.3%까지 감소시키는 것을 입증했습니다. 이러한 결과는 세계의 임상 의사결정의 복잡한 역학을 처리하는 데 있어 RetroSum의 강력한 효과를 시사합니다.
+
+
+
+### Confident Rankings with Fewer Items: Adaptive LLM Evaluation with Continuous Scores (https://arxiv.org/abs/2601.13885)
+- **What's New**: 이 논문에서는 컴퓨터 적응형 테스트(Computerized Adaptive Testing, CAT)의 확장 버전을 제안합니다. 기존의 CAT 방식이 이진 결과에 초점을 맞췄다면, 이 연구는 연속적인 점수에 대해 적용할 수 있는 방법론을 도입합니다. 특히 Bernoulli 응답 분포를 이분산 정규분포(heteroskedastic normal distribution)로 대체하여 연속적인 평가를 가능하게 합니다.
+
+- **Technical Details**: 새롭게 제안된 방법은 IRT(Item Response Theory)를 기반으로 한 적응형 테스트를 지속적인 한정 점수에 맞추어 발전시킵니다. 모델 평가를 위한 알고리즘은 불확실성을 인식하는 랭커(uncertainty aware ranker)를 이용하여 모델 간의 통계적으로 유의미한 랭킹을 효율적으로 생성합니다. 이 방법은 짧은 테스트로도 신뢰할 수 있는 결과를 도출할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 제안된 방법은 5개의 다양한 벤치마크 데이터셋에서 검증되었으며, 전체 평가 예산의 2%에 해당하는 항목으로도 0.12	au의 랭킹 상관관계 개선을 보여주었습니다. 고정 길이 CAT 방식에 비해, 적응형 중지 기준을 통해 32%의 항목 감소와 42%의 비용 절감을 달성하여 훨씬 더 경제적인 모델 평가가 가능합니다.
+
+
+
+### OpenLearnLM Benchmark: A Unified Framework for Evaluating Knowledge, Skill, and Attitude in Educational Large Language Models (https://arxiv.org/abs/2601.13882)
+- **What's New**: 이번 논문에서는 LLM(대형 언어 모델)을 교육 도구로 평가하기 위한 OpenLearnLM Benchmark를 소개합니다. 기존의 기준이 교육 과학에 기반하지 않고 제한적인 기술에 집중한 반면, 새로운 벤치마크는 지식, 기술, 태도 등 세 가지 차원에서 모델을 종합적으로 평가합니다. 이 벤치마크는 12만 4천 개 이상의 항목을 포함하고 있으며, Bloom's taxonomy(블룸의 인지 영역) 기반의 다양한 주제와 난이도를 아우릅니다.
+
+- **Technical Details**: OpenLearnLM Benchmark는 KSA(지식-기술-태도) 모델을 기반으로 하여 교육 평가 이론에 구축된 체계적인 평가 프레임워크를 제공합니다. 지식 축은 커리큘럼에 맞춘 내용 지식 및 교수법 지식을 다루고, 기술 축은 블룸의 인지 영역에 따른 난이도 계층화로 구성된 시나리오 기반 역량을 평가합니다. 태도 축은 정직성 평가 방법론로서 Alignment Faking을 사용하여 모델의 행동 일관성을 검사합니다.
+
+- **Performance Highlights**: 일곱 개의 최신 모델을 평가한 결과, 모델마다 고유한 능력 프로파일이 나타났습니다. Claude-Opus-4.5는 실용적인 기술에서 우수하지만, 최소한의 내용 지식을 보여주며, Grok-4.1-fast는 높은 지식을 보유하나 정렬 문제에 직면해 있습니다. 특히, 어느 모델도 모든 차원에서 우위를 점하지 않아 다축 평가의 필요성을 확인했습니다.
+
+
+
+### Pedagogical Alignment for Vision-Language-Action Models: A Comprehensive Framework for Data, Architecture, and Evaluation in Education (https://arxiv.org/abs/2601.13876)
+- **What's New**: 본 논문에서는 Pedagogical VLA Framework를 제안하여 교육 환경에 적합한 경량의 Vision-Language-Action (VLA) 모델을 개발했습니다. 이 프레임워크는 텍스트 복구(text healing), 대규모 언어 모델(LLM) 증류(distillation), 안전 교육(safety training), 교육 평가(pedagogical evaluation) 네 가지 구성 요소를 활용하여, 과학 교육에서 학생들에게 적절한 설명을 생성할 수 있도록 합니다. 이로 인해 교육 시나리오에서의 안정성과 일관성을 향상시킬 수 있습니다.
+
+- **Technical Details**: Pedagogical VLA Framework는 교육 로봇 공학과 교육학적 정렬 연구에서 유래된 다섯 가지 디자인 원칙을 기반으로 합니다. 이 프레임워크는 데이터 수집, 아키텍처, 평가라는 세 가지 차원에서 분석할 수 있습니다. 또한, LLM 증류를 통해 교육적 지식을 경량 모델에 전달하고, 텍스트 복구를 통해 언어 생성 능력을 복원하여, 안전한 교육 환경을 위한 안전 교육 모듈을 포함하고 있습니다.
+
+- **Performance Highlights**: 실험 결과에 따르면 Pedagogical VLA Framework는 기존의 기준 모델들과 비교하여 유사한 작업 수행 능력을 달성하면서 맥락에 맞는 교육적 설명을 생성했습니다. 5가지 과학 시연을 통해 평가를 진행하였으며, 성공률, 프로토콜 준수, 효율성, 안전성과 같은 작업 수행 효율을 측정했습니다. 퀄리티 분석도 포함되어 교육적 사용성과 학습 품질을 종합적으로 평가하였습니다.
+
+
+
+### FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs (https://arxiv.org/abs/2601.13836)
+Comments:
+this https URL
+
+- **What's New**: 이번 논문에서는 Multimodal Large Language Models (MLLMs)의 오미모달(omni-modal) 미래 예측 능력을 평가하기 위한 새로운 벤치마크인 FutureOmni를 소개합니다. 기존 벤치마크가 과거 이해에 중점을 두고 있는 반면, FutureOmni는 오디오-비주얼(audio-visual) 환경에서 미래 사건을 예측하는 데 중점을 둡니다. 이 첫 번째 벤치마크는 919개의 비디오와 1,034개의 객관식 QA 쌍을 포함하여 다양한 분야를 다루고 있습니다.
+
+- **Technical Details**: FutureOmni는 스케일 가능한 LLM-assisted 및 human-in-the-loop 파이프라인을 통해 구축되었습니다. 평가된 모델들은 교차 모달(cross-modal) 인과(causal) 및 시간적(reasoning) 추론을 수행해야 하며, 미래 사건을 예측하기 위해 내부 지식(internal knowledge)을 효과적으로 활용해야 합니다. 현재 시스템들이 특히 음성이 많은 시나리오에서 어려움을 겪고 있는 것으로 나타났으며, Gemini 3 Flash가 64.8%의 정확도로 가장 높은 성능을 기록했습니다.
+
+- **Performance Highlights**: FutureOmni와 인기 있는 오디오-비주얼 및 비디오 전용 벤치마크에서 평가한 결과, NEW OF TRAINING 전략인 Omni-Modal Future Forecasting (OFF)이 미래 예측 및 일반화 향상에 기여하는 것으로 나타났습니다. 또한, 우리는 7K 샘플의 instruction-tuning 데이터셋을 큐레이션하였으며, 모든 코드와 데이터셋을 공개하였습니다. 이러한 연구를 통해 MLLMs의 한계를 극복하고, 미래 예측의 가능성을 확대하고자 합니다.
+
+
+
+### The Role of Prosodic and Lexical Cues in Turn-Taking with Self-Supervised Speech Representations (https://arxiv.org/abs/2601.13835)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 이번 연구는 인간-로봇 상호작용에서의 자연스러운 턴 테이킹(turn-taking)을 개선하기 위한 새로운 접근법을 제시합니다. 구체적으로, 자기 지도 음성 표현(self-supervised speech representations, S3Rs)을 분석하고, 이들이 음성에서의 발화 변화 예측에 있어 어떻게 작용하는지를 탐구합니다. 또한, 음성의 성조(prosody)와 어휘적 단서(lexical cues)를 보다 명확하게 조작할 수 있는 보코더(vocoder) 기반의 방법론을 도입하였습니다.
+
+- **Technical Details**: S3Rs는 음성이 지니는 다양한 음성학적, 프로소디적, 어휘적 정보를 포착하여 턴 테이킹에 기여합니다. 연구에서 사용한 음성 활동 프로젝션 모델(voice-activity projection model, VAP)은 Transformer 기반의 최신 모델로, 전이 학습된 자기 지도 음성 표현을 시용하여 구체적인 턴 테이킹 예측을 수행합니다. 연구자들은 보코더를 활용하여 프로소디와 어휘 단서를 독립적으로 조작하며, 이렇게 생성된 지식은 여기서 슬롯을 통해 타당성을 입증하는 범위에서 나타났습니다.
+
+- **Performance Highlights**: 연구 결과, 성조와 어휘적 정보 모두 턴 테이킹을 지원하는 것으로 나타났지만, 둘 중 하나가 손실되었을 때, 나머지를 이용해 성능을 유지할 수 있는 것으로 밝혀졌습니다. 특히, 성조가 일치하는 비이해 가능 노이즈에서의 예측은 깨끗한 음성과 유사한 정확도를 달성했습니다. 이러한 결과는 향후 성조만으로 작동하는 모델을 개발할 가능성을 시사하며, 이는 개인정보 보호 및 성능의 이점을 제공할 수 있습니다.
+
+
+
+### Knowledge Graph-Assisted LLM Post-Training for Enhanced Legal Reasoning (https://arxiv.org/abs/2601.13806)
+- **What's New**: 이번 논문에서는 대규모 언어 모델(LLM) 후 훈련(post-training) 방식을 개선하기 위해 지식 그래프(knowledge graph, KG)를 활용하는 새로운 접근 방식을 제안합니다. 기존 LLM은 전문 분야의 복잡한 추론 문제를 해결하는 데 한계가 있었으나, 이 연구에서는 법률 분야의 개념을 IRAC 프레임워크에 기반하여 모델링하고 12,000개의 법적 사례를 활용하여 KG를 구성하였습니다. 이를 통해 LLM의 법적 추론 능력을 향상시킬 수 있는 훈련 데이터를 생성하고, 여러 최신 LLM에 대한 성능 테스트를 실시하였습니다.
+
+- **Technical Details**: 이 연구에서는 법적 개념의 공식 모델링을 통해 LLM의 후 훈련을 위한 텍스트 훈련 데이터를 생성합니다. IRAC 프레임워크(Issue, Rule, Analysis and Conclusion)를 활용하여 법적 개념과 사건 간의 관계를 구조적으로 캡처하는 IRAC KG를 구축하였습니다. KG를 기반으로 하여 Supervised Fine-Tuning (SFT) 및 Direct Preference Optimization (DPO)이 적용된 LLM 모델을 통해 법적 주장을 더 일관되게 생성할 수 있도록 하였습니다.
+
+- **Performance Highlights**: 후 훈련된 LLM 모델은 5가지 법적 벤치마크에서 평균적으로 우수한 성능을 보였으며, 특히 70B DPO 모델은 4개의 추론 작업에서 최상의 점수를 기록하여 KG의 효과성을 입증하였습니다. 기존 LLM과 비교하여 법적 문제 해결에서 유의미하게 개선된 결과를 나타내며, 이는 법률 분야에 특화된 정보를 효과적으로 활용한 덕분이었습니다.
+
+
+
+### Habibi: Laying the Open-Source Foundation of Unified-Dialectal Arabic Speech Synthesis (https://arxiv.org/abs/2601.13802)
+- **What's New**: 이 논문에서는 아랍어 방언을 위한 통합 모델 관점에서의 음성 합성 연구의 빈틈을 채우기 위해 Habibi라는 새로운 텍스트-투-스피치(text-to-speech, TTS) 모델 모음을 제안합니다. 기존의 오픈 소스 ASR(corpus) 데이터를 활용하여 다양한 자원 고갈 방언을 지원하며, 모형의 품질이 상용 서비스보다 향상되었습니다. 이 모델은 텍스트 분별자 없이도 효과적인 인맥 학습을 통해 확장성을 유지하며, 다양한 방언 사전 기준의 첫 번째 체계적 벤치마크를 구축하는 데 전념하고 있습니다.
+
+- **Technical Details**: Habibi 모델은 20개 이상의 방언과 12개의 지역 식별자를 커버하며, 고급 아랍어 및 방언 지원에서 경쟁력을 보입니다. 모델의 효과성은 언어에 기반한 커리큘럼 학습과 방언 인식 감독 방식 미세 조정(supervised fine-tuning)에서 기인합니다. 또한, 여러 아랍어 방언을 위한 TTS 과제를 위한 표준화된 벤치마크가 마련되어 있습니다.
+
+- **Performance Highlights**: Habibi는 MSA(Common Standard Arabic)에서 동일한 성능을 보이며 현재 상용 모델보다 6개의 주요 방언 테스트 세트에서 모두 더 나은 결과를 기록합니다. 본 연구는 방언별 ASR 모델을 통합하여 종합적인 평가를 위한 중요성을 강조하며, TTS 훈련을 위한 데이터 처리 과정에서도 많은 개선을 이루었습니다. 이를 통해 단일 통합 모델과 각 방언의 전문 모델 간의 장단점에 대한 통찰력을 제공합니다.
+
+
+
+### Pro-AI Bias in Large Language Models (https://arxiv.org/abs/2601.13749)
+Comments:
+          13 pages, 6 figures. Code available at: this https URL
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)이 인공지능(AI)에 대해 체계적인 편향을 보이는지를 조사하였습니다. 세 가지 실험을 통해 AI 관련 추천이 과도하게 이루어지고, AI 직종의 급여가 비AI 직종에 비해 더 높게 추정되는 경향을 확인했습니다. 이러한 경향은 특히 전유형 모델에서 두드러지며, AI 중심의 의사결정 지원이 비표준적으로 이루어진다는 점을 보여줍니다.
+
+- **Technical Details**: 연구에서는 AI 관련 옵션이 다른 선택지에 비해 체계적으로 우대되는 'pro-AI bias'를 정의하고 이를 측정하기 위해 순위 추천, 급여 추정 및 내부 표현 간의 근접도를 평가하는 세 가지 실험을 수행했습니다. 확립된 방법론을 바탕으로, AI가 포함된 추천 리스트가 빈번하게 생성되며, 급여 추정에서는 AI 관련 직업이 비AI 직업보다 더 높은 값을 기록함을 발견했습니다.
+
+- **Performance Highlights**: 연구 결과, 비공식 모델이 AI 추천 비율에서 1.7배 더 높은 성과를 보이며, AI 급여 추정의 왜곡은 2.5배에 달하는 것으로 나타났습니다. 이는 대중적 시스템에서 AI 중심의 편향이 얼마나 깊은지를 시사하며, 이러한 결과는 다양한 결정 맥락에서 AI가 어떻게 다루어져야 하는지를 재조명하게 합니다.
+
+
+
+### Dimension-First Evaluation of Speech-to-Speech Models with Structured Acoustic Cues (https://arxiv.org/abs/2601.13742)
+Comments:
+          EACL 2026 Findings
+
+- **What's New**: TRACE(텍스트 기반 오디오 큐에 대한 추론)는 LLM(대규모 언어 모델) 심판이 음성 큐를 활용하여 비용 효율적이고 사람 중심의 음성 대 음성 평가를 수행할 수 있게 하는 새로운 프레임워크입니다. 기존의 ALM(오디오 언어 모델)이 갖는 높은 비용과 불투명함을 해소하고, HCoT(인간의 사고 흐름) 주석 프로토콜을 도입하여 기존 심판 벤치마크의 진단 능력을 향상시킵니다.
+
+- **Technical Details**: TRACE는 두 단계의 교육 없는 프레임워크로, 첫 번째 단계는 저렴한 오디오 신호의 텍스트 청사진을 컴파일합니다. 두 번째 단계에서는 이 청사진을 사용하여 LLM을 통해 차원별 등급을 생성하고 이를 최종 판단으로 융합하는 방식입니다. HCoT 프로토콜은 내용(C), 음성 품질(VQ), 그리고 파라링귀스틱(P)으로 평가를 명확히 나눠줍니다.
+
+- **Performance Highlights**: TRACE는 ALM 및 전사 전용 LLM 심판보다 인간 평가자와의 일치율이 더 높으며, 파라링귀스틱에 대한 신뢰성을 잘 유지합니다. 게다가, TRACE는 ALM보다 상당히 비용 효율적인 평가를 제공하며, HCoT 주석을 공개하고 TRACE 프레임워크를 배포하여 재현성과 향후 연구를 지원할 계획입니다.
+
+
+
+### Towards robust long-context understanding of large language model via active recap learning (https://arxiv.org/abs/2601.13734)
+Comments:
+          5 pages
+
+- **What's New**: 본 논문에서 우리는 long-context 이해를 향상시키기 위한 Active Recap Learning (ARL) 프레임워크를 제안합니다. ARL은 모델이 이전 내용을 다시 살펴보고 요약하는 기능을 통해 장문을 처리하는 능력을 강화합니다. 연구 결과 ARL은 RULER와 LongBench에서 각각 26.8%와 9.44%의 성능 향상을 보여주었습니다.
+
+- **Technical Details**: ARL은 세 가지 단계로 작동하며: (1) long-short gap 메트릭을 사용하여 핵심 토큰을 식별하고, (2) 손실 기반 검색을 통해 가장 관련성 높은 이전 세그먼트를 찾아내며, (3) 이 세그먼트를 간결한 요약으로 정제합니다. 이를 통해 모델은 장기간의 문맥을 효과적으로 기억할 수 있는 능력을 부여받습니다.
+
+- **Performance Highlights**: ARL은 RULER 및 LongBench와 같은 다양한 벤치마크에서 성능 향상을 입증했습니다. 특히 Qwen1.5 모델은 장문 요약 작업에서 19.0%에서 47.2%까지의 성능 향상을 기록하였으며, 훈련 샘플 수를 증가시킬수록 모델의 일반화 능력이 향상됨을 보여주었습니다.
+
+
+
+### On Temperature-Constrained Non-Deterministic Machine Translation: Potential and Evaluation (https://arxiv.org/abs/2601.13729)
+Comments:
+          9 pages, 12 figures
+
+- **What's New**: 최근 언어 모델들의 비결정적 속성이 주목받고 있으며, 이는 실제 애플리케이션에 큰 영향을 주고 있습니다. 이러한 속성은 기계 번역(MT)에서도 탐구되고 있지 않는데, 본 연구는 온도 제약이 있는 비결정적 기계 번역(ND-MT)을 새로운 явление로 식별하고 이 제약 하에서 결정론적 기계 번역(D-MT)보다 더 높은 품질의 후보 번역을 제공할 수 있음을 보여줍니다. ND-MT는 시스템 성능 평가에 새로운 도전 과제를 제시하고 있습니다.
+
+- **Technical Details**: ND-MT의 주요 문제는 다양한 후보 번역을 생성하면서도 원래 문장과의 의미적 동단성을 유지하는 것입니다. 연구진들은 국소적 다양성과 의미적 동단성을 모두 충족하는 후보를 추출하기 위해 22개의 현대 MT 시스템을 평가하였고, 그 과정에서 온도(temperature)가 중요한 변수라는 것을 밝혔습니다. 기온이 낮을 때만이 의미적 동단성이 유지되는 경향을 보이며, 모든 온도 설정에서 후보 번역의 국소적 다양성을 발휘할 수 있었습니다.
+
+- **Performance Highlights**: 연구 결과, ND-MT 시스템의 평가 과정에서 발생하는 'Buckets effect'가 확인되었으며, 이는 각 소스에 대한 최저 품질의 후보가 시스템 순위를 결정함을 보여줍니다. 따라서 연구진은 신뢰할 수 있는 평가 메트릭스를 선택하기 위해 ExpectoSample 전략을 제안하였고, 이를 통해 강력한 ND-MT 시스템을 식별하고자 하였습니다. 11,947 개의 소스 사례를 통한 평가 결과는 ND-MT의 잠재력을 실증적으로 증명하였습니다.
+
+
+
+### OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents (https://arxiv.org/abs/2601.13722)
+- **What's New**: 이번 연구에서는 메모리 기반 대화 에이전트에서의 과도한 개인화(Over-Personalization) 문제를 다뤘습니다. 기존의 벤치마크들은 사용자의 정보를 얼마나 잘 기억하고 적용하는지에 중점을 두었으나, 개인화의 적절성 사용은 간과되었습니다. 연구진은 과도한 개인화를 세 가지 유형으로 정리하고, 이를 평가하기 위한 새로운 벤치마크인 OP-Bench를 도입했습니다.
+
+- **Technical Details**: 기존의 대화 모델에서 과도한 개인화 문제는 정보의 관련성, 빈번한 반복, 그리고 외모 배설(sycophancy)로 나눌 수 있습니다. 연구진은 20명의 사용자의 대화 역사에서 1,700개의 질문을 추출하여 OP-Bench를 구축했고, 36개 모델 구성을 평가하여 메모리 도입 시 과도한 개인화가 광범위하게 발생함을 발견했습니다. 분석 결과, 에이전트가 불필요한 사용자의 기억을 과도하게 검색하고 주의를 기울이는 경향이 있음을 확인했습니다.
+
+- **Performance Highlights**: Self-ReCheck라는 경량 모델 중립적 필터 메커니즘을 제안하여 개인화 성능을 유지하면서 과도한 개인화를 29% 줄일 수 있음을 보였습니다. OP-Bench를 통해 평가한 결과, 연구에서 분석한 모든 개인화된 대화 에이전트들은 상대적으로 26.2%에서 61.1%까지의 성능 저하가 있었습니다. 본 연구는 사용자 만족도와 사용자의 필요를 반영하기 위한 새로운 벤치마크 설계의 필요성을 강조합니다.
+
+
+
+### Simulated Ignorance Fails: A Systematic Study of LLM Behaviors on Forecasting Problems Before Model Knowledge Cutoff (https://arxiv.org/abs/2601.13717)
+- **What's New**: 이 논문은 LLM(대형 언어 모델)의 예측 능력을 평가하는 데 있어 발생하는 근본적인 긴장 관계를 다룹니다. 연구자들은 Simulated Ignorance (SI)라는 방법이 True Ignorance (TI)를 근사할 수 있는지를 체계적으로 테스트했습니다. 연구 결과 SI가 TI를 효과적으로 대체하지 못한다는 결론을 도출하였고, 결과적으로 과거 사건에 대한 회고형 평가(Retrospective Forecasting, RF)가 방법론적으로 결함이 있음을 밝혀졌습니다.
+
+- **Technical Details**: 연구는 9개의 모델에 대해 477개의 경쟁형 질문을 평가했습니다. SI를 사용하는 경우와 TI를 사용하는 경우의 성능 차이를 분석하였으며, SI는 평균 52%의 성능 격차를 보였습니다. 또한 체인 오브 사고(Chain-of-Thought) 추론이 사전 지식을 억제하는 데 실패하고, 심지어 고도화된 추론 모델조차도 SI 충실도가 떨어지는 것으로 나타났습니다.
+
+- **Performance Highlights**: 모델들은 SI 조건에서 기대하는 성능을 내지 못했고, 정보 유출 정보가 모델의 예측 결과에 영향을 미치는 것을 확인했습니다. 이 연구는 SI에 의존한 회고형 설정을 통해 예측 능력을 평가하는 것을 권장하지 않으며, 기존의 방법론적 문제를 보여줍니다. 이 논문은 SI와 TI 간의 최초의 체계적인 비교를 제시하며, 모델의 예측이 유출된 지식으로 혜택을 받을 수 있는 가능성을 시사합니다.
+
+
+
+### GerAV: Towards New Heights in German Authorship Verification using Fine-Tuned LLMs on a New Benchmark (https://arxiv.org/abs/2601.13711)
+- **What's New**: 본 논문에서는 독일어 저자 검증을 위한 새로운 벤치마크인 GerAV를 소개합니다. GerAV는 600,000개 이상의 레이블링된 텍스트 쌍으로 구성되며, Twitter와 Reddit 데이터를 기반으로 구축되었습니다. 이는 다양한 데이터 소스와 주제 도메인을 포함함으로써 평가 모델의 효과를 탐구할 수 있는 기회를 제공합니다.
+
+- **Technical Details**: GerAV는 전통적인 저자 분석의 두 작업인 저자 귀속(authorship attribution)과 저자 검증(authorship verification)을 다룹니다. 특히 저자 검증에 중점을 두어, 주어진 텍스트가 동일한 저자에 의해 작성되었는지를 결정하는 과정을 시스템적으로 연구합니다. 이 연구에서는 최적화된 대형 언어 모델을 사용하여 성능을 개선하는 방법에 대한 분석도 포함되어 있습니다.
+
+- **Performance Highlights**: 연구 결과, GerAV의 데이터셋으로 학습된 다양한 모델들이 기존의 베이스라인보다 우수한 성능을 보여주었으며, 특히 Gemma-3-12b 모델은 전체 테스트에서 평균 F1 점수 0.83을 기록하여 기존 베이스라인보다 0.09 높았습니다. 또한, cross-domain 데이터와 single message, profile 간의 성능 차이를 분석하여 평가가 데이터 유형에 따라 달라질 수 있음을 보여주었습니다.
+
+
+
+### Uncertainty-Aware Gradient Signal-to-Noise Data Selection for Instruction Tuning (https://arxiv.org/abs/2601.13697)
+Comments:
+          Preprint
+
+- **What's New**: 본 논문에서는 GRADFILTERING이라는 새로운 데이터 선택 프레임워크를 제안합니다. 이는 대규모 언어 모델(LLMs)의 지침 조정을 위한 데이터 선택을 개인화하고 개선하는 데 중점을 두고 있습니다. 기존 방법들의 비효율성을 극복하기 위해 작은 GPT-2 프록시 모델과 LoRA 앙상블을 활용하여 예제당 그래디언트를 종합한 신호 대 잡음 비율(Gradient Signal-to-Noise Ratio, G-SNR)을 활용합니다.
+
+- **Technical Details**: GRADFILTERING은 효율적이고 목표 비의존적인 데이터 선택 방법으로, 고정된 LLM 백본 위에서 작은 GPT-2 프록시 모델을 사용하고, 예제당 그래디언트를 집계하여 G-SNR 유틸리티를 계산합니다. 이 메트릭은 학습 진행 상황과 에피스템적 불확실성을 통합하여 데이터의 가치를 평가합니다. 각 예제를 G-SNR로 정렬하여 강력한 성능을 내는 하위 집합을 식별하고자 합니다.
+
+- **Performance Highlights**: 실험 결과, GradFiltering을 통해 선택된 5-15%의 서브셋으로 학습한 모델이 LLaMA-2-7B/13B에서 Random 및 Superfiltering 방법들과 비교하여 19/24의 LLM-as-a-judge 평가 사례에서 성능이 동등하거나 향상됨을 입증했습니다. 또한, GradFiltering으로 선택된 서브셋은 동일한 계산 예산 하에서 더 빠른 수렴 속도를 보여주며, 최종 지침 따르기 품질도 저하되지 않았습니다.
+
+
+
+### OptiSQL: Executable SQL Generation from Optical TokensOptiSQL: Executable SQL Generation from Optical Tokens (https://arxiv.org/abs/2601.13695)
+- **What's New**: 최근 논문에서는 표 이미지와 자연어 질문으로부터 직접 실행 가능한 SQL을 생성하는 OptiSQL이라는 비전 기반 프레임워크를 제안합니다. 기존의 text-to-SQL 접근법은 명확한 텍스트 스키마에 의존하는 반면, OptiSQL은 compact optical tokens를 활용하여 튼튼한 실행 정확성을 유지하면서도 토큰 입력 수를 대폭 줄입니다. 이러한 접근은 비주얼 아티팩트로 표를 인식하는 실제 상황에 더욱 적합합니다.
+
+- **Technical Details**: OptiSQL의 중심 구성 요소는 OCR 지향 비주얼 인코더, 통합 토큰 인터페이스, 그리고 SQL 생성을 위해 조정된 디코더로 이루어져 있습니다. OptiSQL은 비주얼 인코더를 기본적으로 고정(frozen)하여 compact optical tokens의 표현 충분성을 평가하고, 디코더만을 조정하여 SQL을 생성합니다. 이를 통해 입력 효율성과 정확성 간의 상충 관계를 체계적으로 분석할 수 있습니다.
+
+- **Performance Highlights**: OptiSQL은 Spider 2.0-Snow의 시각화된 버전에서 평가하였으며, 실행 정확성을 주요 메트릭으로 사용합니다. 실험 결과, OptiSQL은 입력 길이를 대폭 줄이면서도 강력한 실행 정확성을 유지하는 동시에, 비주얼 정보가 제거되거나 변형될 때 성능이 예측 가능하게 저하됨을 보여줍니다. 이는 optical tokens가 효율적이고 분석 가능한 인터페이스로 작동할 수 있음을 시사합니다.
+
+
+
+### Dr. Assistant: Enhancing Clinical Diagnostic Inquiry via Structured Diagnostic Reasoning Data and Reinforcement Learning (https://arxiv.org/abs/2601.13690)
+- **What's New**: 이 논문에서는 임상 의사결정 지원 시스템(Clinical Decision Support Systems, CDSSs)의 한계를 극복하기 위한 새로운 접근 방식을 제안합니다. 핵심적으로 임상 진단 추론 데이터를 구성하는 Clinical Diagnostic Reasoning Data (CDRD) 구조와 임상 추론 기술을 갖춘 Dr. Assistant 모델을 소개합니다. 이 모델은 두 단계의 훈련 과정을 통해 임상 진단 및 문의 기술을 향상시키는데 초점을 맞추고 있습니다.
+
+- **Technical Details**: CDRD는 핵심 증상(core symptom), 진단 증거(diagnostic evidence) 및 감별 진단(differential diagnoses)의 세 구조로 구성된 삼중 튜플로 정의됩니다. 이 과정을 통해 LLM(대형 언어 모델)은 임상 가이드라인에 기반하여 세 가지 단계를 거쳐 CDRD를 구축하며, 각 단계에서 의사가 결과를 검토하고 정제합니다. Dr. Assistant 모델은 Supervised Fine-Tuning (SFT)과 강화 학습(Reinforcement Learning, RL) 두 단계로 구성된 훈련을 통해 임상 문제 해결에서의 효과성을 높입니다.
+
+- **Performance Highlights**: Dr. Assistant는 14B의 매개변수를 가지며, 오픈 소스 모델인 HuatuoGPT-o1-72B보다 13.59% 향상된 ICD-Recall 성능을 보였습니다. 또한, GPT-5와 유사한 성능을 달성함으로써 실제 임상 의사결정 지원 시스템의 적용을 위한 효율적인 해결책을 제시합니다. 이 연구는 임상 진단 및 문의 기술의 평가를 위한 242개의 실질 사례와 4개의 추가 부서를 포함한 147회의 문의 턴을 통해 참조된 성능을 제시합니다.
+
+
+
+### HeteroCache: A Dynamic Retrieval Approach to Heterogeneous KV Cache Compression for Long-Context LLM Inferenc (https://arxiv.org/abs/2601.13684)
+- **What's New**: HeteroCache는 LLM 추론에서 발생하는 KV 캐시의 선형 메모리 증가 문제를 해결하기 위한 동적 압축 프레임워크로, 훈련 없이도 구현이 가능하다는 점에서 기존 방법들과의 차별점을 가지고 있습니다. 본 방법은 주의 헤드의 시간적 이질성과 공간적 중복성을 기반으로 하여, 상대적으로 빠르게 변화하는 주의 정보를 유지하기 위한 세밀한 가중치 부여 전략을 적용합니다. 이를 통해 정보 손실을 방지하고, I/O 대기시간을 숨기기 위한 계층적 저장 메커니즘이 도입되었습니다.
+
+- **Technical Details**: HeteroCache는 주의 헤드를 안정성과 중복성에 따라 카테고리화하여 각 헤드에 대해 최적의 캐시 예산을 할당하는 세밀한 안정성 기반 전략을 사용합니다. 또한, CPU 메모리로 KV 캐시를 대부분 오프로드하여 GPU에서 전체 컨텍스트를 지속적으로 모니터링하도록 설계된 구조를 채택합니다. 이 방식은 주의 드리프트가 감지될 때만 비동기적으로 컨텍스트를 호출하여 효율적인 추론을 가능하게 합니다.
+
+- **Performance Highlights**: HeteroCache는 다양한 장기 컨텍스트 벤치마크에서 최첨단 성능을 달성하였으며, 특히 224K 컨텍스트에서 원본 모델 대비 최대 3배의 디코딩 가속화를 기록하였습니다. 다양한 LLMs에서 실험 결과, 다른 고급 압축 알고리즘과 비교했을 때 HeteroCache는 더 높은 성능을 입증했습니다. 열린 소스 코드를 제공하여 다른 연구자들이 활용할 수 있을 예정입니다.
+
+
+
+### CommunityBench: Benchmarking Community-Level Alignment across Diverse Groups and Tasks (https://arxiv.org/abs/2601.13669)
+- **What's New**: 이번 논문에서는 인공지능 모델의 행동을 인간 가치에 맞추기 위한 새로운 접근 방식인 커뮤니티 수준의 정렬(community-level alignment)을 제안합니다. 이는 개인 맞춤형 모델링과 일률적인 가치 세트의 한계 사이의 중간 지점을 제공하며, '커뮤니티 벤치마크(CommunityBench)'라는 대규모 평가 지표를 통해 다양한 모델의 능력을 평가합니다. 이 벤치마크는 6,919개의 사회 커뮤니티에서 12,149개의 사례로 구성되어 있습니다.
+
+- **Technical Details**: 우리는 Common Identity and Common Bond 이론(CICB)에 기반하여 네 가지 주요 작업을 제안합니다: 1) 선호 식별(Preference Identification), 2) 선호 분포 예측(Preference Distribution Prediction), 3) 커뮤니티 일관성 생성(Community-Consistent Generation), 4) 커뮤니티 식별(Community Identification). 각 작업은 커뮤니티의 고유한 정체성을 반영하도록 설계되었으며, 새로운 교차 검증 프로세스가 도입되었습니다.
+
+- **Performance Highlights**: 실험 결과, 현재의 대규모 언어 모델(LLMs)은 커뮤니티 특유의 선호를 모델링하는 데 제한된 능력을 보였으며, 커뮤니티 수준의 정렬이 개인 행동 모델링을 개선하는 잠재력이 있음을 입증했습니다. 평가한 17개 모델 중, 커뮤니티 가치에 정렬된 모델이 개별 행동 모델링에서 더 나은 시뮬레이션 정확도를 기록하였습니다.
+
+
+
+### Temporal-Spatial Decouple before Act: Disentangled Representation Learning for Multimodal Sentiment Analysis (https://arxiv.org/abs/2601.13659)
+Comments:
+          This study has been accepted by IEEE ICASSP2026
+
+- **What's New**: 이 연구에서는 다중 모드 감정 분석(Multimodal Sentiment Analysis)을 위해 새로운 TSDA(Temporal-Spatial Decouple before Act) 프레임워크를 제안합니다. TSDA는 서로 다른 모드를 상호 작용하기 전에 시간적(dynamics) 및 공간적 구조(context)를 분리하여 처리합니다. 이를 통해 기존 방식에서 발생하던 시간-공간 정보의 비대칭성을 해결하고, 예측 정확도를 향상시킬 수 있는 방법론을 제시합니다.
+
+- **Technical Details**: TSDA는 각 모드에 대해 시간 인코더(Temporal Encoder)와 공간 인코더(Spatial Encoder)를 사용합니다. 시간 인코더는 순서화된 토큰이나 프레임을 시간적 시퀀스로 변환하고, 공간 인코더는 시간에 의존하지 않는 구조적 세트를 생성합니다. 이후, Factor-Consistent Cross-Modal Alignment(FCCA)를 통해 시간적 및 공간적 특성들을 독립적으로 정렬하여 교차 모드 간의 일관성을 확보합니다.
+
+- **Performance Highlights**: TSDA의 성능은 기존의 방식들보다 뛰어난 것으로 나타났습니다. 광범위한 실험을 통해 TSDA가 경쟁 모델들에 비해 우수한 성능을 보임을 입증하였고, ablation 분석을 통해 설계의 필수성과 해석 가능성을 또한 확인하였습니다. 특히, 상이한 모드 사이의 연결 유지를 위한 gated recouple 모듈의 적용이 주요한 기여로 확인되었습니다.
+
+
+
+### Beyond Known Facts: Generating Unseen Temporal Knowledge to Address Data Contamination in LLM Evaluation (https://arxiv.org/abs/2601.13658)
+Comments:
+          12 pages
+
+- **What's New**: 이 논문에서는 기존의 평가 데이터 세트에서 발생할 수 있는 오염 문제를 해결하고자 새로운 합성 평가 데이터 세트를 제안합니다. 특히, 이 데이터 세트는 예측된 미래의 보지 못한 시간적 사실로 구성되어 있습니다. 이를 통해, 훈련 데이터와 평가 데이터의 겹침을 방지하며, 보다 신뢰할 수 있는 벤치마킹을 가능하게 합니다. 4.2K 개의 미래 쿼드러플과 해당하는 텍스트 설명을 공개하여TKGE에 대한 지속적이고 무오염의 벤치마크로 활용할 수 있도록 하고 있습니다.
+
+- **Technical Details**: 이 연구는 두 단계의 생성 접근법을 따릅니다. 첫 번째 단계인 Temporal Knowledge Graph Forecasting (TKGF)을 통해 원래의 지식 기반 스키마에 부합하도록 필터링된 미래 쿼드러플을 생성합니다. 두 번째 단계에서는 대형 언어 모델(LLM)을 사용해 각 예측된 사실을 자연어 텍스트로 전환합니다. 이 두 가지 단계를 통해, 구조적으로 유효한 미래 사실을 생성하고 시맨틱적으로 정렬된 텍스트 설명을 생성합니다.
+
+- **Performance Highlights**: 이 논문에서는 Extract, Define, and Canonicalize (EDC) 프레임워크의 성능을 YAGO 2026 데이터세트에 대해 평가하였으며, 이 과정에서 LLM의 성능이 기존 사실 데이터세트와 비교할 때 저하되는 것을 보여주었습니다. 이는 데이터 오염의 영향을 실증적으로 증명한 결과로, LLM 기반 TKGE 시스템의 진정한 성능을 평가하기 위한 신뢰할 수 있는 기준이 필요하다는 점을 강조하고 있습니다. 벤치마크 데이터세트는 현재와 미래의 LLM 평가를 위한 지속 가능한 관점을 제공합니다.
+
+
+
+### Fairness or Fluency? An Investigation into Language Bias of Pairwise LLM-as-a-Judg (https://arxiv.org/abs/2601.13649)
+- **What's New**: 최근의 연구에서는 LLM(as-a-judge) 시스템이 텍스트의 품질 평가를 위해 사용되지만, 이 과정에서 나타나는 언어 편향(language bias)의 문제를 다룹니다. 주목할 점은 LLM들이 언어의 종류에 따라 품질 평가에서 차이를 보인다는 것입니다. 연구에서는 같은 언어와 다른 언어에서의 판단을 비교하여 각 언어 패밀리 간의 성능 격차를 조사했습니다.
+
+- **Technical Details**: 연구는 두 가지 언어 편향 유형을 분석합니다: 첫째, 같은 언어의 비교에서 성능 격차, 둘째, 다른 언어의 선택지에 대한 선호도를 분석합니다. 분석에 사용된 데이터셋은 MMMLU로, 다국어 객관식 질문 응답 데이터베이스입니다. 연구에서는 여러 LLM 모델을 사용하여 등급을 매깁니다.
+
+- **Performance Highlights**: 분석 결과, 유럽 언어가 아프리카 언어보다 상대적으로 높은 성능을 보였습니다. 또한, 서로 다른 언어 간의 비교에서는 영어 답변이 일관되게 선호되는 경향을 보였으며, 이는 질문 언어보다 답변 언어에 의해 더 큰 영향을 받았습니다. 최종적으로, 언어 편향이 낮은 perplexity에 의한 것인지에 대한 조사에서는 두 가지 편향이 일부 연관이 있음을 발견한 반면, 언어 편향을 완전히 설명할 수는 없음을 확인했습니다.
+
+
+
+### Towards Token-Level Text Anomaly Detection (https://arxiv.org/abs/2601.13644)
+Comments:
+          WWW 2026
+
+- **What's New**: 이번 연구에서는 텍스트 이상 탐지의 새로운 패러다임인 토큰-레벨 이상 탐지를 소개합니다. 이는 기존의 문서 수준 분석의 한계를 극복하여 구체적으로 어떤 부분이 이상한지를 식별할 수 있게 해줍니다. 연구는 다양한 입력 텍스트에서 이상_token을 세밀하게 탐지할 수 있는 유니파이드 프레임워크를 제안하며, 세 가지 벤치마크 데이터세트를 수집하고 주석을 추가했습니다.
+
+- **Technical Details**: 이 논문에서는 토큰 수준의 이상 탐지 정의를 제안하며, 문서 내에서의 이상 및 토큰 수준에서의 이상을 공식적으로 정의하고 있습니다. 연구는 TokenCore라는 메모리 은행 구조를 구축하여 정상적 토큰의 임베딩을 저장하고 이를 이용하여 이상 점수를 산출합니다. 이 구조는 언어 모델이 다루는 다양한 이상 현상을 효과적으로 탐지하기 위해 설계되었습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 프레임워크는 6개의 기존 기준 방법들보다 우수한 성능을 보였습니다. 이를 통해 텍스트 내에서의 정밀한 이상 지역 탐지 가능성을 열 수 있음을 보여주었습니다. 모든 코드는 공개되어 있으며, 연구가 추구하는 새로운 가능성을 제시하는 중요한 기여를 인정받고 있습니다.
+
+
+
+### Activation-Space Anchored Access Control for Multi-Class Permission Reasoning in Large Language Models (https://arxiv.org/abs/2601.13630)
+- **What's New**: 이 연구에서는 대형 언어 모델(LLM)이 지식 기반에서 효율적인 지식 검색과 질문 응답에 점점 더 많이 활용되지만, 사용자의 권한 범위를 넘어서는 대답을 유도할 수 있는 문제를 다룹니다. 이에 대한 해결책으로, 사용 권한에 따라 서로 구분되는 중간 활성화의 기하학적 규칙성을 발견하고, ‘Activation-space Anchored Access Control (AAAC)’라는 훈련이 필요 없는 프레임워크를 제안합니다.
+
+- **Technical Details**: AAAC는 작은 오프라인 샘플 세트에서 각 클래스에 대해 하나의 권한 앵커를 생성하는 방식으로, 유저의 현재 권한에 따라 쿼리의 활성화를 다시 조정하여 과도한 권한을 가진 생성을 방지합니다. 이 프레임워크는 활성화 공간에서 안전한 경계를 설정하고, 특정 허가된 영역으로 활성화를 유도하는 다중 앵커 스티어링 메커니즘을 사용합니다.
+
+- **Performance Highlights**: 실험 결과, AAAC는 권한 위반 비율을 최대 86.5% 감소시키고, 프롬프트 기반 공격 성공률은 90.7%까지 감소시키며, 기본 모델과 비교해도 응답의 유용성을 크게 향상시키는 동시에 경미한 추론 오버헤드를 발생시킵니다.
+
+
+
+### CauScientist: Teaching LLMs to Respect Data for Causal Discovery (https://arxiv.org/abs/2601.13614)
+- **What's New**: CauScientist는 LLM(대형 언어 모델)을 활용하여 인과 구조를 발견하는 혁신적인 협업 프레임워크입니다. 기존의 데이터 기반 접근법의 한계를 극복하기 위해, LLM을 데이터 과학자로 활용하고, 확률 통계적 검증을 통해 제안된 인과 그래프의 수정 사항을 검증합니다. 이 프레임워크는 초기 그래프 선택, 구조 개선 및 반복 최적화 과정을 통해 인과 관계를 효율적으로 발견합니다.
+
+- **Technical Details**: CauScientist는 하이브리드 초기화, 협업 검증 및 구조 개선, 반복 최적화의 세 가지를 포함합니다. 하이브리드 초기화 단계에서는 데이터 기반 알고리즘과 LLM에서 생성된 후보 그래프를 결합하여 베이시안 정보 기준(BIC)으로 평가된 최적의 그래프를 선택합니다. 이후 LLM이 제안한 구조적 수정 사항이 통계적 검증을 통해 검토되며, 이러한 과정에서 오류 메모리를 통해 검색 공간을 효율적으로 축소합니다.
+
+- **Performance Highlights**: 실험 결과, CauScientist는 단순한 데이터 기반 기준보다 F1 점수에서 최고 53.8% 향상되었으며, 회수율이 35.0%에서 100.0%으로 증가했습니다. 또한, 그래프의 크기가 증가함에 따라 LLM의 성능이 저하되는 반면, CauScientist는 37노드 그래프에서 Qwen3-32B에 비해 구조적 해밍 거리(SHD)를 44.0% 감소시켜보다 신뢰할 수 있는 인과 관계를 제공합니다.
+
+
+
+### Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions (https://arxiv.org/abs/2601.13590)
+- **What's New**: 최근의 연구에 따르면, 대형 언어 모델(LLMs)은 설득에 민감하고 반사실적 신념을 채택할 수 있습니다. 본 연구는 SMCR(Source–Message–Channel–Receiver) 커뮤니케이션 프레임워크에 따라 LLM들의 설득 민감도를 체계적으로 평가합니다. 5개의 주요 LLM과 3개의 도메인(사실적 지식, 의료 QA, 사회적 편향)에 걸쳐 다양한 설득 전략이 신념 안정성에 미치는 영향을 분석하고 있습니다.
+
+- **Technical Details**: 대상 모델로는 GPT-4o-mini, Llama 3.3-70B, Llama 3.2-3B, Mistral 7B, Qwen 2.5-7B가 포함되며, LLM의 신념 변화를 명확하고 정량적으로 관찰할 수 있도록 이진(yes/no) 질문으로 구성됩니다. 적절한 방어책으로는 메타인지 유도와 적대적 미세조정(adversarial fine-tuning)이 적용되며, 각 설득 전략은 SMCR 요소에 따라 구성됩니다. 이를 통해 신념 변화의 경과를 추적하고 다중 회전에서의 변화를 분석합니다.
+
+- **Performance Highlights**: 실험 결과, 작은 모델이 극단적인 동의(compliance)를 보여 80% 이상의 신념 변화가 첫 번째 설득 전환에서 발생했습니다. 또한 메타인지 유도가 오히려 신념 침식을 가속화하여 취약성을 증가시키는 것으로 나타났습니다. GPT-4o-mini는 거의 완전한 강인성(98.6%)을 달성했으며, Mistral 7B는 상당히 개선되었습니다(35.7%에서 79.3%로). 그러나 Llama 모델은 조정 후에도 여전히 높은 취약성(<14%)을 보였습니다.
+
+
+
+### TREX: Tokenizer Regression for Optimal Data Mixtur (https://arxiv.org/abs/2601.13588)
+Comments:
+          Accepted to EACL 2026. Long Paper. (19 languages studied: Chinese, Greek, Japanese, etc.)
+
+- **What's New**: 이번 논문에서는 다국어 대형 언어 모델(LLMs)용 효과적인 토크나이저(tokenizer) 구축을 위해 언어별 데이터 혼합 비율을 최적화하는 새로운 방법인 TOKENIZER REGRESSION FOR OPTIMAL DATA MIXTURE (TREX)를 소개합니다. TREX는 작은 규모의 프록시 토크나이저를 무작위 혼합을 통해 훈련시키며, 혼합 데이터에서 압축 성능을 예측하는 방법을 학습합니다. 이를 통해 대규모 데이터 혼합을 효율적으로 검색할 수 있어 다국어 토크나이저 설계에서 정확도와 비용 간의 균형을 개선합니다.
+
+- **Technical Details**: TREX 프레임워크는 무작위 혼합의 작은 규모의 프록시 토크나이저를 훈련시키고, 여기에 대한 압축 통계(compression statistics)를 수집하여 학습합니다. 이 학습된 모델은 특히 최적의 데이터 혼합을 예측하는 데 초점을 맞추며, 대규모 토크나이저 훈련 전에서도 적용할 수 있습니다. 결과적으로 기존의 휴리스틱(heuristics)이나 비용이 많이 드는 대규모 검색보다 월등한 성능을 보일 수 있습니다.
+
+- **Performance Highlights**: TReX의 예측된 혼합으로 훈련된 토크나이저는 LLaMA3 기반 혼합과 균일 분포(uniform distribution) 기반 혼합에 비해 최대 12% 더 높은 압축 효율성을 보여줍니다. 이로 인해 다국어 토크나이저 설계에서의 강력한 확장성(scalability), 견고성(robustness), 실제적 효과성(practical effectiveness)이 강조됩니다. 이를 통해 TREX는 다국어 LLM 훈련에 있어 새로운 표준을 제시할 것으로 기대됩니다.
+
+
+
+### Comparing Without Saying: A Dataset and Benchmark for Implicit Comparative Opinion Mining from Same-User Reviews (https://arxiv.org/abs/2601.13575)
+- **What's New**: 본 논문에서는 기존의 비교 의견 추출(comparative opinion mining) 연구가 주로 명시적 비교 표현에만 집중되어 있었음을 지적하고, 실질적인 리뷰에서는 이러한 표현이 드물다는 점을 강조합니다. 새로운 데이터셋 SUDO(Same User – Different Objects/products)를 소개하며, 이는 동일 사용자의 리뷰에서 암묵적 비교(preferences)를 효과적으로 추론할 수 있도록 돕는 구조를 가지고 있습니다. 이 데이터셋은 리뷰 쌍 4,150개(15,191 문장)로 구성되어 있으며, 각 리뷰에는 측면 수준(aspect-level) 언급과 리뷰 수준(review-level) 선호가 캡처된 이층 구조가 있습니다.
+
+- **Technical Details**: SUDO 데이터셋은 BeerAdvocate corpus를 기반으로 구축되었으며 네 가지 감각적 측면(appearance, aroma, palate, taste)에 대한 리뷰를 포함하고 있어 풍부한 예시를 제공합니다. 비슷한 제품들에 대해 같은 사용자가 남긴 리뷰 쌍을 통해 암묵적 비교 의견을 추출하는 작업을 목표로 합니다. 데이터셋은 두 단계의 주석 과정(코스 그레인 필터링, 파인 그레인 필터링)을 거쳐, 명확한 감정 표현이 없는 리뷰를 제거하여 신뢰성을 높였습니다.
+
+- **Performance Highlights**: 실험 결과, 전통적인 머신러닝 기반 모델과 언어 모델 기반 모델을 통해 SUDO 데이터셋의 벤치마킹을 수행한 결과, 후자의 성능이 더 우수한 것으로 나타났습니다. 그러나 전체 성능은 여전히 중간 수준에 그쳤고, 이는 작업의 본질적 난이도를 드러냅니다. 이 연구는 SUDO 데이터셋을 미래 연구를 위한 도전적이고 가치 있는 기준으로 자리잡게 합니다.
+
+
+
+### HateXScore: A Metric Suite for Evaluating Reasoning Quality in Hate Speech Explanations (https://arxiv.org/abs/2601.13547)
+Comments:
+          EACL 2026 Main Conference
+
+- **What's New**: 이번 연구는 자동화된 콘텐츠 조절 시스템에서 증오 발언 탐지의 신뢰성과 투명성을 높이기 위해 HateXScore라는 새로운 지표를 제안합니다. 이 지표는 추론의 질을 평가하기 위해 네 가지 구성요소로 구성되어 있습니다: 결론의 명시성, 인용된 심리의 신뢰성 및 인과적 바탕, 보호된 집단의 식별, 내부 일관성입니다. HateXScore는 기존의 정확도나 F1 스코어가 드러내지 못하는 해석의 실패 및 주석의 불일치를 드러내는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HateXScore는 4가지 보완적인 구성 요소를 통해 증오 발언 설명의 질을 평가합니다. 첫째, 결론의 명시성을 평가하고, 둘째, 인용된 심리와 인과적인 기반의 신뢰성을 분석하며, 셋째, 정책에 따라 보호된 집단의 식별을 점검하고, 넷째, 이러한 요소 간의 논리적 일관성을 평가합니다. 이 모델은 입력 텍스트와 생성된 설명 및 예측된 레이블 사이의 관계를 기반으로 작동하며, 명확한 결론을 내리는지를 판단하는 지표를 제공합니다.
+
+- **Performance Highlights**: HateXScore는 여섯 가지 다양한 증오 발언 데이터셋에서 평가되어, 기존 메트릭들이 간과하는 설명 실패와 주석의 불일치를 드러내는 데 효과적으로 기능합니다. 인간 평가 결과, HateXScore는 신뢰할 수 있는 콘텐츠 조절을 위한 구체적인 도구로서의 유효성을 입증합니다. 이는 모델이 예측한 레이블과 데이터셋 레이블 간의 불일치를 해소할 수 있는 진단 신호로 작용하여, 잠재적으로 신뢰할 수 없는 주석을 식별하는 데 도움을 줍니다.
+
+
+
+### When Wording Steers the Evaluation: Framing Bias in LLM judges (https://arxiv.org/abs/2601.13537)
+Comments:
+          4 pages
+
+- **What's New**: 이번 연구는 대형 언어 모델(LLM)의 평가 시스템에서 프레이밍(Framing) 편향이 미치는 영향을 체계적으로 조사합니다. LLM의 응답은 입력 프롬프트의 표현 방식에 따라 달라질 수 있으며, 이는 심리학에서의 프레이밍 효과에서 영감을 받았습니다. 연구팀은 프레디케이트 긍정(Predicate-positive)과 프레디케이트 부정(Predicate-negative) 구조를 사용하여 LLM의 판단에 미치는 영향을 분석하고, 이러한 구조가 결과에 미치는 중대한 차이를 입증했습니다.
+
+- **Technical Details**: 연구에서는 14개의 LLM을 사용하여 네 가지 평가 작업(진실성 평가, 탈옥 탐지, 독성 탐지, 문법 수용성 판단)에 대한 평가를 수행했습니다. 평가 시스템의 설계는 동일한 내용을 묻는 두 가지 프롬프트를 언어적 표현만 다르게 구성해, 프레이밍에 따른 모델의 판단 왜곡을 평가했습니다. 실험을 통해 모든 LLM 모델이 프레이밍 편향에 취약하다는 것을 발견했고, 일부 모델들은 프레이밍된 진술에 동의하는 경향이 있는 반면 다른 모델들은 이를 거부하는 경향이 있다는 점도 확인했습니다.
+
+- **Performance Highlights**: 모델의 평가 결과는 프레이밍 편향이 현재 LLM 기반 평가 시스템의 구조적 특성이라는 것을 보여주었습니다. 연구 결과, 모델들은 동일한 내용에 대해 프레디케이트 긍정과 부정 표현으로 개별 평가할 때 일관된 결과를 내지 못하고, 이는 모델의 판단 및 과업의 의미에 의해서도 영향을 받는 것을 시사합니다. 따라서 향후 공정하고 신뢰할 수 있는 평가 프로토콜을 수립하기 위해서는 프레이밍을 인식하는 시스템이 필요하다는 결론을 도출했습니다.
+
+
+
+### Anonpsy: A Graph-Based Framework for Structure-Preserving De-identification of Psychiatric Narratives (https://arxiv.org/abs/2601.13503)
+- **What's New**: 본 논문에서는 Anonpsy라는 새로운 탈식별 프레임워크(de-identification framework)를 소개합니다. 이 프레임워크는 기존의 텍스트 레벨 접근 방식에서 벗어나, 그래프 기반의 의미 추출(graph-guided semantic rewriting) 방식을 사용하여 임상적 구조를 보존합니다. Anonpsy는 자기 자신의 서사(narrative)를 의미 그래프(semantic graph)로 변환하고, 이를 이용하여 식별 가능한 요소를 조정하면서도 임상에서 중요한 구조를 유지합니다.
+
+- **Technical Details**: Anonpsy는 (1) 각 사례를 임상 엔티티(clinical entities), 시간적 요소(temporal anchors), 타입 관계(typed relations)를 포함하는 의미 그래프로 변환합니다. (2) 그런 후, 이러한 그래프에 기반한 구속(purturbations)을 적용하여 식별 가능한 맥락을 수정합니다. (3) 마지막으로, 그래프 조건(graph-conditioned) LLM 생성 방식을 통해 텍스트를 재생성합니다. 각 과정을 통해 임상적 신뢰도를 유지하면서도 재식별 위험을 최소화할 수 있습니다.
+
+- **Performance Highlights**: 90개의 정신과 의사가 작성한 사례를 평가한 결과, Anonpsy는 진단 정확도를 보존하였으며 전문가와 GPT-5 기반 평가에서 지속적으로 낮은 재식별 위험을 나타냈습니다. 강력한 LLM 기반 재작성 기준선과 비교했을 때, Anonpsy는 의미적 유사성(semantic similarity)과 식별 가능성이 현저히 낮았습니다. 이러한 결과는 구조적 표현과 제약된 생성(combination of structural representations and constrained generation)이 정신과 서사의 탈식별에 효과적인 접근 방식임을 나타냅니다.
+
+
+
+### PhysicsSolutionAgent: Towards Multimodal Explanations for Numerical Physics Problem Solving (https://arxiv.org/abs/2601.13453)
+- **What's New**: 이 논문에서는 물리 문제를 설명하기 위해 시각적 추론(visual reasoning)의 중요성을 강조하며, 새로운 자율형 에이전트 PhysicsSolutionAgent (PSA)를 소개합니다. PSA는 최장 6분 간의 물리 문제 설명 동영상을 생성할 수 있는 기능을 가지고 있으며, Manim 애니메이션을 활용하여 물리학 문제 해결을 지원합니다.
+
+- **Technical Details**: PSA는 15개의 정량적 매개변수를 자동으로 체크하는 평가 파이프라인을 설계하였으며, 이를 통해 비디오 품질을 단계적으로 개선하고 있습니다. 이 시스템은 GPT-5-mini를 사용하여 32개의 동영상을 평가하였고, 이들 동영상은 수치(numerical) 및 이론(theoretical) 물리 문제를 포괄합니다.
+
+- **Performance Highlights**: PSA는 100% 비디오 완성률을 달성하고 평균 자동 점수는 3.8/5로 보고되었습니다. 그러나 정성적 분석과 인간 검토에서는 시각적 레이아웃 불일치 및 피드백 동안 시각적 콘텐츠 해석 오류와 같은 문제들이 발견되었으며, 이러한 결과는 Manim 코드 생성의 신뢰성과 시각적 설명을 위한 다중 모달(multi-modal) 추론 및 평가의 한계를 드러냅니다.
+
+
+
+### MOSLD-Bench: Multilingual Open-Set Learning and Discovery Benchmark for Text Categorization (https://arxiv.org/abs/2601.13437)
+- **What's New**: 이번 연구에서는 기계 학습 분야의 새로운 도전 과제인 Open-set learning and discovery (OSLD)에 대해 다루고 있습니다. 특히, 기존에는 다루어지지 않았던 다국어 OSLD 기준(benchmark)을 생성하였으며, 12개 언어에 걸쳐 960K의 데이터 샘플을 포함하고 있습니다. 이 연구는 데이터 샘플을 재구성하고 새로운 데이터를 수집하는 작업을 통해 다국어 데이터 세트를 구축했습니다. 특히, 새로운 클래스의 지속적인 발견과 학습을 목표로 하는 새로운 프레임워크를 제안하였습니다.
+
+- **Technical Details**: OSLD는 기존 클래스와 겹치지 않는 새로운 클래스가 테스트 데이터에서 점차적으로 나타나도록 학습하는 과제입니다. 이를 위해, 데이터셋의 정의는 (x,y) 형태로 훈련 데이터와 테스트 데이터를 명확하게 구분합니다. 연구팀은 OSLD 프레임워크를 구성하기 위해 여러 단계의 처리를 통합하며, outlier detection, k-means clustering, TFIDF 기반 키워드 추출, 그리고 BERT 재학습과 같은 기법을 포함합니다. 이러한 접근 방식은 새로운 패턴을 알고리즘이 자동으로 학습하도록 돕는 데 중점을 둡니다.
+
+- **Performance Highlights**: 연구에서는 소규모 및 대규모 언어 모델을 포함하여 여러 모델에 대해 평가를 수행하여 향후 연구에 대한 참고 자료로 활용될 수 있는 결과를 제시합니다. 제안된 MOSLD 기준에서 벤치마킹된 모델들은 새로운 클래스의 발견과 학습 능력에서 유망한 성능을 입증하였습니다. OSLD는 자연어 처리(NLP) 분야에서 새로운 주제가 등장할 때 기존의 텍스트 분류 문제를 해결하는 데 실질적인 의미가 있습니다. 이 연구는 OSLD 작업의 복잡성을 이해하고, 해당 분야의 발전을 촉진할 중요한 토대를 제공합니다.
+
+
+
+### Trust Me, I'm an Expert: Decoding and Steering Authority Bias in Large Language Models (https://arxiv.org/abs/2601.13433)
+- **What's New**: 이 연구는 언어 모델이 추천(Source) 출처의 신뢰성에 따라 어떻게 편향될 수 있는지를 조사합니다. 특히, 고위 신뢰 출처가 제공한 잘못된 정보에 대해 언어 모델이 더욱 자신감을 가지게 되는 경향이 있다는 점을 발견했습니다. 기존의 연구가 주로 성별, 인종 등의 편향을 다룬 반면, 이 연구는 전문성에 의한 영향력을 체계적으로 분석합니다.
+
+- **Technical Details**: 연구는 다양한 분야(과학, 법률, 의학)에서의 언어 모델의 MCQ(Multiple Choice Questions)에 대한 반응을 평가합니다. 모델은 각 분야에 대해 네 가지 신뢰 수준(Persona)을 가지며, 신뢰 수준에 따라 성능이 어떻게 변화하는지를 관찰했습니다. 이를 통해 전반적인 권위 편향이 어떻게 작용하는지를 규명했습니다.
+
+- **Performance Highlights**: 결과적으로, 모델들은 높은 전문성 출처에서 제공된 잘못된 추천에 대해 더 많은 오류를 범하며, 더욱 자신감을 가지는 경향을 보였습니다. 이 연구는 언어 모델의 성능 향상을 위해서, 잘못된 추천에 대한 민감도를 조절할 수 있음을 시사합니다. 이러한 조정을 통해 언어 모델들이 비판적 의사결정 상황에서 더욱 안정적으로 작동할 수 있는 가능성을 제시합니다.
+
+
+
+### Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks (https://arxiv.org/abs/2601.13392)
+Comments:
+          30 pages, 11 figures, 6 tables, Work in Progress
+
+- **What's New**: 이번 연구에서는 정규 언어로부터 결정적 유한 오토마타(DFA) 구성을 위한 벤치마크를 도입하여 대형 언어 모델(LLMs)의 상징적 추론 기법을 평가하였습니다. 특히, 모형이 훈련 데이터에서 유사한 문제를 기억하여 해결하는지, 아니면 실제로 추론을 하는지를 판별하려는 시도가 돋보입니다. 저자들은 세 가지 구성 요소로 이루어진 새로운 벤치마크를 제시하며, 이는 LLM의 진정한 추론 능력을 고립시켜 평가할 수 있도록 돕습니다.
+
+- **Technical Details**: 연구에서 저자들은 DFA 구성에 필요한 요구 사항을 다루며, 이를 위해 자연어 기술 또는 정규 표현식을 통해 지정된 목표 언어를 바탕으로 모델이 DFA D를 생성해야 합니다. 주요 요구 사항으로는 형식 언어 사양을 분석하고 해석하며, 모든 제약 조건을 포괄하는 최소 상태 구조를 식별하고, 유효한 문자열만을 수용하는 전이 설계를 해야 하는 것을 포함합니다. 이 과정에서 LLMs는 불완전한 DFA가 될 수 있는 여러 유효하지 않은 구조를 방지하기 위한 참조와 연관성을 유지해야 합니다.
+
+- **Performance Highlights**: 모델들은 사실적 질문에서 100%의 정확도를 기록했으며, 이전 문제가 포함된 과제에서는 84-90%의 성능을 보였으나, 새로운 문제에서는 정확도가 30-64% 급격히 하락했습니다. 이러한 맥락에서 LLM은 언어 제약의 체계적 오해 및 전이 처리의 부정확성으로 인한 실패를 겪었습니다. 또한, 세 가지 단계의 힌트를 제공하는 프로토콜을 시도했으나, 이는 초보적인 오류를 수정하는 데는 효과적이지만 전반적으로 일관성이 결여된 구조의 오류까지 해결하지는 못했습니다.
+
+
+
+### Structured Insight from Unstructured Data: Large Language Models for SDOH-Driven Diabetes Risk Prediction (https://arxiv.org/abs/2601.13388)
+Comments:
+          7 pages, 5 figures
+
+- **What's New**: 이 연구는 Type 2 Diabetes (T2D) 관리에서 사회적 건강 결정 요인(SDOH)의 중요성을 강조합니다. 전통적으로 구조화된 설문지를 통해 수집된 SDOH 데이터는 환자 경험의 복잡성을 반영하지 못하며, 본 연구에서는 대규모 언어 모델(LLM)을 활용하여 비구조적 환자 소설에서 구조화된 SDOH 정보를 추출하는 방법을 제시합니다. 이를 통해 비구조적 서사가 임상적 의사결정 및 리스크 예측 모델에 어떻게 활용될 수 있는지를 탐구합니다.
+
+- **Technical Details**: 연구는 65명의 65세 이상 T2D 환자로부터 수집한 비구조적 인터뷰 데이터를 분석하였습니다. 연구팀은 Stanford SecureGPT를 활용하여 ChatGPT 모델을 통해 비구조적 데이터를 처리하고, 필수적인 구조화된 SDOH 정보를 생성하였습니다. 또한, 추출된 데이터를 기반으로 머신러닝 모델을 훈련시켜 A1C 수치 예측 및 환자의 당뇨 관리 수준을 평가하는 데 사용하였습니다.
+
+- **Performance Highlights**: 이 연구에서 LLM은 인터뷰 텍스트로부터 환자의 당뇨 관리 수준(낮음, 중간, 높음)을 60%의 정확도로 예측하는 데 성공했습니다. 이를 통해 비구조적 데이터 사용이 임상적 리스크 모델을 보완할 수 있는 가능성을 보여주고 있으며, AI가 다양하고 복잡한 사회적 건강 결정 요인을 보다 효과적으로 분석할 수 있는 새로운 기준을 마련하고 있습니다. 연구 결과는 특히 아시아계 미국인 및 태평양 섬 주민(AAPI) 집단에 대한 중요한 통찰력을 제공합니다.
+
+
+
+### Confidence over Time: Confidence Calibration with Temporal Logic for Large Language Model Reasoning (https://arxiv.org/abs/2601.13387)
+- **What's New**: 이번 연구는 Large Language Models (LLMs)에서 복잡한 문제 해결을 위해 다단계(reasoning) 과정에 대한 단계별 신뢰(confidence)를 추정하는 방법을 제안합니다. 기존 방법들은 단일 스칼라 점수로 신뢰성을 축소하였으나, 단순한 요소에 민감하여 정확한 사고를 잘 구별하지 못하는 경향이 있었습니다. 새롭게 제안된 방법은 Signal Temporal Logic (STL)을 활용하여 올바른 신뢰 신호와 잘못된 신뢰 신호를 구분하는 시간 기반 공식을 자동으로 발굴합니다.
+
+- **Technical Details**: 본 연구에서는 LLM의 응답을 얻게 되는 과정을 분석하기 위해 신뢰 신호를 단계별로 구체화하고 이를 STL을 사용하여 시간적 제약을 제공합니다. STL을 통해 얻은 신뢰 점수는 모델의 불확실성을 통해 응답의 정확도를 추정하는 데 도움을 줍니다. 또한, 고정된 STL 구조를 사용하되 질문별로 하이퍼네트워크를 통해 매개변수를 적응시키는 방법을 제안하여 해석 가능성을 동시에 확보합니다.
+
+- **Performance Highlights**: 다수의 추론 과제를 통해 제안된 신뢰 점수는 기존의 기준 모델에 비해 보다 잘 조정(calibrated)됨을 보여주었습니다. 실험 결과, 새로운 접근법이 단계별 신뢰 신호를 효과적으로 모델링하면서 표준적인 신뢰 조정 메트릭을 개선함을 알 수 있었습니다. 이는 시간적 구조를 유지하면서도 잘못된 사고에 대한 일관성 있는 신뢰 패턴을 구체화하여 다양한 문제 유형에도 일반화할 수 있음을 시사합니다.
+
+
+
+### Recurrent Confidence Chain: Temporal-Aware Uncertainty Quantification in Large Language Models (https://arxiv.org/abs/2601.13368)
+- **What's New**: 이 논문은 대규모 언어 모델(LLM)이 답변에 대한 불확실성을 평가하는 새로운 방법을 제안합니다. 이는 특히 사소한 오류나 정보 왜곡을 피하기 위한 중요성을 강조하고 있습니다. 기존 방법들이 이유 과정의 불확실성을 충분히 분석하지 못하는 문제점을 해결하기 위해, 단계 간의 주의(attention) 메커니즘을 도입하여 각 단계 간 의미적 상관관계를 분석합니다.
+
+- **Technical Details**: 제안된 방법은 Recurrent Confidence Chain(RCC)이라는 프레임워크로 구성되어 있으며, 단계 간의 의미적 의존성을 모델링하기 위해 inter-step attention 메커니즘을 도입합니다. 또한, 잔여 불확실성을 추적하기 위한 효율적인 리커런트(confidence) 전파 메커니즘을 설계하여 연결된 신뢰(confidence) 정보를 유지합니다. 마지막으로, 이 프레임워크는 시간적 신뢰 추적 기능을 통합하여 다중 단계 추론의 불확실성을 더 견고하게 정량화할 수 있도록 해줍니다.
+
+- **Performance Highlights**: 제안된 RCC 방법은 GAOKAO 수학 벤치마크와 CLadder 인과 추론 데이터셋에서 평가되었으며, 기존의 최첨단 방법보다 우수한 성능을 보여주었습니다. 특히, Negative Log-Likelihood(NLL)와 Expected Calibration Error(ECE)에서 더 낮은 값으로 더 신뢰할 수 있는 불확실성 추정을 제공하는데 성공하였습니다. 이를 통해 이 방법은 더욱 정교한 추론 결과를 생성할 수 있음을 입증하고 있습니다.
+
+
+
+### Sockpuppetting: Jailbreaking LLMs Without Optimization Through Output Prefix Injection (https://arxiv.org/abs/2601.13359)
+- **What's New**: 본 논문에서는 'sockpuppetting'이라는 새로운 방법을 소개합니다. 이 방법은 LLM의 출력 시작 부분에 수용(sequence of acceptance) 시퀀스를 삽입하여 모델의 응답을 완성하게 합니다. 단 하나의 코드 라인만으로도 구현이 가능하고, GCG 모델 대비 최대 80% 높은 공격 성공률(ASR)을 기록하는 효과적인 방법임을 보여줍니다.
+
+- **Technical Details**: sockpuppetting은 특별한 최적화 없이 모델의 응답 앞에 특정 문구를 삽입하여 공격을 수행하는 간단한 방법입니다. 이 방식은 계산 자원이나 전문 지식이 필요하지 않으며, 기존의 그래디언트 최적화 방법과 결합하여 성능을 더욱 높일 수 있습니다. 이를 통해 Llama-3.1-8B에서 최대 64% ASR 증가를 기록했습니다.
+
+- **Performance Highlights**: sockpuppetting은 비전문가도 쉽게 사용할 수 있는 저비용 공격 방법으로 자리잡았습니다. 이 연구 결과는 특히 오픈-웨이트(open-weight) 모델의 출력 접두사 주입 공격에 대한 방어 메커니즘 필요성을 강조합니다. 오픈-웨이트 모델이 상대적으로 낮은 비용과 규제 점검을 받아 악용될 가능성이 커짐에 따라, 이러한 공격 기법은 보안 연구자들 사이에서 주목받고 있습니다.
+
+
+
+### LLM-as-RNN: A Recurrent Language Model for Memory Updates and Sequence Prediction (https://arxiv.org/abs/2601.13352)
+Comments:
+          17 pages, 5 figures, 6 tables
+
+- **What's New**: LLM-as-RNN은 대규모 언어 모델을 재귀적 예측기로 변환하는 새로운 구조를 제안합니다. 이 접근 방식은 고정된 매개변수로 오류 수정이 가능하며, 각각의 단계에서 자연어 메모리를 사용하여 내부 상태를 갱신합니다. 기존의 메모리 업데이트 방식과 비교해, LLM-as-RNN은 실시간으로 데이터를 학습하고 예측의 정확도를 높이는 데 기여합니다.
+
+- **Technical Details**: 제안된 LLM-as-RNN은 인과 피드백을 활용하여 매 단계에서 구조화된 메모리를 갱신하는 데 중점을 둡니다. 이를 통해, 매개변수를 업데이트하지 않고도 모델이 이전 오류를 수정하고 전략을 개선할 수 있게 됩니다. 이 방식은 온전한 장기 기억 상태 없이도 효과적으로 정보를 유지 및 업데이트할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 세 가지 다양한 벤치마크에서 LLM-as-RNN은 zero-shot, full-history concatenation, MemPrompt와 같은 기존 기준을 초월하는 성능을 기록했습니다. 특히 MIMIC-IV에서는 10.8%, Weather에서는 1.6%, S&P 500에서는 4.8%의 정확도 개선을 보였습니다. 이 새로운 접근은 모델의 학습 과정을 해석 가능하게 만들어, 사용자와의 신뢰성을 높이는 데 기여합니다.
+
+
+
+### AfroScope: A Framework for Studying the Linguistic Landscape of Africa (https://arxiv.org/abs/2601.13346)
+- **What's New**: 이 논문은 713개의 아프리카 언어를 포함하는 AfroScope-Data 데이터셋과 강력한 LID 모델 세트를 제공하는 AfroScope라는 통합 프레임워크를 소개합니다. 이를 통해 아프리카 언어의 식별에서 겪는 다양한 문제들을 해결하고, 언어 간 전이(transfer) 연구를 가능하게 합니다. 특히, Mirror-Serengeti라는 특화된 임베딩 모델을 활용하여 혼동되기 쉬운 언어를 보다 효과적으로 구분하는 계층적 분류 접근을 제안합니다.
+
+- **Technical Details**: AfroScope는 713개의 아프리카 언어를 포괄하는 대규모 다국어 데이터셋 AfroScope-Data와 다양한 언어를 지원하는 LID 모델을 포함하고 있습니다. 또한, 계층적 접근법을 통해 서로 closely related (유사한) 언어를 효과적으로 구분하도록 design되었습니다. 특히, 언어 가족 구조와 스크립트 오버랩에 따라 긍정적인 전이와 부정적인 간섭을 분석하여 robust한 아프리카 LID 시스템 구축을 위한 실용적인 가이드를 제공합니다.
+
+- **Performance Highlights**: 이 연구는 사실상 가장 혼란스러운 서브셋에서 축소된 모델 대비 macro F1 점수를 4.55 이상 향상시켰습니다. AfroScope-Data와 AfroScope-Models는 온라인으로 공개되며, 아프리카 언어의 디지털 텍스트에서 언어적 풍경을 대규모로 측정하는 기술로 자리매김하고 있습니다. 이러한 성과는 아프리카 언어의 NLP 응용 프로그램에 중대한 진전을 가져올 것으로 예상됩니다.
+
+
+
+### RegCheck: A tool for automating comparisons between study registrations and papers (https://arxiv.org/abs/2601.13330)
+Comments:
+          15 pages, 1 figure
+
+- **What's New**: 이 논문은 RegCheck라는 새로운 도구를 소개합니다. RegCheck는 연구자와 리뷰어, 편집자가 연구 등록 정보를 논문과 비교할 수 있도록 돕기 위해 설계된 AI 기반 도구입니다. 이 도구는 사용자가 비교해야 하는 특징을 직접 선택하고, 각 특징과 관련된 가장 관련성 높은 텍스트를 제시함으로써 인간의 판단력을 지원합니다.
+
+- **Technical Details**: RegCheck는 연구 등록 정보와 논문의 텍스트를 분석하고 비교하는 프로세스를 자동화합니다. 사용자가 등록 번호를 입력하거나 파일을 업로드하면, RegCheck는 다양한 단계로 등록 내용과 논문 내용을 파싱합니다. 최종적으로 사용자가 지정한 차원에 따라 텍스트의 관련 부분을 추출하고, 구조화된 보고서를 생성합니다.
+
+- **Performance Highlights**: RegCheck는 공유 가능한 보고서를 생성하여 다른 사용자에 의해 쉽게 검증될 수 있도록 합니다. 이 도구는 여러 과학 분야와 다양한 등록 및 출판 형식에 적응 가능하여, 과학적 재현성을 높이는 데 기여할 잠재력을 가집니다. 실용적으로 연구자들이 연구 등록과 논문 간의 비교 작업을 손쉽게 수행할 수 있도록 설계되었습니다.
+
+
+
+### Reducing Tokenization Premiums for Low-Resource Languages (https://arxiv.org/abs/2601.13328)
+- **What's New**: 이번 논문은 낮은 자원 언어에서의 토큰화 요금(상대적인 비율)이 높은 자원 언어와 비교하여 현저히 더 높다는 점을 분석합니다. 이를 통해 저자들은 10개의 인기 있는 언어 모델의 토크나이저를 조사하여 각 언어별 토큰화의 차이를 이해하고, 저자들이 제안한 방법을 통해 이러한 토큰화 요금을 줄일 수 있는 가능성을 제시합니다. 이를 통해 낮은 자원 언어에서도 효과적으로 텍스트를 처리할 수 있는 방법론을 제안하고 있습니다.
+
+- **Technical Details**: 많은 현대 언어 모델은 데이터 기반 접근 방식으로 토크나이저의 어휘를 결정하며, 대표적으로 바이트 쌍 인코딩(Byte Pair Encoding, BPE)이 사용됩니다. BPE는 초기 문자 집합으로 시작하여 가장 빈번한 쌍을 병합하여 새로운 토큰으로 추가하는 방식으로 작동합니다. 본 논문에서는 이러한 방식이 자원 언어의 텍스트 인코딩에서 가져오는 효율성의 차이를 분석하고, '다중 토큰' 문자를 단일 토큰으로 통합하는 방법을 제안합니다.
+
+- **Performance Highlights**: 저자들은 12개의 낮은 자원 언어에 대해 제안된 방법론을 적용하여 기존 입력과 압축된 입력이 Llama 3.2 1B 모델을 통해 처리될 때 유사한 마지막 은닉 상태를 생성함을 보여주었습니다. 그 결과, 이 토큰화 방식을 통해 저렴한 비용으로 낮은 자원 언어를 효과적으로 처리할 수 있는 가능성을 제시합니다. 이 논문은 낮은 자원 언어의 처리 속도와 비용 문제를 해결하는 데 기여할 것으로 기대됩니다.
+
+
+
+### Arab Voices: Mapping Standard and Dialectal Arabic Speech Technology (https://arxiv.org/abs/2601.13319)
+- **What's New**: 이 논문은 Dialectal Arabic (DA) 음성과 데이터 분석의 표준화된 프레임워크인 Arab Voices를 소개합니다. 이 프레임워크는 31개의 데이터셋과 14개의 방언에 걸쳐 통합된 접근을 제공하며, 개선된 메타데이터와 평가 유틸리티를 포함합니다. 이를 통해 비표준화 및 데이터 스프레드 문제를 해결하고, 다이얼렉트의 일관성을 높입니다.
+
+- **Technical Details**: ARAB Voices는 데이터세트의 음향 조건, 언어적 '다이얼렉트성', 오디오 품질의 객관적 기준을 자동으로 특성화하여 DA 음성을 보다 효과적으로 분석하고 평가할 수 있도록 돕습니다. 데이터 문서화 관점에서 DA 데이터셋의 필요성에 따라 언어 발음, 스타일, 사회적 요인 등을 고려하여 각 데이터셋의 변동성을 조직합니다.
+
+- **Performance Highlights**: 논문에서는 최근의 여러 ASR 시스템 성능을 평가하여 현대 DA ASR의 강력한 기준선을 설정합니다. 데이터세트 간의 비교 가능성을 위해 음향 품질을 정량화하며, 데이터의 이질성을 고려한 체계적인 분석과 벤치마킹을 수행하고 있습니다. 이를 통해 연구자들은 DA 음성 기술 개발에 필요한 정보를 제공받게 됩니다.
+
+
+
+### Paid Voices vs. Public Feeds: Interpretable Cross-Platform Theme Modeling of Climate Discours (https://arxiv.org/abs/2601.13317)
+- **What's New**: 이번 연구는 기후 변화에 대한 온라인 담화의 차별적인 분석을 통해 유료 광고와 공공 소셜 미디어 플랫폼 간의 기후 담론 차이를 조명합니다. 특히, Meta의 유료 광고와 Bluesky의 공공 게시물을 비교하여, 각 플랫폼의 제도적 메시지와 사용자 생성 담론의 특성을 명확하게 구분합니다. 이 연구는 다양한 커뮤니케이션 환경에서 비교 내러티브 분석을 지원하는 해석 가능한 프레임워크를 제시합니다.
+
+- **Technical Details**: 연구에서는 기후 담론을 분석하기 위해 대규모 언어 모델 (Large Language Models, LLM)을 활용하여 의미적 유사성과 주제를 클러스터링하는 해석 가능한 주제 발견 및 할당 프레임워크를 도입했습니다. 결과적으로, 이 방법은 전통적인 주제 모델링 기법에 비해 이전의 주제 집합이나 초기 seed 없이도 플랫폼 간 비교를 가능하게 합니다. 또한, 이 연구는 두 개의 후속 작업인 입장 예측 (stance prediction)과 주제 기반 검색 (theme-guided retrieval)의 유용성을 평가하여 의미적으로 일관된 구조를 반영합니다.
+
+- **Performance Highlights**: 연구 결과, 유료 기후 메시지와 공공 기후 담론 간에 체계적인 차이가 있음을 입증했습니다. 분석된 주제들은 플랫폼의 인센티브 구조를 반영하며, 기후 담론의 주제적 전개가 주요 정치적 사건에 따라 변화하는 경향을 보였습니다. 이 연구의 주제는 후속적인 입장 예측 및 검색 작업에서의 성과를 크게 향상시켜, 실제 담론 분석에 유용하게 활용될 수 있음을 보여줍니다.
+
+
+
+### OI-Bench: An Option Injection Benchmark for Evaluating LLM Susceptibility to Directive Interferenc (https://arxiv.org/abs/2601.13300)
+- **What's New**: 이 논문에서는 새로운 벤치마킹 접근법인 옵션 삽입(option injection)을 소개합니다. 이는 여러 선택 질문 답변(MCQA) 인터페이스에 오도하는 지시가 포함된 추가 옵션을 추가하여 모델의 취약성을 체계적으로 평가할 수 있도록 합니다. 연구팀은 OI-Bench라는 3,000개의 질문 세트를 구축하여 지식, 추론 및 상식 작업에 대한 평가를 수행했습니다.
+
+- **Technical Details**: OI-Bench는 16가지 유형의 지시를 포함하여 사회적 준수, 보상 프레이밍, 위협 프레이밍 및 지시 간섭을 포함하는 4가지 카테고리로 구성됩니다. 이 연구는 12개의 LLM 모델을 평가하여 공격 성공률 및 행동 반응을 분석하였으며, 이 결과들은 기존의 구조적 바이어스와 오도하는 지시 바이어스의 영향을 받는 모델의 취약성을 드러내고 있습니다.
+
+- **Performance Highlights**: 실험 결과는 높은 성능을 보이는 모델도 여전히 오도하는 옵션에 취약하다는 것이 밝혀졌습니다. 예를 들어, Gemini-2.5-pro 모델은 높은 공격 성공률을 기록했고, GPT-5는 QA에서 높은 성능을 보이지만 여전히 간섭에 취약합니다. 또한, 후처리 정렬(post-training alignment)을 통한 완화 전략의 효과를 조사한 결과, 특정 상황에서 더 나은 결과를 도출할 수 있음을 발견하였습니다.
+
+
+
+### A BERTology View of LLM Orchestrations: Token- and Layer-Selective Probes for Efficient Single-Pass Classification (https://arxiv.org/abs/2601.13288)
+- **What's New**: 본 연구는 기존 LLM 시스템의 안전성을 높이기 위하여 별도의 모델을 사용하지 않고, 한 번의 전방 패스(forward pass)에서 수행되는 여러 계산을 재사용하는 방법을 제안합니다. 우리는 LLM이 생성하는 숨겨진 상태(hidden states)를 사용하여 경량화된 프로브(probes)를 학습하고, 이를 통해 안전성을 예측하는 레이블을 도출합니다. 기존의 고정된 토큰(token)이나 층(layer)에 의존하는 접근 방식과는 달리, 우리는 전체 토큰-층 숨겨진 상태 텐서를 활용하여 분류 문제를 해결합니다.
+
+- **Technical Details**: 우리는 두 단계의 집계(aggregation) 구조를 도입하여 각 층 내에서 토큰을 요약하고, 다음 단계에서 층별 요약을 집계하여 분류를 위한 단일 표현을 형성합니다. 이 과정에서 직접 풀링(direct pooling), 10만 개의 파라미터를 가진 스코어링(attention) 게이트, 최대 3,500만 개의 학습 가능한 파라미터를 가진 멀티헤드(self-attention) 프로브를 구현하였습니다. 이러한 구조는 LLM의 전방 패스 동안 생성되는 숨겨진 상태를 기반으로 경량화된 분류기를 학습하는 데 중점을 두고 있습니다.
+
+- **Performance Highlights**: 우리의 프로브는 안전성(modération) 및 감정(sentiment) 분류 벤치마크에서 기존의 로그잇(logits) 재사용 방식보다 향상된 성능을 보여주며, 여러 태스크 전용 기본선들과도 경쟁력을 갖추고 있습니다. 특히 강력한 가드 모델에 비해 수십 배 적은 학습 가능한 파라미터를 요구하면서도 유사한 성능을 유지하였습니다. 분류 작업이 생성 과정과 동시에 수행될 수 있도록 하여, 별도의 가드 모델 파이프라인으로 인한 지연 시간(latency) 및 오버헤드를 피할 수 있는 간단한 배포 경로를 제공합니다.
+
+
+
+### Unlearning in LLMs: Methods, Evaluation, and Open Challenges (https://arxiv.org/abs/2601.13264)
+- **What's New**: 이번 논문은 대규모 언어 모델(LLMs)에서의 머신 언러닝 연구를 교차 분석하고, 이를 위한 다양한 방법론을 정리했습니다. 연구에 따르면, 특정 정보를 선택적으로 제거하는 방식으로 이러한 모델의 성능을 최적화할 수 있는 가능성이 강조되었습니다. 특히, 기존의 복잡한 아키텍처를 수정하거나 새로운 모듈을 추가하는 건축 중심(architecture-centric) 방법들이 언급되었습니다.
+
+- **Technical Details**: 이 논문에서는 머신 언러닝의 영역에서 언러닝(unlearning)이라는 새로운 패러다임을 다루며, 이를 데이터 중심(data-centric), 매개변수 중심(parameter-centric), 아키텍처 중심(architecture-centric) 및 하이브리드(hybrid) 방법으로 분류했습니다. 각 방법론은 모델의 학습 데이터나 최적화 과정에서의 개입 지점에 따라 달라지며, 이러한 접근 방식을 통해 언러닝의 효과성을 높인다고 합니다. 또한, 평가 체계와 기준은 모델의 과거 정보 제거 효과를 평가하는 데 중요하다는 점을 강조했습니다.
+
+- **Performance Highlights**: 최근 연구에서 도구 보강된 LLM은 외부 컴포넌트에 대한 API 호출을 통해 더욱 효율적인 결과를 도출할 수 있음을 보여주었습니다. 언러닝 기술이 정량적 비율을 넘어서 모델의 편향된 반응을 제거하고, 더 책임감 있는 AI 시스템을 구축하는 데 기여할 수 있다는 점에서 큰 의미가 있습니다. 그러나 언러닝의 확장성 문제와 다양한 언어에서의 적용 가능성은 해결해야 할 주요 과제로 남아 있습니다.
+
+
+
+### Stop Taking Tokenizers for Granted: They Are Core Design Decisions in Large Language Models (https://arxiv.org/abs/2601.13260)
+Comments:
+          Accepted to EACL 2026 (long, main). The first two authors contributed equally
+
+- **What's New**: 이 논문은 기존의 토크나이제이션(tokenization) 방식을 재조명하고, 이를 단순한 전처리 과정이 아니라 모델링의 핵심 결정으로 다뤄야 한다고 주장합니다. 특히, 문맥 인식 프레임워크를 통해 토크나이저와 모델 설계를 함께 고려해야 한다는 점을 강조합니다. 이를 바탕으로 토크나이제이션 방법을 언어 및 도메인 특성에 맞춰 조정할 필요가 있음을 역설합니다.
+
+- **Technical Details**: 논문에서는 Byte Pair Encoding (BPE)와 같은 일반적인 서브워드(subword) 방식의 한계를 지적합니다. BPE는 빈도가 높은 쌍을 합치는 방식으로 동작하지만, 언어의 구조와 잘 맞지 않으며 편향된 결과를 초래할 수 있다고 언급합니다. 다양한 언어와 도메인에 걸쳐 공정하고 효율적인 토크나이제이션을 위해서는 기존의 통계적 방법을 넘어서는 접근이 필요합니다.
+
+- **Performance Highlights**: 표준화된 평가 및 투명한 보고의 중요성이 강조되며, 이러한 과정을 통해 토크나이제이션의 선택이 공정하고 비교 가능하도록 만들 수 있습니다. 특히, 토크나이징 디자인을 공정성, 표현 정렬 및 범위를 포함하는 평가 차원에서 재구성함으로써, 모델 성능을 개선할 수 있는 기회가 생길 것이라는 기대를 나타냅니다. 이 연구는 토크나이제이션을 핵심 설계 문제로 재조명함으로써, 언어 모델의 효율성과 적응성을 높이는 데 기여할 수 있는 가능성을 보여줍니다.
+
+
+
+### A Hybrid Protocol for Large-Scale Semantic Dataset Generation in Low-Resource Languages: The Turkish Semantic Relations Corpus (https://arxiv.org/abs/2601.13253)
+- **What's New**: 본 논문에서는 저자들이 제안한 하이브리드 방법론이 있습니다. 이 방법론은 840,000개의 고유한 터키어 의미 쌍(Semantic pairs)을 포함하는 대규모 의미 관계 데이터셋을 생성하며, 기존 자료에 비해 10배 증가하였습니다. 또한, 총 비용은 65달러로 저렴하며, 다양한 후속 작업을 통해 90%의 정확도를 달성하였습니다.
+
+- **Technical Details**: 하이브리드 프로토콜은 크게 세 가지 단계로 구성됩니다. 첫 번째 단계로 FastText 임베딩(FastText embeddings)과 집합 클러스터링(Agglomerative Clustering)을 통해 13,000개의 의미 클러스터를 식별합니다. 두 번째 단계에서는 Gemini 2.5-Flash 모델을 통해 클러스터 내에서 자동으로 다양한 의미 관계를 생성하고 세 번째 단계에서는 약 20,000개의 출처에서 가져온 외부 사전을 통합하여 16,000개의 확인된 동의어 쌍을 도출합니다.
+
+- **Performance Highlights**: 생성된 데이터셋의 유용성을 검증하기 위해 두 가지 다운스트림 작업이 수행되었습니다. 첫 번째는 임베딩 모델이 동의어 쌍에 대해 90%의 top-1 검색 정확도를 달성하였고, 두 번째는 분류 모델이 90%의 F1-macro 점수를 달성하였습니다. 이 결과는 데이터셋의 품질이 실제 생성된 의미 시스템 교육에 적합함을 나타냅니다.
+
+
+
+### Beyond Cosine Similarity: Taming Semantic Drift and Antonym Intrusion in a 15-Million Node Turkish Synonym Graph (https://arxiv.org/abs/2601.13251)
+- **What's New**: 이번 논문에서는 동의어와 반의어를 구분하는 데 어려움이 있는 기존의 딥러닝 기반 임베딩 성능의 한계를 극복하기 위해 대규모 의미 클러스터링 시스템을 개발했습니다. 시스템은 1500만 개의 어휘 항목을 분석하고 5억 2000만 개의 잠재적 관계를 평가하여 290만 개의 고정밀 의미 클러스터를 생성합니다. 주요 기여로는 843,000개의 개념 쌍으로 구성된 레이블 데이터셋을 제안하고, 90%의 마크로 F1을 달성한 세 가지 의미 관계 분류기를 소개하며, 의미 Drift를 완화하는 새로운 클러스터링 알고리즘을 제공합니다.
+
+- **Technical Details**: 이 연구는 LLM(대형 언어 모델) 개선을 통해 843,000개의 레이블이 달린 의미 관계 쌍을 생성했습니다. 동의어, 반의어 및 공동 하위 범주에 대한 세 가지 관계를 명시적으로 구분할 수 있는 분류기를 개발하며, 이를 통해 신뢰할 수 있는 예측 결과를 도출합니다. 제안된 오버랩 기반 이웃 포함의 두 단계 그래프 클러스터링 절차는 각 용어를 단일 의미론적으로 일관된 클러스터에 할당합니다.
+
+- **Performance Highlights**: 최종적으로 이 시스템은 290만 개의 클러스터를 도출하며, 평균 클러스터 크기는 4.58로 보고되었습니다. 제공된 자원은 특히 형태학적으로 풍부하고 저자원의 언어에서의 동의어 검색 및 검색 보강 생성에 유용합니다. 이 결과는 각 용어가 정확히 하나의 의미론적으로 일관된 클러스터에 할당되도록 하여 동의어 발견의 질을 크게 향상시킵니다.
+
+
+
+### Aligning Agentic World Models via Knowledgeable Experience Learning (https://arxiv.org/abs/2601.13247)
+Comments:
+          Ongoing work
+
+- **What's New**: 본 연구에서는 기존 대형 언어 모델(LLM)들이 지닌 비물리적 지식의 한계를 극복하기 위한 WorldMind라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 환경 피드백을 이용하여 상징적 세계 지식 저장소를 구축함으로써 물리적 법칙을 준수하는 방식으로 지식의 정확성을 높입니다. 연구팀은 Process Experience와 Goal Experience를 결합하여 에이전트가 물리적 현실에 맞는 계획을 수립하도록 돕는 방법을 개발했습니다.
+
+- **Technical Details**: WorldMind 프레임워크는 제어 문제를 World Knowledge-Augmented Markov Decision Process(WK-MDP)로 형식화하여 환경 동역학을 외부화합니다. 이 과정에서 에이전트는 Process Experience와 Goal Experience 두 가지 유형의 경험을 축적하며, 이를 통해 예측 오류를 활용하여 내부 세계 모델을 정교화합니다. 이 메커니즘은 자율적으로 신뢰할 수 있는 세계 모델을 확보하는 데 기여하며, 에이전트는 이를 바탕으로 물리적 제약을 준수하는 계획을 수립할 수 있습니다.
+
+- **Performance Highlights**: WorldMind는 EB-ALFRED와 EB-Habitat 실험에서 기존 모델들보다 우수한 성능을 기록하며, 물리적 환각을 크게 줄이는 데 성공했습니다. 또한, 모델 간의 전이 가능성이 뛰어나고, 구축된 세계 지식이 특정 모델에 의존하지 않고 보편적인 물리 법칙을 포착하는 것을 입증했습니다. 이러한 성과는 에이전트가 내부적으로 신뢰할 수 있는 세계 모델을 개발하는 데 있어 중요한 기여를 합니다.
+
+
+
+### Autoregressive Models Rival Diffusion Models at ANY-ORDER Generation (https://arxiv.org/abs/2601.13228)
+- **What's New**: 이번 연구에서는 Any-order Any-subset Autoregressive modeling(A3)이라는 새로운 프레임워크를 소개합니다. A3는 전통적인 Autoregressive(AR) 모델링의 구조를 개선하고 확장하여 모든 순서와 모든 토큰 그룹을 효과적으로 처리할 수 있는 능력을 갖추고 있습니다. 이러한 방식은 확률적 엄밀성과 안정성을 유지하면서도 효율적인 생성 방식인 Diffusion 모델의 유연성을 통합합니다.
+
+- **Technical Details**: A3는 두 스트림 주의(attention) 아키텍처를 통해 구현되며, 이는 훈련과 예측 과정에서 다양한 그룹 순서를 지원합니다. 훈련 중, 모델은 임의로 샘플링한 그룹 파티션을 활용하여 서로 다른 조건 구조에 대한 안정성을 높입니다. 또한 주어진 시퀀스에서 마스킹된 토큰을 조건화하여 예측하는 과정을 통해 다층적 의존성을 형성할 수 있게 됩니다.
+
+- **Performance Highlights**: A3는 질문 응답, 상식 추론, 스토리 인필링 등 다양한 벤치마크에서 우수한 성능을 보였습니다. 특히, A3는 적은 양의 훈련 데이터를 사용하면서도 최신 Diffusion 기반 모델을 초월하는 결과를 보여주었습니다. 종합적으로, A3는 AR과 병렬 생성 패러다임 간의 간극을 줄이는 새로운 방향을 제시할 수 있는 가능성을 지닌 모델입니다.
+
+
+
+### Beyond Single-shot Writing: Deep Research Agents are Unreliable at Multi-turn Report Revision (https://arxiv.org/abs/2601.13217)
+- **What's New**: 이번 연구에서는 Deep Research Agents (DRA)의 기존 벤치마크가 보고서 작성을 단일 진행(Task)으로 다루는 문제를 다루고 있습니다. 저자들은 DRA가 사용자 피드백을 바탕으로 보고서를 반복적으로 수정할 수 있는지를 규명하는 Mr Dre라는 평가 도구를 소개합니다. 이 평가 도구는 다단계 보고서 수정을 새로운 평가 축으로 설정합니다.
+
+- **Technical Details**: Mr Dre는 (1) 포괄성(comprehensiveness), 사실성(factuality), 표현(presentation)을 아우르는 통합된 장기 보고서 평가 프로토콜과 (2) 사용자의 피드백을 시뮬레이션하여 다단계 수정을 지원하는 인간 검증 피드백 시뮬레이션 파이프라인으로 구성됩니다. 분석 결과, 다섯 가지 다양한 DRA를 평가한 결과, 에이전트는 대부분의 사용자 피드백에 대응할 수 있지만, 이전에 다룬 콘텐츠 및 인용 품질에서 16-27% 간섭이 발생합니다.
+
+- **Performance Highlights**: 여러 번 수정 과정을 거치면서도, 성능이 가장 좋은 에이전트조차도 피드백의 범위를 넘어서는 콘텐츠에 간섭하며, 이전 수정을 제대로 보존하지 못하는 문제가 드러났습니다. 이러한 문제는 프롬프트 엔지니어링(prompt engineering) 또는 보고서 수정 전용 하위 에이전트(sub-agent)를 통한 추론 시간 수정으로 쉽게 해결되지 않음을 보였습니다.
+
+
+
+### OpenExempt: A Diagnostic Benchmark for Legal Reasoning and a Framework for Creating Custom Benchmarks on Demand (https://arxiv.org/abs/2601.13183)
+Comments:
+          25 pages, 9 Figures, 15 tables
+
+- **What's New**: 이 논문은 언어 모델의 법률적 사고 평가를 위한 새로운 프레임워크인 OpenExempt를 소개합니다. OpenExempt는 미국 파산법의 전문가가 제작한 기호 표현을 사용하여 다양한 자연어 이성 작업과 기계적으로 계산 가능한 솔루션을 동적으로 생성합니다. 이 시스템은 법적 문제의 각기 다른 사고 과정을 분리하여 평가할 수 있는 능력을 부여하여, 기존 고정된 질문-답변 쌍의 한계를 극복합니다.
+
+- **Technical Details**: OpenExempt 프레임워크는 세 가지 주요 구성 요소로 이루어져 있습니다: 전문적인 법적 주석을 인코딩하는 지식 표현 계층, 기호와 자연어 형식으로 쌍을 이루는 작업을 생성하는 작업 생성기, 그리고 분기 한정 최적화를 적용하여 정답 솔루션을 계산하는 결정론적 해결기입니다. 이 프레임워크는 각기 다른 복잡성 수준을 정확하게 조정할 수 있도록 하여 법률 사고의 평가를 보다 체계적으로 수행할 수 있게 해줍니다.
+
+- **Performance Highlights**: OpenExempt 벤치마크는 9개의 평가 수트와 9,765개의 샘플로 구성되어 있습니다. 13개의 다양한 언어 모델에 대한 실험을 통해, 긴 사고 경로와 내용이 혼란스러운 진술이 있을 때만 성능 저하가 나타나는 샤프한 클리프가 발견되었습니다. 논문에서는 OpenExempt 프레임워크와 벤치마크를 공공에 무료로 제공하여 법률 및 NLP 분야의 연구를 지원할 의도를 강조하고 있습니다.
+
+
+
+### Medical Triage as Pairwise Ranking: A Benchmark for Urgency in Patient Portal Messages (https://arxiv.org/abs/2601.13178)
+Comments:
+          19 Pages, 5 Figures
+
+- **What's New**: 이 논문은 비동기식 외래환자 포털 메시지를 통해 의료 자원 및 환자의 우선 순위를 배분하는 최초의 대규모 공개 데이터셋을 소개합니다. 또한, 환자 메시지의 긴급성을 평가하기 위해 두 메시지를 비교하는 새로운 평가 기준 PMR-Bench를 제시하여 의료 메시지의 우선 순위를 정하는 문제를 쌍 비교(inference) 문제로 전환합니다. 이 데이터셋은 실제 EHR 데이터를 포함하여 현실적인 의료 선별 상황을 재현하며, LLM(대형 언어 모델) 훈련에 대한 안내를 제공하는 자동 데이터 주석 전략을 개발하였습니다.
+
+- **Technical Details**: PMR-Bench는 1,569개의 고유한 환자 메시지를 포함하고 있으며, 각 메시지는 의료 전문가의 순위 주석(ordinal annotations)을 따릅니다. 두 가지 모델인 UrgentReward와 UrgentSFT를 통해 쌍의 긴급성 분류를 수행하며, Bradley-Terry 및 다음 토큰 예측 목표를 각각 활용합니다. 연구에서는 UrgentSFT-8B와 UrgentReward-8B 모두 8B 모델에 비해 각각 15 및 16 포인트의 향상을 보여주었으며, 이 모델들은 저자원 환경에서도 효과적으로 작동합니다.
+
+- **Performance Highlights**: UrgentSFT는 PMR-Bench에서 최고 성능을 달성했으며, UrgentReward는 저자원 환경에서 두드러진 장점을 보여주었습니다. 8B 매개변수를 가진 두 모델은 각각 8B 매개변수를 가진 오프 더 셀프 모델들에 비해 15와 16 점의 성과 향상으로 inbox sorting metrics에서 극대화된 성과를 보여주었습니다. 이 연구는 PMR-Bench와 새로운 평가 기준을 바탕으로 의료 메모의 우선 순위 정하기 문제를 해결하는 데 중요한 기여를 하고 있습니다.
+
+
+
+### Probe and Skip: Self-Predictive Token Skipping for Efficient Long-Context LLM Inferenc (https://arxiv.org/abs/2601.13155)
+- **What's New**: 이 논문은 Large Language Models (LLMs)의 긴 맥락 추론 능력을 향상시키기 위한 새로운 접근법인 SPTS (Self-Predictive Token Skipping)를 제안합니다. SPTS는 훈련이 필요 없는 프레임워크로, 이 모델의 추론 지연 시간을 줄여주며 전체 성능을 유지할 수 있습니다. 구체적으로, Partial Attention Probing (PAP)과 Low-rank Transformation Probing (LTP)이라는 두 가지 전략을 사용하여 선택적 토큰 생략을 수행합니다.
+
+- **Technical Details**: SPTS는 Multi-Head Attention (MHA)와 Feed Forward Network (FFN) 구성 요소에 대해 설계되었습니다. PAP는 부분적으로 주의(attention) 점수를 계산하여 중요 토큰을 선택하며, LTP는 저차원 근사 네트워크를 구성하여 토큰 변환을 예측합니다. 또한, Multi-Stage Delayed Pruning (MSDP) 전략을 통해 레이어 간 불필요한 토큰을 점진적으로 제거합니다.
+
+- **Performance Highlights**: 실험 결과, SPTS는 LLaMA-3.1-8B-Instruct 모델에서 prefilling 및 end-to-end 생성 속도를 각각 2.46× 및 2.29× 향상시키며, 성능 손실을 최소화합니다. 따라서 SPTS는 기존 방법들에 비해 속도와 정확도 면에서 우수한 결과를 보여줍니다.
+
+
+
+### Adversarial Alignment: Ensuring Value Consistency in Large Language Models for Sensitive Domains (https://arxiv.org/abs/2601.13137)
+Comments:
+          13 pages, 5 figures
+
+- **What's New**: 본 논문에서는 대형 언어 모델(LLM)에서 인종, 사회 및 정치와 같은 민감한 분야에 대한 가치의 일관성을 높이기 위한 적대적 정렬(Adversarial Alignment) 프레임워크를 제안합니다. 이 프레임워크는 지속적인 사전 학습(continued pre-training), 지침 미세 조정(instruction fine-tuning), 그리고 적대적 훈련(adversarial training)으로 구성되어 있습니다. VC-LLM(Value-Consistent Large Language Model)이라는 모델을 훈련하여 민감한 분야에서의 가치 일관성을 달성하고 중국어와 영어로 이루어진 이중 언어 평가 데이터 세트를 구축하였습니다.
+
+- **Technical Details**: 이 프레임워크의 핵심은 적대적 훈련입니다. 적대적 훈련은 세 가지 구성 요소로 이루어져 있습니다: Attacker는 민감한 분야에서 쟁점이 되는 쿼리를 생성하며, Actor는 가치 일관성에 기반한 응답을 생성하고, Critic은 응답의 품질을 필터링하여 보장합니다. 이 과정에서 Llama-3-Chinese-8B를 기반 모델로 사용하여 계속적인 사전학습을 진행하고, 다양한 소스에서 권위 있는 데이터를 활용하여 지침 미세 조정 데이터셋을 구축합니다.
+
+- **Performance Highlights**: 실험 결과, VC-LLM은 기존의 주요 모델들보다 우수한 성능을 보이며, 민감한 분야의 가치 일관성을 효과적으로 검증할 수 있음을 나타냅니다. 이 연구에서는 다섯 가지 민감한 분야(주권, 인권, 종교, 정치, 민족)에 대해 64,238개의 적대적 정렬 샘플을 생성하여 실험을 수행하였고, 인간 평가자와 언어 모델의 평가를 비교하는 방식으로 진행되었습니다. 이러한 결과는 제안한 프레임워크와 VC-LLM의 효과성을 명확히 입증합니다.
+
+
+
+### Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning (https://arxiv.org/abs/2601.13115)
+- **What's New**: 이번 연구에서는 대화형 에이전트가 검색과 추론을 유기적으로 결합하여 다중 턴 대화에서 사용자 의도를 효과적으로 수행할 수 있는 방법을 제안합니다. 기존의 정적 "rewrite, retrieve, and generate" 방식을 넘어, RL(강화 학습) 기반의 최적화 기법을 활용하여 사용자 목표에 적응하는 능동적인 행동을 학습하게 됩니다. 실험 결과, 네 가지 대화형 벤치마크에서 기존 강력한 모델들을 초월하는 성능을 보였습니다.
+
+- **Technical Details**: 제안된 방법론은 역사적 맥락을 이해하고 이를 기반으로 검색 쿼리를 생성하는데 초점을 맞추고 있습니다. 이를 통해 검색 결과를 효과적으로 활용하고 정확한 답변 생성을 위한 최적화를 이루며, 혼합 주체 행동의 최적화를 지원합니다. RL 훈련 프레임워크 아래에서 보상 요소를 세분화하여 검색과 추론의 상호작용을 통해 적응적 행동을 학습합니다.
+
+- **Performance Highlights**: 네 가지 대화형 검색 벤치마크에서 실시한 실험 결과, 제안한 방법이 이미 존재하는 여러 모델들에 비해 우수한 성능을 입증했습니다. 상세한 ablation 분석을 통해 각 구성 요소의 기여도를 평가하고 다중 턴 대화 능력을 향상시키기 위한 통찰을 제공했습니다. 이러한 결과는 대화형 에이전트의 성능 개선 가능성을 제시합니다.
+
+
+
+### CORE-T: COherent REtrieval of Tables for Text-to-SQL (https://arxiv.org/abs/2601.13111)
+Comments:
+          Preprint under review. Code and data available at: this https URL
+
+- **What's New**: CORE-T는 여러 테이블이 포함된 데이터베이스에서 주어진 쿼리에 대한 관련 테이블을 탐지하는 데 중요한 비효율성을 개선하는 새로운 프레임워크입니다. 이 시스템은 LLM에 의해 생성된 목적 메타데이터를 통해 테이블을 풍부하게 하며, 경량의 테이블 호환성 캐시를 미리 계산합니다. 이를 통해 SQL 생성에 필요한 연관성 있는 테이블 세트를 효율적으로 가져오는 방법을 제공합니다.
+
+- **Technical Details**: CORE-T는 오프라인에서 작성된 테이블 메타데이터와 사전 계산된 호환성 캐시를 활용하여 SQL 쿼리에 맞는 테이블 세트를 추출합니다. 입력된 쿼리에 대해, DR(밀집 검색)이 상위 K개의 후보를 반환한 후, 단일 LLM 호출을 사용하여 일관되고 연결된 하위 집합을 선택합니다. 안정성을 위해 LLM의 호출 횟수를 최소화함으로써 시스템 효율을 높이는 전략을 사용합니다.
+
+- **Performance Highlights**: CORE-T는 Bird, Spider, MMQA 데이터셋에서 최대 22.7포인트까지 테이블 선택 F1 점수를 개선하며, 최대 42% 더 적은 테이블을 검색합니다. 이는 멀티 테이블 실행 정확성을 Bird에서는 최대 5.0 포인트, MMQA에서는 최대 6.9 포인트 향상시킵니다. 또한, CORE-T는 LLM 집약적 베이스라인보다 토큰 사용량을 4-5배 줄이는 효율성을 보입니다.
+
+
+
+### Leveraging Lora Fine-Tuning and Knowledge Bases for Construction Identification (https://arxiv.org/abs/2601.13105)
+Comments:
+          19pages, 1figure
+
+- **What's New**: 이번 연구는 대형 언어 모델의 LoRA(LoRA: Low-Rank Adaptation) 기반 미세 조정을 Retrieval-Augmented Generation (RAG) 프레임워크와 통합하여 영어 두목적 구조(ditransitive construction)의 자동 식별을 조사했습니다. 영국 국가 말뭉치(British National Corpus)에서 주석이 달린 데이터로 이진 분류 작업을 수행하였습니다.
+
+- **Technical Details**: 연구는 LoRA로 미세 조정된 Qwen3-8B 모델이 기본 Qwen3-MAX 모델과 이론만 있는 RAG 시스템보다 유의미하게 우수함을 보여줍니다. 이 과정에서 미세 조정이 모델의 판단을 표면 형태(pattern matching)에서 더 의미론적(semantic)으로 정착된 이해로 전환시키는 방식이 드러났습니다.
+
+- **Performance Highlights**: 상세한 오류 분석 결과, LoRA 기반의 미세 조정이 모델의 성능을 향상시키는 데 기여했음을 확인할 수 있습니다. 이러한 실험 결과는 언어 모델이 실제 의미를 더 잘 이해하도록 돕는다는 점에서 중요합니다.
+
+
+
+### Alexandria: A Multi-Domain Dialectal Arabic Machine Translation Dataset for Culturally Inclusive and Linguistically Diverse LLMs (https://arxiv.org/abs/2601.13099)
+Comments:
+          Project resources will be available here: this https URL
+
+- **What's New**: 이번 논문에서는 아랍어의 방언 번역(Gap in dialectal translation) 문제를 해결하기 위한 새로운 데이터셋인 	extbf{Alexandria}를 소개합니다. 이 데이터셋은 13개 아랍 국가와 11개 주요 분야에서 인체 번역되어, 아랍 방언의 독특한 특성을 반영합니다. Alexandria는 도시별 정보를 포함해 방언의 세부적인 차이를 포착하며, 이는 이전 자원들과는 차별화된 점입니다.
+
+- **Technical Details**: Alexandria 데이터셋은 다중 턴 대화 시나리오로 구성되어 있으며, 화자-수신자 성별 설정을 주석으로 달아 성별에 따른 방언 사용 변화를 연구할 수 있도록 설계되었습니다. 총 107,000개의 샘플을 포함하고 있으며, 이는 기계 번역(MT) 및 대형 언어 모델(LLMs)의 교육 자원 및 벤치마크로 활용됩니다. 데이터셋은 방언 혼합 및 아랍어-인식 LLM의 번역 성능을 평가하는 데 사용됩니다.
+
+- **Performance Highlights**: 자체 평가 및 인간 평가를 통해 아랍어에 특화된 LLM들의 현재 번역 능력을 검증했습니다. 다양한 아랍 방언과 하위 방언 간의 번역에서 지속적인 도전 과제가 드러났고, 이를 통해 Alexandria 데이터셋의 필요성과 중요성이 강조됩니다.
+
+
+
+### Profiling German Text Simplification with Interpretable Model-Fingerprints (https://arxiv.org/abs/2601.13050)
+Comments:
+          Presented at 2nd International Conference on Explainable AI for Neural and Symbolic Systems
+
+- **What's New**: 이 논문은 텍스트 단순화 자동화(AutoText Simplification) 분야에서 새로운 진단 툴킷인 Simplification Profiler를 소개합니다. 이 툴킷은 단순화된 텍스트의 다차원적이고 해석 가능한 지문(fingerprint)을 생성하여 모델의 행동을 평가하는 데 도움을 줍니다. 특히 언어 자원이 부족한 경우에 맞춰 다양한 대상 그룹을 위해 유연한 모델을 구축하는 데 필요한 평가 방법론을 제시합니다.
+
+- **Technical Details**: Simplification Profiler는 단순화된 텍스트의 다차원적 분석을 가능하게 하여, 모델의 고유한 행동 특성을 측정하고 시각화할 수 있습니다. 이 툴킷은 보편적 품질 기준과 맥락 의존 파라미터를 나누어 평가하며, 문법적 정확성, 내용의 정확성, 일관성 등의 특성을 포함합니다. 또한, 다양한 prompting 전략 및 prompt engineering에 따른 세부적인 변화를 구별할 수 있는 기능을 갖추고 있습니다.
+
+- **Performance Highlights**: 본 연구에서는 Simplification Profiler가 다양한 텍스트 생성 모델의 출력을 71.9%의 F1-score로 분류할 수 있음을 보여주며, 이는 단순한 기준에 비해 48% 이상의 성과 향상을 의미합니다. 이 결과는 저자들이 제안한 메타 평가 방식이 신뢰할 수 있는 지표로 작용함을 확인시켜 줍니다. 따라서 이 툴킷은 개발자들에게 효과적이고 적응력이 뛰어난 텍스트 단순화 시스템을 구축할 수 있는 실질적인 분석 도구를 제공합니다.
+
+
+
+### Typhoon ASR Real-time: FastConformer-Transducer for Thai Automatic Speech Recognition (https://arxiv.org/abs/2601.13044)
+Comments:
+          Models and datasets are publicly available on this https URL ; Project Page: this https URL
+
+- **What's New**: 이번 연구에서 소개된 Typhoon ASR Realtime은 115M 파라미터의 FastConformer-Transducer 모델로, 저지연 태국어 음성 인식을 위한 솔루션입니다. 이 모델은 Whisper Large-v3에 비해 45배의 계산 비용 절감 효과를 나타내며, 비슷한 정확성을 유지합니다. 특히, 태국어의 전형적인 이중성 문제를 해결함으로써 일관성 있는 학습 대상을 제공하고, 이산 방언에 대한 두 단계의 커리큘럼 학습 접근 방식을 통해 중앙 태국어 성능을 유지합니다.
+
+- **Technical Details**: 자동 음성 인식(ASR) 분야에서 데이터 품질과 일관성을 모델 아키텍처만큼 중요하게 여깁니다. 본 연구에서 개발한 데이터 파이프라인은 11,000시간의 교육 데이터를 최소한의 인간 개입으로 신뢰성 높은 방식으로 선별하며, 체계적인 텍스트 정규화 과정을 통해 태국어 전사에서 발생하는 일반적인 모호성을 해결합니다. 또한, 고품질 데이터를 확보하기 위해 계층적 합의 기반의 음성 전사 및 검증 파이프라인을 구축하였습니다.
+
+- **Performance Highlights**: Typhoon ASR은 뛰어난 성능을 발휘하며 태국어 음성 인식의 표준 벤치마크로 자리를 잡았습니다. 새로운 벤치마크인 Typhoon ASR Benchmark는 정립된 태국어 언어 관습에 따른 전사와 표준화된 평가 프로토콜을 제공합니다. 이러한 통일된 평가 체계는 재현성 문제를 해결하고, 모델의 실제 성능을 더욱 정확히 반영합니다.
+
+
+
+### SASA: Semantic-Aware Contrastive Learning Framework with Separated Attention for Triple Classification (https://arxiv.org/abs/2601.13035)
+Comments:
+          in progress
+
+- **What's New**: 본 논문에서 제안하는 SASA 프레임워크는 Triple Classification (TC) 모델의 정확성을 높이기 위한 새로운 접근 방식을 제공합니다. 기존의 모델들이 KGs의 세부적인 구성 요소들 간의 의미적 상호작용을 무시하고 있는 문제를 해결하기 위해, SASA는 분리된 주의 메커니즘(Separated Attention mechanism)을 도입합니다. 이를 통해 향상된 의미적 상호작용과 단순 이진 분류의 한계를 극복할 수 있습니다.
+
+- **Technical Details**: SASA는 삼중 데이터(triple data)를 디커플링된 문맥 표현으로 인코딩하기 위한 분리된 주의 메커니즘을 활용하며, 메커니즘의 진전을 통해 효과적 상호작용이 이루어질 수 있도록 설계되었습니다. 또한, 계층적 대비 학습(Semantic-aware hierarchical CL)을 보조 훈련 목표로 도입하여 모델이 지역 수준(local level)과 글로벌 수준(global level)에서 구별 능력을 향상시킬 수 있도록 도와줍니다. 이로 인해 KGs 내에서의 미세한 의미 차이를 쉽게 구분할 수 있는 능력을 제공합니다.
+
+- **Performance Highlights**: SASA 프레임워크는 두 개의 벤치마크 데이터셋(FB15k-237 및 YAGO3-10)에서 기존의 최첨단 방법들과 비교하였을 때, 각각 5.9% 및 3.4%의 정확도 향상을 보여줍니다. 이러한 성과는 SASA가 KGs의 신뢰성과 효율성을 높이는 데 기여할 수 있음을 시사합니다. 실험 결과는 특히 SASA의 구조적 접근법이 의미적 표현을 강화하고, KGs에서 발생하는 문제를 해결하는 데 효과적임을 입증합니다.
+
+
+
+### Tears or Cheers? Benchmarking LLMs via Culturally Elicited Distinct Affective Responses (https://arxiv.org/abs/2601.13024)
+Comments:
+          24 pages, 10 figures, 9 Tables
+
+- **What's New**: 본 연구에서는 문화적 정서 반응을 포착하기 위해 전적으로 구성된 CEDAR라는 다양한 언어를 아우르는 기준을 도입합니다. CEDAR는 10,962개의 사례로 구성되어 있으며, 7개 언어와 14개의 세분화된 정서 범주를 포함하고 있습니다. 이 연구는 LLM이 단순히 보편적인 정서적 반응을 넘어서 각 문화적 맥락에 맞게 정서적 이해를 어떻게 조정할 수 있는지를 평가합니다.
+
+- **Technical Details**: CEDAR의 구성 과정은 원활한 감정 표현을 위해 LLM에서 생성된 임시 레이블을 활용하여 교차 문화적 정서 구분을 분석하는 새로운 파이프라인을 포함합니다. 이 벤치마크는 다국어 모델을 평가하는 데 사용되며, 각 언어에서 400개의 다중 양식 및 1,166개의 텍스트 전용 샘플을 포함합니다. 연구에서는 아랍어, 중국어, 영어, 힌디어, 일본어, 스페인어 및 스와힐리어를 포함한 7개 언어의 정서 범주를 적응하여 사용합니다.
+
+- **Performance Highlights**: CEDAR에 대한 실험에서는 17개의 대표적인 다국어 및 다양한 정보 형태 LLM이 평가되었습니다. 연구 결과, 언어의 일관성은 문화적 정서 이해와는 직접적인 상관관계가 없으며, 심지어 성능을 저하시킬 수도 있음을 보여줍니다. 또한, 모델이 높은 각성 상태의 정서를 일관되게 우선시하며, 낮은 각성의 감정을 소외시키는 경향이 있음을 관찰하였습니다.
+
+
+
+### Bi-Attention HateXplain : Taking into account the sequential aspect of data during explainability in a multi-task contex (https://arxiv.org/abs/2601.13018)
+Comments:
+          Accepted at "EAI AFRICOMM 2025 - 17th EAI International Conference on Communications and Networks in Africa"
+
+- **What's New**: 이번 연구에서는 혐오 발언 탐지를 위한 새로운 모델인 BiAtt-BiRNN-HateXplain을 제안합니다. 이 모델은 바디방향성 순환 신경망(BiRNN) 구조를 활용하여 입력 데이터의 시퀀셜 특성을 반영하면서 설명 가능성을 높입니다. 기존의 복잡한 LLMs와 비교하여 더 쉽게 설명할 수 있으며, 멀티태스크 학습을 통해 설명과 분류 작업을 동시에 수행합니다.
+
+- **Technical Details**: BiAtt-BiRNN-HateXplain 모델은 입력 데이터의 시퀀셜 특성을 처리할 수 있는 BiRNN 계층을 통해 설명 가능성을 향상시킵니다. 이 모델은 기존의 LIME, SHAP 및 LRP와 같은 후속 접근 방법의 문제점을 해결하기 위해 설계되었습니다. 특히, 예측 주의(attention) 변동성을 줄여 일관성을 높이고 예측의 안정성을 증진시키는 데 중점을 두고 있습니다.
+
+- **Performance Highlights**: HateXplain 데이터를 기반으로 한 실험 결과, BiAtt-BiRNN-HateXplain 모델은 탐지 성능, 설명 가능성을 명확하게 개선하였으며, 커뮤니티와 관련된 비의도적 편향 오류를 줄이는 데 성공하였습니다. 이로 인해 사회적, 윤리적 문제를 고려할 때 모델의 투명성과 신뢰성을 높일 수 있는 기회를 제공합니다.
+
+
+
+### Graph Reasoning Paradigm: Structured and Symbolic Reasoning with Topology-Aware Reinforcement Learning for Large Language Models (https://arxiv.org/abs/2601.12995)
+- **What's New**: 이번 연구는 복잡한 추론 능력을 증진하기 위해 Long Chain-of-Thought (LCoT)와 Reinforcement Learning with Verifiable Rewards (RLVR)를 결합하여 효과적인 성과를 얻었습니다. 그러나 기존 LLMs는 주로 평범한 텍스트 출력을 생성하여 의미 평가가 어려워졌고, 이에 따른 훈련 과정에서의 병목현상이 발생하였습니다. 이를 해결하기 위해 Graph Reasoning Paradigm (GRP)을 제안하며, 구조적이고 기호적으로 추론할 수 있는 방법을 구현합니다.
+
+- **Technical Details**: 구조적 추론 프로세스는 그래프 구조화된 표현과 단계별 인지 레이블을 통해 실현됩니다. 연구진은 40,300개 이상의 그래프 구조화된 수학적 추론 체인과 12,000개 이상의 코드 생성 체인을 구축하였으며, 이를 통해 supervised fine-tuning (SFT)을 진행합니다. PASC-GRPO라는 reinforcement learning 방법을 제안하여 그래프 구조의 결과 보상을 사용하여 추론 품질을 향상시키고, stratified clipping advantage estimation을 통해 보상 해킹을 줄입니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 수학적 추론 및 코드 생성 작업에서 기존의 강력한 기준 모델보다 일관되게 뛰어난 성능을 보였습니다. 특히 경쟁 수준의 작업에서 보상 해킹을 효과적으로 완화하고, 추론 길이를 줄이는 동시에 정확도와 추론 효율성을 개선하였습니다. 결론적으로, 이번 연구는 그래프 추론 패러다임이 LLM의 추론 성능을 유의미하게 향상시키는 데 기여했음을 보여주었습니다.
+
+
+
+### ChartAttack: Testing the Vulnerability of LLMs to Malicious Prompting in Chart Generation (https://arxiv.org/abs/2601.12983)
+- **What's New**: 이 연구에서 우리는 ChartAttack이라는 새로운 프레임워크를 소개합니다. 이 프레임워크는 다중 모달 대형 언어 모델(MLLMs)이 잘못된 정보를 유도하는 차트를 생성하는 방식의 평가를 가능하게 합니다. ChartAttack은 차트 설계 내에 잘못된 정보를 주입하여 데이터 해석을 왜곡하고, 공격에 효과적인 잘못된 정보(미스리더)와 결과적인 잘못된 답변을 포함하는 AttackViz 데이터셋을 만듭니다.
+
+- **Technical Details**: ChartAttack 프레임워크는 두 가지 주요 구성 요소로 이루어져 있습니다: Demonstration Selection 모듈과 Misleading Generator 모듈입니다. Demonstration Selection 모듈은 유사한 예제를 검색하고, Misleading Generator 모듈은 차트 주석, 질문 및 올바른 답변을 기반으로 잘못된 정보를 생성하는 작업을 수행합니다. 미스리더는 데이터 변화를 주지 않고 차트의 디자인을 변경하여 잘못된 해석을 유도하는 방식으로 적용됩니다.
+
+- **Performance Highlights**: ChartAttack은 MLLM 독자의 질문-답변(QA) 정확도를 평균 19.6 포인트 감소시켰고, 인종을 초월한 평가에서도 정확도를 평균 14.9 포인트 줄였습니다. 인간 참가자 연구에서도 ChartAttack에 의해 생성된 잘못된 차트가 20.2 포인트의 정확도 하락을 초래했습니다. 이 결과는 MLLM 기반 차트 생성 시스템의 설계 및 평가에서 견고성과 보안 고려의 필요성을 강조합니다.
+
+
+
+### The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check (https://arxiv.org/abs/2601.12979)
+Comments:
+          Under Review
+
+- **What's New**: 본 논문에서는 Diffusion 기반의 대형 언어 모델(dLLMs)이 에이전트 시스템에서 실시간 상호작용을 가능하게 하는 대안으로 관심을 끌고 있다는 사실을 다룹니다. 특히, 기존의 자동 회귀(backbones) 모델에 비해 높은 추론 효율성을 구현함으로써 시퀀스 지연(latency) 문제를 해결할 수 있음을 강조합니다. 하지만 저자들은 dLLMs가 실제로 에이전트 시스템에서 효과적인 행동을 보이지 못한 사례를 다루며, 이러한 효율성의 이득이 약속한 만큼 효과적이지 않음을 고발합니다.
+
+- **Technical Details**: dLLMs는 Embodied Agents와 Tool-Calling Agents 두 가지 에이전트 패러다임에서 포괄적으로 평가되었습니다. 이들은 각각 장기 계획(long-horizon planning)과 정확한 형식(formatting)을 요구하는 작업들로 나뉘며, 다각적인 검증 프로세스를 통해 dLLMs의 성능이 진단되었습니다. 평가 결과, 현재 dLLMs가 에이전트 역할에서 신뢰할 만하지 못하고, 반복적인 행동 루프에 갇히거나 도구 호출 시 기호적 정밀성을 유지하지 못하는 문제가 발생한다고 보고합니다.
+
+- **Performance Highlights**: DiffuAgent라는 다중 에이전트 평가 프레임워크가 새롭게 소개되었으며, dLLMs를 플러그 앤 플레이(cognitive cores)로 통합하여 에이전트 행동을 보다 효과적으로 평가할 수 있도록 합니다. 결과적으로, dLLMs는 비인과적(non-causal) 역할에서는 효과적이나, 인과적(causal) 계획 및 포맷팅에서는 취약함을 드러냈습니다. 본 연구는 Future dLLMs 개발에 있어 중요한 방향성을 제시하며, 인과적이고 논리적으로 기반을 둔 추론 능력의 통합 필요성을 강조합니다.
+
+
+
+### Bridging the Knowledge-Action Gap by Evaluating LLMs in Dynamic Dental Clinical Scenarios (https://arxiv.org/abs/2601.12974)
+Comments:
+          29 pages, 15 figures
+
+- **What's New**: 이번 연구는 대형 언어 모델(Large Language Models, LLMs)이 수동적인 지식 검색 도구에서 자율 임상 에이전트로 전환되는 과정의 새로운 평가 기준을 제시합니다. 우리가 제안하는 표준화된 임상 관리 및 성능 평가(Standardized Clinical Management & Performance Evaluation, SCMPE) 벤치마크는 지식 기반 평가에서부터 다중 턴 시뮬레이션 환자 상호작용에 이르는 다양한 성능을 포괄적으로 평가합니다. 이 연구는 특히 치의학 분야에서 AI의 역할을 강조하며, 환자의 적극적인 참여를 유도하는 의사결정 지원의 중요성을 언급합니다.
+
+- **Technical Details**: SCMPE 벤치마크는 정적 목표 작업(static objective tasks)에서 워크플로 기반 시뮬레이션(multi-turn simulated patient interactions)까지의 성능을 평가합니다. 분석 결과, 모델들은 정적 목표 작업에서는 높은 성능을 보이지만, 동적 임상 대화에서는 성능 저하가 나타났으며, 이는 지식 보존이 아닌 능동적 정보 수집(active information gathering) 및 동적 상태 추적(dynamic state tracking)에서의 문제로 파악되었습니다. '가이드라인 준수(Guideline Adherence)'와 '결정 품질(Decision Quality)' 간의 관계를 분석하여, 일반 모델에서 자주 발생하는 '높은 효능, 낮은 안전성(High Efficacy, Low Safety)' 위험을 확인했습니다.
+
+- **Performance Highlights**: 검색 증강 생성(Retrieval-Augmented Generation, RAG)의 효과를 정량화한 결과, RAG는 정적 작업에서 환각을 완화하는 데 도움을 주지만, 동적 워크플로에서는 효과가 제한적이며 이질적이어서 때때로 성능 저하를 초래할 수 있음이 드러났습니다. 연구 결과는 외부 지식만으로는 도메인 적응형 사전 훈련(domain-adaptive pre-training) 없이는 추론의 격차를 좁힐 수 없음을 강조합니다. 이 연구는 치의학 LLM의 능력 경계를 실증적으로 도표화하여, 표준화된 지식과 안전한 자율 임상 실천 간의 간극을 메우기 위한 로드맵을 제공합니다.
+
+
+
+### Pardon? Evaluating Conversational Repair in Large Audio-Language Models (https://arxiv.org/abs/2601.12973)
+- **What's New**: 최근 제안된 수리 인식 평가 설정은 기존의 대화형 모델이 세미콜론이 누락된 실시간 상호작용에서 얼마나 잘 작동하는지를 평가하는 데 논의되고 있습니다. 기존의 평가는 주로 대답의 정확성과 음향적 문제에 대한 내구성에 초점을 맞췄지만, 이 새로운 접근은 대답이 가능하거나 불가능한 음성 입력을 명시적으로 구분합니다. 이는 모델이 상황에 따라 적절하게 응답하거나 발화를 수정하는 능력을 강조합니다.
+
+- **Technical Details**: 이 연구에서는 대답 가능성을 입력 자체의 속성으로 정의하고, 의미적-음향적 마스킹 프로토콜을 사용하여 평가를 위한 쌍을 구성합니다. 이를 바탕으로 도입된 Evaluability Awareness and Repair (EAR) 점수는 대답 가능한 조건에서 과제 능력과 대답할 수 없는 조건에서의 수리 행동을 함께 평가하는 비보상적인 지표입니다. 이 평가 프레임워크는 대화형 모델이 입력의 의미적 평가 가능성에 따라 응답을 적절히 조절할 수 있는지를 탐구합니다.
+
+- **Performance Highlights**: 다양한 LALM에 대한 두 가지 음성 QA 벤치마크에서 실험한 결과, 대답 정확성과 대화의 신뢰성 간에 일관된 격차가 나타났습니다. 많은 모델이 입력이 대답 가능할 때는 높은 정확성을 달성했지만, 필수적인 의미 정보가 누락될 때는 적절한 대화 수리를 시작하지 못했습니다. 이러한 발견은 기존의 정확도 중심 평가 방식의 한계를 노출하며, 대답할 수 없는 입력을 수리의 단서로 여기는 신뢰성 평가의 필요성을 촉구합니다.
+
+
+
+### Trustworthy Data-driven Chronological Age Estimation from Panoramic Dental Images (https://arxiv.org/abs/2601.12960)
+Comments:
+          This paper is a preliminary version of an accepted article in Information Systems Frontiers, Springer, Special Issue "Explainability in Human-Centric AI". Please cite the final published version of the paper, not this preprint. The final published version can be found at this https URL
+
+- **What's New**: 이 논문은 의료 영상에서 치아 나이를 추정하기 위한 시스템을 제안합니다. 이 시스템은 불투명(opaque)한 딥러닝 모델의 결과를 설명하기 위해 자연어 생성(NLG) 모듈을 통합합니다. 이 NLG 모듈은 치과 전문가와 함께 설계되어 임상의 친화적인 텍스트 설명을 생산합니다. 이러한 접근은 임상 결정을 내리는 데 필요한 투명성을 제공함으로써 AI의 신뢰성을 높이고자 합니다.
+
+- **Technical Details**: AgeX라는 이름의 이 시스템은 파노라마 치과 이미지를 바탕으로 환자의 연령과 성별을 추정합니다. 시스템의 신뢰성은 AI 신뢰성 평가 목록(ALTAI checklist)을 따라 스스로 평가하여 측정되었습니다. 치과 전문가들은 생성된 설명의 질을 평가했으며, 이 과정에서 평균 4.77의 높은 점수를 기록했습니다. 이러한 결과는 전문의가 시스템 출력의 신뢰성을 평가하고 설명을 이해하는 데 기여합니다.
+
+- **Performance Highlights**: 이 연구에서는 임상적 맥락에서 치아 나이 추정의 중요성을 강조하며, 자동화된 자연어 설명을 통해 투명성을 제고하고 있습니다. AgeX는 유럽연합의 AI 법에 따른 투명성 요구사항을 준수하며, AI가 생성한 콘텐츠에 대해 최종 사용자에게 정보를 제공합니다. 이 시스템은 임상에서의 신뢰성과 실제 적용 가능성을 평가하기 위해 전문가 패널에 의해 검토되었습니다.
+
+
+
+### A Component-Based Survey of Interactions between Large Language Models and Multi-Armed Bandits (https://arxiv.org/abs/2601.12945)
+Comments:
+          27 pages, 6 table
+
+- **What's New**: 이 논문은 대규모 언어 모델(LLMs)과 다중 무장 강도(MAB) 알고리즘의 상호작용을 구성 요소 수준에서 체계적으로 리뷰한 첫 번째 설문조사입니다. LLM은 MAB의 주요 문제들을 해결할 수 있으며, MAB는 LLM의 핵심 구성 요소를 재정의하여 의사 결정 과정을 개선하는데 도움이 됩니다. 이 연구는 두 분야 간의 시너지를 탐구하며, 상호 작용의 설계, 방법론, 성과를 분석합니다.
+
+- **Technical Details**: LLM은 대규모 데이터에서 자연어의 통계적 구조를 학습하는 신경망 기반 모델로, 주로 트랜스포머 아키텍처를 사용하여 긴 의존성을 포착합니다. MAB는 불확실성 속에서 온라인 의사 결정을 탐색(새로운 행동 시도)과 착취(알려진 보상 행동 선택)의 균형을 맞추는 클래식한 설정입니다. 이 논문은 LLM과 MAB 알로리즘의 결합을 통해 기능적 요소들이 어떻게 상호 연관되는지를 분석하며, 이를 기반으로 연구의 방향을 제시합니다.
+
+- **Performance Highlights**: LLM은 MAB 알고리즘에 대해 풍부한 맥락적 표현과 사전 지식, 보상 예측을 제공하여 성능 향상에 기여합니다. 반면, MAB는 LLM 기반 시스템의 온라인 의사 결정 메커니즘을 수립하여, 모델 선택, 도구 호출, 생성 제어 등 다양한 작업에서 활용됩니다. 연구는 LLM과 MAB의 상호 보완성에 대한 통찰을 제공하며, 향후 연구의 기회와 도전 과제를 제시합니다.
+
+
+
+### Injecting Knowledge from Social Science Journals to Improve Indonesian Cultural Understanding by LLMs (https://arxiv.org/abs/2601.12921)
+- **What's New**: 이번 연구에서는 인도네시아 문화에 대한 이해를 향상시키기 위해, 151개의 오픈 소스 인도네시아 사회과학 저널에서 생성된 독창적인 텍스트 데이터셋인 IndoSoSci를 제안합니다. 저자들은 이 데이터셋을 활용하여 retrieval-augmented generation (RAG) 기술을 통해 LLM에 인도네시아 문화 정보를 주입하는 효과적인 방법을 보여주었습니다. 이를 통해 새로운 기준인 81.4%의 정확도를 달성하였으며, 기존의 다른 강력한 모델들과 비교하여 성능 향상을 입증하였습니다.
+
+- **Technical Details**: 이 연구는 인도네시아 문화에 관한 사실을 추출하고, 이를 바탕으로 LLM의 질의 응답 과정에서 가상의 문서를 쿼리로 활용하는 방식을 채택합니다. RAG 기법은 문서를 외부 데이터베이스에서 검색하여 LLM의 내부 지식을 향상시키는 효과적인 방법으로, 본 연구에서는 인도네시아 사회과학 저널에서 추출된 사실을 쿼리와 함께 사용하는 방식을 제안합니다. 이 방법은 다양한 인도네시아 문화와 관련된 질문에 대한 답변 생성을 지원하며, 연구 결과를 통해 각 구성 요소의 효과를 검증하였습니다.
+
+- **Performance Highlights**: 제안된 방법은 IndoCulture 벤치마크에서 이전 최고 수준보다 2.9% 높은 정확도를 기록하며 강력한 성능 향상을 보여주었습니다. 접근 방식은 아블레이션 실험을 통해 검증된 바 있으며, 저자들은 추출된 사실과 인도네시아 위키백과의 혼합 코퍼스를 함께 활용하여 새로운 최첨단 성과를 세웠습니다. 이를 통해 인도네시아의 다양한 문화적 배경을 가진 정보의 중요성을 강조하였습니다.
+
+
+
+### SciCoQA: Quality Assurance for Scientific Paper--Code Alignmen (https://arxiv.org/abs/2601.12910)
+- **What's New**: SciCoQA는 과학 출판물과 코드베이스 간의 불일치를 탐지하기 위한 데이터셋으로, 신뢰할 수 있는 구현을 보장하기 위한 목적으로 개발되었습니다. 이 데이터셋은 GitHub 이슈 및 재현 논문에서 구축되었으며, 논문-코드 불일치 탐지를 위한 합성 데이터 생성 방법을 제안합니다. 전체적으로 SciCoQA 데이터셋은 611개의 논문-코드 불일치(실제 81개, 합성 530개)로 구성되어 있으며, 이는 AI, 물리학, 정량 생물학 등 다양한 컴퓨팅 과학 분야를 포함합니다.
+
+- **Technical Details**: SciCoQA 데이터셋은 코드 저장소에서 보고된 문제와 기존 작업의 재현을 위한 논문을 활용하여 구축되었습니다. 이를 통해 논문과 코드 간의 불일치를 탐지하는 새로운 품질 보증 작업으로 사용할 수 있습니다. LLM(대형 언어 모델) 21개를 평가하여 이 작업의 어려움을 강조하였으며, 모델들이 논문에서 생략된 세부사항, 긴 맥락 입력, 사전 학습 코퍼스에 없는 데이터와 관련된 불일치를 찾는 데 어려움을 겪는다는 점이 드러났습니다.
+
+- **Performance Highlights**: 평가 결과, 가장 잘 수행된 모델인 GPT-5는 실제 세계의 논문-코드 불일치 중 45.7%만을 탐지할 수 있었습니다. 이는 현재 시스템이 논문과 코드를 신뢰성 있게 구현하는지 검증하는 데 있어 더 효과적인 모델과 시스템 개발이 필요함을 보여줍니다. 연구자들은 LLM을 통해 과학 출판물의 오류를 탐지하는 새로운 정량적 접근 방식에 대한 요구를 강조하며, SciCoQA에서 제안하는 방법론이 다양한 과학 분야에서 활용될 수 있음을 시사합니다.
+
+
+
+### Gated Differentiable Working Memory for Long-Context Language Modeling (https://arxiv.org/abs/2601.12906)
+- **What's New**: 이 논문에서는 긴 문맥을 다룰 때 발생하는 문제들을 해결하기 위해 Gdwm(Gated Differentiable Working Memory)이라는 새로운 프레임워크를 제안합니다. Gdwm은 메모리 통합을 예산 제약 문제로 재구성하며, 이를 통해 계산 자원이 제한된 상황에서 어떤 문맥 부분을 작업 메모리에 통합해야 하는지를 결정합니다. 기존 방법들이 uniform한 쓰기 정책에 의존하는 반면, Gdwm은 Contextual Utility를 통해 정보의 중요성을 평가하고, 비효율적인 계산을 줄이는 데 중점을 둡니다.
+
+- **Technical Details**: Gdwm은 네 가지 단계(Chunking, Gating, Allocation, Consolidation)를 통해 최적화 문제를 해결합니다. Write Controller는 메모리 메커니즘과 독립적으로 작동하며, LoRA adapters를 사용하여 효율성을 높입니다. Contextual Utility는 정보 이론的 조치로서 긴 문맥에서 중요한 종속성을 식별하는 데 사용되며, 그것의 평가를 기반으로 그래디언트 스텝을 할당합니다. 이 접근 방식은 어떤 적응 아키텍처에서도 레이어링 할 수 있는 기구 독립적 구조를 제공합니다.
+
+- **Performance Highlights**: ZeroSCROLLS 및 LongBench v2에서의 실험 결과 Gdwm은 uniform 기준 대비 4배 적은 그래디언트 스텝으로 유사하거나 우수한 성능을 달성했습니다. 특히, sparse-information 작업에서 최대 12.7%의 성능 향상을 보여주었으며, 39%의 벽 시계 속도 향상을 기록했습니다. 이 연구는 Gdwm이 대체적인 test-time scaling 전략보다 뛰어난 성능을 보인다는 것을 입증하고 있으며, 최적의 청크 크기를 작업-specific 증거 범위와 연결짓는 이론적 분석도 제공합니다.
+
+
+
+### From Prefix Cache to Fusion RAG Cache: Accelerating LLM Inference in Retrieval-Augmented Generation (https://arxiv.org/abs/2601.12904)
+- **What's New**: 이 논문은 Retrieval-Augmented Generation(RAG)의 효율성과 생성 품질을 동시에 향상시키기 위한 새로운 추론 프레임워크인 FusionRAG를 제안합니다. 기존의 KV 캐시 재사용 기술이 갖는 한계를 극복하고, 정보의 질을 보존하면서도 계산 비용을 줄이는 방법을 제시하고 있습니다. 특히, FusionRAG는 오프라인 및 온라인 두 단계에서의 프로세싱을 최적화하여 생성 품질과 효율성 간의 균형을 개선했습니다.
+
+- **Technical Details**: FusionRAG는 관련 텍스트 청크의 정보를 다른 청크에 내장하는 오프라인 전처리 및 모델이 집중하는 토큰에 대한 KV 캐시를 재계산하는 온라인 재처리 단계를 포함합니다. 이 과정에서, 유사도 기반 전처리를 통해 각 청크 내에서의 상호 주의력을 개선하며, 쿼리 기반 선택을 통해 재계산을 위한 토큰 선택의 분포를 고르게 합니다. 이러한 접근 방식은 기존의 KV 캐시 재사용 방식의 한계를 보완합니다.
+
+- **Performance Highlights**: 실험 결과 FusionRAG는 이전의 최첨단 솔루션에 비해 재계산 비율이 동일할 때 생성 품질을 유의미하게 향상시키며, 15% 미만의 토큰을 재계산하여 최대 70% 높은 정규화 F1 점수를 기록했습니다. 또한, FusionRAG는 전체 주의(Full Attention) 방식에 비해 TTFT(Time to First Token)를 2.66배에서 9.39배 감소시키는 성과를 보였습니다.
+
+
+
+### Race, Ethnicity and Their Implication on Bias in Large Language Models (https://arxiv.org/abs/2601.12868)
+Comments:
+          Work in process
+
+- **What's New**: 본 연구는 대형 언어 모델(LLMs)에서 인종 및 민족 정보가 어떻게 표현되고 운영되는지를 메커니즘적 관점에서 분석합니다. 기존 연구는 주로 결과 수준의 불평등을 문서화하는 데 초점을 맞추었으나, 이 연구는 내부 메커니즘에 대한 통찰을 제공합니다. 또한, 두 개의 공개 데이터셋을 활용하여 모델의 내부 단위로부터 인종 및 민족을 어떻게 특성화하는지를 탐구합니다.
+
+- **Technical Details**: 이 연구에서는 Qwen2.5-7B, Mistral-7B, Llama-3.1-8B라는 세 가지 오픈 소스 모델을 조합하여 메커니즘적 해석 가능성(mechanistic interpretability) 프레임워크를 적용했습니다. 이 과정에서 다중 클래스 탐색(multi-class probing)과 뉴런 수준 기여(neuron-level attribution)를 포함하는 재현 가능한 해석 가능성 파이프라인을 사용합니다. 이를 통해 내부 단위가 인종 및 민족 속성과 어떻게 관련되는지를 식별하고, 기능적 중요성을 분석합니다.
+
+- **Performance Highlights**: 연구 결과, 인종 및 민족 관련 표현이 뉴런 수준에서 식별되고 분석될 수 있지만, 이러한 표현과 모델의 편향된 행동 간의 연관성은 여전히 남아있습니다. 이는 특정 뉴런을 조작하는 것만으로는 LLM의 편향적인 행동을 완전히 설명하거나 제어할 수 없음을 나타냅니다. 따라서 더 체계적인 편향 완화 접근 방식이 필요하다는 점을 강조합니다.
+
+
+
+### Rapport du Projet de Recherche TRAIMA (https://arxiv.org/abs/2601.12844)
+Comments:
+          in French language
+
+- **What's New**: TRAIMA 프로젝트(TRAItement Automatique des Interactions Multimodales en Apprentissage)는 2019년 3월부터 2020년 6월까지 진행되었으며, 교육 환경에서 다중 모드 상호작용의 자동 처리 가능성을 조사합니다. 이 연구는 교육 및 상호작용 연구에서의 방법론적 도전 과제를 다루며, 언어적, 준언어적, 비언어적 데이터를 수동으로 분석하는 데 소요되는 극도로 많은 시간의 문제를 해결하고자 합니다. 머신 러닝 접근 방식을 통해 이러한 상호작용을 분류하고 범주화할 수 있는 가능성을 탐구합니다.
+
+- **Technical Details**: TRAIMA 프로젝트는 특히 프랑스어를 외국어로(FLE) 학습하는 환경과 모국어(FLM) 환경에서 발생하는 설명적 및 협력적 상호작용을 분석합니다. 연구는 발화 언어, 운율(prosody), 제스처(gestures), 자세(posture), 시선(gaze), 공간 배치(spatial positioning)가 결합된 다중 모드 현상으로서 이러한 상호작용을 접근합니다. 중요한 이론적 기여 중 하나로는 설명적 담화(explanatory discourse)를 개방(opening), 설명적 핵(core), 폐쇄(closure)의 삼부(tripartite)로 정의하는 것입니다.
+
+- **Performance Highlights**: TRAIMA 프로젝트는 자동화의 주요 병목 현상인 전사(transcription)의 방법론적 기초에 많은 부분을 할애합니다. 연구팀은 INTER-EXPLIC 코퍼스(약 30시간의 수업 상호작용)와 EXPLIC-LEXIC 코퍼스를 포함한 여러 코퍼스를 기초로 실증 작업을 수행합니다. 이 프로젝트는 기술, 담화 분석, 다중 모드(multi-modal) 상호 작용, 인공지능과 교육의 교차점에서 미래의 학제간(interdisciplinary) 연구를 위한 기초를 마련합니다.
+
+
+
+### Multimodal Multi-Agent Empowered Legal Judgment Prediction (https://arxiv.org/abs/2601.12815)
+- **What's New**: 이 논문에서는 JurisMMA라는 새로운 법적 판단 예측 (Legal Judgment Prediction, LJP) 프레임워크를 소개합니다. JurisMMA는 재판 작업을 효과적으로 분해하고 프로세스를 표준화하여 특정 단계로 구성합니다. 또한, 10만 건 이상의 최신 중국 사법 기록을 포함한 JurisMM 데이터세트를 구축하여 포괄적인 평가를 가능하게 합니다.
+
+- **Technical Details**: JurisMMA는 구조화된 6단계 워크플로우를 통해 법적 판결의 논리 및 운영 규범을 유지합니다. 이 프레임워크는 6개의 다양한 역할을 포함하는 자동화된 법정 모듈로 구성됩니다: 주니어 판사(Junior Judge), 시니어 판사(Senior Judge), 최고 판사(Chief Judge), 보조(Assistant), 피고(Defendant), 법률 상담가(Legal Counsel). 각 역할은 협력하여 전체 재판 주기를 완수합니다.
+
+- **Performance Highlights**: 실험 결과, JurisMMA는 기존의 최첨단 방법보다 모든 LJP 주요 작업에서 뛰어난 성능을 보여주었습니다. 법조문 예측, 법률에 대한 기소 및 형량 예측과 같은 여러 주요 임무에서 우리의 프레임워크는 다른 방법보다 우수성을 나타냅니다. 이 결과는 JurisMMA가 LJP는 물론 다양한 법적 응용 분야에도 적용 가능함을 시사합니다.
+
+
+
+### Do Clinical Question Answering Systems Really Need Specialised Medical Fine Tuning? (https://arxiv.org/abs/2601.12812)
+Comments:
+          Accepted at EACL 2026 (Industry Track)
+
+- **What's New**: MEDASSESS-X는 의료 질문 응답(Clinical Question-Answering, CQA) 프레임워크로, 기존의 도메인 전문화된 모델이 아닌 경량 스티어링 벡터를 사용해 추론 시 모델 활성화를 조정함으로써 전문가의 편향(bias)을 해소합니다. 이 접근법은 기존의 초대규모 언어 모델(Large Language Models, LLMs)에서의 성능 저하 문제를 해결하고, 전문의 의료 모델에 대한 의존도를 줄이며, 다양한 모델 사이에서의 일관성을 제공합니다. MEDASSESS-X는 정확도를 최대 6%, 사실적 일관성을 7% 향상시키며 안전성 오류율을 50%까지 감소시킵니다.
+
+- **Technical Details**: MEDASSESS-X는 의료 질문 응답 시스템의 활성화를 추론 시에 조정하도록 설계되었습니다. 이는 숨겨진 표현(hidden representation)을 기반으로 하여 오류 추적가(steering vector)를 적용하고, 모델의 기본 가중치(model weights)에 영향을 미치지 않으면서도 의료적 일관성을 유지하도록 돕습니다. 따라서 다양한 CQA 작업에 대해 각기 다른 스티어링 벡터를 보유하고 있으며, 사용하는 질문에 따라 적합한 벡터를 선택하는 경량 분류기를 포함합니다.
+
+- **Performance Highlights**: MEDASSESS-X는 보다 일관된 결과를 제공하며, 특히 다양한 LLM 환경에서 CQA 성능을 안정화시켜 줍니다. 연구 결과, MEDASSESS-X는 정확성이 최대 6% 증가하고, 사실적 일관성이 7% 향상되는 등 뚜렷한 개선을 보여 주었습니다. 또한, 실질적인 지연 시간(latency)은 7%~9%로 최소화되고, 메모리 사용량은 6% 이하로 유지됩니다. 따라서 현실 세계의 CQA 배치에 실용적입니다.
+
+
+
+### Who Does This Name Remind You of? Nationality Prediction via Large Language Model Associative Memory (https://arxiv.org/abs/2601.12771)
+- **What's New**: 이 연구는 LLM(대형 언어 모델)의 세계 지식을 활용하여 국적 예측 작업을 개선하기 위해 LLM Associative Memory Agents (LAMA)라는 새로운 프레임워크를 제안합니다. 전통적인 LLM 프롬프트 기법과는 달리, LAMA는 이름이 동일한 유명인사를 회상하여 간접 추론 방식을 통해 국적을 예측합니다. 이 접근 방식은 한국어 조사 및 문화적 요소를 포함한 추론이 아닌 구체적인 예시에 기반하여 훨씬 더 신뢰할 수 있는 결과를 제공합니다.
+
+- **Technical Details**: LAMA는 두 가지 전문 지식을 가진 에이전트로 구성된 이중 에이전트 아키텍처를 채택하고 있습니다. 이는 일반적 유명인사를 기억하는 Person Agent와 스포츠 및 오락에 특화된 Media Agent로 구성되어 있습니다. 이 시스템은 개별 유명인사의 국적 정보를 투표 기반으로 집계하여 최종 예측을 생성하며, 이를 통해 낮은 빈도의 국적에 대한 예측도 가능하게 합니다.
+
+- **Performance Highlights**: 99개 국가의 국적 예측 작업에서, LAMA는 0.817의 정확도로 기존 방법에 비해 상당한 성능 향상을 보였습니다. 이 결과는 LLM이 추상적 추론보다는 구체적인 사례 회상에서 더 높은 신뢰성을 나타내며, 이중 에이전트 아키텍처가 서로 보완적으로 작용하여 강력한 시너지 효과를 생성함을 보여줍니다. 이러한 연구 결과는 지식 추론을 위한 새로운 멀티 에이전트 시스템의 효용성을 입증하고 있습니다.
+
+
+
+### VISPA: Pluralistic Alignment via Automatic Value Selection and Activation (https://arxiv.org/abs/2601.12758)
+Comments:
+          WIP
+
+- **What's New**: 본 논문에서는 VISPA(Value-Integrated Steering for Pluralistic Alignment)라는 훈련 없이 사용할 수 있는 다원적 정렬 프레임워크를 도입합니다. VISPA는 가치 표현에 대한 직접적인 제어가 가능하며, 동적인 선택과 내부 모델 활성화 조작을 통해 다원적 관점을 반영하는 출력을 생성합니다. 여러 모델과 평가 설정을 거친 광범위한 연구를 통해 VISPA가 의료 분야와 그 외의 여러 분야에서 모든 다원적 정렬 모드에서 성능을 발휘함을 보였습니다.
+
+- **Technical Details**: VISPA는 다양한 인간 가치 집합 (𝒱mathcal{V})을 활용하여 특정 입력의 관련성을 평가하고, 이에 적합한 가치를 선택합니다. 각 가치는 LLM의 활성화 공간에서 방향으로 표현되며, 이를 통해 내부 활성화를 조작함으로써 모델의 동작을 제어하는 과정을 갖습니다. 이 과정은 선택된 가치에 따라 숨겨진 상태를 수정하며, 각 값을 활성화하는 강도를 조절할 수 있습니다.
+
+- **Performance Highlights**: VISPA는 Overton, Steerable, 및 Distributional 다원적 정렬 모드에서 최첨단 성능을 달성하며, 다양한 크기와 아키텍처의 LLM에서 효과적으로 작동합니다. 본 연구는 또한 VISPA가 다양한 초기화 방법, 모델, 그리고 가치와 함께 조정될 수 있는 적응성이 뛰어난 프레임워크임을 보여주었습니다. 이를 통해 다원적 정렬을 위한 잠재적인 경로를 제시하며, 모든 사람에게 도움이 되는 언어 모델 개발에 기여할 것으로 기대됩니다.
+
+
+
+### Towards Robust Process Reward Modeling via Noise-aware Learning (https://arxiv.org/abs/2601.12748)
+- **What's New**: 이 연구에서는 Process Reward Models (PRMs)가 복잡한 추론에서 뛰어난 성과를 거두었지만, 고비용의 프로세스 수준 감독으로 인해 병목 현상이 발생함을 강조하고 있습니다. Monte Carlo Estimation (MCE)이 사용되지만, 이는 정책에 의존하는 보상 구조를 만들어 잘못된 라벨 노이즈를 초래합니다. 이러한 문제를 해결하기 위해 연구팀은 라벨 수정 메커니즘과 노이즈 인식 반복 훈련 프레임워크를 제안했습니다.
+
+- **Technical Details**: 제안된 프레임워크는 두 단계로 구성됩니다. 첫 번째 단계에서 대형 언어 모델(LLM)을 활용하여 자기 수정 행동을 감지하고, 과대 평가된 보상을 억제하는 반영 인식 라벨 수정 메커니즘을 도입합니다. 두 번째 단계에서는 모델의 신뢰도를 기반으로 초기 라벨을 조정하여 후속 라벨의 정확성을 높이는 노이즈 인식 반복 훈련 방식을 적용합니다.
+
+- **Performance Highlights**: 광범위한 실험 결과, 제안한 방법이 PRMs보다 평균 F1 점수에서 최대 27%의 절대적인 향상을 달성하여 단계별 정확성 구분을 현저히 개선했습니다. 또한, Best-of-NN을 활용한 테스트 시에도 최종 정답 정확성이 3.2%에서 5.6%까지 추가 향상되었습니다. 이러한 결과는 훈련 데이터의 규모가 커짐에 따라 안정적인 성능 향상을 보여주었습니다.
+
+
+
+### A Shared Geometry of Difficulty in Multilingual Language Models (https://arxiv.org/abs/2601.12731)
+- **What's New**: 이 논문에서는 대형 언어 모델(LLMs)에서 문제 난이도를 예측하는 새로운 접근법을 제시합니다. 연구진은 Easy2Hard 벤치마크의 AMC 하위 집합을 사용하여 21개 언어에서 문제 난이도의 다국어 기하학을 조사했습니다. 이들은 완전히 번역된 문제로 훈련된 선형 프로브(linear probes)가 LLM의 내부 표현에서 두 가지 다른 단계에서 나타나는 난이도 신호를 발견했으며, 이는 초기와 깊은 층의 표현과 관련이 있음을 입증했습니다.
+
+- **Technical Details**: 논문은 약 4,000개의 수학 문제가 포함된 AMC 하위 집합을 사용하여 Item Response Theory (IRT)를 통해 난이도를 추정합니다. 연구자들은 각 언어에서 약 3,000개의 문제로 훈련하고 1,000개의 문제로 테스트하여 문제 난이도를 예측하는 선형 프로브를 훈련했습니다. 이 방법론은 Transformers에서 residual stream activations를 추출하고, 각 입력에 대해 선형 회귀 탐침(linear Ridge regression probes)을 훈련하여 난이도 점수를 예측하는 방식을 포함합니다.
+
+- **Performance Highlights**: 결과적으로, LLaMA-3.1-8B 모델을 기반으로 한 실험에서는 동일한 언어에서 훈련된 난이도 프로브가 깊은 층에서 정확도가 높았으나 다국어 전이 성능이 낮음을 보여주었습니다. 반면 초기 층에서 훈련된 프로브는 언어 간 전이가 상당히 향상된 반면, 동일 언어 내 성능은 낮은 경향이 있었습니다. 이러한 결과는 초기에는 언어에 구애받지 않는 표현을 형성한 후, 나중에 언어 특화된 형태로 정제되는 LLM의 두 단계 표현 프로세스를 제안합니다.
+
+
+
+### A Two-Stage GPU Kernel Tuner Combining Semantic Refactoring and Search-Based Optimization (https://arxiv.org/abs/2601.12698)
+- **What's New**: 이 논문은 GPU 코드 최적화의 핵심 성능 병목 현상을 해결하기 위한 새로운 방법론을 제안합니다. 대규모 AI 워크로드에서의 성능 저하를 해소하기 위해, 에이전트 기반의 반복 루프 위에 템플릿 기반 리라이터를 적용하여 코드 리팩토링을 명시적으로 파라미터화된 템플릿으로 변환합니다. 이러한 템플릿 파라미터는 탐색 기반의 자동 조정을 통해 최적화되어, 더 안정적이고 고품질의 성능 향상을 달성합니다.
+
+- **Technical Details**: 제안된 방법은 두 단계의 GPU 코드 조정 기법으로, 먼저 측정 및 제약 기반의 리팩토링을 통해 커널을 파라미터화된 템플릿 표현으로 변환합니다. 이후 검색 기반의 세밀한 자동 조정이 수행되며, 이 과정은 컴파일 및 실행, 정확성 확인, 성능 평가의 클로즈드 피드백 루프를 포함합니다. 결과적으로 생성된 피드백은 의미론적 리팩토링을 촉진하여 최적의 성능 구현을 목표로 합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법론은 실제 워크로드에서 3배 이상의 성능 향상을 달성했습니다. 템플릿과 검색 기반의 최적화 방식은 에이전트 기반의 직접 리라이트 방식에 비해 성능 향상의 불확실성을 줄이고, 더 체계적인 접근을 가능하게 하여 고성능 구성으로 수렴할 수 있도록 합니다. 이 방법은 OpenCL, HIP 및 기타 백엔드에도 확장 가능하여, 실제 생산 워크로드에 대한 자동화된 성능 최적화를 제공할 수 있습니다.
+
+
+
+### UbuntuGuard: A Culturally-Grounded Policy Benchmark for Equitable AI Safety in African Languages (https://arxiv.org/abs/2601.12696)
+Comments:
+          12 pages
+
+- **What's New**: UbuntuGuard는 아프리카의 10개 저자원 언어를 아우르는 최초의 정책 기반 안전 벤치마크로, 155명의 전문가들이 생성한 적대적 질의를 바탕으로 합니다. 이 시스템은 각 문화권의 위험 신호를 반영한 안전 정책과 참조 응답을 도출하여 가디언 모델의 정책 정렬 평가를 가능하게 합니다. 현재의 영어 중심의 벤치마크는 다국어 안전성을 과대 평가하며, 아프리카 언어의 지역적 맥락을 온전히 반영하지 못합니다.
+
+- **Technical Details**: 기존 안전 벤치마크는 고자원 언어에 집중하고 있으며, 고정된 안전 기준을 사용하여 아프리카 언어의 다양한 사회문화적 맥락을 제대로 포착하지 못합니다. UbuntuGuard는 사용자가 정의할 수 있는 동적 정책을 지원하며, 다중 턴 사용자-에이전트 대화를 포함한 새로운 구조로 평가를 진행합니다. 이러한 평가 접근 방식은 정적 및 동적 정책 평가를 동시에 지원합니다.
+
+- **Performance Highlights**: UbuntuGuard는 6개의 일반-purpose 모델과 7개의 가디언 모델을 포함하여 13개의 모델을 평가한 결과, 기존 모델들이 다국어 안전성을 제대로 반영하지 못하며 동적 모델조차 아프리카 언어 맥락에 완벽히 적응하지 못하는 것을 확인했습니다. 따라서 다양한 문화적 배경을 고려한 안전 벤치마크의 필요성이 대두되며, 이는 저자원 언어에 대한 신뢰할 수 있고 공정한 가디언 모델 개발에 필수적입니다.
+
+
+
+### Augmenting Question Answering with A Hybrid RAG Approach (https://arxiv.org/abs/2601.12658)
+Comments:
+          10 pages, 5 tables, 2 figures; presented at IEEE CogMI 2025
+
+- **What's New**: 이번 논문에서는 Structured-Semantic RAG (SSRAG)라는 새로운 하이브리드 아키텍처를 제안합니다. SSRAG는 QA 품질을 향상시키기 위해 쿼리 증강(query augmentation), 에이전틱 라우팅(agentic routing), 벡터 및 그래프 기반 기법을 통합한 구조적 검색 메커니즘을 결합합니다. 이 접근 방식은 검색 과정을 정제하고 맥락을 통합하여 응답의 정확성과 정보량을 개선합니다.
+
+- **Technical Details**: SSRAG의 기술적 기여는 세 가지로 나뉩니다: (1) 쿼리 이해 및 증강: 경량 팜프팅 기반의 동적 쿼리 정제 메커니즘을 도입하여 사용자 쿼리를 확장하고 명확히 합니다. (2) 에이전틱 쿼리 라우팅: 규칙 기반의 스마트 쿼리 라우팅 메커니즘을 적용하여 증강된 쿼리를 가장 관련 있는 데이터 소스로 안내합니다. (3) 하이브리드 검색 및 맥락 통합: 벡터 및 그래프 기반 검색 기법을 통합하여 더 풍부하고 신뢰할 수 있는 의미론적 및 구조적 기반을 제공합니다.
+
+- **Performance Highlights**: SSRAG는 TruthfulQA, SQuAD, WikiQA의 세 가지 유명 QA 데이터셋에 대한 광범위한 평가를 통해 응답의 정확성과 사실 일관성을 상당히 개선했습니다. 이를 통해 LLM 구동 질문 응답에서의 혼동을 줄이고, 신뢰성 있는 AI 생성 응답 향상이라는 가능성을 제시했습니다. 이러한 결과는 SSRAG가 기존 RAG 구현 대비 일관되고 높은 품질의 응답을 제공함을 보여주고 있습니다.
+
+
+
+### Intelligent Documentation in Medical Education: Can AI Replace Manual Case Logging? (https://arxiv.org/abs/2601.12648)
+Comments:
+          51 pages, 12 figures, 8 tables. Feasibility study using retrospective radiology reports. Submitted to JAMIA Open (under review)
+
+- **What's New**: 이번 연구는 방사선학 훈련에서 수행되는 절차 기록의 자동화를 위한 대형 언어 모델(Large Language Models, LLMs)의 활용 가능성을 조사합니다. 연구팀은 414개의 방사선 보고서를 활용하여 LLMs의 성능을 평가하고, 이 모델들이 데이터를 추출하는 능력을 입증했습니다. 자동화된 프로세스는 교육생의 문서 작업 부담을 줄이고 일관성을 높일 수 있는 잠재력을 지니고 있습니다.
+
+- **Technical Details**: 이 연구는 레트로스펙티브(retrospective) 디자인으로, 2018년 10월부터 2024년 9월까지의 기간 동안 작성된 방사선 보고서를 수집했습니다. 39개의 대표적인 방사선 절차에 대한 보고서를 선별해 이들의 내용을 정리하고, 두 명의 주석자에 의해 절차를 이진 레이블로 지정했습니다. 모델 평가는 문서화 정확성과 동시에 비용 및 처리 시간 측면에서도 고려되었습니다.
+
+- **Performance Highlights**: 모델들은 강력한 추출 성능을 보였으며, 가장 높은 F1-score는 0.87에 가까웠습니다. 각 모델은 속도와 비용 간의 다양한 트레이드오프를 내포하고 있으며, 결과적으로 AI 기반의 자동화가 의료 교육에서 문서화 품질을 향상시킬 수 있는 가능성을 보여줍니다. 향후 임상 및 교육 프로세스에 AI 도구의 통합을 위한 추가 연구가 필요합니다.
+
+
+
+### Objective Matters: Fine-Tuning Objectives Shape Safety, Robustness, and Persona Drif (https://arxiv.org/abs/2601.12639)
+- **What's New**: 이 연구는 대형 언어 모델(LLMs)의 안전성 및 적합성이 저하될 수 있는 정밀 조정을 분석하였다. 저자들은 데이터, 도메인, 모델 아키텍처, 최적화를 고정하고 6가지 정밀 조정 목표(라이브러리적 정밀 조정, 직접 선호 최적화, 조건부 정밀 조정, 면역 프롬프트, Odds Ratio 선호 최적화, KL-정규화 정밀 조정)를 비교하였다. 연구 결과, 목표 선택이 안전성과 능력 사이의 체계적 변화를 유도함을 발견하였다.
+
+- **Technical Details**: 정확한 결과를 얻기 위해, 저자들은 GSM8K 및 SuperGPQA와 같은 데이터셋을 사용하여 수학적 추론 및 공학 문제 해결 과제를 평가하였다. 각 정밀 조정 목표에 대해 워크로드에 따른 성능 변화를 분석하며, 적대적 강건성 및 정체성 안정성을 평가하였다. 연구는 작은 훈련 예산에서 안전성은 유사하나 능력 차이가 두드러지며, 훈련 규모가 증가함에 따라 목표에 따라 성과가 뚜렷한 차이를 보임을 발견하였다.
+
+- **Performance Highlights**: 서로 다른 정밀 조정 목표는 훈련 규모에 따라 성능 차이를 보였으며, SFT 및 DPO 모델은 적대적 취약성이 급격하게 증가하는 반면, ORPO와 KL-정규화는 이러한 취약성 성장을 효과적으로 줄이는 것으로 나타났다. Inoculation Prompting은 높은 정확도와 낮은 적대적 공격 성공률을 기록하며 강력한 성능을 입증하였다. 이러한 결과는 정밀 조정 목표 설계가 안전성을 유지하는 데 있어 중요함을 강조한다.
+
+
+
+### BioPulse-QA: A Dynamic Biomedical Question-Answering Benchmark for Evaluating Factuality, Robustness, and Bias in Large Language Models (https://arxiv.org/abs/2601.12632)
+- **What's New**: 이번 연구에서는 BioPulse-QA라는 새로운 벤치마크가 도입되었습니다. 이 벤치마크는 최신 생물 의학 문서에서 발생하는 질문에 대한 대답 능력을 평가하는 데 중점을 두고 있습니다. 특히 약물 라벨, 임상 시험 프로토콜 및 임상 지침을 포함하여, 기존의 정적 데이터셋의 한계를 극복하려고 합니다.
+
+- **Technical Details**: BioPulse-QA는 2,280개의 전문가 검증 질문-답변(Question Answering) 쌍을 포함하고 있으며, 추출적(extractive) 및 요약적(abstractive) 형식을 모두 다룹니다. 연구에서는 GPT-4o, GPT-o1, Gemini-2.0-Flash, LLaMA-3.1 8B Instruct 등 4개의 LLM들을 평가했습니다. 이 모델들은 벤치마크 문서의 발행일 이전에 출시되었습니다.
+
+- **Performance Highlights**: 성능 면에서 GPT-o1이 약물 라벨에서 가장 높은 완화된 F1 점수(0.92)를 기록하였으며, Gemini-2.0-Flash가 0.90으로 뒤를 이었습니다. 임상 시험은 가장 어려운 데이터 소스로, 추출적 F1 점수가 0.36으로 낮게 나타났습니다. BioPulse-QA는 생물 의학 LLM 평가를 위한 확장 가능하고 임상적으로 관련성이 높은 프레임워크를 제공합니다.
+
+
+
+### Disagreement as Data: Reasoning Trace Analytics in Multi-Agent Systems (https://arxiv.org/abs/2601.12618)
+Comments:
+          LAK 2026 conference paper, 7 pages
+
+- **What's New**: 이 연구에서는 대형 언어 모델(LLM) 에이전트가 생성한 추론 흔적(reasoning traces)을 질적 데이터 분석을 강화하는 새로운 형태의 프로세스 데이터로 제안합니다. LLM의 유사성을 분석하기 위해 코사인 유사성(cosine similarity)을 적용하여 에이전트 간의 불일치를 탐지하고 해석하는 방법을 발전시킵니다. 이를 통해 불일치가 의미 있는 분석 신호로 작용할 수 있음을 보여줍니다.
+
+- **Technical Details**: 본 연구는 2022년과 2023년 동안 미국 북동부의 저소득 도시 학교에서 9학년 대수학 학생들과 진행된 고강도 수학 튜터링 세션에서 수집한 3,538개의 튜터-학생 대화 세그먼트를 분석했습니다. 연구팀은 초기 LLM 기반 코드북보다 더 높은 신뢰성과 해석 가능성을 보여준 하이브리드 인간-AI 코드북을 채택했습니다. 코사인 거리를 이용해 에이전트 간의 추론 유사성을 정량화하여 개념적 차이를 식별했습니다.
+
+- **Performance Highlights**: 연구 결과, LLM 에이전트의 의미 론적 추론 유사성이 합의와 불일치를 확실하게 구분할 수 있음을 입증하며, 인간 코딩 신뢰성과 강한 상관관계를 나타냅니다. 정량적 유사성 지표와 질적 검토를 통합하여 해석의 모호성을 파악하고, 인간-AI 협업 워크플로우를 통해 코딩 과정을 개선할 수 있는 가능성을 보여주었습니다. 본 연구는 교육 연구에서 방법론적 엄격성과 해석적 깊이를 증진하는 새로운 분석 신호 클래스를 제시합니다.
+
+
+
+### A Cloud-based Multi-Agentic Workflow for Scienc (https://arxiv.org/abs/2601.12607)
+- **What's New**: 이 논문은 **Agentic Framework**를 통해 클라우드에서 실행 가능한 도메인 독립적인 워크플로우를 제시합니다. 이 시스템은 문헌 검토부터 데이터 분석 및 복잡한 시뮬레이션까지 다양한 과학적 작업을 지원하며, 특정 영역에 국한되지 않고 여러 도메인에 적용 가능하다는 특징을 가지고 있습니다. 특히 이 시스템은 화학 및 재료 과학 분야의 촉매 연구를 가속화하기 위한 개념 증명 시스템을 포함하고 있습니다.
+
+- **Technical Details**: 이 시스템은 **LangGraph**를 기반으로 한 그래프 기반의 멀티 에이전트 조정 레이어를 사용하여 구현되어 있습니다. 각 에이전트는 특정 작업을 수행할 수 있도록 설계되었으며, 구성 요소는 모듈화되어 다양한 도구를 통합할 수 있습니다. 시스템 아키텍처는 로드 밸런서 뒤에 여러 인스턴스를 배포하여 높은 가용성을 제공합니다.
+
+- **Performance Highlights**: 논문에 따르면, 제시된 시스템은 작업 요청을 올바른 에이전트로 라우팅하는 성공률이 90%에 달하며, 할당된 작업을 완료하는 데 있어 97.5%의 성공률을 기록했습니다. 실제 작업에서는 91%의 성공률을 보였으며, 대부분의 최신 모델과 비교할 때 더 나은 정확도를 달성했습니다. 이러한 결과는 이 프레임워크가 다른 과학 분야에서도 복제 가능하다는 점을 증명합니다.
+
+
+
+### Evaluating Contextually Mediated Factual Recall in Multilingual Large Language Models (https://arxiv.org/abs/2601.12555)
+Comments:
+          preprint
+
+- **What's New**: 이번 연구는 대형 언어 모델(LLMs)의 사실 회수가 맥락을 통해 영향을 받을 수 있는지를 조사합니다. 기존의 평가들은 주로 명시적으로 사실을 요청하는 형식이었으나, 본 논문에서는 사실이 자연스러운 맥락 내에서 회수될 수 있는지를 평가합니다. 연구자들은 비교 가능한 여러 언어에서 실험을 수행하며, 맥락 매개가 사실 회수에 미치는 영향을 분석합니다.
+
+- **Technical Details**: 연구에서는 LLaMA, Qwen, Gemma의 세 가지 모델 패밀리에서 다양한 크기의 9개 LLM을 평가합니다. 또, KLAR라는 다국어 사실 지식 probing 데이터셋을 활용하여 총 1,742개의 사실을 9종의 관계 유형으로 분석합니다. 실험은 헬륨 맥락을 포함한 질의와 사실 속성이 포함된 별도의 질의로 나뉘며, 정확도 평가를 통해 결과를 도출합니다.
+
+- **Performance Highlights**: 실험 결과, 맥락 매개 방식이 일관되게 사실 회수를 저하시킨다는 사실을 발견했습니다. 더 큰 모델이 맥락 매개에 더 강한 저항력을 보이며, 직접 질의와 맥락 매개 질의 간의 성능 차이를 줄였습니다. 특히, native_language, capital 및 headquarters_location과 같은 관계는 더욱 민감하게 반응하는 반면, continent와 같은 관계는 비교적 안정적인 성능을 유지했습니다.
+
+
+
+### Benchmarking Concept-Spilling Across Languages in LLMs (https://arxiv.org/abs/2601.12549)
+- **What's New**: 이 연구에서는 다국어 대규모 언어 모델(LLMs)의 언어 Spill(언어 넘침) 현상을 정의하였습니다. 이는 모델이 비영어 언어로 콘텐츠 생성 시 다른 언어의 표현에 치우치는 경향을 보이는 것을 말합니다. 새로운 비교 프레임워크를 제안하여 다국어 의미의 견고함을 평가하고자 하였습니다.
+
+- **Technical Details**: 저자들은 여러 언어에 걸쳐 다의어(polysemous words)를 다루는 모델의 능력을 체계적으로 측정하는 방법론을 개발했습니다. 이 방법론은 모델의 성능을 상대적으로 측정할 수 있도록 하며, 강력한 모델은 비영어 의미를 생성하는 과정에서 후반부에 도달하기까지 더 많은 타겟 언어의 의미를 생성하는 경향이 있음을 보여줍니다.
+
+- **Performance Highlights**: 연구 결과, 다양한 개방형 및 폐쇄형 다국어 LLMs를 평가한 결과 모델과 언어에 따라 의미의 견고함에 상당한 차이가 있음을 발견했습니다. 이를 기반으로 다국어 의미 평가를 위한 스케일러블한 기준과 엄격한 검증 파이프라인을 제공하여 언어적으로 균형 잡힌 AI 시스템 개발을 위한 중요한 도구가 되기를 기대합니다.
+
+
+
+### Improving Low-Resource Machine Translation via Round-Trip Reinforcement Learning (https://arxiv.org/abs/2601.12535)
+- **What's New**: 본 연구는 저자원이 확보되지 않은 기계 번역(low-resource MT) 분야에 대한 새로운 접근법을 제시합니다. 기존의 기계 번역 모델에 비해, 자기 감독 방식(self-supervised manner)과 강화 학습(reinforcement learning)을 결합한 방법으로 모델의 번역 품질을 개선합니다. 이를 통해 평행 데이터(parallel data) 없이도 부가적인 번역 품질 향상을 달성할 수 있음을 보여줍니다.
+
+- **Technical Details**: 연구진은 No Language Left Behind(NLLB) 모델군을 활용한 순환 부트스트래핑(round-trip bootstrapping) 기법을 통해 번역 과정을 최적화하였습니다. 이 과정에서 BLEU 및 chrF++와 같은 언어적 지표를 보상 함수(reward function)로 사용하여 번역의 유창성과 의미 적합성을 높였습니다. 모델은 영어를 저자원 언어로 번역한 후, 다시 영어로 번역하는 방식으로 스스로를 개선해 나갑니다.
+
+- **Performance Highlights**: 이 연구에서는 NLLB-MD 데이터셋을 사용하여 600M 및 1.3B 파라미터 모델을 평가하였으며, 중앙 아이마라어(Central Aymara), 프리울리어(Friulian), 울로프어(Wolof), 러시아어(Russian) 등 여러 언어에 대해 일관된 개선을 확인하였습니다. 번역 결과물의 품질은 유창성과 의미적 충실도가 모두 증가하는 모습을 보여 주었으며, 이 접근법은 저자원 언어 환경에서 더욱 효율적으로 활용될 가능성을 제시합니다.
+
+
+
+### DoPE: Decoy Oriented Perturbation Encapsulation Human-Readable, AI-Hostile Documents for Academic Integrity (https://arxiv.org/abs/2601.12505)
+- **What's New**: 본 연구에서는 DoPE(Decoy-Oriented Perturbation Encapsulation) 프레임워크를 제안하며, 이는 PDF 및 HTML 형식의 평가 문서에 의미적 유인 요소(semantic decoys)를 추가하는 방법을 통해 다중 모드 대형 언어 모델(MLLMs)의 취약점을 활용합니다. 기존의 한 번만 이루어지는 감지 방법과 달리, DoPE는 비정상적 AI 의존성 감지(automatic solving)와 예방을 가능하게 합니다. 문서 작성 시간에 침투(embedding)를 통해 인간에게 읽기 쉬운 문서를 만들면서도 MLLM의 출력에서 예측 가능한 오류를 유도하는 구조입니다.
+
+- **Technical Details**: DoPE는 평가 문서에 잠재적 섭동(perturbations)을 추가하여 기본적으로 인간이 보기에 변경되지 않는 구조의 문서를 생성합니다. MLLM은 문서 형식 및 내부 구성에 따라 다르게 파싱되는 것을 이용하여, 평가 시 유인 요소가 포함된 출력 오류를 유발합니다. 추가적으로, FewSoRT-Q와 FewSoRT-D라는 두 가지 파이프라인을 도입하여 질문 수준의 유인 요소를 생성하고 이를 워터마크가 포함된 문서로 캡슐화합니다.
+
+- **Performance Highlights**: Integrity-Bench라는 새로운 벤치마크에서 OpenAI와 Anthropic의 블랙박스 MLLM을 대상으로 테스트한 결과, DoPE는 91.4%의 감지율과 8.7%의 위양성률(false-positive rate)을 기록했습니다. 또한 사용한 96.3%의 시도에서 유인 요소에 따라 실패를 유도했으며, 이를 통해 학문적 무결성을 유지하는 데 있어 강력한 임팩트를 보여줍니다. 이 연구 결과는 모든 교육 기관에서 실용적인 평가 방안으로 자리잡을 가능성을 나타냅니다.
+
+
+
+### Capability-Aware Early-Stage Research Idea Evaluation (https://arxiv.org/abs/2601.12473)
+- **What's New**: 이 논문은 연구 아이디어의 개념 단계에서 연구 결과를 예측하는 새로운 능력 인식 프레임워크를 제안합니다. 기존의 방법들은 완료된 원고나 동료 리뷰어의 평론에 의존하는 반면, 이 프레임워크는 저자 정보와 연구 아이디어만을 사용하여 논문 수락 가능성과 평가를 예측할 수 있습니다. 연구자들의 협업 능력과 연구 아이디어의 질적 가치에 대한 인식을 포함하여 더욱 효율적인 연구 계획 수립을 지원하고자 합니다.
+
+- **Technical Details**: 제안된 접근 방식은 저자 정보, (추정된) 능력 표현, 연구 아이디어를 통합하는 3 방향 변환기 아키텍처를 기반으로 합니다. 연구자는 저자 정보를 활용해 연구 아이디어를 평가하고, 결과적으로 높은 예측 정확성을 보장합니다. 새로운 연구 아이디어가 발표되기 이전에 연구 팀의 능력과 연구 주제가 잘 맞는지를 훨씬 정확하게 예측할 수 있도록 돕습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 기존의 단일 방향 모델을 능가하며 bert-base와 bert-large를 조정(finetune)하여 더욱 높은 예측 정확성을 보여줍니다. 최종 모델의 효율적인 능력 예측을 통해 연구 아이디어의 초기 단계에서도 높은 품질의 연구 결과를 도출할 가능성을 높입니다. 이 방법은 최상위 AI 컨퍼런스(ICLR/NeurIPS)에서도 적용 가능하여 과학적 자원 할당을 최적화하는 데 기여합니다.
+
+
+
+### Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty (https://arxiv.org/abs/2601.12471)
+Comments:
+          Equal contribution for the first two authors; To appear in proceedings of the Main Conference of the European Chapter of the Association for Computational Linguistics (EACL) 2026
+
+- **What's New**: 이번 연구는 대형 언어 모델(LLMs)의 평가에서 정확도뿐만 아니라 불확실할 때 응답을 자제하는 능력도 중시한다는 점을 강조합니다. 우리는 의료 다중 선택 질문 응답(MCQA)에서의 자제를 위한 통합 벤치마크인 MedAbstain을 소개하며, 이는 순응 예측(conformal prediction), 적대적 질문 변형, 명시적 자제 옵션을 통합합니다. 시스템적인 평가를 통해 최신 모델들조차 불확실할 때 자제를 잘 하지 못한다는 사실을 발견했습니다.
+
+- **Technical Details**: MedAbstain은 특정 질문의 세부사항이나 혼란스러운 방해 요소가 포함된 수정된 질문을 포함하여 다양한 모델을 평가합니다. 원래의 질문과 체계적으로 수정된 질문(예: 주요 세부사항 결여)으로, 모델의 자제와 불확실성을 정교하게 평가할 수 있습니다. 연구는 흑상자(black-box) 모델에 대해서도 성능을 높이기 위한 방법을 제공하며, 자제 메커니즘의 중심적 역할을 보여줍니다.
+
+- **Performance Highlights**: 우리의 결과는 자제 인식과 모델의 불확실성 간 긍정적인 상관관계를 보여줍니다. 자제 옵션을 명시할 경우 대부분의 모델에서 불확실성이 증가하는 경향이 나타났지만, 특정한 닫힌 소스 모델에서는 이 패턴을 따르지 않았습니다. 마지막으로, 자제 메커니즘이 높은 위험의 애플리케이션에서 안전한 LLM 배포를 위한 필수 요소라는 점을 강조하고 있습니다.
+
+
+
+### Incentivizing In-depth Reasoning over Long Contexts with Process Advantage Shaping (https://arxiv.org/abs/2601.12465)
+- **What's New**: 이 논문에서는 RLVR(Reinforcement Learning with Verifiable Rewards)를 통해 LLMs의 짧은 문맥에서의 추론 성능 향상은 성공적이나, 긴 문맥에서는 성능 저하가 발생한다는 점을 다룬다. 두 가지 주된 원인으로는 긴 문맥 QA 데이터에서의 고급 추론 밀도 부족과 RL 훈련 중 부분적으로 올바른 경로에 대한 잘못된 결과로 인한 귀중한 학습 신호 손실이 지적된다. 이 문제를 극복하기 위해, DeepReasonQA라는 KG 기반 합성 프레임워크와 Long-context Process Advantage Shaping(LongPAS)라는 새로운 기법을 제안한다.
+
+- **Technical Details**: DeepReasonQA는 고난도의 복합 다중 홉 QA 데이터셋을 자동으로 추출하여 구성하는 프레임워크로, 이는 명확한 추론 체인을 포함하는 QA 쌍을 생성한다. LongPAS는 유효성(Validity)과 관련성(Relevance) 차원에서 추론 단계를 평가하여 세분화된 신용 할당을 수행하는 간단하면서도 효과적인 방법이다. 이 두 접근법은 전체 추론 경로에서 정확한 신용 할당을 가능하게 하여 "거의 도달한" 샘플의 붕괴를 방지한다.
+
+- **Performance Highlights**: DeepReasonQA와 LongPAS를 활용한 실험 결과, 이 방법이 기존 RLVR 기준선보다 상당한 성과 향상을 이루었고, 파라미터 수가 적으면서도 최첨단 LLM과 유사한 성능을 보였다. 장기 문맥 추론에서 효과적인 정책을 유도하며, 정보 그라운딩과 복잡한 추론의 정확성을 개선하는 것으로 확인되었다. 추가 분석을 통해, 제안된 알고리즘이 안정적인 RL 훈련을 지원하고 어려운 긴 문맥 추론 시나리오에서 단계별 추론 유효성을 향상시키는 것을 확인했다.
+
+
+
+### System-Mediated Attention Imbalances Make Vision-Language Models Say Yes (https://arxiv.org/abs/2601.12430)
+Comments:
+          Under review
+
+- **What's New**: 이 연구는 Vision-Language Models (VLM)에서 발생하는 hallucination의 성격을 재조명하고, attention 행위의 불균형이 어떻게 시스템(시스템 모달리티), 이미지 및 텍스트 간의 상호 작용으로 인해 발생하는지를 설명합니다. 특히, 기존의 이미지 중심 접근법이 시스템 모달리티의 역할을 간과하고 있다는 점을 지적합니다. 연구팀은 시스템 중재 가설(system-mediated hypothesis)을 통해 시스템의 레딘던트(redundant) attention이 hallucination에 미치는 영향을 분석하고, 이로 인해 더 균형 잡힌 attention 배분이 가능함을 보여줍니다.
+
+- **Technical Details**: VLM의 세 가지 모달리티, 즉 시스템, 이미지 및 텍스트의 역할과 중요성을 논의하며, 특히 시스템 모달리티의 중복적인 attention이 VLM의 hallucination에 미치는 영향을 강조합니다. 연구는 causal intervention을 통해 attention 가중치를 재조정하여 yes-bias를 억제하고, 이 과정에서 시스템 모달리티가 가진 중복된 후속 레이어 주의가 결정적인 역할을 한다고 주장합니다. 이러한 접근 방식은 이미지와 텍스트 모달리티에 대한 주의를 분산시키면서도 이미지 주의 증가를 정당화하는 단순한 이미지 중심 가설의 보편성을 약화시킵니다.
+
+- **Performance Highlights**: 연구 결과는 시스템 모달리티의 attention 불균형이 yes-bias를 촉진한다는 것을 보여주며, 이미지 및 텍스트 모달리티로 주의를 분배할 경우 bias가 현저히 억제됨을 나타냅니다. 또한, 균형 잡힌 attention 배분이 기존의 이미지 및 텍스트 중심의 저해 전략보다 나은 성과를 발휘한다는 사실을 입증합니다. 이 연구는 VLM hallucination의 기계적 원인을 이해하고, 다양한 과제에서의 개선을 위한 새로운 방안을 제시합니다.
+
+
+
+### Legal experts disagree with rationale extraction techniques for explaining ECtHR case outcome classification (https://arxiv.org/abs/2601.12419)
+- **What's New**: 이번 연구에서는 법적 도메인에서 큰 언어 모델의 해석 가능성을 개선하기 위한 비교 분석 프레임워크를 제안합니다. 특히, 인간이 이해할 수 있는 간결한 텍스트 조각을 통한 합리적 결과 설명 기법에 주목하며, 모델 수명 주기에서의 해석 가능성을 평가하기 위한 새로운 ECtHR 데이터 세트를 도입합니다. 또한, 법률 전문가들과의 평가를 통해 LLM-as-a-Judge의 가능성을 탐구하는 접근 방식을 채택합니다.
+
+- **Technical Details**: 연구진은 두 가지 모델 불가지론적 해석 가능성 기법, 즉 'Masked Rationale Creation' (MaRC)과 'Flexible Instance Specific Rationale Extraction'을 사용하여 ECtHR 결정에 대한 위반 존재 분류 작업을 수행합니다. MaRC 기법은 입력 마스크의 감독 최적화를 통해 합리적 결과를 추출하며, 이를 통해 정량적 평가(예: 신뢰성 평가)를 수행합니다. 더불어, 법률 전문가들은 글로벌 기준에 따라 추출된 합리적 결과를 분석하여, 기존 연구와는 달리 맥락에 따라 이들을 평가합니다.
+
+- **Performance Highlights**: 정량적 분석 결과, 모델의 예측 이유는 법률 전문가들과의 상당한 차이를 보였으며, 이는 언어 모델의 추론이 법적 결정과 항상 일치하지 않음을 시사합니다. 하지만, 제안된 해석 가능성 기술은 ECtHR 데이터 세트를 사용하여 기존의 한계점을 극복하는 데 도움이 됩니다. 이로 인해 연구는 법률 도메인에서 모델의 해석 가능성 및 신뢰성을 높이는 방향으로 나아갈 토대를 마련합니다.
+
+
+
+### NADIR: Differential Attention Flow for Non-Autoregressive Transliteration in Indic Languages (https://arxiv.org/abs/2601.12389)
+Comments:
+          Accepted at the AAAI Conference on Artificial Intelligence (AAAI 2026)
+
+- **What's New**: 본 연구에서는 모든 시퀀스-투-시퀀스(sequence-to-sequence) 작업에 autoregressive (AR) 모델의 강력한 귀납적 편향이 필요하지 않다는 주장을 합니다. 특히 다국어 음역, 코드 리팩토링, 문법 교정 및 텍스트 정규화와 같은 작업은 지역적 의존성에 의존하며, 이 경우 AR 모델의 전체적인 모델링 능력이 과도할 수 있습니다. 이에 따라, 새로운 비자기회귀(non-autoregressive, NAR) 아키텍처인 NADIR를 소개하며, 속도와 정확성 사이의 균형을 맞춥니다.
+
+- **Technical Details**: NADIR는 Differential Transformer와 Mixture-of-Experts (MoE) 메커니즘을 통합한 구조로 설계되어 있습니다. 이 아키텍처는 복잡한 문자 매핑을 상호 의존 없이 견고하게 모델링할 수 있도록 지원하며, 13배 이상의 속도 향상을 달성했습니다. 이 모델은 평균 Character Error Rate (CER)를 15.78%로 유지하며, 기존의 AR 모델보다 높은 성능을 보입니다.
+
+- **Performance Highlights**: NADIR는 Repetition 오류를 49.53%, Substitution 오류를 24.45%, Omission 오류를 32.92%, Insertion 오류를 16.87% 줄임으로써 뛰어난 성능을 선보입니다. 또한, IndicXLIT 모델과 비교했을 때, 180.1k 단어를 2분 55초 만에 처리할 수 있어 대규모 실시간 배치 작업에 적합합니다. 이번 연구는 NAR 시스템 구축을 위한 실질적인 청사진을 제공하여, AR의 정확성과 실시간 대규모 배포의 요구사항을 효과적으로 연결합니다.
+
+
+
+### LR-DWM: Efficient Watermarking for Diffusion Language Models (https://arxiv.org/abs/2601.12376)
+Comments:
+          Submitted to ACL Rolling Review (ARR). 7 pages, 4 figures
+
+- **What's New**: 이 논문에서는 왼쪽-오른쪽 확산 워터마크(LR-DWM)라는 새로운 워터마킹 방법을 제안합니다. 기존의 자가 회귀 모델(autoregressive, AR)에 최적화된 기존 기법 대신 비순차적 방식으로 텍스트를 생성하는 확산 언어 모델(diffusion language model, DLM)을 대상으로 하고 있습니다. LR-DWM은 이전의 토큰뿐만 아니라 오른쪽 이웃 토큰의 정보를 활용하여 토큰의 생성을 편향시킵니다. 이를 통해 워터마킹을 수행하면서도 메모리와 실행 시간을 최소화할 수 있습니다.
+
+- **Technical Details**: LR-DWM은 두 개의 방향(왼쪽 및 오른쪽)에서 인접한 이웃 토큰의 정보를 이용해 로그 확률을 수정하게 됩니다. 각 토큰에 대해 비트가 양호한지 여부를 판단하는 기본 점수를 정의하며, 이 점수는 각 토큰이 양쪽 이웃의 상태를 만족하는지를 나타냅니다. 이를 통해 생성된 텍스트의 품질을 유지하면서도 높은 인식 가능성을 확보할 수 있습니다. 예를 들어, 이웃 관계가 없는 경우 녹색 토큰 세트는 비어있게 설정됩니다.
+
+- **Performance Highlights**: 본 연구 결과, LR-DWM을 통해 이루어진 워터마킹은 고도의 인식 가능성을 보여주며, 불필요한 계산 또는 메모리 부담 없이 기존 기준선 DLM의 성능에 근접하게 유지됩니다. LR-DWM은 유의미한 통계적 신호를 생성할 수 있으며, 인간이 작성한 텍스트와의 구별이 용이할 정도로 효과적임을 입증했습니다. 따라서 DLM에서의 워터마킹 기술이 확장 가능함을 보여주었습니다.
+
+
+
+### A Scalable Entity-Based Framework for Auditing Bias in LLMs (https://arxiv.org/abs/2601.12374)
+- **What's New**: 이 논문은 대규모 언어 모델(LLM)의 편향 평가에 대한 새로운 접근 방식을 제안합니다. 기존 방법들은 실제 사용과 잘 맞지 않는 인위적인 프롬프트를 사용하거나, 경직성이 부족한 자연주의적 작업에 의존했습니다. 저자들은 이름 있는 엔티티를 탐침으로 사용하여 모델 행동의 구조적 차이를 측정하는 확장 가능한 편향 감사 프레임워크를 도입합니다.
+
+- **Technical Details**: 제안된 프레임워크는 엔티티 기반으로, 모델 출력에서 엔티티 ID에 기인하는 체계적인 편향을 조작 가능한 템플릿을 사용해 정의합니다. 이를 실현하기 위해 19억 개의 데이터 포인트를 포함한 대규모 감사 작업을 수행하였고, 세 가지 엔티티 유형, 열두 가지 작업, 세 가지 언어, 16개의 모델 및 다양한 프롬프트를 포함했습니다. 데이터 생성 기술을 활용하여 편향 관련 요소를 격리시킬 수 있음을 입증했습니다.
+
+- **Performance Highlights**: 연구의 결과는 LLM이 특정 편향을 보이며, 우파 정치인보다 좌파 정치인을 편애하고, 서구 및 부유한 국가를 선호하고, 국방 및 제약 부문 기업에 대한 처벌을 선호하는 경향이 있음을 보여줍니다. 이런 명확한 편향은 고위험 분야에서 LLM을 배치하기 전에 체계적인 감사가 필요함을 강조합니다. 모델 규모가 증가할수록 편향이 확대되고, 중국어 또는 러시아어로 프롬프트하는 경우에도 서구 선호가 완화되지 않는 것을 발견했습니다.
+
+
+
+### Can Deep Research Agents Find and Organize? Evaluating the Synthesis Gap with Expert Taxonomies (https://arxiv.org/abs/2601.12369)
+- **What's New**: 이 논문에서는 자동 설문 생성에 사용되는 Deep Research Agents가 전문가 수준의 설문 작성을 할 수 있는지를 조사합니다. 기존의 벤치마크들은 유창성(fluency)이나 인용 정확성(citation accuracy)에 집중했지만, 실제 핵심 능력인 중요한 논문을 검색하고 이를 일관된 지식 구조로 조직하는 능력은 평가하지 않았습니다. 이러한 문제를 해결하기 위해, 저자들은 TaxoBench라는 진단 벤치마크를 소개합니다.
+
+- **Technical Details**: TaxoBench는 72개의 인용이 많은 컴퓨터 과학 설문에서 도출된 벤치마크로, 3,815개의 정확히 분류된 인용을 포함하는 전문가 저작 분류 트리를 수동으로 추출하여 기준으로 삼습니다. 이 벤치마크는 두 가지 평가 모드를 지원하는데, Deep Research 모드는 주제만 가지고 end-to-end 검색 및 조직을 테스트하며, Bottom-Up 모드는 전문가가 사용한 정확한 논문을 제공하여 구조화 능력을 분리합니다.
+
+- **Performance Highlights**: 이 연구에서는 7개의 주요 Deep Research Agents와 12개의 최전선 LLM을 평가했습니다. 결과에 따르면, 가장 좋은 에이전트는 전문가 선택 논문의 20.9%만 회상하며, 완벽한 입력을 주더라도 가장 좋은 모델은 조직에서 0.31 ARI(Adjusted Rand Index)만 달성합니다. 현재의 Deep Research Agents는 전문가 수준의 설문 작성과는 거리가 먼 결과를 보였습니다.
+
+
+
+### Conversational Context Classification: A Representation Engineering Approach (https://arxiv.org/abs/2601.12286)
+- **What's New**: 이번 연구에서는 LLM의 내부 상태를 활용하여 ‘in-context’ 대화와 ‘out-of-context’ 대화를 탐지하는 새로운 방법론을 제시합니다. 이는 Representation Engineering (RepE)와 One-Class Support Vector Machine (OCSVM) 기법을 통해 LLM의 숨겨진 상태 내에서 특정 맥락을 나타내는 서브스페이스를 식별하는 과정입니다. OCSVM을 훈련하여 맥락에 따라 변별력 있는 경계를 수립하고, 두 개의 개방형 LLM 모델인 Llama와 Qwen에서 검증을 수행했습니다.
+
+- **Technical Details**: 연구는 LLM의 숨겨진 상태를 활용하여 대화 턴의 맥락을 분석합니다. 이 모델은 세 가지 단계인 Calibration, Threshold Tuning, Evaluation로 구성됩니다. Calibration 단계에서는 ‘in-context’ 대화의 예시를 사용하여 OCSVM을 훈련시키고, Threshold Tuning 단계에서는 ‘in/out-of-context’ 사례를 바탕으로 최적의 임계값을 설정합니다. Evaluation 단계는 별도의 테스트 데이터셋을 통해 마지막 성능 평가를 수행합니다.
+
+- **Performance Highlights**: 실험 결과는 LLM의 특정 맥락에 대한 서브스페이스를 효과적으로 식별하는 데에 유망한 성과를 보였습니다. 특히, OCSVM을 사용한 탐지기법은 높은 정확도를 달성하며, 다양한 레이어에서의 성능 차이를 평가했습니다. 본 연구는 LLM의 내부 맥락 표현을 이해하고, 더 나은 탐지 전략을 개발하기 위한 귀중한 통찰을 제공합니다.
+
+
+
+### Simulated Annealing Enhances Theory-of-Mind Reasoning in Autoregressive Language Models (https://arxiv.org/abs/2601.12269)
+- **What's New**: 이 연구에서는 Autoregressive language models가 표면적으로 일관된 문장을 생성하는 것에 그치는 비판을 극복하기 위한 새로운 접근 방식을 제안합니다. Theory of Mind (ToM) 작업의 성능을 향상시키기 위해 Markov chain Monte Carlo (MCMC) 기반의 power-sampling 방법을 사용하여, 작은 언어 모델에서도 강력한 ToM 능력을 회복할 수 있음을 보여줍니다. 추가적인 파라미터 조정 없이도 이러한 모델의 기본 성능을 끌어낼 수 있다는 점이 주목할 만합니다.
+
+- **Technical Details**: 이 방법은 고온에서 저온으로 점차적으로 온도를 조정하는 annealing 기법을 포함하여, MCMC 샘플러를 최적화기로 전환합니다. 이 과정을 통해 서열 수준의 분포에서 샘플을 추출하는 것이 가능해지고, 이는 복잡한 서열 수준 분포에서 모드 발견을 용이하게 만듭니다. 이를 통해 자원 소모가 높은 전체 토큰 연속에 대한 샘플링의 어려움을 극복하면서도 ToM 작업에서의 성과를 개선할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, simulated annealing 방식이 작은 언어 모델의 ToM 성능을 크게 향상시키며, 기존의 test-time compute 방법들을 초월하는 성과를 보여줍니다. Chain-of-Thoughts와 같은 기존 방법들과 비교했을 때도 더 나은 성능을 발휘하며, 잠재적으로 ToM 작업을 수행할 수 있다고 여겨지지 않았던 소형 모델에서 훨씬 더 강력한 능력을 이끌어내는데 성공했습니다.
+
+
+
+### Multimodal Generative Engine Optimization: Rank Manipulation for Vision-Language Model Rankers (https://arxiv.org/abs/2601.12263)
+- **What's New**: 이 논문은 비전-언어 모델(Vision-Language Models, VLMs)의 취약성을 탐구하며, 특히 제품 검색에서의 다중 모달 순위 공격(multimodal ranking attacks)에 대한 새로운 공격 기법을 제안합니다. 기존의 공격이 모달리티를 독립적으로 다뤘던 반면, 이 연구는 이미지 변조와 텍스트 suffix를 함께 최적화하는 방식을 사용하여 VLM의 강점을 약화시키는 새로운 프레임워크인 MGEO(Multimodal Generative Engine Optimization)를 소개합니다.
+
+- **Technical Details**: MGEO는 교대 그래디언트 기반 최적화 전략(alternating gradient-based optimization strategy)을 통해 VLM의 깊은 모달 상호 연결성을 활용합니다. 이 연구는 실제 데이터셋에서 최신 모델을 사용하여 광범위한 실험을 수행하였으며, 이미지만을 사용하는 경우나 텍스트만을 사용하는 경우와 비교하여 훨씬 더 효과적인 공격 결과를 보여주었습니다.
+
+- **Performance Highlights**: 실험 결과, MGEO는 기존의 다중 모달 공격 대비 우수한 성능을 나타내며, 텍스트 및 이미지 전용 베이스라인을 크게 초월하는 성과를 달성했습니다. 이러한 발견은 VLM에서 가장 두드러진 특성인 다중 모달 시너지가 검색 순위의 무결성을 저해할 수 있는 도구로 악용될 수 있음을 시사합니다.
+
+
+
+### Plan, Verify and Fill: A Structured Parallel Decoding Approach for Diffusion Language Models (https://arxiv.org/abs/2601.12247)
+- **What's New**: 이번 연구에서는 Plan-Verify-Fill (PVF)이라는 새로운 비훈련 기반의 텍스트 생성 패러다임을 제안합니다. PVF는 고수준의 구조를 계획하고 이를 수량적으로 검증하여 텍스트 생성의 효율성을 높입니다. 기존의 수동적 디코딩 전략을 넘어, PVF는 고안된 구조적 스켈레톤을 끌어안고 이를 기반으로 토큰을 생성하는 방식으로, 구조적 계획과 세부적인 내용 생성을 분리합니다.
+
+- **Technical Details**: DLMs (Diffusion Language Models)는 표준 Autoregressive 모델과는 달리 비순차적인 텍스트 생성 방식을 제공합니다. PVF는 'Planning Route'와 'Verification Mechanism'의 이중 경로 구조를 사용하여 고수준의 계획 토큰을 주입하고, 이들이 수학적으로 일관성을 유지하는지를 검증합니다. 이렇게 함으로써 사용자는 구조적 계획의 가치가 감소하는 순간 AR(Autoregressive) Fallback Route를 통해 밀도를 높일 수 있습니다.
+
+- **Performance Highlights**: PVF는 LLaDA-8B-Instruct 및 Dream-7B-Instruct를 사용하여 수행된 테스트에서 기존의 신뢰 기반 병렬 디코딩보다 NFE(Number of Function Evaluations)를 최대 65%까지 줄임으로써 뛰어난 효율성을 보여줍니다. 특히, PVF는 GSM8K, MMLU-Pro, ARC-C와 WinoGrande에서 60% 이상, 복잡한 추론 문제에서 40% 이상의 NFE 감소를 기록했습니다. 이는 PVF가 학습 없이도 강력한 성능을 발휘한다는 것을 입증합니다.
+
+
+
+### CoReflect: Conversational Evaluation via Co-Evolutionary Simulation and Reflective Rubric Refinemen (https://arxiv.org/abs/2601.12208)
+- **What's New**: 이 논문에서는 CoReflect라는 새로운 대화 평가 프레임워크를 소개하며, 이는 대화 시뮬레이션과 평가를 통합한 적응형 반복 프로세스를 특징으로 합니다. CoReflect는 고전적인 정적 평가 기준을 넘어서, 대화 모델의 다양한 행동을 포착할 수 있도록 설계되었습니다. 특히, 이는 대화 단계별 지침을 제공하는 대화 플래너(conversation planner)를 활용하여 사용자의 다양한 요구를 반영한 대화 템플릿을 생성합니다.
+
+- **Technical Details**: CoReflect는 사용자 시뮬레이터(user simulator)와 대화 플래너 간의 상호작용을 통해 실제 대화와 유사한 모델 행동을 평가하고, 이후 대화 분석기를 통해 이러한 대화에서의 행동 패턴을 식별하여 평가 기준을 자동적으로 개선합니다. 이 방식은 대화 모델의 복잡성에 적응하며, 지속적으로 평가 프로토콜을 업데이트하여 모델의 성능을 정확히 진단할 수 있게 해줍니다. 이를 통해, CoReflect는 인간의 개입을 최소화하고 확장 가능한 자가 개선 방법론을 제공합니다.
+
+- **Performance Highlights**: CoReflect의 효용성은 다양한 사용자 특성과 시나리오에서의 광범위한 실험을 통해 입증되었습니다. 이를 통해 최첨단 LLM(대형 언어 모델)의 다중 턴 대화 평가를 지원하여 행동 감지 및 정밀 평가를 가능하게 하였습니다. 이 프레임워크는 대화 평가 분야에서의 새로운 가능성을 열어주며, 정적 기준의 한계를 극복하는 데 기여합니다.
+
+
+
+### CTC-DID: CTC-Based Arabic dialect identification for streaming applications (https://arxiv.org/abs/2601.12199)
+Comments:
+          Accepted for IEEE ICASSP 2026
+
+- **What's New**: 이 논문은 자동 음성 인식(ASR)에서 사용되는 Connectionist Temporal Classification (CTC) 손실 함수를 바탕으로 한 방언 식별(Dialect Identification, DID) 접근 방식을 제안합니다. CTC-DID는 방언 태그를 주어진 발화의 레이블 시퀀스로 처리하는 제한 어휘 ASR 시스템으로 방언 식별 작업을 프레임화합니다. 실험 결과에 따르면, 한정된 데이터셋에서 훈련된 SSL 기반 CTC-DID 모델은 Whisper와 ECAPA-TDNN 모델보다 뛰어난 성능을 보이며, 칼리프의 데이터셋에서 제로샷 평가에서도 이러한 모델을 초과합니다.
+
+- **Technical Details**: CTC 기반 방언 식별 시스템에서 우리는 전통적인 DID 방법이 발화마다 단일 레이블을 분류하는 반면, 제안하는 방법은 음성 신호의 시간적 차원에서 방언 토큰을 연속적으로 예측합니다. CTC 손실 함수를 사용하여 훈련하며, 발화 내 발언 수에 따라 방언 레이블을 반복하여 모델이 반복된 방언 태그와 입력 시퀀스 간의 정렬을 학습하도록 합니다. 이 방법은 스트리밍 애플리케이션에 적합하며, 짧은 발화에서도 강한 성능을 보입니다.
+
+- **Performance Highlights**: 실험 결과 CTC-DID 모델은 ADI-17 평가 테스트 세트에서 Whisper-medium과 ECAPA-TDNN 모델보다 우월한 성능을 보이며, Casablanca 테스트 세트에서의 제로샷 평가에서도 Whisper-medium보다 4.66%의 F1 점수차를 기록했습니다. CTC-DID 모델은 짧은 발화에 강한 내구성을 보이며, 실시간 스트리밍 환경에서 효과적으로 배포될 수 있습니다. 또한, 방언의 연속적인 예측 방식 덕분에 여러 방언이 혼합된 코드 스위칭 상황에서도 자연스럽게 확장 가능합니다.
+
+
+
+### Tolerance Principle and Small Language Model Learning (https://arxiv.org/abs/2601.12179)
+Comments:
+          14 pages, 6 figures. BUCLD 50 Proceedings. To be published in 2026 by Cascadilla Press
+
+- **What's New**: 이 논문에서는 BabyBERTa라는 변환기 모델(Transformer model)이 Tolerance Principle의 예측을 테스트하기 위해 필요한 최소한의 훈련 데이터 양과 품질을 탐구했습니다. BabyBERTa는 소규모 데이터 세트를 최적화한 모델로, 인위적인 문법에 대한 훈련을 받았습니다. 이는 GPT-3, BERT와 같은 현대 언어 모델들과는 다른 접근 방식을 보여줍니다.
+
+- **Technical Details**: 연구는 다양한 크기, 고유한 문장 유형 수 및 규칙을 따르는 예제와 예외 예제의 비율의 세트로 훈련 데이터를 구성하여 진행되었습니다. Tolerance Principle은 규칙이 학습될 수 있는 예외의 허용 한계를 정의하는 이론입니다. 그러나 BabyBERTa는 인간 유아와 달리 이 원칙과 일치하지 않는 학습 동력을 보였습니다.
+
+- **Performance Highlights**: BabyBERTa의 학습 결과는 Tolerance Principle에 기반한 예측과는 다른 결과를 나타냈습니다. 이는 언어 모델이 기본적인 규칙을 학습하는 데 필요한 데이터 양과 품질의 기준이 인간의 발달 패턴과 다를 수 있다는 것을 시사합니다. 이러한 발견은 언어 모델의 훈련 방식에 대한 새로운 통찰을 제공합니다.
+
+
+
+### Analyzing Cancer Patients' Experiences with Embedding-based Topic Modeling and LLMs (https://arxiv.org/abs/2601.12154)
+Comments:
+          under review to CLIN journal
+
+- **What's New**: 이 연구는 환자 스토리텔링 데이터에서 의미있는 주제를 발견하기 위해 신경망 주제 모델링(neural topic modeling)과 대형 언어 모델(LLMs)을 활용하여, 더욱 환자 중심의 의료 실천에 기여할 수 있는 통찰을 제공하고자 하였다. 132,722개의 단어로 구성된 암 환자와의 인터뷰를 분석하였고, BERTopic과 Top2Vec 모델을 비교하여 주제 추출 성능을 평가하였다. 초기 결과에 따르면 BERTopic이 더 나은 성능을 보여 추가 실험에 선택되었으며, 이는 임상 지향 임베딩 모델을 활용하여 주제의 정밀도와 해석 가능성을 개선하였다.
+
+- **Technical Details**: 단계별 분석에서 첫 번째로 BERTopic과 Top2Vec을 사용하여 개별 인터뷰 요약을 평가하였고, 그 후 LLM(GPT-4)을 사용하여 주제를 라벨링하는 방식을 채택하였다. 평가 기준으로는 {coherence}(일관성), {clarity}(명확성), {relevance}(관련성)에 집중했다. BioClinicalBERT 모델이 전사본 전반에서 가장 일관된 결과를 생산하며, 전체 데이터 세트를 분석하여 ‘암 치료 관리의 협조 및 소통’과 ‘암 치료 여정에서 환자 결정 과정’이라는 주제가 가장 지배적임을 보여주었다.
+
+- **Performance Highlights**: 연구 결과는 BERTopic이 임상 데이터 분석에 유용한 피드백을 제공하고, 환자 인터뷰에서 유용한 통찰을 확보하는 데 도움이 될 수 있음을 시사한다. 이 과정은 문서 탐색을 보다 효율적으로 지원하고 의료 작업 흐름 속에서 환자의 목소리를 강화하는 역할을 할 수 있다. 특히, 환자의 경험을 기반으로 한 주제를 시스템적으로 분석하여 의료 제공자에게 더 나은 환자 지향적 케어 전략을 제공할 수 있는 가능성을 보여준다.
+
+
+
+### Bengali Text Classification: An Evaluation of Large Language Model Approaches (https://arxiv.org/abs/2601.12132)
+- **What's New**: 본 연구는 대규모 언어 모델(LLM)을 활용하여 방글라데시 신문 기사를 분류하는 효과를 탐구합니다. 데이터셋은 Kaggle에서 수집된 Prothom Alo 기사로 구성되어 있으며, 총 400,000개 샘플과 25개 이상의 카테고리를 포함합니다. 연구에서는 LLaMA 3.1, LLaMA 3.2, Qwen 2.5 모델 3개를 평가하여, Qwen 2.5 모델이 72%의 분류 정확도를 기록하였습니다.
+
+- **Technical Details**: 텍스트 분류는 내용에 따라 미리 정의된 카테고리 또는 레이블을 텍스트에 할당하는 과정을 의미하며, 이는 지도 학습(supervised learning) 방식으로 수행됩니다. 데이터셋에서 중요한 특성을 인식하는 알고리즘을 학습하여 새로운 텍스트를 분류할 수 있습니다. 연구에서는 정확도(accuracy), F1 스코어, 재현율(recall), 정밀도(precision)와 같은 지표를 사용하여 모델 성능을 평가합니다.
+
+- **Performance Highlights**: Qwen 2.5 모델은 특히 '스포츠' 카테고리에서 72%의 높은 정확도를 기록하며 가장 우수한 성능을 보였습니다. LLaMA 모델들은 각각 53%와 56%의 정확도를 기록하였습니다. 이번 연구는 방글라데시 NLP에서 LLM의 가능성을 보여주며, 향후 연구는 모델 추가 탐색, 클래스 불균형 문제 해결, 세부 조정 접근 방식을 개선하여 분류 성능을 높이는 방향으로 진행될 것입니다.
+
+
+
+### Powerful Training-Free Membership Inference Against Autoregressive Language Models (https://arxiv.org/abs/2601.12104)
+Comments:
+          9 pages, 2 figures; appendix with additional experiments and derivations
+
+- **What's New**: 최신 연구에서는 EZ-MIA라는 새로운 membership inference attack (MIA) 방법론을 제안했습니다. EZ-MIA는 모델의 오류 위치에서의 확률 변화 패턴을 분석하여 메모리화를 식별합니다. 기존 방법들이 직면했던 한계를 극복하며, 특히 최소한의 false-positive율을 요구하는 실제 프라이버시 감사 상황에서도 높은 탐지율을 기록합니다.
+
+- **Technical Details**: EZ-MIA는 Error Zone (EZ) 스코어라는 단일 통계를 사용하여 오류 위치에서의 확률 변화의 방향성을 측정합니다. 이 방법은 pretrained reference model에 대한 두 번의 forward 패스를 통해 실행되며, 추가적인 모델 훈련이 필요하지 않습니다. EZ-MIA는 GPT-2 및 Llama-2-7B와 같은 다양한 대형 모델에서 높은 탐지 성능을 보여주었습니다.
+
+- **Performance Highlights**: 연구 결과, EZ-MIA는 WikiText 데이터셋에서 1%의 false positive rate(FPR) 환경에서 66.3%의 true positive rate(TPR)을 기록하며, 이전의 최고 성능인 SPV-MIA보다 3.8배 높은 탐지 성능을 나타냅니다. 0.1% FPR에서의 평가에서도 EZ-MIA는 8배 높은 탐지율을 보였으며, 이는 프라이버시 감사의 새로운 기준을 세우는 결과입니다.
+
+
+
+### Large language models struggle with ethnographic text annotation (https://arxiv.org/abs/2601.12099)
+- **What's New**: 최근 연구에서는 대형 언어 모델(LLMs)이 인류학의 민족지적 텍스트에서 구조화된 데이터를 추출하여 교차문화 연구를 가속할 수 있는 가능성을 제시하고 있습니다. 연구팀은 121개의 의식 특성을 포함한 567개의 민족지적 발췌문에 대한 7개의 최신 LLM 성능을 평가했습니다. 결과적으로 이러한 모델들은 신뢰할 수 있는 자동 주석을 위한 기준에 미치지 못하며, 특히 긴 텍스트나 모호한 구성의 주석 처리에서 어려움을 겪고 있습니다.
+
+- **Technical Details**: 이 연구에서는 567개의 민족지적 텍스트에서 유래한 두 개의 상호 보완적 데이터 세트를 사용하여 7개의 LLM을 평가하였습니다. 첫 번째 데이터 세트에는 의식의 기능, 지속 시간 및 수행된 다양한 행동을 포함한 115개의 의식 특성이 포함되어 있으며, 두 번째 데이터 세트는 6가지 동기화 행동에 중점을 두고 있습니다. 모델의 정확도를 예측하기 위해 혼합효과 모델을 사용하여 여러 특성과 태스크의 특성을 통합하였습니다.
+
+- **Performance Highlights**: 모든 모델과 프롬프트 조건에서, LLM의 출력과 전문가 인간 주석을 비교한 결과 성능이 지속적으로 낮았으며 평균 F1 점수는 0.12에서 0.41 사이로 나타났습니다. DeepSeek V3.1 모델이 멀티태스크 프롬프트와 앙상블 샘플링으로 F1=0.41을 기록하며 가장 높은 성능을 보인 반면, GPT-OSS 120B도 같은 조건 하에 F1=0.41로 뒤를 이었습니다. 전반적으로 LLM은 인간 주석자에 비해 신뢰성과 정확도가 낮았습니다.
+
+
+
+### Optimizing User Profiles via Contextual Bandits for Retrieval-Augmented LLM Personalization (https://arxiv.org/abs/2601.12078)
+- **What's New**: 본 논문에서는 LLM(대형 언어 모델)의 개인화(Personalization)를 위한 새로운 프레임워크인 PURPLE을 제안합니다. PURPLE은 사용자 프로필을 최적화하기 위해 컨텍스트 밴딧(contextual bandit) 설정을 활용하여, 단순히 가장 관련성이 높은 기록을 선택하는 기존의 방법과 달리, 레코드 간의 복잡한 상호작용을 포착합니다. 이 접근 방식은 LLM의 응답 품질을 직접적으로 향상시키는 것을 목표로 합니다.
+
+- **Technical Details**: PURPLE은 사용자 프로필을 구성하는 과정을 세트 생성 문제(set generation problem)로 바라보고, Plackett-Luce 순위 모델을 사용하여 레코드 간의 의존성을 모델링합니다. 이를 통해 각 레코드에 대한 잠재적 점수(propensity score)를 출력하고, 이 점수를 사용하여 최종 프로필을 생성합니다. 모델은 정책 경량화 방법(policy gradient method)을 통해 end-to-end로 훈련됩니다.
+
+- **Performance Highlights**: 아홉 가지 개인화 작업에 대한 광범위한 실험 결과, PURPLE은 강력한 기본선(heuristics) 및 검색 증강 모델에 비해 지속적으로 우수한 성능을 보였습니다. 효과성과 효율성 모두에서 뛰어난 성과를 확인하였으며, 사용자의 선호를 반영한 개인화된 응답 품질을 개선하는 데 기여하고 있습니다. 이 연구는 사용자 프로필 최적화를 위한 체계적이고 확장 가능한 솔루션을 제공합니다.
+
+
+
+### To Copy or Not to Copy: Copying Is Easier to Induce Than Reca (https://arxiv.org/abs/2601.12075)
+- **What's New**: 이번 연구에서는 Retrieval-Augmented Generation(RAG) 설정에서 언어 모델이 파라메트릭 지식(parametric knowledge)과 컨텍스트 정보(contextual information) 간의 선택을 조절하는 메커니즘을 분석했습니다. 특히, 연구팀은 비관련 맥락(irrelevant contexts)과 관련 있지만 잘못된 맥락(relevant but false contexts)을 구분하는 데이터세트를 통해 ‘중재 벡터(arbitration vector)’를 추출하였습니다. 이 벡터는 모델의 동작을 두 가지 방향(Copy→Recall 및 Recall→Copy)으로 전환하는 데 사용되며, 제어 신호를 격리하는 데 중요한 역할을 합니다.
+
+- **Technical Details**: 연구에서는 두 가지 주(주된 문장) 아키텍처(디코더 전용 및 인코더/디코더)에서 동작을 평가했습니다. 중재 벡터는 총 27개 관계에서 두 가지 맥락 유형(관련/비관련)을 기준으로 생성된 데이터셋에서 계산되었습니다. 연구팀은 이 벡터를 모델의 특정 레이어와 토큰 위치에 추가하여 모델의 동작을 조절했습니다. 또한, LLM의 내부 메커니즘 검사를 통해 주의(attention) 라우팅, MLP 기여도, 레이어별 확률 궤적을 분석하여 기억과 복사의 비대칭성을 밝혀냈습니다.
+
+- **Performance Highlights**: 실험 결과, 중재 벡터의 주입을 통해 Copy에서 Recall로, Recall에서 Copy로의 일관된 동작 변화가 관찰되었습니다. 특히, Recall→Copy는 상대적으로 더 견고하고 작은 규모의 조정으로 가능했지만, Copy→Recall은 더 큰 조정이 필요하여 객체 토큰에 강한 복잡성 증가를 동반했습니다. 이러한 결과는 연구팀이 제안한 메커니즘이 특정 데이터셋의 산물보다는 근본적인 통제 신호를 포착하고 있음을 시사합니다.
+
+
+
+### Bridging the Gap in Bangla Healthcare: Machine Learning Based Disease Prediction Using a Symptoms-Disease Datas (https://arxiv.org/abs/2601.12068)
+- **What's New**: 이 연구는 의료 정보 접근성을 높이기 위해 758개의 고유한 증상-질병 관계를 포함하는 포괄적인 방글라어 증상-질병 데이터셋을 개발했습니다. 이는 방글라어를 사용하는 인구가 질병을 예측할 수 있도록 지원하며, 앞으로의 건강 정보와 진단 도구 개발에 기초 자료로 활용될 것입니다. 연구팀은 이 데이터셋을 공개하여 투명성과 재현성을 보장하고, 질병 예측 모델의 성능을 평가했습니다.
+
+- **Technical Details**: 연구 결과, 여러 머신 러닝 모델을 사용하여 방글라어로 제공된 증상 기반 질병 예측 성과를 분석하였습니다. 특히 soft voting과 hard voting 앙상블 접근법을 통해 상위 성능 모델을 결합하여 98%의 정확도를 달성했습니다. 이러한 결과는 데이터셋의 일반화 및 내구성을 입증하며, 향후 비슷한 연구에 기여할 것으로 보입니다.
+
+- **Performance Highlights**: 이 데이터셋과 머신 러닝 기법을 결합함으로써 조기 질병 식별 및 진단 정확성을 높였습니다. 연구진의 접근법은 방글라어를 사용하는 커뮤니티를 위한 건강 정보의 공정한 접근을 활용하는 데 중점을 둡니다. 궁극적으로, 본 연구는 질병 예측 및 개인화된 건강 관리 방안을 제시하여 의료 개입에 도움을 줄 것으로 기대됩니다.
+
+
+
+### Codebook-Injected Dialogue Segmentation for Multi-Utterance Constructs Annotation: LLM-Assisted and Gold-Label-Free Evaluation (https://arxiv.org/abs/2601.12061)
+Comments:
+          Under Review for ACL 2026
+
+- **What's New**: 이번 논문에서는 대화 행동(Da) 주석 작업에서의 경계 결정 문제를 해결하기 위해 코드북이 주입된 세그멘테이션 방법을 제안합니다. 이 방법은 주석의 기준에 따라 경계 결정을 조건화하여 주석 프로세스에서 두 개념을 명확히 분리합니다. 또한, 대화 흐름에 대한 정확한 검토와 교육적 대화에서의 경계 placement를 다루며, 이는 주석의 품질을 높이는 데 집중합니다.
+
+- **Technical Details**: 논문에서는 대화 세그멘테이션을 위한 LLM(대형 언어 모델) 기법을 평가하고, 기존 NLP 대화 세그멘테이션 알고리즘과의 성능을 비교합니다. 성능 평가를 위해 오프라인 레이블이 없는 기준을 도입하였으며, 세그먼트 간 일관성, 인접 세그먼트의 독특함 및 분포적 동의 수준을 측정합니다. 코드북 주입된 세그멘테이션을 활용해 복잡한 교과 과정 내에서의 교육적 의도를 반영한 주석을 가능하게 합니다.
+
+- **Performance Highlights**: 논문에서 제안한 방법은 LLM에 기반하여 세그먼트를 생성할 때, 텍스트 기반 기준보다 내부적인 일관성이 높음을 보여주었습니다. 그러나 대화 흐름의 전반적인 변화를 감지하는 데 있어서는 여전히 전통적인 기준이 우수함을 확인했습니다. 두 가지 데이터 세트를 통해 성능에는 단일 세그멘터가 우세하지 않으며, 세그먼트 내 일관성의 개선이 경계의 독창성과 인간-AI 분포적 동의 간의 절충을 요구함을 확인했습니다.
+
+
+
+### Don't Start Over: A Cost-Effective Framework for Migrating Personalized Prompts Between LLMs (https://arxiv.org/abs/2601.12034)
+Comments:
+          Accepted to AAAI 2026 (Oral). 9 pages, 5 figures
+
+- **What's New**: 본 연구에서는 대형 언어 모델(LLMs)에서 사용자 맞춤형 소프트 프롬프트를 효율적으로 이전하기 위한 새로운 방법인 Prompt-level User Migration Adapter (PUMA)를 제안합니다. PUMA는 파라미터 효율적인 어댑터를 사용하여 모델 간 의미 격차를 해소하고, 비용을 크게 줄이기 위해 사용자를 그룹화하는 전략을 결합합니다. 이 방식은 사용자 자산을 모델 기반에서 분리함으로써 개인화된 AI의 지속 가능한 진화를 위한 실용적인 경로를 제공하는 데 초점을 맞추고 있습니다.
+
+- **Technical Details**: PUMA 프레임워크는 소프트 프롬프트를 다른 모델로 효과적으로 마이그레이션하기 위해 두 가지 주요 구성 요소를 포함합니다: (1) 모델 간 의미 격차를 해소하기 위해 끝에서 끝으로 훈련된 파라미터 효율적인 어댑터와 (2) 사용자 선택 전략으로, 사용자들을 프롬프트 임베딩과 출력 분산에 따라 그룹화하여 작은 대표 훈련 하위 집합을 형성합니다. 이를 통해 높은 성능을 유지하면서도 훈련 비용을 대폭 줄일 수 있습니다. 실험 결과는 PUMA가 초기 모델 재훈련보다 더욱 비용 효율적임을 보여줍니다.
+
+- **Performance Highlights**: 세 가지 대규모 데이터셋에서의 실험을 통해 PUMA 방법은 직접 훈련에서의 성능을 뛰어넘거나 일치하는 결과를 나타내면서도 최대 98%의 계산 비용 절감을 달성하였습니다. 또한, PUMA는 여러 모델 아키텍처에 걸쳐 강력한 일반화 능력을 보이며, 연쇄적 및 집합적 마이그레이션과 같은 고급 시나리오에서의 강건성을 입증했습니다. 이러한 결과는 사용자 맞춤형 AI 시스템의 실용적 확장을 위한 가능성을 제시합니다.
+
+
+
+### Preserving Fairness and Safety in Quantized LLMs Through Critical Weight Protection (https://arxiv.org/abs/2601.12033)
+- **What's New**: 이번 연구에서는 정적(static) 및 동적(dynamic) 양자화(Quantization) 방법이 공정성(fairness) 및 안전성(safety)에 미치는 영향을 체계적으로 분석하였습니다. 연구에서는 다국어 환경을 포함한 여러 벤치마크에서 내재적(intrinsic) 및 외재적(extrinsic) 편향(bias)과 안전성 정렬(safety alignment)을 측정했습니다. 새로운 접근으로 ‘Critical Weight Protection’이라는 기법을 소개하여 양자화 과정에서 공정성과 안전성을 유지할 수 있는 방법을 제시합니다.
+
+- **Technical Details**: 본 연구에서는 양자화가 대형 언어 모델(LLMs)의 성능에 미치는 영향을 평가하는 것뿐만 아니라, 공정성과 안전성의 세부적인 차원에서 미치는 영향도 조사하였습니다. 다양한 언어, 특히 영어, 한국어, 아랍어에서 안전성을 중점적으로 평가하며, 양자화의 형태에 따라 공정성 저하가 언어별로 상이하다는 결과가 도출되었습니다. 선택적으로 공정성 및 안전성에 중요한 파라미터를 보다 높은 정밀도로 유지하는 혼합 정밀도(mixed-precision) 접근법을 활용하여 효율성을 높이면서 신뢰성을 유지하려는 노력을 기울였습니다.
+
+- **Performance Highlights**: 양자화 기법을 사용한 결과, 단순한 양자화가 편향을 증폭하고 안전 정렬을 약화시킬 수 있음을 보여주었습니다. ‘Critical Weight Protection’ 방법을 채택했을 때, 양자화로 인한 위험을 최소화하면서도 성능 손실을 최소화하는 것이 가능하다는 것을 실증적으로 입증했습니다. 이 연구는 LLMS의 압축 과정에서 공정성 및 안전성을 보장하는 데 있어 실질적인 지침을 제공하고 있습니다.
+
+
+
+### Acting Flatterers via LLMs Sycophancy: Combating Clickbait with LLMs Opposing-Stance Reasoning (https://arxiv.org/abs/2601.12019)
+- **What's New**: 이번 연구는 클릭베이트(clickbait) 탐지 문제를 해결하는 데 있어 Large Language Models (LLMs)의 특성을 활용하는 새로운 접근 방식을 제안합니다. 기존 LLM에서 나타나는 시콕팬시(sycophancy) 현상을 개선하려고 하는 대신, 이 연구는 이를 장점으로 삼아 서로 다른 관점에서 대조적 의견을 생성하는 방법을 모색합니다. Self-renewal Opposing-stance Reasoning Generation (SORG) 프레임워크를 통해 고품질의 동의 및 비동의 이유 쌍을 생성하며, 이를 통해 클릭베이트 탐지를 더욱 향상시킵니다.
+
+- **Technical Details**: SORG는 사용자가 제시한 뉴스 제목에 대해 클릭베이트인지 비클릭베이트인지를 가정하여 LLM을 유도하여 상반된 주장을 발생시키도록 설계되었습니다. 이를 통해 생성된 대조적 이유는 Opposing Reasoning-based Clickbait Detection (ORCD) 모델에서 사용되며, 이 모델은 세 개의 BERT 인코더를 사용하여 제목과 그에 해당하는 이유를 표현합니다. 이 과정에서 소프트 레이블(soft labels)을 활용하여 대조 학습(contrastive learning)을 진행하며, 이를 통해 탐지의 강 robustness를 높입니다.
+
+- **Performance Highlights**: 실험적으로 연구진은 세 가지 클릭베이트 데이터셋에서 제안한 방법의 효과성을 검증하였고, 기존의 LLM을 기반으로 한 접근법, 소규모 언어 모델의 파인튜닝(fine-tuning), 그리고 최신 클릭베이트 탐지 기준선들과 비교하여 우수한 성능을 보였습니다. ORCD 모델은 다양한 평가 지표에서 기존 방법들보다 일관되게 뛰어난 성능을 나타냈습니다. 본 연구는 LLM의 활용을 클릭베이트 탐지 문제에 있어 새로운 가능성으로 제시하며 혁신적인 전환을 제공합니다.
+
+
+
+### $\texttt{MemoryRewardBench}$: Benchmarking Reward Models for Long-Term Memory Management in Large Language Models (https://arxiv.org/abs/2601.11969)
+- **What's New**: 본 연구에서는 메모리 품질을 자동적이고 신뢰성 있게 평가하기 위해 보상 모델(Reward Models, RMs)을 활용하는 것이 중요하다는 점을 강조합니다. 새로운 벤치마크인 $	exttt{MemoryRewardBench}$를 도입하여 RMs의 장기 메모리 관리 능력을 체계적으로 연구합니다. 이 벤치마크는 8K에서 128K 토큰 길이의 다양한 메모리 관리 패턴을 포함한 10개의 설정을 포함하고 있습니다.
+
+- **Technical Details**: 메모리 관리 방식에는 두 가지 주요 패러다임이 있습니다: 전방위적 처리와 세분화된 처리입니다. 세분화된 처리는 각 단계에서 메모리의 상태를 고정 크기로 유지하면서 이력을 요약하고 새로운 정보를 통합하는 방법으로 작동합니다. MemRewardBench는 장기 기억의 품질을 평가하기 위해 RMs가 메모리 관리 프로세스를 어떻게 감독할 수 있는지를 비교하는 데 초점을 맞추고 있습니다.
+
+- **Performance Highlights**: 13개의 최첨단 RM의 평가 결과, 오픈 소스와 독점 모델 간의 성능 격차가 줄어들었음을 보여주었습니다. 새로운 세대 모델들이 설정된 매개변수 수에 관계없이 이전 모델보다 지속적으로 더 나은 성능을 보임을 발견했습니다. 이는 메모리 관리 평가의 질이 모델의 기본 성능과 밀접하게 연결되어 있음을 시사합니다.
+
+
+
+### PEARL: Self-Evolving Assistant for Time Management with Reinforcement Learning (https://arxiv.org/abs/2601.11957)
+- **What's New**: 본 논문에서는 중첩된 일정 초대가 바쁜 전문가들에게 얼마나 많은 결정을 요구하는지를 다루고 있습니다. 이에 따라 우리는 캘린더 충돌 해결(calendar conflict resolution)이라는 선호 기반의 의사 결정 과정을 소개합니다. 이 과정의 자동화는 중요하지만 도전과제가 많으며, CalConflictBench라는 벤치마크를 통해 이 문제를 체계적으로 연구합니다. 실험 결과, 현재의 LLM(대형 언어 모델) 에이전트들이 높은 오류율로 심각한 문제를 보이는 것도 확인되었습니다.
+
+- **Technical Details**: 우리는 PEARL(Preference Evolving Agent with Reinforcement Learning)라는 강화 학습 프레임워크를 제안합니다. 이 프레임워크는 언어 에이전트가 사용자 선호를 온라인으로 추론하고 장기적인 캘린더 충돌 해결 문제에서 일관되게 적용할 수 있도록 학습합니다. PEARL은 외부 메모리를 활용하고, 사용자 우선순위를 반영하는 전략 허브(Strategy Hub)를 통해 의사 결정을 내리도록 설계되어 있습니다. 이스 페이퍼에서 제안된 접근 방식은 모든 라운드에서 명확한 보상 디자인을 적용하여 에이전트의 학습을 더욱 안정시키고 있습니다.
+
+- **Performance Highlights**: 실험 결과, PEARL은 CalConflictBench에서 0.76의 오류 감소율을 달성했으며, 가장 강력한 기준선에 비해 평균 오류율을 55% 개선했습니다. 이러한 성과는 LLM 에이전트가 사용자 선호에 따라 점진적으로 적응하는 것을 가능하게 하여 캘린더 충돌 문제를 더욱 효과적으로 해결할 수 있게 합니다. 이는 앞으로의 일정을 관리하는 데 있어 신뢰할 수 있는 솔루션으로 작용할 수 있습니다.
+
+
+
+### Double-Calibration: Towards Trustworthy LLMs via Calibrating Knowledge and Reasoning Confidenc (https://arxiv.org/abs/2601.11956)
+- **What's New**: 이 논문에서는 Large Language Models (LLMs)의 신뢰성 문제를 해결하고자 새로운 더블-캘리브레이션(double-calibration) 원리를 도입합니다. 이 원리는 Knowledge Graphs (KGs)와 함께 사용되어, LLM의 추론 과정에서의 신뢰도를 명확히 측정하고, 이를 통해 더욱 정확하고 믿을 수 있는 예측을 제공합니다. 그 결과, DoublyCal이라는 프레임워크가 구축되어 KG 증강 방식의 최신 기술을 적용한 것이 주목할 만한 점입니다.
+
+- **Technical Details**: DoublyCal 프레임워크는 두 가지 단계로 구성됩니다. 첫 번째 단계에서는 경량 프록시 모델이 KG 증거와 그에 따른 캘리브레이션된 신뢰도를 생성합니다. 이후 이 KG 증거는 LLM의 최종 예측을 안내하는 데 사용되며, 최종 예측의 신뢰도 역시 이론적으로 근거를 두고 신뢰할 수 있도록 보장합니다.
+
+- **Performance Highlights**: DoublyCal을 활용한 실험 결과에 따르면, 이 프레임워크는 지식 중심의 벤치마크에서 LLM의 정확성과 신뢰성 캘리브레이션을 유의미하게 향상시킵니다. 특히, 저렴한 토큰 비용으로도 더 정확한 예측을 구현할 수 있음을 증명하고 있습니다.
+
+
+
+### Event Detection with a Context-Aware Encoder and LoRA for Improved Performance on Long-Tailed Classes (https://arxiv.org/abs/2601.11932)
+- **What's New**: 이 연구에서는 이벤트 감지 연구에서 두 가지 주요 제한점을 조사합니다. 첫째, 디코더 전용 LLMs의 단방향 특성이 풍부한 양방향 컨텍스트에 의존하는 자연어 이해 작업에서 기본적인 아키텍처 병목 현상을 초래합니다. 둘째, 기존의 Micro-F1 점수에 대한 의존성이 이벤트 감지 문헌에서 성능을 인위적으로 부풀린다는 문제를 지적합니다.
+
+- **Technical Details**: 우리는 모델의 능력을 장기 이벤트 클래스에 걸쳐 더 잘 나타내는 매크로-F1(Macro-F1) 지표에 집중합니다. 실험 결과, 문장 컨텍스트로 강화된 모델이 기존의 디코더 전용 기준 모델들보다 우수한 성능을 달성했습니다. 또한, 파인튜닝(finetuning) 동안 저랭크 적응(LoRA, Low-Rank Adaptation)을 사용하면 Macro-F1 점수의 실질적인 향상을 가져옴을 보여주었습니다.
+
+- **Performance Highlights**: 특히 디코더 전용 모델에서 LoRA의 활용이 장기 클래스에 대한 LLM 성능을 효과적으로 향상시킬 수 있다는 것을 증명하였습니다. 이를 통해 매크로-F1 지표가 다수 클래스에 치우치지 않는 보다 공정한 성능 평가를 제공함을 입증하였습니다. 전반적으로 이 연구는 이벤트 감지 성능을 증가시키기 위한 새로운 방법론을 제안하고 있습니다.
+
+
+
+### Mapping the maturation of TCM as an adjuvant to radiotherapy (https://arxiv.org/abs/2601.11923)
+- **What's New**: 이 연구는 방사선 요법에 대한 보조 요법으로서의 전통 중국 의학(TCM)의 증거를 종합한 것으로, 2000년부터 2025년까지 69,745개의 출판물을 분석하였습니다. 연구는 TCM이 의학적 효능과 환자 복지에 초점을 맞춘 다양한 주제를 다루고 있다는 점을 강조하며, 해당 분야의 지속적인 진화를 보여줍니다. 특히, TCM의 체계적 접근이 환자 중심의 특성을 나타내며, 연구 결과의 긍정적인 보도가 다양한 출판 유형 그리고 진화 주기에서도 일관성을 가지고 있음을 강조합니다.
+
+- **Technical Details**: 전통 중국 의학(TCM) 연구 분야의 주제 모델링을 위한 98.5% Jacobd 유사도 기반 수렴을 통해 안정적인 주제 구조를 수립하였습니다. 방사선 요법과의 통합 연구는 TCM의 치료적 효능을 평가하기 위한 근본적인 분석을 조직하였으며, 현대 자연어 처리(NLP) 기술을 사용하여 대규모 연구 환경을 정교하게 특성화하였습니다. 연구에서 구현된 사이클 패턴은 TCM 연구의 발전이 다년간의 확장 이전의 반영의 정점에 가까워지고 있음을 시사합니다.
+
+- **Performance Highlights**: 이 연구는 69,745개의 출판물에 대한 광범위한 맵핑을 통해 TCM의 다양한 유형에 걸쳐 주제를 분석하며, 통합 종합적 관점을 제안합니다. 또한, 연구는 TCM이 통합 암 치료의 중요한 보조 요법으로서의 위치를 확립하고, 환자들의 증상 완화 및 결과 개선을 목표로 하고 있음을 보여줍니다. 총론적으로, TCM 연구는 긍정적인 보고 결과를 공유하고 있으며, 이는 기존 연구와 새로운 방향이 통합되는 데 긍정적인 기여를 할 가능성을 나타냅니다.
+
+
+
+### Enhancing LLM-Based Data Annotation with Error Decomposition (https://arxiv.org/abs/2601.11920)
+- **What's New**: 본 논문은 LLM(대형 언어 모델)을 이용한 데이터 주석 업무의 새로운 진단 평가 패러다임을 제안합니다. 기존에는 주석 오류를 단일 정렬 메트릭으로 평가했으나, 저자들은 이를 모델의 근본적인 오차와 태스크에서 발생하는 모호성을 분리하여 평가하는 접근법을 소개했습니다. 이는 LLM 성능의 불일치 및 주관적인 주석 작업에 대한 실질적인 통찰을 제공하려는 목표를 가지고 있습니다.
+
+- **Technical Details**: 저자들은 주어진 작업에서 발생하는 오류를 두 가지 차원, 즉 출처(모델 특정 vs. 태스크 고유)와 유형(경계 모호성 vs. 개념 오인식)을 기준으로 분류하는 진단 세분화법을 제안했습니다. 또한, LLM 주석의 질을 개선하기 위해 태스크에서 고유한 모호성을 추정하는 경량 인간 주석 테스트를 소개하고, 오류의 출처와 유형을 구별하여 LLM 주석 오류를 분해하는 통계적 방법을 개발했습니다.
+
+- **Performance Highlights**: 제안된 평가 패러다임은 공개된 네 가지 교육 주석 작업에서 검증되어 그 개념적 유효성과 실용성을 입증했습니다. 연구 결과, 주관적 주석 작업에서는 LLM의 높은 일치성이 항상 기대될 수 없음을 보여주며, 단일 정렬 메트릭의 한계를 지적합니다. 또한, 저자들은 LLM 주석의 효과성을 평가할 수 있는 저비용 진단 접근법을 통해 실제적 최적화 가능성을 제시하며, 이를 통해 LLM 주석의 신뢰성과 해석 가능성을 개선하고자 합니다.
+
+
+
+### LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding (https://arxiv.org/abs/2601.11913)
+Comments:
+          12 pages, 5 figures
+
+- **What's New**: 이 논문은 대형 언어 모델(LLMs)에서 긴 컨텍스트 처리를 위한 새로운 접근 방식을 제안합니다. 연구자들은 Long Short-Term Memory (LSTM) 구조에서 영감을 받아, 정보 흐름과 메모리 메커니즘을 모방한 Multi-Agent System인 LSTM-MAS를 설계하였습니다. 이 시스템은 에이전트를 체인 형태로 배치하여 오류 축적과 환상 전파 문제를 효과적으로 해결하려고 합니다.
+
+- **Technical Details**: LSTM-MAS는 여러 기능의 에이전트로 구성됩니다. Worker Agent는 현재 텍스트 세그먼트를 처리하고 이전 컨텍스트 정보를 통합하여 숨겨진 표현을 생성합니다. Filter Agent는 불필요하거나 비관련된 정보를 제거하며, Judge Agent는 일관성 검증을 통해 오류를 탐지하고, Manager Agent는 글로벌 특성을 유지하여 최종 출력을 요약합니다. 이러한 설계는 메모리 셀과 게이팅 메커니즘을 시뮬레이션하여 오류 축적을 방지합니다.
+
+- **Performance Highlights**: LSTM-MAS는 다양한 데이터셋에서 실험을 진행한 결과, 기존 다중 에이전트 방법인 CoA에 비해 상당한 성능 향상을 보여주었습니다. NarrativeQA, Qasper, HotpotQA 및 MuSiQue에서 각각 40.93%, 43.70%, 121.57%, 33.12%의 성능 개선을 기록하는 등, 광범위한 작업에서 강력한 결과를 자랑합니다. 이는 LSTM-MAS가 기존 다중 에이전트 프레임워크에서 자주 나타나는 오류 축적 문제를 효과적으로 완화한다는 것을 보여줍니다.
+
+
+
+### PPA-Plan: Proactive Pitfall Avoidance for Reliable Planning in Long-Context LLM Reasoning (https://arxiv.org/abs/2601.11908)
+Comments:
+          23 pages, 6 figures
+
+- **What's New**: 이 논문에서는 긴 데이터 맥락에서의 추론 능력을 향상시키기 위한 새로운 계획 전략인 PPA-Plan을 제안합니다. 기존의 계획 및 실행 방법들이 신뢰할 수 없는 계획 생성에 의존하던 문제를 해결하기 위해, 이 접근법은 계획 생성을 하기 전에 잠재적인 논리적 함정과 잘못된 가정을 사전에 식별합니다. 이러한 사전 조치를 통해 오류 발생 가능성을 줄이면서도 효과적으로 계획을 수립할 수 있도록 돕습니다.
+
+- **Technical Details**: PPA-Plan은 세 개의 모듈로 구성되어 있습니다: (1) 함정 예측기(Pitfall Predictor), (2) 계획 수립기(Planner), (3) 수정기(Corrector). 함정 예측기는 쿼리를 분석하여 피해야 할 논리적 함정과 잘못된 가정을 식별하고, 이러한 정보를 부정적 제약 조건(Negative Constraints)으로 공식화합니다. 이후 계획 수립기는 이러한 제약 조건을 준수하며 전반적인 계획의 논리적 구조를 결정하는 과정을 거칩니다.
+
+- **Performance Highlights**: PPA-Plan이 생성한 계획을 실행한 결과, 기존의 계획-실행 방법이나 직접적인 프롬프트 기반 접근법에 비해 꾸준히 더 정확한 답변을 생성하였습니다. 특히 긴 문서에서의 추론이 필요한 질문들에 대해 더 나은 성능을 발휘하며, 고전적인 QA 벤치마크 옵션에 대한 정확도에서도 우수한 성과를 나타냈습니다. 이러한 결과는 PPA-Plan이 긴 맥락에서의 계획 수립 시 반응적 수정이 아닌 능동적 피하기 방식을 채택함으로써 가능해졌음을 시사합니다.
+
+
+
+### Faithfulness vs. Safety: Evaluating LLM Behavior Under Counterfactual Medical Evidenc (https://arxiv.org/abs/2601.11886)
+Comments:
+          26 pages
+
+- **What's New**: 이번 논문에서는 의학과 같은 안전성이 중요한 분야에서 모델이 제공된 맥락을 어떻게 충실히 따르는지를 조사했습니다. 특히, 모순되거나 적대적인 의료 증거가 제시될 때 LLM(대규모 언어 모델)의 행동과 추론 방식을 분석했습니다. 연구진은 MedCounterFact라는 데이터셋을 구축하고, 의료 질문에 대해 모델이 어떻게 반응하는지를 평가했습니다. 분석 결과, 모델들은 위험한 정보도 당연히 받아들이고 확신에 찬 대답을 했으며, 이는 안전성 기준을 무시할 수 있는 문제를 드러냈습니다.
+
+- **Technical Details**: MedCounterFact는 기존의 MedEvidence 데이터셋을 기반으로 구축된 의료 QA 데이터셋으로, 모델이 특정 의료 처치의 효능을 비교하는 질문에 답하도록 요구합니다. 공인된 무작위 대조 시험(RCT)의 내용이 제공된 증거를 기반으로 하여, 연구자들은 질문 속의 실제 의료 중재를 모순적인 자극으로 대체했습니다. 이 연구에서는 9개의 최첨단 LLM에 대해 MedCounterFact를 사용하여 평가를 진행했으며, 결과적으로 매우 기묘하고 위험한 증거에 대해서도 모델이 의심 없이 반응하는 현상을 발견했습니다.
+
+- **Performance Highlights**: 모델들은 제공된 모순적인 증거를 믿고 대답하는 경향이 있었으며, 이는 안전성을 중시하는 의료 분야에서 심각한 문제를 야기할 수 있습니다. Counterfactual 증거가 존재하는 경우, 모델은 모순된 정보임에도 불구하고 대답을 회피하지 않았고, 위험한 정보에 대해 높은 확신을 가지고 대답했습니다. 이러한 결과는 현재 모델의 안전성 보장 기준이 필요하다는 것을 강조하며, моделей가 위해를 초래하는 정보에 대해서도 여전히 신뢰를 의심할 필요가 있음을 시사합니다.
+
+
+
+### GloCTM: Cross-Lingual Topic Modeling via a Global Context Spac (https://arxiv.org/abs/2601.11872)
+Comments:
+          AAAI 2026
+
+- **What's New**: 이번 논문에서는 GloCTM(Global Context Space for Cross-Lingual Topic Model)이라는 새로운 프레임워크를 소개합니다. GloCTM은 전체 모델 파이프라인에서 통합된 의미 공간을 활용하여 언어 간 주제 정렬을 강제합니다. 이 모델은 복합어를 확장하여 풍부한 입력 표현을 구축하고, 지역 및 글로벌 인코더를 사용하여 주제의 비율을 추론하는 접근 방식을 채택합니다.
+
+- **Technical Details**: GloCTM은 멀티링궐 프리트레인 언어 모델의 풍부한 의미 신호를 활용하여 주제 모델링의 전반적인 성능을 향상시키고자 합니다. 또한, Centered Kernel Alignment (CKA) 손실을 적용하여 잠재적인 주제 공간을 다중 언어 컨텍스트 표현과 정렬합니다. 이러한 구조적 정렬은 주제의 의미를 보다 깊고 정확하게 이해하는 데 기여합니다.
+
+- **Performance Highlights**: 다양한 벤치마크 실험을 통해 GloCTM은 기존 모델들과 비교하여 주제의 일관성과 언어 간 정렬에서 뛰어난 성능을 보였습니다. 이 연구는 GloCTM이 강력한 기준선 모델보다 우위에 있으며, 주제의 다양성과 일관성을 향상시키는 데 성공했음을 입증합니다.
+
+
+
+### Advances in LLM Reasoning Enable Flexibility in Clinical Problem-Solving (https://arxiv.org/abs/2601.11866)
+Comments:
+          10 pages, 6 figures
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)의 임상 추론에서의 인지적 유연성(cognitive flexibility) 개선을 조사했습니다. OpenAI, Grok, Gemini, Claude, DeepSeek 등 다양한 모델에 대해 실험하였으며, 의료 기준에서의 성능을 평가했습니다.
+
+- **Technical Details**: 연구에서는 의료 추상화 및 추론 데이터셋(mARC)을 활용하여 모델의 성능을 테스트했습니다. 특히, Einstellung effect를 이용하여 비효율적인 패턴에 과도하게 의존하는 경향을 평가했습니다. 강력한 추론 모델들은 상대적으로 낮은 성능의 모델보다 이러한 함정(traps)을 더 잘 피하는 것으로 나타났습니다.
+
+- **Performance Highlights**: 모델들은 의사들이 가장 자주 놓치는 질문에 대해 55%에서 70%의 높은 정확도로 정답을 표시했습니다. 이는 이들 모델이 인간보다도 Einstellung 효과에 덜 영향을 받음을 시사하며, 또한 강력한 추론 모델들이 임상 추론에서 보다 개선된 유연성을 보여주었다는 결과를 나타냅니다.
+
+
+
+### CTPD: Cross Tokenizer Preference Distillation (https://arxiv.org/abs/2601.11865)
+Comments:
+          AAAI 2026
+
+- **What's New**: 이 논문은 Cross-Tokenizer Preference Distillation (CTPD)을 제안하며, 이는 이질적인 tokenizer를 가진 모델 간의 인간 선호 행동을 전이하는 첫 번째 통합 프레임워크입니다. CTPD는 Aligned Span Projection, Token-level Importance Sampling (TIS-DPO)의 크로스-tokenizer 적응, Teacher-Anchored Reference의 세 가지 주요 혁신을 도입합니다. 이를 통해 서로 다른 tokenizer를 사용하는 모델 간의 세밀한 지식 전이가 가능하게 합니다.
+
+- **Technical Details**: CTPD의 핵심 구성 요소는 세 가지로, Aligned Span Projection은 입력 시퀀스를 문자 수준 간격으로 정렬된 span으로 나누어 학생 모델이 교사 모델의 정보를 효과적으로 사용할 수 있도록 합니다. 두 번째로, TIS-DPO의 접근 방식을 크로스-tokenizer 설정으로 확장하여 각 정렬된 span 내에서 중요도를 집계하고 학생 모델에 전달하는 방식을 구현합니다. 마지막으로, Teacher-Anchored Reference는 DPO 스타일의 목적에서 교사 모델을 직접 참조 분포로 활용하여, 학생이 교사의 선호를 직접적으로 활용할 수 있도록 합니다.
+
+- **Performance Highlights**: 여러 벤치마크에서 CTPD의 유효성을 검증하는 실험을 수행하였으며, 기존 방법들에 비해 유의미한 성능 향상을 보여주었습니다. 이러한 결과는 CTPD가 다양한 tokenizer 스킴 간의 선호 distillation을 위한 실용적이고 일반적인 솔루션으로 자리매김함을 나타냅니다. 또한, CTPD는 고급 교사 모델에서 소형 학생 모델로의 정교한 alignment 행동을 전이할 수 있는 가능성을 제시하며, 이를 통해 효율적이고 강력하게 정렬된 언어 모델의 개발을 촉진합니다.
+
+
+
+### ATOD: An Evaluation Framework and Benchmark for Agentic Task-Oriented Dialogue System (https://arxiv.org/abs/2601.11854)
+- **What's New**: 이번 논문에서는 ATOD라는 새로운 벤치마크와 합성 대화 생성 파이프라인을 소개함으로써 장기 기억(long-term memory)과 상호 작용이 얽힌 목표(interleaved goals)를 필요로 하는 대화를 평가할 수 있는 기반을 마련했습니다. 이 새로운 시스템은 고급 단계의 TOD(task-oriented dialogue) 기능을 평가할 수 있는 통합된 벤치마크와 전반적인 평가 프레임워크인 ATOD-Eval을 제안하고 있습니다. 이를 통해 목표 달성, 의존성 관리, 기억 일관성 등을 체계적으로 평가할 수 있는 시 기준 세부 지표를 제공합니다.
+
+- **Technical Details**: ATOD는 다중 목표 조정(multi-goal coordination), 의존성 관리(dependency management), 메모리(memory), 적응성(adaptability) 및 능동성(proactivity) 등 고급 TOD의 주요 특성을 포착합니다. ATOD-Eval는 이러한 특성을 정량화하기 위해 정교한 메트릭(metrics)을 도입하고 오프라인 및 온라인 환경에서 모두 활용 가능한 재생산 가능한(reproducible) 평가를 지원합니다. 또한, ATOD에 대한 벤치마킹을 위해서는 메모리에 기반한 평가 기법을 제시합니다.
+
+- **Performance Highlights**: 실험 결과, ATOD-Eval은 작업 완료(task completion), 에이전트 능력(agentic capability) 및 응답 품질(response quality)에 걸쳐 포괄적인 평가를 가능하게 합니다. 제안된 평가자는 기존의 메모리 및 LLM 기반 접근법에 비해 더 나은 정확도-효율성(accuracy-efficiency) 거래를 제공합니다. 따라서, 이 연구는 고급 TOD 시스템 기능에 대한 포괄적이고 일관된 평가를 제공하는 데 기여하게 됩니다.
+
+
+
+### The Third VoicePrivacy Challenge: Preserving Emotional Expressiveness and Linguistic Content in Voice Anonymization (https://arxiv.org/abs/2601.11846)
+Comments:
+          under review
+
+- **What's New**: 2024년에 개최된 VoicePrivacy Challenge는 음성 비식별화 기술의 발전을 목적으로 하는 최신 결과와 분석을 제시합니다. 새로운 발표 과제로는 화자의 음성 정체성을 감추면서도 언어적 내용과 감정 상태는 유지하는 음성 비식별화 시스템을 개발하는 것이 포함됩니다. 본 챌린지에서는 다양한 공격 모델과 목표 평가 지표를 통해 프라이버시 보호와 유용성 측정을 수행하는 데 집중하였습니다.
+
+- **Technical Details**: VoicePrivacy Challenge 2024는 음성 비식별화의 중요성을 강조하고 있으며, 특히 감정 상태 보호 요구사항이 추가되었습니다. 이 챌린지에서는 여러 참가자들이 제공한 36개의 비식별화 시스템을 평가하였으며, 이를 통해 화자의 정체성을 숨기고 감정 표현을 보존하는 새로운 메트릭스가 필요함을 시사합니다. 또한, 기존의 접근 방식을 넘어 신경망 코덱, 고급 특성 분리 방법, 하이브리드 방법 등이 사용되어 프라이버시와 유용성 간의 균형을 추구하도록 유도합니다.
+
+- **Performance Highlights**: 2020년부터 2024년까지 VoicePrivacy Challenge는 참가자들의 시스템이 점점 더 발전했음을 보여줍니다. 2024년에는 화자의 정체성을 감추면서도 언어적 및 감정적 표현을 보존하는 것이 주요 목표로 설정되었습니다. 참가자들의 혁신적인 접근 방식은 공격 모델이 강화됨에 따라 더욱 다양해졌으며, 이는 음성 비밀 보호의 중요한 발전을 나타냅니다.
+
+
+
+### TWeddit : A Dataset of Triggering Stories Predominantly Shared by Women on Redd (https://arxiv.org/abs/2601.11819)
+Comments:
+          11 pages, 12 figures, 7 tables
+
+- **What's New**: 이 논문에서는 트리거 경고(Trigger Warnings)에 대한 데이터셋인 TWeddit를 제안합니다. TWeddit는 여성들이 직면하는 임신과 성폭력 관련 경험을 담은 5,000개의 Reddit 이야기를 포함하고 있습니다. 기존 연구는 혐오 발언과 같은 악의적인 언어에 중점을 두었지만, TWeddit는 비악의적이지만 감정적으로 자극이 되는 콘텐츠를 분석합니다.
+
+- **Technical Details**: 이 연구는 22개의 subreddit에서 수집된 이야기로 구성된 TWeddit 데이터셋을 개발하였습니다. 각 이야기는 제목, 본문 및 트리거 경고 카테고리를 포함하고 있으며, 총 7개의 트리거 카테고리가 정의되어 있습니다. 데이터 수집과 주제 모델링을 통해 정서적 및 도덕적 기준에 대해 다양한 연구 가능성을 보여주고 있습니다.
+
+- **Performance Highlights**: TWeddit의 주제 모델링 결과, 임신과 관련된 이야기는 절차적 및 임상적인 용어를 강조하는 반면, 성폭력 관련 이야기는 강압성 및 정서적 고통을 강조합니다. Wiegmann et al.의 모델은 TWeddit에서 36.81%의 F1 점수를 달성했으며, 이는 본 연구의 참신성을 뒷받침합니다. 향후 TWeddit는 다양한 언어 처리(task) 작업에 활용될 수 있습니다.
+
+
+
+### Beyond Tokens: Concept-Level Training Objectives for LLMs (https://arxiv.org/abs/2601.11791)
+- **What's New**: 이 논문에서는 기존의 **Next-Token Prediction (NTP)** 방식에서 벗어나 **Concept-Level Prediction (NCP)**으로의 전환을 제안합니다. NTP는 단일 참조 연속에서의 차이를 에러로 간주하여 의미론적으로 동등한 여러 대안을 인정하지 않지만, NCP는 개념적으로 유사한 여러 표현을 집합으로 다룹니다. 연구는 이러한 개념 기반의 모델이 의미적으로 더 적합한 학습 신호를 제공한다고 주장합니다.
+
+- **Technical Details**: 연구에서는 **Llama-3-8B** 모델을 NCP 방식으로 후학습(Post-training)하였습니다. 기존의 NTP 훈련 데이터를 피하기 위해 새로운 데이터셋을 수집하였고, 세 가지 출처(YouTube 댓글, arXiv 초록, New York Times 초록)로부터 명사를 추출하여 개념적 단위로 사용했습니다. 이를 통해 동의어와 상위어를 포함한 데이터 증강 및 개념 인식 손실 함수를 구현하였습니다.
+
+- **Performance Highlights**: NCP를 통해 훈련된 모델은 NTP 기반 모델보다 낮은 perplexity 점수, 도메인 전이에서의 향상된 강건성, 다양한 NLP 벤치마크에서 강력한 성능을 보여주었습니다. 이러한 성과는 LLM이 인간의 의미론적 추상성과 더욱 잘 맞물리도록 하는 개념 인식 훈련의 효과를 입증합니다.
+
+
+
+### Translation as a Scalable Proxy for Multilingual Evaluation (https://arxiv.org/abs/2601.11778)
+- **What's New**: 최근 대형 언어 모델(LLMs)의 급속한 발전은 이러한 모델의 다국어 능력에 대한 평가는 여전히 미비하다는 중요한 역설을 만들어냈습니다. 7,000여 개 언어 중 30개 언어에 대해 비기계 번역 기준이 마련되어 있을 뿐이며, 이는 전체 언어 커뮤니티가 AI 개발에서 배제되고 있다는 것을 의미합니다. 이 연구에서는 번역 품질이 모델의 다국어 능력을 가늠하는 신뢰할 수 있는 대체 지표가 될 수 있는지 조사합니다.
+
+- **Technical Details**: 이번 연구는 14개 모델(1B-72B 파라미터)을 9개 다국어 벤치마크와 7개 번역 메트릭을 통해 체계적으로 평가했습니다. 연구 결과 번역 성능은 하위 작업 성공을 잘 예측하는 지표였으며, 이는 의미 보존과 같은 복잡한 언어 작업에 필요한 표현 능력이 다국어 이해와 겹치는 지점이 있을 것임을 시사합니다. 이에 따라 번역 품질은 낮은 비용으로 다국어 성능을 측정하는 유력한 첫 번째 신호로 제안됩니다.
+
+- **Performance Highlights**: 연구 결과 번역 품질은 다양한 언어-task 조합에서 하위 작업 성과와 잘 일치했습니다. MetricX는 0.89, xCOMET은 0.91, SSA-COMET은 0.87의 중위 Pearson 상관계수를 기록해, 높은 품질의 번역이 복잡한 추론과도 긴밀하게 관련이 있음을 보여주었습니다. 따라서 번역 메트릭을 통해 수천 개 언어에서 신속한 평가를 할 수 있으며, 특정 작업에 대해서만 목표 벤치마크 평가를 수행하는 실용적인 두 단계 평가 파이프라인을 가능하게 합니다.
+
+
+
+### Cleansing the Artificial Mind: A Self-Reflective Detoxification Framework for Large Language Models (https://arxiv.org/abs/2601.11776)
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLMs)의 고유한 능력을 활용하여 독성 콘텐츠를 감지하고 교정하는 완전한 자기 반영적 해독(framework) 프레임워크를 소개합니다. 기존의 해독 기법은 외부 모듈이나 데이터 주석, 인간 개입에 의존하는데 반해, 제안된 방법은 이러한 요소들 없이도 독성 텍스트를 비독성 형태로 변환하는 양식적 처리를 통해 LLMs의 내재적 자기 해독(Self-Detoxification) 능력을 강조합니다. 이 프레임워크를 통해 안전하고 일관된 텍스트 생성을 위한 기틀을 마련하고자 합니다.
+
+- **Technical Details**: 제안된 자기 반영적 해독(Self-Reflective Detoxification, SRD) 프레임워크는 먼저 LLM이 생성한 콘텐츠를 반영하여 해독 신호 리스트를 구축합니다. 이어서 이 신호 리스트를 활용해 원본 독성 출력과 비독성 출력으로 구성된 대조 데이터셋을 생성하고, 이를 바탕으로 모델을 미세 조정하여 독성 생성을 줄입니다. 이 과정에서 LLM 스스로 독성 신호를 감지하고 개입하는 능력을 활용하여 고품질의 데이터셋을 형성합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 SRD 방식은 DetoxLLM 및 ParaDetox와 같은 벤치마크 데이터셋에서 최첨단 해독 기법보다 더 나은 성과를 보여주며, 의미적 일관성을 유지한 채 독성 콘텐츠를 효과적으로 감축하는 것을 입증했습니다. SRD는 인간 개입이나 외부 구성 요소의 필요성을 제거함으로써, 자가 조절(self-regulated) 언어 모델의 잠재력을 강조하며, 보다 책임감 있고 윤리적인 텍스트 생성 시스템으로 나아가는 길을 열어줍니다.
+
+
+
+### Industry-Aligned Granular Topic Modeling (https://arxiv.org/abs/2601.11762)
+- **What's New**: 이 논문은 TIDE라는 새로운 프레임워크를 소개합니다. TIDE는 비즈니스 애플리케이션에 대한 다양한 기능을 제공하는 동시에 대규모 언어 모델(large language models, LLM)에 기반한 세분화된 주제 모델링 방식을 통해 보다 깊은 통찰력을 제공합니다. TIDE를 활용한 여러 실험 결과, 현대의 주제 모델링 방법과 비교했을 때 TIDE의 성능이 우수함을 입증하였습니다.
+
+- **Technical Details**: TIDE 프레임워크는 파이썬 라이브러리로 개발되었으며, 주제 모델링의 성과를 극대화하기 위해 K-평균 군집화(K-means clustering) 기법을 사용합니다. 이 과정은 LLM을 통해 만들어진 주제의 세분화를 가능하게 하며, 처음에는 유사한 텍스트를 군집화한 후 각 군집에 대한 주제를 생성합니다. TIDE는 또한 비즈니스 정의에 따른 주제 추출 기능을 통해 더 실용적인 주제 인사이트를 도출합니다.
+
+- **Performance Highlights**: 실험 결과 TIDE는 다양한 공공 데이터셋과 실제 비즈니스 데이터셋에서 일관되게 우수한 성능을 보여주었습니다. 전통적인 주제 모델링 방법들에 비해 더 높은 수준의 일관성과 성능을 유지했으며, 이는 산업적인 활용에 매우 유리한 특징입니다. 또한 TIDE는 세부적인 주제를 생성할 뿐만 아니라 자동화된 평가 도구를 통해 생성된 주제의 품질을 평가하는 기능도 제공합니다.
+
+
+
+### Early Linguistic Pattern of Anxiety from Social Media Using Interpretable Linguistic Features: A Multi-Faceted Validation Study with Author-Disjoint Evaluation (https://arxiv.org/abs/2601.11758)
+Comments:
+          9 figures, more than 1o pages
+
+- **What's New**: 이 연구는 소셜 미디어 기반의 불안(anxiety) 탐지를 위해 투명한 방법론을 제시합니다. 언어적 해석이 가능한 특징(feature)을 활용하여 모델을 구축하고, 다양한 도메인에서 검증하는 과정을 포함하여 더 높은 신뢰성을 보장합니다. Reddit에서 수집한 데이터셋을 통해 구축된 로지스틱 회귀(classifier)는 불안 감정을 높은 정확도로 감지합니다.
+
+- **Technical Details**: 이 모델은 13개의 언어적 특징을 사용하여 높은 자기 집중(self-focused attention)과 부정적 감정(negative sentiment)을 포착합니다. 데이터 누수를 방지하기 위해 엄격한 저자 분리(author-disjoint) 평가를 실시하여 신뢰성을 높였습니다. 과정 중 키워드를 마스킹하거나 감정을 제거해도 모델 성능 저하는 미미한 수준입니다.
+
+- **Performance Highlights**: 이 연구는 사용자의 첫 세 개의 게시글만으로도 88.44%의 F1 점수를 기록하며 불안을 조기에 감지할 수 있음을 보여줍니다. 이는 무작위 분류(random classification)보다 훨씬 우수한 성과를 보이며, 외부 데이터(DAIC-WOZ)와의 비교에서도 높은 일관성을 나타냅니다. 언어적 특징이 다양한 온라인 맥락에서 신뢰할 수 있는 정신 건강 스크리닝을 위한 재현 가능한 기준선을 제공합니다.
+
+
+
+### LIME-LLM: Probing Models with Fluent Counterfactuals, Not Broken Tex (https://arxiv.org/abs/2601.11746)
+- **What's New**: 본 연구에서는 기존 LIME의 단점을 개선한 LIME-LLM 프레임워크를 도입합니다. LIME-LLM은 무작위 잡음을 학습된 가설 기반의 제어된 섭동(hypothesis-driven controlled perturbations)으로 대체하여 보다 신뢰할 수 있는 설명을 제공합니다. 이 방법은 'Single Mask–Single Sample' 프로토콜을 철저하게 적용하여 특정 피처 기여를 명확히 고립시킵니다.
+
+- **Technical Details**: LIME-LLM은 대분류 클래스 (C classes)에 대해 입력 시퀀스(x)로부터의 확률 분포를 추정하는 블랙박스 텍스트 분류기(f)와 연계하여 작동합니다. 이 프레임워크는 각 고정된 이진 피처 마스크에 대해 LLM을 의미론적인 인필러(semantic infiller)로 활용하여 통제된 섭동을 생성합니다. 이러한 접근 방식은 데이터 매니폴드(data manifold) 위에서 모든 샘플이 유지되도록 하며 특성 고립(feature isolation)을 보장합니다.
+
+- **Performance Highlights**: LIME-LLM은 기존의 LIME, SHAP, 그리고 생성적 기법인 LLiMe와 비교하여 세 가지 다양한 벤치마크(CoLA, SST-2, HateXplain)에서 유의미한 향상을 보여주었습니다. 특히 LIME-LLM은 ROC-AUC에서 34%에서 135%까지 성능이 향상되었으며, 전통적인 섭동 기반 방법 및 최근의 생성적 방법들에 비해 지역 설명의 신뢰성을 크게 개선했습니다. 이로 인해 LIME-LLM은 현대 NLP 모델의 지역 설명 신뢰성을 향상시키는 데 기여하고 있습니다.
+
+
+
+### Bridging Human Interpretation and Machine Representation: A Landscape of Qualitative Data Analysis in the LLM Era (https://arxiv.org/abs/2601.11739)
+- **What's New**: 이 논문은 LLMs(대형 언어 모델)가 질적 연구를 지원하는 과정에서 나타나는 다양성을 명확히 하기 위해 새로운 4$	imes$4 풍경을 제안합니다. 이 풍경은 의미 생성의 네 가지 수준(묘사적, 범주적, 해석적, 이론적)과 모델링의 네 가지 수준(정적 구조, 단계/타임라인, 인과 경로, 피드백 역학)을 교차합니다. 이를 통해 기존 시스템들이 만들어 내는 결과의 차이를 정량적으로 분석할 수 있게 됩니다.
+
+- **Technical Details**: 제안된 4$	imes$4 풍경을 바탕으로, LLM 기반 자동화 시스템이 주로 저수준의 의미와 낮은 수준의 표현을 사용한다는 점이 드러났습니다. 해석적(interpretive) 및 이론적(theoretical) 추론, 동적(dynamical) 모델링의 신뢰할 수 있는 시도가 드물다는 것도 강조되었습니다. 이러한 발견을 통해 LLM 시스템의 해석적 및 모델링 의무를 명확히 하고 선택적이며 관리 가능한 방식으로 발전시키기 위한 방향성을 제시하고 있습니다.
+
+- **Performance Highlights**: 이 연구는 질적 연구 내에서 LLM의 활용에 대한 비판적 시각을 제공합니다. 특히, 모델이 생성한 결과의 신뢰성과 다양성에 대한 문제를 강조하여, 연구자들이 더 나은 해석과 모델링을 위해 뒷받침할 필요성이 있음을 보여줍니다. 향후 LLM 시스템의 발전 방향을 제시함으로써, 질적 연구에 대한 LLM의 책임있는 활용을 촉진할 수 있는 기반을 마련하고 있습니다.
+
+
+
+### RAC: Retrieval-Augmented Clarification for Faithful Conversational Search (https://arxiv.org/abs/2601.11722)
+Comments:
+          This is the author's version of the work. The definitive version is published in: Proceedings of the 48th European Conference on Information Retrieval (ECIR '26), 29 March--2 April, 2026, Delft, Netherlands
+
+- **What's New**: 이 논문은 사용자 쿼리의 애매함을 해결하기 위한 대화형 검색 시스템의 새로운 접근법인 RAC(Retrieval-Augmented Clarification)를 제안합니다. 기존의 연구는 사용자 의도와의 일치성에 중점을 두었으나, 문서 기반의 지원 없이 생성된 질문은 사용자를 혼란스럽게 할 수 있습니다. RAC는 문서와의 연계를 강조하여 신뢰할 수 있는 질문 생성을 위해 대규모 언어 모델을 최적화합니다.
+
+- **Technical Details**: RAC 프레임워크는 사용자 쿼리와 관련된 단계를 기반으로 한 정보를 활용하여 질문을 생성합니다. 이는 대규모 언어 모델을 효과적으로 미세 조정하여 얻어진 문서 기반 정보를 통해 질문을 생성하는 방식입니다. 논문에서는 질문 생성을 위한 두 단계의 훈련 파이프라인을 제안하며, 이로 인해 생성된 질문의 품질이 크게 향상됩니다.
+
+- **Performance Highlights**: RAC는 네 가지 벤치마크에서 기존의 기준선을 초과하는 성과를 보여주었습니다. 실험 결과, RAC는 검색된 구절에 의해 지지되는 질문 생성을 선호하는 접근법을 적용하여 질문의 신뢰성을 증가시킵니다. 또한, 새로운 평가 지표를 도입하여 생성된 질문의 맥락 내에서의 일관성을 평가하며, 신뢰성이 항상 향상됨을 입증합니다.
+
+
+
+### Towards AGI A Pragmatic Approach Towards Self Evolving Agen (https://arxiv.org/abs/2601.11658)
+- **What's New**: 이번 논문은 대형 언어 모델(LLM) 기반 에이전트의 한계를 극복하기 위한 새로운 프레임워크를 제안합니다. 기존의 정적인 특성 대신, 에이전트가 자율적으로 기능을 확장하고 새로운 도구를 생성할 수 있는 계층적 자기 진화 멀티 에이전트 구조를 도입합니다. 이 구조는 Base LLM, Operational SLM 에이전트, 코드 생성 LLM, Teacher-LLM을 통합하여 지속적인 적응을 가능하게 합니다.
+
+- **Technical Details**: 제안된 워크플로우는 에이전트가 주어진 작업을 해결하려고 시도하는 것으로 시작합니다. 만약 실패할 경우, Code-Gen LLM을 통해 도구를 합성하게 되며, 이후에도 실패가 지속되면 커리큘럼 학습(Curriculum Learning, CL), 보상 기반 학습(Reward-Based Learning, RL), 유전자 알고리즘(Genetic Algorithm, GA) 진화 단계를 통해 진화가 유발됩니다.
+
+- **Performance Highlights**: TaskCraft 데이터셋을 이용한 평가 결과, CL은 빠른 회복과 강한 일반화를 제공하며, RL은 높은 난이도 작업에서 뛰어난 성능을 보입니다. GA는 높은 행동 다양성을 제공하여, 모든 설정에서 진화된 에이전트가 원래의 에이전트보다 우수한 성능을 나타내며, 강력하고 자율적인 자기 개선을 가능하게 한다는 것을 보여줍니다.
+
+
+
+### Entropic Context Shaping: Information-Theoretic Filtering for Context-Aware LLM Agents (https://arxiv.org/abs/2601.11585)
+- **What's New**: 본 논문에서는 'Entropic Context Shaping (ECS)'라는 정보 이론적 프레임워크를 도입하여 대형 언어 모델(LLM) 에이전트의 맥락 유용성을 측정합니다. ECS는 모델의 답변 분포가 올바른 답변 쪽으로 이동하는 정도를 바탕으로 유용성을 판단합니다. 기존의 단어 유사도 기반 방법과는 달리, ECS는 정보의 실용적인 유용성을 강조하며, 작업과 관련 없는 정보가 분포 변화에 미치는 영향을 분석합니다.
+
+- **Technical Details**: ECS는 모델의 출력 분포의 변화를 기반으로 하는 정보를 정량화하는 방법을 제공합니다. 구체적으로, 유용성은 모델의 응답 분포가 올바른 답변으로의 이동을 측정하는 것으로 정의되며, 이는 'Red Herrings'와 같은 세밀한 정보 업데이트를 배제하는 데 기여합니다. 이론적 분석을 통해, 작업과 무관한 업데이트는 거의 제로에 가까운 분포 이동을 유발함을 보여줍니다.
+
+- **Performance Highlights**: ECS를 사용한 Llama-3.1-8B 모델은 LongMemEval 및 LoCoMo 벤치마크에서 정교한 턴 선택을 평가할 때 F1 스코어 0.265를 기록하였으며, 이는 TF-IDF 대비 71.83%의 상대적 향상을 나타냅니다. 이는 정밀한 맥락 선택이 필요한 경우, 정보의 실용적 유용성이 단순한 어휘 유사성을 초월할 수 있음을 증명합니다.
+
+
+
+### Enhancing the QA Model through a Multi-domain Debiasing Framework (https://arxiv.org/abs/2601.11581)
+Comments:
+          5 pages, 7 tables
+
+- **What's New**: 이번 연구는 QA(Question-Answering) 모델에서 발생하는 편향(bias)을 다루기 위한 다중 도메인 디바이싱(debiasing) 프레임워크를 개발하여, Stanford Question Answering Dataset(SQuAD) 및 추가의 적대적 데이터셋(AddSent, AddOneSent)을 평가합니다. 이를 통해 편향과 관련된 오류를 파악하고, 지식 증류(knowledge distillation), 디바이싱 기법, 도메인 확장을 통합하여 개선된 모델을 제시합니다. 연구 결과는 정확한 일치(Exact Match, EM) 및 F1 점수에서 최대 2.6% 향상을 보여줍니다.
+
+- **Technical Details**: 기본 모델로 활용된 ELECTRA-small은 자연어 처리(NLP) 작업에서 효율성과 경쟁력 있는 성능으로 알려진 트랜스포머 기반 아키텍처입니다. 이 모델은 SQuAD v1.1에서 훈련되었고, AddSent 및 AddOneSent 적대적 데이터셋을 통해 평가되었습니다. 분석 과정에서 Lexical bias, Numerical reasoning errors 및 Entity recognition errors의 세 가지 주요 오류 유형이 파악되었습니다.
+
+- **Performance Highlights**: 디바이싱을 통해 개선된 모델은 SQuAD 개발 데이터셋 및 적대적 데이터셋 모두에서 EM과 F1 점수에서 약 1% 향상된 결과를 보여줍니다. 이러한 개선은 고유한 편향 완화 전략을 통해 자연어 이해 시스템의 강인성과 신뢰성을 높일 수 있는 가능성을 제시합니다. 그러나, SQuAD처럼 비교적 깔끔하고 잘 구조화된 데이터에서는 결과가 쉽게 개선될 수 있지만, 노이즈가 많은 적대적 데이터셋에서는 개선이 어려운 점도 나타났습니다.
+
+
+
+### Speculative Decoding: Performance or Illusion? (https://arxiv.org/abs/2601.11580)
+- **What's New**: 이 논문은 생산 등급의 추론 엔진(vLLM)에서의 Speculative Decoding(SD)의 체계적인 연구를 최초로 제시합니다. 여러 SD 변종(예: n-gram, EAGLE/EAGLE-3, Draft-Model)과 다양한 작업 부하, 모델 스케일 및 배치 크기를 고려하여 SD의 실제 효과성을 분석합니다. 연구를 통해 SD 속도의 이론적 상한을 정량화하고, 실제 모델에 의한 검증이 실행의 주된 비용 요소임을 확인하였습니다.
+
+- **Technical Details**: SD는 대형 언어 모델을 활용하여 추론을 가속화하는 기법입니다. LLM은 입력 프롬프트에 기반하여 텍스트를 자동으로 생성하는데, 이 과정에서 여러 후보 토큰에 대해 동시에 확률 분포를 평가함으로써 성능을 최적화합니다. 우리는 시간 및 메모리 분해와 토큰 수용 동태성을 분석하여 성능 저해 요소를 확인하고, 각 SD 변형의 성능을 체계적으로 비교하였습니다.
+
+- **Performance Highlights**: SD는 모든 작업에서 비-SD 기준선보다 향상된 성능을 보여주었습니다. 특히, 긴 생성이 필요한 사고 기반 작업에서 표준 언어 모델 작업과 유사한 속도 향상을 보였으며, 일부 SD 방법에서는 상대적으로 4.9배 향상된 결과를 도출할 수 있었습니다. 이러한 결과는 SD의 효율성과 다양한 변형에 따른 성능 차이를 강조하며, 향후 최적화를 위한 중요한 방향성을 제시합니다.
+
+
+
+### Bielik 11B v3: Multilingual Large Language Model for European Languages (https://arxiv.org/abs/2601.11579)
+- **What's New**: Bielik 11B v3는 폴란드어에 최적화된 최신 언어 모델로, 다른 유럽 언어에서도 강력한 성능을 자랑합니다. 이 모델은 Mistral 7B v0.2 아키텍처를 기반으로 11B 파라미터로 확장되었습니다. 이 모델의 개발에는 지속적인 사전 훈련(continuous pre-training), 감독식 미세 조정(supervised fine-tuning, SFT), 직접 선호 최적화(Direct Preference Optimization, DPO), 강화 학습(reinforcement learning) 등 4단계의 종합적인 훈련 파이프라인이 포함되어 있습니다.
+
+- **Technical Details**: Bielik 11B v3는 뛰어난 성능을 나타내며, 다른 전문 폴란드어 모델을 크게 초과합니다. 여러 가지 기본 언어 이해(basic linguistic understanding) 및 복잡한 추론(complex reasoning) 작업에서 2배에서 6배 더 많은 파라미터를 가진 큰 모델들보다 뛰어난 결과를 보입니다. 모델의 파라미터 효율성(parameter efficiency)과 다양한 양자화 옵션(quantization options)은 다양한 하드웨어 구성에서도 효과적인 배포를 가능하게 합니다.
+
+- **Performance Highlights**: Bielik 11B v3는 폴란드어의 AI 능력을 진화시키는 것뿐만 아니라, 자원이 적게 사용되는 고성능 모델 개발을 위한 새로운 기준을 세우고 있습니다. 이 모델은 언어 모델 개발에 있어 중요한 이정표를 제공하며 덜 대표되는 언어에 대한 발전을 이끌어 갑니다. 광범위한 작업에서의 뛰어난 성능은 특히 주목할 만합니다.
+
+
+
+### LimAgents: Multi-Agent LLMs for Generating Research Limitations (https://arxiv.org/abs/2601.11578)
+Comments:
+          18 Pages, 9 figures
+
+- **What's New**: 이 논문에서는 LimAgents라는 다중 에이전트 LLM 프레임워크를 제안합니다. 이 프레임워크는 연구 논문의 제한사항을 보다 실질적으로 생성하는 데 중점을 두며, OpenReview 코멘트와 저자 진술의 제한 사항을 통합하여 강력한 기준 진실을 제공합니다. 또한, 인용된 문헌을 활용해 더 넓은 맥락에서의 약점을 포착하여 더욱 신뢰할 수 있는 한계를 제공합니다.
+
+- **Technical Details**: LimAgents 프레임워크는 여러 에이전트가 각각 특정 역할을 수행하는 구조입니다. Extractor Agent는 저자가 명시한 제한 사항을 추출하고, Analyzer Agent는 방법론적 감사로 임시적인 약점을 분석합니다. Reviewer Agent는 동료 평가자의 관점을 채택해 재현성, 투명성, 윤리성에 대한 우려를 강조하며, Citation Agent는 맥락적 제한 사항을 통합합니다. 최종적으로 Judge Agent는 출력물을 평가하여 품질을 개선하고, Master Agent는 모든 출력을 통합하는 역할을 합니다.
+
+- **Performance Highlights**: 실험 결과, LimAgents는 성능이 크게 향상됨을 보여줍니다. RAG + 다중 에이전트 GPT-4o 미니 구성은 제로 샷 베이스라인보다 15.51%의 범위 증가를 달성했으며, Llama 3 8B 다중 에이전트 설정은 4.41% 개선을 보입니다. 이는 제안된 프레임워크가 과학적 문서의 한계를 보다 정교하게 식별하고 기술하기 위해 설계되었음을 나타냅니다.
+
+
+
+### Concept Attractors in LLMs and their Applications (https://arxiv.org/abs/2601.11575)
+- **What's New**: 이번 연구는 대형 언어 모델(LLM)이 서로 다른 개념의 프롬프트를 특정 레이어에서 유사한 내부 표현으로 매핑하는 현상을 설명합니다. 우리는 이 현상이 반복 함수 시스템(Iterated Function Systems, IFS)을 통해 설명될 수 있으며, 이를 활용하여 다양한 실용적 작업을 처리할 수 있는 훈련이 필요 없는 방법을 개발했습니다.
+
+- **Technical Details**: 연구에서는 특정 개념에 대한 프롬프트 세트가 특정 레이어에서 가까운 영역으로 맵핑되는 역동적 시스템으로서 LLM을 이해할 것을 제안합니다. 이는 반복적으로 작용하는 축소성 맵을 통해 개념 구체적 집합인 Attractor로 수렴하는 과정을 통해 이루어집니다. 다양한 LLM에 대한 실험을 통해 이 개념이 잘 맞아떨어짐을 입증합니다.
+
+- **Performance Highlights**: 제안된 Attractor 기반의 개입은 기존의 전문화된 기준과 비교하여 비슷하거나 더 나은 성능을 보이며, 복잡한 미세 조정이 필요 없는 효율적인 대안을 제시합니다. 이러한 방법은 프로그래밍 언어 번역, 허상 줄이기, 가드레일 수립, 합성 데이터 생성 등 다양한 문제에 적용될 수 있습니다.
+
+
+
+### An Empirical Analysis of Fine-Tuning Large Language Models on Bioinformatics Literature: PRSGPT and BioStarsGP (https://arxiv.org/abs/2601.11573)
+- **What's New**: 이번 논문은 복잡한 생물정보학 응용에 필요한 전문 지식이 부족한 Large Language Models (LLMs)을 다루고 있습니다. PRSGPT 및 BioStarsGPT를 포함한 두 가지 사례를 통해, 전문 생물정보학 데이터를 기반으로 LLM을 미세 조정할 수 있는 재현 가능한 파이프라인을 제시하고 있습니다. 이 파이프라인은 데이터 출처 통합, 구조화된 전처리, 질문-답변 생성 및 효율적인 미세 조정 접근 방식을 포함합니다.
+
+- **Technical Details**: 논문에서 제안하는 아홉 단계 파이프라인은 Google Gemini를 사용한 질문-답변 생성, 자연어 추론(NLI), 의미 중복 제거 및 클러스터링 기법을 포함합니다. LoRA를 활용하여 파라미터 효율적으로 LLM을 미세 조정하며, 14개 이상의 어휘 및 의미적 메트릭에 대해 세 가지 LLM(LLaMA-3.2-3B, Qwen2.5-7B, Gemma)의 성능을 평가했습니다. 이를 통해 PRSGPT와 BioStarsGPT의 QA 쌍 데이터셋을 생성했습니다.
+
+- **Performance Highlights**: Qwen2.5-7B는 PRSGPT에서 BLEU-4 및 ROUGE-1 개별 메트릭 개선율이 각각 82% 및 70%로 최고의 성능을 기록하였으며, BioStarsGPT의 경우에는 6% 및 18%의 개선을 보였습니다. 또한, PRSGPT는 PRS 도구 비교 작업에서 61.9%의 정확도를 기록하였고, 이는 Google Gemini와 유사한 성과입니다. BioStarsGPT는 142개의 생물정보학 질문에 대해 59%의 개념적 정확도를 보여주며, 이러한 성과는 생물정보학 도메인에 대한 LLM의 특화된 미세 조정의 가능성을 제시합니다.
+
+
+
+### Measuring Stability Beyond Accuracy in Small Open-Source Medical Large Language Models for Pediatric Endocrinology (https://arxiv.org/abs/2601.11567)
+Comments:
+          20 pages, 11 figures, accepted at 47 workshop Reproducible Artificial Intelligence (AAAI 2026, Singapore, January 27, 2026)
+
+- **What's New**: 이번 연구에서는 소규모 오픈소스 의료 대형 언어 모델(LLM)의 성능을 평가하기 위해 소아내분비학 사례에 대한 다차원적 평가를 실시하였다. 기존의 의료 다지선다 문제(MCQ) 평가 방식은 정확도에 제한되어 있었으나, 이 연구에서는 일관성, 견고성, 추론 행동을 종합적으로 분석하였다. 총 6개의 모델(HuatuoGPT-o1, Diabetica-7B 등)을 조사하여, 이들이 실제 임상 상황에서 얼마나 신뢰할 수 있는지를 검토하였다.
+
+- **Technical Details**: 이 연구에서 사용된 데이터셋은 Pediatric Endocrine Self-Assessment Program 2021-2022(ESAP) 기반으로, 100개의 임상 사례 및 사실적 질문으로 구성된다. 실험은 세 가지 주요 전략을 통해 이루어지며, 각 모델은 주어진 질문에 대한 가장 적절한 선택지를 제공하고 임상적 이유를 뒷받침하도록 지시받았다. 이에 따라 모델의 응답 일관성 및 판단의 정확성을 비교 분석하였다.
+
+- **Performance Highlights**: 연구결과, HuatuoGPT-o1-8B가 가장 높은 성능을 보였으며, 일관성이 높은 응답이 항상 정확성을 의미하지 않음을 보여주었다. 특히, 여러 요인에 따라 모델의 출력이 통계적으로 유의미하게 변화할 수 있음을 확인하였다. 본 연구는 LLM이 실제 임상 결정 지원에 적합한지를 판단하기 위해서는 보다 포괄적인 진단 체계가 필요하다는 점을 강조하며, 이는 향후 의료 분야에서의 AI 활용 가능성을 제시한다.
+
+
+
+### Compass-Embedding v4: Robust Contrastive Learning for Multilingual E-commerce Embeddings (https://arxiv.org/abs/2601.11565)
+- **What's New**: 이 논문은 동남아시아(SEA) 전자상거래 시나리오에 최적화된 고효율 다국어 임베딩 프레임워크인 Compass-Embedding v4를 소개합니다. 전 세계 전자상거래가 급속히 확장되는 가운데, 저자원 언어에 대한 질 높은 의미적 표현의 부족이 검색 및 추천 시스템에서 주요 병목현상으로 작용하고 있습니다. 이 연구는 데이터 부족, 잡음 있는 감독, 엄격한 생산 제약을 해결하기 위해 세 가지 핵심 과제를 다룹니다.
+
+- **Technical Details**: Compass-Embedding v4는 먼저 혼합 태스크 감독 하의 대규모 배치 대비 훈련에 의한 체계적인 잘못된 부정 예제를 해결하기 위한 Class-Aware Masking (CAM) 기법을 제안합니다. 다음으로, 저자원 SEA 언어의 제한적이고 불균형한 데이터 커버리지를 극복하기 위해, 컨텍스트 기반 합성 데이터 생성, 교차 언어 번역, 구조화된 전자상거래 데이터 구축을 통해 다양화된 훈련 말뭉치를 구성합니다. 마지막으로, 높은 처리량의 추론 요구를 충족하기 위해 로버스트성 기반의 대규모 배치 교육과 구형 모델 병합을 결합하여 재앙적 망각(catastrophic forgetting)을 완화하고, vLLM 및 FP8 양자화를 통해 추론을 최적화합니다.
+
+- **Performance Highlights**: 다양한 멀티링구얼 벤치마크 및 자체 전자상거래 과제에 대한 광범위한 평가 결과, Compass-Embedding v4는 주요 SEA 언어에서 최첨단 성능을 달성하며, 도메인 특정 검색 및 분류에서 일반 용도의 임베딩 모델에 비해 상당한 성능 향상을 보여줍니다. 또한, 고자원 언어에 대해서도 경쟁력 있는 성능을 유지합니다.
+
+
+
+### Context Discipline and Performance Correlation: Analyzing LLM Performance and Quality Degradation Under Varying Context Lengths (https://arxiv.org/abs/2601.11564)
+Comments:
+          22 pages, 6 figures
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)에서의 긴 컨텍스트 제공과 이로 인한 성능 저하 간의 중요한 상충 관계를 조사했습니다. 특히 Llama-3.1-70B와 Qwen1.5-14B 모델을 대상으로 많은 양의 무관한 데이터를 처리할 때의 성능 저하를 측정했습니다. 결과적으로, 성능 저하는 비선형적으로 증가하며, 이는 Key-Value (KV) 캐시의 용량 증가와 관련이 있습니다.
+
+- **Technical Details**: 이 연구는 두 가지 주요 질문인 성능 영향과 품질 저하를 다루었습니다. 다양한 길이의 컨텍스트 크기를 설정하여 모델의 응답시간과 정확도를 측정하고, 무관한 데이터로 인해 모델이 신호를 구분하는 능력을 평가했습니다. 실험은 고성능 컴퓨팅 인스턴스에서 수행되었으며, NVIDIA A100 GPU를 활용하여 대규모 LLM을 평가했습니다.
+
+- **Performance Highlights**: 모델 Llama-3.1-70B-Instruct와 Qwen1.5-14B-Chat의 성능 결과에 따르면, 컨텍스트 길이가 증가함에 따라 성능 저하가 발생했습니다. 특히, 4,096단어에서 15,000단어로 증가할 때 비선형적인 추세 볼 수 있었으며, 이때 정확도와 검색 신뢰성이 함께 저하되었습니다. 최악의 성능 저하는 최대 컨텍스트 로드에서 관찰되었으며, 이는 모델의 추론 능력에 심각한 영향을 미치는 요소가 되는 것으로 확인되었습니다.
+
+
+
+### Jet-RL: Enabling On-Policy FP8 Reinforcement Learning with Unified Training and Rollout Precision Flow (https://arxiv.org/abs/2601.14243)
+Comments:
+          11 pages, 6 figures, 4 tables
+
+- **What's New**: 본 논문에서는 FP8 정량화(qunatization)를 활용한 새로운 강화 학습(RL) 훈련 방식을 소개합니다. 특히, 기존의 BF16 훈련 + FP8 롤아웃 전략에서 발생하는 훈련 불안정성 문제를 해결하고, 효율적인 RL 최적화를 가능하게 하는 Jet-RL 프레임워크를 제안합니다. 이 프레임워크는 통합된 FP8 정밀도 흐름을 채택하여 훈련과 롤아웃 간의 수치적 불일치를 최소화하며, 비효율적인 교정 프로세스를 제거합니다.
+
+- **Technical Details**: Jet-RL은 FP8 정량화 형식을 사용하여 훈련과 추론에서 동일한 정밀도 흐름을 유지함으로써 안정적인 훈련을 보장합니다. 이 과정에서, E4M3 포맷을 활용한 FP8 정량화와 mixed per-group 및 per-block quantization 스킴을 적용하여 훈련 속도를 증가시킵니다. 또한, FP8 GEMM 커널을 활용하여 전체 RL 훈련을 가속화하는 기법을 사용합니다.
+
+- **Performance Highlights**: Jet-RL은 실험 결과, 롤아웃 단계에서 최대 33%, 훈련 단계에서 최대 41%, 그리고 전체 훈련 과정에서 BF16 훈련보다 16%의 속도 향상을 보여줍니다. 또한, 우리의 방법은 다양한 모델과 데이터셋에서 안정적인 수렴을 유지하며, 성능 저하를 거의 없애는 것으로 나타났습니다. 이로 인해 Jet-RL은 저정밀도 RL 훈련의 효율성을 높이는 강력한 솔루션으로 입증되었습니다.
+
+
+
+### Generalization and Completeness of Stochastic Local Search Algorithms (https://arxiv.org/abs/2601.14212)
+Comments:
+          This paper was published in Swarm and Evolutionary Computation. The present version is the author's accepted manuscript
+
+- **What's New**: 이 논문은 Stochastic Local Search (SLS) 휴리스틱을 고유한 형식 모델로 일반화하는 새로운 접근 방식을 제시합니다. 이 모델은 가능한 한 큰 공통 구조와 가능한 한 작은 파라메트릭 구조라는 두 가지 주요 요소로 구성됩니다. 논문에서는 Genetic Algorithms (GA), Ant Colony Optimization (ACO), Particle Swarm Optimization (PSO)에 대한 특정 사례를 통해 이 모델이 설명됩니다.
+
+- **Technical Details**: SLS 알고리즘의 Turing-completeness(튜링 완전성)를 증명하는 데 사용되는 이 모델은 SLS 방법의 특정 부분을 정의하고 서로 비교할 수 있는 기초를 제공합니다. 새로운 SLS 방법을 과학적으로 개발하고 기존 방법의 변형을 표준화함으로써 알고리즘의 특성을 쉽게 조사하고 결과를 분류할 수 있도록 하는 것을 목표로 합니다. 이 모델을 통해 SLS 방법이 무작위적이지 않은 경우에도 예측할 수 없는 행동을 보일 수 있다는 것을 입증합니다.
+
+- **Performance Highlights**: 의미 있는 속성의 검증이 불가능하다는 점은 SLS 방법의 무작위성 때문만이 아닌, 그들의 행동 기반에 깊은 이유가 있음을 보여줍니다. GA를 통해 임의의 튜링 기계를 시뮬레이션할 수 있는 능력을 입증하며, 이러한 굴절 없는 결과는 SLS 방법이 일반적으로 Turing-complete임을 나타냅니다. 결과적으로 본 논문은 새로운 알고리즘을 정의하고 연구하는 데 있어 가능한 강력한 기초를 제공합니다.
+
+
+
+### InT: Self-Proposed Interventions Enable Credit Assignment in LLM Reasoning (https://arxiv.org/abs/2601.14209)
+- **What's New**: 본 논문은 Outcome-reward Reinforcement Learning (RL)의 한계를 극복하기 위해 Intervention Training (InT)이라는 새로운 훈련 패러다임을 도입합니다. 기존 방식을 개선하여 모델이 자신의 추론 트레이스에서 단기적인 수정안을 제안하게 하여 더 나은 결과를 유도합니다. 새로운 접근 방식은 오답을 바로잡고 성공적인 경로로의 전환을 지원합니다. 이로 인해 더 신뢰할 수 있는 결과를 도출할 수 있도록 모델이 학습하는 방식이 변화됩니다.
+
+- **Technical Details**: InT는 모델이 자신의 추론 트레이스를 스스로 평가하고, 제안된 수정안에 기반하여 잘못된 경로를 고치는 것입니다. LLM(large language model)은 정확한 답안을 처음부터 생성하는 것보다 모델이 생성한 해답을 검증하는 것이 더 수월하다는 점을 이용합니다. 이 과정에서 SFT(supervised fine-tuning)를 통해, 모델이 개별적인 수정안을 내재화하게 하고, 최종적으로 RL 훈련을 통해 효과적으로 성능을 향상시킵니다.
+
+- **Performance Highlights**: InT를 적용한 후, IMO-AnswerBench와 같은 여러 수학적 문제 기준으로 4B-parameter 기본 모델에서 정확도가 약 14% 향상되었으며, 이는 gpt-oss-20b와 같은 더 큰 오픈소스 모델보다 뛰어난 성과를 보여줍니다. 또한 온라인 RL 훈련 이후, InT는 네 가지의 도전적인 수학적 추론 기준에서 평균적으로 약 10% 성능을 향상시켰습니다. 이러한 결과는 InT가 LLM의 추론 능력을 향상시킬 수 있는 단순하면서도 효과적인 패러다임임을 입증합니다.
+
+
+
+### Toward Efficient Agents: Memory, Tool learning, and Planning (https://arxiv.org/abs/2601.14192)
+Comments:
+          35 pages, 200 references
+
+- **What's New**: 최근 몇 년 동안 대형 언어 모델을 에이전트 시스템으로 확장하는 데 대한 관심이 증가하고 있습니다. 그러나 에이전트의 효과성이 향상됨에도 불구하고, 실제 배치에서 중요한 효율성은 종종 간과되었습니다. 이 논문은 에이전트의 핵심 구성 요소인 메모리(memory), 도구 학습(tool learning), 계획(planning)에 대해 효율성을 조사합니다.
+
+- **Technical Details**: 이 연구는 지연(latency), 토큰(tokens), 단계(steps)와 같은 비용을 고려하며, 압축(compression) 및 관리(management)를 통한 맥락(context) 제한, 도구 호출(tool invocation)을 최소화하기 위한 강화 학습(reinforcement learning) 보상 설계, 효율성을 높이기 위한 제어된 검색(search) 메커니즘 사용 등 다양한 최근 접근 방식을 검토합니다. 저자들은 고정 비용 예산하에서의 효과성을 비교하는 방법과 유사한 수준의 효과성에서 비용을 비교하는 두 가지 방식으로 효율성을 정의합니다.
+
+- **Performance Highlights**: 효율성은 효과성과 비용의 경계인 파레토 최전선(Pareto frontier) 관점에서도 분석됩니다. 본 연구는 이러한 구성 요소에 대한 평가 프로토콜을 요약하고 벤치마크(benchmark) 및 방법론적 연구에서 일반적으로 보고되는 효율성 메트릭을 통합하여 효율 중심의 벤치마크를 살펴봅니다. 마지막으로, 주요 도전 과제와 향후 방향에 대해 논의하며, 유망한 인사이트(insights)를 제공하는 것을 목표로 합니다.
+
+
+
+### A model of errors in transformers (https://arxiv.org/abs/2601.14175)
+Comments:
+          8+17pages
+
+- **What's New**: 이번 연구에서는 LLM(대형 언어 모델)의 에러율을 결정론적 출력을 요구하는 산술 작업과 같은 특정 작업에 초점을 맞춰 분석하였습니다. 우리는 주의 메커니즘의 작은 오류가 축적되어 임계값을 초과할 때 부정확한 예측이 발생한다고 주장하며, 이를 통해 정확도와 작업의 복잡성 사이의 정량적 관계를 도출하였습니다. 실험적으로 Gemini 2.5 Flash, Gemini 2.5 Pro 및 DeepSeek R1을 사용하여 예측된 정확도와 관측된 정확도 간의 뛰어난 일치를 발견하였지만 일부 경우에는 편차도 확인했습니다.
+
+- **Technical Details**: 이 연구에서는 LLM의 작업 오류를 설명하기 위해 두 개의 매개변수를 사용할 수 있는 정량적 모델을 제안합니다. 이 두 매개변수는 입력 및 모델에 따라 변동하며, 각각 기본적인 '노이즈율(noise rate)'에 연관된 작은 수 rr와 잠재적인 '오류 방향(error direction)'의 수를 설명하는 차원의 수 qq로 해석됩니다. 이러한 모델은 LLM이 예측 오류가 발생하는 방식을 이해하는 데 필요한 통찰력을 제공합니다.
+
+- **Performance Highlights**: 우리는 8가지 다른 작업과 3개의 최첨단 LLM에 대해 20만 개의 다양한 프롬프트를 사용하여 광범위한 실증 테스트를 수행하였습니다. 이 실험 결과, 제안된 모델이 LLM의 오류를 통계적으로 정확하게 설명하는 것으로 나타났으며, 특정 예에서는 명백한 실패를 보였지만 이는 추가적인 영향을 식별하는 데 기여하였습니다. 마지막으로, 작업의 오류율을 줄이기 위한 프롬프트 구성 방법도 제시하였습니다.
+
+
+
+### The Side Effects of Being Smart: Safety Risks in MLLMs' Multi-Image Reasoning (https://arxiv.org/abs/2601.14127)
+Comments:
+          *15 pages, 5 figures. Introduces MIR-SafetyBench (2,676 instances; 9 multi-image relations). Equal contribution; †Corresponding author. Code/data: this https URL
+
+- **What's New**: 이번 연구에서는 멀티모달 대규모 언어 모델(Multimodal Large Language Model, MLLM)의 다중 이미지 추론 안전성을 평가하기 위한 새로운 벤치마크인 MIR-SafetyBench를 소개합니다. 이 벤치마크는 9개 다중 이미지 관계를 포함한 2,676개의 인스턴스로 구성되어 있으며, 더욱 발전된 추론 능력이 오히려 안전성을 저해할 수 있는 가능성을 밝혔습니다.
+
+- **Technical Details**: MIR-SafetyBench는 다중 단계의 관계 추론을 통해 해로운 의도를 드러내며, 9가지 유형의 다양한 관계를 포함합니다. 연구 결과, 향상된 다중 이미지 추론 능력을 가진 모델이 UNSafetyBench에서 높은 공격 성공률(Attack Success Rate, ASR)을 보였고, 많은 안전 응답이 실제로는 피상적이라는 것을 발견했습니다. 또한, 모델의 내부 상태를 조사한 결과, 안전하지 않은 생성물은 평균적으로 낮은 주의 엔트로피(attention entropy)를 갖는 경향이 있음을 확인했습니다.
+
+- **Performance Highlights**: 본 연구의 평가 결과, 19개의 MLLM에서 다중 이미지 관계 공격이 광범위하게 성공하며, 모델의 다중 이미지 추론 능력 향상에 따라 이러한 안전 위험도 증가하는 것으로 나타났습니다. 마지막으로, 진정한 안전 정렬(safety alignment)과 모델 한계로 인한 무해한 행동을 구분하여, MLLM의 내부 상태와 다중 이미지 안전 작업에서의 주의 엔트로피를 조사함으로써 안전성이 결여된 생성물의 독특한 내부 신호를 식별하였습니다.
+
+
+
+### DermaBench: A Clinician-Annotated Benchmark Dataset for Dermatology Visual Question Answering and Reasoning (https://arxiv.org/abs/2601.14084)
+- **What's New**: 이 논문에서는 피부과 분야의 비주얼-언어 모델(vision-language models, VLMs)에 대한 평가를 위한 새로운 데이터 세트인 DermaBench를 소개합니다. DermaBench는 Diverse Dermatology Images (DDI) 데이터 세트를 기반으로 하여 피부과 전문의가 주석을 달았으며, 진단 및 병변에 대한 다각적인 질문과 답변 쌍을 포함합니다. 이 데이터 세트는 임상적 진단 능력과 언어 기반의 이해를 평가하기 위해 설계되었습니다.
+
+- **Technical Details**: DermaBench는 570명의 고유 환자에서 촬영된 656개의 임상 이미지를 포함하며, 각 이미지는 피부 구조, 색상, 그리고 병변 형태 등 다양한 관점에서 주석이 달렸습니다. 이 데이터 세트는 22개의 주요 질문을 기반으로 하여 피부과적 해부 및 병변의 주석을 따릅니다. 각 질문은 전문 피부과 의사에 의해 작성되었으며, 임상 실무에 부합하는 방식으로 구성되었습니다.
+
+- **Performance Highlights**: DermaBench는 기존 데이터 세트의 신뢰성과 심층적인 주석 부족 문제를 해결하며, 각 이미지에 대해 최소 두 명의 전문가가 독립적으로 주석을 달았습니다. 이를 통해 VLM의 시각적 이해와 임상적 사고 능력을 평가할 수 있는 신뢰할 수 있는 벤치마크를 제공합니다. DermaBench는 공적으로 이용 가능하며, 임상적으로 정렬된 다중 모달 AI 연구의 기초가 될 것입니다.
+
+
+
+### Chain-of-Thought Compression Should Not Be Blind: V-Skip for Efficient Multimodal Reasoning via Dual-Path Anchoring (https://arxiv.org/abs/2601.13879)
+- **What's New**: 이번 연구에서 V-Skip이라는 새로운 방법을 소개합니다. 이 방법은 멀티모달 Chain-of-Thought (CoT) 시퀀스를 압축하면서도 시각적 기초를 엄격히 유지하는 데 중점을 둡니다. 기존의 텍스트 중심 압축 방법들이 시각적 맥락을 무시하고 발생하는 Visual Amnesia 문제를 해결하고자 합니다. V-Skip은 정보를 효과적으로 보존하는 Visual-Anchored Information Bottleneck (VA-IB) 최적화 문제로 압축 작업을 재구성합니다.
+
+- **Technical Details**: V-Skip은 이중 경로 스코어링 메커니즘을 활용하여 언어적 예측 가능성과 교차 모달 주의 흐름을 통해 토큰의 중요성을 평가합니다. 이를 통해 언어적으로 중복이지만 시각적으로 중요한 토큰을 선택적으로 보존합니다. 이 방법은 기존의 방법들과 달리, 두 가지 입력 유형을 동시에 고려하여 보다 유연한 압축을 가능하게 합니다.
+
+- **Performance Highlights**: Qwen2-VL 및 Llama-3.2 모델을 활용한 실험 결과, V-Skip은 2.9배의 속도 향상을 이루면서도 정확도의 현저한 손실 없이, 세밀한 시각적 세부 사항을 유지합니다. 특히, DocVQA 과제에서 다른 기준선 대비 30% 이상 향상된 성능을 보여줍니다.
+
+
+
+### Look-Ahead-Bench: a Standardized Benchmark of Look-ahead Bias in Point-in-Time LLMs for Financ (https://arxiv.org/abs/2601.13770)
+- **What's New**: Look-Ahead-Bench라는 표준화된 벤치마크가 소개되었습니다. 이 벤치마크는 현실적이고 실용적인 금융 워크플로우 내에서 Point-in-Time (PiT) 대형 언어 모델(LLM)의 look-ahead bias를 측정합니다. 기존의 접근법들이 주로 Q&A를 통해 내부 lookahead 지식을 테스트하는 반면, 이 벤치마크는 실제 시나리오에서의 모델 행동을 평가합니다.
+
+- **Technical Details**: 이 연구는 다양한 시장 체제를 아우르는 성능 감소를 분석하여 진정한 예측 능력과 암기 기반 성능을 구별합니다. 여러 정량적 기준을 도입하여 성능 기준을 설정하였으며, Llama 3.1 (8B 및 70B) 및 DeepSeek 3.2와 같은 저명한 오픈소스 LLM과 PiT-Inference의 Point-in-Time LLM군(Pitinf-Small, Pitinf-Medium, Pitinf-Large)을 비교 평가합니다.
+
+- **Performance Highlights**: 결과는 표준 LLM에서 중요한 lookahead bias가 발견되었음을 보여주며, 이는 alpha decay를 통해 측정되었습니다. 반면, Pitinf 모델은 크기가 커질수록 향상된 일반화 및 추론 능력을 나타냅니다. 이 연구는 금융 LLM의 시간적 편향 평가를 위한 기초를 마련하고, 실제 배치에 적합한 모델을 식별하기 위한 실용적인 프레임워크를 제공합니다.
+
+
+
+### DARC: Decoupled Asymmetric Reasoning Curriculum for LLM Evolution (https://arxiv.org/abs/2601.13761)
+- **What's New**: 이번 논문에서는 DARC(Decoupled Asymmetric Reasoning Curriculum)라는 두 단계 프레임워크를 소개하여 언어 모델의 자가 진화 과정의 최적화 불안정을 완화하고 있습니다. 이 구조는 Questioner와 Solver의 훈련을 분리함으로써, 각 단계에서 질문과 답변의 질을 높이는 데 집중합니다. 이러한 접근 방식을 통해 DARC는 인간 데이터에 의존하지 않고도 유의미한 성과를 보여줍니다.
+
+- **Technical Details**: DARC는 두 개의 주요 단계로 구성됩니다. 첫 번째 단계에서는 Questioner가 명확한 난이도 수준과 외부 코퍼스를 기반으로 질문을 생성하도록 훈련됩니다. 두 번째 단계에서는 Asymmetric Self-Distillation 기법을 활용하여, 문서가 연결된 Teacher Solver로부터 고품질의 의사 라벨을 생성하고 이를 학생 Solver에게 전달함으로써 학습 신호를 안정적으로 개선합니다.
+
+- **Performance Highlights**: 실험 결과 DARC는 다양한 모델에 대해 평균 10.9점의 성능 향상을 나타내며, 여러 기준 모델들을 능가했습니다. 특히, DARC는 인간의 주석 없이도 General-Reasoner의 성능에 근접하는 결과를 보이며, 문서 접근 없이도 효과적으로 학습할 수 있는 능력을 증명하였습니다.
+
+
+
+### Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering (https://arxiv.org/abs/2601.13752)
+Comments:
+          Working in progress
+
+- **What's New**: 본 연구에서는 대형 추론 모델(LRM)이 가지고 있는 잠재적인 "추론 신념"을 밝혀내어, 이를 통해 LRM의 행동을 개발하는 새로운 방법론인 Reasoning Belief Engineering(RELIEF)를 제안합니다. RELIEF는 LRM의 자아 개념과 목표 신념의 일치를 통해 설계되어, 추론 추적의 감독 없이도 원하는 행동 특성을 내재화할 수 있게 합니다. 이로 인해 기존의 비싼 추적 감독 방식이 필요 없어지며, 효율적이고 확장 가능한 접근 방식이 마련됩니다.
+
+- **Technical Details**: LRM의 행동은 주로 강화 학습이나 금표준(reasoning traces)과의 미세 조정을 통해 개발되는데, 이러한 기존 방법들이 계산 비용이 크고 확장하기 어려운 단점이 있음을 강조합니다. RELIEF는 고수준의 의도를 설정하고 이를 기준으로 다양한 자가 반영 질문-답변 쌍을 생성하여, 모델이 목표 신념을 수용하도록 합니다. 이를 통해 모델은 내부적으로 원하는 행동을 내재화할 수 있으며, 이 신념은 실제 추론 과정에 영향을 미치게 됩니다.
+
+- **Performance Highlights**: 실험 결과, RELIEF는 기존의 행동 감독 및 선호 기반 방법들과 동등한 성능을 보이며, 훈련 비용은 낮아 효율적입니다. 추가 분석을 통해 RELIEF가 모델의 추론 궤적을 효과적으로 변화시키며, 이는 모델이 내재화한 신념의 변화를 통해 이루어진 것임을 확인했습니다. 따라서 RELIEF는 전통적인 추적 기반 감독의 대안으로서 활용될 수 있는 충분한 잠재력을 가지고 있습니다.
+
+
+
+### Who Should Have Surgery? A Comparative Study of GenAI vs Supervised ML for CRS Surgical Outcome Prediction (https://arxiv.org/abs/2601.13710)
+- **What's New**: 이 연구는 임상 데이터를 기반으로 한 예측 모형에 대한 최초의 종합적 평가를 제공합니다. 우리는 만성 비부비동염(CRS) 환자를 대상으로, 수술 추천의 필요성을 줄이기 위해 수술 전 데이터를 활용할 수 있는지 조사했습니다. 기존 Supervised ML 기법과 Generative AI 모델을 비교하여, 더 효과적인 예측 방법을 제시하고자 하였습니다.
+
+- **Technical Details**: 우리는 사전 수술 데이터 세트를 바탕으로 Logistic Regression, Tree Ensembles, MLP 등의 머신러닝 모델과 ChatGPT, Claude, Gemini, Perplexity 같은 여러 Generative AI 시스템을 비교했습니다. 각 모델은 동일한 구조화된 입력을 받고, 결과적으로 2진 추천을 위한 출력을 제한하는 방식을 취했습니다. 연구 결과, MLP 모델은 85%의 정확도를 기록하며, 우수한 보정(calibration) 및 의사 결정 곡선의 순편익(decision-curve net benefit)을 보여주었습니다.
+
+- **Performance Highlights**: MLP 모델은 SNOT-22의 기준에서 환자들의 수술 결과를 예측하는 데 우수한 성능을 입증했습니다. 반면, Generative AI 모델들은 불균형한 분별력(discrimination)과 낮은 보정(calibration) 성능을 보여주었습니다. 그러나 Generative AI 모델의 설명력은 임상의의 휴리스틱과 밀접하게 연관되어 있어, 데이터의 투명성 및 공유된 의사결정을 촉진하는 역할을 할 수 있음을 보여주었습니다.
+
+
+
+### Hidden in Plain Text: Measuring LLM Deception Quality Against Human Baselines Using Social Deduction Games (https://arxiv.org/abs/2601.13709)
+Comments:
+          For associated dataset, see this https URL. Published in IEEE ICA 2025, waiting for IEEEXplore proceedings
+
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLM) 에이전트의 새로운 측면인 사회적 맥락에서의 속임수 능력을 연구합니다. 기존 연구가 통제된 작업에서의 LLM의 속임수 가능성을 보인 반면, 자연어를 이용한 사회적 맥락에서의 속임수 능력에 대한 연구가 부족했습니다. 본 연구는 비동기 다중 에이전트 프레임워크를 사용하여 실제적인 사회적 상황을 더 잘 시뮬레이션합니다.
+
+- **Technical Details**: 우리는 GPT-4o LLM 에이전트를 활용하여 35개의 Mafia 게임을 시뮬레이션 하였습니다. 또한, GPT-4-Turbo를 사용하여 플레이어의 역할 정보를 알지 못하는 게임 대화록을 분석하여 마피아 플레이어를 예측할 수 있는 마피아 탐지기를 개발하였습니다. 예측 정확도를 속임수 품질의 대리 지표로 사용하여, 인간 게임과 무작위 기준선의 예측 정확도를 비교했습니다.
+
+- **Performance Highlights**: 연구 결과, LLM 게임에서의 마피아 예측 정확도가 인간 게임보다 낮다는 것이 밝혀졌습니다. 이 결과는 게임의 진행 일수나 탐지된 마피아 수에 관계없이 일관되게 나타났습니다. 이는 LLM이 사회적 상황에 더 융합되며, 따라서 더 효과적으로 속임수를 쓸 수 있음을 시사합니다.
+
+
+
+### DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems (https://arxiv.org/abs/2601.13591)
+- **What's New**: 최근 LLM(대형 언어 모델) 기반 데이터 에이전트는 데이터 과학 작업을 자동화하는 데 중점을 두고 있습니다. 그러나 현실적인 데이터 과학 문제는 개방적이고 다중 분류에 걸쳐 있으며 정해진 답변이 없는 경우가 많아 기존 평가 방법이 한계를 지닙니다. 이에 따라, 641개의 실제 데이터 과학 문제로 구성된 DSAEval 벤치마크가 개발되어 다양한 데이터 세트를 포괄적으로 평가할 수 있도록 설계되었습니다.
+
+- **Technical Details**: DSAEval은 (1) 다모달 환경 인지, (2) 다중 쿼리 상호작용, (3) 다차원 평가의 세 가지 독특한 기능을 포함하고 있습니다. 이를 통해 에이전트는 다양한 모달리티(모드)에서 정보를 해석하고 여러 단계의 작업을 수행하며, 최종 보고서의 결과에 대한 포괄적인 평가가 가능합니다. 이 벤치마크는 총 285개의 데이터셋과 641개의 특정 작업으로 구성되어 있으며, 데이터 수집과 필터링 과정이 엄격하게 진행되었습니다.
+
+- **Performance Highlights**: DSAEval을 이용한 검증 결과, Claude-Sonnet-4.5가 가장 뛰어난 성능을 보였고, GPT-5.2는 가장 효율적이며, MiMo-V2-Flash는 비용 효율성이 었습니다. 멀티모달 인식 기능은 비전 관련 작업에서 일관되게 성능을 향상시켰으며, 성과는 2.04%에서 11.30%까지 이루어졌습니다. 결과적으로 기존 데이터 과학 에이전트는 구조화된 데이터와 표준 데이터 분석 워크플로우에서 잘 수행되지만 비구조화된 도메인에서는 여전히 상당한 도전 과제가 존재합니다.
+
+
+
+### Self-Improvement as Coherence Optimization: A Theoretical Accoun (https://arxiv.org/abs/2601.13566)
+Comments:
+          39 pages
+
+- **What's New**: 이번 논문은 언어 모델이 외부 감독 없이도 정확성을 향상시킬 수 있는지에 대한 이론적 답변을 제공합니다. 특정 방법들, 즉 debate (토론), internal coherence maximization (내부 일관성 극대화), iterative bootstrap (반복 부트스트래핑) 등이 감독 없이도 성능을 향상시킬 수 있는 이유를 설명합니다. 이러한 방법들이 모두 coherence optimization (일관성 최적화)의 특별한 경우임을 보여줍니다.
+
+- **Technical Details**: 저자들은 언어 모델의 동작 간의 공동 가능성을 최적화하는 일관성(coherence) 개념을 도입합니다. 이들은 모두 pretrained model(사전 훈련된 모델)에서 도출된 정규화 방식에 대한 이론적 근거를 제시하며, 이 정규화 방식이 반감독 학습(semi-supervised learning)에서 최적임을 증명합니다. Gibbs sampling(깁스 샘플링)을 사용하여 일관성을 효율적으로 최적화할 수 있는 알고리즘을 제안합니다.
+
+- **Performance Highlights**: 초기 실험 결과들은 일관성 기반 정규화 방법이 기존의 LLM-as-a-judge 방식보다 더 뛰어난 성능을 발휘함을 보여줍니다. 이 논문은 언어 모델의 반감독 학습에서 스케일링 가능하고 이론적으로 견고한 알고리즘을 제공하며, 이러한 방법들이 수반하는 이점과 한계를 명확히 규명하였습니다. 결국, 언어 모델이 사전 훈련된 데이터에서 얻은 통찰을 바탕으로 일반화 능력을 향상시킬 수 있는 방법론적 접근을 제시합니다.
+
+
+
+### Leveraging ChatGPT and Other NLP Methods for Identifying Risk and Protective Behaviors in MSM: Social Media and Dating apps Text Analysis (https://arxiv.org/abs/2601.13558)
+- **What's New**: 이번 연구는 동성 성관계를 가진 남성(MSM)을 대상으로 소셜 미디어와 데이팅 앱에서 수집된 텍스트 데이터를 활용하여 성적 위험 행동 및 음주 습관을 예측할 수 있는 가능성을 평가했습니다. 연구팀은 참가자 동의 하에 텍스트 데이터를 수집하고, ChatGPT 임베딩, BERT 임베딩 등 다양한 머신러닝 기법을 통해 예측 모델을 훈련했습니다. 이 연구는 복잡한 개인화된 공공 건강 개입을 지원할 수 있는 대규모 언어 모델의 가능성을 강조하고 있습니다.
+
+- **Technical Details**: 연구에서는 MSM의 성적 위험 행동과 음주 행동을 예측하기 위해 기계 학습 모델을 훈련했습니다. 주요 기술적 요소로는 ChatGPT와 BERT 임베딩을 활용한 텍스트 데이터의 변환이며, LIWC나 사전 기반 위험 용어 접근법도 포함되었습니다. 모델의 성과는 월간 폭음 음주 및 다수의 성적 파트너를 가질 확률을 예측하는 데 있어서 F1 점수 0.78, PrEP 사용 및 중증 음주 예측에는 F1 점수 0.64 및 0.63을 기록했습니다.
+
+- **Performance Highlights**: 이 연구의 결과는 소셜 미디어와 데이팅 앱 텍스트 데이터가 위험 및 보호 행동에 대한 귀중한 통찰력을 제공할 수 있음을 보여줍니다. 특히, 기계 학습 기반의 접근 방식이 MSM과 같은 취약 집단의 건강 격차를 해결하는 데 기여할 수 있는 잠재력도 시사합니다. 연구는 맞춤형 개입의 가능성을 열어주며, MSM의 복지에 중요한 영향을 미칠 것으로 기대됩니다.
+
+
+
+### Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs (https://arxiv.org/abs/2601.13528)
+- **What's New**: 이번 연구에서는 안전장치가 적용된 모델들이 어떻게 해로운 기능을 유도하는 공격(elicitation attacks)에 사용될 수 있는지를 보여줍니다. 특히, 안전장치가 있는 현대 모델들이 직접적으로 해로운 정보를 요청하지 않는 인접 도메인에서 시작되는 프롬프트(prompt)로부터 응답을 얻고, 이 데이터를 통해 오픈 소스 모델을 파인튜닝하는 세 단계로 구성된 공격을 소개합니다. 이러한 공격 방식은 특정 화학 합성 및 처리 분야에서 평가되며, 제한이 없는 모델에 비해 오픈 소스 모델의 능력 격차를 약 40% 회복한다는 사실을 입증합니다.
+
+- **Technical Details**: 연구에서는 파인튜닝(fine-tuning) 과정을 통해 해로운 합성 경로(synthesis routes)를 학습할 수 있다는 점을 조사하였습니다. 모델의 반응을 평가하기 위해 Llama 3.3 70B 모델을 사용하였으며, 임의 샘플에서 올바른 합성 경로를 얼마나 잘 식별하는지를 측정했습니다. 특히, 연구에서는 모델이 benign한 화학 데이터를 통해 유해한 합성 경로를 학습할 수 있다는 중요한 위험 요소를 강조합니다.
+
+- **Performance Highlights**: 연구 결과, 파인튜닝 후 모델은 올바른 합성 경로를 11%의 확률로 생성할 수 있게 되었습니다. 또한, 모델들이 파인튜닝 후 화학 문맥을 이해하는 능력이 개선될 뿐만 아니라, 특정 작업에서 합성 경로를 포함하는 경우 성능 저하가 발생하는 복잡한 현상이 나타났습니다. 이러한 결과는 모델이 새로운 지식을 학습할 뿐 아니라 기존 지식을 잃을 수도 있음을 나타내어 elicitation 공격의 위험성을 잘 보여줍니다.
+
+
+
+### The Hidden Toll of Social Media News: Causal Effects on Psychosocial Wellbeing (https://arxiv.org/abs/2601.13487)
+- **What's New**: 이 연구는 약 2,600만 개의 게시물과 4,500만 개의 댓글을 포함한 대규모 데이터를 활용하여, News feeds에 노출된 사용자의 심리사회적 결과를 분석하는 준 실험적 연구를 수행하였습니다. 전체 연구 대상자는 81,345명의 뉴스 노출 사용자와 83,711명의 대조군 사용자로 이루어져 있으며, 이들은 특성 점수 분석을 통해 매칭되었습니다. 연구 결과, 뉴스 이용이 우울증, 스트레스, 불안을 증가시키는 반면, 외로움 감소 및 사회적 상호작용 증대와 같은 긍정적인 결과도 나타났습니다.
+
+- **Technical Details**: Research는 Bluesky라는 분산형 소셜 미디어 플랫폼에서 수행되었으며, 이 플랫폼의 사용자들은 뉴스 피드를 북마크하거나 댓글을 달고 재게시하는 방법으로 정보를 소통합니다. 이 연구는 사용자의 심리사회적 웰빙을 감정적, 행동적, 인지적 측면에서 분석하며, 뉴스 소비가 심리적 결과에 미치는 영향을 장기간 관찰합니다. 뉴스 북마킹 활동은 댓글이나 인용보다 심리사회적 악화를 더 많이 가져오며, 이는 1900% 더 큰 영향을 미치는 것으로 나타났습니다.
+
+- **Performance Highlights**: 이 연구는 뉴스 소비가 '좋다' 또는 '나쁘다'는 이분법적 평가를 넘어서야 한다는 점을 강조합니다. 사용자가 뉴스 소비의 혜택에 접근하면서 그로 인한 심리사회적 비용을 줄일 수 있는 플랫폼 설계를 제안하였습니다. 또한 연구 결과는 사용자가 뉴스 콘텐츠에 대한 상호작용을 통해 사회적 관계를 강화할 수 있는 방법을 제시하며, 이는 사용자의 정서적 웰빙에 중요한 영향을 미칩니다.
+
+
+
+### From Completion to Editing: Unlocking Context-Aware Code Infilling via Search-and-Replace Instruction Tuning (https://arxiv.org/abs/2601.13384)
+- **What's New**: 이 논문에서는 기존 Fill-in-the-Middle (FIM) 접근법에서 발생하는 문제들을 해결하기 위해 Search-and-Replace Infilling (SRI)라는 새로운 프레임워크를 제안합니다. SRI는 코드 작성 중 발생할 수 있는 컨텍스트 오류를 수정하고, 비정렬 및 비안전한 기본 모델에 대한 의존성을 줄이기 위해 에이전트 확인 및 편집 메커니즘을 통합합니다. 이를 통해 안정성과 유연성을 높이면서 효율적인 단일 통과 추론 과정을 가능하게 합니다.
+
+- **Technical Details**: SRI 프레임워크는 명시적인 검색 단계를 통해 편집을 구조적으로 본질적으로 확립하여, 코드 완성 작업을 Chat LLM의 지침 수립 사전과 조화롭게 연결합니다. 이와 함께, SRI-200K라는 고품질 데이터셋을 구성하고 Qwen2.5-Coder 계열을 세부 조정하여 실험을 진행하였습니다. 이 과정에서 SRI가 다양한 자연어 FIM 프롬프트보다 일관되게 우수한 성능을 발휘함을 입증합니다.
+
+- **Performance Highlights**: SRI-Coder는 최소한의 데이터(20K 샘플)로도 Chat 모델이 기존 Base 모델에 비해 더 나은 성능을 보여줄 수 있도록 하였습니다. 특히, SRI는 일반적인 코딩 능력을 유지하면서도 성능 향상에 기여하였으며, 기존의 FIM 스타일 조정과 비교하여 추론 지연을 현저히 줄이는 데 성공했습니다. 이러한 결과는 SRI를 차세대 자동 완성 도구에 있어 강력하고 효율적인 대안으로 자리매김하게 합니다.
+
+
+
+### On the Relation of State Space Models and Hidden Markov Models (https://arxiv.org/abs/2601.13357)
+- **What's New**: 최근 State Space Models (SSMs)와 Hidden Markov Models (HMMs)의 관계에 대한 재조명이 이루어졌다. 이 논문은 HMMs, 선형 가우시안 SSMs, 칼만 필터링 등을 비교하며, 현대 NLP 상태 공간 모델들이 기존의 확률적 모델들과 어떤 관련성을 가지는지를 분석한다. 또한, 기존 모델과 현대 모델 간의 혼란을 해소하고, 개념적 다리를 제공하는 것을 목표로 한다.
+
+- **Technical Details**: 이 논문에서는 SSMs와 HMMs의 수학적 공식을 소개하고 있으며, 특히 선형 가우시안 SSMs와 칼만 필터링의 관계에 집중한다. SSM은 입력 신호와 출력 신호를 잠재 상태 변수를 통해 선형적으로 연결하며, 두 가지 기본 방정식을 사용하여 시스템의 동적 변화를 모델링한다. 특히, 잠재 상태와 외부 입력 간의 관계를 수학적으로 명확히 드러내기 위해 연속 시간 방정식을 이산 시간 형태로 변환하는 방법도 설명한다.
+
+- **Performance Highlights**: SSMs는 자연어 처리 (NLP)와 같은 다양한 분야에서 성능 향상을 가져왔다. 이 논문은 HMMs와 SSMs의 비교를 통해 이들 모델이 해석하는 불확실성 및 추론 메커니즘의 차이를 강조하고 있다. 또한, 현대 NLP SSMs가 확률적 모델과의 경계가 모호해짐에 따라 발생할 수 있는 여러 혼란을 정리함으로써, 이 모델들이 어떻게 서로 연결되는지를 명확히 하고 있다.
+
+
+
+### CooperBench: Why Coding Agents Cannot be Your Teammates Y (https://arxiv.org/abs/2601.13295)
+Comments:
+this https URL
+
+- **What's New**: 이 연구는 AI 에이전트 간 협력의 필요성을 강조하며, 협력 작업에서 효과적으로 기능하기 위해 사회적 지능(social intelligence)이 필요하다고 주장합니다. 또한, CooperBench라는 새로운 벤치를 소개하여, AI 에이전트가 실질적인 개발 환경에서 충돌(collision) 작업을 수행하는 능력을 평가합니다. 기존의 AI 시스템들은 협력적이지 않으며, 개인 작업을 수행할 때보다 성과가 낮다는 점을 실증적으로 보여줍니다. 이 연구는 AI가 협력 팀으로서 성과를 내기 위해 필요한 요소를 새롭게 규명합니다.
+
+- **Technical Details**: CooperBench는 12개의 오픈 소스 라이브러리에서 600개 이상의 협력 코딩 작업을 포함하는 벤치마크로 구성됩니다. 각 작업은 서로 다른 기능을 수행하는 두 개의 에이전트에게 할당되며, 이 기능들은 코드 수준에서 충돌이 발생할 수 있도록 설계되었습니다. 이 연구는 현재 코딩 에이전트가 협력할 때의 실패 원인을 세 가지 주요 이슈로 분석하며, 통신의 불명확성과 강박적인 약속 이행, 잘못된 기대 등을 포함합니다. 에이전트는 역할 분담, 자원 분할, 협상 등 흥미로운 협력 행동(emergent coordination behavior)을 나타낼 수 있음을 시뮬레이션을 통해 관찰합니다.
+
+- **Performance Highlights**: CooperBench에서 GPT-5와 Claude Sonnet 4.5 기반 에이전트들은 2인 협력 시 평균 성공률이 25%에 불과하며, 이는 독립적으로 작업할 때보다 약 50% 낮습니다. 이러한 결과는 기존 인간 팀의 성과와 대비됩니다. 연구 결과는 에이전트들이 약속을 어기고, 잘못된 정보 전달로 인해 추가적인 작업을 중복하는 경향이 있음을 드러내며, 이는 실질적인 협업에서 장애가 되는 요소입니다. 연구자들은 이러한 연구 결과를 플랫폼으로 사용할 수 있는 CooperBench가 에이전트의 협력 능력을 발전시키는 방안을 제시하고 있다고 강조합니다.
+
+
+
+### CURE-Med: Curriculum-Informed Reinforcement Learning for Multilingual Medical Reasoning (https://arxiv.org/abs/2601.13262)
+- **What's New**: 이번 논문에서는 다국어 의료 추론에 문제점을 지닌 대형 언어 모델(LLM)의 한계를 극복하기 위해 CUREMED-BENCH라는 고품질의 다국어 의료 추론 데이터셋을 소개합니다. 이 데이터셋은 검증 가능한 답변이 있는 개방형 추론 질문을 포함하며, 암하라어(Amharic), 요루바어(Yoruba), 스와힐리어(Swahili)와 같은 저조종 언어를 포함하여 13개 언어로 구성되어 있습니다.
+
+- **Technical Details**: 또한, 이 데이터셋을 바탕으로 CURE-MED라는 커리큘럼 정보 기반의 강화 학습(framework reinforcement learning) 프레임워크를 제안합니다. 이 프레임워크는 코드 스위칭(code-switching)에 대한 감독적 미세 조정(supervised fine-tuning)과 그룹 상대 정책 최적화(Group Relative Policy Optimization)을 통합하여 논리적 정확성과 언어 안정성을 동시에 향상시킵니다.
+
+- **Performance Highlights**: 13개 언어에서의 실험 결과, 제안한 방법이 강력한 기준 모델을 지속적으로 초과 달성하였으며, 7억개의 매개변수로는 85.21%의 언어 일관성(language consistency)과 54.35%의 논리적 정확성(logical correctness)을, 320억개의 매개변수로는 94.96% 언어 일관성과 70.04% 논리적 정확성을 기록하였습니다. 이는 LLM의 신뢰할 수 있고 공평한 다국어 의료 추론을 지원하는 결과입니다.
+
+
+
+### KOCO-BENCH: Can Large Language Models Leverage Domain Knowledge in Software Development? (https://arxiv.org/abs/2601.13240)
+- **What's New**: 본 논문에서는 LLM(대규모 언어 모델)들이 소프트웨어 개발의 특정 도메인에서 효과적으로 학습할 수 있도록 돕는 새로운 벤치마크인 KOCO-BENCH를 소개합니다. 현재 LLM들은 일반적인 프로그래밍에서는 뛰어난 성과를 보이지만, 도메인 특화된 개발에서는 큰 어려움을 겪고 있습니다. KOCO-BENCH는 6개의 새로운 도메인을 포함하고 있으며, 도메인 코드 생성을 평가하기 위한 다양한 작업을 제공합니다.
+
+- **Technical Details**: KOCO-BENCH는 특정 도메인 지식에 대한 이해 제공과 도메인 코드 생성의 다중 세분화 평가 작업을 포함합니다. 이 벤치마크는 28.5인개월의 기간을 통해 구축되었으며, 프레임워크 문서, 소스 코드 및 활용 예제에서 수집한 커스터마이즈된 지식 코퍼스를 포함합니다. KOCO-BENCH는 기능 수준에서 프로젝트 수준에 이르는 요구 사항 명세를 제공하여 엄격한 검증을 통해 도메인 코드 생성을 지원합니다.
+
+- **Performance Highlights**: KOCO-BENCH에 대한 평가 결과, 최첨단 LLM인 Claude Code가 단 34.2%의 성과만을 기록하였으며, 이는 도메인 특화 방법이 여전히 개선의 여지가 많이 있음을 시사합니다. 기존 도메인 특화 방법들은 일정한 효과를 보이지 않으며, 전반적으로 LLM들이 도메인 지식을 효율적으로 습득하는 데 어려움을 겪고 있음을 보여주었습니다. 마지막으로, 도메인별 오류의 주요 원인은 도메인 특정 API의 잘못된 사용과 데이터 제약 조건의 위반으로 나타났습니다.
+
+
+
+### RubRIX: Rubric-Driven Risk Mitigation in Caregiver-AI Interactions (https://arxiv.org/abs/2601.13235)
+- **What's New**: 본 논문은 RubRIX라는 새로운 리스크 평가 프레임워크를 도입하여 caregiving 맥락에서의 LLM(대규모 언어 모델) 응답의 위험도를 체계적으로 평가하고자 합니다. RubRIX는 Care Ethics의 요소에 기반하여 다섯 개의 리스크 차원—부주의(Inattention), 편향 및 낙인(Bias & Stigma), 정보 불일치(Information Inaccuracy), 비판 없는 긍정(Uncritical Affirmation), 인지적 오만(Epistemic Arrogance)—을 운영화합니다. 이를 통해 caregivers의 복잡한 요구사항을 더 잘 반영하려고 합니다.
+
+- **Technical Details**: 이 연구는 알츠하이머 및 관련 치매(Alzheimer’s disease and related dementias) 케어 상황을 구체적인 맥락으로 삼아 RubRIX의 적용성을 검증합니다. 연구진은 Reddit와 ALZConnected에서 수집한 20,000개 이상의 caregiver 쿼리에 기반해 LLM의 응답을 평가하고, RubRIX를 통해 리스크 요소를 45-98%까지 줄일 수 있다는 것을 보여줍니다. 이 과정에서 LLM의 생성 응답은 특정 행동 패턴의 음영을 강조하는 방식으로 분석됩니다.
+
+- **Performance Highlights**: RubRIX를 통한 평가와 모델 응답의 수정은 특히 인지적 및 규범적 리스크에서 큰 개선을 나타냈습니다. 이러한 향상은 caregiver의 스트레스 리듬을 쉽게 간과할 수 있는 상황에서 뚜렷하게 나타났습니다. 궁극적으로 본 논문은 LLM을 caregiving 지원에 책임감 있게 배치하기 위한 사용자 중심의 위험 평가 방법론을 제공하여, 향후 연구를 위한 벤치마크 데이터셋 또한 공개할 예정입니다.
+
+
+
+### TVWorld: Foundations for Remote-Control TV Agents (https://arxiv.org/abs/2601.13142)
+- **What's New**: 최근의 대형 비전-언어 모델(LVLMs)은 장치 제어에 강력한 잠재력을 보여주었지만, 기존 연구는 주로 포인트 앤 클릭(Point-and-Click, PnC) 상호작용에 초점을 맞추고 있습니다. 이에 반해 TV 사용에서 흔히 발생하는 원거리 제어(Remote-Control, RC) 상호작용은 상당히 미개척된 분야입니다. 이를 해결하기 위해 우리는 'TVWorld'라는 오프라인 그래프 기반의 TV 내비게이션 추상화를 소개하며, 두 가지 보완적인 벤치마크를 도출하여 TV 사용 능력을 종합적으로 평가합니다.
+
+- **Technical Details**: TVWorld는 실제 TV 내비게이션을 그래프 형태로 모델링하여, 각 UI 상태는 노드에 해당하며 각 키 눌림은 방향이 있는 엣지로 표현됩니다. TVWorld-N은 토폴로지 인식 내비게이션을 평가하기 위한 환경이며, TVWorld-G는 포커스 인식을 요구하는 그라운딩 평가에 사용됩니다. 기존의 GUI 제어 벤치마크들은 포인터 기반 상호작용에 주로 초점을 맞추고 있어 TV 내비게이션의 요구사항을 잘 반영하지 못하고 있습니다.
+
+- **Performance Highlights**: TVTheseus라는 TV 내비게이션에 최적화된 기초 모델은 TVWorld-N 벤치마크에서 68.3%의 성공률을 달성하여 Gemini 3 Flash와 같은 강력한 클로즈드 소스 기준선을 초과했습니다. TVWorld-G에서는 81.8%의 정확도를 기록하며, grounding-specific 감독 없이도 강력한 성능을 보여주었습니다. 이러한 결과는 토폴로지 인식 계획과 포커스 인식 능력이 우수하다는 것을 반영합니다.
+
+
+
+### RAGExplorer: A Visual Analytics System for the Comparative Diagnosis of RAG Systems (https://arxiv.org/abs/2601.12991)
+Comments:
+          11 pages, 7 figures. Accepted to IEEE TVCG (PacificVis 2026)
+
+- **What's New**: RAGExplorer는 Retrieval-Augmented Generation (RAG) 구성의 체계적 비교 및 진단을 위한 시각 분석 시스템입니다. 이 시스템은 사용자가 다양한 구성에서 성능 경관을 탐색하고, 실패 사례를 면밀히 분석할 수 있도록 지원합니다. 개발자는 이를 통해 최적의 설계를 이해하고, 결과에 미치는 영향을 실시간으로 관찰할 수 있습니다.
+
+- **Technical Details**: RAG 시스템의 성능은 모듈 파이프라인의 구성에 따라 다르며, 주요 단계에는 Indexing, Encoding, Retrieval 및 Generation이 포함됩니다. 이 과정에서 사용자 쿼리에 대한 최적의 결과를 도출하기 위해 문서 조각을 수집하고, 이 조각들을 임베딩 모델에 의해 처리합니다. RAGExplorer는 이러한 파이프라인에서 발생할 수 있는 문제를 시각적으로 분석하고, 조직의 필요에 맞는 최적 솔루션을 찾는 데 도움을 줍니다.
+
+- **Performance Highlights**: RAGExplorer의 효과를 입증하기 위해 사례 연구와 사용자 연구를 수행했습니다. 이를 통해 개발자들이 복잡한 RAG 디자인 공간에서 길잡이를 받을 수 있는 가능성을 강조하였습니다. 시스템의 하이레벨 및 세부 분석 기능은 기존의 RAG 구성에 대한 이해를 깊게 하고 최적의 조합을 찾는 데 큰 도움이 됩니다.
+
+
+
+### Lombard Speech Synthesis for Any Voice with Controllable Style Embeddings (https://arxiv.org/abs/2601.12966)
+- **What's New**: 본 논문에서는 Lombard 효과를 실현할 수 있는 새로운 텍스트-음성 변환(Text-to-Speech, TTS) 시스템을 소개합니다. 기존의 접근 방식과 달리, 특정 Lombard 데이터 없이도 훈련된 스타일 임베딩(style embedding)을 활용하여, 다양한 화자에 대해 Lombard 음성을 합성할 수 있는 방법론을 제시합니다. 이를 통해 사용자는 음성의 프로소디(procody)와 자연성을 조절할 수 있으며, 노이즈 환경에서도 높인 이해도를 제공합니다.
+
+- **Technical Details**: 제안된 시스템은 F5-TTS를 기반으로 하며, 주파수 분석(PCA)을 통해 스타일 임베딩의 변화를 제어합니다. 이 과정에서 가능성을 확장하기 위해 고정 크기의 스타일 임베딩을 주입하는 방법을 사용하며, 음성의 강도(loudness)와 명확성(clarity) 같은 특성을 조절합니다. 새로운 방식으로 Lombard 효과를 조정함으로써 청중의 이해도를 높이고 화자의 정체성을 유지하도록 설계되었습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 시스템(F5TTS-Style)은 기존 F5-TTS 모델에 비해 자연성과 화자 유사성을 유지하면서도, 다양한 노이즈 환경에서 Lombard 음성을 안정적으로 합성할 수 있음을 보여주었습니다. 다양한 시나리오에서 수행된 테스트를 통해, 음성이 주어진 환경에서 얼마나 잘 이해되는지를 평가하였고, 제안된 모델은 높은 성능을 입증했습니다.
+
+
+
+### AI-generated data contamination erodes pathological variability and diagnostic reliability (https://arxiv.org/abs/2601.12946)
+Comments:
+          *Corresponding author: Dianbo Liu (dianbo@nus.this http URL)
+
+- **What's New**: 본 논문은 생성적 인공지능(AI) 기술이 의료 기록에 합성 콘텐츠를 빠르게 추가함으로써 발생하는 데이터 오염 문제를 다룹니다. 이러한 AI 생성 데이터의 불필요한 반복적 사용이 진단의 신뢰성과 병리적 변동성을 급격히 감소시킨다는 점을 발견했습니다. 또한, 인류의 사실 검증 없이는 이러한 문제가 더욱 심각해질 위험이 있다는 경고를 제기합니다.
+
+- **Technical Details**: 연구자들은 80만 개 이상의 합성 데이터 포인트를 분석하여 AI 모델의 구조와 관계없이 모델이 일반적인 표현형으로 수렴한다는 사실을 확인했습니다. 특히, 기흉(pneumothorax) 및 삼출증(effusions)과 같은 드물지만 중요한 발견들이 AI 모델이 생성하는 콘텐츠에서 사라지며, 인구 통계적 표현은 중년 남성의 표현형으로 과도하게 편향되는 경향이 있음을 밝혔습니다.
+
+- **Performance Highlights**: 정확도와 신뢰도가 분리되면서 AI가 생성한 문서가 임상적으로 사용되기 어렵게 될 가능성이 높습니다. 연구에서는 데이터 합성을 통한 모델의 잘못된 확신이 무려 40%에 달하며, 의사 평가에서도 이러한 문제가 재확인되었습니다. 마지막으로, 정책적으로 인간 감독이 필수적이지 않다면 생성적 AI의 도입이 의존하는 의료 데이터 생태계를 저해할 위험이 크다고 결론지었습니다.
+
+
+
+### Hierarchical Sparse Circuit Extraction from Billion-Parameter Language Models through Scalable Attribution Graph Decomposition (https://arxiv.org/abs/2601.12879)
+- **What's New**: 이번 논문에서는 신경망의 계산을 인식 가능한 알고리즘으로 역설계하기 위해 Hierarchical Attribution Graph Decomposition (HAGD) 프레임워크를 제안합니다. 이는 대규모 언어 모델에서 희소한 계산 회로를 추출하는 어려움을 해결하기 위해 복잡성을 감소시키는 방법론을 개발했습니다. HAGD는 O(2^n)에서 O(n^2 log n)으로 회로 발견(complexity)을 줄이는 데 효과적입니다.
+
+- **Technical Details**: HAGD 프레임워크는 다중 해상도 추상 계층(multi-resolution abstraction hierarchies)과 미분 가능한 회로 검색(differentiable circuit search)을 통해 회로 발견의 복잡성을 줄입니다. 이 방법론은 단일 의미 특성(monosemantic feature) 추출을 위한 Cross-layer transcoders, 토폴로지 예측을 위한 그래프 신경망(meta-learning), 검증을 위한 인과적 개입(causal intervention) 프로토콜을 통합합니다. 이러한 방식은 복잡한 계산을 보다 쉽게 이해할 수 있도록 도와줍니다.
+
+- **Performance Highlights**: HAGD는 GPT-2, Llama-7B부터 Llama-70B, Pythia 모델에 걸쳐 알고리즘적 작업과 자연어 벤치마크를 포함하는 실험에서 91%의 행동 보존(behavioral preservation)을 달성하며, 해석 가능한 하위 그래프(subgraph) 크기를 유지합니다. 다양한 아키텍처 간 전이 실험은 발견된 회로의 구조적 유사성이 평균 67%에 달함을 보여주었습니다. 이러한 결과는 대규모 모델 해석성을 위한 기초를 제공하며 기존 방법론의 한계를 강조합니다.
+
+
+
+### SciHorizon-GENE: Benchmarking LLM for Life Sciences Inference from Gene Knowledge to Functional Understanding (https://arxiv.org/abs/2601.12805)
+Comments:
+          16 pages
+
+- **What's New**: 본 논문은 SciHorizon-GENE이라는 대규모 유전자 중심 벤치마크를 도입하여 인간 유전자에 대한 190K 이상의 정보와 540K 이상의 질문을 통합합니다. 이 벤치마크는 LLM(대형 언어 모델)이 생물학적 해석에 어떻게 반응하는지를 평가하기 위해 마련되었습니다. 새로운 평가 관점인 연구 주목도, 환각 경향, 답변 완전성 및 문헌 영향을 통해 모델 성능을 분석합니다.
+
+- **Technical Details**: SciHorizon-GENE은 유전자 명명법, 생물학적 지식 및 참조 맥락의 영향을 포함한 세 가지 핵심 시나리오를 커버하며, 자동으로 계산 가능한 모든 메트릭을 제공합니다. 이 벤치마크는 27개의 오픈 소스 및 독점 모델을 평가하여 LLM의 유전자 중심 행동을 포괄적으로 특성화합니다. 유전자 수준의 정보는 이 모델이 유의미하고 신뢰할 수 있는 생물의학 분석을 지원하기 위해 필요한 기반 지식을 제공하는데 필수적입니다.
+
+- **Performance Highlights**: 모델 평가는 다양한 유전자에 따라 상이하게 나타나며, 특정 유전자에 대한 연구 관심에 따라 성능이 달라집니다. 일부 모델은 널리 연구된 유전자에 대해서는 좋지만, 덜 연구된 유전자에 대해서는 환각적 설명이나 불완전한 답변을 생성합니다. 이는 LLM이 생물학 맥락의 변화를 반영하지 못할 수 있음을 나타내며, 지식 기반 해석을 위해서는 보다 신뢰할 수 있는 제너레이션이 필요함을 강조합니다.
+
+
+
+### FRoM-W1: Towards General Humanoid Whole-Body Control with Language Instructions (https://arxiv.org/abs/2601.12799)
+Comments:
+          Project Page: this https URL
+
+- **What's New**: FRoM-W1는 자연어를 사용해 일반적인 전신 움직임 제어를 달성하기 위한 오픈소스 프레임워크로, 인공지능의 진전을 통해 휴머노이드 로봇이 더 유연하고 다양하게 행동할 수 있도록 설계되었습니다. H-GPT와 H-ACT 두 단계로 구성되어 있으며, 이는 대량의 인간 데이터를 활용하여 다양한 자연적인 행동을 생성하도록 훈련된 모델입니다. 이 연구는 로봇이 자연어 지시를 이해하고 물리적 환경에서 행동을 안정적으로 수행할 수 있도록 하는 것을 목표로 하고 있습니다.
+
+- **Technical Details**: FRoM-W1의 첫 번째 단계인 H-GPT는 대규모 언어 모델을 기반으로 하며, 자연어 지시문에서 전신 인간 모션 시퀀스를 생성합니다. Chain-of-Thought(Chain-of-Thought) 기술을 활용하여 지시문을 분해하고 몸의 수준의 모션 원시를 생성하여 모델이 복잡한 지시를 이해하고 실행할 수 있게 합니다. 두 번째 단계인 H-ACT는 생성된 인간 모션을 특정 로봇 동작으로 재조정한 후, 물리적 시뮬레이션에서 강화 학습을 통해 미세 조정된 모션 컨트롤러를 사용하여 정밀하고 안정적인 수행을 가능하게 합니다.
+
+- **Performance Highlights**: FRoM-W1은 다양한 휴머노이드 로봇에 대한 포괄적인 평가를 통해 유의미한 성능 향상을 보여주었습니다. HumanML3D-X 벤치마크에서 기존 모델에 비해 2.5배 개선된 성과를 기록했으며, 강화 학습 미세 조정이 모션 추적의 성공률을 일관되게 증가시키고 평균 관절 위치 오차(MPJPE)를 15% 개선했습니다. FRoM-W1의 설계는 여러 새로운 모션 모방 컨트롤러의 효율적인 배포를 지원하여 로봇의 다재다능성을 더욱 제고합니다.
+
+
+
+### Open Vocabulary Panoptic Segmentation With Retrieval Augmentation (https://arxiv.org/abs/2601.12779)
+- **What's New**: 이 논문에서는 RetCLIP이라는 새로운 panoptic segmentation 방식을 제안합니다. 이 방법은 unseen classes에 대한 성능을 개선하기 위해 retrieval 기반 접근법을 통합합니다. 사용자가 입력한 클래스에 따라 임의의 클래스를 세분화할 수 있도록 지원하여 열린 어휘 파노프틱 세분화(open vocabulary panoptic segmentation) 문제를 해결합니다.
+
+- **Technical Details**: RetCLIP은 이미지-텍스트 데이터 쌍을 기반으로 구축된 masked segment feature 데이터베이스를 통해 작동합니다. 입력 이미지의 masked segment features를 질의 키로 사용하여 데이터베이스에서 유사한 features와 클래스 레이블을 검색합니다. 이 과정에서는 CLIP vision encoder를 사용하여 도메인 변환 문제를 해결하고, 최종 출력은 retrieval 기반 분류 점수와 CLIP 기반 점수를 결합하여 생성됩니다.
+
+- **Performance Highlights**: 제안된 방법은 COCO 데이터셋을 기반으로 훈련되었으며, ADE20k 데이터셋에서 +4.5 PQ, +2.5 mAP, +10.0 mIoU의 성능 향상을 보였습니다. 이를 통해 기존의 SOTA(최첨단 기술) 방식인 FC-CLIP에 비해 유의미한 개선을 달성했습니다. 특히, 훈련이 없는 설정에서도 +5.2 PQ의 성능 개선을 기록했습니다.
+
+
+
+### PAIR-SAFE: A Paired-Agent Approach for Runtime Auditing and Refining AI-Mediated Mental Health Suppor (https://arxiv.org/abs/2601.12754)
+- **What's New**: 본 논문에서는 PAIR-SAFE라는 새로운 프레임워크를 소개합니다. 이 프레임워크는 정신 건강 지원을 위해 AI가 생성한 응답을 감사(auditing)하고 개선하는데 초점을 맞추고 있습니다. Responder 에이전트와 감독자인 Judge 에이전트를 통합하여 임상적으로 검증된 Motivational Interviewing Treatment Integrity (MITI-4) 프레임워크에 기반합니다.
+
+- **Technical Details**: PAIR-SAFE는 두 개의 에이전트를 사용하여 협력적인 상담 과정을 구성합니다. Judge 에이전트는 Responder의 응답을 감사하고 구조화된 승인(ALLOW) 또는 수정(REVISE) 결정을 내립니다. 이를 통해 AI의 응답을 실시간으로 개선하며, 인간이 주도한 동기 면담(motivational interviewing) 데이터를 기반으로 시뮬레이션을 수행합니다.
+
+- **Performance Highlights**: 본 연구 결과는 Judge 감독 하의 상호작용이 MITI의 주요 차원에서 유의미한 개선을 보였음을 보여줍니다. 파트너십(Partnership), 협력 요청(Seek Collaboration), 전반적인 관계 품질(Relational quality) 등이 포함됩니다. 전문가 평가를 통한 정성적 결과 역시 이러한 실시간 감독(running supervision)의 중요성을 강조합니다.
+
+
+
+### SSVD-O: Parameter-Efficient Fine-Tuning with Structured SVD for Speech Recognition (https://arxiv.org/abs/2601.12600)
+Comments:
+          Accepted by IEEE ICASSP 2026
+
+- **What's New**: 이번 연구에서는 기존의 Structured SVD-guided(SSVD) 방법의 한계를 극복하고 최적의 파라미터 예산 할당을 수행하기 위해 SSVD-Outer(SSVD-O)라는 새로운 파라미터 효율적 미세 조정(PEFT) 방법을 소개합니다. SSVD-O는 입력 음향 특징 공간과 출력 의미 특징 공간을 결합하여 확장 가능하고 균형 잡힌 적응을 가능하게 합니다. 이 방법은 자동 음성 인식(ASR)에서 도메인 이동 과제를 해결하기 위해 첫 번째 체계적 분석을 제공합니다.
+
+- **Technical Details**: SSVD-O 메서드는 SSVD 방법에 입력 연관(inner) 변환과 출력 연관(outer) 변환을 통합하여 구성을 확장했습니다. 이 방법은 저차 행렬을 각 레이어에 주입하고 사전 학습된 모델의 가중치는 동결하여 성능을 극대화합니다. 수학적으로, SSVD-O는 고유값 분해(SVD)를 바탕으로 행렬 변환을 가이드하여 음향 데이터와 텍스트 데이터 간의 비율을 조절합니다.
+
+- **Performance Highlights**: 실험 결과 SSVD-O는 아동 음성과 지역 방언을 포함한 ASR 작업에서 LoRA, DoRA, PiSSA 등 기존의 최첨단 방법들과 비교하여 우수한 성능을 보였습니다. SSVD-O는 전체 미세 조정(Fine-tuning)에 비해 성능 격차를 줄이면서 일반화도 개선하고, 재앙적 망각(catasrophic forgetting)을 줄이는 효과를 보였습니다. 이 연구는 PEFT 설계의 효율성을 위한 실용적인 지침을 제공하는 데 기여합니다.
+
+
+
+### Dissecting Linear Recurrent Models: How Different Gating Strategies Drive Selectivity and Generalization (https://arxiv.org/abs/2601.12598)
+Comments:
+          11 pages, 4 figures and 4 tables
+
+- **What's New**: 이번 연구에서는 선형 순환 신경망(Linear Recurrent Neural Networks)이 소프트맥스(attention) 메커니즘을 대체할 수 있는 효율적인 모델로 자리잡고 있음을 강조합니다. 기존 연구가 모델의 복잡성 증가로 인해 비교가 어려운 것에 반해, SelectivBench라는 새로운 벤치마크를 통해 model의 selectivity(선택성)를 체계적으로 평가할 수 있는 가능성을 제시합니다. 이 벤치마크는 관련 입력에 집중하고 문맥 기반 주의를 무시하는 능력을 평가하여, 다양한 구조적 특성의 기여도를 분석하는 길을 열어줍니다.
+
+- **Technical Details**: SelectivBench는 규칙 기반 문법을 통해 조정 가능한 복잡성을 가진 시퀀스를 생성하며, 다양한 검증 요구 사항을 충족하기 위해 고안되었습니다. 이 모델은 gating(게이팅)과 빠른 잊음 메커니즘이 기억 회상에 어떻게 기여하는지를 분석하며, 상태 채널 믹싱이 선택성에는 필요하지 않지만 일반화에는 필수적임을 보여줍니다. 모델의 성능은 다양한 전이 규칙을 위반하는 불규칙한 간격을 도입하여 강화되었습니다.
+
+- **Performance Highlights**: 선형 순환 모델의 SelectivBench에서의 평가 결과는 대규모 언어 처리 작업에서의 성과와 일관된 패턴을 보였습니다. 게이팅 및 빠른 잊음 메커니즘이 회상에 도움이 되며, 소프트맥스 주의 메커니즘은 시퀀스 길이에 따라 기억 용량이 증가하여 중요한 역할을 합니다. 이 연구는 선형 순환 모델의 개발을 활성화하고, 분산된 입력 처리에서의 효율성을 개선할 새로운 구조적 전략을 탐구할 필요성을 강조합니다.
+
+
+
+### MemeLens: Multilingual Multitask VLMs for Memes (https://arxiv.org/abs/2601.12539)
+Comments:
+          disinformation, misinformation, factuality, harmfulness, fake news, propaganda, hateful meme, multimodality, text, images
+
+- **What's New**: 이 논문에서는 MemeLens라는 새로운 다국어 및 다태스크 설명 확장형 비전 언어 모델(Vision Language Model)을 제안합니다. 기존의 미미(meme) 연구들은 서로 다른 작업과 언어로 분포되어 있어, 교차 도메인 일반화(cross-domain generalization)에 제한이 있었습니다. MemeLens는 38개의 공개 미미 데이터셋을 통합하고, 데이터셋 특유의 라벨을 20개의 공통 태스크로 필터링하여 매핑합니다.
+
+- **Technical Details**: MemeLens는 해악(harm), 타깃(targets), 비유적(pragmatic) 의도, 감정(affect) 등의 20 가지 태스크를 다룹니다. 모델링 패러다임, 태스크 카테고리 및 데이터셋 전반에서 포괄적인 실증 분석을 수행하였으며, 다중 모달(multimodal) 훈련이 강력한 미미 이해를 위해 필요하다는 것을 발견했습니다. 또한 모델이 개별 데이터셋에서 파인튜닝(fine-tuning)될 때 과도한 전문화(over-specialization)에 민감하다는 결과를 보였습니다.
+
+- **Performance Highlights**: MemeLens는 여러 태스크와 카테고리에서 실험적으로 강건한 성능을 입증했습니다. 저자들은 모델이 다양한 의미론적(semantic) 카테고리에 따라 상당한 변동성을 보인다고 강조합니다. 마지막으로, 논문에서는 커뮤니티를 위해 실험 리소스와 데이터셋을 공개할 예정이라고 발표했습니다.
+
+
+
+### Agentic Reasoning for Large Language Models (https://arxiv.org/abs/2601.12538)
+Comments:
+          Project: this https URL
+
+- **What's New**: 이 논문에서는 Reasoning(추론)이 인지 과정에서 얼마나 중요한지를 설명하고, 대형 언어 모델(LLMs)이 동적 환경에서 어떻게 한계를 보이는지를 다룹니다. 저자들은 Agentic reasoning(대행 추론)을 통해 LLM을 자율적으로 작동하는 에이전트로 재구성하는 새로운 패러다임을 제시합니다. 이Survey(조사)는 대행 추론을 세 가지 보완적인 차원으로 조직하여 자율적 사고의 중요성을 강조합니다.
+
+- **Technical Details**: 연구에서는 환경의 동적 특성을 세 가지 층으로 나누어 설명합니다: 1) Foundational agentic reasoning(기초 대행 추론) - 안정된 환경에서 계획, 도구 사용, 탐색과 같은 단일 에이전트의 기본 능력, 2) Self-evolving agentic reasoning(자기 발전 대행 추론) - 피드백, 기억, 적응을 통해 이 능력을 향상시키는 과정, 3) Collective multi-agent reasoning(집합적 다수 에이전트 추론) - 협력적 상황에서의 조정, 지식 공유 및 공동 목표의 지능 확장. 향상된 In-context reasoning(맥락 내 추론)와 Post-training reasoning(훈련 후 추론)의 차별화도 이루어집니다.
+
+- **Performance Highlights**: 이 논문은 과학, 로봇 공학, 헬스케어, 자율 연구, 수학을 포함한 실제 응용 프로그램과 벤치마크에서 대행 추론 프레임워크의 사례를 검토합니다. 저자들은 사고(Thinking)와 행동(Action)을 잇는 통합된 로드맵을 제시하며, 개인화, 장기적 상호작용, 세계 모델링, 확장 가능한 다수 에이전트 훈련 및 실제 배포를 위한 거버넌스와 같은 개방된 도전과제를 설명합니다.
+
+
+
+### Harmonizing the Arabic Audio Space with Data Scheduling (https://arxiv.org/abs/2601.12494)
+Comments:
+          Foundation Models, Large Language Models, Native, Speech Models, Arabic
+
+- **What's New**: 이 논문은 아랍어 중심의 오디오 대형 언어 모델(LLM)의 다중 과제 지침 튜닝(multi-task instruction tuning)을 체계적으로 연구한 첫 번째 사례를 제시합니다. 연구에서는 음성 인식(ASR) 및 음성 요약(speech summarization)과 같은 생성적 과제 및 방언과 감정 식별(emotion identification)과 같은 구별적 과제를 포함하는 계층 구조의 작업을 다룹니다. 또한, 새로운 아랍어 음성 요약 데이터셋인 AraMega-SSum을 소개합니다.
+
+- **Technical Details**: Qwen2.5-Omni(7B)를 세밀하게 조정하고, 태스크 진행 커리큘럼(Task-Progressive Curriculum, TPC) 및 정렬기 기반 다양 샘플링(Aligner-Based Diverse Sampling, ADS) 전략을 제안합니다. ADS는 작업 및 레이블 균형을 고려하여 정보 밀도가 높은 배치를 구성합니다. 연구 결과는 ADS가 초기 수렴(acceleration)과 para-linguistic F1 점수를 향상시킬 수 있지만, 훈련이 길어질 경우 생성적 디코딩(generative decoding)을 불안정하게 만들 수 있음을 보여줍니다.
+
+- **Performance Highlights**: TPC는 핵심 음향 매핑(acoustic mapping)을 안정화하지만, 종종 하위 작업에 부정적인 전이(negative transfer)를 불러일으킬 수 있습니다. 하이브리드 TPC+ADS 전략은 우수한 훈련 조합을 제공하여, 우선 강력한 대표적인 기초를 설정한 후, 세밀한 뉘앙스를 포착하기 위한 다양성을 고려한 정제를 수행합니다. 이러한 발견은 복잡하고 자원이 부족한 다중 모달 환경에서 Omni 모델을 효율적으로 적응시키기 위한 실용적인 지침을 제공합니다.
+
+
+
+### Privacy-Preserving Federated Learning with Verifiable Fairness Guarantees (https://arxiv.org/abs/2601.12447)
+- **What's New**: CryptoFair-FL이라는 새로운 암호화 프레임워크가 제안되었으며, 분산된 기관 간의 협력적 모델 훈련을 위한 알고리즘 공정성을 보장합니다. 이 프레임워크는 개인 정보를 보호하면서도 인구 통계적 균형과 같은 공정성 메트릭을 검증할 수 있는 최초의 검증 가능성을 제공합니다. 이를 통해 데이터의 중앙 집중화 없이 공정성을 달성할 수 있습니다.
+
+- **Technical Details**: CryptoFair-FL은 부가적인 동형 암호(additively homomorphic encryption)와 안전한 다자간 계산(secure multi-party computation)을 결합하여 공정성을 검증할 수 있는 메커니즘을 구현합니다. 모형 훈련에 있어 BigO(n^2)에서 BigO(n log n)으로 계산 복잡도를 줄이는 새로운 배치 검증 프로토콜이 제시됩니다. 이 프로토콜은 (ε,δ)-미분적 사생활을 보장하며, 실제로도 위조 공격에 대한 저항력을 유지합니다.
+
+- **Performance Highlights**: 총 4개의 기준 데이터 세트를 이용한 실험에서, CryptoFair-FL은 인구 통계적 균형 위반을 0.231에서 0.031로 감소시켰습니다. 계산 오버헤드는 표준 연합 평균(Standard Federated Averaging)과 비교하여 단 2.3배 증가했습니다. 이 성과는 규제 산업에서 개인 정보 보호와 알고리즘적 책임을 요구하는 공정성을 인식한 연합 학습의 실질적 경로를 제시합니다.
+
+
+
+### De-Anonymization at Scale via Tournament-Style Attribution (https://arxiv.org/abs/2601.12407)
+Comments:
+          14 pages
+
+- **What's New**: 이 논문에서는 LLM(대형 언어 모델)의 사용이 커지면서 발생하는 저자 비식별 위험에 대해 논의합니다. 저자 비식별화(de-anonymization) 위협을 조사하고, 시스템의 익명성을 보호하는 데 문제가 될 수 있음을 입증합니다. 제안된 De-Anonymization at Scale (DAS) 방식은 수만 개의 텍스트에서 저자를 식별할 수 있는 새로운 방법론으로, 이는 빠르게 변화하는 기술 환경에서 개인정보 보호의 중요성을 강조합니다.
+
+- **Technical Details**: DAS는 주어진 텍스트와 관련된 저자를 찾아내기 위해 점진적 선택 전략을 사용합니다. 이 방식은 후보군을 임의로 구분하고, 각 그룹에서 가장 적합한 텍스트를 선택한 뒤, 생존 후보텍스트에 대해 반복적으로 평가합니다. 효율적인 계산을 위해 초벌 검색 모듈을 사용하여 후보군을 줄이고, 여러 번의 독립적인 실행에서 얻어진 결과를 집계하여 최종 결과를 산출합니다.
+
+- **Performance Highlights**: DAS는 익명화된 동료 심사 데이터 및 표준 저자 평가 벤치마크에서 좋은 성능을 보여주었습니다. 특히, 수천 개의 리뷰풀에서 동일한 저자를 식별하는 정확도가 높은 것으로 나타났으며, 이는 LLM이 레비유어의 익명성에 위협이 된다는 것을 보여줍니다. 또한 DAS는 기존의 방법들에 비해 성능 향상과 확장성을 제공함으로써, LLM 기반 비식별화의 실제적인 위험성을 입증하고 있습니다.
+
+
+
+### Zero-Shot Embedding Drift Detection: A Lightweight Defense Against Prompt Injections in LLMs (https://arxiv.org/abs/2601.12359)
+Comments:
+          Accepted to NeurIPS 2025 Lock-LLM Workshop
+
+- **What's New**: 이 논문에서는 Zero-Shot Embedding Drift Detection (ZEDD)라는 새로운 방어 메커니즘을 제안합니다. ZEDD는 benign(양성) 입력과 의심스러운 입력 간의 임베딩 공간에서의 의미적 변화를 정량화하여 직접 및 간접 프롬프트 삽입을 탐지하는 경량 프레임워크입니다. 이는 이전의 복잡한 모델 특정 패치 없이도 다양한 LLM 아키텍처에 효율적으로 배포 가능하여, 적응형 적대적 위협에 대한 중요한 방어 장치를 제공합니다.
+
+- **Technical Details**: ZEDD는 프롬프트의 임베딩 변화를 감지하기 위해 코사인 유사도(cosine similarity)를 사용합니다. 이 과정에서 Gaussian Mixture Modeling (GMM)과 Kernel Density Estimation (KDE)을 활용하여 양성 프롬프트와 삽입된 프롬프트 간의 분포를 분석합니다. 또한, ZEDD는 모델의 내부 접근이나 사전 지식 없이도 동작할 수 있어, 추가적인 리소스를 상당히 절약할 수 있는 점이 특징입니다.
+
+- **Performance Highlights**: 실험 결과, ZEDD는 Llama 3, Qwen 2, Mistral 모델에서 93% 이상의 정확도로 프롬프트 삽입을 분류하며, 허위 긍정률(false positive rate)은 3% 이하입니다. 이는 기존의 탐지 방법들보다 탐지 정확도와 효율성에서 우수한 성과를 나타냅니다. 결과적으로, 이 방법은 LLM 파이프라인에 통합하여 민첩하게 적응할 수 있는 경량의 방어 계층을 제공합니다.
+
+
+
+### Rethinking the Value of Multi-Agent Workflow: A Strong Single Agent Baselin (https://arxiv.org/abs/2601.12307)
+- **What's New**: 최근 LLM(대규모 언어 모델) 기반의 다중 에이전트 시스템(MAS)에서의 발전은 여러 LLM 에이전트가 각기 다른 역할과 도구로 구성된 워크플로우가 복잡한 작업에서 단일 LLM 기준선보다 성능이 우수할 수 있음을 보여줍니다. 그러나 기존의 프레임워크는 동질적인 구조로 모든 에이전트가 동일한 기본 LLM을 공유하고 있어, 이러한 워크플로우가 단일 에이전트에 의해 다중회차 대화로도 시뮬레이션될 수 있는지를 탐구하게 됩니다. 연구 결과, 단일 에이전트가 다중 대화를 통해 동질적인 워크플로우의 성능을 달성할 수 있음을 확인했습니다.
+
+- **Technical Details**: 이 연구는 코드 생성, 수학, 일반 질문 응답, 도메인 특정 추론 및 실제 기획 및 도구 사용 등 7가지 기준을 넘어 포괄적인 실험을 수행했습니다. OneFlow라는 새로운 알고리즘은 단일 에이전트 실행을 위한 워크플로우를 자동으로 설계하여 기존의 자동화된 다중 에이전트 설계 프레임워크에 비해 비용을 줄이면서 정확도를 유지합니다. 또한, 이 알고리즘은 두 개의 LLM 디자이너 아키텍처를 활용하여 보다 간소화된 워크플로우를 발견합니다.
+
+- **Performance Highlights**: 연구 결과는 단일 LLM 구현이 자동으로 발견된 이질적 워크플로우의 성능을 만족시킬 수 있음을 입증했습니다. 그러나 단일 LLM 접근 방식은 서로 다른 모델 간에 KV 캐시를 공유할 수 없어 진정한 이질적 워크플로우를 시뮬레이션할 수 없는 한계가 있습니다. 이로 인해 LLM 다중 에이전트 시스템 연구의 발전을 위한 필수적 방향이 여전히 남아 있습니다.
+
+
+
+### Environment-Aware Code Generation: How far are We? (https://arxiv.org/abs/2601.12262)
+Comments:
+          ICSE 2026
+
+- **What's New**: 이 논문은 Environment-Aware Code Generation (EACG)의 개념을 최초로 체계화하여 소개합니다. EACG는 환경에 맞게 코드가 기능적으로 정확하고 실행 가능해야 하는 조건을 갖습니다. 이를 실현하기 위해, 저자들은 다양한 오픈 소스 Python 프로젝트에서 코드 사례와 환경 사양을 수집하여 VersiBCB라는 벤치마크를 개발하였습니다. 새로운 기술적 접근을 통해 모델이 환경 인식 코드를 생성하는 능력을 시험하고 있습니다.
+
+- **Technical Details**: EACG는 주어진 기능적 요구사항과 명시적 환경 사양을 기반으로 하여 코드 생성을 목표로 합니다. 이는 고급 개념과 저급 라이브러리 의미에 대한 추론을 포함하며, 독립적인 패키지 조합에 대해 구성 가능해야 합니다. 연구에서는 데이터 기반 적응, 매개변수 기반 적응, 캐시 기반 적응의 세 가지 보완 전략을 활용하여 LLM의 환경 인식 능력을 개선하는 방법을 조사했습니다.
+
+- **Performance Highlights**: 현재 LLM들은 환경 특화 코드 생성을 어려워하고 있으며, 이는 코드의 실행 가능성을 저해합니다. 연구 결과, 데이터 기반 적응 및 메모리 보강 접근 방식은 LLM의 성능 향상에 기여하지만, 여전히 환경에 맞는 요구사항을 충족하지 못하는 한계점이 있습니다. 이 연구는 EACG 작업에 대한 첫 대규모 벤치마크인 VersiBCB를 제시하고, LLM의 환경 인식 코드 생성 능력에 대한 주요 발견과 향후 방향을 논의하고 있습니다.
+
+
+
+### AQUA-Bench: Beyond Finding Answers to Knowing When There Are None in Audio Question Answering (https://arxiv.org/abs/2601.12248)
+Comments:
+          Accepted to ICASSP 2026. Project Website: this https URL
+
+- **What's New**: 최근 오디오 인식 대형 언어 모델(Audio-aware Large Language Models, ALLMs)의 발전으로 오디오 질문 응답(Audio Question Answering, AQA)에서 뛰어난 성능이 나타났습니다. 그러나 기존의 벤치마크는 답변 가능한 질문에만 초점을 맞추고, 실제로는 답변할 수 없는 질문에 대한 도전을 간과하고 있습니다. 이를 해결하기 위해, 우리는 AQUA-Bench라는 새로운 벤치마크를 제안하여 오디오 질문 비가용성(Audio Question Unanswerability Assessment)을 평가합니다.
+
+- **Technical Details**: AQUA-Bench는 세 가지 시나리오를 체계적으로 평가합니다: (1) Absent Answer Detection (AAD): 정답 선택지가 누락된 경우, (2) Incompatible Answer Set Detection (IASD): 선택지가 질문과 카테고리적으로 불일치하는 경우, (3) Incompatible Audio Question Detection (IAQD): 질문이 오디오와 관련이 없거나 충분한 근거가 없는 경우입니다. 이를 통해 모델이 해결 가능한 질문과 불가능한 질문을 구별할 수 있는지를 테스트합니다.
+
+- **Performance Highlights**: 실험 결과, 기존 모델은 표준 응답 가능한 작업에서 높은 정확도를 보였으나, 비가용한 질문에 대해서는 상당한 도전에 직면했습니다. 이는 현재의 오디오-언어 이해에서 존재하는 주요 노출되지 않은 부분을 강조합니다. 이러한 결과는 신뢰할 수 있고 더 강력한 시스템 개발의 필요성을 보여줍니다.
+
+
+
+### The Language You Ask In: Language-Conditioned Ideological Divergence in LLM Analysis of Contested Political Documents (https://arxiv.org/abs/2601.12164)
+- **What's New**: 이 연구는 대형 언어 모델(LLMs)의 분석 도구로서의 활용과 관련하여 다국어 환경에서 발생하는 체계적인 편향을 조사합니다. 실험적으로 러시아어와 우크라이나어로 동일한 내용의 정치적 분석을 비교하는데, 이 과정을 통해 동일 모델임에도 불구하고 언어에 따라 상이한 이데올로기적 방향성을 드러냈습니다. 이 발견은 AI가 다국적 사회에서 어떻게 운영되어야 하는지에 대한 중요한 시사점을 제공합니다.
+
+- **Technical Details**: 우리는 ChatGPT 5.2를 사용하여 2019년 자우크리나 시민 사회 문서를 분석하도록 요구했습니다. 분석 요청은 동일한 구조와 의도를 가지고 있지만 언어만 다르게 설정했습니다. 러시아어 분석은 시민 사회 행동자들을 '준엘리트'로 묘사하며, 우크라이나어 분석은 '전문화된 친서방 시민 엘리트'로 이들을 평가했습니다.
+
+- **Performance Highlights**: 이 연구는 LLM의 정치적 편향이 단순한 모델 훈련뿐만 아니라 프롬프트 언어에 의해 조건 지어질 수 있음을 보여줍니다. 따라서 다국어 LLM의 행동을 연구하는 데 기여하며, 이들 모델이 동일한 정치적 내용을 분석할 때 이데올로기적 출력을 달라지게 할 수 있음을 입증합니다. 이러한 발견은 정보 전쟁 상황에서 AI의 역할에 대한 이해를 높이는 기초가 됩니다.
+
+
+
+### Neural Isomorphic Fields: A Transformer-based Algebraic Numerical Embedding (https://arxiv.org/abs/2601.12095)
+- **What's New**: 이번 연구에서는 수를 직접 사용하지 않고 숫자의 특성을 보존하는 고정 길이의 수 임베딩 벡터를 제안합니다. 특히, 새로운 Neural Isomorphic Field (NIF) 구조를 통해 수의 대수적 특성을 유지하는 임베딩을 생성하여 수학적인 연산에서의 안정성을 높이고자 합니다. 본 논문은 숫자의 연산을 더욱 풍부한 의미로 표현하기 위한 새로운 접근 방식을 제시합니다.
+
+- **Technical Details**: NIF 구조는 합산, 곱셈 및 비교와 같은 대수적 연산을 보존하는 임베딩 벡터를 생성합니다. 이를 통해, 숫자를 구성하는 임베딩 벡터의 집합은 유리수의 이소모픽 구조에 근접하도록 설계되었습니다. 논문에서는 이상적인 조건을 설정하고 이소모픽 필드의 수학적 정리를 증명하여, 실제로는 학습 과정에서 내재된 오류로 인해 이소모픽 구조를 완벽히 구현하지는 못함을 설명합니다.
+
+- **Performance Highlights**: 실험 결과, NIF 구조는 덧셈 연산에서 매우 높은 95% 이상의 정확도를 달성했으며, 대수적 테스트에서 우수한 성능을 나타냈습니다. 반면, 곱셈 연산은 53%에서 73% 사이의 정확도를 보이며 어려움을 겪고 있어 향후 연구에서 개선 방향이 필요함을 확인했습니다.
+
+
+
+### CroBIM-V: Memory-Quality Controlled Remote Sensing Referring Video Object Segmentation (https://arxiv.org/abs/2601.12076)
+- **What's New**: 이 논문은 원거리 영상에서 객체 분할(RS-RVOS) 분야의 도전 과제를 해결하기 위해 새로운 변화를 제안합니다. 첫째로, 111개의 비디오 시퀀스와 25,000프레임, 213,000개의 시간 참조 주석으로 구성된 RS-RVOS Bench라는 대규모 벤치마크를 구축했습니다. 둘째로, MQC-SAM이라고 불리는 메모리 품질 인식 온라인 참조 세분화 프레임워크를 제안하였습니다.
+
+- **Technical Details**: MQC-SAM은 초기 메모리 보정을 위한 시간적 운동 일관성 모듈을 도입하며, 짧은 시간 동안의 운동 궤적 우선 순위를 활용하여 구조적 편차를 수정합니다. 또한, 동적 품질 평가와 함께 디커플드(attention-based) 메모리 통합 메커니즘을 추가하여 높은 신뢰성을 가진 의미적 특성만을 선택적으로 업데이트하며, 불신뢰한 정보를 필터링하여 오류 축적과 전파를 효과적으로 방지합니다.
+
+- **Performance Highlights**: RS-RVOS Bench에서의 광범위한 실험 결과, MQC-SAM은 State-of-the-art 성능을 달성했음을 보여줍니다. 이는 기존 모델들이 겪는 초기 메모리 구축의 편향 또는 노이즈 축적 문제를 해결했다는 점에서 큰 의미가 있습니다. 특히 원거리 영상에서의 도전적인 시나리오들에 대해 성능 향상을 입증하였습니다.
+
+
+
+### A Multi-Agent System for Generating Actionable Business Advic (https://arxiv.org/abs/2601.12024)
+- **What's New**: 이 논문에서는 고객 리뷰의 분석을 넘어 비즈니스에 실행 가능한 조언을 제공하는 새로운 멀티 에이전트 기반 프레임워크를 제안합니다. 이 프레임워크는 리뷰 데이터에서 유용한 통찰을 끌어내기 위하여 클러스터링, 조언 생성을 비롯한 네 가지 구성 요소를 통합합니다. 기존의 감정 분석 및 요약에서 발전하여, 실제 문제 해결에 초점을 맞춘 조언을 생성하도록 설계되었습니다.
+
+- **Technical Details**: 제안된 방법론은 고객 리뷰를 클러스터로 그룹화하고, 각 클러스터에서 대표 리뷰를 선택하는 여러 에이전트로 구성됩니다. 이후 선정된 리뷰를 바탕으로 구체적이고 실행 가능한 조언을 생성하고, 이 조언은 특이성, 관련성, 실행 가능성, 간결성 등의 파라미터에 따라 평가됩니다. 최종적으로는 기업의 관점에서 실행 가능성과 비용, 효과성 등을 고려하여 조언의 우선 순위를 매깁니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 프레임워크가 기존 단일 모델 기준을 지속적으로 초과하여, 실행 가능성, 구체성 및 비중복성에서 향상된 성능을 보여주었다는 것을 입증합니다. 여러 서비스 도메인과 다양한 모델 패밀리를 기반으로 한 실험에서, 중간 규모의 모델이 대규모 모델 프레임워크에 가까운 성능을 구현하며, 여러 모델을 조합한 결과가 효과적임을 보여줍니다.
+
+
+
+### R$^2$PO: Decoupling Training Trajectories from Inference Responses for LLM Reasoning (https://arxiv.org/abs/2601.11960)
+- **What's New**: 이 연구에서는 대화형 시스템의 추론 응답과 훈련 최적화 경로 사이의 갈등을 해결하기 위해 R$^2$PO (Residual Rollout Policy Optimization)를 제안합니다. 기존 방법들은 단일 정책을 사용하여 두 가지 다른 목표를 동시에 수행하지만, 이로 인해 탐색 부족이 발생하여 추론 능력에 부정적인 영향을 미칩니다. R$^2$PO는 Residual Rollout-Head를 도입하여 훈련과 추론을 분리하여 훈련 중 다양한 경로 탐색을 가능하게 합니다.
+
+- **Technical Details**: R2PO는 훈련 경로와 추론 응답을 분리하는 경량 Residual Rollout-Head를 사용하여 안정적인 추론 생성을 유지하면서 다양한 경로 탐색을 수행합니다. 이 방법은 기본 정책의 안정성을 강화하고, 독립적인 Residual Rollout-Head를 통해 탐색을 촉진합니다. 구조적으로, Rollout-Head는 트랜스포머 백본 위에 통합되어 탐색과 최적화를 조정하는 역할을 합니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 R2PO는 기존 방법과 비교해 평균 정확도가 MATH-500에서 3.1%, APPS에서 2.4% 향상되었습니다. 또한, 형식 오류를 줄이고 길이 편향을 완화하여 훈련 안정성을 높였습니다. 이를 통해 R2PO는 여러 테스트에서 일관되게 우수한 성능을 발휘하였으며, 계산 비용이 거의 발생하지 않는 이상적인 솔루션으로 자리 잡았습니다.
+
+
+
+### Thinking Traps in Long Chain-of-Thought: A Measurable Study and Trap-Aware Adaptive Restar (https://arxiv.org/abs/2601.11940)
+- **What's New**: 이 논문에서는 Long Chain-of-Thought (Long-CoT)를 활용하여 테스트 시간의 컴퓨팅을 확장하는 새로운 방법론을 제안합니다. 하지만 이 방식이 항상 정답을 보장하지 않으며, 잘못된 초기 선택이 이후에 자가 일관성 있는 잘못된 경로를 이어가게 할 수 있는 문제를 지적합니다. 이는 Thinking Traps로 불리는 접착 상태를 초래하며, 학습된 강력한 교정 메커니즘 없이도 오류가 수정되지 않는 상황을 야기하는 요소입니다.
+
+- **Technical Details**: 연구진은 Trap-Aware Adaptive Restart (TAAR)라는 테스트 시간 제어 프레임워크를 도입하여 문제를 해결하고자 합니다. 이 프레임워크는 부분 경로에서 두 가지 신호—구획 인덱스와 탈출 확률—를 예측하는 진단 정책을 훈련합니다. 추론 시 TAAR는 예측된 함정 구역 이전에서 경로를 잘라내고, 적응적으로 디코딩을 재시작하며, 심각하게 함정에 빠진 경우에는 높은 온도를 이용한 재샘플링 같은 강한 교정 방법을 적용합니다.
+
+- **Performance Highlights**: TAAR의 성능은 AIME24, AIME25, GPQA-Diamond, HMMT25, BRUMO25와 같은 도전적인 수학 및 과학 추론 벤치마크에서 실험을 통해 입증되었습니다. 이 방법은 기본 모델 파라미터를 미세 조정하지 않고도 추론 성능을 향상시키는 효과를 보여주었습니다. 결과적으로 89%의 실패 사례에서 발견된 Thinking Traps를 효과적으로 해결하여 논리적 추론 능력을 증진시킵니다.
+
+
+
+### AGGC: Adaptive Group Gradient Clipping for Stabilizing Large Language Model Training (https://arxiv.org/abs/2601.11864)
+Comments:
+          13 pages
+
+- **What's New**: 본 논문에서는 기울기 클리핑(gradient clipping)의 한계를 극복하고 대형 언어 모델(Large Language Models, LLMs) 훈련을 안정화하기 위한 새로운 방법인 적응형 그룹별 기울기 클리핑(Adaptive Group-wise Gradient Clipping, AGGC)을 제안합니다. 전통적인 기법인 전역 정규화 기울기 클리핑(global norm clipping)은 다양한 기능 모듈 간 기울기 동질성을 잘못 가정하여, 불안정 매개변수가 안정적 매개변수에 불필요한 영향을 미치는 "spill-over" 효과를 초래합니다. AGGC는 기능 유형에 따라 매개변수를 그룹으로 나누고, 각 그룹에 대해 과거 동향을 기반으로 조절하여 기울기 폭발과 사라짐을 동시에 완화합니다.
+
+- **Technical Details**: AGGC는 개별 매개변수 그룹의 역사적 기울기 동향을 추적하기 위해 지수 이동 평균(Exponential Moving Average, EMA)을 활용하여 매개변수 조정 메커니즘을 동적으로 형성합니다. 각 그룹은 훈련 단계에 따라 두 개의 허용 구간([Lj(t), Uj(t)])에 의해 조절되며, 이는 기울기 폭발을 억제하고 기울기 소실을 예방합니다. 또한 AGGC는 시간에 따라 조정되는 스케줄링 전략을 적용하여 탐색과 수렴 간의 균형을 유지합니다.
+
+- **Performance Highlights**: AGGC는 LLaMA 2-7B, Mistral-7B 및 Gemma-7B 모델에 대한 실험에서 LoRA를 지속적으로 초과하고, 전체 미세 조정(Full Fine-Tuning)을 자주 초과했습니다. 샘플 성능으로, AGGC를 통해 미세 조정된 Mistral-7B는 GSM8K 벤치마크에서 72.93%의 정확도를 달성하여 LoRA의 69.5%를 초과했습니다. AGGC는 또한 강화 학습(Reinforcement Learning)에서 안정화를 효과적으로 촉진하여 Qwen 2.5와 Llama 3.2 모델의 논리적 추론을 향상시키는 데 기여했습니다.
+
+
+
+### Utilizing Metadata for Better Retrieval-Augmented Generation (https://arxiv.org/abs/2601.11863)
+Comments:
+          The 48th European Conference on Information Retrieval (ECIR 2026)
+
+- **What's New**: 이 논문은 메타데이터(metadata) 통합이 Retrieval-Augmented Generation (RAG) 시스템에서 검색 품질 및 답변 정확성을 향상시키는 효능을 처음으로 체계적으로 분석했습니다. 연구팀은 메타데이터를 필터가 아닌 기본 입력으로 삼아 이점을 조사하며, 단순히 텍스트에 메타데이터를 플래트닝(flattening)하는 방법뿐만 아니라, 독립적인 방식으로 메타데이터와 내용을 임베드하는 이중 인코더(Dual-Encoder) 아키텍처를 제안합니다.
+
+- **Technical Details**: 메타데이터를 텍스트로 통합하는 전통적인 방법 외에, 이중 인코더를 사용해 메타데이터와 내용을 별도로 임베딩한 후 결합하는 방법도 도입되었습니다. 연구에서는 메타데이터를 통해 텍스트의 전후에 붙이는(prefixing) 또는 문서의 각 조각(chunk)의 후단에 붙이는(suffix) 방법을 검토하여, 텍스트 기반의 기본선과 비교했습니다. 그 결과, 메타데이터와 내용을 통합된 임베딩(unified embedding)으로 처리했을 때 일관되게 더 높은 정확성을 보였습니다.
+
+- **Performance Highlights**: 이 연구는 메타데이터 통합이 문서 내 응집력(intra-document cohesion)을 증가시키고, 문서 간 혼란(inter-document confusion)을 줄여 검색의 효과성을 크게 개선하는 것을 보여주었습니다. SEC 보고서를 대상으로 한 이 연구는 금융 질문 응답(QA) 벤치마크에서 RAG 시스템의 한계를 극복하는 방안을 제시하며, RAGMATE-10K라는 메타데이터가 풍부한 벤치마크와 코드 및 평가 프레임워크를 공개하여 재현 가능한 평가가 가능하도록 하였습니다.
+
+
+
+### A self-evolving multi-role collaborative framework with fine-grained difficulty guidance for innovative mathematical problem generation (https://arxiv.org/abs/2601.11792)
+- **What's New**: 이번 논문에서는 혁신적인 수학 문제 생성(IMPG) 작업을 제안하며, 기존 LLM들이 가지는 낮은 혁신성과 불분명한 판별력을 해결하기 위해 자기 진화하는 다역할 협력 프레임워크를 도입합니다. 이 프레임워크는 샘플러, 생성기, 평가자, 상태 기계 및 메모리로 구성되어 반복 최적화를 통해 생성된 문제의 정확성을 향상시키며, 정교한 난이도 지침을 제공합니다. 최종적으로, HSM3K-CN 데이터셋을 구축하였으며, 이 데이터셋은 3,160개의 고품질 고등학교 수학 문제로 구성되어 있습니다.
+
+- **Technical Details**: 연구에서는 자기 평가를 통한 반복 최적화와 외부 피드백을 활용하여 문제 생성의 품질을 높이는 것을 목표로 합니다. 16비트 난이도 인코딩 체계를 도입하여 문제 난이도를 정량화하고, 데이터 기반 연결 유도 경로 샘플링(DAPS) 알고리즘을 사용하여 의미론적 합리성을 개선합니다. 또한, 지속적 사전 훈련(CPT), 감독된 세부 조정(SFT), 및 그룹 상대 정책 최적화(GRPO)를 포함한 다단계 훈련 파이프라인이 채택되었습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 기준 모델과 비교하여 생성된 문제의 혁신성과 구별력을 유의미하게 향상시키며, 높은 정확도를 유지하는 것으로 나타났습니다. 특히, 새롭게 제안된 난이도 모델과 자기 진화 메커니즘을 통해 LLM의 문제 생성 능력 및 평가 성능이 크게 향상되었습니다. 이로써 자동 문제 생성 기술의 향후 발전 방향에 유의미한 기초를 마련하게 되었습니다.
+
+
+
+### The Stability Trap: Evaluating the Reliability of LLM-Based Instruction Adherence Auditing (https://arxiv.org/abs/2601.11783)
+- **What's New**: 본 논문은 규제된 분야에서 Generative AI (GenAI)의 엔터프라이즈 거버넌스를 위한 자동화된 감사 메커니즘을 제안합니다. 특히, Scoped Instruction Decomposition Framework (SID)를 소개하여 응용 프로그램의 지침을 객관적(Objective) 및 주관적(Subjective) 유형으로 분류하고, 판사의 불안정을 초래하는 요인을 분리합니다. 연구 결과, 높은 판결 안정성이 존재하더라도 이면에 fragile한 reasoning이 숨어 있음을 보여줍니다.
+
+- **Technical Details**: 연구는 두 가지 HR GenAI 사용 사례에 SID 프레임워크를 적용하여 다양한 판사 아키텍처의 안정성을 평가합니다. 연구 결과에 따르면, 판사들은 객관적 및 주관적 평가 모두에 대해 99% 이상의 판결 동의를 보였으나, 이에 따른 정당화 추적의 안정성은 크게 차이가 났습니다. Objective 지침에서는 정량적 분석이 필요할 경우 reasoning 안정성이 19%에 불과한 경우도 있으며, 이는 숫자 허구(numeric hallucinations)에 의해 발생합니다.
+
+- **Performance Highlights**: 연구는 'Stability Trap'이라는 개념을 도입하며, 이는 높은 판결의 안정성이 실제로는 reasoning의 실패를 가릴 수 있음을 강조합니다. 주관적 지침의 reasoning 안정성은 증거의 세부 사항에 따라 폭 넓은 변동이 있음을 보여주며, 객관적 지침은 높은 reasoning 안정성을 기록합니다. 따라서, 목표는 모든 결정 가능적으로 검증 가능한 로직을 코드에 위임하고, LLM 판사는 복잡한 의미적 평가에 한정해야 한다는 권고를 제시합니다.
+
+
+
+### Advances and Frontiers of LLM-based Issue Resolution in Software Engineering: A Comprehensive Survey (https://arxiv.org/abs/2601.11655)
+Comments:
+          26 pages, 4 figures, 5 tables
+
+- **What's New**: 이 논문은 Software Engineering (SWE)에서의 이슈 해결 과제를 다루고 있으며, 최근의 연구가 부족했던 문제를 해결하기 위한 심층 서베이를 포함합니다. 특히, SWE-bench의 도입으로 인해 대형 언어 모델에 대한 이 과제가 상당히 어려움이 있음이 드러났습니다. 저자들은 다양한 방법론과 데이터 수집 파이프라인을 체계적으로 분석하여 소프트웨어 유지보수 및 발전의 새로운 연구 영역을 발전시키고자 합니다.
+
+- **Technical Details**: 이슈 해결(task formulation)은 코드베이스와의 상호작용을 통해 유효한 코드 변경(patch) 𝒫를 생성해야 합니다. 이 과정에서 이슈 설명 𝒟와 코드베이스 𝒞, 관련 테스트 𝒯의 구성요소로 이루어진 인스턴스 ℐ를 정의합니다. 패치가 적용된 후, 수정된 코드베이스 𝒞′에서 테스트를 실행하여 결과를 평가하게 됩니다.
+
+- **Performance Highlights**: 데이터 구축은 이슈 해결 과제의 핵심으로, 평가 및 훈련 세트로 분류됩니다. 기존의 평가 데이터는 주로 Python에 초점을 맞추었지만, 최근의 연구에서는 다중 언어 지원 및 시각적 맥락 통합을 통해 사용 사례를 확장하고 있습니다. 자동화된 데이터 수집 방법으로 훈련 데이터 구축이 점차 발전하고 있으며, 이는 모델 학습의 효율성을 높이는데 기여하고 있습니다.
+
+
+
+### Mixture-of-Experts as Soft Clustering: A Dual Jacobian-PCA Spectral Geometry Perspectiv (https://arxiv.org/abs/2601.11616)
+- **What's New**: 이번 연구에서는 Mixture-of-Experts (MoE) 아키텍처를 기하학적 관점에서 탐구합니다. 특히, 라우팅(routing)을 로컬 차트를 겹치는 형태로 해석하며, 함수 및 표현의 기하학이 어떻게 변화하는지를 분석합니다. 이러한 접근은 MoE 아키텍처의 효율성과 조건부 계산 외에도 면밀한 기하학적 특성을 드러내는 데 기여합니다.
+
+- **Technical Details**: 우리는 Dual Jacobian-PCA Spectral Geometry 프로브를 도입합니다. 이 프로브는 Jacobian의 고유값 스펙트럼을 통해 로컬 함수 기하학을 분석하며, 라우팅된 히든 상태의 가중치 PCA를 통해 표현 기하학을 분석합니다. 또한, MLP-MoE 설정을 통해 정확한 Jacobian 계산을 가능하게 하여, 밀집(dense), Top-k, 완전 소프트(routing) 아키텍처를 비교합니다.
+
+- **Performance Highlights**: 연구에서 MoE 라우팅은 로컬 민감도를 일관되게 감소시키는 경향을 보였습니다. 전문가 전용 Jacobians는 밀집 기준선보다 더 작은 주요 고유값과 빠른 스펙트럼 감쇠를 나타냈습니다. 또한, 가중치 PCA를 활용한 분석에서 전문가 전용 표현이 더 많은 방향으로 분산되며, 이는 동일한 입력 분포에서 더 높은 효과적인 차원을 나타냅니다.
+
+
+
+### Overview of the SciHigh Track at FIRE 2025: Research Highlight Generation from Scientific Papers (https://arxiv.org/abs/2601.11582)
+Comments:
+          7 pages, 2 tables
+
+- **What's New**: ‘SciHigh: Research Highlight Generation from Scientific Papers’는 과학 논문 초록에서 직접 간결하고 의미 있는 하이라이트를 자동으로 생성하는 작업에 중점을 두고 있습니다. 이 연구의 목표는 컴퓨터 모델이 논문의 주요 기여 및 발견을 포착하는 하이라이트를 얼마나 효과적으로 생성할 수 있는지를 평가하는 것입니다. 하이라이트는 독자가 필수 아이디어를 신속하게 파악하는 데 도움을 주며, 특히 모바일 기기에서 긴 문단보다 읽고 이해하기 더 쉽습니다.
+
+- **Technical Details**: SciHigh 트랙은 MixSub 데이터셋을 사용하여 12개 팀이 다양한 접근 방식을 통해 과학 논문 초록에서 하이라이트를 생성하는 작업에 참여했습니다. 이 데이터셋은 2020년 출판된 19,785개의 연구 논문을 포함하고 있으며, 각 논문에는 초록과 해당 저자가 작성한 하이라이트가 포함되어 있습니다. 모든 제출물은 ROUGE, METEOR 및 BERTScore와 같은 기존 메트릭을 사용하여 평가되었으며, ROUGE-L 점수를 기반으로 팀이 순위가 매겨졌습니다.
+
+- **Performance Highlights**: 대회에서 가장 높은 점수를 기록한 Text_highlights_gen 팀은 Pegasus 모델과 NER 기능을 활용하여 성능을 최적화했습니다. 이 모델은 ROUGE-L F1 점수 23.45%로 1위를 기록했습니다. AiNauts 팀은 추출적 및 요약적 접근 방식을 결합하여 하이라이트를 생성하여 23.24%의 ROUGE-L F1 점수로 2위를 차지했으며, SVNIT_CSE 팀은 다양한 변형의 transformer 기반 모델을 조합하여 23%의 ROUGE-L F1 점수를 기록했습니다.
+
+
+
+### AdaFRUGAL: Adaptive Memory-Efficient Training with Dynamic Contro (https://arxiv.org/abs/2601.11568)
+- **What's New**: 이번 연구에서는 AdaFRUGAL을 도입하여 기존의 FRUGAL 프레임워크가 가진 몇 가지 한계를 극복합니다. AdaFRUGAL은 두 가지 동적 제어 메커니즘을 도입하여 메모리와 계산 자원을 효율적으로 관리하고 훈련 효율성을 높입니다. 특히, 고정된 하이퍼파라미터 대신 자동으로 조정되는 동적 원리로 훈련 진행에 따라 성능과 메모리 사용 간의 균형을 최적화합니다.
+
+- **Technical Details**: AdaFRUGAL은 초기 훈련 단계에서 더 높은 상태 완전 비율(ρ)부터 시작하여 훈련 진행에 따라 선형적으로 감소시키고, 손실에 기반하여 업데이트 주기(T)를 동적으로 조정합니다. 이를 통해 훈련 초기에는 강력한 AdamW 옵티마이저의 도움으로 빠르게 수렴하고, 후반부에는 메모리 효율적인 SignSGD를 사용하여 더 적은 메모리로도 최적화를 수행할 수 있습니다. 이 접근법은 메모리 소비를 줄이면서도 경쟁력 있는 성능을 유지할 수 있게 해줍니다.
+
+- **Performance Highlights**: 실험 결과, AdaFRUGAL은 영어 C4 및 베트남어 VietVault 데이터셋에서의 대규모 사전 훈련과 GLUE 벤치마크에서의 미세 조정 작업에서 AdamW와 기존의 정적 FRUGAL 프레임워크와 비교하여 경쟁력 있는 성능을 보여줍니다. 또한, AdaFRUGAL은 훈련 시간과 GPU 메모리 사용량을 대폭 줄이면서 보다 실용적이고 자율적인 LLM 훈련 솔루션을 제공합니다.
+
+
+
+### MIMIC-RD: Can LLMs differentially diagnose rare diseases in real-world clinical settings? (https://arxiv.org/abs/2601.11559)
+Comments:
+          5 pages
+
+- **What's New**: 이번 연구에서는 드문 질병에 대한 차별적 진단의 한계를 극복하기 위해, MIMIC-RD라는 새로운 벤치마크를 소개합니다. 기존 접근 방식들은 임상 케이스 연구에 의존하거나 ICD 코드에 기반하여 드문 질병을 잘못 분류하는 문제를 안고 있습니다. MIMIC-RD는 임상 텍스트와 Orphanet 데이터베이스를 직접 연결하여 드문 질병을 정확하게 식별할 수 있도록 설계되었습니다.
+
+- **Technical Details**: 연구 방법론은 RDMA를 사용하여 임상 노트에서 드문 질병 정보를 추출하는 것입니다. 이 과정은 LLM을 통해 잠재적 드문 질병을 처음 추출하고, 네 명의 의학 학생에 의해 이를 검증하여 실제 드문 질병인지 확인하는 단계로 이루어집니다. 환자 목록을 기준으로 LLM이 가장 가능성이 높은 드문 질병을 예측하는 차별적 진단을 설정하였습니다.
+
+- **Performance Highlights**: 현재 사용 중인 LLM은 드문 질병의 차별적 진단에서 상대적으로 낮은 성능을 보였습니다. LLM의 예측 정확도는 약 60%의 드문 질병을 놓치는 결과를 나타냈으며, 이는 기존 문헌에서 보고된 성과보다 약 35% 낮은 수치입니다. 환자들의 증상 프로필과 문서화된 질병 프로필 간에서 의미 있는 겹침이 존재함에도 불구하고, LLM은 올바른 질병을 잘 예측하지 못했습니다.
+
+
+
+### CSyMR: Benchmarking Compositional Symbolic Muisc Reasoning With MIR Tool Integration (https://arxiv.org/abs/2601.11556)
+- **What's New**: 본 논문에서는 CSyMR-Bench라는 새로운 벤치마크를 소개하며, 이는 126개의 선택 문제가 포함된 데이터셋으로, 음악 이론 포럼과 전문 시험에서 유래한 질문으로 구성되어 있습니다. 기존의 벤치마크가 소수의 지식이나 단일 분석에 집중하는 것에 비해, 이 연구는 음악 구조를 연결하는 데 필요한 종합적인 구성 reasoning을 강조합니다. 또한, 음악21 라이브러리의 도구를 활용한 보조 에이전트 프레임워크를 도입하여 CSyMR-Bench의 도전에 대응합니다.
+
+- **Technical Details**: CSyMR-Bench는 Humdrum kern 표기법으로 표현된 악보 입력을 사용하고, 여러 개의 원자 분석을 결합하여 일관된 reasoning 체인을 형성하는 방식으로 질문에 답하는 것에 중점을 둡니다. 이 벤치마크는 두 가지 출처에서 유래한 126개의 선택 문제를 포함하며, 각 질문은 여러 원자 분석을 체이닝하는 과정을 요구합니다. 문제는 Pitch & Interval 분석, Chord & Harmony 분석 등 6가지 분석 차원에 따라 분류됩니다.
+
+- **Performance Highlights**: 우리가 개발한 도구 보조 에이전트는 모든 기준선에 비해 일관되게 더 높은 성능을 보여 5-7%의 절대 정확도 향상률을 기록했습니다. CSyMR-Bench는 커뮤니티 출처와 시험 스타일 질문 모두에서 비간단한 도전 과제를 제시하며, 이로 인해 그 유용성이 강조됩니다. 이러한 성능 개선은 LLM의 일반적인 reasoning 능력과 음악21 기반의 도메인 특정 분석을 결합하여 이루어졌습니다.
+
+
+
+### Medication counseling with large language models: balancing flexibility and rigidity (https://arxiv.org/abs/2601.11544)
+Comments:
+          Accepted for 2025 IEEE International Conference on Agentic AI (ICA). 14 pages, 2 figures
+
+- **What's New**: 이번 연구에서는 약국 환경에서의 약물 상담을 제공하기 위해 대화형 소프트웨어 에이전트를 개발하는 방법을 제안합니다. 이전의 연구들은 주로 여러 약물에 대한 짧은 상호작용에 초점을 맞추었으나, 본 연구는 단일 약물에 대한 장기적인 대화 인터페이스를 개발합니다. 이러한 접근은 더욱 깊은 문제 이해와 대화의 복잡성을 분석하는 데 도움을 줍니다. 또한, 대화 요구와 유연성 간의 균형을 유지하는 것이 큰 도전 과제로 남아 있습니다.
+
+- **Technical Details**: 시스템은 Conversationalist(대화자), Medicine Interpreter(약물 해석기), Symptom Assessor(증상 평가자)라는 세 개의 ReAct 에이전트로 구성됩니다. 이들은 그래프 기반 구현에서 노드와 엣지를 통해 구현되어 서로의 상호작용을 통해 상담을 진행합니다. 각 에이전트는 계층적 작업 분석 방법을 통해 할당된 작업을 수행하며, 장기적인 대화 처리를 위해 작업을 분해하고 안전성을 확보합니다.
+
+- **Performance Highlights**: 이 시스템은 ReAct 에이전트를 활용하여 잘못된 응답 확률을 줄이면서도 대화의 유연성을 유지할 수 있습니다. 각 에이전트는 서로의 출력을 교차 검증하며, 오류 발생 시 스스로 교정할 수 있는 기능을 갖추고 있습니다. 초기 실험 결과는 상담 품질이 향상되는 것으로 나타났으며, 향후 지속적인 테스트와 인간의 피드백을 통한 개선이 필요합니다.
+
+
+
+### Lightweight Prompt Biasing for Contextualized End-to-End ASR Systems (https://arxiv.org/abs/2506.06252)
+- **What's New**: 이 논문에서는 End-to-End 자동 음성 인식(ASR) 시스템의 성능을 높이기 위한 새로운 방법을 제안합니다. 제안된 Prompt Biasing 기법은 biasing 모델과 엔티티 필터링 메커니즘을 포함하여, ASR 정확도를 높입니다. 이 접근법은 특정 컨텍스트에서의 희귀 단어 및 도메인 특화 용어의 인식을 개선하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: Prompt Biasing 방식은 다중 작업 학습(multi-task learning) 프레임워크를 활용하여 Transformer 기반 ASR 시스템에 컨텍스트 정보를 전달합니다. 이를 통해 ASR 시스템은 주어진 상황에서 적절한 엔티티에 초점을 맞춤으로써, 비편향 및 편향 상황 모두를 효과적으로 처리할 수 있습니다. 엔티티 필터링 기술 또한 포함되어 대규모 biasing 리스트에서도 성능이 뛰어나게 유지됩니다.
+
+- **Performance Highlights**: 실험 결과에 따르면, Prompt Biasing 모델은 기존의 shallow fusion 모델에 비해 음성 인식에서 상대적으로 30.7% 및 18.0% 더 낮은 엔티티 단어 오류율(Entity Word Error Rate, EWER)을 달성했습니다. 이는 작은 및 큰 엔티티 리스트를 사용한 도메인 특화 데이터셋에서 이루어진 결과로, 제안된 방법이 효율적이며 경제적임을 보여줍니다.
+
+
+
+### Matrix as Plan: Structured Logical Reasoning with Feedback-Driven Replanning (https://arxiv.org/abs/2601.10101)
+Comments:
+          12 pages, 5 figures, 2 tables. Accepted at The Web Conference (WWW) 2026
+
+- **What's New**: 이 논문은 MatrixCoT라는 구조화된 Chain-of-Thought (CoT) 프레임워크를 제안합니다. 기존의 LLMs는 복잡한 기호적 추론 작업에서 한계를 보였으나, MatrixCoT는 이를 해결하기 위한 매트릭스 기반의 계획을 도입하여 LLM의 신뢰성을 높입니다. 새로운 프레임워크는 자연어 표현을 정규화하고, 인용을 명시적으로 연결하며, 글로벌 관계를 유지합니다.
+
+- **Technical Details**: MatrixCoT는 구조화된 기호 표현과 매트릭스 기반의 계획 방법을 사용하여 LLM의 논리적 추론 능력을 향상시킵니다. 이 방법은 감시 기반의 재계획 메커니즘을 추가하여 불완전한 의존성을 식별하고 수정할 수 있습니다. 매트릭스는 단계 간의 관계를 명확히 하여 주요 사실을 놓치지 않도록 합니다.
+
+- **Performance Highlights**: MatrixCoT는 다섯 개의 논리적 추론 기준과 다섯 개의 LLM에서 실험을 수행한 결과, 외부 솔버에 의존하지 않고도 LLM의 견고성과 해석 가능성을 향상시켰습니다. 이 방법은 복잡한 기호적 추론 작업에서도 경쟁력 있는 성능을 유지합니다. 이를 통해 LLM의 신뢰할 수 있는 행동을 보장하고, 웹 기반의 애플리케이션에서의 활용도를 높입니다.
+
+
+
+New uploads on arXiv(cs.IR)
+
+### XR: Cross-Modal Agents for Composed Image Retrieva (https://arxiv.org/abs/2601.14245)
+Comments:
+          Accepted by WWW 2026. Project: this https URL
+
+- **What's New**: 이 논문에서는 에이전트 기반 AI의 발전에 따라 검색(retrieval)의 정의가 재정립되고 있음을 설명합니다. 특히, Composed Image Retrieval (CIR)은 각 쿼리가 이미지와 텍스트 수정을 결합하는 방식으로 모델의 제한된 유사성 기반 접근 방식을 넘어서는 필요성을 강조합니다. 이를 통해 다중 모달(multi-modal) 추론(compositional understanding)의 중요성을 강조하고 있습니다.
+
+- **Technical Details**: 본 연구는 XR이라는 훈련이 필요 없는 다중 에이전트(multi-agent) 프레임워크를 도입하여 검색 과정을 점진적인 조정된 추론(process)으로 재구성합니다. XR은 세 가지 전문 에이전트 타입, 즉 상상 에이전트(imagination agents), 유사성 에이전트(similarity agents), 질문 에이전트(question agents)를 orchestrate하여 작동합니다. 이러한 에이전트들은 각각 크로스-모달 생성, 하이브리드 매칭, 사실적 일관성 검증을 수행하여 검색의 질을 높이고 있습니다.
+
+- **Performance Highlights**: XR 프레임워크를 채택함으로써 FashionIQ, CIRR, CIRCO 데이터셋에서 강력한 훈련 기반 및 비훈련 기반 기준선(sample) 대비 최대 38%의 성능 향상을 달성하였습니다. 각 에이전트의 중요성을 강조하는 ablation 결과도 포함되어 있어, 이 시스템의 필수적인 구조를 증명하고 있습니다. 논문에 첨부된 코드를 통해 연구의 재현 가능성을 높이고 있습니다.
+
+
+
+### Rerank Before You Reason: Analyzing Reranking Tradeoffs through Effective Token Cost in Deep Search Agents (https://arxiv.org/abs/2601.14224)
+Comments:
+          10 pages, 7 figures
+
+- **What's New**: 본 연구에서는 복잡한 쿼리에 대한 응답을 위해 대규모 언어 모델(LLMs)과 반복적 검색 및 추론을 결합한 깊은 연구 에이전트의 효율성을 분석합니다. 주목할 점은 리스트 방식 재정렬(listwise reranking)의 비용-효과성을 고려하여 깊은 검색 파이프라인에서 추론 예산을 할당하는 방법입니다. BrowseComp-Plus 벤치마크를 기반으로 하는 효과적인 토큰 비용(ETC) 지표를 도입하여 모델 규모, 추론 노력, 재정렬 깊이 및 총 토큰 비용 간의 균형을 평가합니다.
+
+- **Technical Details**: 연구 방법으로는 LLM이 반복적으로 쿼리를 생성하고 검색 도구를 호출하는 BrowseComp-Plus 설정을 따릅니다. 실험에서는 OpenAI의 gpt-oss-20b 및 gpt-oss-120b 모델을 사용하여 저비용, 중간비용, 고비용 설정에서 에이전트 검색을 진행합니다. 리스트 방식 재정렬을 위한 점수를 평가하기 위해 Recall@5, NDCG@5 등의 지표를 활용하여 성과를 측정하며, 각 추론 및 재정렬은 서로 다른 GPU에서 실행됩니다.
+
+- **Performance Highlights**: 결과적으로, 리스트 방식 재정렬이 검색 품질을 일관되게 개선하고 전반적인 토큰 비용을 줄임을 보여줍니다. 또한, 적당한 재정렬이 검색 시간 추론을 늘리는 것보다 비용 대비 더 큰 이득을 가져올 수 있음을 확인했습니다. 이러한 결과는 데이터 집합의 830개의 깊은 검색 쿼리를 통해 검증됐으며, oss-120b 모델이 다양한 설정에서 항상 oss-20b 모델보다 우수한 성능을 발휘합니다.
+
+
+
+### Auditory Brain Passage Retrieval: Cross-Sensory EEG Training for Neural Information Retrieva (https://arxiv.org/abs/2601.14001)
+Comments:
+          Accepted At ECIR 2026
+
+- **What's New**: 이 연구에서는 Brain Passage Retrieval (BPR) 프레임워크에서 청각 EEG를 사용하여 쿼리 표현을 탐구하고, 다양한 감각 모달리티에서의 교육을 통한 효과성을 조사합니다. 기존 BPR 연구는 시각 자극에만 초점을 맞추고 있었으나, auditory EEG가 음성 기반 인터페이스와 저시력 사용자를 위한 효과적인 검색을 지원할 수 있는지를 처음으로 검토하고 있습니다. 또한, 청각과 시각 데이터를 결합한 훈련이 제한된 EEG 데이터 문제를 해결하는 데 어떤 도움을 줄 수 있는지를 다룹니다.
+
+- **Technical Details**: 이 연구는 이중 인코더 아키텍처를 사용하고, 네 가지 풀링 전략 (CLS token pooling, mean pooling, max pooling, multi-vector representations)을 비교하여 청각 자극(Alice dataset)과 시각 자극(Nieuwland dataset)에 대한 실험을 수행합니다. 다양한 감각 모달리티의 EEG 데이터를 통합하는 교육이 비단일 모달리티에서의 검색 성능을 향상시키는지 직접적으로 평가하고 있으며, 이를 통해 다양한 신경 인터페이스 구현 방향을 제안합니다. 모델은 EEG 신호를 직접 밀집 passage 표현으로 매핑하여 텍스트 번역의 중간 단계를 우회합니다.
+
+- **Performance Highlights**: 실험 결과, 청각 EEG 모델이 시각 EEG 모델보다 항상 우수한 성능을 보였습니다. 특히, CLS 풀링을 통한 감각 결합 교육에서 MRR(Mean Reciprocal Rank)은 31% 개선되고, Hit@1에서 43%, Hit@10에서 28%의 향상이 있었습니다. 청각 EEG 모델은 BM25 텍스트 기준 모델 대비 밀접하게 경쟁력을 가지며, 이러한 결과들은 청각 신경 인터페이스가 정보 검색 작업에 유효함을 입증합니다.
+
+
+
+### IF-GEO: Conflict-Aware Instruction Fusion for Multi-Query Generative Engine Optimization (https://arxiv.org/abs/2601.13938)
+Comments:
+          9 pages, 3 figures. Submitted to ACL 2026. Corresponding author: Zhen Chen
+
+- **What's New**: 이 논문에서 제안하는 IF-GEO는 '다양성 후 수렴' 프레임워크로, 문서 최적화의 단계를 두 가지로 나누어 진행합니다. 첫 번째 단계는 대표적인 잠재 질의(latent queries)로부터 수정 요청을 수집하는 것이고, 두 번째 단계는 이러한 요청을 통일된 글로벌 수정 청사진(Global Revision Blueprint)으로 조정하여 문서 수정을 안내하는 것입니다. 이는 다양한 사용자 질의를 동시에 다룰 수 있는 새로운 방법론으로, 최적화의 안정성을 측정할 수 있는 리스크 인식 안정성 지표도 도입합니다.
+
+- **Technical Details**: IF-GEO는 각 문서에 대해 다양한 질의가 제시될 때 발생하는 제약 최적화 문제를 해결하기 위해 설계되었습니다. 이를 통해 잠재 질의에서 특성화된 최적화 선호를 추출하고, 이러한 선호를 갈등을 인식하는 지시 융합(conflict-aware instruction fusion)을 통해 통합하여 문서 수정을 구성합니다. 이 과정에서 Worst-Case Performance(WCP), Win-Tie Rate(WTR), Downside Risk(DR)과 같은 새로운 안정성 지표를 도입하여 최적화의 안전성과 견고성을 수량화합니다.
+
+- **Performance Highlights**: 다양한 질의를 포함한 벤치마크 실험에서 IF-GEO는 상당한 성능 향상을 달성하며, 문서의 가시성을 개선했습니다. 또한, 다양한 검색 시나리오에서 안정성을 유지하는 데 효과적이었습니다. 최적화 과정에서 발생할 수 있는 성능 변동을 완화시키며, 다양한 사용자 요구를 동시에 충족할 수 있는 능력을 입증했습니다.
+
+
+
+### Question-Focused Filtering for Knowledge-based VQA (https://arxiv.org/abs/2601.13856)
+- **What's New**: 이번 논문은 Knowledge-based Visual Question Answering (KB-VQA) 분야에서 중요한 질문 중심의 필터링 방법을 제안합니다. 이를 통해 외부 지식과 이미지를 통합하여 질문에 답변하는 시스템의 정확성을 높이려는 시도를 하고 있습니다. 특히, 효율적인 계산 비용을 유지하면서도 고품질 필터링을 가능하게 하는 새로운 기술을 개발했습니다.
+
+- **Technical Details**: 본 논문에서는 Trainable Question-Focused Filter (QFF)와 Chunk-based Dynamic Multi-Article Selection (CDA) 모듈을 설계합니다. QFF는 QFormer 아키텍처에 기반하여 질문의 의미를 인코딩하고, 이를 통해 지식 인코딩 과정에서 질문에 관련된 의미적 단서를 통합합니다. CDA 모듈은 긴 텍스트를 균일한 크기로 분할하여 정확한 정보 검색을 지원하며, 여러 기사의 내용을 동적으로 선택하는 전략을 채택합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 E-VQA에서 4.9% 및 InfoSeek에서 3.8% 성능 향상을 나타내며, 현재 최고의 모델들에 비해 유의미한 성과를 보였습니다. 이는 질문 필터링과 정보 선택 오류를 효과적으로 줄임으로써 모델의 전반적인 효율성을 향상시킴을 확인시켜 주었습니다.
+
+
+
+### Balancing Fairness and High Match Rates in Reciprocal Recommender Systems: A Nash Social Welfare Approach (https://arxiv.org/abs/2601.13609)
+Comments:
+          arXiv admin note: text overlap with arXiv:2409.00720
+
+- **What's New**: 이 논문에서는 매칭 플랫폼에서의 공정성을 다루는 새로운 접근 방식을 제안합니다. 특히, 추천 기회를 할당하는 과정에서 사용자 간의 질투(여기서 'envy-freeness' 개념이 중요)에 중점을 두고 있습니다. 이를 통해 공정한 추천을 제공하는 새로운 방법론인 Nash Social Welfare (NSW) 문을 도입하였습니다. 기존의 Social Welfare (SW) 방법의 단점을 보완하여 추천 효율성과 공정성의 균형을 맞추는 방안을 제시합니다.
+
+- **Technical Details**: 연구에서 Reciprocal Recommender Systems (RRSs)에서의 공정성을 정의하고, 이를 경제학의 자원 배분 관점에서 접근합니다. 특히, envy-freeness 개념을 통해 사용자가 추천 기회를 공평하게 분배받을 수 있도록 하는 방법을 모색합니다. 코드의 계산적 효율성을 높이기 위해 Sinkhorn 알고리즘에 기반을 두고 있으며, 이는 높은 차원의 문제에서도 적용 가능한 특성을 지닙니다. 그와 함께 파라미터化된 α-SW 방법을 제안하여 공정성과 효율성 간의 조절이 가능한 최적화 프레임워크를 구성합니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해, NSW 방법이 SW 방법에 비해 공정성을 구체적으로 개선하면서도 경쟁력 있는 매칭 성능을 유지함을 보여줍니다. 실험 결과는 공정성 지표에서도 통계적으로 유의미한 향상을 나타내며, 이는 추천 알고리즘이 사용자 만족도와 플랫폼 명성을 동시에 높일 수 있는 가능성을 시사합니다. 모든 코드와 데이터는 공개되어 있어 연구자들이 쉽게 접근하고 활용할 수 있습니다.
+
+
+
+### More Than Efficiency: Embedding Compression Improves Domain Adaptation in Dense Retrieva (https://arxiv.org/abs/2601.13525)
+- **What's New**: 이번 논문에서는 문서 검색에서 널리 사용되는 Dense retrievers가 특정 도메인에서의 한계점을 극복하기 위해 PCA(주성분 분석) 기술을 적용하는 방법을 제시합니다. 기존의 도메인 적응 기술은 일반적으로 비용이 많이 드는 주석(annotation) 작업과 재교육이 필요하지만, 본 연구에서는 이와 대안적인 접근 방식을 탐구하였습니다.
+
+- **Technical Details**: 기존의 Dense retrievers는 사전 훈련된 임베딩을 사용해 문서를 검색하지만, 훈련 도메인과 목표 도메인 간의 분포 차이로 인해 어려움을 겪습니다. 제안된 방법은 PCA를 통해 도메인 관련 특징을 유지하면서 비판별(non-discriminative) 요소를 제거한 저차원 표현을 생성하는 것입니다. 이 방법은 9개의 리트리버와 14개의 MTEB 데이터셋에서 평가되어, NDCG@10 성능 개선을 가져왔습니다.
+
+- **Performance Highlights**: PCA를 쿼리(queries) 임베딩에 적용한 결과, 75.4%의 모델-데이터셋 쌍에서 NDCG@10 점수가 향상되었습니다. 이 연구는 도메인 적응을 위한 간단하고 경량의 방법을 제공하며, 고비용의 주석 작업 없이도 효과적인 성능 개선을 가능하게 합니다.
+
+
+
+### Integrating Vision-Centric Text Understanding for Conversational Recommender Systems (https://arxiv.org/abs/2601.13505)
+- **What's New**: 이 논문에서는 대화형 추천 시스템(Conversational Recommender Systems, CRS)의 발전을 위해 STARCRS라는 새로운 시스템을 제안합니다. STARCRS는 비주얼 토큰으로 보조 텍스트 정보를 인코딩하는 화면 읽기 경로(screen-reading pathway)와 중요한 콘텐츠에 초점을 맞춘 LLM 기반 텍스트 경로를 통합하여 사용자 선호를 보다 정확하게 추론합니다. 이러한 접근은 입력의 길이 문제와 불필요한 텍스트 소음을 줄이고 더 향상된 추천 및 응답 생성을 가능하게 합니다.
+
+- **Technical Details**: STARCRS는 지식 기반 융합 프레임워크를 설계하여 대비 정렬(contrastive alignment), 크로스 어텐션 상호작용(cross-attention interaction), 그리고 적응형 게이팅(adaptive gating)을 결합합니다. 이 시스템은 전체 텍스트 정보를 스크린 텍스트로 렌더링한 후 비주얼 중심 인코더로 coarse-grained 이해를 수행하고, 동시에 간결하고 중요한 텍스트는 표준 텍스트 인코더를 사용하여 fine-grained reasoning을 진행합니다. 이를 통해 사용자 선호를 더 잘 포착하고 대화 응답 생성을 지원합니다.
+
+- **Performance Highlights**: STARCRS는 두 개의 널리 사용되는 벤치마크에서 치러진 광범위한 실험을 통해 추천 정확성과 생성된 응답 품질을 일관되게 개선함을 입증했습니다. 기존 대화형 추천 시스템들이 직면한 다양한 문제를 해결하는 데 기여하며, 새로운 대화 품질과 사용자 경험을 제공합니다. STARCRS는 고급 텍스트 이해 방식을 도입하여 다차원적인 사용자 선호 추출을 촉진합니다.
+
+
+
+### Guidelines for the Creation of an Annotated Corpus (https://arxiv.org/abs/2601.13353)
+Comments:
+          8 pages, 3 figures
+
+- **What's New**: 이번 문서는 UMR TETIS 구성원들의 피드백과 과학 문헌을 바탕으로 텍스트 주석 가이드라인 및 주석이 달린 데이터셋(corpora)을 만드는 일반적인 방법론을 제시합니다. 데이터의 저장, 공유, 그리고 활용(valorization) 측면도 다루고 있으며, 각 과정의 단계를 명확히 설명하기 위한 정의와 예제가 포함되어 있습니다.
+
+- **Technical Details**: 문서에서는 주석 가이드라인을 정의하는 방법론적인 측면을 다루고 있으며, 사용자들이 다양한 연구(context)에서 사용할 수 있도록 corpus의 조성을 지원하는 포괄적인 프레임워크를 제공합니다. 또한, 데이터 저장 및 공유를 위한 구체적인 절차도 소개하고 있습니다.
+
+- **Performance Highlights**: 이 가이드라인은 텍스트 데이터의 주석 작업을 체계적으로 지원하여 연구 품질을 향상시킬 수 있습니다. 다양한 연구 맥락에서의 활용을 통해 보다 효과적으로 데이터셋을 구축하고 활용할 수 있는 기반을 제공합니다.
+
+
+
+### Insider Knowledge: How Much Can RAG Systems Gain from Evaluation Secrets? (https://arxiv.org/abs/2601.13227)
+- **What's New**: 이번 논문에서는 LLM 기반 RAG 시스템의 평가에 있어서 측정 오류의 위험을 조사합니다. 특히, nugget 기반 접근 방식이 평가 프레임워크 및 RAG 시스템 아키텍처에 통합되어 이로 인해 발생할 수 있는 순환성(circularity) 문제를 다룹니다. 저자들은 특정 사례를 통해 LLM 평가자에 맞춰 출력이 최적화될 경우 평가 점수가 비현실적으로 향상될 수 있음을 보였습니다.
+
+- **Technical Details**: 연구는 LLM 기반 평가 프로세스의 내부 지식을 활용하여 평가 기준을 최적화할 수 있는 세 가지 경로를 제시합니다: (1) 측정 기준에만 최적화하여 다른 품질 기준을 무시하기, (2) 평가 프롬프트를 이용한 시스템 출력 수정, (3) 높은 정확도로 gold nuggets의 세트를 예측하기입니다. 저자들은 Crucible이라는 RAG 시스템을 소개하며, 이를 통해 nugget 기반 LLM 평가 시스템의 취약성을 파악하고 이를 평가하는 방법론적 다양성을 강조합니다.
+
+- **Performance Highlights**: 본 연구의 결과는 LLM 기반 nugget 평가가 신뢰할 수 있는 시스템 개발을 저해할 수 있음을 보여줍니다. TREC NeuCLIR 2024 보고서 생성 파일럿 과제로의 사례 연구를 통해, 평가 요소가 비밀로 유지될 때 평가가 견고하다는 것을 입증했습니다. 이와 동시에 평가 요소가 공개될 경우, 시스템 출력이 부풀려질 위험이 있음을 경고하고 있습니다.
+
+
+
+### Incorporating Q&A Nuggets into Retrieval-Augmented Generation (https://arxiv.org/abs/2601.13222)
+- **What's New**: 이번 연구에서는 자동 평가(auto-evaluation, E) 아이디어를 Retrieval-augmented Generation (RAG) 시스템과 통합한 RAGE 시스템의 새로운 예시인 Crucible을 제시합니다. Crucible은 가져온 문서에서 Q&A 너겟 뱅크(nugget bank)를 구성하여 명시적인 인용 출처를 유지하며 이를 기반으로 문서 생성 과정에서 추출, 선택 및 보고 생성을 유도합니다. 이러한 접근 방식은 Q&A 의미론을 통해 정보 중복을 피하고 명확한 인용 출처를 유지하는 데 중점을 둡니다.
+
+- **Technical Details**: Crucible은 처음에 PLAID-X 밀집 검색기(dense retriever)를 사용하여 문서 풀을 검색합니다. 그런 다음 각 문서에 대해 LLM을 활용하여 간단한 요약을 생성하고, 요약 및 사용자 요청에 따라 Q&A 너겟을 생성합니다. 너겟의 중복성을 줄이기 위해 LLM 프롬프트를 사용하여 패러프레이즈(paraphrase)를 감지하고, 가장 신뢰할 수 있는 패러프레이즈를 병합하여 최종적인 너겟 뱅크를 구성합니다.
+
+- **Performance Highlights**: TREC NeuCLIR 2024 수집 데이터에서 Crucible은 Ginger라는 최근의 너겟 기반 RAG 시스템보다 꽤 우수한 성능을 발휘하였으며, 너겟 리콜(nugget recall), 밀도(density), 인용 지원(citation grounding) 등 여러 평가 지표에서 더 높은 점수를 기록했습니다. 이러한 결과는 Crucible이 더욱 효과적으로 정보의 신뢰성과 관련성을 제공할 수 있음을 시사합니다.
+
+
+
+### Rules, Resources, and Restrictions: A Taxonomy of Task-Based Information Request Intents (https://arxiv.org/abs/2601.12985)
+Comments:
+          11 pages, 1 figure, to be published in: 2026 ACM SIGIR Conference on Human Information Interaction and Retrieval (CHIIR '26), March 22-26, 2026, Seattle, WA, USA. ACM, New York, NY, USA, 11 pages. this https URL
+
+- **What's New**: 이번 논문에서는 사용자 쿼리의 의도를 이해하고 분류하는 데 있어 새로운 시각을 제안합니다. 기존의 의도 분류가 시스템 로그 데이터에 기반하고 있어 제한적이었다는 것을 지적하며, 최근의 Large Language Models (LLMs)의 발전에 따라 더 복잡한 작업 지원이 요구된다는 점을 강조합니다. 연구의 목적은 더 나은 태스크 기반(Task-based) 정보 요청 의도 분류 체계를 구축하는 것입니다.
+
+- **Technical Details**:  연구는 공항 정보 사무원과의 면담을 기반으로 한 질적 연구를 통해 태스크 기반 정보 요청 의도에 대한 세분화된 분류 체계를 제안합니다. 이 체계는 기존 쿼리 중심 접근법과 AI 기반의 태스크 중심 검색에 대한 새로운 요구 사이의 간극을 메꿉니다. 공항은 다각적 태스크가 수행되는 장소이기 때문에 더욱 다채롭고 실질적인 정보 요청 의도를 수집하는 데 적합한 환경입니다.
+
+- **Performance Highlights**: 이 논문에서 제안하는 태스크 기반 의도 분류 체계는 다양한 정보 요청의 근본적인 동기를 파악함으로써 검색 시스템의 효과성을 높일 것으로 기대됩니다. 특히 기계 학습(Machine Learning) 방식이나 기존의 정보 검색 시스템(IIR)에서도 활용될 수 있어, 향후 연구 및 개발의 많은 도움이 될 것입니다. 최종적으로, 이 연구가 제시하는 방향은 사용자 만족도 향상에도 긍정적인 영향을 미칠 것입니다.
+
+
+
+### The Unfairness of Multifactorial Bias in Recommendation (https://arxiv.org/abs/2601.12828)
+- **What's New**: 이번 연구에서는 추천 시스템에서 흔히 나타나는 인기 편향(popularity bias)과 긍정 편향(positivity bias)을 동일하게 고려하는 새로운 접근 방식을 제시합니다. 두 가지 편향이 결합하여 나타나는 다요소 편향(multifactorial bias)이 아이템 측면 공정성에 미치는 영향을 분석하였습니다. 특히, 추천 결과에서 아이템의 가시성이 불균형하게 나타나는 노출 편향(exposure bias)에 집중하여 연구를 진행했습니다.
+
+- **Technical Details**: 이 연구에서는 시뮬레이션 연구를 통해 긍정 편향이 인기 있는 아이템에 집약되어, 그들의 과도한 노출을 더욱 강화함을 발견했습니다. 이를 해결하기 위해, 다요소 편향을 완화하기 위한 전처리(pre-processing) 전략으로 퍼센타일 기반 등급 변환을 적용하였습니다. 또한, 6가지 추천 알고리즘을 4개의 공개 데이터셋에 적용하여 실험을 진행하였습니다.
+
+- **Performance Highlights**: 실험 결과, 제안한 방법이 노출 공정성(exposure fairness)을 향상시키면서도 정확도 손실이 거의 없음을 보여주었습니다. 이 전처리 단계를 후처리(post-processing) 공정성 파이프라인에 통합하는 것이 효과성과 효율성을 높임을 입증하였습니다. 이러한 발견은 다요소 편향을 다루는 것의 중요성을 강조하며, 추천 시스템의 공정성을 개선하기 위한 간단하고 데이터 기반의 전처리 방법의 실용적 가치를 보여줍니다.
+
+
+
+### HyFormer: Revisiting the Roles of Sequence Modeling and Feature Interaction in CTR Prediction (https://arxiv.org/abs/2601.12681)
+- **What's New**: 이번 논문에서 제안하는 HyFormer는 길고 복잡한 사용자 행동 시퀀스와 이질적인 비순차 특성을 효율적으로 통합하여 처리할 수 있는 하이브리드 트랜스포머 아키텍처입니다. 기존의 두 단계 파이프라인 구조를 넘어, HyFormer는 시퀀스 모델링과 특성 상호작용을 하나의 백본으로 통합하여 초기 레이어에서 양방향 상호작용을 가능하게 합니다. 2개의 핵심 구성 요소인 Query Decoding과 Query Boosting을 통해 모델의 표현 용량과 확장성을 개선하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HyFormer는 글로벌 토큰을 도입하여 긴 사용자 행동 시퀀스와 이질적인 특성 간의 의미적 인터페이스 역할을 하게 됩니다. 이 아키텍처는 한 줄로 쌓인 구조를 통해 두 가지 경량 yet 표현력이 있는 메커니즘을 교대로 적용하는 방식입니다. Query Decoding 모듈은 글로벌 쿼리 토큰을 사용하여 긴 행동 시퀀스를 처리하며, Query Boosting 모듈은 턴끼리의 상호작용을 증진시켜 여러 레이어에서 의미적 표현을 점진적으로 풍부하게 합니다.
+
+- **Performance Highlights**: HyFormer는 대규모 산업 데이터셋에 대한 실험 결과에서 기존의 LONGER 및 RankMixer와 같은 강력한 베이스라인을 지속적으로 초과하는 성능을 보여주었습니다. 또한, HyFormer는 모델 파라미터 및 FLOPs 예산에 대해 뛰어난 확장성을 보이며, 고트래픽 생산 시스템에서 온라인 A/B 테스트를 통해 유의미한 이득을 확인하였습니다. 이는 HyFormer가 산업 LRM을 위한 통합 모델링 프레임워크로서의 실용성과 확장성을 나타냅니다.
+
+
+
+### Information Farming: From Berry Picking to Berry Growing (https://arxiv.org/abs/2601.12544)
+Comments:
+          ACM CHIIR 2026
+
+- **What's New**: 이 논문은 Berry Picking과 Information Foraging Theory를 통해 정보 탐색의 전통적인 패러다임이 정보 생산 및 재구성 방식의 변화를 충분히 담아내지 못하고 있음을 지적합니다. Generative AI(GenAI)의 발전은 사람들이 정보를 수집하는 방식에서 벗어나 정보를 '농사짓는' 방향으로 전환되도록 하고 있습니다. 이는 신석기 혁명과 유사한 변화를 나타내며, 사용자들이 정보를 스스로 키워낼 수 있는 환경으로의 이동을 설명합니다.
+
+- **Technical Details**: 저자들은 정보 농업(Information Farming)을 새로운 개념적 틀로 제시하며, Generative AI(GenAI)와 대형 언어 모델(LLM)이 제공하는 정보 밀도가 높은 매체가 사용자가 원하는 출력물을 형성하고 개선할 수 있도록 돕는다고 주장합니다. 이 논문은 정보 탐색의 비용 구조가 변화하여 외부의 패치를 탐색하는 것이 아니라, 상호작용 내에서 정보를 만들어내는 방향으로 바뀌고 있음을 설명합니다. 정보를 '심고' 기르는 과정에 대한 개념적 접근을 통해 정보 농업이 정보 탐색의 자연스러운 진화로 자리잡고 있음을 보여줍니다.
+
+- **Performance Highlights**: 이제 정보 탐색자들은 정보 농부가 되어 사용자가 원하는 정보의 씨앗을 심고, 이를 수확하는 시스템으로 전환되고 있습니다. 연구자들이 정보 농업을 통해 특정 주제에 대한 맞춤형 응답을 생성하고, 이를 요약하여 필요한 형식으로 재구성할 수 있는 방식이 그 예입니다. 이러한 전환은 정보 검색 시스템과 정보 생산 및 소비 방식에 지대한 영향을 미치며, 향후 정보 연구와 디자인에도 큰 변화를 가져올 것으로 예상됩니다.
+
+
+
+### Facet-Aware Multi-Head Mixture-of-Experts Model with Text-Enhanced Pre-training for Sequential Recommendation (https://arxiv.org/abs/2601.12301)
+Comments:
+          Extended from WSDM paper. arXiv admin note: substantial text overlap with arXiv:2411.01457
+
+- **What's New**: 본 논문에서는 Facet-Aware Multi-Head Mixture-of-Experts Model for Sequential Recommendation (FAME)라는 새로운 아키텍처를 제안합니다. FAME는 각 아이템의 특성을 다각적으로 고려하여, 사용자의 복잡한 취향을 예측하는 데 효과적인 방법입니다. 특히, 각 헤드에서 서브 임베딩을 활용하여 다음 아이템을 독립적으로 예측하며, 게이팅 메커니즘을 통해 이 예측값의 중요도를 동적으로 결정합니다.
+
+- **Technical Details**: FAME는 Multi-Head Attention 기법을 다중 특성 예측기로 재구성하여, 각 헤드가 서로 다른 아이템 특성에 특화된 예측을 수행합니다. 또한, Mixture-of-Experts (MoE) 네트워크를 통해 각 특성 내에서 사용자 선호도를 분리하고, 학습 가능한 라우터 네트워크를 활용하여 컨텍스트에 따라 전문가 출력을 집계합니다. 이를 통해 아이템 간의 다각적인 특성을 효과적으로 캡처할 수 있습니다.
+
+- **Performance Highlights**: 다양한 공공 데이터셋을 대상으로 수행된 실험에서, FAME는 기존의 여러 베이스라인 모델(순차적, 미리 학습된, 다중 의도)에 비해 유의미하게 우수한 성능을 보였습니다. 이는 FAME이 특성 기반의 초기화와 고급 예측 메커니즘을 결합하여, 태스크에 맞춘 robust 한 임베딩을 생성할 수 있음을 의미합니다. 이러한 성과는 추천 시스템의 성능을 크게 향상할 수 있는 가능성을 보여줍니다.
+
+
+
+### Agentic-R: Learning to Retrieve for Agentic Search (https://arxiv.org/abs/2601.11888)
+- **What's New**: 이번 논문에서는 agentic search를 위한 새로운 retriever 훈련 프레임워크를 제안합니다. 기존의 retriever들은 일반적으로 유사성 기반의 retrieval 방법을 활용하지만, 이러한 방법은 최종 답변 생성을 위해 항상 유용하지 않을 수 있습니다. 본 연구는 local query-passage relevance와 global answer correctness를 모두 고려하여 passage의 유용성을 평가하는 접근 방식을 제안합니다. 또한, search agent와 retriever를 반복적으로 최적화하는 훈련 전략을 도입합니다.
+
+- **Technical Details**: 이 논문에서는 multi-turn agentic search를 위한 retriever 훈련 방법론을 구현합니다. passage 유용성을 평가하기 위해 single-turn에서의 관련성과 최종 정답의 정확성을 모두 고려하는 모델링 전략을 제시하며, LLM 기반의 listwise scoring 기법을 사용해 여러 후보 passage에 대한 관련 점수를 생성합니다. 더불어, search agent의 질이 향상되면, 새로운 검색 궤적을 생성할 수 있어 retriever의 훈련을 지속적으로 최적화할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 retriever가 다양한 search agents에서 여러 벤치마크를 통해 강력한 baseline보다 일관되게 우수한 성능을 보임을 보여줍니다. 이러한 결과는 agentic search와 retriever의 상호 최적화가 시너지를 가져올 수 있음을 잘 나타냅니다. 또한, 이 연구의 접근 방식이 less search queries로도 문제를 해결하는 데 기여한다는 점에서 중요한 의의를 가집니다.
+
+
+
+### Cultural Analytics for Good: Building Inclusive Evaluation Frameworks for Historical IR (https://arxiv.org/abs/2601.11874)
+- **What's New**: 본 연구는 정보 검색(information retrieval)과 문화 분석(cultural analytics) 분야를 연결하여 역사적 지식에 대한 공정한 접근을 지원하는 새로운 프레임워크를 제안합니다. 영국 도서관(British Library)에서 수집한 디지털 자료를 활용하여 19세기 픽션과 논픽션에서의 언어 변화 및 검색 체계를 연구하기 위한 벤치마크를 구축하였습니다. 이를 통해 픽션과 논픽션 간의 지식 전달 가능성을 탐구하고, 검색 시스템의 해석 가능성과 투명성을 증진할 수 있는 방법을 모색하였습니다.
+
+- **Technical Details**: 19세기 영국 문헌의 디지털 자료를 활용한 본 연구는 전문가의 쿼리 설계(expert-driven query design)와 대형 언어 모델(LLM) 보조를 통해 관련성 주석을 수행합니다. 이를 통해 언어 변화와 장르 간 검색을 평가할 수 있는 신뢰할 수 있는 평가 프레임워크를 구축하고, 픽션에서 논픽션으로의 비유적 연결을 탐구합니다. 피크션이 주는 이야기의 구조와 의미적 복잡성이 어떻게 사실적 자료 검색에 기여할 수 있는지를 살펴보았습니다.
+
+- **Performance Highlights**: 본 논문은 새롭게 설계된 평가 데이터셋을 통해 19세기 영국 문헌의 풍부한 자료에 대한 접근성을 높였습니다. 저자들은 픽션에서 생성된 관련성 모델이 논픽션 자료 검색의 성능과 해석 가능성을 향상시킬 수 있음을 실험적으로 입증하였습니다. 연구의 결과는 디지털 아카이브에서 역사적 데이터를 다루는 작업에게 유용한 참고자료를 제공하며, 공정한 정보 접근과 분석을 촉진합니다.
+
+
+
+### Utilizing Metadata for Better Retrieval-Augmented Generation (https://arxiv.org/abs/2601.11863)
+Comments:
+          The 48th European Conference on Information Retrieval (ECIR 2026)
+
+- **What's New**: 이 논문은 메타데이터(metadata) 통합이 Retrieval-Augmented Generation (RAG) 시스템에서 검색 품질 및 답변 정확성을 향상시키는 효능을 처음으로 체계적으로 분석했습니다. 연구팀은 메타데이터를 필터가 아닌 기본 입력으로 삼아 이점을 조사하며, 단순히 텍스트에 메타데이터를 플래트닝(flattening)하는 방법뿐만 아니라, 독립적인 방식으로 메타데이터와 내용을 임베드하는 이중 인코더(Dual-Encoder) 아키텍처를 제안합니다.
+
+- **Technical Details**: 메타데이터를 텍스트로 통합하는 전통적인 방법 외에, 이중 인코더를 사용해 메타데이터와 내용을 별도로 임베딩한 후 결합하는 방법도 도입되었습니다. 연구에서는 메타데이터를 통해 텍스트의 전후에 붙이는(prefixing) 또는 문서의 각 조각(chunk)의 후단에 붙이는(suffix) 방법을 검토하여, 텍스트 기반의 기본선과 비교했습니다. 그 결과, 메타데이터와 내용을 통합된 임베딩(unified embedding)으로 처리했을 때 일관되게 더 높은 정확성을 보였습니다.
+
+- **Performance Highlights**: 이 연구는 메타데이터 통합이 문서 내 응집력(intra-document cohesion)을 증가시키고, 문서 간 혼란(inter-document confusion)을 줄여 검색의 효과성을 크게 개선하는 것을 보여주었습니다. SEC 보고서를 대상으로 한 이 연구는 금융 질문 응답(QA) 벤치마크에서 RAG 시스템의 한계를 극복하는 방안을 제시하며, RAGMATE-10K라는 메타데이터가 풍부한 벤치마크와 코드 및 평가 프레임워크를 공개하여 재현 가능한 평가가 가능하도록 하였습니다.
+
+
+
+### DeepEvidence: Empowering Biomedical Discovery with Deep Knowledge Graph Research (https://arxiv.org/abs/2601.11560)
+- **What's New**: DeepEvidence는 이종 생물 의학 지식 그래프를 대상으로 깊은 연구를 수행하기 위해 설계된 AI 에이전트 시스템입니다. 기존의 일반적인 Deep Research 시스템이 인터넷 규모의 텍스트에 의존하는 것과 달리, DeepEvidence는 특화된 지식 그래프 도구를 활용하여 이질적인 그래프 간의 연결을 탐색합니다. 이 시스템은 Breadth-First ReSearch (BFRS)와 Depth-First ReSearch (DFRS)라는 두 가지 보완적인 전략을 통해 조정된 탐사 방식을 통해 지식 그래프를 체계적으로 탐색합니다.
+
+- **Technical Details**: DeepEvidence는 내부 근거 그래프를 지속적으로 업데이트하여, 에이전트가 정보 탐색 및 합성을 수행하는 동안 수집된 주요 엔터티와 관계를 기록합니다. BFRS는 다중 그래프 쿼리를 통해 넓은 범위의 후보 엔터티를 빠르게 조사한 후, DFRS는 이들 엔터티를 기반으로 다단계 추론 및 풍부한 근거 검색을 수행합니다. 이를 통해 BFRS와 DFRS는 고유한 그래프 탐색 모드를 제공하며, 에이전트들은 이종 지식 그래프 간의 관계를 인식하고 전이합니다.
+
+- **Performance Highlights**: DeepEvidence는 Humanity’s Last Exam (HLE), LabBench-LitQA2, SuperGPQA, TrialPanorama-EvidenceQA와 같은 기존 생물학적 기초 연구 벤치마크에서 성능을 평가 받았습니다. 이 결과는 DeepEvidence가 생물의학 발견 주기에 있어 약물 발견, 임상 실험, 임상 시험 개발 및 증거 기반 의학의 네 가지 주요 단계에서 실질적인 이점을 입증함을 보여줍니다. DeepEvidence는 모든 벤치마크에서 가장 뛰어난 성능을 발휘하며, 기존 생물의학 에이전트와 강력한 LLM 기반 시스템에 대한 비교에서 두드러진 성과를 나타냅니다.
+
+
+
+### ReSearch: A Multi-Stage Machine Learning Framework for Earth Science Data Discovery (https://arxiv.org/abs/2601.14176)
+- **What's New**: 본 연구는 다단계 검색 프레임워크인 	extbf{ReSearch}를 제안하며, 이는 지구 과학 데이터 검색을 의도 해석, 고회수 검색, 맥락 인식 우선 순위 부여의 반복 과정으로 구성합니다. ReSearch는 lexical search, semantic embeddings, 약어 확장, 대형 언어 모델 재순위를 통합하여 검색 과정의 각 단계를 명시적으로 구분합니다. 이를 통해 재현 가능하고 확장 가능한 지구 과학 연구를 위한 기초 능력을 제공하며, 연구자가 원하는 데이터셋을 효율적으로 발견하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: ReSearch는 쿼리 이해, 고회수 검색, 맥락 인식 재평가의 세 단계로 검색 프로세스를 분해하여, 기계 학습과 원리 기반 검색 전략을 결합합니다. 이 시스템은 BM25, semantic embeddings, 약어 확장을 통합하여 다양한 지구 과학 저장소의 용어 변화를 처리하고, 데이터셋의 동질성을 극복하는 데 능숙합니다. 연구는 또한 자연 언어 의도를 문헌과 정렬된 벤치마크로 구축하여, 기존의 방법들에 비해 일관되게 회수 및 순위 성능을 향상시키는 것으로 나타났습니다.
+
+- **Performance Highlights**: 실험 결과, ReSearch는 특히 추상적인 과학 목표를 표현하는 과제 기반 쿼리에 대해 기존 방법보다 우수한 성능을 보였습니다. 이 연구는 의도 인식 기반의 다단계 검색이 과학적 생산성, 재현 가능성 및 참여를 제한하는 데이터 검색의 주요 병목 현상을 해결하는 데 필수적인 능력임을 강조합니다. 이러한 성과는 지구 과학 데이터 검색 시스템에서 강화된 검색 능력을 필요로 하는 최근의 필요성과 일치합니다.
+
+
+
+### A Systematic Analysis of Chunking Strategies for Reliable Question Answering (https://arxiv.org/abs/2601.14123)
+Comments:
+          3 pages, 2 figures, 1 table, pre-print
+
+- **What's New**: 이 논문은 산업에서 Retrieval-Augmented Generation (RAG) 시스템의 문서 청크(chunk) 선택이 신뢰성에 미치는 영향을 연구합니다. 청크 방법(토큰, 문장, 의미 및 코드)의 변인을 체계적으로 분석하여 실산업 환경에서의 적용 가능성을 높이고자 하였습니다. 특히, 중복 청크를 지양하고 문장 청크를 선호하며, 맥락 길이에 주의를 기울일 것을 권장합니다.
+
+- **Technical Details**: 본 연구는 두 단계의 RAG 파이프라인을 평가합니다. 이 과정에서 청크된 문서를 인덱싱하는 스파스 리트리버(sparse retriever)와, 문맥에서 답변하도록 조정된 LLM을 사용합니다. 표준 데이터를 기반으로 문맥 길이 및 청크 크기 변화에 따라 정확도 및 비율을 측정합니다.
+
+- **Performance Highlights**: 실험 결과, 문장 청크를 사용할 경우 신뢰성과 비용 효율성이 가장 높았으며, 중복 청크는 성능을 향상시키지 못하는 것으로 나타났습니다. 최적의 문맥 범위는 약 2.5k 토큰에서 성능이 저하되는 'context cliff'를 경계해야 하며, 문서 요약 및 질문 응답(task)에 따라 조정이 필요합니다.
+
+
+
+### Autonomous Knowledge Graph Exploration with Adaptive Breadth-Depth Retrieva (https://arxiv.org/abs/2601.13969)
+- **What's New**: ARK: Adaptive Retriever of Knowledge는 언어 모델이 지식 그래프에서 증거를 검색하는 방식에 혁신을 가져옵니다. 이 시스템은 두 가지 작업을 통해 폭넓은 검색과 깊이 있는 탐색을 조정할 수 있으며, 미리 설정한 시드 노드나 훈련 필요 없이 실시간으로 쿼리의 요구에 맞춰 동적으로 작동합니다. ARK는 언어 중심의 쿼리와 관계 중심의 쿼리 모두에 최적화된 검색 방법을 활용하여 지식 그래프에서의 정보 검색을 강화합니다.
+
+- **Technical Details**: ARK는 전역 레키컬 검색(global lexical search)과 1-홉 이웃 탐색(one-hop neighborhood exploration)을 통해 데이터 검색을 수행합니다. 이 시스템은 쿼리와 이전의 검색 결과를 기반으로 폭넓은 검색과 다단계 탐색 간의 균형을 요소로 활용하며, 이를 통해 효과적인 정보 검색을 가능하게 합니다. 기존의 방법들이 반드시 시드 노드나 고정된 탐색 깊이에 의존해야 하는 것과 대조적으로, ARK는 이러한 의존성을 제거하여 더 유연하게 작동합니다.
+
+- **Performance Highlights**: ARK는 STaRK 벤치마크에서 59.1%의 평균 Hit@1과 67.4%의 평균 MRR을 기록하며 기존의 검색 기반 및 훈련 필요 없는 방법에 비해 Hit@1을 최대 31.4%, MRR을 최대 28.0% 향상시켰습니다. 또한, 8B 모델로 ARK의 도구 사용 정책을 증류하여, AMAZON, MAG, PRIME 데이터셋에서 각각 Hit@1을 +7.0, +26.6, +13.5 절대 점수로 향상시켰습니다. 이러한 성과는 거의 모든 성능을 유지하면서도 더 낮은 추론 비용을 가능하게 합니다.
+
+
+
+### Towards Effective Negation Modeling in Joint Audio-Text Models for Music (https://arxiv.org/abs/2601.13931)
+Comments:
+          Accepted at IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2026
+
+- **What's New**: 본 논문에서는 기존의 음성-텍스트 통합 모델이 부정적 표현(negation) 처리에 어려움을 겪는 문제를 해결하기 위해 새로운 접근 방식으로 CLAP 모델을 훈련합니다. 특히, 'Million Song Dataset'과 'LP-MusicCaps-MSD' 캡션을 활용하여, 텍스트 증강(text augmentation)과 대칭 기반의 손실 함수(dissimilarity-based contrastive loss)를 도입하여 원본 캡션과 부정된 캡션을 명확히 구분하는 방법을 제시합니다.
+
+- **Technical Details**: 제안된 방법은 캡션 데이터셋의 부족한 부정적 태그를 보완하기 위한 텍스트 증강 방식인 'Negation insert'를 포함합니다. 이 과정에서 기존 태그에 무작위 부정어를 추가하여 부정적 캡션을 생성합니다. 또한, cosine 유사성을 최소화하는 대칭성 손실을 새로운 손실 항으로 도입하여 부정적 표현의 효과적인 모델링을 시도합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 두 방법 모두 독립적으로 및 결합하여 부정적 표현 처리의 능력을 개선하는 데 효과적임을 보여주었으며, 검색 성능(retrieval performance)도 크게 저하되지 않았습니다. 연구 결과는 R@K 메트릭과 이중 분류 작업에서 향상된 정확도를 나타내어, 음성-텍스트 모델이 부정적 표현을 보다 잘 처리할 수 있음을 입증하였습니다.
+
+
+
+### Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search (https://arxiv.org/abs/2601.13719)
+- **What's New**: 본 논문에서는 HAVEN이라는 통합 프레임워크를 제안합니다. HAVEN은 오디오-비주얼 엔티티 응집력(audiovisual entity cohesion)과 계층적 비디오 인덱싱(hierarchical video indexing), 에이전틱 검색(agentic search)을 결합하여 긴 비디오를 보다 일관성 있게 이해할 수 있도록 합니다. 이 시스템은 정보 조각화(information fragmentation)를 방지하고 전반적인 내러티브를 재구성하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HAVEN은 비주얼 및 오디오 스트림 간의 엔티티 수준 표현을 통합하여 의미적 일관성을 유지합니다. 이를 위해 콘텐츠를 글로벌 요약(global summary), 장면(scene), 세그먼트(segment), 엔티티 수준의 구조화된 계층으로 구성합니다. 또한, 에이전틱 검색 메커니즘을 도입하여 이 계층 간의 동적인 검색과 추론을 가능하게 하여 더욱 정교한 엔티티 추적을 지원합니다.
+
+- **Performance Highlights**: HAVEN은 LVBench 벤치마크에서 84.1%의 높은 정확도를 기록하며 최신 기술의 최전선에 서 있습니다. 특히 난이도가 높은 추론 카테고리에서 80.1%의 성능을 기록하여 길고 복잡한 비디오 이해에 효과적임을 입증합니다. 이는 구조적이고 다중 모달(multi-modal) 추론의 효과성을 강조합니다.
+
+
+
+### Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning (https://arxiv.org/abs/2601.13115)
+- **What's New**: 이번 연구에서는 대화형 에이전트가 검색과 추론을 유기적으로 결합하여 다중 턴 대화에서 사용자 의도를 효과적으로 수행할 수 있는 방법을 제안합니다. 기존의 정적 "rewrite, retrieve, and generate" 방식을 넘어, RL(강화 학습) 기반의 최적화 기법을 활용하여 사용자 목표에 적응하는 능동적인 행동을 학습하게 됩니다. 실험 결과, 네 가지 대화형 벤치마크에서 기존 강력한 모델들을 초월하는 성능을 보였습니다.
+
+- **Technical Details**: 제안된 방법론은 역사적 맥락을 이해하고 이를 기반으로 검색 쿼리를 생성하는데 초점을 맞추고 있습니다. 이를 통해 검색 결과를 효과적으로 활용하고 정확한 답변 생성을 위한 최적화를 이루며, 혼합 주체 행동의 최적화를 지원합니다. RL 훈련 프레임워크 아래에서 보상 요소를 세분화하여 검색과 추론의 상호작용을 통해 적응적 행동을 학습합니다.
+
+- **Performance Highlights**: 네 가지 대화형 검색 벤치마크에서 실시한 실험 결과, 제안한 방법이 이미 존재하는 여러 모델들에 비해 우수한 성능을 입증했습니다. 상세한 ablation 분석을 통해 각 구성 요소의 기여도를 평가하고 다중 턴 대화 능력을 향상시키기 위한 통찰을 제공했습니다. 이러한 결과는 대화형 에이전트의 성능 개선 가능성을 제시합니다.
+
+
+
+### CORE-T: COherent REtrieval of Tables for Text-to-SQL (https://arxiv.org/abs/2601.13111)
+Comments:
+          Preprint under review. Code and data available at: this https URL
+
+- **What's New**: CORE-T는 여러 테이블이 포함된 데이터베이스에서 주어진 쿼리에 대한 관련 테이블을 탐지하는 데 중요한 비효율성을 개선하는 새로운 프레임워크입니다. 이 시스템은 LLM에 의해 생성된 목적 메타데이터를 통해 테이블을 풍부하게 하며, 경량의 테이블 호환성 캐시를 미리 계산합니다. 이를 통해 SQL 생성에 필요한 연관성 있는 테이블 세트를 효율적으로 가져오는 방법을 제공합니다.
+
+- **Technical Details**: CORE-T는 오프라인에서 작성된 테이블 메타데이터와 사전 계산된 호환성 캐시를 활용하여 SQL 쿼리에 맞는 테이블 세트를 추출합니다. 입력된 쿼리에 대해, DR(밀집 검색)이 상위 K개의 후보를 반환한 후, 단일 LLM 호출을 사용하여 일관되고 연결된 하위 집합을 선택합니다. 안정성을 위해 LLM의 호출 횟수를 최소화함으로써 시스템 효율을 높이는 전략을 사용합니다.
+
+- **Performance Highlights**: CORE-T는 Bird, Spider, MMQA 데이터셋에서 최대 22.7포인트까지 테이블 선택 F1 점수를 개선하며, 최대 42% 더 적은 테이블을 검색합니다. 이는 멀티 테이블 실행 정확성을 Bird에서는 최대 5.0 포인트, MMQA에서는 최대 6.9 포인트 향상시킵니다. 또한, CORE-T는 LLM 집약적 베이스라인보다 토큰 사용량을 4-5배 줄이는 효율성을 보입니다.
+
+
+
+### Audit du syst{è}me d'information et du mod{è}le de gouvernance de la Biblioth{è}que Num{é}rique de l'Espace universitaire Francophone (BNEUF) du projet Initiative pour le D{é}veloppement du Num{é}rique dans l'Espace Universitaire Francophone (IDNEUF) (https://arxiv.org/abs/2601.12902)
+Comments:
+          in French language
+
+- **What's New**: 이 문서는 BNEUF 시스템의 전체 구조와 프랑스어 사용 대학에서의 디지털 개발 이니셔티브(IDNEUF) 내에서의 운영 방식에 대한 평가를 제공합니다. 2021-2025년 AUF의 새로운 전략 지원을 목표로 하며, 프랑코폰 과학 프로젝트 구현을 위한 새로운 구조적 및 거버넌스 기반에 중점을 두고 있습니다. 이를 통해 기존 및 미래의 디지털 자원과 서비스를 재조직하여 통합 서비스의 글로벌 협업 플랫폼에 통합하는 것을 목표로 합니다.
+
+- **Technical Details**: 이 보고서는 BNEUF 시스템의 새로운 조직 형태 및 사용 방식에 대한 외부 평가를 제공합니다. BNEUF 시스템은 다양한 디지털 자원을 최적화하여 관리할 수 있는 새로운 경로를 제시하며, Atlas of Expertise 및 외교 사회망과의 시너지 효과를 내기 위해 관련 모듈과 통합할 수 있게 설계되었습니다. 이러한 접근은 AUF 프로젝트 팀이 효율적으로 디지털 자원을 관리하는 데 기여할 것입니다.
+
+- **Performance Highlights**: 보고서는 BNEUF 시스템의 효과적인 활용을 통해 정보 자원의 관리 및 사용 방식을 향상시킬 수 있는 몇 가지 새로운 방안을 제안합니다. 특히, 프랑코폰 네트워크와의 협력을 통해 자원 활용의 시너지를 강화하는 데 중점을 두고 있으며, 이를 통해 향후 디지털 자원 및 서비스 관리에 대한 새로운 기준을 설정할 것입니다. 이러한 목표는 프랑스어 사용 지역에서의 수준 높은 디지털 개발을 지원하는 데 기여할 것입니다.
+
+
+
+### BioPulse-QA: A Dynamic Biomedical Question-Answering Benchmark for Evaluating Factuality, Robustness, and Bias in Large Language Models (https://arxiv.org/abs/2601.12632)
+- **What's New**: 이번 연구에서는 BioPulse-QA라는 새로운 벤치마크가 도입되었습니다. 이 벤치마크는 최신 생물 의학 문서에서 발생하는 질문에 대한 대답 능력을 평가하는 데 중점을 두고 있습니다. 특히 약물 라벨, 임상 시험 프로토콜 및 임상 지침을 포함하여, 기존의 정적 데이터셋의 한계를 극복하려고 합니다.
+
+- **Technical Details**: BioPulse-QA는 2,280개의 전문가 검증 질문-답변(Question Answering) 쌍을 포함하고 있으며, 추출적(extractive) 및 요약적(abstractive) 형식을 모두 다룹니다. 연구에서는 GPT-4o, GPT-o1, Gemini-2.0-Flash, LLaMA-3.1 8B Instruct 등 4개의 LLM들을 평가했습니다. 이 모델들은 벤치마크 문서의 발행일 이전에 출시되었습니다.
+
+- **Performance Highlights**: 성능 면에서 GPT-o1이 약물 라벨에서 가장 높은 완화된 F1 점수(0.92)를 기록하였으며, Gemini-2.0-Flash가 0.90으로 뒤를 이었습니다. 임상 시험은 가장 어려운 데이터 소스로, 추출적 F1 점수가 0.36으로 낮게 나타났습니다. BioPulse-QA는 생물 의학 LLM 평가를 위한 확장 가능하고 임상적으로 관련성이 높은 프레임워크를 제공합니다.
+
+
+
+### Improved Bug Localization with AI Agents Leveraging Hypothesis and Dynamic Cognition (https://arxiv.org/abs/2601.12522)
+Comments:
+          13 pages, 7 tables, 5 figures
+
+- **What's New**: CogniGent이라는 새로운 버그 로컬라이제이션 기법이 소개되었습니다. 이 기법은 여러 AI 에이전트를 활용하여 인과적 추론(causal reasoning)과 호출 그래프(call graph)를 기반으로 한 분석을 수행합니다. 또한, CogniGent는 개발자가 사용하는 디버깅 방법을 모방하여 가설 테스트(hypothesis testing)를 통해 버그 위치를 찾아내는 방식입니다.
+
+- **Technical Details**: CogniGent는 적용된 다양한 AI 에이전트가 각기 다른 역할을 수행하도록 설계되었습니다. 이들은 코드 내부에서 의심스러운 부분을 동적으로 탐색하며 인과 관계를 기반으로 흥미로운 시작점을 선택합니다. 또한 Click2Cause라는 독창적인 알고리즘을 사용하여 호출 그래프(call graph)를 탐색하고, 스크래치패드 기반의 컨텍스트 관리(context management) 기법을 적용하여 탐색 중에 발행될 수 있는 컨텍스트 과부하를 피합니다.
+
+- **Performance Highlights**: CogniGent는 591개의 버그 보고서로 검증한 결과, 기존의 전통적인 기법들과 LLM 기반의 기법들보다 일관되게 우수한 성능을 보였습니다. MAP(Mean Average Precision) 수치는 문서와 메소드 수준에서 23.33-38.57% 향상된 결과를 기록했으며, MRR(Mean Reciprocal Rank)에서도 25.14-53.74%의 성장을 나타냈습니다. 통계적 유의성 검정에서도 CogniGent의 우수성이 확인되었습니다.
+
+
+
+### Optimizing User Profiles via Contextual Bandits for Retrieval-Augmented LLM Personalization (https://arxiv.org/abs/2601.12078)
+- **What's New**: 본 논문에서는 LLM(대형 언어 모델)의 개인화(Personalization)를 위한 새로운 프레임워크인 PURPLE을 제안합니다. PURPLE은 사용자 프로필을 최적화하기 위해 컨텍스트 밴딧(contextual bandit) 설정을 활용하여, 단순히 가장 관련성이 높은 기록을 선택하는 기존의 방법과 달리, 레코드 간의 복잡한 상호작용을 포착합니다. 이 접근 방식은 LLM의 응답 품질을 직접적으로 향상시키는 것을 목표로 합니다.
+
+- **Technical Details**: PURPLE은 사용자 프로필을 구성하는 과정을 세트 생성 문제(set generation problem)로 바라보고, Plackett-Luce 순위 모델을 사용하여 레코드 간의 의존성을 모델링합니다. 이를 통해 각 레코드에 대한 잠재적 점수(propensity score)를 출력하고, 이 점수를 사용하여 최종 프로필을 생성합니다. 모델은 정책 경량화 방법(policy gradient method)을 통해 end-to-end로 훈련됩니다.
+
+- **Performance Highlights**: 아홉 가지 개인화 작업에 대한 광범위한 실험 결과, PURPLE은 강력한 기본선(heuristics) 및 검색 증강 모델에 비해 지속적으로 우수한 성능을 보였습니다. 효과성과 효율성 모두에서 뛰어난 성과를 확인하였으며, 사용자의 선호를 반영한 개인화된 응답 품질을 개선하는 데 기여하고 있습니다. 이 연구는 사용자 프로필 최적화를 위한 체계적이고 확장 가능한 솔루션을 제공합니다.
+
+
+
+### Don't Start Over: A Cost-Effective Framework for Migrating Personalized Prompts Between LLMs (https://arxiv.org/abs/2601.12034)
+Comments:
+          Accepted to AAAI 2026 (Oral). 9 pages, 5 figures
+
+- **What's New**: 본 연구에서는 대형 언어 모델(LLMs)에서 사용자 맞춤형 소프트 프롬프트를 효율적으로 이전하기 위한 새로운 방법인 Prompt-level User Migration Adapter (PUMA)를 제안합니다. PUMA는 파라미터 효율적인 어댑터를 사용하여 모델 간 의미 격차를 해소하고, 비용을 크게 줄이기 위해 사용자를 그룹화하는 전략을 결합합니다. 이 방식은 사용자 자산을 모델 기반에서 분리함으로써 개인화된 AI의 지속 가능한 진화를 위한 실용적인 경로를 제공하는 데 초점을 맞추고 있습니다.
+
+- **Technical Details**: PUMA 프레임워크는 소프트 프롬프트를 다른 모델로 효과적으로 마이그레이션하기 위해 두 가지 주요 구성 요소를 포함합니다: (1) 모델 간 의미 격차를 해소하기 위해 끝에서 끝으로 훈련된 파라미터 효율적인 어댑터와 (2) 사용자 선택 전략으로, 사용자들을 프롬프트 임베딩과 출력 분산에 따라 그룹화하여 작은 대표 훈련 하위 집합을 형성합니다. 이를 통해 높은 성능을 유지하면서도 훈련 비용을 대폭 줄일 수 있습니다. 실험 결과는 PUMA가 초기 모델 재훈련보다 더욱 비용 효율적임을 보여줍니다.
+
+- **Performance Highlights**: 세 가지 대규모 데이터셋에서의 실험을 통해 PUMA 방법은 직접 훈련에서의 성능을 뛰어넘거나 일치하는 결과를 나타내면서도 최대 98%의 계산 비용 절감을 달성하였습니다. 또한, PUMA는 여러 모델 아키텍처에 걸쳐 강력한 일반화 능력을 보이며, 연쇄적 및 집합적 마이그레이션과 같은 고급 시나리오에서의 강건성을 입증했습니다. 이러한 결과는 사용자 맞춤형 AI 시스템의 실용적 확장을 위한 가능성을 제시합니다.
+
+
+
+### Learning Audio-Visual Embeddings with Inferred Latent Interaction Graphs (https://arxiv.org/abs/2601.11995)
+Comments:
+          16 pages, 5 figures, 2 tables
+
+- **What's New**: 이번 연구에서는 오디오-비주얼(visual) 임베딩을 강화하기 위해 새로운 프레임워크를 제안합니다. 이 프레임워크는 관련성 있는 신호를 연관 짓고, 불필요한 잡음을 제거하는 데 중점을 두고 있습니다. 기존의 방법들이 단순히 주어진 라벨에 의존하는 것과는 달리, 소프트 라벨(predictions)과 숨겨진 상호작용(inferred latent interactions)을 활용하여 더 정밀한 학습이 이루어지도록 합니다.
+
+- **Technical Details**: 제안된 방법의 핵심 구성 요소로는 (1) Audio-Visual Semantic Alignment Loss (AV-SAL), (2) Inferred Latent Interaction Graph (ILI), 그리고 (3) Latent Interaction Regularizer (LIR)가 있습니다. AV-SAL은 서로 다른 모달리티의 소프트 라벨 분포를 정렬하는데, 이는 주어진 라벨에 없는 사건에 대해서도 비제로 확률을 할당하여 감독 신호를 풍부하게 만듭니다. ILI는 GRaSP 알고리즘을 적용하여 클래스 간의 희소하고 방향성 있는 종속성 그래프를 추론해 내며, LIR은 학생 네트워크가 소프트 라벨 확률에 비례하여 연결된 임베딩을 통합하여 학습하도록 합니다.
+
+- **Performance Highlights**: AVE 및 VEGAS 벤치마크에 대한 실험 결과, 평균 평균 정밀도(mean average precision, mAP)에서 일관된 향상이 관찰되었습니다. 이 연구는 추론된 잠재 상호작용을 임베딩 학습에 통합함으로써 강인성(robustness) 및 의미적 응집력(semantic coherence)을 향상시키는 데 기여합니다. 이러한 기법을 통해 비주얼 및 오디오 신호 간의 관계를 보다 정확하게 파악하게 되었습니다.
+
+
+
+### AI Co-Scientist for Knowledge Synthesis in Medical Contexts: A Proof of Concep (https://arxiv.org/abs/2601.11825)
+- **What's New**: 이 연구에서는 생물 의학 분야의 연구 낭비를 줄이기 위해 설계된 AI 공동 과학자를 소개합니다. 이 시스템은 PICOS(인구, 개입, 비교, 결과, 연구 설계)의 명확한 형식을 기반으로 확장 가능하고 투명한 지식 통합을 목표로 합니다. 연구의 핵심은 다양한 데이터 소스를 연결하여 문헌 검색, 스크리닝 및 데이터 추출을 자동화하는 것입니다. 또한, 효율적인 행위 및 지식 통합을 위해 여러 차원에서의 대처를 제시합니다.
+
+- **Technical Details**: 제안된 아키텍처는 관계형 저장소, 벡터 기반 의미 검색 및 Neo4j 지식 그래프를 통합합니다. Bidirectional Long Short-Term Memory(Bi-LSTM) 및 PubMedBERT에서 미세 조정된 변환자 기반 다중 작업 분류기를 활용하여 PICOS 준수 및 연구 설계 분류가 자동화됩니다. 방법론적 프레임워크는 PICOS 분석을 강조하며, 이를 통해 데이터 검색의 효율성을 높이고, 무관하거나 중복된 연구를 줄이는 데 기여할 수 있습니다.
+
+- **Performance Highlights**: 제안된 시스템은 연구 설계 분류에 대해 95.7%의 정확도를 달성했으며 전문가 주석과 강한 일치를 보였습니다. 자동화된 PICOS 준수 검출기는 87%의 정확도를 기록했습니다. 연구에서는 주제 모델링을 통해 주제의 중복성과 탐색이 덜 된 연구 영역을 확인하여 연구 낭비를 줄이고, 관련 있는 증거의 신속한 수집과 활용이 가능성을 보여줍니다.
+
+
+
+### GPU-Resident Inverted File Index for Streaming Vector Databases (https://arxiv.org/abs/2601.11808)
+- **What's New**: 이번 논문에서는 GPU-native 아키텍처인 SIVF(Streaming Inverted File)를 제안합니다. SIVF는 벡터 데이터베이스의 데이터 흡수 및 삭제 속도를 높이며, 기존의 정적 메모리 레이아웃을 슬랩 기반 할당 시스템 및 유효 비트맵으로 대체합니다. 이러한 혁신을 통해 SIVF는 실시간 업데이트가 필요한 애플리케이션에서 발생하는 성능 저하를 극복할 수 있습니다.
+
+- **Technical Details**: SIVF는 VRAM에서 직접 잠금 없이 및 제자리에서 변환이 가능하도록 설계되었습니다. 또한 GPU 상주 주소 변환 테이블(ATT)을 도입하여 벡터를 위치하는 오버헤드를 줄이고, 물리적 저장 슬롯에 대한 $O(1)$ 접근을 제공합니다. 이러한 구조는 실시간 추천 엔진이나 동적 RAG 시스템에서 데이터의 신선도를 유지하는 데 큰 도움을 줍니다.
+
+- **Performance Highlights**: SIVF는 SIFT1M 및 GIST1M 데이터 세트에서 업계 표준 GPU IVF 구현과 비교하여 성능 평가를 받았습니다. 마이크로 벤치마크 결과, SIVF는 삭제 지연 시간을 $13,300	imes$ 단축하고, 데이터 흡수량을 $36	imes$에서 $105	imes$까지 향상시킵니다. 추가적으로, 슬라이딩 윈도우 시나리오에서는 시스템 정지를 제거하고 단일 자릿수 밀리초에서 $161	imes$에서 $266	imes$의 속도 향상을 달성했습니다.
+
+
+
+### RAC: Retrieval-Augmented Clarification for Faithful Conversational Search (https://arxiv.org/abs/2601.11722)
+Comments:
+          This is the author's version of the work. The definitive version is published in: Proceedings of the 48th European Conference on Information Retrieval (ECIR '26), 29 March--2 April, 2026, Delft, Netherlands
+
+- **What's New**: 이 논문은 사용자 쿼리의 애매함을 해결하기 위한 대화형 검색 시스템의 새로운 접근법인 RAC(Retrieval-Augmented Clarification)를 제안합니다. 기존의 연구는 사용자 의도와의 일치성에 중점을 두었으나, 문서 기반의 지원 없이 생성된 질문은 사용자를 혼란스럽게 할 수 있습니다. RAC는 문서와의 연계를 강조하여 신뢰할 수 있는 질문 생성을 위해 대규모 언어 모델을 최적화합니다.
+
+- **Technical Details**: RAC 프레임워크는 사용자 쿼리와 관련된 단계를 기반으로 한 정보를 활용하여 질문을 생성합니다. 이는 대규모 언어 모델을 효과적으로 미세 조정하여 얻어진 문서 기반 정보를 통해 질문을 생성하는 방식입니다. 논문에서는 질문 생성을 위한 두 단계의 훈련 파이프라인을 제안하며, 이로 인해 생성된 질문의 품질이 크게 향상됩니다.
+
+- **Performance Highlights**: RAC는 네 가지 벤치마크에서 기존의 기준선을 초과하는 성과를 보여주었습니다. 실험 결과, RAC는 검색된 구절에 의해 지지되는 질문 생성을 선호하는 접근법을 적용하여 질문의 신뢰성을 증가시킵니다. 또한, 새로운 평가 지표를 도입하여 생성된 질문의 맥락 내에서의 일관성을 평가하며, 신뢰성이 항상 향상됨을 입증합니다.
+
+
+
+### From HNSW to Information-Theoretic Binarization: Rethinking the Architecture of Scalable Vector Search (https://arxiv.org/abs/2601.11557)
+Comments:
+          16 Pages, 5 Figures, 3 Tables
+
+- **What's New**: 본 논문은 현대의 RAG 시스템에서 기존의 RAM 기반 인덱스의 한계를 분석하고, 새로운 정보 이론적 아키텍처를 소개합니다. 기존의 HNSW + float32 + cosine similarity 스택은 성능, 지연(latency), 정확도 사이의 트레이드오프 문제로 어려움을 겪고 있습니다. 제안된 MIB(최대 정보 이진화) 접근 방식은 컴팩트한 이진 표현을 사용하여 결정론적 검색을 가능하게 하고, 고쿼리 동시성 하에서도 정확도 저하를 없앱니다.
+
+- **Technical Details**: 이 새로운 아키텍처는 MIB를 기반으로 하여 압축 이진 코드를 통해 고차원 벡터를 효율적으로 표현합니다. 전통적인 LSH(로컬리티 민감 해싱) 기법과는 달리, MIB는 정보 손실을 최소화하며 가장 중요한 특징을 선택적으로 인코딩하여 의미를 보존합니다. 또한, 비트 단위 연산을 포함한 EDM(효율적 거리 측정)을 사용하여 계산 복잡성을 대폭 줄였습니다.
+
+- **Performance Highlights**: MAIR 벤치마크를 통해 14개의 데이터셋과 10,038개의 쿼리를 사용하여, 제안된 아키텍처가 Elasticsearch, Pinecone, PGVector, Qdrant와 비교했을 때 비슷한 검색 품질을 제공하는 동시에 낮은 지연과 높은 요청률에서도 지속적으로 처리량을 유지함을 보였습니다. 이 아키텍처의 변화는 서버리스 배포 모델을 가능하게 하여, 고품질의 의미 기반 검색을 위한 대규모 RAM 인덱스의 필요성을 도전하고 있습니다.
+
+
+
+New uploads on arXiv(cs.CV)
+
+### Implicit Neural Representation Facilitates Unified Universal Vision Encoding (https://arxiv.org/abs/2601.14256)
+Comments:
+          18 pages, 16 tables, 4 figures
+
+- **What's New**: 이 연구는 이미지 인식과 생성에 동시에 유용한 표현을 학습하는 독창적인 모델, HUVR(Hyper-network for Unified Visual Representation)을 제시합니다. 이 모델은 하이퍼 네트워크(hyper-network)로서 이미지를 신속하고 정확하게 재구성할 수 있는 모델 가중치로 변환하는 학습을 진행합니다. 또한, 이 모델은 지식 증류(knowledge distillation)와 통합되어 일반화 및 성능을 향상시킵니다. 최종적으로 HUVR은 다양한 시각 작업에서 뛰어난 성능을 발휘하는 압축된 임베딩 공간을 학습합니다.
+
+- **Technical Details**: HUVR은 implicit neural representation(INR) 기반의 하이퍼 네트워크로 설계되었으며, 이는 이미지 입력을 받아 픽셀 좌표를 기반으로 색상 값으로 매핑하는 네트워크입니다. 이 모델은 인식 및 재구성을 위한 다양한 수준의 정보를 자연스럽게 통합하여 학습할 수 있도록 설계되었습니다. 패치 크기와 잠재 차원을 최신 Vision Transformer(ViT) 인코더에서 차용하여 하이퍼 네트워크의 설계를 개선하였습니다. 또한, 'Tiny Tokens'(TinToks)라는 압축 표현을 도입하여 불일치한 표현 학습 가족을 통합하는 혁신적인 접근 방식을 선보입니다.
+
+- **Performance Highlights**: HUVR 모델은 DINOv3보다 경쟁력 있는 성능을 보이며, ImageNet에서 +0.4%의 성능 향상과 ADE20K에서 +1.2 mIoU의 개선을 달성했습니다. TinToks는 96배 압축된 형태로 DINOv3 PCA 기준에 비해 +48%의 ImageNet 분류 성능을 향상시킵니다. 또한, 이미지 임플리시트 신경 표현을 위한 새로운 하이퍼 네트워크 디자인을 통해 ImageNette에서 10%의 훈련 시간으로 +2.34 PSNR을 얻는 성과를 보였습니다.
+
+
+
+### VideoMaMa: Mask-Guided Video Matting via Generative Prior (https://arxiv.org/abs/2601.14255)
+Comments:
+          Project page: this https URL
+
+- **What's New**: 본 논문은 Video Mask-to-Matte Model (VideoMaMa)을 소개합니다. 이 모델은 사전 훈련된 비디오 확산 모델을 활용해 거친 분할 마스크를 픽셀 정확도의 알파 매트로 변환합니다. VideoMaMa는 합성 데이터로만 훈련되었음에도 불구하고 실제 비디오에서 강력한 제로샷 일반화를 보여줍니다.
+
+- **Technical Details**: VideoMaMa는 두 단계 훈련 전략을 사용하여 공간적 및 시간적 레이어를 따로 최적화하며, DINOv3의 특징을 통해 의미적 지식을 주입합니다. 이 작업은 비디오 매팅의 강력한 일반화 능력을 가진 모델을 구현하기 위한 과정이며, 다양한 소스로부터 제공된 이진 마스크를 기반으로 실험을 수행했습니다.
+
+- **Performance Highlights**: MA-V 데이터셋에서 SAM2 모델을 미세 조정하여 SAM2-Matte를 구현하였고, 이는 천연 환경에서의 비디오 매팅 성능이 상당히 향상되었습니다. 이러한 결과는 대규모 의사 주석의 중요성을 강조하며, 생성적 우선사항과 접근 가능한 분할 큐가 비디오 매팅 연구의 확장을 이끌 수 있음을 보여줍니다.
+
+
+
+### Motion 3-to-4: 3D Motion Reconstruction for 4D Synthesis (https://arxiv.org/abs/2601.14253)
+Comments:
+          Project page: this https URL. Code: this https URL
+
+- **What's New**: 이 논문에서는 단일 모노큘러 비디오와 선택적 3D 참조 메쉬를 통해 고품질 4D 동적 객체를 합성하는 피드포워드(framework)인 Motion 3-to-4를 소개합니다. 현재까지의 4D 합성의 어려움은 제한된 훈련 데이터와 모노큘러 관점에서 기하학과 동작을 복원하는 것의 본질적인 모호성에 기인합니다. Motion 3-to-4는 이러한 문제를 정적 3D 형상 생성 및 동적 모션 복원으로 분해하여 해결합니다. 이 모델은 캔노니컬(reference) 메쉬를 통해 컴팩트한 모션 잠재 표현을 학습하여, 프레임별 정점 궤적을 예측하여 시간적으로 일관된 전체 기하학을 복원합니다.
+
+- **Technical Details**: Motion 3-to-4는 4D 생성 문제를 정적 3D 형상 인코딩과 동적 모션 복원이라는 두 개의 더 수월한 구성 요소로 분해하여 접근합니다. 이 방법은 정적 메쉬를 안정된 기하학적 기준으로 활용하여, 이 기준 상태에 대해 프레임별 3D 모션 플로우를 추정합니다. 주목할 점은 모노큘러 비디오와 초기 메쉬를 입력으로 받아 모션 잠재학습을 수행하여, 정적 객체의 형상과 비디오 맥락을 컴팩트한 모션 표현으로 인코딩하고, 이를 기반으로 정점 궤적을 예측하여 전체 시퀀스에서 시간적으로 일관된 모션을 복원합니다.
+
+- **Performance Highlights**: 기존의 벤치마크와 새로운 데이터셋에서 Motion 3-to-4의 효과를 증명하였으며, 그 결과 이전의 작업들에 비해 우수한 충실도와 공간적 일관성을 보여줍니다. 이 방식은 다양한 해상도의 입력 메쉬에 대해 견고하며, 임의 길이의 비디오에 대한 유연한 처리를 지원하는 확장 가능한 아키텍처를 가지고 있습니다. 또한, 모션-80이라는 새로운 벤치마크를 도입하여, 정확한 기하학과 현실적인 렌더링을 갖춘 동작 데이터셋으로 성능 평가의 기준을 제공합니다.
+
+
+
+### LightOnOCR: A 1B End-to-End Multilingual Vision-Language Model for State-of-the-Art OCR (https://arxiv.org/abs/2601.14251)
+- **What's New**: 이번 논문에서는 LightOnOCR-2-1B라는 10억 매개변수를 갖는 다국어 비전-언어 모델을 제시합니다. 이는 문서 이미지(PDF 등)를 깨끗하고 자연스러운 텍스트로 변환하며, 기존의 취약한 OCR 파이프라인 없이도 작동합니다. 이 모델은 OlmOCR-Bench에서 최첨단 성과를 내며, 이전의 최상 모델보다 9배 작고 훨씬 빠릅니다.
+
+- **Technical Details**: LightOnOCR-2는 문서 이해를 위한 compact한 end-to-end 모델로서, 비전 인코더, 멀티모달 프로젝터, 언어 모델 디코더의 세 가지 주요 구성 요소로 이루어져 있습니다. 이 모델은 패치의 시각적 토큰 수를 절감하기 위해 2배로 공간 병합을 수행하며, 다양한 문서 레이아웃을 효과적으로 처리할 수 있도록 설계되었습니다. 또한, 강화 학습(RLVR)을 통해 고유한 실패 모드(target failure modes)를 해결하며, 이미지에 대한 경계 상자(predicted bounding boxes)를 예측하는 기능도 갖추고 있습니다.
+
+- **Performance Highlights**: LightOnOCR-2-1B는 새로운 OlmOCR-Bench에서 최첨단 결과를 달성하였으며, 유럽 언어와 과학 PDF에 대한 더 강력한 커버리지와 함께 2.5배 더 큰 훈련 데이터를 사용합니다. 이 모델의 OCR 성능과 경계 상자 정확도(bbox accuracy)는 경량한 모델링 기법을 통해 조정되어, 다양한 데이터에 대한 적응력이 높습니다. 공개적으로 Apache 2.0 라이센스를 통해 모델 체크포인트와 데이터셋을 배포하며 이미지 로컬리제이션을 위한 새로운 benchmark인 LightOnOCR-bbox-bench도 도입하였습니다.
+
+
+
+### OmniTransfer: All-in-one Framework for Spatio-temporal Video Transfer (https://arxiv.org/abs/2601.14250)
+Comments:
+          Github Page: this https URL
+
+- **What's New**: 이번 연구에서는 OmniTransfer라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 영상 데이터의 공간적(spatial) 및 시간적(temporal) 정보를 활용하여 보다 유연한 비디오 생성이 가능하게 합니다. 기존의 비디오 커스터마이징 방법들이 이미지나 작업 기반의 시간적 선행 정보를 사용하던 반면, OmniTransfer는 다중 뷰(multi-view) 정보를 활용하여 Appearance consistency를 향상시키고, 세밀한 시간 제어를 가능하게 합니다.
+
+- **Technical Details**: OmniTransfer는 세 가지 주요 설계를 통합하여 다양한 비디오 전송(task transfer) 작업을 통합합니다. 첫째, Task-aware Positional Bias를 통해 참조 비디오 정보를 적응적으로 활용하여 시간 정렬과 외관 일관성을 개선합니다. 둘째, Reference-decoupled Causal Learning을 도입하여 참조와 목표 분기를 분리하여 정밀한 참조 전송을 가능하게 하며, 효율성을 향상시킵니다. 마지막으로, Task-adaptive Multimodal Alignment를 통해 다양한 작업을 동적으로 구별하고 처리할 수 있도록 다중 모달(semantics) 가이드를 사용합니다.
+
+- **Performance Highlights**: OmniTransfer는 기존 방안들에 비해 외관 (ID 및 스타일) 및 시간적 전송(카메라 움직임 및 비디오 효과)에서 뛰어난 성능을 보여주었습니다. 또한 포즈(pose) 기반 방법들과 유사한 모션 전송 성능을 포즈 사용 없이 달성하며, 비디오 생성의 새로운 패러다임을 확립했습니다. 실험 결과 OmniTransfer는 고충실도(high-fidelity) 비디오 생성을 위한 유연성과 효율성을 제공함을 입증합니다.
+
+
+
+### Soft Tail-dropping for Adaptive Visual Tokenization (https://arxiv.org/abs/2601.14246)
+- **What's New**: 이번 연구에서는 Soft Tail-dropping Adaptive Tokenizer (STAT)를 제안합니다. STAT는 이미지의 구조적 복잡성에 따라 출력 토큰의 수를 적응적으로 선택하는 1D 불연속 시각 토크나이저입니다. 이를 통해 간단한 이미지에는 적은 수의 토큰을 할당하고, 복잡한 이미지에는 더 많은 토큰을 할당하여 생성 모델의 성능을 향상시킵니다.
+
+- **Technical Details**: STAT는 주어진 이미지를 불연속적인 잠재 토큰으로 인코딩하며, 각 토큰에 대한 보존 확률을 예측하는 확률적 토큰 드롭아웃 모듈을 사용합니다. 세 가지 우선사항에 따라 드롭아웃 확률을 학습시키는데, 이로 인해 평균 토큰 수는 감소하지만 복원 성능은 향상됩니다. STAT는 기존의 2D 구조에서 벗어나 1D 잠재 공간을 통해 효율적으로 토큰 수를 변동시킵니다.
+
+- **Performance Highlights**: STAT를 vanilla 오토회귀 모델에 통합하면, 경쟁력 있는 생성 품질을 달성합니다. 특히, diffusion 기반 모델과 비슷하거나 이를 초월하는 생성 성능을 보이며, 기존 모델들보다 더 나은 확장성을 나타냅니다. STAT는 평균적으로 더 적은 토큰을 사용하면서도 뛰어난 복원 성능을 가져, 최신 생성 모델과 비교할 만한 상태에서의 성과를 보여줍니다.
+
+
+
+### Rig-Aware 3D Reconstruction of Vehicle Undercarriages using Gaussian Splatting (https://arxiv.org/abs/2601.14208)
+Comments:
+          8 pages, 9 figures, Conference: IEEE International Conference on Machine Learning and Applications 2025 (ICMLA 2025): this https URL
+
+- **What's New**: 이 논문에서는 used vehicle의 언더캐리지(undercarriage)를 검사하기 위해 차별화된 3D 모델을 생성하는 최첨단 파이프라인을 제안합니다. 세 개의 넓은 시야각(wide-angle) 카메라를 사용하여 차량이 지나갈 때 언더캐리지를 비디오로 캡처하고, 이를 통해 검사자와 소비자가 신속하게 녹, 누수, 손상 등을 검출할 수 있는 상호작용 가능한 3D 모델을 생성하여 신뢰성을 향상시킵니다. 이 연구의 주요 기여는 왜곡(distortion) 문제를 해결하기 위해 설계된 rig-aware Structure-from-Motion (SfM) 파이프라인입니다.
+
+- **Technical Details**: 이 수치 모델링 과정에서는 ChArUco 보드(boards)를 이용하여 정밀한 카메라 캘리브레이션을 수행하고, 다양한 이미지를 선택하여 렌즈 왜곡을 모델링 및 투영 오류(projection error)를 최소화합니다. 그런 다음 다양한 카메라 스트림을 단계별로 정밀하게 동기화하여 얻은 이 데이터를 활용하여 높은 품질의 sparse point cloud를 생성하고 3D Gaussian splatting을 통해 실시간으로 렌더링이 가능한 포토리얼리스틱 모델을 생성합니다. 전체 구조는 신뢰할 수 있는 깊이 추정(depth estimation)을 보장하며, 이 과정을 통해 효율적인 검사 등급 모델을 생성합니다.
+
+- **Performance Highlights**: 제안된 시스템은 실시간으로 차량 언더캐리지를 상호작용적으로 검사할 수 있으며, 다양한 실험과 ablation 연구를 통해 SOTA(state-of-the-art) 품질의 성과를 나타냅니다. 카메라의 정밀한 캘리브레이션, 동기화 및 기하학적으로 인식하는 SfM 기술을 통해 기존 NeRF(Neural Radiance Fields) 방식보다 우수한 품질의 3D 모델을 생성할 수 있음을 입증합니다. 이 기술은 온라인 마켓플레이스에서 차량 검사 표준화를 지원하고 신뢰도를 높이며, 보험 청구 및 차량 관리 등에 활용될 수 있는 큰 잠재력을 지니고 있습니다.
+
+
+
+### IIR-VLM: In-Context Instance-level Recognition for Large Vision-Language Models (https://arxiv.org/abs/2601.14188)
+- **What's New**: 본 논문에서는 IIR-VLM(In-context Instance-level Recognition VLM)을 제안합니다. 이 모델은 인스턴스 수준 인식을 위한 개선된 VLM으로, 기존의 전문 모델들을 보조 비주얼 인코더로 통합합니다. 이를 통해 VLM이 다양한 인스턴스를 원샷(one-shot) 방식으로 학습할 수 있도록 지원하며, 보다 효과적인 비주얼 이해를 가능하게 합니다.
+
+- **Technical Details**: IIR-VLM은 두 가지 주요 구성 요소로 구성됩니다. 첫 번째는 보조 인코더로, 인스턴스 수준 인식 전문 모델에서 온 디스컴프리미네이팅 기능을 VLM의 자체 인코더에 통합하여 세부 인식 능력을 향상시킵니다. 두 번째로, 두 단계의 경량(lightweight) 훈련 과정을 통해 VLM이 다양한 난이도와 카테고리의 ILR 데이터를 효율적으로 학습하도록 설계되었습니다.
+
+- **Performance Highlights**: IIR-VLM은 다양한 인스턴스 개인화 벤치마크에서 유효성을 검증받았으며, 특히 어려운 새로운 벤치마크에서 탁월한 ILR 성능을 보여줍니다. 이 모델은 향후 스마트 홈 카메라와 같은 실제 응용 분야에서 인스턴스 식별을 위한 필수적인 비주얼 이해 능력을 제공할 것으로 기대됩니다.
+
+
+
+### Progressive self-supervised blind-spot denoising method for LDCT denoising (https://arxiv.org/abs/2601.14180)
+- **What's New**: 이번 연구에서는 저선량 CT(LDCT) 이미지의 소음 제거를 위한 새로운 자기 지도 학습(self-supervised learning) 전략을 제안합니다. 이 방법은 정상선량 CT(NDCT) 데이터에 의존하지 않고, LDCT 이미지만을 활용하여 진행됩니다. 특히, 조건적 독립성을 강제하는 단계적 블라인드 스팟(Blind-spot) 소음 제거 메커니즘을 도입하여 세밀한 소음 제거 학습을 가능하게 합니다.
+
+- **Technical Details**: 제안된 방법은 단계적인 마스킹 기술을 통합하여 블라인드 스팟 접근법을 확장합니다. 각 LDCT 이미지에 랜덤 가우시안 노이즈를 추가하여 과적합(overfitting)을 방지하며, 모델이 배경 맥락(Contextual Features)을 학습하도록 장려합니다. 자기 지도 학습 손실 함수는 마스킹된 LDCT 이미지에서 최적의 매개변수 θ를 찾는 형태로 표현됩니다.
+
+- **Performance Highlights**: Mayo LDCT 데이터셋에서 수행된 실험 결과, 제안된 방법은 기존의 자기 지도 학습 접근 방식을 일관되게 초과 달성하였고, 여러 대표적인 지도 학습 기반 소음 제거 방법들과 유사하거나 더 나은 성능을 보였습니다. 이 결과는 LDCT 이미징 파이프라인에서 소음 제거의 중요성을 강조하며, 임상적 적용 가능성을 제시합니다.
+
+
+
+### ASBA: A-line State Space Model and B-line Attention for Sparse Optical Doppler Tomography Reconstruction (https://arxiv.org/abs/2601.14165)
+Comments:
+          17 pages, 11 figures
+
+- **What's New**: 본 논문은 희소 샘플링(raw A-scans)된 데이터를 사용하여 Optical Doppler Tomography (ODT) 이미지 재구성을 위한 새로운 모델 ASBA (A-line ROI State Space Model and B-line phase Attention)를 제안합니다. 이 모델은 전통적인 ODT 방법들이 직면한 스캔 시간 증가와 데이터 저장 문제를 해결하기 위해 설계되었습니다. ASBA는 A선의 흐름 특성을 효과적으로 추출하고, B선에서의 장거리 흐름 신호를 포착하는 데 중점을 둡니다.
+
+- **Technical Details**: ASBA는 두 가지 주요 구성 요소로 이루어져 있습니다. 첫째, A-line ROI state space 모델은 A선에沿한 흐름 신호를 적절히 모델링하고, 둘째, B-line phase attention 메커니즘은 B선에沿한 흐름 정보를 향상시키는데 초점을 맞추고 있습니다. 이러한 접근법은 흐름 정보의 정확한 재구성을 위해 흐름이 우선시되는 비용 함수를 도입하여, 기본 다수의 배경 신호보다 흐름 신호의 재구성을 더욱 강조합니다.
+
+- **Performance Highlights**: 실험 결과, ASBA는 기존의 최신 재구성 방법들과 비교했을 때 우수한 성능을 보여주었습니다. 특히, 희소 샘플된 데이터에서의 ODT 이미지 재구성이 가능해져 스캔 시간을 획기적으로 단축하는 동시에 데이터 저장 요구사항도 줄어들었습니다. 이러한 결과는 다양한 생리적 자극에 대한 혈류 반응 연구에도 기여할 것으로 기대됩니다.
+
+
+
+### One-Shot Refiner: Boosting Feed-forward Novel View Synthesis via One-Step Diffusion (https://arxiv.org/abs/2601.14161)
+- **What's New**: 이 연구는 Sparse 이미지로부터 새로운 뷰 합성을 위한 혁신적인 프레임워크를 제안합니다. 특히, 최근 Vision Transformer(ViT) 기반의 3D Gaussian Splatting(3DGS) 방법에서 나타나는 한계점들을 해결하도록 설계되었습니다. Dual-Domain Detail Perception Module(DD-DPM)와 같은 모듈을 통해 고해상도 이미지를 효과적으로 처리할 수 있도록 하였습니다.
+
+- **Technical Details**: 이 시스템은 Feature-Guided One-Step Diffusion 구조를 채택하여 고주파 세부 정보를 보존합니다. 방법론은 비디오 수업의 성격을 고려하여 전통적인 3D 모델과의 결합을 통해 장면 구조를 존중하면서 생성 과정을 안내합니다. 각각의 3D Gaussian과 관련된 특성을 제어함으로써, 고해상도의 출력 이미지를 생성합니다.
+
+- **Performance Highlights**: 실험을 통해 본 논문이 여러 데이터셋에서 우수한 생성 품질을 유지함을 입증하였습니다. 이 방법은 특히 비포즈된 Sparse 뷰 입력으로부터 고품질의 새로운 뷰를 합성하는 데 강력한 성능을 보입니다. ViT 기반의 기하학적 백본과 확산 기반 이미지 향상 모듈의 공동 최적화를 통해 확장성이 있는 결과를 도출할 수 있음을 보여주었습니다.
+
+
+
+### LLM Augmented Intervenable Multimodal Adaptor for Post-operative Complication Prediction in Lung Cancer Surgery (https://arxiv.org/abs/2601.14154)
+Comments:
+          Accepted to P2P-CV @ WACV 2026
+
+- **What's New**: 이번 연구에서는 MIRACLE이라는 딥러닝 아키텍처를 소개하며, 이는 폐암 수술 후 합병증의 위험을 예측하는 데에 특화되어 있습니다. MIRACLE은 수술 전 임상 및 방사선 데이터를 통합하여 하이퍼구형 임베딩 공간을 활용해 높은 차원의 정보를 효과적으로 추출합니다. 이를 통해 기존의 예측 모델들에 비해 더욱 개인화되고 설명 가능한 위험 예측이 가능해졌습니다.
+
+- **Technical Details**: MIRACLE 프레임워크는 임상 데이터, 방사선학적 바이오마커, 임상 전문가가 조정 가능한 자연어 설명을 통합하여 위험 예측의 정확성과 해석 가능성을 높입니다. Bayesian MLP 아키텍처를 채택하여 데이터가 불균형하게 분포된 경우에도 과적합(overfitting)을 방지하며 강력한 학습을 가능하게 합니다. 연구에 사용된 POC-L 데이터셋은 3,094명의 폐암 수술 환자로 구성되어 있습니다.
+
+- **Performance Highlights**: MIRACLE은 폐암 수술 후 합병증의 위험 예측에서 전통적인 머신러닝 모델 및 여러 대규모 언어 모델(LLM)보다 우수한 성능을 보였습니다. AUC 및 True Positive Rate에서 높은 성과를 기록하며, 임상적으로 의미 있는 False Positive Rate에서도 현저한 결과를 나타냈습니다. 이는 MIRACLE이 예측 결과의 투명성을 높이고, 토대가 강화된 해석을 제공함으로써 임상 의사들의 의사결정 지원 시스템으로서 타당성을 가지게 됨을 보여줍니다.
+
+
+
+### GIC-DLC: Differentiable Logic Circuits for Hardware-Friendly Grayscale Image Compression (https://arxiv.org/abs/2601.14130)
+- **What's New**: 이 논문은 차별 가능한 논리 회로(Differentiable Logic Circuits, DLC)를 활용한 그레이스케일 이미지 압축 방식인 GIC-DLC를 제안합니다. 이 방식은 전통적인 이미지 코덱보다 높은 압축 효율을 보이며, 에너지 소비와 지연 시간도 대폭 줄일 수 있습니다. 이러한 기술은 특히 에너지가 제한된 스마트폰, 카메라, 드론과 같은 엣지 디바이스에서의 사용을 목적으로 합니다.
+
+- **Technical Details**: GIC-DLC는 이미지의 픽셀별 확률 분포를 예측하여 압축을 수행하고, 비트 스트림 형태로 인코딩합니다. 이 과정은 비대칭 숫자 시스템(Asymmetric Numeral Systems, ANS)을 통해 이루어지며, 이는 픽셀의 가능성에 따라 비트를 효율적으로 사용하게 합니다. 또한, DLC의 특성을 활용하여, 네트워크가 픽셀 분포를 모델링하면서도 하드웨어 친화적으로 동작할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 실험 결과, GIC-DLC는 EMNIST 데이터셋을 기준으로 전통적인 코덱들보다 높은 압축 비율과 처리 속도, 에너지 효율성을 달성했습니다. 이러한 결과는 특히 에너지 제약이 있는 디바이스에서 적합한 압축 방안을 제시하며, 향후 더 복잡한 자연 이미지로의 확장 가능성을 보여줍니다.
+
+
+
+### The Side Effects of Being Smart: Safety Risks in MLLMs' Multi-Image Reasoning (https://arxiv.org/abs/2601.14127)
+Comments:
+          *15 pages, 5 figures. Introduces MIR-SafetyBench (2,676 instances; 9 multi-image relations). Equal contribution; †Corresponding author. Code/data: this https URL
+
+- **What's New**: 이번 연구에서는 멀티모달 대규모 언어 모델(Multimodal Large Language Model, MLLM)의 다중 이미지 추론 안전성을 평가하기 위한 새로운 벤치마크인 MIR-SafetyBench를 소개합니다. 이 벤치마크는 9개 다중 이미지 관계를 포함한 2,676개의 인스턴스로 구성되어 있으며, 더욱 발전된 추론 능력이 오히려 안전성을 저해할 수 있는 가능성을 밝혔습니다.
+
+- **Technical Details**: MIR-SafetyBench는 다중 단계의 관계 추론을 통해 해로운 의도를 드러내며, 9가지 유형의 다양한 관계를 포함합니다. 연구 결과, 향상된 다중 이미지 추론 능력을 가진 모델이 UNSafetyBench에서 높은 공격 성공률(Attack Success Rate, ASR)을 보였고, 많은 안전 응답이 실제로는 피상적이라는 것을 발견했습니다. 또한, 모델의 내부 상태를 조사한 결과, 안전하지 않은 생성물은 평균적으로 낮은 주의 엔트로피(attention entropy)를 갖는 경향이 있음을 확인했습니다.
+
+- **Performance Highlights**: 본 연구의 평가 결과, 19개의 MLLM에서 다중 이미지 관계 공격이 광범위하게 성공하며, 모델의 다중 이미지 추론 능력 향상에 따라 이러한 안전 위험도 증가하는 것으로 나타났습니다. 마지막으로, 진정한 안전 정렬(safety alignment)과 모델 한계로 인한 무해한 행동을 구분하여, MLLM의 내부 상태와 다중 이미지 안전 작업에서의 주의 엔트로피를 조사함으로써 안전성이 결여된 생성물의 독특한 내부 신호를 식별하였습니다.
+
+
+
+### PMCE: Probabilistic Multi-Granularity Semantics with Caption-Guided Enhancement for Few-Shot Learning (https://arxiv.org/abs/2601.14111)
+- **What's New**: 이번 논문에서는 PMCE라는 새로운 프로토타입 기반의 few-shot 학습 프레임워크를 제안합니다. 이 방법은 Multi-granularity semantics와 Caption-guided Enhancement를 활용하여 적은 수의 라벨이 있는 샘플로부터 새로운 카테고리를 인식하는 문제를 해결하고자 합니다. PMCE는 시각적 통계를 저장하는 비모수 지식 은행을 구성하고, 이를 바탕으로 메타 테스트를 통해 각 새로운 카테고리에 대해 가장 관련 있는 기본 클래스를 검색합니다.
+
+- **Technical Details**: PMCE는 클래스 이름 임베딩을 사용하여 관련 있는 기본 카테고리를 식별하고, 이를 바탕으로 프로토타입을 조정하기 위한 클래스 특정 사전 정보를 생성합니다. 이 과정에서 BLIP 캡셔너를 활용하여 라벨이 없는 인스턴스 레벨 이미지 설명을 제공하고, 기본 클래스에서 훈련된 경량화된 Enhancer가 프로토타입과 쿼리 특징을 최적화합니다. 이러한 방식은 정규화 요소를 통해 콘텐츠 성질을 안정화하며, 주로 시멘틱스를 통해 모델 성능을 향상시키는 데 중점을 두고 있습니다.
+
+- **Performance Highlights**: 실험 결과, PMCE는 네 개의 벤치마크에서 강력한 기준에 비해 일관된 성능 향상을 보여주었습니다. 특히 MiniImageNet의 1-shot 설정에서 가장 강력한 시멘틱 경쟁자 대비 최대 7.71%의 절대적 성과 향상을 달성하며, 1-shot 작업에서 가장 중요한 개선을 보였습니다. 이는 PMCE의 설계가 효과적이라는 것을 뒷받침합니다.
+
+
+
+### Interp3D: Correspondence-aware Interpolation for Generative Textured 3D Morphing (https://arxiv.org/abs/2601.14103)
+Comments:
+          22 pages, 12 figures
+
+- **What's New**: 이 논문은 정교한 텍스처 3D 변형을 위한 새로운 프레임워크 Interp3D를 제안합니다. 기존의 접근방식에서는 기하학과 텍스처의 일관성을 동시에 유지하는 데 한계가 있었지만, Interp3D는 훈련이 필요 없는 방식을 사용하여 이를 해결합니다. 이 시스템은 기하학적 충실도(geometric fidelity)와 텍스처 일관성(texture coherence)을 동시에 보장하도록 설계되었습니다.
+
+- **Technical Details**: Interp3D는 세 가지 정렬 과정을 통해 변형을 수행합니다. 첫 번째로, 의미론적 정렬(semantic alignment)을 통해 소스와 목표의 의미적 특성을 일치시킵니다. 두 번째로, 구조적 정렬(structural alignment)을 통해 일치된 부분 간의 변형을 조정하며, 마지막으로 텍스처 정렬(texture alignment)을 통해 소스와 목표 간의 소재 전이를 구현합니다. 이러한 단계적 접근 방식은 변형 과정에서 기하학적 불일치와 텍스처 어색함을 줄이는 데 도움을 줍니다.
+
+- **Performance Highlights**: 연구 결과, Interp3D는 구조적 및 지각적 품질(perceptual quality)에서 기존의 방법에 비해 우수한 성능을 보였습니다. 평가를 위해 구축한 Interp3DData 데이터셋은 다양한 난이도로 구성되어 있으며, 평가에서 우리의 방법이 이전 방법보다 일관되게 우수한 결과를 나타냈습니다. 이는 3D 변형 분야에서의 새로운 접근법으로 큰 기여를 할 것으로 기대됩니다.
+
+
+
+### Curriculum-Based Strategies for Efficient Cross-Domain Action Recognition (https://arxiv.org/abs/2601.14101)
+- **What's New**: 이 논문은 인식 알고리즘이 다양한 시점에서 잘 일반화되지 못하는 문제를 해결하기 위해, 커리큘럼 기반 훈련 전략을 도입합니다. 특히, 실제 항공 데이터를 사용하지 않고도, 합성 항공 데이터 및 실제 지상 데이터를 활용하여 효율성을 높이는 방법을 제안합니다. 연구 결과는 합성 데이터와 실제 데이터를 조화롭게 결합하는 것이 단일 도메인에서 학습하는 것보다 효과적이라는 점을 강조합니다.
+
+- **Technical Details**: 논문에서는 두 가지 훈련 방법론인 두 단계의 미세 조정 방식과 다단계의 점진적 훈련 방식을 제안합니다. REMAG 데이터셋을 사용하여 두 가지 모델인 SlowFast (CNN 기반)과 MViTv2 (Transformer 기반)를 평가하였습니다. 이 두 방법 모두 단순한 데이터 조합 방식에 비해 성능과 효율성에서 유의미한 개선을 보여주었습니다.
+
+- **Performance Highlights**: 두 단계의 미세 조정 방식을 사용했을 때 SlowFast는 반복 횟수를 최대 37% 줄였고, MViTv2는 30%까지 줄였습니다. 점진적 접근 방식은 두 단계 방법에 비해 추가적인 반복 감소를 이루어 SlowFast에서는 9%, MViTv2에서는 30%의 감소를 보여주었습니다. 커리큘럼 기반 훈련 전략은 유사한 성능을 유지하면서도 학습 효율성을 개선할 수 있음을 입증했습니다.
+
+
+
+### Two-Stream temporal transformer for video action classification (https://arxiv.org/abs/2601.14086)
+- **What's New**: 이 연구에서는 새로운 두 가지 스트림(transformer)을 이용한 비디오 분류기(model)를 제시합니다. 이 모델은 비디오에서 시공간(spatio-temporal) 정보를 추출하며, 움직임을 나타내는 광학 흐름(optical flow)을 포함합니다. 최근의 transformer 네트워크들이 자가 주의(self-attention) 메커니즘을 통해 효율성을 보여주었고, 우리의 방법론이 세 가지 유명한 비디오 데이터셋에서 좋은 결과를 제공함을 제시합니다.
+
+- **Technical Details**: 이 연구의 제안된 모델은 컨텐츠와 광학 흐름을 통한 자기 주의(feature)를 식별하며, 이를 transformer 인코더 메커니즘 내에서 관계를 나타냅니다. 비디오에서 정적 장면(static scene)과 움직임(movement)을 각각 나타내는 두 가지 데이터 스트림을 사용하여 분류합니다. 또한, 광학 흐름 예측을 위한 신경망(neural network)을 사용하여, 각 픽셀의 변위를 나타내는 밀집 변위 필드(dense displacement field)를 추정합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 두 가지 스트림 transformer 모델이 UCF101, HMDB51, Kinetic-400과 같은 여러 비디오 벤치마크 데이터셋에서 우수한 분류 성능을 보여주었습니다. 특히, 영상 분류에서 CNNs보다 더 나은 성능을 달성하였으며, 비디오 장면과 움직임 기능(fusion features)을 효과적으로 융합하여 특징을 추출할 수 있음을 입증했습니다.
+
+
+
+### DermaBench: A Clinician-Annotated Benchmark Dataset for Dermatology Visual Question Answering and Reasoning (https://arxiv.org/abs/2601.14084)
+- **What's New**: 이 논문에서는 피부과 분야의 비주얼-언어 모델(vision-language models, VLMs)에 대한 평가를 위한 새로운 데이터 세트인 DermaBench를 소개합니다. DermaBench는 Diverse Dermatology Images (DDI) 데이터 세트를 기반으로 하여 피부과 전문의가 주석을 달았으며, 진단 및 병변에 대한 다각적인 질문과 답변 쌍을 포함합니다. 이 데이터 세트는 임상적 진단 능력과 언어 기반의 이해를 평가하기 위해 설계되었습니다.
+
+- **Technical Details**: DermaBench는 570명의 고유 환자에서 촬영된 656개의 임상 이미지를 포함하며, 각 이미지는 피부 구조, 색상, 그리고 병변 형태 등 다양한 관점에서 주석이 달렸습니다. 이 데이터 세트는 22개의 주요 질문을 기반으로 하여 피부과적 해부 및 병변의 주석을 따릅니다. 각 질문은 전문 피부과 의사에 의해 작성되었으며, 임상 실무에 부합하는 방식으로 구성되었습니다.
+
+- **Performance Highlights**: DermaBench는 기존 데이터 세트의 신뢰성과 심층적인 주석 부족 문제를 해결하며, 각 이미지에 대해 최소 두 명의 전문가가 독립적으로 주석을 달았습니다. 이를 통해 VLM의 시각적 이해와 임상적 사고 능력을 평가할 수 있는 신뢰할 수 있는 벤치마크를 제공합니다. DermaBench는 공적으로 이용 가능하며, 임상적으로 정렬된 다중 모달 AI 연구의 기초가 될 것입니다.
+
+
+
+### VENI: Variational Encoder for Natural Illumination (https://arxiv.org/abs/2601.14079)
+Comments:
+          Project Repo - this https URL Project page - this https URL
+
+- **What's New**: 이번 연구에서는 기존의 구형 조명 모델이 직면한 한계를 극복하기 위해 회전 불변성(rotation-equivariance)을 갖춘 변분 오토인코더(variational autoencoder)를 제안합니다. 기존의 방법들은 조명 환경의 구형 및 회전 불변 특성을 무시하거나 적절한 잠재 공간(latent space)을 제공하지 못했습니다. 우리의 architecture는 새로운 SO(2)-불변 완전 연결층을 사용하여 환경 맵의 SO(2)-불변성(equivariance)을 유지하면서 효과적으로 자연 조명을 모델링합니다.
+
+- **Technical Details**: 제안된 모델은 Vector Neuron Vision Transformer (VN-ViT)를 인코더로 사용하여 조명 환경을 회전 불변적인 방식으로 처리하며, 회전 불변의 조건적 신경망 필드(rotation-equivariant conditional neural field)를 디코더로 사용합니다. 이는 SO(3)에서 SO(2)로의 불변성 감소를 통해 이루어지며, 이러한 접근 방법으로 인해 더 나은 이미지를 처리할 수 있는 잠재 공간의 고유성을 확보합니다. 우리는 실험을 통해 SO(2)-불변 완전 연결층이 기존의 Vector Neurons보다 뛰어난 성능을 보임을 입증했습니다.
+
+- **Performance Highlights**: 제안된 변분 오토인코더는 자연 조명 조건에서의 이미지 재구성에서 우수한 성능을 나타내며, 잠재 공간 내에서의 부드러운 보간을 가능하게 합니다. 이 모델은 대규모 데이터셋에서도 빠르게 처리할 수 있으며, 유사한 이미지가 유사한 잠재 코드로 인코딩됨에 따라 고유성을 유지할 수 있습니다. 이를 통해 우리는 조명 전환을 더욱 원활하게 진행할 수 있는 방법을 제시합니다.
+
+
+
+### Unsupervised Video Class-Incremental Learning via Deep Embedded Clustering Managemen (https://arxiv.org/abs/2601.14069)
+- **What's New**: 이 논문에서는 비지도 동영상 클래스 점진적 학습(uVCIL)이라는 새로운 접근 방식을 제안합니다. 기존의 감독된 학습 기법들이 라벨에 의존하여 높은 비용과 인력 소모를 요구했던 것과 비교하여, 제안된 방법은 데이터 라벨 없이 동영상 정보를 지속적으로 학습할 수 있는 가능성을 제공합니다. 이를 위해 각 작업(Task)에서 대표적인 동영상 특징들을 차례로 클러스터링하는 방식을 적용하여 지식을 이전 작업으로부터 전이합니다.
+
+- **Technical Details**: 제안된 방법은 깊은 특징 추출기(deep feature extractor) 네트워크를 활용하여 작업마다 비슷한 특징을 추출합니다. 이로 인해 사용자는 감독이 없는 상황에서도 심층 클러스터를 점진적으로 구축할 수 있으며, 각 작업의 모델은 이전 작업으로부터 업데이트 된 상태를 초기값으로 사용합니다. 클러스터 정확도(cluster accuracy)를 극대화하기 위해, 고정된 클러스터 수를 사용하고, 각 비디오에 대해 특징 간의 거리 계산을 통해 유사성을 측정하여 클러스터 할당을 수행합니다.
+
+- **Performance Highlights**: 논문에서 제안된 방법은 UCF101, HMDB51 및 Something-to-Something V2와 같은 세 가지 표준 비디오 액션 인식 데이터셋에서 실험되었으며, 감독된 설정에서 라벨을 무시하고도 다른 기준선 모델보다 우수한 성능을 보였습니다. 특히, 클러스터 불균형 문제에 대한 해결책을 제시함으로써 다양한 클러스터에 충분한 데이터가 없는 상황에서도 안정성을 유지하며 새로운 정보를 학습할 수 있는 균형을 제공합니다.
+
+
+
+### VERIDAH: Solving Enumeration Anomaly Aware Vertebra Labeling across Imaging Sequences (https://arxiv.org/abs/2601.14066)
+- **What's New**: 이번 연구에서는 'Vertebra Identification with Anomaly Handling' (VERIDAH)라는 새로운 척추 레이블링 알고리즘을 소개합니다. 이 알고리즘은 여러 개의 classification heads와 weighted vertebra sequence prediction 알고리즘을 결합하여 척추의 enumeration anomalies를 자동으로 식별할 수 있는 방법을 제공합니다. 기존의 모델보다 더 높은 정확도로 T2w MRI(98.30%) 및 CT(99.18%) 영상에서 모든 척추를 올바르게 레이블링할 수 있음을 보여줍니다.
+
+- **Technical Details**: VERIDAH는 다수의 classification heads와 제약 최적화 문제를 결합하여 척추 레이블의 순서를 논리적으로 확인합니다. 이 알고리즘은 T2w MRI 및 CT 이미지를 이용하여 훈련되었으며, 각 척추의 중력 중심 위치를 기반으로 데이터를 처리하여 일관된 형식으로 이미지를 재구성합니다. 또한, 다양한 enumeration anomalies(TAE 및 LEA)에 대해 더 정밀한 분석이 가능하게 합니다.
+
+- **Performance Highlights**: 이 연구에서 제안된 VERIDAH 알고리즘은 전체 척추를 올바르게 레이블링하는 데 있어 기존의 기술보다 우수한 성능을 보였습니다. T2w 및 CT 이미지에서 각각 87.80%와 96.30%의 thoracic enumeration anomalies를 정확히 식별했으며, 94.48%와 97.22%의 lumbar enumeration anomalies를 인식했습니다. 저자들은 이 알고리즘과 모델의 코드를 공개하여 후속 연구 및 임상 적용을 위한 기반을 마련했습니다.
+
+
+
+### Fine-Grained Zero-Shot Composed Image Retrieval with Complementary Visual-Semantic Integration (https://arxiv.org/abs/2601.14060)
+- **What's New**: 본 논문은 새로운 Fine-Grained Zero-Shot Composed Image Retrieval 방법인 Complementary Visual-Semantic Integration (CVSI)을 제안합니다. CVSI는 시각 정보와 의미 정보를 효과적으로 통합하여 타겟 이미지를 검색할 수 있게 합니다. 기존의 ZS-CIR 방법들이 시각적 정보와 의미 정보를 모두 포착하는 데 실패하고 있는 점을 반영하여, 두 가지 정보를 모두 고려해 더 정교한 검색 결과를 제공합니다.
+
+- **Technical Details**: CVSI 알고리즘은 세 가지 주요 구성 요소로 이루어져 있습니다: (1) Visual Information Extraction, (2) Semantic Information Extraction, (3) Complementary Information Retrieval. 전자는 이미지에서의 시각적 특징을 추출하고, 후자는 LLM과 사전 훈련된 캡션 생성 모델을 사용하여 여러 캡션을 생성하여 의미 정보를 추출합니다. 최종적으로, 쿼리 및 데이터베이스 이미지에서 추출한 정보를 통합하여 대상 이미지를 검색합니다.
+
+- **Performance Highlights**: 세 개의 공개 데이터셋(CIRR, CIRCO, FashionIQ)에서의 실험 결과, CVSI는 기존의 최신 기술을 상당히 초월하는 성능을 보였습니다. 이를 통해, CVSI는 단순한 이미지 검색을 넘어 시각적 및 의미적 정보의 상호 보완성을 활용하여 더욱 정교한 검색 경험을 제공합니다.
+
+
+
+### POCI-Diff: Position Objects Consistently and Interactively with 3D-Layout Guided Diffusion (https://arxiv.org/abs/2601.14056)
+- **What's New**: 본 논문에서는 일관된 3D 레이아웃 제어 및 편집이 가능한 텍스트-이미지(Text-to-Image, T2I) 생성의 새로운 확산 기반 접근 방식을 제안합니다. 기존의 방법들이 2D 큐를 사용하거나 반복적인 복사-변형-붙여넣기 전략을 활용하는 반면, 이 방법은 3D 기하학적 제약과 인스턴스 수준의 의미 결합을 통합한 확산 프로세스를 통해 보다 일관된 결과를 제공합니다. Novel formulation인 POCI-Diff를 통해 물체의 위치를 일관되게 제어할 수 있습니다.
+
+- **Technical Details**: POCI-Diff는 Blended Latent Diffusion을 활용하여 개별 텍스트 설명을 특정 3D 바운딩 박스와 결합합니다. 이 방법은 복잡한 다중 물체 장면의 원샷 합성을 가능하게 하며, 픽셀 변형이 아닌 재생성을 통해 물체 삽입 및 삭제를 지원하는 변형 없는 생성 편집 파이프라인을 제안합니다. IP-Adapter를 사용하여 참조 이미지를 통해 확산 과정을 조절함으로써 상호작용 3D 편집에서 물체의 일관성과 장면의 일관성을 보존합니다.
+
+- **Performance Highlights**: 실험 결과, POCI-Diff는 지정된 3D 레이아웃 및 편집에 일관된 고품질 이미지를 생성하며, 기존의 최신 기술들과 비교하여 시각적 충실도와 레이아웃 준수성에서 뛰어난 성능을 발휘했습니다. 또한, 기하학적 왜곡을 제거하여 물체의 정체성을 유지하며 전체 장면의 조화를 잘 이루도록 합니다. POCI-Diff는 여전히 높은 계산 효율성을 유지하면서도 원샷 장면 생성, 객체별 의미 제어, 변형 없는 편집을 동시에 지원하는 유일한 방법입니다.
+
+
+
+### Decoder-Free Supervoxel GNN for Accurate Brain-Tumor Localization in Multi-Modal MRI (https://arxiv.org/abs/2601.14055)
+Comments:
+          10 pages, 3 figures,
+
+- **What's New**: 현재 의료 이미징을 위한 최신 비전 백본은 밀집된 voxel 그리드를 처리하는 데 많은 파라미터를 사용하는 encoder-decoder 구조를 채택하고 있습니다. 본 연구에서는 SVGFormer라는 decoder-free 파이프라인을 도입하여 볼륨을 semantic graph로 분할하는 content-aware grouping 단계를 적용했습니다. 이 방법은 특징 학습에 집중하면서도 패치 수준에서 지역 수준까지의 이중 스케일 설명 가능성을 제공합니다.
+
+- **Technical Details**: SVGFormer는 hierarchical 인코더를 활용하여 patch-level Transformer와 supervoxel-level Graph Attention Network(GAT)를 결합함으로써 세부 지역 특징과 더 넓은 지역 간 종속성을 동시에 모델링합니다. 이 방식은 인코더 전용 모델을 통해 EEG 이미지를 효율적으로 분석할 수 있는 기반을 마련하며, 복잡한 디코더 없이도 뚜렷한 분류와 지역 기반 예측을 가능하게 합니다.
+
+- **Performance Highlights**: BraTS 데이터셋에서 두 개의 전문 모델을 훈련한 결과, F1-score는 0.875, 평균 절대 오차(MAE)는 0.028을 기록하며 견고한 성능을 보였습니다. 이러한 결과는 그래프 기반 인코더가 해부학적 특징을 효과적으로 학습하고 있다는 것을 확인시켜 주었습니다. 이 연구는 3D 의료 이미지 표현을 위한 새로운 방향성을 제시합니다.
+
+
+
+### Vision Also You Need: Navigating Out-of-Distribution Detection with Multimodal Large Language Mod (https://arxiv.org/abs/2601.14052)
+- **What's New**: 본 논문에서는 OOD(Out-of-Distribution) 샘플 감지의 새로운 방법인 MM-OOD를 제안합니다. 이 방법은 멀티모달 대형 언어 모델(MLLMs)을 활용하여, OOD 샘플을 보다 효과적으로 탐지하는 데 중점을 두고 있습니다. 기존의 방법들이 텍스트 기반 지식에 의존해 OOD 샘플을 감지하는 경향이 있는 반면, MM-OOD는 시각 정보와 텍스트 프롬프트를 통합하여 OOD 샘플을 찾고자 합니다.
+
+- **Technical Details**: 이 방법은 크게 두 가지로 나뉘며, 가까운 OOD(near OOD)와 먼 OOD(far OOD) 작업에 맞춰 설계되었습니다. 가까운 OOD 작업에서는 ID(인 디스트리뷰션) 이미지와 텍스트 프롬프트를 MLLMs에 직접 입력하여 잠재적인 OOD 샘플을 탐지합니다. 먼 OOD 작업에서는 스케치-생성-상세화(sketch-generate-elaborate) 프레임워크를 도입하여, 먼저 텍스트 프롬프트로 OOD 샘플의 스케치를 그리고, 이후 생성된 시각 정보를 기반으로 OOD 샘플을 보완합니다.
+
+- **Performance Highlights**: 실험 결과, MM-OOD는 Food-101과 같은 널리 사용되는 멀티모달 데이터셋에서 현저한 성능 향상치를 기록했습니다. 또한, ImageNet-1K 데이터셋에서도 뛰어난 확장성을 보였습니다. 본 연구에서 제안하는 MM-OOD는 기존 최첨단 알고리즘보다 일관되게 우수한 성능을 발휘하며, 미래의 OOD 탐지 방법론에서 중요한 통찰을 제공합니다.
+
+
+
+### Weather-R1: Logically Consistent Reinforcement Fine-Tuning for Multimodal Reasoning in Meteorology (https://arxiv.org/abs/2601.14044)
+- **What's New**: 이번 연구에서는 WeatherQA라는 새로운 멀티모달 추론 벤치마크를 구축하였으며, 이를 통해 기상 분야에서 Vision Language Models (VLMs)의 적용을 개선하고자 하였다. 또한 Self-Contradictory Reasoning (Self-Contra) 문제를 해결하기 위해 논리적 일관성을 보상으로 도입한 Logically Consistent Reinforcement Fine-Tuning (LoCo-RFT) 방법론을 개발하였다. 마지막으로 Weather-R1이라는 첫 번째 기상 전용 VLM을 제안하여, 기상 데이터에 대한 높은 신뢰성과 해석 가능성을 제공하고자 하였다.
+
+- **Technical Details**: WeatherQA 벤치마크는 네 가지 주제인 강수, 기상 현상, 온도 및 기상 시스템을 기반으로 구성되며, 이미지와 텍스트를 쌍으로 하여 데이터 전처리를 진행하였다. LoCo-RFT는 모델이 최종 답변과 논리적으로 일관성을 가지도록 유도하는 보상 시스템을 통해 RFT의 한계를 극복하고자 한다. Weather-R1은 7억 개의 파라미터를 가지고 있으며, WeatherQA 벤치마크에서 52.9%의 정확도를 달성, 기존 모델보다 9.8% 포인트 개선되었다.
+
+- **Performance Highlights**: Weather-R1은 Supervised Fine-Tuning (SFT) 및 RFT의 성능을 초월하며, 기존의 Qwen2.5-VL-32B 모델보다도 우수한 결과를 나타냈다. OOD ScienceQA 벤치마크에서 4.98% 포인트의 일반화 성능 개선을 보였으며, LoCo-RFT의 유용성을 입증하였다. 이러한 결과들은 Weather-R1이 기상 분야에서 신뢰할 수 있는 멀티모달 추론 지원을 제공함을 보여준다.
+
+
+
+### Federated Balanced Learning (https://arxiv.org/abs/2601.14042)
+- **What's New**: 본 논문은 Federated Balanced Learning (FBL)이라는 새로운 접근 방식을 제안합니다. 기존의 연합 학습 시스템에서 발생하는 클라이언트 드리프트(client drift) 문제를 미리 방지하기 위해 클라이언트 측에서 샘플 균형(sample balance)을 유지하는 방법을 강조합니다. 특히, 이후 클라이언트 샘플의 불균형 문제를 해결하기 위해 지식 채우기(knowledge filling) 및 지식 샘플링(knowledge sampling)을 활용합니다.
+
+- **Technical Details**: FBL은 불균형한 클라이언트 데이터를 관리하기 위해 고안되었습니다. 각 클라이언트는 데이터가 과다/부족한 카테고리로 나누어지고, 해당 카테고리에 따라 지식 샘플링 또는 지식 채우기를 적용합니다. 또한, FBL은 제한된 계산 자원 하에서도 작동할 수 있도록 설계되어 있으며, 가상 데이터와 실제 데이터 간의 격차를 줄이기 위해 Knowledge Alignment Strategy를 도입합니다.
+
+- **Performance Highlights**: 다양한 실험을 통해 FBL이 최신의 최첨단 기법들보다 우수한 성능을 보여준다는 것을 입증했습니다. 특히, 실제 데이터를 기반으로 한 여러 도메인에서의 테스트 결과가 포함되어 있습니다. 이에 따라 FBL은 연합 학습 분야에서 클라이언트 샘플 불균형 문제를 캠페인하는 데 매우 효과적인 방법으로 자리 잡을 것으로 기대됩니다.
+
+
+
+### Generalizing Abstention for Noise-Robust Learning in Medical Image Segmentation (https://arxiv.org/abs/2601.14039)
+- **What's New**: 이번 논문에서는 의료 이미지 분할에서의 라벨 노이즈(label noise) 문제를 해결하기 위해 보편적이고 모듈화된 절제(abstention) 프레임워크를 소개합니다. 이 프레임워크는 다양한 손실 함수(loss functions)의 노이즈 내구성을 향상시키는 것을 목표로 하며, 이전 연구보다 두 가지 핵심 요소를 추가했습니다. 정보 기반의 정규화 항(informed regularization term)을 통해 절제 행동을 유도하고, 절제 패널티(abstention penalty)에 대한 유연한 파워-law 기반 자동 조정 알고리즘(power-law-based auto-tuning algorithm) 을 통합했습니다.
+
+- **Technical Details**: 논문에서 제안하는 절제 메커니즘은 기존의 Deep Abstaining Classifier (DAC)과 Informed Deep Abstaining Classifier (IDAC)를 기반으로 하고 있습니다. 우리는 GAC(Generalized Abstaining Classifier), SAC(Symmetric Abstaining Classifier), ADS(Abstaining Dice Segmenter)라는 새로운 손실 함수 세 가지를 도입하여 이들 손실 함수와 통합하여 절제 메커니즘을 구현했습니다. 이는 각 클래스별 절제(class-wise abstention) 및 클래스별 노이즈 비율을 반영하여 더 정교하게 조정됩니다.
+
+- **Performance Highlights**: CaDIS 및 DSAD 의료 데이터셋에서 실시한 실험 결과, 제안한 방법이 일반적인 빈약한 기준선(non-abstaining baselines)에 비해 일관되게 더 나은 성능을 보였습니다. 특히, 높은 노이즈 수준(higher noise levels)에서 더욱 두드러진 성능 개선이 관찰되었습니다. 이는 손상된 샘플을 선택적으로 무시할 수 있는 모델 구축의 유용성을 입증하며, 의료 이미지 분할 모델의 신뢰성을 높이는 강력하고 일반화 가능한 전략임을 제시합니다.
+
+
+
+### Correcting and Quantifying Systematic Errors in 3D Box Annotations for Autonomous Driving (https://arxiv.org/abs/2601.14038)
+Comments:
+          Accepted to The IEEE/CVF Winter Conference on Applications of Computer Vision 2026
+
+- **What's New**: 이 연구에서는 자율주행 시스템의 정확한 Ground Truth annotations가 얼마나 중요한지를 설명하며, 대중적으로 사용되는 데이터셋에서 주목되지 않은 주석 오류를 발견하였다. 이를 통해 물리적으로 가능한 궤적을 따르도록 주석을 수정하는 새로운 오프라인 추정 방법을 제시한다. 처음으로 동적 개체 주석의 품질을 평가하기 위한 메트릭을 정의하고, 이를 Argoverse 2, MAN TruckScenes와 같은 데이터셋에 평가함으로써 주석 품질이 17% 이상 향상됨을 보인다.
+
+- **Technical Details**: 본 연구의 방법론은 물체 동역학을 고려하여 기존의 3D box annotations의 자세를 수정하는 것이며, 이는 LiDAR 데이터와의 일관성을 확보하는 데 초점을 맞춘다. 문제를 해결하기 위한 목표 함수는 세 가지 항목으로 정의되며, 이를 단일 목표 함수로 집계하여 다루어진다. 특히, 객체의 속도, 방향, 가속도와 같은 여러 상태를 추정하는 최적화 방법을 사용하여 박스의 위치를 수정하게 된다.
+
+- **Performance Highlights**: 평가 결과, 원래 주석은 동적 객체의 경우 최대 2.5m까지 잘못 배치되는 것으로 나타났다. 이 연구는 자율주행 시스템의 성능 해석에 있어 정확한 주석이 얼마나 중요한지 보여주며, 실험에서 기존의 주석 오류가 성능 벤치마크에 미치는 영향이 기존 최첨단 방법의 개선 폭보다 더 크다는 것을 확인하였다. 따라서, 본 연구는 자율주행 분야에서 향후 연구의 기초를 제공하는 데 기여할것이다.
+
+
+
+### Human detectors are surprisingly powerful reward models (https://arxiv.org/abs/2601.14037)
+Comments:
+          Technical report
+
+- **What's New**: 이 논문에서는 HuDA라는 간단한 보상 모델을 제안하여 생성된 비디오의 인간 모션을 정량화하고 향상시키는 방법을 설명합니다. HuDA는 외부의 기존 모델들을 활용하여 인물 감지 신뢰도와 시간적 프롬프트 정렬 점수를 통합하여 모션 리얼리즘을 포착합니다. 이 모델은 추가적인 훈련 없이도 고급 모델보다 더 나은 성능을 발휘합니다.
+
+- **Technical Details**: HuDA는 '인간' 클래스의 프레임 수준 객체 탐지 신뢰도 점수를 활용하여 생성된 비디오의 인간 리얼리즘을 평가합니다. 이 모델은 입력 텍스트 프롬프트를 다양한 행동 단계에 해당하는 캡션으로 분해하고, 이 캡션과 균일하게 샘플링된 프레임 간의 유사성을 평가하는 접근 방식을 사용합니다. 이러한 방법을 통해 존재하지 않거나 추가된 신체 부위, 잘못된 포즈 및 비현실적인 동작 등 다양한 실패 사례를 이해하고 정량화하는 데 도움을 줍니다.
+
+- **Performance Highlights**: HuDA를 이용한 그룹 보상 정책 최적화(GRPO)는 복잡한 인간 동작 생성에서 성능을 크게 향상시켰습니다. 연구 결과, 이 모델은 Wan 2.1과 같은 기존 모델을 초월하여 73%의 승률을 기록하며 새로운 최첨단 성능을 달성했습니다. 또한, HuDA는 동물 비디오 및 인간-객체 간 상호작용 생성 품질을 향상시키는 데에도 효과적입니다.
+
+
+
+### Likelihood-Separable Diffusion Inference for Multi-Image MRI Super-Resolution (https://arxiv.org/abs/2601.14030)
+- **What's New**: 본 연구에서는 다중 영상 초해상도(Multi-image Super-Resolution, MISR) MRI를 위해 확산 모델(diffusion model)을 일반화했습니다. 기존의 연구들은 주로 단일 이미지에서의 역 문제 해결에 집중하였으나, MRI와 같은 모달리티에서는 여러 보완적인 저해상도 이미지를 동시에 사용하는 것이 일반적입니다. 우리는 확산 후방 샘플링(Diffusion Posterior Sampling, DPS)이 독립적으로 획득된 측정값에서 완전하게 분리 가능한 그래디언트 분해를 허용하여, 공동 연산자(joint operator) 없이 MISR을 가능하게 한다는 점을 밝혔습니다.
+
+- **Technical Details**: 초해상도(Super-resolution) 문제는 관측된 저해상도 이미지(Low-Resolution image)로부터 고해상도 이미지(High-Resolution image)를 추정하는 선형 역 문제입니다. 본 연구는 다중 영상에 대한 초해상도 문제를 해결하기 위해 DPS, DMAP, DPPS와 같은 확산 기반 역 솔버의 MISR 버전을 도출했습니다. 각 측정값에 대한 오차 제곱 가중치를 도입하여 다양한 슬라이스 두께와 신호 대 노이즈 비율(SNR)에서의 측정을 통합할 수 있는 원칙에 입각한 접근법을 제시합니다.
+
+- **Performance Highlights**: 본 연구의 MISR 확장을 통해 4배, 8배, 16배 해상도 저하 상황에서도 단일 이미지 초해상도(Single-image Super-Resolution)를 크게 능가하는 결과를 제시하였습니다. PSNR(Peak Signal-to-Noise Ratio)을 1~3 dB 향상시키는 성과를 이루었으며, NVIDIA RTX 6000 ADA를 기준으로 전체 초해상도 처리 시간은 60초 미만으로 유지하였습니다. 이러한 성과는 시간 소모가 적고 폭넓은 실제 적용 가능성을 갖춘 확산 모델이 다중 영상 MRI 초해상도에 있어 높은 품질의 접근법임을 입증합니다.
+
+
+
+### Equivariant Learning for Unsupervised Image Dehazing (https://arxiv.org/abs/2601.13986)
+Comments:
+          Technical report
+
+- **What's New**: 이 논문에서는 새로운 비지도 학습 프레임워크인 Equivariant Image Dehazing (EID)를 제안합니다. 이 프레임워크는 이미지 신호의 대칭을 활용하여 흐릿한 관측 이미지에서 클리어한 이미지를 복원하는 데 중점을 두고 있습니다. EID는 haze consistency와 systematic equivariance를 강제하며, 이를 통해 원시 흐릿한 이미지에서 직접적으로 클리어한 패턴을 복원할 수 있습니다.
+
+- **Technical Details**: EID는 기존의 이미지 우도 기반 접근법과는 달리 ground truth 데이터를 필요로 하지 않습니다. 이 방법은 비지도 방식으로 흐리게 된 이미지를 학습하며, neural network 아키텍처에 구애받지 않고 통합될 수 있습니다. 또한, EID 학습을 돕기 위한 adversarial learning 전략도 제시하여, 알려지지 않은 haze 물리 모델을 모델링합니다.
+
+- **Performance Highlights**: 실험 결과, EID는 세포 미세 관찰(cell microscopy), 의료 내시경(medical endoscopy), 자연 이미지 디헤이징(natural image dehazing) 분야에서 기존의 최첨단 접근법보다 우수한 성능을 보였습니다. 이 연구는 과학적 이미지 처리에 특히 효과적인 흐림 제거(fog removal) 방법을 제공할 것으로 기대됩니다. 이후에 코드와 데이터셋이 공개될 예정입니다.
+
+
+
+### FantasyVLN: Unified Multimodal Chain-of-Thought Reasoning for Vision-Language Navigation (https://arxiv.org/abs/2601.13976)
+- **What's New**: 이 논문에서는 FantasyVLN이라는 새로운 통합된 암묵적 추론 프레임워크를 제안합니다. 이 프레임워크는 Chain-of-Thought (CoT) 추론의 이점을 유지하면서 명시적 토큰 오버헤드를 없애는 데 중점을 두고 있습니다. 기존의 모델들이 수정된 시각적 관찰을 생성하여 고질적인 토큰 폭발 문제를 초래한 반면, FantasyVLN은 시각적 자동 회귀 모델(Visual AutoRegressor, VAR)을 사용하여 이러한 문제를 해결합니다.
+
+- **Technical Details**: FantasyVLN은 CoT 기반 추론 모드에서 발생하는 개념적 중간 시각적 토큰을 압축된 잠재 공간으로 인코딩하여 시퀀스 길이와 훈련 비용을 크게 줄입니다. 이 프레임워크는 텍스트, 시각 및 다중 모드 CoT 접근 방식을 통합적으로 학습하는 multi-CoT 전략을 채택하여 잠재적으로 다양한 임의의 추론 모드를 활용합니다. 결과적으로, 명시적 CoT 감독 없이도 일관된 추론 표현을 학습합니다.
+
+- **Performance Highlights**: LH-VLN 벤치마크에서 광범위한 실험 결과, FantasyVLN 모델이 기존의 명시적 CoT 방법에 비해 성공률과 효율성을 개선하며 추론 지연 시간을 현저히 줄이는 것으로 나타났습니다. 이 모델은 실시간 네비게이션을 가능하게 하며, 다단계 및 장기 시나리오에서의 성능 또한 크게 향상되었습니다.
+
+
+
+### Harmonizing the Deep: A Unified Information Pipeline for Robust Marine Biodiversity Assessment Across Heterogeneous Domains (https://arxiv.org/abs/2601.13975)
+Comments:
+          9 pages, 4 figures 8 tables
+
+- **What's New**: 본 논문은 Arctic 및 Atlantic 해양 생태계를 대상으로 한 다년간 침입종 모니터링 이니셔티브의 기반 탐지 레이어를 설립하는 데 중점을 둡니다. 이는 다양한 데이터셋을 표준화하여 정보 흐름을 비교할 수 있는 통합 정보 파이프라인(Unified Information Pipeline)을 개발하고, 이를 통해 배치가 적절한 탐지기를 평가하는 새로운 접근 방식을 제시합니다. 또한, 이 연구는 이미징(이미지 향상)의 중요성을 줄이고 구조 인식(Structure-Aware) 신뢰성에 대한 강조를 이동시킴으로써 일관된 해양 생태계 평가를 위한 도구를 민주화합니다.
+
+- **Technical Details**: 이 통합 정보 파이프라인은 다양한 수중 데이터셋을 정리하고 유사한 형태로 변환하여, 각기 다른 환경에서의 탐지기 성능을 비교할 수 있도록 합니다. 데이터와 환경에 따른 도메인 효과를 고립시키기 위해 탐지기를 고정하고, 시나리오 구조가 탐지 성능에 미치는 영향을 분석합니다. 이 연구에서는 감지 오류의 메커니즘을 명확히 하고, 다양한 탐지 오류 분해 방법(TIDE 스타일)을 사용하여 오류의 유형을 구별합니다.
+
+- **Performance Highlights**: 저비용 엣지 하드웨어에서의 성능 벤치마크를 통해 운영 가능성을 검증하며, 하드웨어 인지 최적화(TensorRT)가 실용적인 샘플링 속도를 지원함을 입증합니다. 이 연구의 결과는 침입종 모니터링에서의 신뢰도와 정밀도를 강화하고, 사용자 정의 연구를 통해 결과의 신뢰성을 높이는 데 기여합니다. 최종적으로, 이 모델은 해양 생태계를 지속적이고 일관되게 평가할 수 있는 효과적인 도구 역할을 하게 됩니다.
+
+
+
+### STEC: A Reference-Free Spatio-Temporal Entropy Coverage Metric for Evaluating Sampled Video Frames (https://arxiv.org/abs/2601.13974)
+Comments:
+          This paper corresponds to the camera-ready version of a WACV 2026 Workshop paper
+
+- **What's New**: 이 연구에서는 비디오 프레임 샘플링의 효과를 평가하기 위한 새로운 비참조(Non-reference) 메트릭인 Spatio-Temporal Entropy Coverage (STEC)를 제안합니다. 기존의 메트릭들이 주로 지각 품질이나 재구성 충실도에 초점을 맞추고 있는 반면, STEC는 정보성, 시간적 범위(temporal coverage), 중복성을 검토합니다. 이는 비디오 이해와 언어 모델 파이프라인에서의 프레임 샘플링 품질을 개선하기 위해 고안되었습니다.
+
+- **Technical Details**: STEC는 Spatio-Temporal Frame Entropy (STFE)를 기반으로 하여, 각 프레임의 공간 정보를 엔트로피 기반의 구조적 복잡도를 통해 측정합니다. 또한, 시간적 산포(temporal dispersion)와 시각적 유사성에 기반한 중복성 페널티를 적용하여 샘플링된 프레임의 품질을 평가합니다. 이러한 접근 방식은 샘플링된 프레임의 공간 정보의 강도와 시간적 분산을 함께 모델링하여 경량화된 평가 지표를 제공합니다.
+
+- **Performance Highlights**: MSR-VTT 테스트 벤치마크에서 STEC는 난수 샘플링(ransom sampling), 균일 샘플링(uniform sampling), 콘텐츠 인식(content-aware) 방법들 간의 차이를 명확하게 구별할 수 있음을 보여주었습니다. 실험 결과는 STEC가 평균 성능 지표만으로는 포착되지 않는 개별 비디오의 강건성 패턴을 드러내는 데 기여하여, 효율적인 비디오 이해를 위한 일반-purpose 평가 도구로서의 실용성을 강조합니다.
+
+
+
+### DExTeR: Weakly Semi-Supervised Object Detection with Class and Instance Experts for Medical Imaging (https://arxiv.org/abs/2601.13954)
+- **What's New**: DExTeR (DETR with Experts)는 의료 이미징을 위해 최적화된 새로운 transformer 기반의 Point-to-Box 회귀 모델입니다. 이 모델은 단일 포인트 주석을 객체 쿼리로 인코딩하여 주의 샘플링을 개선하고, 클래스 및 인스턴스 정보를 효과적으로 활용하여 인접하거나 겹치는 구조들 사이의 혼란을 줄입니다. 단일 포인트 주석을 통해 데이터 주석 비용을 줄이면서도 높은 정확도로 성능을 향상시키는 것을 목표로 하고 있습니다.
+
+- **Technical Details**: DExTeR는 class-guided 변형 주의(MSDA) 기법을 사용하여 클래스 정보를 기반으로 주의 샘플링을 안내합니다. CLICK-MoE(클래스, 인스턴스, 공통 지식 전문가 혼합)를 통해 클래스와 인스턴스 표현을 분리하여 인접 포인트 간 혼동을 줄입니다. 또한 다중 포인트 훈련 전략을 도입하여 다양한 포인트 위치에 대한 예측 일관성을 촉진하고 데이터 효율성을 개선합니다.
+
+- **Performance Highlights**: DExTeR는 세 가지 의료 이미징 데이터셋 (내시경, 흉부 X-레이, 내시경 초음파)에서 최첨단 성능을 달성하며, 다양한 주석 설정 아래에서 성능 향상을 보여주었습니다. 이를 통해 데이터가 부족한 상황에서도 반응성을 유지하면서도 높은 정확도를 보장할 수 있음을 입증하고 있습니다. 이 모델은 의료 데이터의 주석 비용을 크게 줄이면서도 여전히 견고한 의료 객체 감지를 제공하는 가능성을 강조합니다.
+
+
+
+### VTONGuard: Automatic Detection and Authentication of AI-Generated Virtual Try-On Conten (https://arxiv.org/abs/2601.13951)
+- **What's New**: VTONGuard는 775,000개 이상의 실제 및 합성 시도 이미지로 구성된 대규모 벤치마크 데이터셋입니다. 이 데이터셋은 다양한 포즈, 배경 및 의상 스타일을 포함하여 실제 세계 조건을 포괄합니다. VTONGuard를 바탕으로 여러 탐지 방법들의 체계적인 평가를 수행했으며, 각 방법의 장단점을 파악했습니다.
+
+- **Technical Details**: 이 논문에서는 다양한 최신 VTON 탐지 패러다임을 평가하기 위해 시스템적 접근법을 사용합니다. MiT-B2-MT라는 멀티태스킹 프레임워크를 설계하여 의상-신체 경계를 명확히 모델링하며, 이를 통해 경계 인식 기능 학습을 향상시킵니다. VTONGuard는 흐름 기반, GAN, 텍스쳐 인버전, 페인트-바이-예제, 듀얼 U-Net 및 DiT와 같은 여섯 가지 주요 패러다임으로 나뉘어 있습니다.
+
+- **Performance Highlights**: VTONGuard의 검증을 통해 다양한 탐지기들에 대해 전반적인 성과를 평가하고, 최상의 성과를 기록한 MiT-B2-MT 모델이 여러 생성 패러다임에서 최고 수준의 성능을 달성했습니다. 이 결과는 VTON의 신뢰성 탐지 차원에서 새로운 기준을 설정하며, 향후 더욱 강력한 탐지 모델 개발과 안전한 VTON 기술의 실용적 배치에 기여할 것으로 기대합니다.
+
+
+
+### Glance-or-Gaze: Incentivizing LMMs to Adaptively Focus Search via Reinforcement Learning (https://arxiv.org/abs/2601.13942)
+- **What's New**: 이 논문에서는 기존의 LMM(대규모 다중 양식 모델)들이 지식 집약적인 질문에 대응하는 데 제한이 있음을 언급합니다. 새로운 접근법인 Glance-or-Gaze (GoG)를 제안하여, 시각적 계획의 능동적 전환을 통해 장기적 정보를 보다 효과적으로 처리할 수 있습니다. 이를 통해 모델은 글로벌 컨텍스트 또는 고가치 지역을 선택적으로 주시할 수 있습니다.
+
+- **Technical Details**: GoG는 두 개의 주요 학습 메커니즘으로 구성됩니다. 첫째, Reflective GoG Behavior Alignment는 현재의 비효율적이고 노이즈가 많은 시각 전략을 개선하기 위해 설계되었습니다. 둘째, Complexity-Adaptive Reinforcement Learning은 모델이 복잡한 질문을 처리할 수 있도록 돕는 방식으로, 두 단계의 학습 전략으로 모델의 성능을 극대화합니다.
+
+- **Performance Highlights**: GoG는 여섯 가지 벤치마크에서 최첨단 성능을 달성하여, 강력한 기준선과 비교했을 때 5에서 20점의 유의미한 성과 향상을 보여줍니다. 또한, 선택적 시선 기법과 복잡도 적응 강화 학습이 효과적인 시각 검색을 위한 필수 요소로 확인되었습니다. 모델의 데이터와 코드는 조만간 공개될 예정입니다.
+
+
+
+### TrackletGPT: A Language-like GPT Framework for White Matter Tract Segmentation (https://arxiv.org/abs/2601.13935)
+Comments:
+          Accepted at 23rd IEEE International Symposium on Biomedical Imaging (ISBI), 2026
+
+- **What's New**: 본 논문에서는 브레인 화이트 매터 트랙 세분화(White Matter Tract Segmentation) 문제를 해결하기 위해 TrackletGPT라는 새롭고 자동화된 GPT 프레임워크를 제안합니다. TrackletGPT는 3D 구조의 유사성을 유지하면서, 각 데이터셋에 대해 무등록(registration-free)으로 일반화 가능합니다. 세분화하는 데 있어 연속 정보와 공간 정보를 포착하는 새로운 표현 방식으로 'Tracklets'를 사용하여 기존의 기법들보다 월등한 성능을 보입니다.
+
+- **Technical Details**: TrackletGPT는 주로 TractoInferno와 HCP 데이터셋을 사용하여 트레이닝 및 테스트가 수행됩니다. 'Tracklets'는 곡선 포인트에서 잘라낸 스트림라인을 기반으로 생성되며, 양방향 연결 정보를 캡처하기 위해 두 개 이상의 포인트를 연장하여 겹치는 정보를 제공합니다. 이 모델은 오토리그레시브(autoregressive) GPT 스타일을 따르며, 이중 마스킹 전략을 활용하여 단기 의존성을 줄이고 오버피팅을 방지합니다.
+
+- **Performance Highlights**: TrackletGPT는 DICE 점수와 Overlap 및 Overreach 점수에서 기존 기술보다 우수한 성능을 보이며, 여러 데이터셋에서 일관된 결과를 나타냅니다. 특히, 복합 데이터셋 실험에서도 높은 일반화 성능을 보여주며, 어려운 클래스에서도 다른 방법들보다 뛰어난 결과를 제공합니다. 이 모델은 최신 GPU에서 48시간 이내에 학습을 완료하고, 각 주제에 대해 스트림라인을 추론하는 데 25분에서 50분이 소요됩니다.
+
+
+
+### On the Role of Rotation Equivariance in Monocular 3D Human Pose Estimation (https://arxiv.org/abs/2601.13913)
+- **What's New**: 이 논문은 단일 2D 이미지로부터 3D 인간 포즈를 추정하는 작업인 단안적 3D 인간 포즈 추정(monocular 3D human pose estimation, HPE)에 초점을 맞추고 있습니다. 기존의 두 단계 접근법은 2D 스켈레톤 조인트를 감지하고 이를 3D로 변환하는 과정을 포함하지만, 저자들은 이러한 모델들이 회전된 입력 처리에 미흡하다는 점을 지적합니다. 저자들은 회전 불변성을 포함하는 모델을 제안하여, 이를 통해 보다 간단한 학습 과정을 기대하고 있습니다.
+
+- **Technical Details**: 본 연구는 Human3.6M 및 MPII-INF-3DHP와 같은 공통적인 HPE 벤치마크를 활용하여, 2D 회전 불변성이 몬오큘러 2D→3D 리프팅에서 어떻게 작용하는지를 조사합니다. 연구진은 단일 입력인 2D 이미지만을 사용하여 키포인트를 탐지하고, 추가적인 정보를 제공하지 않으며, 리프팅 모델의 매개변수 공간을 제한하지 않고 회전 불변성을 포함시킵니다. 이러한 접근을 통해 일반적인 리프팅 모델들이 회전된 포즈에 대해 어떻게 비효율적인지를 설명합니다.
+
+- **Performance Highlights**: 연구 결과, 2D 회전 불변성을 사용하는 방법이 기존의 최첨단 방법들에 비해 우수한 성능을 나타낸다는 것을 확인하였습니다. 특히, 증강 기법을 활용하여 회전 불변성을 학습하는 과정이 효율적이고 간단함을 보였습니다. 이로 인해 저자들은 이러한 접근 방식이 기존의 디자인에 의해 강제된 불변성 방법들에 비해 단순한 학습 프로세스를 제공할 수 있음을 주장합니다.
+
+
+
+### Towards Visually Explaining Statistical Tests with Applications in Biomedical Imaging (https://arxiv.org/abs/2601.13899)
+- **What's New**: 본 논문에서는 깊이 있는 두 표본 테스트에 설명 가능성을 도입함으로써, 샘플 레벨(sample-level)과 특징 레벨(feature-level)에서 그룹 간 차이를 해석할 수 있는 새로운 방법론을 제안합니다. 기존 두 표본 테스트의 블랙박스 특성으로 인한 해석의 한계를 극복하고, 의학 이미징 데이터에 적용하여 질병 관련 변동성을 이해할 수 있는 인사이트를 제공합니다. 이를 통해 심층 통계적 테스트가 의료 분석에서 실용적으로 사용될 수 있는 기반을 마련합니다.
+
+- **Technical Details**: 우리는 비모수(non-parametric) 두 표본 통계 테스트를 다루며, 두 세트의 관찰이 동일한 기저 분포에서 추출되었는지를 검정합니다. 이 논문은 딥 신경망을 이용해 샘플을 학습된 표현 공간으로 매핑(mapping)하고, 특정 통계적 유의성을 평가하기 위해 다변량 위치 테스트(multivariate location test)를 수행합니다. 제안된 방법은 Deep Maximum Mean Discrepancy (DMMD)라는 테스트 통계량을 기반으로 하며, 이것을 통해 통계적 유의성을 정량화합니다.
+
+- **Performance Highlights**: 제안한 방법은 T1 구조적 MRI 데이터 및 당뇨병성 망막병증(fundus) 이미지를 기반으로 한 실험을 통해 그 유용성을 입증합니다. 이 과정에서 관찰된 그룹 간 차이는 생물학적으로 유의미한 지역 및 샘플을 강조하며, 이는 질병 지표와의 연관성을 드러냅니다. 이러한 해석 가능성은 환자 분류(patient stratification), 품질 관리(quality control), 임상 시험의 풍부화(clinical trial enrichment) 등 다양한 의료 응용을 지원합니다.
+
+
+
+### OmniOVCD: Streamlining Open-Vocabulary Change Detection with SAM 3 (https://arxiv.org/abs/2601.13895)
+- **What's New**: 본 논문에서는 새로운 Change Detection (CD) 방법인 OmniOVCD를 제안합니다. OmniOVCD는 Segment Anything Model 3 (SAM 3)을 기반으로 하고, Open-Vocabulary Change Detection (OVCD) 요구 사항을 충족합니다. 또한, Synergistic Fusion to Instance Decoupling (SFID) 전략을 활용하여 다양한 카테고리의 변화를 감지할 수 있는 가능성을 제시합니다.
+
+- **Technical Details**: OmniOVCD는 SAM 3의 분리된 출력 헤드를 활용하여 변화를 감지합니다. SFID 전략은 SAM 3의 시맨틱, 인스턴스, 프레즌스 출력을 융합한 후, 이를 기반으로 개별 인스턴스 마스크를 생성하여 변화 비교를 수행합니다. 이러한 디자인은 카테고리 인식을 유지하면서 이미지 간의 인스턴스 수준 일관성을 보장합니다.
+
+- **Performance Highlights**: 실험 결과 OmniOVCD는 LEVIR-CD, WHU-CD, S2Looking 및 SECOND의 네 개의 공공 벤치마크에서 SOTA 성능을 달성했습니다. 정확한 변화 마스크를 생성하여 IoU 점수에서 67.2, 66.5, 24.5 및 27.1을 기록하며, 기존의 모든 방법을 초월하는 성과를 보여주었습니다.
+
+
+
+### Revisiting Multi-Task Visual Representation Learning (https://arxiv.org/abs/2601.13886)
+Comments:
+          Code: this https URL
+
+- **What's New**: 이번 연구에서는 MTV(Multi-Task Visual Pretraining)라는 새로운 프레임워크를 제안합니다. MTV는 비전-언어 대조 학습, 자기 지도 학습, 밀집 공간 목표를 통합하여 다양한 태스크를 동시에 최적화합니다. 이 프레임워크는 고품질의 의사 라벨을 활용하여 수동 주석의 필요성을 줄이고, 전반적인 시맨틱 이해를 손상시키지 않으면서 정밀한 공간 추론을 가능하게 합니다.
+
+- **Technical Details**: MTV는 Vision Transformer(ViT)를 기반으로 하며, 이미지 정보를 입력받아 여러 개의 레이어 패치 특징을 매핑합니다. 이 모델은 서로 다른 태스크의 시너지 효과를 연구하기 위해 태스크 간의 상호 작용과 이들 목표 각각의 한계를 체계적으로 분석합니다. 이를 통해 데이터와 모델 크기에 따른 스케일링 행동도 조사합니다.
+
+- **Performance Highlights**: MTV는 여러 벤치마크에서 우수한 성능을 보이며, 예를 들어 100M 샘플로 훈련된 ViT-Base 모델은 69.4%의 ImageNet 제로샷 정확도를 기록합니다. 이는 400M 샘플로 훈련된 CLIP-Base 모델을 능가하는 성적입니다. 이러한 결과는 다중 태스크 학습이 고품질의 의사 감독을 통해 더욱 일반화된 시각 인코더를 구축할 수 있음을 보여줍니다.
+
+
+
+### OCCAM: Class-Agnostic, Training-Free, Prior-Free and Multi-Class Object Counting (https://arxiv.org/abs/2601.13871)
+- **What's New**: 이번 연구에서는 Class-Agnostic Object Counting (CAC)를 위한 최초의 훈련-free 접근법인 OCCAM을 제안합니다. OCCAM은 추가 정보 없이도 작동하며, 다양한 객체 클래스의 인스턴스를 카운트할 수 있는 기능을 갖추고 있습니다. 또한, Segment Anything Model 2 (SAM2)를 활용하여 성능을 극대화하고, 기존의 연구에서 접할 수 없었던 훈련 및 사전 정보 의존성을 최소화했습니다.
+
+- **Technical Details**: OCCAM은 강력한 foundation 모델인 SAM2와 First Integer Neighbor Clustering Hierarchy (FINCH) 알고리즘의 맞춤형 변형을 결합하여 구현되었습니다. 이 방법은 항목을 인식하는 데 필요한 모든 사전 정보를 생략하고 RGB 이미지 만으로 작업을 수행합니다. OCCAM은 여러 클래스의 객체 인스턴스를 단일 통과로 카운트 할 수 있어 이전의 제약을 넘어서는 것을 목표로 합니다.
+
+- **Performance Highlights**: OCCAM은 FSC-147 및 CARPK와 같은 표준 벤치마크 데이터셋에서 경쟁력 있는 성능을 발휘하며, 특히 F1 점수를 새롭게 제안하여 CAC의 평가 메트릭으로 적합성을 높였습니다. OCCAM은 훈련 या 사전 정보 의존성을 둘 다 배제함으로써 완전 자동화된 객체 카운팅 시스템에 이상적인, 가장 일반화된 솔루션으로 자리매김하고 있습니다.
+
+
+
+### Probabilistic Deep Discriminant Analysis for Wind Blade Segmentation (https://arxiv.org/abs/2601.13852)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 이번 논문에서는 비선형적으로 분리되지 않는 데이터를 해결하기 위해 Deep Discriminant Analysis(DDA)를 도입합니다. DDA는 Fisher 기준을 직접적으로 최적화하여 클래스 분리성을 향상시킵니다. 또한, 안정적인 훈련을 보장하기 위해 signed between-class variance를 통합하고, sigmoid 함수로 출력을 제한하며, 곱셈 관계를 덧셈 관계로 변환합니다.
+
+- **Technical Details**: 연구에서는 두 가지 안정적인 DDA 손실 함수와 함께 확률 손실(probability loss)을 결합하여 Probabilistic DDA(PDDA)를 제안합니다. PDDA는 출력 분포에서 클래스의 중첩을 효과적으로 최소화하여, 클래스 내 분산을 줄이면서 높은 신뢰성을 가진 예측을 생성합니다. 이러한 기술적 접근은 더 나은 훈련 안정성과 성능을 제공할 수 있습니다.
+
+- **Performance Highlights**: PDDA는 풍력 블레이드 세분화(wind blade segmentation)에 적용되었으며, 성능 향상과 일관성을 보여줍니다. 이는 풍력 에너지 유지 관리에 있어 매우 중요한 요소로, 이러한 성능 향상은 DDA의 이미지 세분화(image segmentation)에 대한 최초의 적용으로 보고됩니다.
+
+
+
+### DisasterVQA: A Visual Question Answering Benchmark Dataset for Disaster Scenes (https://arxiv.org/abs/2601.13839)
+- **What's New**: 이번 논문에서는 재난 대응에 필요한 인식 및 추론을 평가하는 새로운 벤치마크 데이터셋인 DisasterVQA를 소개합니다. 이 데이터셋은 1,395개의 실제 이미지와 4,405개의 전문 큐레이션 질문-답변 쌍을 포함하며, 홍수, 산불, 지진 등 다양한 재난 상황을 포함합니다. DisasterVQA는 FEMA ESF와 OCHA MIRA와 같은 인도적 프레임워크를 기반으로 하여, 복잡한 재난 이미지를 다루는데 필요한 질문들을 포함합니다.
+
+- **Technical Details**: DisasterVQA는 이진, 다중 선택, 개방형 질문 형식으로 설계되어 VLM의 추론 능력을 평가합니다. 이 데이터셋은 인간의 안전과 결정적인 작전 수행에 필요한 정보를 제공하는 데 필요한 시각적 명확성을 확보하기 위해, 고급 비전-언어 모델(VLM)에 대한 평가 프레임워크를 포함하고 있습니다. 이 논문에서는 여러 최신 비전-언어 모델과 그 성능을 분석하며, 데이터셋의 다양한 재난 유형 및 지역에 따른 성능 변동성을 지적합니다.
+
+- **Performance Highlights**: 모델들은 이진 질문에 대해 높은 정확도를 달성하지만, 세밀한 정량적 추론, 객체 수세기, 그리고 맥락 감각적 해석에는 어려움을 겪고 있습니다. 특히 소수 재난 시나리오에 대해서는 성능이 저조합니다. 모델의 평가 결과는 이러한 한계를 드러내고, VQA의 특정 지역 및 작업 중심 벤치마크의 필요성을 강조합니다.
+
+
+
+### FastGHA: Generalized Few-Shot 3D Gaussian Head Avatars with Real-Time Animation (https://arxiv.org/abs/2601.13837)
+- **What's New**: 이 논문은 FastGHA라는 새로운 피드포워드 아키텍처를 제안하여, 적은 수의 이미지로 고품질의 애니메이팅 가능한 3D 가우시안 헤드 아바타를 실시간으로 생성하는 방법을 보여줍니다. 기존의 방법들은 대량의 데이터를 요구하고 느린 최적화 과정을 필요로 했지만, FastGHA는 간단하게 몇 장의 이미지로 고해상도의 아바타를 생성할 수 있습니다. 또한, 입력 이미지에서 픽셀 단위의 가우시안 표현을 학습하여 헤드 디테일을 효과적으로 보존합니다.
+
+- **Technical Details**: FastGHA는 입력 이미지에서 고유한 얼굴 표현 코드를 사용하여 3D 가우시안 변형을 예측하는 경량 MLP 기반 동적 네트워크를 도입합니다. 이 모델은 DINOv3와 Stable Diffusion VAE에서 추출한 특징을 활용하여 멀티뷰 정보를 융합하는 트랜스포머 기반 피드포워드 모듈을 포함하고 있습니다. 또한, 3D 머리의 기하학적 매끄러움을 높이기 위해, 대규모 재구성 모델에서 예측된 포인트 맵을 기하학적 감독으로 사용합니다.
+
+- **Performance Highlights**: FastGHA는 Avat3r 및 기타 최신 기술 방법과 비교하여 재구성 품질과 애니메이션 효율성에서 유의미한 성능 향상을 보여줍니다. 특히, 이 방법은 1초 이내에 재구성이 가능하여 실시간 애니메이션을 지원합니다. 실험 결과는 FastGHA가 기존 방법들보다 더 빠르고 정밀한 애니메이션을 구현할 수 있음을 나타냅니다.
+
+
+
+### Discriminant Learning-based Colorspace for Blade Segmentation (https://arxiv.org/abs/2601.13816)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 본 논문에서는 이미지 세분화에서 중요한 전처리 단계인 색상 표현(color representation)의 최적화를 다룹니다. 새로운 다차원 비선형 판별 분석 알고리즘인 Colorspace Discriminant Analysis (CSDA)가 제안되어, 선형 판별 분석을 딥러닝(context) 환경으로 확장하였습니다. 이 알고리즘은 클래스 간 분리 가능성을 극대화하고 클래스 내 변동성을 최소화하여 색상 표현을 맞춤화합니다.
+
+- **Technical Details**: CSDA는 일반화된 판별 손실(generalized discriminative loss)을 통해 딥러닝 모델을 최적화합니다. 이러한 접근은 세분화(segmentation) 과정과 색상 공간(color space)의 최적화를 동시에 수행할 수 있도록 세 가지 대안 손실(alternative losses)을 도입하였습니다. 이로 인해 안정적인 훈련이 가능해졌습니다.
+
+- **Performance Highlights**: 풍력 터빈 블레이드 데이터에 대한 실험 결과, 제안된 방법이 세분화 정확성에서 현저한 이득을 보였습니다. 이는 도메인 특화 세분화에서 맞춤형 전처리의 중요성을 강조하며, CSDA 알고리즘이 실제 응용 가능성을 보여줍니다.
+
+
+
+### Insight: Interpretable Semantic Hierarchies in Vision-Language Encoders (https://arxiv.org/abs/2601.13798)
+Comments:
+          32 pages, 24 figures, 3 tables
+
+- **What's New**: 본 연구에서는 Insight라는 새로운 언어 정렬 개념 기초 모델을 제안했습니다. 이 모델은 사람에게 해석 가능한 세밀한 개념들을 제공하며, 입력 이미지에서 공간적으로 고정되어 있습니다. 기존의 모델들이 수행했던 단순 이미지 분류를 넘어, 더 다양한 다운스트림 작업을 지원하도록 설계되었습니다. Insight는 개념의 고유한 관계를 정의하여 좀 더 풍부하고 유의미한 설명을 생성할 수 있게 합니다.
+
+- **Technical Details**: Insight 모델은 계층적 희소 오토인코더(hierarchical sparse autoencoder)를 활용하여 다양한 세부 수준에서 개념을 자동으로 추출합니다. 이 모델은 DINO 기반의 CLIP 특징을 이용하여 공간적으로 정의된 인간 알기 쉬운 개념을 제공합니다. 또한, 개념 간의 지역 공존 의존성(local co-occurrence dependencies)을 분석하여 그러한 개념 간의 관계를 정의하고, 이를 통해 더 나은 개념 명명 및 해석을 개선합니다.
+
+- **Performance Highlights**: 벤치마크 데이터에서 Insight는 기존의 불투명한 기초 모델에 비해 경쟁력 있는 분류 및 세분화 성능을 보여주었습니다. 특히, Insight는 이미지 분류 작업에서 지배적인 성능을 기록하며, 개념 기반의 개선된 고해상도 설명을 제공합니다. 또한, 사용자 연구를 통해 Insight의 해석 가능성이 성능 저하 없이 달성되었음을 입증하였습니다.
+
+
+
+### PREGEN: Uncovering Latent Thoughts in Composed Video Retrieva (https://arxiv.org/abs/2601.13797)
+- **What's New**: 본 논문에서는 Composed Video Retrieval (CoVR) 기술의 새로운 프레임워크인 PREGEN (PRE GENeration extraction)을 소개합니다. PREGEN은 최신 Vision-Language Models (VLMs)를 활용하되, 기존의 복잡한 파인튜닝이나 캡션 생성 과정을 피하고, 효율적인 비디오 검색을 가능하게 합니다. 이 방법은 고정된 VLM과 경량 인코딩 모델을 결합하여, 퀘리 비디오와 수정 텍스트를 VLM에 입력한 후, 각각의 레이어에서 마지막 토큰의 숨겨진 상태를 추출하여 사용합니다.
+
+- **Technical Details**: PREGEN은 모든 VLM 레이어의 마지막 토큰에서 추출한 숨겨진 상태를 집계하여 풍부한 의미를 갖춘 임베딩을 생성합니다. 이 프레임워크는 경량의 Transformer 인코더를 통해 다층 표현을 처리하여 효율성을 극대화합니다. 특히, 기존 VLM 기반 방법들과는 달리 단일 레이어 표현에 의존하지 않으며, 전반적인 VLM의 지식을 최대한 활용합니다.
+
+- **Performance Highlights**: PREGEN은 기존 CoVR 벤치마크에서 모든 이전 방법을 능가하며 Recall@1에서 +27.23과 +69.59의 상당한 성과 향상을 보여줍니다. 다양한 VLM 백본에서 강력한 제로샷 일반화 능력을 발휘하며, 복잡한 텍스트 수정에 대한 저항력을 시연하여, 높은 효과성과 의미적 능력을 강조합니다.
+
+
+
+### HiT: History-Injection Transformers for Onboard Continuous Flood Change Detection (https://arxiv.org/abs/2601.13751)
+Comments:
+          19 pages, 9 figures, submitted to conference
+
+- **What's New**: 이번 논문은 제한된 자원에서 자연 재해를 모니터링하기 위한 온보드 변화 감지 시스템을 개발하였습니다. 특히, 작은 위성을 위한 변화 감지를 통해 감지 정확도를 유지하면서 이미지를 99% 이상 압축할 수 있는 HiT(History Injection Transformer) 메커니즘을 제안합니다. 이 모델은 Jetson Orin Nano와 같은 온보드 하드웨어에서 43 FPS의 속도로 작동하며, 실시간 재해 평가를 지원하는 실용적인 프레임워크를 구축합니다.
+
+- **Technical Details**: 이 연구는 히스토리 임베딩을 통합한 ViT 기반 인코더를 활용하여 다중 시간 간격의 변화 감지를 지원합니다. HiT 메커니즘은 과거 관측 데이터를 저장하지 않고도 변화를 지속적으로 감지할 수 있게 해줍니다. HiT-Prithvi 모델은 Distilled Prithvi 모델을 기반으로 하며, FPN 디코더와 결합해 Jetson Nano/Orin과 같은 장치에서 사용하기에 적합합니다.
+
+- **Performance Highlights**: HiT-Prithvi는 과거 관측 데이터를 최대 99.6% 압축하여 소형 위성에서도 대륙 규모의 지속 모니터링이 가능하게 합니다. 실험 결과, 중간의 저품질 또는 누락된 이미지를 처리할 때도 성능이 유지되어, 모델이 시간적 정보를 성공적으로 저장하고 재사용할 수 있음을 보여줍니다.
+
+
+
+### Facial Spatiotemporal Graphs: Leveraging the 3D Facial Surface for Remote Physiological Measuremen (https://arxiv.org/abs/2601.13724)
+- **What's New**: 이번 논문에서는 Facial Spatiotemporal Graph (STGraph)라는 새로운 표현 방식을 제안합니다. 이 방식은 3D 얼굴 메쉬 시퀀스를 사용하여 얼굴의 색상과 구조를 인코딩함으로써 rPPG 신호의 공간적 지원과 정렬된 spatiotemporal 처리를 가능하게 합니다. 기존 방법들이 3D 얼굴 표면과 수용 영역을 명시적으로 정렬하지 못한 문제를 해결하는 것이 목적입니다.
+
+- **Technical Details**: MeshPhys라는 경량 spatiotemporal graph convolutional network가 STGraph에서 작동하여 생리학적 신호를 추정합니다. 이 모델은 얼굴 표면의 수용 영역을 제한하는 강력한 구조적 사전(structural prior) 역할을 하며, 3D 기반의 노드 특징이 얼굴 표면 색상을 안정적으로 인코딩하는 데 필수적이라는 것을 보여줍니다. 전체 모델은 표면 정렬(surface-aligned)되어 있으며, robust하고 해석 가능한 추정을 가능하게 합니다.
+
+- **Performance Highlights**: MeshPhys는 네 가지 벤치마크 데이터셋에서 주목할 만한 성능을 보여, 최신 기술(state-of-the-art) 또는 경쟁력 있는 성과를 보였습니다. Ablation 연구를 통해 강한 구조적 사전의 효과와 3D 인식 노드 특징의 중요성이 입증되었습니다. 이 연구는 rPPG의 새로운 모형 패러다임을 제시하며, 코드도 공개되었습니다.
+
+
+
+### Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search (https://arxiv.org/abs/2601.13719)
+- **What's New**: 본 논문에서는 HAVEN이라는 통합 프레임워크를 제안합니다. HAVEN은 오디오-비주얼 엔티티 응집력(audiovisual entity cohesion)과 계층적 비디오 인덱싱(hierarchical video indexing), 에이전틱 검색(agentic search)을 결합하여 긴 비디오를 보다 일관성 있게 이해할 수 있도록 합니다. 이 시스템은 정보 조각화(information fragmentation)를 방지하고 전반적인 내러티브를 재구성하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HAVEN은 비주얼 및 오디오 스트림 간의 엔티티 수준 표현을 통합하여 의미적 일관성을 유지합니다. 이를 위해 콘텐츠를 글로벌 요약(global summary), 장면(scene), 세그먼트(segment), 엔티티 수준의 구조화된 계층으로 구성합니다. 또한, 에이전틱 검색 메커니즘을 도입하여 이 계층 간의 동적인 검색과 추론을 가능하게 하여 더욱 정교한 엔티티 추적을 지원합니다.
+
+- **Performance Highlights**: HAVEN은 LVBench 벤치마크에서 84.1%의 높은 정확도를 기록하며 최신 기술의 최전선에 서 있습니다. 특히 난이도가 높은 추론 카테고리에서 80.1%의 성능을 기록하여 길고 복잡한 비디오 이해에 효과적임을 입증합니다. 이는 구조적이고 다중 모달(multi-modal) 추론의 효과성을 강조합니다.
+
+
+
+### MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network (https://arxiv.org/abs/2601.13715)
+Comments:
+          This paper has been accepted by the 40th AAAI Conference on Artificial Intelligence (AAAI-26). It contians 9 pages, 11 figures
+
+- **What's New**: 이 논문에서는 MVGD-Net이라는 새로운 비디오 유리 표면 탐지 네트워크를 제안합니다. 이 네트워크는 동영상의 모션 불일치 정보를 활용하여 유리 표면을 효과적으로 탐지합니다. 또한 MVGD-D라는 대규모 데이터셋을 구축하여 312개의 다양한 유리 시나리오와 총 19,268 프레임을 포함하고 있습니다.
+
+- **Technical Details**: MVGD-Net은 세 가지 주요 모듈로 구성되어 있습니다: 첫째, Cross-scale Multimodal Fusion Module (CMFM)은 여러 스케일에서 두 가지 모달리티의 특징을 통합합니다. 둘째, History Guided Attention Module (HGAM)은 이전 정보를 활용하여 현재 프레임 예측을 개선합니다. 마지막으로 Temporal-Spatial Decoder (TSD)는 공간적 및 시간적 특징의 융합을 효과적으로 조화롭게 만듭니다.
+
+- **Performance Highlights**: 실험 결과, MVGD-Net은 기존의 최신 방법들에 비해 월등한 성능을 보이는 것으로 나타났습니다. 특히 동영상 시퀀스에서의 모션 불일치 정보를 활용하여 유리 표면을 더 정확하게 탐지할 수 있음을 보여줍니다. 이는 로봇 탐색 및 자율 주행과 같은 실제 응용에 매우 중요한 기여를 할 수 있습니다.
+
+
+
+### Attention-space Contrastive Guidance for Efficient Hallucination Mitigation in LVLMs (https://arxiv.org/abs/2601.13707)
+- **What's New**: 이 논문에서는 대형 비전-언어 모델(LVLM)에서 발생하는 환각(hallucination) 문제를 해결하기 위해 Attention-space Contrastive Guidance (ACG)라는 새로운 메커니즘을 제안합니다. ACG는 시각적 근거(visual grounding)를 고려한 텍스트 생성을 유도하여 모델이 언어 선행(linguistic priors)에 과도하게 의존하지 않도록 돕습니다. 특히 ACG는 자체 주의(self-attention) 레이어 내에서 단일 경로(single-pass) 방식으로 작동하여 두 가지 주의 경로를 동시에 구성합니다. 이로 인해 계산 효율성을 높이고 환각 감소 효과를 극대화합니다.
+
+- **Technical Details**: ACG는 시각-언어 및 언어 전용 주의 경로를 단일 전방 계산에서 구성하여, 생성 과정에서 시각적 증거에 대한 주의를 유도하는 대조적 안내(contrastive guidance)를 수행합니다. 이 메커니즘은 텍스트 전용 경로의 근사화에서 발생할 수 있는 편향을 보정하기 위해 정돈화된 수정(orthogonalized correction)을 적용하여 언어 선행으로부터 시각적 기여를 분리합니다. 이를 통해 매모리 사용을 최적화하고 초당 더 많은 처리량을 가능하게 합니다. 종료된 테스트에서는 ACG가 CHAIR 및 POPE 벤치마크에서 환각 감소 및 캡션 품질 모두에서 최첨단 성능을 달성함을 보여주었습니다.
+
+- **Performance Highlights**: ACG는 기존의 비슷한 방법들보다 최대 2배 낮은 추론 지연(latency)을 달성하며, 이는 비전-언어 모델이 실시간 혹은 대규모 설정에서 더 효과적으로 사용될 수 있다는 가능성을 시사합니다. 실험 결과 ACG는 표준 환각 벤치마크에서 일관되게 신뢰성을 향상시키며, 이전의 훈련 없이 수행하는 로짓 레벨(logit-level) 안내 기법들에 비해 초당 처리량이 더 효율적이라는 것을 보여주었습니다. 이러한 성과를 통해 ACG는 환각 제어 문제를 해결하기 위한 명확하고 효율적인 대안을 제시합니다.
+
+
+
+### ParkingTwin: Training-Free Streaming 3D Reconstruction for Parking-Lot Digital Twins (https://arxiv.org/abs/2601.13706)
+Comments:
+          35 pages, 10 figures. Submitted to ISPRS Journal of Photogrammetry and Remote Sensing. Under review
+
+- **What's New**: 이 논문에서는 Automated Valet Parking (AVP)과 관련된 주차장 디지털 트윈의 생성 과정에서 발생하는 여러 문제를 해결하기 위한 ParkingTwin 시스템을 제안하고 있습니다. 기존의 접근 방식들은 sparse 한 전방 시점에서의 문제와 조명, 오클루젼(occlusion)에서 오는 문제로 인해 유효하지 않았습니다. ParkingTwin은 OpenStreetMap에서 얻은 세멘틱 토폴로지를 활용하여 메트릭 일관성이 있는 3D 형태를 온라인으로 실시간으로 생성할 수 있는 솔루션을 제공합니다.
+
+- **Technical Details**: ParkingTwin은 OSM(OpenStreetMap) 기반의 기하학적 구성과 쿼드 모달 제약 필드를 활용하여 역동적인 차량과 일시적인 오클루젼을 실시간으로 필터링하는 기술을 사용합니다. 또한 CIELAB 색 공간에서 조명 변화를 견딜 수 있는 텍스처 융합 기술을 통해 급변하는 조도에서도 균일한 결과를 제공합니다. 이 시스템은 고급 GPU가 아닌 GTX 1660와 같은 소비자급 GPU에서도 30 FPS 이상의 속도로 실행될 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: ParkingTwin은 68,000 m^2 규모의 실제 데이터셋에서 평균 SSIM 0.87을 기록하며, 최신 3D Gaussian Splatting (3DGS) 방법에 비해 약 15배의 속도 향상을 이루었습니다. 또한 GPU 메모리 사용량을 83.3% 감소시켰고, Unity 및 Unreal 디지털 트윈 파이프라인과 호환되는 명시적 삼각 메쉬를 출력합니다. 이 연구 결과는 ParkinTwin을 연구와 응용을 위한 개방형 소스 코드로 공개하여 향후 연구의 지속성을 제공합니다.
+
+
+
+### Reasoning or Pattern Matching? Probing Large Vision-Language Models with Visual Puzzles (https://arxiv.org/abs/2601.13705)
+- **What's New**: 이 연구는 최근의 대형 비전-언어 모델(LVLMs)이 시각적 퍼즐을 통한 추론 능력을 어떻게 평가할 수 있는지를 다루고 있습니다. 기존의 개방형 다중모드 벤치마크와는 달리, 시각적 퍼즐은 통제 가능하고 검증 가능한 문제 인스턴스를 제공하므로 모델의 인지 능력을 더 엄격하게 진단할 수 있습니다. 이 논문은 LVLM의 시각적 퍼즐 추론에 대한 통합된 관점을 제시하며, 추론 메커니즘에 따라 기존 벤치마크를 구성합니다.
+
+- **Technical Details**: 시각적 퍼즐은 시각 정보를 기반으로 하며, 명확하게 제약된 퍼즐 구조를 가지고 있어 잠재적인 규칙, 변환 또는 관계적 의존성을 평가하는 데 중점을 둡니다. 이러한 퍼즐을 구성하기 위해 입력(input), 규칙(rule), 해결 공간(solution space)의 세 가지 핵심 요소를 공식화하였습니다. 분류 체계는 귀납적(inductive), 유추적(analogical), 알고리즘적(algorithmic), 연역적(deductive), 기하학적(geometric/spatial)으로 나뉘며 각 추론 차원에 대한 체계적인 비교를 가능하게 합니다.
+
+- **Performance Highlights**: 현재 모델들의 빈번한 한계로는 약한 일반화, 지각과 추론 간의 강한 얽힘, 유창한 설명과 진정한 실행 간의 지속적인 격차가 포함됩니다. 시각적 퍼즐은 이러한 문제를 효과적으로 진단할 수 있는 도구로 제시되어 LVLM의 실패 모드를 더 쉽게 감지하고 해석할 수 있도록 합니다. 이 연구는 LVLM의 추론 상태를 명확히 하고, 향후 벤치마크 설정 및 추론 인지에 대한 다중모달 시스템의 발전 방향을 제시합니다.
+
+
+
+### Dynamic Differential Linear Attention: Enhancing Linear Diffusion Transformer for High-Quality Image Generation (https://arxiv.org/abs/2601.13683)
+- **What's New**: 본 논문에서는 새로운 선형 주의 메커니즘인 동적 차별 선형 주의(Dynamic Differential Linear Attention, DyDiLA)를 소개합니다. 이러한 혁신적인 접근법은 선형 확산 변환기(Linear Diffusion Transformers, LiTs)의 생성 품질을 향상시키고, 과도한 평활화 문제를 해결하여 이미지 생성 효과성을 높이는 데 기여합니다. DyDiLA의 주요 요소는 동적 투영 모듈, 동적 측정 커널, 그리고 토큰 차별 연산자로 구성되어 있습니다.
+
+- **Technical Details**: DyDiLA는 세 가지 주요 설계로 구성됩니다. 첫째, 동적 투영 모듈은 동적으로 할당된 지식을 사용하여 토큰 표현을 분리합니다. 둘째, 동적 측정 커널은 각 토큰에 대해 보다 나은 유사성을 측정하기 위해 동적으로 지정된 커널 함수를 활용하여 세밀한 의미적 구별을 포착합니다. 셋째, 토큰 차별 연산자는 동적 측정 커널에 의해 제공된 정보 중복성을 활용하여 보다 강력한 쿼리-키 검색을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과에 따르면 DyDi-LiT는 기존의 상태-of-아트(SOTA) 모델과 비교하여 여러 지표에서 일관되게 우수한 성능을 보여주었습니다. 이는 DyDiLA가 LiT 아키텍처에 비약적인 개선을 가져와 고해상도 이미지 생성을 가능하게 함을 나타냅니다. 이 연구는 DyDiLA를 통해 고품질 이미지 생성의 새로운 가능성을 제시합니다.
+
+
+
+### Finally Outshining the Random Baseline: A Simple and Effective Solution for Active Learning in 3D Biomedical Imaging (https://arxiv.org/abs/2601.13677)
+Comments:
+          Accepted at TMLR
+
+- **What's New**: 이번 연구에서 제안한 Class-stratified Scheduled Power Predictive Entropy (ClaSP PE)는 기존의 비효율적인 random sampling 방법을 개선하여 3D 의료 이미지 분할에서의 주석 비용을 크게 줄일 수 있는 가능성을 제시합니다. ClaSP PE는 표본 선택의 다양성을 유지하고 적은 수의 표본에서 양성 구조를 잘 대표하도록 설계된 새로운 query 전략입니다. 이 전략은 클래스 불균형 문제와 초기 선택의 중복성을 해결하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: ClaSP PE는 클래스 특이적(querying) 선택을 통해 저조한 구조의 커버리지를 보장하고, 로그 스케일의 power noising과 점진적으로 감소하는 일정(schedule)을 결합하여 초기 AL의 다양성을 촉진합니다. 이 방법은 24개의 실험 설정과 4개의 3D 생물 의학 데이터셋을 통해 평가되었으며, 이 과정에서 만난 라벨링 문제를 해결했습니다.
+
+- **Performance Highlights**: 시험 결과, ClaSP PE는 통계적으로 유의미한 개선을 이루며 개선된 random baseline을 일반적으로 초과 달성한 유일한 방법으로 구분됩니다. 또한, 네 가지 이전에 보지 못한 데이터셋에서도 수동 조정 없이 견고하게 최적화되어 현실적인 응용 프로그램에서 활용 가능성을 입증하였습니다. 코드와 명확한 배포 가이드라인은 연구의 실용성을 높입니다.
+
+
+
+### Transformer based Multi-task Fusion Network for Food Spoilage Detection and Shelf life Forecasting (https://arxiv.org/abs/2601.13665)
+- **What's New**: 이 논문에서는 농업 공급망에서 식품 낭비를 줄이기 위해 CNN, LSTM 및 DeiT 변환기를 결합한 융합 아키텍처를 제안했습니다. 기존의 방법이 식품의 부패 클래스만을 예측하는 반면, 이 시스템은 채소 분류, 식품 부패 감지, 유통 기한 예측을 동시에 수행합니다. 이 연구는 신선한 상태부터 완전히 부패될 때까지 채소 이미지를 수집한 데이터셋을 기반으로 하였으며, 여러 깊은 학습 모델과 비교하여 우수한 성능을 보였습니다.
+
+- **Technical Details**: 제안된 모델은 CNN과 DeiT 변환기를 결합하여 다중 작업 학습 시스템을 생성하며, 노이즈가 있는 이미지에서 높은 정밀도로 작동할 수 있도록 설계되었습니다. 흔히 사용되는 모델인 ResNet, VGG와 같은 단일 아키텍처 모델과는 달리, 여러 아키텍처를 융합하여 모델의 강건성과 효과성을 개선합니다. 이 작업에서는 LIME 기법을 통해 모델의 결정 과정을 해석할 수 있는 방법도 통합되어 있습니다.
+
+- **Performance Highlights**: 제안된 CNN + DeiT 변환기 구조는 채소 분류에서 0.98의 F1 점수와 부패 감지에서 0.61의 점수를 기록하였으며, 유통 기한 예측에서는 평균 제곱 오차(MSE)가 3.58 그리고 대칭 평균 절대 백분율 오차(SMAPE)가 41.66%에 달했습니다. 이 연구는 기존 작업들이 깨끗한 데이터셋에서만 평가되는 한계를 극복하고, 노이즈 조건에서 모델의 강건성을 평가하는 방법론을 제공합니다.
+
+
+
+### VIAFormer: Voxel-Image Alignment Transformer for High-Fidelity Voxel Refinemen (https://arxiv.org/abs/2601.13664)
+Comments:
+          Under review at CVPR 2026
+
+- **What's New**: VIAFormer라는 새로운 Voxel-Image Alignment Transformer 모델을 제안합니다. 이 모델은 다중 뷰 이미지를 이용하여 불완전하고 noisy 한 voxel을 복구하는 Conditioned Voxel Refinement 작업을 수행합니다. VIAFormer는 이미지 정렬(Alignment) 뿐만 아니라 더 나아가 geometry와 visual cues를 효과적으로 융합하는 Hybrid Stream Transformer를 도입하여 특별한 디자인을 통해 성능을 극대화합니다.
+
+- **Technical Details**: 본 논문에서는 Conditioned Voxel Refinement라는 새로운 작업을 형식화하고, Correctional Flow 목적과 Image Index를 통해 미세 조정된 voxel을 생성하는 방식으로 제안합니다. VIAFormer는 convolutional neural networks 대신 Transformer 아키텍처를 활용하며, multi-modal supervision을 가능하게 합니다. 모델의 주요 구성 요소인 Hybrid Stream Transformer는 multi-view 관련 정보를 사용하여 noise를 제거하고, 로컬 및 글로벌 구조를 복원하는 능력을 갖추고 있습니다.
+
+- **Performance Highlights**: VIAFormer는 실험을 통해 기존의 진입 장벽을 허물며, synthetic noise 및 Vision Foundation Models(VFMs)에 의해 생성된 realistic artifacts 문제를 해결하는 데 있어 새로운 최첨단 성능을 기록하였습니다. 이 모델은 다양한 문제를 해결하는 데 필요한 유연성을 제공하며, 큰 데이터와 대형 모델을 위한 경쟁력 있는 솔루션을 제안하고 있습니다.
+
+
+
+### Face-Voice Association with Inductive Bias for Maximum Class Separation (https://arxiv.org/abs/2601.13651)
+Comments:
+          Accepted at ICASSP 2026
+
+- **What's New**: 이 논문에서는 얼굴-음성 연관(face-voice association) 문제에 대해 새로운 접근 방식을 제안하고 있습니다. 다양한 화자의 멀티모달 표현 간의 최대 클래스 분리를 유도하는 새로운 방법을 개발하여, 기존의 방법보다 더 나은 성능을 보여줍니다. 또한, 정량적 실험을 통해 해당 접근 방식이 두 가지 얼굴-음성 연관 작업에서 최첨단(SOTA) 성능을 달성하였음을 입증합니다.
+
+- **Technical Details**: 제안된 방법은 고정된 유도 편향(inductive bias) 행렬을 추가하여 훈련하기 전의 네트워크에 최대 클래스 분리를 도입합니다. 각 화자의 얼굴과 음성 사이의 각 거리(angular distance)를 최소화하고 다른 화자 간의 거리를 최대화하는 방식으로 최적화합니다. 모델 아키텍처는 두 개의 독립적인 특징 추출 모듈로 구성되며, 이를 통해 생성된 표현을 통해 멀티모달 표현을 생성하게 됩니다.
+
+- **Performance Highlights**: 정량적 실험과 앙상블 연구를 통해, 최대 클래스 분리를 유도하는 것이 인터 클래스 정직성과 결합할 때 가장 효과적임을 보여주었습니다. 초점은 얼굴-음성 두 가지 평가 기준에서 기존 방법들을 능가하며, 향후 멀티모달 학습에 새로운 패러다임을 제시할 수 있는 잠재력을 가집니다.
+
+
+
+### Scaling Test-time Inference for Visual Grounding (https://arxiv.org/abs/2601.13633)
+- **What's New**: 이번 연구에서는 ‘Efficient visual Grounding language Models’(EGM)을 소개하여 작은 Visual Language Models(VLMs)의 성능을 개선합니다. EGM은 테스트 타임에서의 계산을 확장하여 작은 모델에서도 시각적 기초를 효과적으로 수행하게 합니다. 실험 결과, EGM을 활용한 솔루션이 큰 모델에 비해 속도와 성능에서 우수하다는 것을 보여줍니다.
+
+- **Technical Details**: EGM은 텍스트 이해 능력을 개선하기 위해 GPT를 사용하여 목표 기초 상자를 도출하는 상세 추론 과정을 생성합니다. 그 후, Supervised Fine-tuning(SFT) 데이터를 구축하고 강화학습(Reinforcement Learning, RL)을 사용하여 모델의 성능을 향상시킵니다. 또한, 시각적 정보를 인식하며 가려진 부분도 예측할 수 있는 새로운 amodal grounding 설정을 도입하였습니다.
+
+- **Performance Highlights**: RefCOCO 벤치마크에서 EGM-Qwen3-VL-8B는 평균 737ms의 지연 시간으로 91.4의 IoU를 달성하며, Qwen3-VL-235B보다 5.9배 빠른 성능을 보였습니다. EGM은 작은 VLMs가 더 큰 모델과 동등하거나 그 이상의 성능을 발휘하게 돕고, 전체적인 효율성을 높이는 역할을 합니다.
+
+
+
+### CARPE: Context-Aware Image Representation Prioritization via Ensemble for Large Vision-Language Models (https://arxiv.org/abs/2601.13622)
+- **What's New**: 최근의 대형 비전-언어 모델(Large Vision-Language Models, LVLMs) 발전에도 불구하고, 이미지 분류와 같은 비전 중심의 작업에서는 여전히 제한적입니다. 이 문제를 해결하기 위해, 저자들은 CARPE(Context-Aware Image Representation Prioritization via Ensemble)라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 비전 통합 레이어와 맥락 인식 앙상블 전략을 도입하여 이미지 표현을 우선시할 때와 언어 모델의 추론 능력을 활용할 때를 식별합니다.
+
+- **Technical Details**: CARPE는 모델에 구애받지 않는 프레임워크로, 시각 및 언어의 두 가지 임베딩을 통합하는 동적 앙상블 접근 방식을 사용합니다. 이 과정에서 비전 인코더의 원시 비전 인코딩과 최종 언어 모델 출력이 조합됩니다. 비전 통합기를 통해 서로 보완적인 특성을 캡처하고, 맥락 인코더를 통해 앙상블의 가중치를 적절히 조정하여 시각 정보와 언어 기반 추론 간의 우선 순위를 설정합니다.
+
+- **Performance Highlights**: CARPE는 이미지 분류 벤치마크에서 성능을 크게 향상시키고, 다양한 비전-언어 벤치마크에서도 긍정적인 결과를 보입니다. 실험 결과, 이 프레임워크가 LVLM의 전반적인 성능을 향상시키고, 제로샷 이미지 분류에서의 개선뿐만 아니라 다양한 멀티모달 작업에서도 유의미한 효과를 보인다는 것을 확인했습니다. 또한 CARPE는 다양한 오픈소스 LVLM과의 통합이 용이하여, 여러 아키텍처에 대한 적응성을 보장합니다.
+
+
+
+### ChartVerse: Scaling Chart Reasoning via Reliable Programmatic Synthesis from Scratch (https://arxiv.org/abs/2601.13606)
+Comments:
+          29 pages
+
+- **What's New**: 이번 연구에서는 Vision Language Models (VLMs)의 차트 추론 능력을 향상시키기 위한 새로운 프레임워크인 ChartVerse를 제안합니다. 기존 데이터셋의 한계점을 극복하기 위해, ChartVerse는 복잡한 차트와 신뢰할 수 있는 추론 데이터를 자가 생성하는 방식으로 설계되었습니다. 특히, Rollout Posterior Entropy (RPE)라는 새로운 메트릭을 도입하여 차트의 복잡성을 정량화하고, 이를 통해 데이터 선택 및 생성을 안내합니다.
+
+- **Technical Details**: ChartVerse는 차트 생성기 훈련의 기초로 데이터 샘플을 식별하고 필터링하는 과정이 필수적입니다. RPE를 활용하여 차트 이미지를 여러 번 구동하여 생성된 코드의 일관성을 측정하고, 여기서 복잡성을 결정하는 지표로 활용합니다. 이러한 방식으로 생성된 차트는 시각적 다양성과 고차원적 복잡성을 갖추고 있으며, 자동 생성된 QA 쌍은 높은 정확도를 보장합니다.
+
+- **Performance Highlights**: ChartVerse-8B는 차트 추론 벤치마크에서 최첨단 성능을 달성하며, 특히 Qwen3-VL-30B-Thinking 모델과 비교할 때도 우수한 결과를 보입니다. 이로 인해 ChartVerse는 게재된 데이터셋인 ChartVerse-SFT-600K 및 ChartVerse-RL-40K에서 유의미한 성능 향상을 이끌어냈습니다. 최종적으로 작은 모델 크기에도 불구하고, ChartVerse의 성능은 강력한 VLM들에 필적합니다.
+
+
+
+### Learning Fine-Grained Correspondence with Cross-Perspective Perception for Open-Vocabulary 6D Object Pose Estimation (https://arxiv.org/abs/2601.13565)
+Comments:
+          The source code will be made publicly available at this https URL
+
+- **What's New**: 이 논문에서는 Fine-grained Correspondence Pose Estimation (FiCoP) 프레임워크를 제안하여 기존의 전역 일치(global matching) 방식의 한계를 극복하고, 객체의 자세 추정을 향상시킵니다. FiCoP는 패치 수준(patch-level)의 대응관계를 통해 환경의 잡음을 필터링하여 자세 예측의 정확성을 높이는 새로운 접근 방식을 제공합니다. 이를 통해 로봇이 자연 언어로 안내된 새로운 객체를 조작할 수 있는 능력이 향상됩니다.
+
+- **Technical Details**: FiCoP의 핵심 혁신은 패치 간 상관관계 행렬(patch-to-patch correlation matrix)을 구조적 선행(prior)으로 활용하여 어지러운 배경으로부터 객체의 특성을 안전하게 분리하는 것입니다. 첫 번째로 객체 중심의 분리(preprocessing)를 통해 환경의 잡음으로부터 의미 있는 대상을 격리하고, 두 번째로 Cross-Perspective Global Perception (CPGP) 모듈을 통해 이중 시점(Dual-view) 특성을 융합하여 구조적 합의를 형성합니다. 마지막으로, Patch Correlation Predictor (PCP) 모듈을 통해 정밀한 블록 단위 연관 맵(block-wise association map)을 생성하여 공간적 필터링을 수행합니다.
+
+- **Performance Highlights**: REAL275 및 Toyota-Light 데이터셋에서의 실험 결과에 따르면, FiCoP는 평균 조회율(Average Recall)을 각각 8.0% 및 6.1% 향상시키며 최신의 Horyon 방법보다 월등한 성능을 보입니다. 특히, 급격한 시점 변동이 있는 상황에서도 FiCoP가 정확한 자세 파라미터를 복원할 수 있음을 보여줍니다. 이러한 결과는 패치 수준의 제약을 통해 환경의 배경 모호성을 효과적으로 완화하고, 복잡한 열린 환경에서 강인한 인식을 제공할 수 있다는 것을 뒷받침합니다.
+
+
+
+### DiffFace-Edit: A Diffusion-Based Facial Dataset for Forgery-Semantic Driven Deepfake Detection Analysis (https://arxiv.org/abs/2601.13551)
+- **What's New**: 이 논문에서는 AI 생성된 얼굴 이미지의 조작으로 인한 개인정보 보호 위험에 대해 논의합니다. 특히, 기존의 얼굴 데이터셋들이 세부적인 조작 샘플에 대한 집중이 부족하며, 실제와 조작된 샘플 간의 스플라이스 공격(splice attacks)의 영향에 대한 연구가 미비함을 지적합니다. 이를 해결하기 위해 DiffFace-Edit 데이터셋을 도입하며, 이 데이터셋은 200만 개 이상의 AI 생성 가짜 이미지와 여러 얼굴 영역에서의 조작을 포함하고 있습니다.
+
+- **Technical Details**: DiffFace-Edit 데이터셋은 여덟 개의 얼굴 영역에 걸쳐 조작된 이미지를 포함하여, 스플라이스(splice), 제거(remove), 복사-이동(copy-move) 세 가지 조작 유형에 대해 구성되었습니다. 데이터셋의 각 이미지는 조작된 영역과 관련된 프롬프트(prompt)가 정밀하게 주석(annotation) 처리되어 있으며, 특정 IMDL(International Model Development and Localization) 모델에 대항할 수 있는 샘플들도 포함되고 있습니다. 이러한 데이터는 AI 기반 얼굴 조작 탐지의 강력한 모델을 개발하는 데 기여할 것입니다.
+
+- **Performance Highlights**: 벤치마크(Benchmark) 설정에서, 8개의 탐지기(detecting methods)를 사용하여 DiffFace-Edit에서 AI 생성된 얼굴을 탐지하는 성능을 평가했습니다. IMDL-BenCo 기준에 기반하여 pixel-level F1 점수를 주 평가 지표로 사용하였으며, 변경된 샘플에 대해 모든 IMDL 방법들이 높은 IoU(Intersection over Union)와 pixel-level F1 점수를 기록했습니다. 그러나 세미틱 앰비규어스(SA-samples) 샘플의 경우, 탐지기들이 기존 정의에 대한 편향(overfitting)을 보이면서 탐지 성능이 저하되는 경향을 보여 이 분야의 중요한 도전 과제를 나타냅니다.
+
+
+
+### GO-MLVTON: Garment Occlusion-Aware Multi-Layer Virtual Try-On with Diffusion Models (https://arxiv.org/abs/2601.13524)
+Comments:
+          5pages, 3 figures
+
+- **What's New**: 기존의 이미지 기반 가상 착용(VTON) 기법들은 주로 단일층 및 다층 의류 VTON에 중점을 두었지만, 이번 연구에서는 다층 의류 VTON(ML-VTON)에 초점을 맞춘 GO-MLVTON 방법을 제안합니다. GO-MLVTON은 의류의 중첩과 변형을 정확하게 모델링하기 위해 Garment Occlusion Learning 모듈과 StableDiffusion 기반의 Garment Morphing & Fitting 모듈을 도입하였습니다. 이 연구에서는 또한 MLG 데이터셋을 새로 구축하고 Layered Appearance Coherence Difference(LACD)라는 새로운 평가 지표를 제안하여 ML-VTON의 평가 체계를 개선합니다.
+
+- **Technical Details**: GO-MLVTON은 의류 중첩 간의 가려짐(occlusion) 관계를 학습하기 위해 Garment Occlusion Learning(GOL) 모듈을 설계하였습니다. 이 모듈은 내외부 의류의 가려짐 관계를 추정하고, StableDiffusion 기반의 Garment Morphing & Fitting(GMF) 모듈을 통해 사람의 몸에 의류를 변형하고 적합시키는 데 사용됩니다. 연구팀은 MLG라는 3,538개의 멀티-레이어 의류 샘플로 구성된 데이터셋을 새로 만들었으며, LACD 지표는 생성된 이미지의 레이어 간 일관성을 평가하기 위해 설계되었습니다.
+
+- **Performance Highlights**: GO-MLVTON은 MLG 데이터셋에서 많은 실험을 통해 기존 VTON 방법들과 비교해 ML-VTON 작업에서 탁월한 성능을 보여주었습니다. 정량적 및 정성적 평가 결과에서도 GO-MLVTON의 높은 품질의 착용 결과물을 확인할 수 있었습니다. GO-MLVTON은 ML-VTON 작업을 위한 최초의 종단 간 모델로서, 의류 중첩과 가려짐을 자연스럽게 시뮬레이션하여 실제적인 착용 경험을 생성할 수 있음을 입증하였습니다.
+
+
+
+### DIS2: Disentanglement Meets Distillation with Classwise Attention for Robust Remote Sensing Segmentation under Missing Modalities (https://arxiv.org/abs/2601.13502)
+Comments:
+          Accepted to WACV 2026 - Computer Vision for Earth Observation Workshop
+
+- **What's New**: 이번 연구는 결측 모달리티(missing modality)가 있는 원거리 감지(remote sensing) 데이터를 처리하기 위한 새로운 프레임워크 DIS2를 제안합니다. DIS2는 정보 보상(compensation), 클래스 별 모달리티 기여(class-specific modality contribution), 그리고 다중 해상도 기능 중요성(multi-resolution feature importance)에 기반하여 설계되었습니다. 이 프레임워크는 지식 증류(knowledge distillation)와 분산 학습(disentanglement learning)의 시너지를 강조하며, 다양한 상황에서 각 모달리티의 기여를 효과적으로 캡처할 수 있습니다.
+
+- **Technical Details**: 적인 성과가 필요한 원거리 감지에서의 모달리티 결측 문제를 해결하기 위해, DIS2는 세 가지 주요 구성 요소를 통합합니다. 첫째, DLKD는 비 redundance 고유한 특징 공간을 제공하여 보상 기능(compensatory representations)을 능동적으로 학습하도록 돕습니다. 둘째, 하이브리드 혼합 융합(HF) 구조는 다중 해상도의 기능을 점진적으로 융합하여 각 구성 요소의 성과를 높입니다. 마지막으로, 클래스 별 기능 학습 모듈(CFLM)은 특정 클래스에 대한 선택적 기능 주의를 가능하게 하여 세밀한 클래스 불균형 문제를 해결합니다.
+
+- **Performance Highlights**: 연구 결과, DIS2는 두 개의 인기 있는 데이터셋인 Vaihingen과 Potsdam에서의 실험을 통해 기존의 최첨단(State-of-the-Art) 모델보다 월등한 성능을 보여줍니다. 특히, 제안한 방법은 다양한 클래스와 조건에서의 인식을 개선하며, 결측 모달리티 상황에서도 우수한 견고성을 나타냅니다. 코드와 훈련된 가중치(source code and trained weights)가 공개되어 앞으로의 연구가 촉진될 것입니다.
+
+
+
+### Optical Linear Systems Framework for Event Sensing and Computational Neuromorphic Imaging (https://arxiv.org/abs/2601.13498)
+- **What's New**: 본 논문에서는 이벤트 비전 센서(Neuromorphic cameras)의 새로운 처리 파이프라인을 제시합니다. 이 처리 방법은 이벤트 스트림을 각 픽셀의 log-intensity 및 intensity의 파생값 추정으로 매핑(window)하여, 비선형성을 통해 동적 선형 시스템 모델을 구성합니다. 이러한 혁신적인 접근법은 이벤트 데이터를 활용하여 복잡한 광학 시스템의 반전 필터링을 가능하게 합니다.
+
+- **Technical Details**: 제안된 방법은 이벤트 감지로부터 직접적으로 Wiener deconvolution을 사용하여 시간 변화하는 포인트 확산 함수(Point Spread Function)를 포함하는 동적 선형 시스템 모델에 매핑합니다. 이 과정에서 모듈레이션된 디포커스 아래의 단일 및 겹치는 포인트 소스에 대한 시뮬레이션을 통해 검증되었으며, 실제 이벤트 데이터를 사용한 튜너블 포커스 망원경을 통해 별자리 이미징을 수행하였습니다.
+
+- **Performance Highlights**: 실제 실험에서 제안된 프레임워크는 소스 로컬라이제이션(source localisation) 및 분리성(separability)을 입증하여 동적 광학 시스템에서 모델 기반 계산 이미징(computational imaging)으로 이어지는 실질적인 다리를 제공합니다. 이로써 이벤트 센싱과 효율적인 이미지 처리 간의 연결이 가능해졌습니다.
+
+
+
+### Analyzing VLM-Based Approaches for Anomaly Classification and Segmentation (https://arxiv.org/abs/2601.13440)
+Comments:
+          10 pages,4 images
+
+- **What's New**: 이번 연구는 Vision-Language Models (VLMs), 특히 CLIP을 기반으로 한 비정상 탐지(anomaly detection) 접근 방식을 분석합니다. VLM은 기존의 라벨링된 데이터 세트가 필요하지 않아도 결함을 정확히 식별할 수 있도록 자연어 설명을 통해 이미지와 텍스트의 정렬된 표현을 배웁니다. 이를 통해 본 연구는 VLM 기반의 비정상 분류 및 세분화 기법을 평가하고, 사용의 실제적인 통찰력을 제공합니다.
+
+- **Technical Details**: 비정상 분류와 세분화에 대한 분석에서, WinCLIP 및 AnomalyCLIP와 같은 아키텍처 패러다임을 검토합니다. WinCLIP은 슬라이딩 윈도우 기반의 특징 추출 기법을 사용하여 세밀한 결함 감지를 가능하게 하며, AnomalyCLIP은 다단계 특징 정렬 및 learnable projection 기술을 통해 일반화 성능을 높입니다. 각 접근 방식의 기술적 특징과 효율성을 비교하여 VLM이 비정상 탐지에 성공하는 이유에 대한 기본적인 이해를 제공합니다.
+
+- **Performance Highlights**: MVTec AD 및 VisA 같은 벤치마크에서 철저한 실험을 통해 정확성(classification accuracy), 세분화 정밀도(segmentation precision), 그리고 추론 효율성(inference efficiency)을 비교했습니다. 이 연구 결과는 VLM 기반의 비정상 탐지 방법이 산업 품질 관리에 어떻게 적용될 수 있는지를 보여주며, 엔지니어와 연구자들이 실제 환경에서 시스템을 배포하는 데 도움을 줍니다.
+
+
+
+### SGW-GAN: Sliced Gromov-Wasserstein Guided GANs for Retinal Fundus Image Enhancemen (https://arxiv.org/abs/2601.13417)
+- **What's New**: SGW-GAN은 기존 GAN 기반 이미지를 개선하는 방법에 SGW(슬라이스 그로모프-바서슈타인) 거리 개념을 통합하여 고해상도 망막 이미지를 보강하는 새로운 프레임워크입니다. 이 접근법은 각 클래스 내의 구조를 보존하면서도 이미지 품질을 동시에 향상시킵니다. SGW는 GW에 비해 계산 비용을 크게 줄여 실용성을 높이고 있습니다.
+
+- **Technical Details**: SGW-GAN은 Gromov-Wasserstein(GW) 거리의 관계 보존 능력을 활용하여, 물리적 구조 사이에서의 한계를 극복하는 방법입니다. 이를 통해 SGW는 고해상도 망막 이미지 보강을 위한 모형에서 경험적으로 효율적이고 정확한 결과를 제공합니다. 이 방법은 특히 질병 관련 레이블 구조를 유지하는 데 중요한 효과를 발휘합니다.
+
+- **Performance Highlights**: 공개된 망막 데이터 세트에서 실험 결과, SGW-GAN은 시각적으로 매력적인 결과를 생성하고, 당뇨병성 망막병증(Diabetic Retinopathy) 분류에서 우수한 성능을 보여줍니다. 더불어, 기존 모델들 중에서 가장 낮은 GW 불일치를 보고하며, 임상적 충실성을 유지하면서도 효율성을 보여줍니다.
+
+
+
+### Diffusion Representations for Fine-Grained Image Classification: A Marine Plankton Case Study (https://arxiv.org/abs/2601.13416)
+Comments:
+          21 pages, 6 figures, CVPR format
+
+- **What's New**: 이번 논문에서는 diffusion 모델을 이미지 합성의 최첨단 생성 방법으로 활용하는 것에 그치지 않고, 일반적인 피처 인코더로서의 가능성을 탐구합니다. 노이즈 제거와 생성에 대한 비지도 학습 방식을 통해 이 모델은 낮은 수준과 높은 수준의 구조를 포착하는 방법을 제시하며, 이를 통해 강력한 미세 인식을 가능하게 합니다. 이 방법은 실제 미세 해양 생물 모니터링 상황에서 실용적인 영향을 평가하며, 기존의 감독 학습과 비지도 학습 기준선에 대한 비교를 통해 그 유효성을 검증합니다.
+
+- **Technical Details**: 제안된 방법은 미세 해양 생물 이미지에서 노이즈 제거 피처를 활용하여 각 레이어와 타임스텝에서의 높은 라인 분류 정확도를 달성합니다. 실험에서는 주어진 학습 환경에서 너무 많은 클래스 비율의 불균형을 다루고, 출처와 목적지가 다르며 조건이 변경된 플랑크톤 데이터셋에 대한 평가를 포함합니다. 이를 통해 frozen diffusion 피처가 감독 학습 기준선과 경쟁력을 가지며, 비지도 기반 방법을 초월하여 실제 환경에서도 높은 정확성을 유지함을 보여주고 있습니다.
+
+- **Performance Highlights**: 실험 결과, diffusion 피처는 DINOv3와 같은 비지도 학습 기준선을 초과하여 성과를 보였고, Vision Transformers(ViTs), ResNets 및 EfficientNet과 같은 감독 학습 모델과 경쟁할 정도의 성능을 발휘하였습니다. 또한, 다양한 환경에서 높은 인식을 보였으며, 분포 변화가 큰 상황에서도 견고한 정확성을 유지함으로써, 자가 지도 학습 기능의 선택과 적시성을 강조합니다. 이러한 결과는 해양 생태계 모니터링과 같은 실질적 응용에서도 중요한 의미를 갖습니다.
+
+
+
+### Using deep learning for predicting cleansing quality of colon capsule endoscopy images (https://arxiv.org/abs/2601.13412)
+Comments:
+          24 pages
+
+- **What's New**: 이번 연구에서는 대장 캡슐 내시경 이미지의 세정 품질(cleaning quality) 예측을 위한 심층 학습(deep learning) 기술의 응용을 탐구합니다. 14명의 임상의가 레이튼-렉스(Leighton-Rex) 척도에 따라 라벨링한 500장의 이미지를 활용하여 ResNet-18 모델을 훈련시키고, 성능을 보장하기 위해 층화 K-겹 교차 검증(stratified K-fold cross-validation)을 사용했습니다. 모델 최적화를 위해 구조적 가지치기(structured pruning) 기법을 반복적으로 적용하여 높은 정확도를 유지하면서도 상당한 희소성(sparsity)을 달성했습니다.
+
+- **Technical Details**: 본 연구에서는 ResNet-18(Residual Network) 아키텍처를 중심으로 진행되었습니다. ResNet은 스킵 연결(skip connection)을 도입하여 깊은 신경망에서 발생하는 기울기 소실(gradient vanishing) 문제를 해결하는 것이 주요 특징입니다. 모델 훈련을 위해 층화 K-겹 교차 검증(struatified K-fold cross-validation) 기법을 사용하며, 이는 모델이 이전에 보지 못한 데이터에 대해 얼마나 잘 일반화되는지를 평가하는 데 도움을 줍니다.
+
+- **Performance Highlights**: 모델의 성과는 크로스 검증에서 79%의 희소성을 유지하면서도 88%의 정확도를 달성하여 가지치기가 효율성을 개선하는 데 효과적임을 보여줍니다. 또한 모델 설명 가능성을 평가하기 위해 Grad-CAM과 같은 다양한 기법을 활용하였으며, 외부 데이터셋에 대한 모델 보정(adaptive temperature scaling)도 수행하였습니다. 이는 임상 환경에서의 예측 결과의 투명성과 해석 가능성을 강화하는 데 기여합니다.
+
+
+
+### Local-to-Global Logical Explanations for Deep Vision Models (https://arxiv.org/abs/2601.13404)
+Comments:
+          15 pages, 5 figures, 5th International Joint Conference on Learning & Reasoning 2025
+
+- **What's New**: 이번 논문은 블랙박스 모델에 대한 인간이 인식할 수 있는 기본 개념을 중심으로 한 로컬 및 글로벌 설명 방법을 제안합니다. 로컬 설명은 단일 이미지에 대해, 글로벌 설명은 이미지 집합에 대해 제공되며, 두 가지 설명 모두 단조로운 합의 논리 형식으로 구성되어 모델이 주어진 클래스에서 높은 점수를 얻는 것을 보장합니다. 저자들은 여러 클래스에 대한 분류를 설명하는 알고리즘을 추가로 제시합니다.
+
+- **Technical Details**: 저자들은 모델의 신뢰도 점수가 주어진 클래스의 긍정적 증거와 단조롭게 증가한다고 주장하며, 이는 여러 개의 증거가 있음을 시사합니다. 그들은 이를 바탕으로 perturbation 기반 검색 프레임워크를 사용하여 여러 로컬 설명을 생성하는 방법을 제안하였습니다. 각 설명은 이미지에서 인간이 주석을 단 객체 또는 객체 부분에 해당하는 긍정적인 리터럴로 구성된 논리적 결합으로 표현됩니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 설명 방법이 높은 충실도(fidelity)와 범위(coverage)를 유지하면서도 블랙박스 모델을 효과적으로 설명하는 데 성공적임을 보여줍니다. 이 접근 방식은 데이터의 체계적 편향을 감지하고 숨겨진 신호를 확인하는 데 필요한 통계적 감사에도 기여할 수 있습니다. 결론적으로, 제안된 방법은 높은 성능과 해석 가능성을 조화롭게 결합하여 인공지능의 투명성과 책임성을 강화하고자 합니다.
+
+
+
+### Reasoning with Pixel-level Precision: QVLM Architecture and SQuID Dataset for Quantitative Geospatial Analytics (https://arxiv.org/abs/2601.13401)
+Comments:
+          Submitted to CVPR 2026. Introduces the QVLM architecture and the SQuID dataset for quantitative geospatial reasoning. Dataset DOI: https://doi.org/10.57967/hf/7565
+
+- **What's New**: 최근 Vision-Language Models (VLMs)는 정량적인 공간 추론(quantitative spatial reasoning)에서 한계를 드러냅니다. 이 논문에서는 세부 픽셀 정보를 소실하지 않고 공간적 인덱싱(spatial indexing)을 유지하는 QVLM (Quantitative Vision-Language Model) 아키텍처와 2000개의 위성 이미지 질문-답변 쌍으로 구성된 SQuID (Satellite Quantitative Intelligence Dataset)를 소개합니다. 이 연구는 정량적 작업에서 더 나은 정확성을 위한 아키텍처 분리를 강조합니다.
+
+- **Technical Details**: SQuID 데이터셋은 세 가지 난이도 단계로 나뉘어 있으며, 각 질문은 10명의 주석자에 의해 도출된 허용 가능한 범위를 포함합니다. QVLM은 이미지 임베딩 대신 실행 가능한 Python 코드를 생성하여 세분화 모델을 조정하여, 픽셀 수준의 마스크를 생성하고 이를 기반으로 논리를 전개합니다. 이러한 접근 방식은 정량적인 분석을 수행하는 데 필요한 픽셀 정밀도를 보장합니다.
+
+- **Performance Highlights**: 실험 결과, QVLM은 GPT-5를 사용하여 42.0%의 정확도를 달성했고, 이는 이미지-질문 쌍에 의해 처리된 VLM의 28.1%와 비교됩니다. 이러한 결과는 코드 생성에 의한 아키텍처 분리가 정량적 공간 추론에서의 성능 향상에 기여함을 보여줍니다. 특히, QVLM은 위성 이미지와 같은 높은 해상도에서 정밀한 분석이 필요한 분야에서도 효과적으로 적용될 수 있습니다.
+
+
+
+### Deep Image Prior with L0 Gradient Regularizer for Image Smoothing (https://arxiv.org/abs/2601.13400)
+Comments:
+          To be published in the Proceedings of IEEE ICASSP 2026
+
+- **What's New**: 이번 논문은 DIP-$\ell_0$라는 새로운 딥 이미지 프라이어 프레임워크를 제안합니다. 이 프레임워크는 훈련 데이터 없이 고품질 이미지 스무딩을 수행할 수 있는 방법으로, 기존의 이미지 스무딩 알고리즘 대비 뛰어난 성능을 보여줍니다. 특히, $\\ell_0$ 그래디언트 정규화를 통합하여 이미지의 강한 엣지와 경계를 보존하는 데 중점을 두었습니다. 이러한 접근은 이미지 스무딩을 최적화 문제로 간주하고 이를 해결하기 위한 대안 방향 방법(ADMM)을 개발하여 수행되었습니다.
+
+- **Technical Details**: DIP-$\ell_0$는 고정된 무작위 입력을 기반으로 하여 DNN을 활용하는 딥 이미지 프라이어(DIP) 방식입니다. 이 방법은 강한 엣지와 경계를 보존하기 위해 $\\ell_0$ 그래디언트 정규자를 설정하고, 손실 함수의 비볼록(nonconvex)성과 비매끄러움(nonsmoothness) 문제를 해결하는 데 ADMM 알고리즘을 사용합니다. 기존의 방법과는 달리, 이 새로운 프레임워크는 대량의 훈련 데이터 없이도 우수한 이미지 스무딩을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, DIP-$\ell_0$는 엣지를 보존하는 이미지 스무딩과 JPEG 아티팩트 제거에서 기존의 많은 알고리즘을 초월하는 성능을 보였습니다. 특히, DIP-$\ell_0$는 이미지의 구조적 정보와 세부 정보를 효과적으로 분리하여 처리하며, 다양한 종류의 이미지에서도 일관된 품질을 유지합니다. 해당 방법은 이미지 스무딩 분야에서 중요한 진전을 이룬 것으로 평가받고 있습니다.
+
+
+
+### Leveraging Transformer Decoder for Automotive Radar Object Detection (https://arxiv.org/abs/2601.13386)
+- **What's New**: 이 논문에서는 3D 레이더 물체 탐지를 위한 Transformer 기반 아키텍처를 제안하며, 새로운 Transformer Decoder를 예측 헤드로 사용하여 레이더 피쳐 표현에서 3D 바운딩 박스와 클래스 점수를 직접 회귀합니다. Pyramid Token Fusion (PTF)라는 경량 모듈을 통해 다중 스케일 레이더 피쳐와 디코더를 연결하며, 이를 통해 탐지를 집합 예측 문제로 공식화하여 긴 범위 공간-시간 상관관계 및 교차 피쳐 상호작용을 모델링합니다.
+
+- **Technical Details**: 제안된 프레임워크는 입력 3D RAD 큐브에서 계층적 피쳐를 추출하는 Transformer 기반 백본을 적응하여 계산됩니다. PTF 모듈을 통해 다중 스케일 피쳐를 통합하고, 조건부 변환기 디코더는 학습 가능한 객체 쿼리에 의해 구동되어 클래스 확률 및 3D 바운딩 박스를 예측합니다. 이 과정에서 레이더 전용 차원에서의 공간 구분을 향상시키기 위해 조정 가능한 위치 인코딩 방식을 채택했습니다.
+
+- **Performance Highlights**: RADDet 데이터셋에서 이 프레임워크는 기존 레이더 기반 물체 탐지 방법에 비해 상당한 성능 향상을 보였습니다. 제안된 아키텍처는 비밀의 프로포절 생성과 비정형 후처리 없이도 우수한 결과를 제공하며, 청정하고 체계적인 end-to-end 최적화 파이프라인을 실현합니다.
+
+
+
+### Organ-Aware Attention Improves CT Triage and Classification (https://arxiv.org/abs/2601.13385)
+- **What's New**: 이 연구는 CT(Computed Tomography) 스캔을 통한 신속한 선별 및 분류의 필요성을 강조하며, 두 개의 대규모 공개 흉부 CT 데이터 세트인 CT-RATE와 RADCHEST-CT를 사용하여 최첨단(supervised state-of-the-art) 성능을 달성했습니다. 연구진은 ORACLE-CT라는 새로운 인코더 비의존(encoder-agnostic) 및 장기 인지(organ-aware) 모델을 소개하며, 이는 Organ-Masked Attention과 Organ-Scalar Fusion의 결합을 통해 질병 분류 정확도를 높입니다. 이러한 개선을 통해 최종적으로 가슴 및 복부 CT에서 모두 높은 AUROC 점수를 기록했습니다.
+
+- **Technical Details**: ORACLE-CT는 각 장기별로 마스크된 주목(pooling)과 scalar의 융합(fusion)을 조합하여 장기별 임베딩을 생성합니다. 이 모델은 MULTIPLE INSTANCE LEARNING (MIL) 형식을 채택하여 각 장기 그룹 마스크에서 토큰/복셀 인스턴스의 집합을 정의하며, 소프트맥스(softmax)를 통해 유연한 인스턴스 분류를 수행합니다. 이를 통해 데이터셋 전반에 걸쳐 잘 보정된 운영 점수를 제공하며, 임상 CT 선별 작업에 대해 높은 신뢰성을 보장합니다.
+
+- **Performance Highlights**: ORACLE-CT는 CT-RATE 데이터셋에서 AUROC 0.86, 그리고 MERLIN 데이터셋에서는 천식 조건에서 AUROC 0.85를 달성하였으며, 이는 이전의 선형 프로브 VLM 및 슈퍼바이즈드 기준을 초월하는 성과입니다. 이 모델은 고정된 전처리 및 분할을 통해 품질 높은 성능을 지속적으로 제공하여, 모든 실험에서 가장 높은 기준을 설정했습니다. 이러한 결과는 가슴 및 복부 CT에서 통합된 평가 프로토콜에 따른 최첨단(supervised state-of-the-art) 분류 성능을 입증합니다.
+
+
+
+### Practical Insights into Semi-Supervised Object Detection Approaches (https://arxiv.org/abs/2601.13380)
+- **What's New**: 최근 데이터가 부족한 환경에서의 학습이 연구 커뮤니티에서 주목받고 있습니다. 이 논문에서는 Semi-supervised object detection(SSOD) 기술의 세 가지 최첨단 접근 방법인 MixPL, Semi-DETR, 그리고 Consistent-Teacher를 비교 분석합니다. SSOD 기술은 적은 수의 주석이 있는 이미지와 함께 많은 수의 비주석 이미지를 활용하여 탐지 성능을 향상시키는 데 중점을 둡니다.
+
+- **Technical Details**: SSOD 방식은 일반적으로 1) Teacher 모델로부터 pseudo-label을 생성하고, 2) 주석 이미지와 pseudo-label 데이터 혼합으로 Student 모델을 재학습하는 반복 과정을 포함합니다. 본 연구에서는 MS-COCO와 Pascal VOC 데이터셋을 사용하여 각 방법의 성능을 평가했습니다. 또한, 커스터마이즈된 Beetle 데이터셋을 활용하여 특정 데이터셋에서의 성능을 분석합니다.
+
+- **Performance Highlights**: 최신 SSOD 모델의 성능을 비교하여 모델 크기, 정확성, 그리고 추론 시간 간의 균형을 살펴보았습니다. 연구 결과는 이미지 수에 따른 성능 변화와 데이터가 적은 환경에서의 SSOD 접근 방식의 한계를 강조합니다. 이 연구는 데이터가 극도로 제한된 상황에서 SSOD 모델의 작동 방식을 분석하는 최초의 실증적 연구 중 하나로, 자원의 제한이 있는 실제 응용에 중요한 통찰을 제공합니다.
+
+
+
+### A Lightweight Model-Driven 4D Radar Framework for Pervasive Human Detection in Harsh Conditions (https://arxiv.org/abs/2601.13373)
+- **What's New**: 이번 연구는 산업 및 지하 환경에서의 안정적 인체 탐지를 위한 완전한 모델 구동 4D 레이더 인식 프레임워크를 제안합니다. 이 시스템은 4D 레이더를 유일한 인식 수단으로 사용하며, 외부의 LiDAR-IMU 오도메트리를 주로 자아 운동 보정에 활용합니다. 제안된 접근 방식은 가시성 저하 상황에서도 안정적인 보행자 식별을 유지할 수 있는 가능성을 보여줍니다.
+
+- **Technical Details**: 이 연구에서 사용된 4D mmWave 이미징 레이더는 12개의 송신기와 16개의 수신기로 구성된 대형 가상 MIMO 배열입니다. 레이더 데이터는 ROS 드라이버를 통해 수집되며, 원시 범위-각도-Doppler 탐지 정보를 Cartesian 좌표로 변환하여 15Hz의 속도로 포인트 클라우드로 발행됩니다. 제안된 프레임워크는 여러 가지 필터링 및 클러스터링 기법을 사용하여 4D 레이더 포인트 클라우드를 처리합니다.
+
+- **Performance Highlights**: 테스트 시나리오에서 레이더 기반 탐지기는 카메라와 LiDAR의 인식이 심각하게 저하된 상황에서도 안정적인 보행자 인식을 유지했습니다. 이 연구는 산업 및 지하 환경에서의 가시성 저하 조건을 고려하여 레이더의 성능을 안정적으로 제공하는 것을 보여줍니다. 제안된 방법은 안전-critical 응용 프로그램을 위한 강력하고 해석이 가능한 인식을 제공합니다.
+
+
+
+### Spherical Geometry Diffusion: Generating High-quality 3D Face Geometry via Sphere-anchored Representations (https://arxiv.org/abs/2601.13371)
+Comments:
+          Association for the Advancement of Artificial Intelligence
+
+- **What's New**: 이번 논문에서는 고품질 3D 얼굴 생성을 위한 새로운 접근법을 제안합니다. 기존의 메쉬 연결성과 품질 문제가 있었던 면에서, 저자들은 기하학적 구조를 단순화하여 표준적인 매니폴드인 정규 구면에 분포하도록 제약하는 방법을 고안했습니다. 이 방식은 정기적인 점 분포를 보장하여 메쉬의 연결성을 쉽게 만들어줍니다.
+
+- **Technical Details**: 논문에서 제안하는 Spherical Geometry Representation(SGR)은 3D 얼굴을 구면에 매핑한 후 이를 2D 맵으로 펼치는 새로운 방식입니다. 각 픽셀은 구면의 신호를 나타내며, 이 구조는 기하 데이터와 텍스처 정보를 통합하여 도형을 안정적으로 재구성할 수 있게 합니다. 또한, Spherical Geometry Diffusion라는 조건부 확산 프레임워크를 도입하여 기하학과 텍스처 생성을 효율적으로 결합합니다.
+
+- **Performance Highlights**: 저자들은 다양한 실험을 통해 제안한 방법이 기존의 메소드들보다 월등한 기하학적 품질과 텍스트 충실도를 보여주었다고 보고합니다. 특히, 텍스트 기반 3D 생성, 얼굴 재구성 및 텍스처 합성과 같은 다양한 작업에서 우수한 성능을 기록했습니다. 이러한 결과는 제안된 기법이 3D 얼굴 조작을 위한 포괄적인 솔루션임을 시사합니다.
+
+
+
+### Real-Time 4D Radar Perception for Robust Human Detection in Harsh Enclosed Environments (https://arxiv.org/abs/2601.13364)
+- **What's New**: 이 논문은 극한의 환경에서 반복 가능한 mm-wave 전파 연구를 위한 제어된 다층 먼지 농도 생성 방법론을 소개합니다. 새로운 4D mmWave 레이더 데이터세트도 제공하며, 이 데이터셋은 질량과 반사 표면이 센싱 기능에 어떻게 영향을 미치는지를 설명합니다. 또한, 레이더 매개변수를 활용한 임계값 기반의 노이즈 필터링 프레임워크를 개발하여, 강한 다중 경로 반사와 유령 타겟을 억제하는 데 도움을 줍니다.
+
+- **Technical Details**: 제안된 4D mmWave 레이더 시스템은 12개의 송신 안테나(TX)와 16개의 수신 안테나(RX)를 갖춘 Altos 이미징 레이더를 사용합니다. 이 시스템은 고밀도의 포인트 클라우드를 생성하며, 각 포인트는 카르테시안 좌표와 레이더 교차 단면(RCS), 상대 속도, 방위각 및 고도 각도를 포함한 정보를 가지고 있습니다. 시스템의 성능은 다양한 먼지 농도에서 인체 감지를 위한 데이터를 수집하여 검증되었습니다.
+
+- **Performance Highlights**: 제안한 시스템은 먼지로 가득 찬 환경에서 클러터 억제와 탐지 강인성을 크게 향상시키는 것으로 확인되었습니다. 특히, 필터링된 데이터 세트를 기반으로 한 규칙 기반 분류 파이프라인을 통해 레이더 의미론을 활용하여 보행자를 신뢰성 있게 감지할 수 있었습니다. 이는 대규모 도메인 특화 훈련 없이도 높은 정확도를 유지하며, 채굴 및 산업, 오프로드 상황에서 안전-critical 응용 프로그램에 대한 가능성을 강조합니다.
+
+
+
+### MultiST: A Cross-Attention-Based Multimodal Model for Spatial Transcriptomic (https://arxiv.org/abs/2601.13331)
+- **What's New**: 이번 연구에서는 MultiST라는 새로운 다중모달 프레임워크를 제안합니다. 이 프레임워크는 공간 전사체학 (Spatial Transcriptomics) 데이터에서 유전자 발현, 공간 좌표 및 조직 형태학을 통합하여 모델링합니다. MultiST는 Cross-Attention 기반의 융합을 통해 생물학적으로 의미 있는 표현을 생성하며, 기존 방법보다 더 명확하고 일관된 경계의 공간 도메인을 제공합니다.
+
+- **Technical Details**: MultiST의 주요 구성 요소는 세 가지로, 입력 데이터 모듈, 공간 가이드 다중모달 통합 모듈, 그리고 다운스트림 분석 모듈로 이루어져 있습니다. 공간적으로 정보를 유지하는 유전자 인코더는 그래프 구조를 사용하여 인접 스팟 간의 발현 패턴과 공간적 의존성을 캡처합니다. 또한, 색상 정규화된 이미지 인코더를 통해 형태학적 특성을 추출하고, 교차 주의 메커니즘을 활용하여 두 표현 간의 정렬을 수행합니다.
+
+- **Performance Highlights**: MultiST는 13개의 다양한 ST 데이터셋에서 평가되었고, 기존 방법들보다 더 뚜렷하고 일관된 경계의 공간 도메인을 생성했습니다. 이로 인해 더 안정된 pseudotime 궤적과 생물학적으로 해석 가능한 세포 간 상호작용 패턴이 나타났습니다. MultiST는 정확한 공간 도메인 분할, pseudotime 재구성, 리간드-수용체 CCI 분석을 지원하여 생물학적 분석에 대한 통찰력을 제공합니다.
+
+
+
+### CausalSpatial: A Benchmark for Object-Centric Causal Spatial Reasoning (https://arxiv.org/abs/2601.13304)
+Comments:
+          Code is available: this https URL
+
+- **What's New**: 새로운 연구는 사람의 Causal Spatial Reasoning 능력을 조사합니다. 현재의 멀티모달 대규모 언어 모델(MLLM)은 3D 장면에서 '무엇이 발생할까?'라는 질문에 잘 대답하지 못하고 있습니다. 연구진은 CausalSpatial이라는 진단 벤치를 도입하여 모델이 물체의 움직임에 따른 결과를 예측할 수 있는지를 평가합니다.
+
+- **Technical Details**: CausalSpatial 벤치는 4가지 작업인 Collision, Compatibility, Occlusion, Trajectory를 통해 causal spatial reasoning을 평가합니다. 모델은 주어진 정적 이미지에서 물체를 인식하고, 비주얼 공간 정보를 기반으로 예상 결과를 생성해야 합니다. 그러나 현재 MLLM은 주로 텍스트 기반의 Chain-of-Thought (CoT) 추론에 의존하여 시각적 증거와의 일관성이 부족합니다.
+
+- **Performance Highlights**: 인간은 84%의 정확도를 보이는 반면, GPT-5는 54%에 불과하여 심각한 격차를 드러냅니다. Causal Object World Model(COW)을 통해 연구자는 3D 일관성을 유지하면서 물체의 동적 상호작용을 영상으로 시뮬레이션하여 모델의 causal 이해를 강화하려고 합니다. 이 연구는 MLLM의 복잡한 공간적 추론 작업에서 유의미한 가능성을 보여줍니다.
+
+
+
+### Enginuity: Building an Open Multi-Domain Dataset of Complex Engineering Diagrams (https://arxiv.org/abs/2601.13299)
+Comments:
+          Accepted at the 39th Conference on Neural Information Processing Systems (NeurIPS 2025) Workshop: Ai4 Science
+
+- **What's New**: Enginuity는 첫 번째 공개 대규모 다목적 엔지니어링 다이어그램 데이터셋으로, 자동 다이어그램 파싱을 위한 포괄적인 구조적 주석이 포함되어 있습니다. 다양한 엔지니어링 도메인에서 계층적 구성 요소 관계, 연결 및 의미적 요소를 포착하여 다모드 대형 언어 모델이 구조적 다이어그램 파싱, 크로스 모달 정보 검색 및 AI 지원 엔지니어링 시뮬레이션과 같은 중요한 다운스트림 작업을 수행할 수 있도록 지원합니다. 이 데이터셋은 과학 발견을 위한 AI의 혁신을 촉진하여 엔지니어링 다이어그램에 내재된 시각적 구조적 지식을 이해하고 조작할 수 있게 합니다.
+
+- **Technical Details**: Enginuity 데이터셋은 5만 개의 주석이 달린 엔지니어링 다이어그램을 제공하며, 자동차 도메인에서 시작해 이후 다른 도메인으로 확장될 예정입니다. 주석에는 계층적 구성 요소 관계, 공간적 연결, 부품 번호 및 기능 역할이 포함되며, ISO/IEEE 온톨로지에 표준화되어 있습니다. 데이터 수집을 위한 이중 전략을 채택하며, 공공 도메인 자동차 다이어그램을 수집하고 산업 파트너와 함께 비공식 제조업체의 데이터도 포함시킵니다.
+
+- **Performance Highlights**: Enginuity는 과학적 가속을 가능하게 하여 알고리즘 설계 탐색, 크로스 도메인 전이 및 디지털 트윈 생성을 지원합니다. 이 데이터셋은 연구자들이 접근할 수 있는 다양한 현실적인 데이터셋을 제공하며, 연구 및 산업 커뮤니티 간의 협력을 촉진하는 기회를 제공합니다. Enginuity는 50K 이상의 다이어그램으로 구성되어 있으며, 새로운 AI 모델이 엔지니어링 다이어그램 이해의 공간 추론 병목 현상을 극복할 수 있도록 도울 것입니다.
+
+
+
+### Deep Learning for Semantic Segmentation of 3D Ultrasound Data (https://arxiv.org/abs/2601.13263)
+Comments:
+          14 pages, 10 figures, 8 tables, presented at 2025 13th International Conference on Robot Intelligence Technology and Applications (RITA)
+
+- **What's New**: 자율주행 차량을 위한 비용 효율적이고 신뢰할 수 있는 인식 시스템을 개발하는 것이 주요 과제로 남아 있습니다. 본 연구는 Calyo Pulse라는 모듈화된 고형 상태의 3D 초음파 센서 시스템을 사용하여 열악하고 복잡한 환경에서를 위한 새로운 학습 기반 3D 의미 분할 프레임워크를 소개합니다.
+
+- **Technical Details**: 3D U-Net 아키텍처를 도입하고 이를 공간 초음파 데이터로 훈련시켜 부피 분할(volumetric segmentation)을 수행합니다. Calyo Pulse 센서의 강력한 성능을 실험적으로 증명하였고, 대규모 데이터셋, 세부적인 진실(ground truth) 및 가중 손실 함수(weighted loss functions)를 통해 개선 가능성을 제시합니다.
+
+- **Performance Highlights**: 결과는 Calyo Pulse 센서로부터 견고한 분할 성능을 보여주며, 3D 초음파 감지가 신뢰할 수 있는 자율성(autonomy)을 위한 유망한 보완 방식으로 강조되었습니다.
+
+
+
+### A Semantic Decoupling-Based Two-Stage Rainy-Day Attack for Revealing Weather Robustness Deficiencies in Vision-Language Models (https://arxiv.org/abs/2601.13238)
+- **What's New**: 이 논문은 기존의 시각-언어 모델(Visual-Language Models, VLMs)을 실제 날씨 조건 하에서도 강인성을 갖도록 평가하는 첫 번째 연구입니다. 특히 비 오는 환경에서 VLM의 반응을 조사하기 위해 두 단계의 적대적 공격 프레임워크(Adversarial Framework)를 도입하였으며, 이는 의미적 디커플링(Semantic Decoupling)을 기반으로 하고 있습니다. 이를 통해 날씨가 어떻게 모델의 결정 방식에 영향을 미치는지 분석하고자 합니다.
+
+- **Technical Details**: 제안하는 프레임워크는 1단계에서 저차원 글로벌 조절(Global Modulation)을 통해 이미지-텍스트의 임베딩 공간(Embedding Space)을 조건화합니다. 이어서 2단계에서는 다중 스케일 비구조적 강수(Semantic Shifts) 및 조명 변화를 모델링하여 의미적 비대칭(Semantic Misalignment)을 유도합니다. 여기서 사용되는 CMA-ES(Controlled Multi-objective Adaptive Evolution Strategy)는 물리적으로 타당한 강수 패턴을 생성합니다.
+
+- **Performance Highlights**: 실험 결과, 제안한 방법은 여러 작업(Task)에서 강력한 전이 가능성을 보여 주며, 비록 물리적으로 그럴듯한 제한된 날씨 방 perturbation이더라도 VLMs의 의미적 비대칭을 유도할 수 있음을 입증하였습니다. 조명 모델링과 다중 스케일 강수 구조가 의미적 변화에 중요한 요인이라는 점도 확인되었습니다. 이러한 결과는 실제 상황에서 VLMs의 안전성과 신뢰성에 대한 우려를 불러일으킵니다.
+
+
+
+### ConvMambaNet: A Hybrid CNN-Mamba State Space Architecture for Accurate and Real-Time EEG Seizure Detection (https://arxiv.org/abs/2601.13234)
+- **What's New**: 이번 연구에서는 뇌전증(epilepsy)의 모니터링을 위한 새로운 심층 학습 모델인 ConvMambaNet을 소개합니다. 이 모델은 CNN과 Mamba Structured State Space Model(SSM)을 결합하여 EEG 신호의 시간적 특성을 향상시킵니다. 이를 통해 자동화된 분석이 어려운 EEG 신호의 복잡성을 해결하고자 합니다.
+
+- **Technical Details**: ConvMambaNet은 CNN 프레임워크 내에 Mamba-SSM 블록을 통합하여 공간적(spatial) 및 장기(long-range) 시간적 동역학을 효과적으로 포착합니다. 이 모델은 CHB-MIT Scalp EEG 데이터셋을 기반으로 평가되었으며, 높은 정확도를 달성하였습니다. 또한, 심각한 클래스 불균형(class imbalance) 상황에서도 견고한 성능을 보였습니다.
+
+- **Performance Highlights**: ConvMambaNet은 99%의 정확도를 기록하며, 뇌전증 발작 감지에서 높은 성능을 보여줍니다. 이러한 결과는 임상 환경에서 실시간(real-time) 자동 뇌전증 모니터링에 대한 유망한 경로를 제시합니다.
+
+
+
+### Not all Blends are Equal: The BLEMORE Dataset of Blended Emotion Expressions with Relative Salience Annotations (https://arxiv.org/abs/2601.13225)
+Comments:
+          Accepted for publication at IEEE Face & Gesture 2026
+
+- **What's New**: 이번 논문에서 우리는 BlEmoRe라는 새로운 멀티모달 데이터세트를 소개합니다. 이 데이터세트는 비디오와 오디오에서의 혼합 감정을 인식하기 위해 개발되었습니다. BlEmoRe는 58명의 배우가 연기한 3,000개 이상의 클립으로 구성되어 있으며, 각 혼합 감정은 상대적 중요도(salience)에 대한 정보를 포함하고 있습니다.
+
+- **Technical Details**: BlEmoRe 데이터세트는 6가지 기본 감정과 10가지의 혼합 감정으로 이루어져 있으며, 각 혼합 감정은 상대적 중요도에 따라 3개의 다른 설정(50/50, 70/30, 30/70)으로 분류됩니다. 이 데이터세트를 사용하여 감정의 존재 예측 및 혼합 감정 내의 상대적 중요도 예측을 위한 평가를 수행하였습니다. 결과적으로, 다중 모달(multi-modal) 접근 방식이 단일 모달(classifier)보다 더 나은 성능을 보였습니다.
+
+- **Performance Highlights**: 단일 모달 모델들은 검증 세트에서 감정 검출 정확도는 최대 29%, 중요도 검출 정확도는 최대 13%를 기록했습니다. 반면, 다중 모달 기법인 ImageBind + WavLM은 35%의 감정 존재 정확도, HiCMAE는 18%의 중요도 정확도를 기록하여 명확한 성능 향상을 보였습니다. 최종적으로, BlEmoRe는 혼합 감정을 인식하는 자동 시스템 개발에 유용한 자원이 될 것입니다.
+
+
+
+### ObjectVisA-120: Object-based Visual Attention Prediction in Interactive Street-crossing Environments (https://arxiv.org/abs/2601.13218)
+Comments:
+          Accepted for publication at the IEEE Intelligent Vehicles Symposium (IV), 2026
+
+- **What's New**: 이번 논문에서는 인간의 시각 주의(attention)가 물체 기반(object-based)이라는 사실이 인지 과학에서 잘 알려져 있지만, 지금껏 컴퓨터 비전 모델에서는 미비하게 다루어졌다는 점을 언급합니다. 이를 극복하기 위해, 저자들은 물체 기반 주의 평가에 적합한 새로운 데이터셋(ObjectVisA-120)을 제안하며, 이 데이터셋은 가상 현실(Virtual Reality) 내에서의 거리 건너기 상황을 기록하여 정확한 주의 예측을 가능하게 합니다. 추가로, 객체 간 추론 성능을 평가하기 위한 새로운 메트릭인 oSIM을 도입하고, 이를 통해 물체 기반 주의를 최적화함으로써 모델 성능이 향상됨을 보여주고 있습니다.
+
+- **Technical Details**: 저자들은 ObjectVisA-120 데이터셋을 통해 가상 환경에서 객체(instance)에 대한 정확한 세분화(segmentation) 및 다양성 있는 시나리오를 제공하며, 이 데이터셋은 120명의 참가자를 기반으로 하여 수집되었습니다. 또한, SUMGraph라는 모델을 제시하고, 이 모델은 Mamba U-Net 아키텍처를 활용하여 중요 장면 객체(예: 차량)를 그래프 형태로 인코딩합니다. 이 방식은 기존의 시각 주의 예측 방법들보다 뛰어난 성능을 보여주며, 객체 정보를 명시적으로 활용한 최초의 주의 예측 모델로 자리 잡고 있습니다.
+
+- **Performance Highlights**: SUMGraph 모델의 성능 평가는 ObjectVisA-120 데이터셋을 통해 이루어졌으며, 이 모델은 최첨단 방법들과 동등한 성능을 기록하였습니다. oSIM을 학습 목표에 포함시키는 수준으로, 모델 성능이 향상되는 것을 확인했습니다. 따라서, 이 연구는 물체 기반 주의 예측이 시각적 인식 및 환경과의 상호작용에 있어서 중요한 통찰력을 제공할 수 있음을 입증하였습니다.
+
+
+
+### Rethinking Skip Connections: Additive U-Net for Robust and Interpretable Denoising (https://arxiv.org/abs/2601.13208)
+- **What's New**: 이번 논문에서는 이미지 노이즈 제거를 위한 U-Net 아키텍처에 있어서, 전통적인 연결(concatenation)이 채널 차원을 두 배로 증가시키고 정보 흐름을 불명확하게 만드는 문제를 해결하기 위해 Additive U-Net을 제안합니다. 이 모델은 연결 방식을 게이트된 덧셈 연결(gated additive connection)으로 대체하여 각 스킵 경로(skip pathway)가 학습 가능한 비음수 스칼라(non-negative scalar)로 조절됩니다. 이를 통해 정보 흐름을 명확하고 해석 가능한 형태로 만들어, 노이즈 전파를 제어할 수 있습니다.
+
+- **Technical Details**: Additive U-Net은 단일 피처 공간을 유지하면서 채널 팽창을 피하고, 다운샘플링 및 업샘플링을 생략합니다. 이는 모델을 가볍고 투명하게 만들어, 각 스킵 기여가 학습 가능한 비음수 스칼라를 통해 명시적으로 제어됩니다. 노이즈가 있는 입력을 처리하는 데 있어, 이 모델은 기존의 U-Net 아키텍처보다 훨씬 효과적으로 정보 흐름을 유지하며, 채널 폭을 일정하게 유지하는 덕분에 각 스킵의 기여도를 쉽게 설명할 수 있습니다.
+
+- **Performance Highlights**: Kodak-17 벤치마크에서 Additive U-Net은 기존의 DnCNN과 비교해 경쟁력 있는 PSNR과 SSIM을 달성하였으며, 다양한 커널 스케줄 및 깊이에서도 강건한 성능을 보였습니다. 또한, DnCNN은 세밀한 디테일을 과도하게 부드럽게 만드는 경향이 있는 반면, Additive U-Net은 노이즈 누수를 억제하면서 자연스러운 구조를 유지하며 더 날카로운 질감을 생성하는 데 성공했습니다. 이러한 결과는 의료 영상, 과학 데이터 처리 및 다중 과제 학습에서 해석 가능한 설계의 중요성을 강조합니다.
+
+
+
+### GTPred: Benchmarking MLLMs for Interpretable Geo-localization and Time-of-capture Prediction (https://arxiv.org/abs/2601.13207)
+- **What's New**: 이 논문은 GTPred라는 새로운 geo-temporal prediction 벤치마크를 소개합니다. GTPred는 370개의 전세계 이미지를 포함하며, 120년 이상의 다양한 시간적 및 지리적 맥락을 포괄합니다. 기존의 평가 기준들은 이미지의 시각적 단서들에 중점을 두었으나, 본 연구는 시계열 정보의 통합을 강조하여 MLLMs의 성능을 평가하고자 합니다.
+
+- **Technical Details**: GTPred 베이스라인에서는 이미지와 함께 역사적 맥락을 주어진 기법을 통해 계층적 위치를 설정하고, 연도 예측을 함께 분석합니다. 새로운 평가 프로토콜을 통해 데이터 간의 거리 기반 정확도의 한계를 극복하고, MLLM의 시각적 인식, 세계 지식 및 추론(dimensions of reasoning)을 종합 평가합니다. 이 연구는 8개의 프로프라이어터리 및 7개의 오픈소스 MLLM을 통해 다양한 실험을 진행하여 정보를 분석합니다.
+
+- **Performance Highlights**: 결과적으로, 연구는 현재 MLLM들이 여전히 제한적인 세계 지식과 geo-temporal reasoning에 한계를 보인다는 것을 입증합니다. 하지만, 시계열 정보를 활용함으로써 위치 추정 성능이 상당히 향상됨을 발견하였으며, 이는 지리적 위치 추론에 있어 중요한 역할을 한다는 점을 강조합니다. 궁극적으로 이 논문은 MLLMs의 geo-temporal prediction 능력을 평가하는 데 있어 GTPred의 기여를 명확히 합니다.
+
+
+
+### From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models (https://arxiv.org/abs/2601.13166)
+Comments:
+          Work presented at the SSL3D Challenge (1st place, ResEnc-L track) and FOMO Challenge (1st place, Methods track) on Brain MRI Foundation Models at MICCAI 2025
+
+- **What's New**: 이 논문은 의료 이미지 분석을 위한 Foundation Models 개발의 중요성을 강조합니다. 특히, 3D 뇌 MRI를 위한 최초의 챌린지인 SSL3D와 FOMO25에서의 성과를 보고하고 있습니다. 이 프로젝트에서 우리의 솔루션은 두 콘테스트의 모든 트랙에서 1위를 차지했습니다.
+
+- **Technical Details**: 우리의 솔루션은 U-Net CNN 아키텍처에 기초하고 있으며, 해부학적 프라이어(anatomical priors)와 신경 이미징 도메인 지식(neuroimaging domain knowledge)을 활용한 전략을 결합하여 구성되었습니다. 이러한 접근 방식을 통해 모델 학습 속도가 기존에 비해 1-2 배수 빠르며, 모델 크기도 경쟁하는 transformer 기반 접근법보다 10배 작습니다.
+
+- **Performance Highlights**: 구체적으로, 우리의 모델은 콘테스트에서 우수한 성과를 보였으며, 효율성과 효과성을 동시에 달성했습니다. 개발된 모델은 현재 사용할 수 있으며, 의료 이미지 처리 분야의 새로운 표준을 제시할 잠재력이 있습니다.
+
+
+
+### ICo3D: An Interactive Conversational 3D Virtual Human (https://arxiv.org/abs/2601.13148)
+Comments:
+          Accepted by International Journal on Computer Vision (IJCV). Project page: this https URL. This preprint has not undergone peer review or any post-submission improvements or corrections. The Version of Record of this article is published in International Journal of Computer Vision and is available online at this https URL
+
+- **What's New**: 이번 연구에서는 대화형 3D 가상 인간 아바타(Interactive Conversational 3D Virtual Human, ICo3D)를 제안하고 있습니다. 이 방법은 다각적 촬영을 기반으로 하는 애니메이션 가능한 3D 얼굴 및 동적인 3D 신체 모델을 생성하여, 실시간 사용자 상호작용을 위한 사실적인 가상 인간 아바타를 만듭니다. 아바타에는 대화 능력을 위한 LLM(대형 언어 모델)이 장착되어 있어, 오디오 스피치를 통해 얼굴 모델을 애니메이션화하여 정밀한 동기화가 가능합니다.
+
+- **Technical Details**: 이 연구는 기존의 HeadGaS 및 SWinGS 기술을 기반으로 하여, 얼굴과 신체 모델을 통합하여 실시간으로 작동하는 대화형 아바타를 구축합니다. 특히, 오디오 기반의 얼굴 재애니메이션을 가능하게 하는 기술적 개선과 함께 동적 신체 모델의 시간 일관성과 정확성을 높이는 새로운 인트라-윈도우(spatio-temporal) 인코더를 제안합니다. TTS(Text-to-Speech) 모델을 통해 생성된 음성 오디오는 아바타의 얼굴 모델을 구동하여 사실적인 얼굴 애니메이션을 구현합니다.
+
+- **Performance Highlights**: ICo3D는 여러 실시간 대화 사례를 시연하는 데모를 포함하고 있으며, VR 헤드셋을 착용하거나 스크린을 보면서 사용자와 상호작용할 수 있는 통합된 아바타 경험을 제공합니다. 게임, 가상 비서, 개인화 교육 등 다양한 분야에서 적용 가능하며, 고찰된 효율성 덕분에 실시간 뷰어에서 아바타를 원활하게 렌더링할 수 있습니다. 이 연구는 인간의 친근한 상호작용과 몰입 가능한 환경을 제공하는 차세대 가상 아바타 기술을 선보입니다.
+
+
+
+### TVWorld: Foundations for Remote-Control TV Agents (https://arxiv.org/abs/2601.13142)
+- **What's New**: 최근의 대형 비전-언어 모델(LVLMs)은 장치 제어에 강력한 잠재력을 보여주었지만, 기존 연구는 주로 포인트 앤 클릭(Point-and-Click, PnC) 상호작용에 초점을 맞추고 있습니다. 이에 반해 TV 사용에서 흔히 발생하는 원거리 제어(Remote-Control, RC) 상호작용은 상당히 미개척된 분야입니다. 이를 해결하기 위해 우리는 'TVWorld'라는 오프라인 그래프 기반의 TV 내비게이션 추상화를 소개하며, 두 가지 보완적인 벤치마크를 도출하여 TV 사용 능력을 종합적으로 평가합니다.
+
+- **Technical Details**: TVWorld는 실제 TV 내비게이션을 그래프 형태로 모델링하여, 각 UI 상태는 노드에 해당하며 각 키 눌림은 방향이 있는 엣지로 표현됩니다. TVWorld-N은 토폴로지 인식 내비게이션을 평가하기 위한 환경이며, TVWorld-G는 포커스 인식을 요구하는 그라운딩 평가에 사용됩니다. 기존의 GUI 제어 벤치마크들은 포인터 기반 상호작용에 주로 초점을 맞추고 있어 TV 내비게이션의 요구사항을 잘 반영하지 못하고 있습니다.
+
+- **Performance Highlights**: TVTheseus라는 TV 내비게이션에 최적화된 기초 모델은 TVWorld-N 벤치마크에서 68.3%의 성공률을 달성하여 Gemini 3 Flash와 같은 강력한 클로즈드 소스 기준선을 초과했습니다. TVWorld-G에서는 81.8%의 정확도를 기록하며, grounding-specific 감독 없이도 강력한 성능을 보여주었습니다. 이러한 결과는 토폴로지 인식 계획과 포커스 인식 능력이 우수하다는 것을 반영합니다.
+
+
+
+### CLIP-Guided Adaptable Self-Supervised Learning for Human-Centric Visual Tasks (https://arxiv.org/abs/2601.13133)
+Comments:
+          Accepted by TMM (IEEE Transactions on Multimedia), 16 pages, 7 figures
+
+- **What's New**: CLASP(클립 기반 적응형 자기 감독 학습)는 인체 중심 비주얼 작업을 위한 새로운 비지도 전처리 모델입니다. 이 모델은 CLIP 모델을 활용하여 낮은 수준의 신체 부위와 높은 수준의 인체 속성에 대한 의미론적 의사 레이블을 생성합니다. CLASP는 다양한 하위 작업의 요구에 맞춰 삶의 질을 향상시키며, 다양한 정의를 포괄하는 멀티 태스크 전처리 전략을 적용하여 이전의 비지도 전처리 방법을 능가합니다.
+
+- **Technical Details**: CLASP는 Prompt-Controlled Mixture-of-Experts(전문가 혼합) 모듈을 통합하여 태스크에 따라 특징 추출을 동적으로 조정합니다. 이 방법은 모델이 이질적인 태스크의 요구에 맞게 적응할 수 있도록 하며, appearance(외관)와 multi-level semantic(다중 수준의 의미론적 큐) 간의 충돌을 줄입니다. CLASP는 계층적 감독 신호를 통해 appearance features(외관 특징)와 의미론적 큐를 동시에 감독합니다.
+
+- **Performance Highlights**: CLASP는 여러 인체 중심 하위 작업을 통해 정량적으로 검증된 성능 향상을 입증하여 신뢰할 수 있는 의미론적 의사 레이블을 효과적으로 생성합니다. 실험 결과, CLASP는 의미론적 태스크에서 두각을 나타내며, appearance-centered(외관 중심) 태스크에서도 경쟁력 있는 성능을 유지하는 것을 보여줍니다. 이러한 결과는 CLASP가 다양한 인체 중심 시나리오에서 우수한 일반화 및 적응성을 제공함을 강조합니다.
+
+
+
+### GaussExplorer: 3D Gaussian Splatting for Embodied Exploration and Reasoning (https://arxiv.org/abs/2601.13132)
+Comments:
+          Project page: this https URL
+
+- **What's New**: 본 논문에서는 3D Gaussian Splatting (3DGS)에 기반한 체화 탐색 및 추론을 위한 프레임워크인 GaussExplorer를 소개합니다. GaussExplorer는 비전-언어 모델(Vision-Language Models, VLMs)을 활용하여 자연어 질문에 대한 탐색 및 추론을 가능하게 합니다. 이전의 연구는 언어와 3D 표현 간의 정렬을 위한 간단한 쿼리에 최적화되어 있었지만, GaussExplorer는 복잡한 상황에서도 효과적으로 작동하도록 고안되었습니다.
+
+- **Technical Details**: GaussExplorer의 시스템은 질문에 가장 연관된 이미지들을 선택하고, 새로운 시각으로 조정하여 VLM의 시각 정보 캡처를 개선합니다. 이 과정에서 사용자는 사전 캡처된 3D Gaussian을 통해 질문에 대한 최적의 카메라 뷰를 결정하고, 해당 뷰에서 새로운 후보 뷰를 렌더링하면서 VLM과 상호작용합니다. 이 기능은 인식 및 추론의 정밀도를 보장합니다.
+
+- **Performance Highlights**: 실험 결과, GaussExplorer는 여러 벤치마크에서 기존의 방법보다 뛰어난 성능을 보여주며, 자연어 쿼리를 기반으로 한 3D 탐색과 추론에서의 효율성을 입증합니다. 이를 통해 고정된 시점이나 메모리 기반 접근 방식의 한계를 극복하고, 정밀한 시각적 기초와 3D 객체 위치화를 지원하게 됩니다.
+
+
+
+### PhaseMark: A Post-hoc, Optimization-Free Watermarking of AI-generated Images in the Latent Frequency Domain (https://arxiv.org/abs/2601.13128)
+Comments:
+          Accepted to the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2026
+
+- **What's New**: 이번 연구에서는 Latent Diffusion Models (LDM)에서 생성되는 초현실적 이미지의 저작권 보호를 위한 강력한 워터마킹을 제안합니다. PhaseMark라는 새로운 프레임워크는 기존의 느린 최적화 기반의 접근법 대신, 최적화 없이 단번에 작동하여 몇 천 배 더 빠르고 뛰어난 공격 저항력을 보여줍니다. 이 방법은 이미지 품질 저하 없이도 강화된 보안을 가능하게 하며, 내재된 잠재적 속성을 효율적으로 활용합니다.
+
+- **Technical Details**: PhaseMark는 Variational Autoencoder (VAE)의 잠재 주파수 도메인에서 단일 샷으로 위상을 조절하는 워터마킹 모델입니다. 이 모델은 2D FFT를 적용하여 수집된 블록에서 메시지를 삽입하고, 비트당 네 가지 위상 변조 전략을 사용하여 정보를 인코딩합니다. 각 변조 방법은 절대적 또는 상대적 위상 조정 방식으로 나뉘며, 이미지 왜곡을 최소화하면서도 높은 강건성을 추구합니다.
+
+- **Performance Highlights**: PhaseMark는 다양한 실험을 통해 최첨단의 성능을 입증하며, 기존의 방법과 비교해 1%의 잘못된 긍정률에서 True Positive Rate (TPR)가 뛰어난 결과를 나타냅니다. 특히, PhaseMark는 여러 공격 방식에 대해서도 강한 저항력을 가지면서 빠른 속도로 작동하는 것은 물론, 워터마크를 삽입한 이미지의 품질을 유지합니다. 이는 실용적인 애플리케이션에서 PhaseMark의 가능성을 확장시키는 중요한 요인이 될 것입니다.
+
+
+
+### A Streamlined Attention-Based Network for Descriptor Extraction (https://arxiv.org/abs/2601.13126)
+Comments:
+          Accepted to 3DV 2026
+
+- **What's New**: SANDesc는 이미지 간의 키포인트 매칭을 개선하기 위한 Streamlined Attention-Based Network를 소개합니다. 이 모델은 기존의 키포인트 탐지기와 함께 작동하면서, 동일한 조사 방법을 통해 더 좋은 descriptor를 생성합니다. 새로운 urban dataset을 도입하여 4K 이미지에서 feature extractor의 성능을 평가할 수 있도록 설계되었습니다.
+
+- **Technical Details**: SANDesc는 U-Net 유사 아키텍처를 기반으로 하며, Convolutional Block Attention Module(CBAM)과 잔여 경로(residual paths)를 활용하여 효과적인 지역 표현(local representation)을 가능하게 합니다. 모델은 triplet loss를 수정하고, 커리큘럼 학습에 영감을 받은 hard negative mining 전략을 결합하여 훈련의 안정성을 향상시킵니다. 이는 keypoint 검출기의 키포인트 분포를 기반으로 하는 descriptor 학습에 optimal을 제공합니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 SANDesc는 HPatches, MegaDepth-1500 및 Image Matching Challenge 2021에서 기존의 키포인트 기술들에 비해 매칭 성능을 개선함을 입증했습니다. SANDesc는 단 2.4M의 파라미터로 구성되어 있음에도 불구하고 고해상도 이미지에서 뛰어난 성능을 보여주며, 리소스가 제한된 환경에서도 효율적으로 운영될 수 있습니다.
+
+
+
+### Patient-Conditioned Adaptive Offsets for Reliable Diagnosis across Subgroups (https://arxiv.org/abs/2601.13094)
+- **What's New**: 새로운 모델인 HyperAdapt는 환자 기반의 적응 프레임워크를 소개합니다. 이 프레임워크는 고정된 진단 모델을 유지하면서도 하위 집단의 신뢰성을 향상시킵니다. 나이, 성별과 같은 임상 관련 속성을 인코딩하여 하이퍼네트워크 스타일의 모듈을 통해 적응을 적용합니다.
+
+- **Technical Details**: HyperAdapt는 다수의 공개 의료 이미징 벤치마크에서 테스트되며, 하위 집단의 성과를 향상시키도록 설계되었습니다. 환자 특성을 조건으로 하여 생성된 수정 매개변수를 통해 공유 백본 모델의 주요 지식을 보존하면서 특정 환자에 맞춘 조정을 가능하게 합니다. 이는 저차원 제약(parameterization)과 병목(bottlenecked) 제약을 통해 모델의 복잡성과 계산 오버헤드를 줄입니다.
+
+- **Performance Highlights**: 실험 결과, HyperAdapt는 PAD-UFES-20 데이터셋에서 경쟁 모델보다 재현율에서 4.1%, F1 점수에서 4.4% 향상되었습니다. 특히, 저대표 환자 집단에서 더 큰 성과 향상이 관찰되었습니다.
+
+
+
+### Prototype Learning-Based Few-Shot Segmentation for Low-Light Crack on Concrete Structures (https://arxiv.org/abs/2601.13059)
+- **What's New**: 이 논문은 저조도 환경에서의 균열 감지 문제를 해결하기 위한 새로운 접근을 제안합니다. 다중 분기 프로토타입 학습 네트워크를 통합하여 Retinex 이론과 few-shot learning을 활용하여 저조도 균열 분할을 개선합니다. 이를 통해 교량과 터널 등의 중요 인프라의 안전성을 높일 수 있습니다.
+
+- **Technical Details**: 제안된 네트워크는 RGB 이미지와 반사성 성분을 병렬로 처리하여 조명 불변의 전역 표현 학습을 촉진합니다. 또한 Cross-Similarity Prior Mask Generation (CSPMG) 모듈과 Multi-Scale Feature Enhancement (MSFE) 모듈을 설계하여 crack의 위치 및 구조를 효과적으로 캡처하고, 배경 간섭을 최소화합니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 이루어진 실험을 통해 저조도 조건에서도 일관된 최첨단 성능을 보여주었습니다. 제안된 방법은 제한된 교육 샘플을 기반으로 저조도 이미지에서 직접 균열 지역을 추출할 수 있도록 해줍니다.
+
+
+
+### GridNet-HD: A High-Resolution Multi-Modal Dataset for LiDAR-Image Fusion on Power Line Infrastructur (https://arxiv.org/abs/2601.13052)
+- **What's New**: 이번 논문에서는 고밀도 LiDAR와 고해상도 비스듬한 이미지를 결합한 GridNet-HD라는 다중 모달 데이터셋을 제시합니다. 이 데이터셋은 7,694개의 이미지와 25억 개의 포인트로 구성되어 있으며, 11개의 클래스로 주석이 달려 있습니다. 기존에는 고밀도 LiDAR와 고해상도 비스듬한 이미지, 3D 의미 레이블을 함께 제공하는 공공 데이터셋이 없었습니다.
+
+- **Technical Details**: GridNet-HD는 사전 정의된 나누기(split)와 mIoU 메트릭스로 구성되어 있습니다. 데이터셋은 단일 모달(unimodal) 모델, 즉 LiDAR 전용 및 이미지 전용의 기준선과 다중 모달 융합(multi-modal fusion) 기준선이 제공됩니다. 연구 결과, 융합 모델이 가장 좋은 단일 모달 기준선보다 +5.55 mIoU로 더 우수한 성능을 나타내어 기하학적 정보와 외관의 상호 보완성을 강조합니다.
+
+- **Performance Highlights**: GridNet-HD 데이터셋은 전력선 자산에 대한 3D 의미 분할의 새로운 기준을 제시합니다. 논문에서 제공하는 데이터셋, 기준선, 코드는 연구자들이 이 분야에서의 발전을 도울 수 있도록 유용하게 사용될 것입니다. 이를 통해 향후 다양한 응용 프로그램에서 LiDAR와 이미지를 통합한 고급 분석이 가능해질 것입니다.
+
+
+
+### Think3D: Thinking with Space for Spatial Reasoning (https://arxiv.org/abs/2601.13029)
+- **What's New**: 이 논문에서는 VLM(비전 언어 모델)이 3D 공간을 "생각"할 수 있도록 도와주는 Think3D라는 새로운 프레임워크를 소개합니다. 현재의 VLM은 2D 인식에 기반하고 있어 진정한 3D 추론에 어려움을 겪고 있습니다. Think3D는 이미지나 비디오로부터 3D 포인트 클라우드를 복원하고, 카메라 기반 조작을 통해 공간을 능동적으로 조작할 수 있게 합니다.
+
+- **Technical Details**: Think3D는 모델이 추정된 카메라 포즈를 기준으로 사용하여 3D 공간 내에서 일관된 조작을 수행할 수 있도록 합니다. 이 과정에서 모델은 반복적으로 3D 장면을 조작하고 새로운 시점을 관찰하여 이동 방법을 점차 개선하고, 이는 마치 인간이 3D 공간을 탐색하는 방식과 유사합니다. 또한, Think3D-RL이라는 강화 학습 방법을 도입하여 작은 모델들이 효과적인 탐색 정책을 자율적으로 발견할 수 있도록 지원합니다.
+
+- **Performance Highlights**: Think3D는 BLINK Multi-view, MindCube, VSI-Bench와 같은 세 가지 도전 과제를 통해 성능 개선을 입증합니다. GPT-4.1 및 Gemini 2.5 Pro에 적용 시 평균 7.8%의 성능 향상을 기록하였고, 작은 모델의 경우 도구 사용에 따른 성능 이득이 0.7%에서 6.8%로 증가했습니다. 이러한 발견은 훈련 없이 도구를 추가한 공간 탐색이 VLM의 3D 추론 능력을 더욱 유연하고 인간 같은 방식으로 개선할 수 있음을 보여줍니다.
+
+
+
+### AsyncBEV: Cross-modal Flow Alignment in Asynchronous 3D Object Detection (https://arxiv.org/abs/2601.12994)
+- **What's New**: 이번 논문에서는 자율주행에서의 3D 객체 탐지 성능을 높이기 위한 새로운 접근법인 AsyncBEV를 제안합니다. AsyncBEV는 센서 간 비동기(asynchronous) 문제를 해결하기 위한 경량(trainable lightweight) 모듈로, 특히 동적 객체에 대한 인식 성능을 향상시킵니다. 이 모듈은 여러 센서의 데이터의 시간 오프셋을 활용하여 더욱 정교한 객체 탐지를 가능하게 합니다.
+
+- **Technical Details**: AsyncBEV는 두 가지 다른 센서 모달리티의 BEV(3D Birds' Eye View) 특징에서 2D 흐름(flow)을 추정합니다. 이 과정에서 센서 측정 간의 알려진 시간 오프셋을 고려하며, 예측된 특징 흐름을 사용해 특징 맵(feature maps)을 왜곡 및 공간 정렬합니다. 우리는 이 기술이 다양한 현재의 BEV 탐지기 아키텍처에 쉽게 통합될 수 있음을 입증했습니다.
+
+- **Performance Highlights**: 상세한 실험 결과를 통해 AsyncBEV가 LiDAR와 카메라 센서 간의 작은 비동기 및 큰 비동기 상황에서도 안정성을 향상시킨다는 것을 보여주었습니다. 특히, 동적 객체에 대해 기존의 CMT 및 UniBEV와 비교하여 각각 $16.6$ % 및 $11.9$ % NDS 성능이 개선되었습니다. 곧 코드도 논문 승인 후 공개할 예정입니다.
+
+
+
+### Early Prediction of Type 2 Diabetes Using Multimodal data and Tabular Transformers (https://arxiv.org/abs/2601.12981)
+Comments:
+          08 pages, 06 figures, accepted for publication in FLLM2025
+
+- **What's New**: 본 연구에서는 장기적인 환자 데이터를 분석하기 위해 새로운 tabular transformer (TabTrans) 아키텍처를 도입하여 제2형 당뇨병(T2DM)의 위험 예측을 수행합니다. 환자의 장기 건강 기록과 골 관련 표 형식 데이터를 처리함으로써, 기존의 방법들이 간과하기 쉬운 질병 진행의 복잡한 장기적 의존성을 포착할 수 있게 됩니다. 연구 결과, 제안한 TabTrans 모델은 다른 전통적인 기계 학습 및 생성 AI 모델들과 비교하여 우수한 예측 성능을 보였습니다.
+
+- **Technical Details**: Исследование использовало многомодальные данные из Qatar Biobank (QBB), включая генетические, DXA, клинические и фоноскопические данные. 반응 체계에서 기본 데이터는 최초 임상 평가를 포함하고, 후속 데이터는 시간이 지남에 따라 추적 기록을 포함합니다. 본 논문에서는 SMOTE와 SMOTE-ENN 재샘플링 기술을 통해 클래스 불균형을 처리하였으며, 데이터 전처리 과정에서 결측 값을 해결하기 위해 forward-fill 보간법을 적용하였습니다.
+
+- **Performance Highlights**: TabTrans 모델은 제안된 골 측정 데이터를 기반으로 하는 T2DM 예측에서 79.7% 이상의 ROC AUC를 달성하며 우수한 성능을 입증하였습니다. 주요 위험 인자로는 내장 지방 육체(VAT) 질량과 부피, 골 미네랄 밀도(BMD) 및 골 미네랄 함량(BMC), T 및 Z 점수, L1-L4 점수 등이 확인되었습니다. 이 결과는 Qatari 인구에서 T2DM 관리 및 개인 맞춤형 클리닉 개입을 위한 강력한 도구로 TabTrans의 잠재력을 입증합니다.
+
+
+
+### Cross-Scale Pretraining: Enhancing Self-Supervised Learning for Low-Resolution Satellite Imagery for Semantic Segmentation (https://arxiv.org/abs/2601.12964)
+- **What's New**: 본 논문에서는 고해상도(High-Resolution, HR) 이미지 데이터셋이 미해상도(Mid-Resolution, MR) 이미지의 표현 학습을 향상시키기 위해 자가감독(Self-Supervised Learning, SSL) 사전 훈련에 어떻게 포함될 수 있는지를 탐구합니다. 이를 위해 HR 이미지를 활용하여 MR 이미지 패치 표현을 학습하는 공간 친화성(spatial affinity) 요소를 설계하였습니다. 연구에서는 이 공간 친화성 요소가 기존 SSL 프레임워크에 통합되었을 때, HR 또는 MR 이미지만으로 사전 훈련된 모델을 능가함을 보여줍니다.
+
+- **Technical Details**: 제안된 공간 친화성 요소는 학생-교사 아키텍처로 구성되어 있으며, 학생 인코더는 MR 이미지 패치를 입력으로 받아 훈련을 통해 업데이트됩니다. 교사 인코더는 HR 이미지 패치를 입력으로 받고, 두 인코더는 동일한 아키텍처를 사용하지만 교사 인코더의 파라미터는 학생 인코더의 지수적으로 이동 평균된 파라미터를 통해 업데이트됩니다. 두 이미지 간의 크기 차이를 유지하기 위해 설정된 스케일 팩터는 2이며, 이로 인해 MR 이미지의 각 패치는 HR 이미지에서 s²개의 패치와 매핑됩니다.
+
+- **Performance Highlights**: 모델 비교 결과, HR 이미지, MR 이미지 각각으로만 사전 훈련한 모델들보다 사람의 경험을 통한 실제 HR 및 MR 이미지 쌍으로 훈련시킨 모델이 더 우수한 성능을 발휘했습니다. 이는 HR 이미지에서 얻은 풍부한 시각적 세부 정보로 MR 이미지의 표현력을 높일 수 있음을 보여줍니다. 현재까지의 연구는 주로 MR 데이터셋에 집중되어 있었으나, 본 연구는 HR 데이터의 활용 가능성을 제시하며 심각한 성능 제한을 극복할 수 있는 새로운 방법을 탐색합니다.
+
+
+
+### StyMam: A Mamba-Based Generator for Artistic Style Transfer (https://arxiv.org/abs/2601.12954)
+Comments:
+          Accepted by ICASSP 2026
+
+- **What's New**: 본 연구에서는 이미지 스타일 전송(Image Style Transfer)을 위한 새로운 생성기 모델인 StyMam을 제안합니다. 이 모델은 mamba 기반의 생성기를 활용하여 고품질의 스타일화된 이미지를 생성하며 아티팩트(artifacts)와 불일치 패턴(disharmonious patterns)을 최소화합니다. StyMam은 잔차 이중 경로 스트립 스캐닝 메커니즘(residual dual-path strip scanning mechanism)과 채널 재조정 공간 주의 모듈(channel-reweighted spatial attention module)을 도입하여 서로 다른 지역적 및 전역적 특징을 효과적으로 캡처합니다.
+
+- **Technical Details**: StyMam은 mamba 기반 생성기, 디코더, 다중 스케일 판별기로 구성되어 있습니다. 생성기에는 잔차 이중 스트립 스캐닝 mamba 블록(RDSMB)과 채널 재조정 공간 주의 모듈(CRSA)이 포함되어 있습니다. RDSMB는 여러 개의 이중 스트립 스캐닝 mamba 블록(DSMB)을 겹쳐서 쌓은 구조로, 각 분기를 통해 지역적 질감 세부정보를 효과적으로 캡처합니다. CRSA 모듈은 입력 특징 맵에 대해 채널 주의 맵을 생성하고, 이를 통해 전역적 종속성을 모델링합니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 StyMam이 기존의 최신 알고리즘에 비해 이미지 품질과 추론 속도 모두에서 우수함을 보여줍니다. 정성적 및 정량적 실험을 통해 StyMam은 고해상도에서 세밀한 스타일링을 유지하면서도 더 빠른 처리 속도를 자랑합니다. 이는 StyMam이 지역적과 전역적 구조를 동시에 잘 캡처하여 실현된 결과입니다.
+
+
+
+### GazeD: Context-Aware Diffusion for Accurate 3D Gaze Estimation (https://arxiv.org/abs/2601.12948)
+- **What's New**: GazeD는 단일 RGB 이미지에서 3D 시선 추정 및 인간 자세를 동시에 제공하는 새로운 방법입니다. 이 모델은 diffusion 모델의 불확실성을 활용하여 입력 이미지에서 추출된 2D 맥락 정보를 바탕으로 여러 가지 가능한 시선 및 자세 가설을 생성합니다. 특히, 3D 시선을 추가적인 신체 관절로 표현하는 혁신적인 방법을 제안하여, 시선과 자세의 밀접한 관계를 고려합니다.
+
+- **Technical Details**: GazeD는 2D 신체 자세, 주변 환경 및 장면 맥락을 결합하여 3D 시선 방향을 예측하는 방법입니다. 이 모델은 추가적인 gaze joint를 사용하여 시선을 모델링하고, 이를 기존의 3D 인간 자세 추정 문제에 확장하여 해결합니다. GazeD는, 2D 정보에서 3D로 변환하는 과정에서의 불확실성을 반영하기 위해 diffusion 모델을 사용하며, 이에 따라 조건화된 노이즈 제거 과정을 통해 여러 개의 믿을 수 있는 출력 가설을 생성합니다.
+
+- **Performance Highlights**: GazeD는 여러 벤치마크 데이터셋에서 실험을 통해 최첨단 성능을 달성하였으며, 특히 시간적 정보를 사용하는 기존 방법들을 초월한 결과를 보였습니다. 또한, RGB 이미지만을 사용하기 때문에 비디오 시퀀스를 처리하는 데 따른 계산 복잡성을 피할 수 있어 실제 애플리케이션에 쉽게 채택될 수 있습니다. 이 시스템은 3D 시선 추정과 함께 3D 인간 자세 예측에서도 높은 정확도를 기록했습니다.
+
+
+
+### QASA: Quality-Guided K-Adaptive Slot Attention for Unsupervised Object-Centric Learning (https://arxiv.org/abs/2601.12936)
+- **What's New**: 이번 연구에서는 Quality-Guided K-Adaptive Slot Attention (QASA)를 제안하며, 이는 기존의 K-adaptive 슬롯 방법이 가지는 슬롯 바인딩 품질 제약 부족과 슬롯 수 벌점의 상충 최적화 목표 문제를 해결합니다. QASA는 슬롯 선택을 재구성에서 분리해 두 가지 목표 간의 상호 제약을 제거하고, 무감독 조건 하에서 슬롯 품질을 평가할 수 있는 새로운 메트릭을 도입합니다. 이를 통해 고품질 슬롯을 동적으로 선택하여 훈련 중 재구성에 사용할 수 있습니다.
+
+- **Technical Details**: QASA는 각 이미지에 대해 품질 중심 슬롯 선택 방식을 도입하여, 고품질 슬롯을 개별적으로 평가하고 선택합니다. 이 접근 방식은 슬롯의 품질을 그 슬롯이 속한 승리 영역 내의 주의 집중 비율로 정의하며, 이는 슬롯-객체 바인딩의 정확한 신호로 작용합니다. 또한, QASA는 gated decoder를 사용하여 선택된 슬롯의 기여만을 재구성에 활용하며, 이는 슬롯 선택의 품질을 지속적으로 개선합니다.
+
+- **Performance Highlights**: QASA는 실세계 데이터셋(COCO, PASCAL VOC)과 합성 데이터셋(MOVi-C/E)에서 기존 K-adaptive 방법들보다 월등히 우수한 성능을 나타냅니다. 더 나아가, QASA는 K-고정 방법들에 비해 실제 데이터에서도 최첨단 성과를 달성했습니다. QASA는 현실과 합성 환경 모두에서 평균 8.4%의 성능 향상을 보이며, 이로써 K-adaptive 접근 방식의 효율성을 증명합니다.
+
+
+
+### Membership Inference Test: Auditing Training Data in Object Classification Models (https://arxiv.org/abs/2601.12929)
+Comments:
+          Deployable AI (DAI 2025) workshop co-located with AAAI-25
+
+- **What's New**: 이 연구에서는 Membership Inference Tests (MINT)의 성능을 분석하여, 주어진 데이터가 훈련 단계에서 사용되었는지를 판단하는 데 중점을 두고 있습니다. 우리는 객체 인식을 위한 MINT 모델에 최적화된 아키텍처를 개발하였으며, 이는 데이터 활용의 성과와 효율성을 향상시키기 위한 tailored 솔루션을 제공합니다. 실험은 객체 감지 모델과 임베딩 추출기, MINT 모듈로 구성되며, 총 174K 이미지를 포함한 세 개의 공개 데이터베이스에서 수행되었습니다.
+
+- **Technical Details**: MINT는 Convolutional Neural Networks (CNNs) 기반의 객체 분류 모델을 위한 성능 분석을 수행하고, 특정 이미지가 객체 감지 모델의 훈련 과정에서 사용되었는지를 결정하도록 훈련되었습니다. 아키텍처는 훈련 과정 중 데이터에서 발생하는 활성화 패턴을 포착하기 위해 convolutional layers를 활용합니다. 분석 결과, 테스트 및 훈련 샘플의 식별에서 70%에서 80%의 정밀도를 달성하였고, 이는 MINT 모듈 입력에 선택된 탐지 모듈 레이어의 깊이에 따라 다릅니다.
+
+- **Performance Highlights**: MINT 모델의 성능 평가 결과는 약 80%의 정확도를 기록하였으며, 이는 다양한 실험 시나리오를 고려한 것에서 도출되었습니다. MINT는 AI/ML 모델의 투명성과 설명성을 향상시키기 위한 감사 도구를 제공하며, 사용자가 특정 데이터가 모델의 개발에 기여했는지를 판단할 수 있도록 합니다. 이 연구는 MINT의 접근 방식이 데이터 보호와 규제 기준 준수를 위한 중요한 수단이 될 수 있음을 보여줍니다.
+
+
+
+### Dual-Stream Collaborative Transformer for Image Captioning (https://arxiv.org/abs/2601.12926)
+- **What's New**: 본 논문에서는 이미지 캡셔닝(image captioning) 분야에서 지역(feature-based) 특성이 여전히 정황(contextual) 정보 부족으로 인해 관련 없는 설명을 생성하는 문제를 해결하기 위한 새로운 접근 방식으로, Dual-Stream Collaborative Transformer (DSCT)를 제안합니다. DSCT는 지역 및 분할(segmentation) 특성을 통합하여 캡션 문장 생성을 안내합니다. 특히, 첫 번째로 서로를 쿼리하는 방식으로 두 표현의 고유 정보를 강조 및 통합하는 Pattern-Specific Mutual Attention Encoder (PSMAE)와 동적으로 학습 블록을 검색하여 보다 정확하고 설명력 있는 캡션 문장을 생성하는 Dynamic Nomination Decoder (DND)를 포함합니다.
+
+- **Technical Details**: 제안된 PSMAE는 지역 feature 스트림과 분할 feature 스트림을 포함하며 둘의 고유 정보를 강조하여 통합 업데이트하는 구성을 가지고 있습니다. DND는 입력 텍스트 표현에 가장 관련성이 높은 학습 블록을 동적으로 검색하고, 지역 및 분할 특성 간의 동질적인 특징을 활용하여 캡션 문장의 다음 토큰 생성을 안내합니다. 이러한 구성은 두 가지 패턴 특정 특성 간의 의미적 불일치(semantic inconsistency)와 공간적 불일치(spatial misalignment) 문제를 극복할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 DSCT는 COCO와 같은 유명한 벤치마크 데이터셋에서 기존의 최첨단 이미지 캡셔닝 모델을 초월하여 훨씬 더 정확하고 풍부한 캡션 문장을 생성하는 성능을 보였습니다. 이 연구는 이미지 캡셔닝에 있어 다른 패턴 특정 특성을 동적으로 융합하는 방법을 탐구한 최초의 연구로, 이를 통해 시각적 표현을 향상시키고 관련 없는 부분 생성에 대한 의존도를 줄이는 데 기여하고 있습니다.
+
+
+
+### Supervision-by-Hallucination-and-Transfer: A Weakly-Supervised Approach for Robust and Precise Facial Landmark Detection (https://arxiv.org/abs/2601.12919)
+- **What's New**: 본 연구에서는 Supervision-by-Hallucination-and-Transfer (SHT)라는 새로운 약한 감독 학습 프레임워크를 제안합니다. 이 프레임워크는 얼굴 랜드마크 탐지(facial landmark detection, FLD)와 얼굴 환각(face hallucination) 작업을 통합하여 저해상도 입력에서도 높은 해상도 특성을 학습할 수 있도록 합니다. SHT는 두 가지 핵심 모듈, 즉 Dual Hallucination Learning Network (DHLN)과 Facial Pose Transfer Network (FPTN)을 포함하여 서로 상호 강화하는 기능을 가지고 있습니다.
+
+- **Technical Details**: DHLN은 랜드마크 히트맵 환각(stream of landmark heatmap hallucination)과 얼굴 환각(stream of face hallucination)의 두 가지 스트림으로 구성됩니다. 이 두 스트림은 서로의 성능을 향상시키며, 저해상도 입력에서 얼굴 구조와 세부 사항을 복원하는 데 도움을 줍니다. FPTN은 환각된 얼굴의 자세를 변환하여 랜드마크 탐지를 위한 히트맵을 개선하는 역할을 합니다. 이 과정에서 FPTN은 추론(inference) 단계에서는 작동하지 않아 계산 오버헤드가 없습니다.
+
+- **Performance Highlights**: 실험 결과는 SHT 방법이 얼굴 환각 및 FLD 작업 모두에서 최신 기술보다 우수한 성능을 나타낸다는 것을 보여줍니다. 본 연구는 약한 감독 학습 프레임워크를 통해 저해상도 FLD를 다룬 첫 번째 사례로, 다양한 하위 태스크에서 통합된 성능 향상을 이루어냈습니다. 또한, SHT 프레임워크는 레이블이 없는 고해상도 데이터 활용에 있어 더 큰 가능성을 제시합니다.
+
+
+
+### TwoHead-SwinFPN: A Unified DL Architecture for Synthetic Manipulation, Detection and Localization in Identity Documents (https://arxiv.org/abs/2601.12895)
+Comments:
+          8 pages
+
+- **What's New**: 최근 발전한 생성 인공지능(Generative AI) 기술은 신원 문서에서의 합성 조작(synthetic manipulations) 문제를 심각하게 증가시켰습니다. 본 논문에서는 TwoHead-SwinFPN이라는 통합 딥러닝 아키텍처를 소개하며, 이 모델은 신원 문서에서의 조작된 영역의 이진 분류(binary classification)와 정밀 위치 지정을 동시에 수행합니다. 이를 통해 얼굴 바꾸기(face swapping) 및 텍스트 인페인팅(text inpainting) 공격을 효과적으로 탐지하고 식별할 수 있습니다.
+
+- **Technical Details**: TwoHead-SwinFPN은 Swin Transformer 백본(backbone)과 Feature Pyramid Network(FPN), 및 UNet 스타일의 디코더를 통합한 아키텍처입니다. Convolutional Block Attention Module(CBAM)을 통해 특징 표현을 향상시켰으며, 이중 헤드 아키텍처를 사용하여 탐지 및 분할 작업의 공동 최적화를 수행합니다. 불확실성 가중 멀티 태스크 학습(uncertainty-weighted multi-task learning)을 활용하여 분류 및 위치 지정 작업을 동시에 최적화합니다.
+
+- **Performance Highlights**: FantasyIDiap 데이터셋을 기반으로 한 광범위한 실험 결과는 분류에서 84.31% 정확도와 90.78% AUC를 달성하였고, 위치 지정에서는 평균 Dice 점수 57.24%를 기록하여 우수한 성능을 입증했습니다. 이 모델은 이진 분류를 위해 88.61%의 F1 점수를 달성하면서 FastAPI 구현을 통해 실제 배포에 적합한 계산 효율성을 유지합니다. 또한 다양한 기기 및 언어에서의 일반화 분석을 포함한 포괄적인 평가를 실시하였습니다.
+
+
+
+### Simultaneous Detection of LSD and FMD in Cattle Using Ensemble Deep Learning (https://arxiv.org/abs/2601.12889)
+- **What's New**: 이번 연구는 Lumpy Skin Disease (LSD)와 Foot-and-Mouth Disease (FMD)를 동시에 탐지할 수 있는 혁신적인 Ensemble Deep Learning 프레임워크를 제시합니다. 총 10,516개의 전문가 주석이 있는 이미지를 기반으로 하여 VGG16, ResNet50, InceptionV3 모델을 통합한 이 시스템은 98.2%의 최고 정확도를 기록합니다. 이 연구는 증상 중첩 문제를 해결하여 빠르고 정확한 진단을 가능하게 하는 도구 개발의 필요성을 강조합니다.
+
+- **Technical Details**: 제안된 방법론은 VGG16, ResNet50, InceptionV3를 기반으로 한 구조화된 파이프라인을 사용합니다. 10,516개의 고해상도 이미지를 포함한 데이터셋은 FMD와 LSD의 여섯 가지 서로 다른 질병 범주로 분류되어 있습니다. 데이터셋은 완전한 추적성을 보장하기 위해 JSON 형식으로 저장된 메타데이터를 포함하며, 클래스 불균형 문제를 해결하기 위해 1,500개의 합성 이미지를 생성하여 훈련에 사용했습니다.
+
+- **Performance Highlights**: 본 모델은 LSD와 FMD의 동시 탐지에서 98.2%의 매크로 평균 정밀도(precision)와 98.1%의 재현율(recall)을 기록하며, F1-score도 98.1%로 우수한 성능을 보여줍니다. AUC-ROC 값도 99.5%에 달하며, 이는 모델의 높은 신뢰성을 의미합니다. 이러한 성과는 비용 효율적이고 지속 가능한 동물 관리 개선에 기여할 것으로 기대됩니다.
+
+
+
+### YOLO26: An Analysis of NMS-Free End to End Framework for Real-Time Object Detection (https://arxiv.org/abs/2601.12882)
+- **What's New**: YOLO26는 실시간 객체 감지의 새로운 이정표가 되어, 기존 모델들의 한계를 극복합니다. 이 아키텍처는 Non-Maximum Suppression(NMS) 단계를 아예 없애고, 원주율의 효과적인 end-to-end 학습 전략을 도입하여 객체 감지의 새로운 패러다임을 제시합니다. MuSGD 최적화기와 STAL, ProgLoss 등의 혁신적인 방법들이 이 전환을 가능하게 했으며, YOLO26은 이전 모델들과 최근 경쟁자들보다도 우수한 성능을 보여줍니다.
+
+- **Technical Details**: YOLO26의 아키텍처는 이전 YOLO 버전들과 달리 비선형 후처리 없이 연산을 해석하며, MuSGD 최적화를 통해 경량 백본의 안정성을 유지합니다. 이 모델은 작고 복잡한 객체 인식에 중점을 두고, 프로그레시브 손실(ProgLoss)을 적용하여 다이나믹한 감독을 구현합니다. 각기 다른 크기의 모델에서 뛰어난 성능을 보이는 YOLO26 시리즈는 저지연 및 고정확도의 견줄 수 없는 조합을 자랑합니다.
+
+- **Performance Highlights**: YOLO26은 모든 모델 스케일에서 성능이 우수하며, nano 변종 모델(26n)은 ≈1.5 ms의 작은 지연 시간에 40 mAP를 초과하는 정밀도를 달성했습니다. 반면, extra-large 모델(26x)은 ≈11.5 ms 내에 ≈57.5 mAP의 높은 정확도를 기록하며, YOLO11x와 RTMDet를 초월한 성능을 입증하였습니다. 이로 인해 YOLO26은 현재 문서화된 가장 빠른 검출기로 자리잡았습니다.
+
+
+
+### Exploring Talking Head Models With Adjacent Frame Prior for Speech-Preserving Facial Expression Manipulation (https://arxiv.org/abs/2601.12876)
+Comments:
+          Accepted by ACM Transactions on Multimedia Computing, Communications, and Applications
+
+- **What's New**: 이 논문은 Speech-Preserving Facial Expression Manipulation (SPFEM)과 Audio-driven Talking Head Generation (AD-THG) 모델을 통합하여 새로운 Talking Head Facial Expression Manipulation (THFEM) 프레임워크를 제안합니다. 이 프레임워크는 오디오 입력과 SPFEM으로 변경된 이미지를 바탕으로 정확하게 동기화된 입술 움직임을 생성합니다. 또한, 인접 프레임 학습 전략을 통해 AD-THG 모델의 성능을 향상시켜, 인접 프레임의 정보를 활용하여 이미지 품질을 개선합니다.
+
+- **Technical Details**: THFEM은 SPFEM 모델을 사용해 목표 감정을 표현하는 이미지를 생성하고, 해당 오디오 세그먼트와 함께 AD-THG 모델에 전달하여 정확한 입술 동기화를 이룹니다. 특히, 훈련 시 AD-THG 모델이 nn개의 인접한 프레임을 예측하도록 최적화하여, 더 안정적이고 고품질의 결과물을 생성합니다. 이는 기존의 모델들이 인접 프레임을 단순한 시간적 입력으로 처리하는 것과는 다르게, 프레임 간 의존성을 구조적이고 감독적인 방식으로 학습하도록 합니다.
+
+- **Performance Highlights**: 실험 결과, 우리의 프레임워크는 얼굴 표현 조작 중에도 입 모양을 효과적으로 유지하며, AD-THG와 SPFEM 통합의 장점을 부각시킵니다. 다양한 모델 조합을 통한 대규모 실험을 통해 제안된 방법의 효과성을 입증하였습니다. 코드도 공개되어 있어 더 많은 연구자들이 이 기술을 활용할 수 있도록 기여하고 있습니다.
+
+
+
+### Proxy Robustness in Vision Language Models is Effortlessly Transferab (https://arxiv.org/abs/2601.12865)
+- **What's New**: 이 논문에서는 적대적 훈련이 없는 CLIP 모델이 다른 아키텍처의 CLIP 모델로 생성된 적대적 예제에 대한 내재적인 방어 능력을 가지고 있음을 입증합니다. 이를 "proxy adversarial robustness"로 정의하며, 다양한 CLIP 변형 간의 적대적 방어 전이를 용이하게 하는 이종 프록시 전이(Heterogeneous Proxy Transfer, HPT) 프레임워크를 제안합니다. 또한, 일반화-기반 분리(Generalization-Pivot Decoupling, GPD) 기법을 통해 적대적 방어와 자연 일반화 사이의 균형을 이루는 방법을 제시합니다.
+
+- **Technical Details**: HPT-GPD 방법론을 통해, 원조 CLIP 모델에서 전이된 적대적 강인성이 자연 일반화 능력을 저해하지 않도록 만드는 과정이 설명됩니다. 구체적으로, 저학습률의 일반화 고작(warm-up)을 통해 자연 일반화 능력을 유지하면서 목표 CLIP 모델에 적대적 강인성을 부여합니다. 이후, 최적화된 일반화 네트워크의 정보를 이용해 높은 학습률로 HPT 프로세스를 진행하며 프록시 강인성을 전이합니다.
+
+- **Performance Highlights**: 15개의 제로샷(Zero-shot) 데이터셋에서 실시한 실험 결과, 제안된 HPT-GPD 방법이 기존의 모든 방식보다 제로샷 적대적 강인성과 자연 일반화 능력에서 유의미한 향상을 제공함을 보여주었습니다. 이 방법은 CLIP 모델의 적대적 방어 능력을 쉽게 증가시키면서도 일반화 기능은 유지하는 결과를 나타냈습니다.
+
+
+
+### FGTBT: Frequency-Guided Task-Balancing Transformer for Unified Facial Landmark Detection (https://arxiv.org/abs/2601.12863)
+- **What's New**: 최근 딥러닝 기반의 얼굴 랜드마크 감지(FLD) 방법이 상당한 성과를 올렸지만, 대형 포즈 변화나 조명 변화 등의 도전적인 시나리오에서 여전히 정확한 얼굴 구조 포착에 어려움을 겪고 있다. 이에 대한 해결책으로, 주파수 기반의 작업 균형 전이기법(FGTBT)을 제안하며, 이는 주파수 영역 모델링과 다중 데이터셋 통합 훈련을 통해 얼굴 구조 인식을 향상시킨다.
+
+- **Technical Details**: FGTBT는 철저한 다중 작업 균형 손실(FMB-loss)과 주파수 기반 구조 인식 모델(FGSA) 두 가지 주요 구성 요소로 이루어져 있다. FMB-loss는 데이터셋간의 고유 랜드마크 발생에 기반하여 개별 랜드마크에 가중치를 부여함으로써, 균일한 최적화를 달성하는 데 기여한다. FGSA 모델은 주파수 유도 구조 주입을 통해 얼굴 구조 제약을 학습하도록 설계되었다.
+
+- **Performance Highlights**: 제안한 FMB-loss와 FGSA 모델을 FGTBT 프레임워크에 통합한 결과, 다양한 벤치마크 데이터셋에서 최신 기법들과 경쟁할 만한 성능을 달성하였다. 이 연구는 여러 데이터셋에서 각기 다른 주석 프로토콜을 적용한 통합 FLD 방법의 가능성을 여셨다.
+
+
+
+### Seeing Isn't Always Believing: Analysis of Grad-CAM Faithfulness and Localization Reliability in Lung Cancer CT Classification (https://arxiv.org/abs/2601.12826)
+Comments:
+          7 pages
+
+- **What's New**: 이번 연구는 Grad-CAM이 실제로 폐암 이미지 분류를 위한 심층 모델의 내부 의사결정을 적절하게 표현하는지를 비판적으로 분석합니다. 특히, 모델 의존성에 따른 Grad-CAM 해석 가능성의 변화를 조사하기 위해 ResNet-50, ResNet-101, DenseNet-161, EfficientNet-B0, ViT-Base-Patch16-224 다섯 가지 아키텍처를 평가합니다. 연구 결과, Grad-CAM은 대부분의 합성곱 신경망에서 중요한 종양 영역을 효과적으로 강조하지만, 비전 트랜스포머 모델에서는 해석적 충실도가 크게 저하됨을 보여줍니다.
+
+- **Technical Details**: 연구에서는 Grad-CAM의 신뢰성을 평가하기 위해 세 가지 보완 지표를 도입했습니다: 1) Grad-CAM 맵과 실제 종양 영역의 겹침 정도를 측정하는 LocAcc, 2) Grad-CAM으로 식별된 중요 지역에 대한 모델 예측의 민감성을 평가하는 Faith, 3) 랜덤 초기화에 대한 모델 불변성을 포착하는 Consist. 이를 통해 아키텍처 간의 차이가 Grad-CAM의 해석적 충실도에 미치는 영향을 계량적으로 평가합니다.
+
+- **Performance Highlights**: ViT-Base-Patch16-224는 다른 모델에 비해 가장 높은 민감도와 F1 점수를 달성했습니다. DenseNet-161은 특이성과 정확도 간 균형을 잘 유지하며 우수한 성능을 나타냈습니다. Grad-CAM 시각화를 통해 VI 모델은 악성 사례에서 분별력이 있는 영역에 지속적으로 초점을 맞추는 반면, ResNet 및 DenseNet 모델은 약간 더 거친 주의를 보였습니다. 이러한 성과는 임상적으로 중요한 영역에 대한 신뢰할 수 있는 해석을 제공함으로써, 의료 AI의 신뢰성과 해석 가능성을 다시 생각해보게 합니다.
+
+
+
+### TreeDGS: Aerial Gaussian Splatting for Distant DBH Measuremen (https://arxiv.org/abs/2601.12823)
+- **What's New**: 이 논문에서는 TreeDGS라는 새로운 항공 이미지 재구성 방법을 제안합니다. 이는 3D Gaussian Splatting을 활용하여 나무의 가슴 높이 직경(DBH)을 추정하기 위해 고안되었습니다. 이 방법은 제한된 픽셀과 관점에서 나무 측정의 정확성을 높이는 혁신적인 접근 방식을 제공합니다. 특별히, 다중 보기 불투명도 점수(multi-view opacity score)를 활용하여 신뢰성을 높이고, 형상 일관성을 유지합니다.
+
+- **Technical Details**: TreeDGS는 표준 구조에서 시작하여 RaDe-GS 모델을 최적화하여 연속적인 가우시안 필드를 얻습니다. 이 필드는 다중 보기 포토메트릭 일관성에 의해 정제되며, 깊이 인식 누적 불투명도 통합(depth-aware cumulative-opacity integration)을 사용하여 밀집 점 집합을 추출합니다. 각 점에 대해 다중 보기 불투명도 지원 점수(multi-view opacity support score)를 계산하여 신뢰성을 구체화하고, 트렁크 고립 나무를 3D 의미론적 분할로 처리합니다. 이는 DBH를 안정적으로 추정할 수 있는 기반을 형성합니다.
+
+- **Performance Highlights**: 제안된 TreeDGS는 10개 플롯에서 현장 측정된 DBH와 비교하여 4.79cm RMSE를 달성했습니다. 이는 초고해상도 UAV LiDAR 기준보다 39.4% 향상된 성능입니다. 이로써, 밀집시키는 스플랫 기반 기하학이 저비용으로도 정확하게 DBH를 측정할 수 있음을 입증합니다. 구체적으로, 수집한 RGB 이미지를 활용한 이 연구는 DBH 측정의 새로운 가능성을 제시합니다.
+
+
+
+### A Generalist Foundation Model for Total-body PET/CT Enables Diagnostic Reporting and System-wide Metabolic Profiling (https://arxiv.org/abs/2601.12820)
+- **What's New**: SDF-HOLO는 총신체 PET/CT를 위한 새로운 다중모드 기초 모델로, 10,000명 이상의 환자 데이터를 기반으로 사전 학습되었습니다. 기존의 단일 모달리티 입력과 국소 시야를 가정한 의료 AI 모델의 한계를 극복하기 위해, SDF-HOLO는 CT와 PET의 표현 학습을 분리하여 이중 스트림 인코더를 활용합니다.
+
+- **Technical Details**: 이 모델은 CT와 PET의 정보를 교차 모달 상호작용 모듈을 통해 결합하여 해부학적 맥락이 PET 집계를 개선하는 방식으로 동작합니다. 또한, 지역 창(Local Window)와 글로벌 주의(Global Attention) 기법을 사용하여 신체 전체에 걸친 장거리 종속성을 모델링합니다.
+
+- **Performance Highlights**: SDF-HOLO는 종양 분할, 저선량 병변 탐지, 다국어 진단 보고서 생성에서 강력한 임무별 기준선을 초과하며 위치 오류와 환각 발견을 줄이는 데 성공했습니다. 이는 총신체 PET/CT 진단을 위한 확장 가능한 컴퓨터 기반의 기초를 제공하며, 시스템 수준의 정밀 종양학을 위한 기초를 마련합니다.
+
+
+
+### CSGaussian: Progressive Rate-Distortion Compression and Segmentation for 3D Gaussian Splatting (https://arxiv.org/abs/2601.12814)
+Comments:
+          Accepted at WACV 2026
+
+- **What's New**: 이 논문은 최초로 3D Gaussian Splatting (3DGS)의 압축 및 세그멘테이션을 위한 통합 프레임워크를 제시합니다. 이전의 연구들은 이 두 가지 작업을 독립적으로 수행하였으나, 본 연구에서는 이들이 함께 고려되는 새로운 접근법을 탐구합니다. 이를 통해 색상(Color) 및 의미(Semantic) 속성을 효율적으로 압축할 수 있는 구조를 개발하였습니다.
+
+- **Technical Details**: 제안된 메커니즘은 경량의 암시적 신경 표현 기반 하이퍼프라이어(Implicit Neural Representation-based hyperprior)를 포함하고, 이를 통해 색상 및 의미 속성을 효율적으로 엔트로피 코딩(Entropy coding)합니다. 또한, 압축 유도 세그멘테이션 학습(Compression-guided segmentation learning)을 통해 두 작업의 긴밀한 결합을 지원합니다. 이 과정에서 양자화 인식 훈련(Quantization-aware training) 및 품질 인식 가중치 메커니즘(Quality-aware weighting)을 도입하여 세그멘테이션 성능을 향상시킵니다.
+
+- **Performance Highlights**: 실험 결과, 이 방법은 LERF 및 3D-OVS 데이터셋에서 전송 비용을 크게 줄이면서 높은 렌더링 품질과 강력한 세그멘테이션 성능을 유지하는 것으로 나타났습니다. 특히, 이 접근법은 색상 전용 Gaussian primitive를 압축하는 기존 방법보다 더욱 진보된 성능을 보여줍니다. 결국, 이를 통해 3D 장면 대표 및 이해를 위한 효과적이고 정확한 표현을 가능하게 합니다.
+
+
+
+### Left-Right Symmetry Breaking in CLIP-style Vision-Language Models Trained on Synthetic Spatial-Relation Data (https://arxiv.org/abs/2601.12809)
+- **What's New**: 이번 연구에서는 CLIP 스타일의 Transformer 기반 vision-language 모델이 spatial 관계를 어떻게 학습하는지 분석하기 위한 1D 이미지-텍스트 테스트베드를 제안합니다. 이 테스트베드는 단일 및 이중 객체 장면의 레이블과 레이아웃 다양성을 체계적으로 변화시키면서 미지의 객체 쌍에 대한 일반화를 평가합니다. 연구 결과, 대조적 훈련이 left-right 관계를 학습하며, 레이블 다양성이 레이아웃 다양성보다 일반화의 주요 원인이라는 사실을 발견했습니다.
+
+- **Technical Details**: 연구에서는 단순화된 1D 이미지-텍스트 설정을 사용하여 CLIP 스타일의 Transformer 모델이 이미지 내 객체 간 spatial 관계를 학습하는 방식을 평가합니다. 하나의 객체 또는 두 개의 객체로 구성된 이미지를 생성하고, 각 객체는 픽셀 하나를 차지합니다. 텍스트 캡션은 객체의 상대적 위치를 설명하며, 이를 위해 두 가지 캡션 포맷을 정의하였습니다.
+
+- **Performance Highlights**: 연구에서 CLIP 스타일 훈련이 이미지 속 객체의 left-right 관계를 학습하고 미지의 객체 쌍으로 일반화된다는 것을 보여주었습니다. attention 분석을 통해 positional embedding과 token embedding 간의 상호작용이 left-right 대칭을 깨뜨리는 horizontal attention gradient를 유도한다는 메커니즘을 밝혔습니다. 이로 인해 left-right 식별력이 감소함을 입증하였으며, CLIP 스타일 모델이 관계적 능력을 어떻게 얻는지를 설명하는 중요한 통찰을 제공합니다.
+
+
+
+### PhyG-MoE: A Physics-Guided Mixture-of-Experts Framework for Energy-Efficient GNSS Interference Recognition (https://arxiv.org/abs/2601.12798)
+- **What's New**: 이 논문은 전통적인 정적 모델의 한계를 극복하기 위해 PhyG-MoE (Physics-Guided Mixture-of-Experts) 프레임워크를 소개합니다. 기존의 정적 아키텍처와는 달리, 이 시스템은 신호의 스펙트럼 특성을 기반으로 동적으로 신호를 라우팅하는 스펙트럼 기반 게이팅 메커니즘을 사용합니다. 이를 통해 모델 용량을 신호 복잡도에 맞게 조정할 수 있어 자원 효율성을 크게 개선했습니다.
+
+- **Technical Details**: PhyG-MoE는 신호의 Power Spectral Density (PSD)를 기반으로 동적 컴퓨팅 전략을 구현합니다. 복잡한 신호의 경우 고용량 TransNeXt 전문가가 활성화되어 혼합된 기능을 분리하는 반면, 경량 전문가가 기본 신호를 처리하여 지연을 최소화합니다. 이를 통해 필수적인 전력 소모를 줄이면서도 정확한 인식을 유지할 수 있습니다.
+
+- **Performance Highlights**: 이 프레임워크는 21개 카테고리의 간섭 신호를 평가하며, 전체 정확도가 97.58%에 달하는 성과를 보였습니다. 동적 라우팅 전략을 통해 정적 이중 스트림 모델에 비해 평균 FLOPs (Floating-Point Operations)가 최소화되어 정확도와 효율성을 균형 있게 유지했습니다.
+
+
+
+### Combating Noisy Labels through Fostering Self- and Neighbor-Consistency (https://arxiv.org/abs/2601.12795)
+Comments:
+          accepted by IEEE Transactions on Pattern Analysis and Machine Intelligence
+
+- **What's New**: 이 논문은 Jo-SNC라는 새로운 노이즈 강건 학습 접근 방법을 제안합니다. 이 방법은 이미지 샘플의 청정성(청정 데이터인지 아닌지)의 가능성을 정량적으로 측정하기 위해 Jensen-Shannon divergence를 사용합니다. 특히, 이 접근은 각 샘플의 최근접 이웃을 고려하여 청정 샘플을 식별하는 과정의 신뢰성을 강화합니다.
+
+- **Technical Details**: Jo-SNC는 샘플 선택 및 모델 정규화를 결합하여 동작합니다. 이 방법은 두 가지 서로 다른 이미지 뷰를 네트워크에 입력하여 두 개의 softmax 확률을 예측하도록 합니다. 이어서, 분석을 통해 각 샘플의 청정성을 측정하고, 유효한 임계값을 설정하여 클래스 균형을 유지하며 샘플을 전세계적으로 선택합니다.
+
+- **Performance Highlights**: 폭넓은 실험을 통해 Jo-SNC의 효과성을 입증했습니다. Jo-SNC는 기존 최첨단 방법들과 비교했을 때 더욱 향상된 분류 및 일반화 성능을 보여줍니다. 특히, 이 시스템은 노이즈 레이블 처리에서 이전의 접근법보다 더 높은 신뢰성과 안정성을 제공합니다.
+
+
+
+### SKANet: A Cognitive Dual-Stream Framework with Adaptive Modality Fusion for Robust Compound GNSS Interference Classification (https://arxiv.org/abs/2601.12791)
+- **What's New**: 본 논문에서는 글로벌 내비게이션 위성 시스템(GNSS)의 복합 간섭 신호를 효과적으로 분류하기 위해 선택적 커널 및 비대칭 합성곱 네트워크(SKANet)를 제안합니다. SKANet는 시간-주파수 이미지(TFI)와 전력 스펙트럼 밀도(PSD)를 통합한 이중 스트림 아키텍처로, 복잡한 전자기 환경과 다양한 간섭 원인으로부터 신호를 보호하는 데 중점을 두었습니다. 기존의 정적 수용역 기반 방법과 달리, SKANet는 동적으로 수용역을 조정할 수 있는 다중 분기 선택적 커널 모듈과 비대칭 합성곱 블록을 채택하여 더욱 정밀한 신호 분류와 처리 능력을 제공합니다.
+
+- **Technical Details**: SKANet 아키텍처는 다중 분기 선택적 커널(Multi-Branch Selective Kernel, SK) 모듈과 비대칭 합성곱 블록(Asymmetric Convolution Blocks, ACB)을 결합하여 시계열 신호의 다중 스케일 특징을 효과적으로 추출합니다. 이는 적응형 필터 역할을 하여, 복합 신호 내의 미세한 일시적 특성과 대규모 스펙트럼 경향을 동시에 캡처하는 데 중점을 둡니다. 또한, 서로 다른 모달리티의 기여를 조정하기 위해 통합된 Squeeze-and-Excitation(SE) 메커니즘이 포함되어 있어 신호 간섭의 성능을 더욱 강화합니다.
+
+- **Performance Highlights**: 405,000개의 샘플로 구성된 데이터셋에 대한 평가 결과, SKANet는 96.99%의 전반적 정확도를 달성하여 복합 간섭 신호 분류에서 뛰어난 강인성을 입증했습니다. 특히 낮은 간섭 대 잡음 비율(Jamming-to-Noise Ratio, JNR) 환경에서도 효과적인 성능을 보여 주목할 만한 성과로 평가받고 있습니다. 이러한 성과는 SKANet이 다양한 간섭 신호를 처리할 수 있는 고품질 분류 모델로 자리 잡을 가능성을 의미합니다.
+
+
+
+### Open Vocabulary Panoptic Segmentation With Retrieval Augmentation (https://arxiv.org/abs/2601.12779)
+- **What's New**: 이 논문에서는 RetCLIP이라는 새로운 panoptic segmentation 방식을 제안합니다. 이 방법은 unseen classes에 대한 성능을 개선하기 위해 retrieval 기반 접근법을 통합합니다. 사용자가 입력한 클래스에 따라 임의의 클래스를 세분화할 수 있도록 지원하여 열린 어휘 파노프틱 세분화(open vocabulary panoptic segmentation) 문제를 해결합니다.
+
+- **Technical Details**: RetCLIP은 이미지-텍스트 데이터 쌍을 기반으로 구축된 masked segment feature 데이터베이스를 통해 작동합니다. 입력 이미지의 masked segment features를 질의 키로 사용하여 데이터베이스에서 유사한 features와 클래스 레이블을 검색합니다. 이 과정에서는 CLIP vision encoder를 사용하여 도메인 변환 문제를 해결하고, 최종 출력은 retrieval 기반 분류 점수와 CLIP 기반 점수를 결합하여 생성됩니다.
+
+- **Performance Highlights**: 제안된 방법은 COCO 데이터셋을 기반으로 훈련되었으며, ADE20k 데이터셋에서 +4.5 PQ, +2.5 mAP, +10.0 mIoU의 성능 향상을 보였습니다. 이를 통해 기존의 SOTA(최첨단 기술) 방식인 FC-CLIP에 비해 유의미한 개선을 달성했습니다. 특히, 훈련이 없는 설정에서도 +5.2 PQ의 성능 개선을 기록했습니다.
+
+
+
+### Generalizable and Animatable 3D Full-Head Gaussian Avatar from a Single Imag (https://arxiv.org/abs/2601.12770)
+Comments:
+          Project page: this https URL
+
+- **What's New**: 이 논문에서는 단일 이미지에서 3D 애니메이션 가능한 전체 머리 아바타를 생성하는 새로운 프레임워크를 제안합니다. 기존의 방법들이 카메라 포즈가 크게 변할 때 실패하는 문제를 해결하기 위해, UV 공간에서 매개변수화된 얼굴 모델에 Gauss 프리미티브(Gaussian primitives)를 매핑하여 실시간 애니메이션과 360도 렌더링을 가능하게 합니다. 이 모델은 사전 훈련된 3D Generative Adversarial Network (GAN)를 활용하여 3D 형상과 텍스처를 효과적으로 추출합니다.
+
+- **Technical Details**: 제안된 방식에서는 입력 이미지를 기반으로 UV 공간에서 전체 머리 아바타를 재구성합니다. UV 공간 특징 추출 모듈은 입력 이미지에서 텍스처 특징을 추출하고 이를 UV 공간에 투영하여 글로벌과 로컬 UV 피처 맵을 생성합니다. 이후, 대칭 UV 공간 피처 융합 모듈은 글로벌 및 로컬 UV 맵 정보를 합쳐 3D Gaussian primitives를 샘플링하여 아바타를 재구성합니다. 이러한 접근은 특히 얼굴의 대칭성을 이용하여 로컬 및 글로벌 정보를 융합함으로써 높은 충실도의 재구성을 가능하게 합니다.
+
+- **Performance Highlights**: 폭넓은 실험을 통해 본 연구 방법이 기존의 최첨단 방식보다 우수한 성능을 보이며, 3D 애니메이션 가능한 아바타의 현실성을 크게 향상시키는 데 성공했음을 입증했습니다. 실시간 애니메이션과 훌륭한 렌더링 품질을 통해, 이 방법은 다양한 응용 분야에서 3D 아바타의 생성과 렌더링을 지원할 수 있는 가능성을 보여줍니다. 현재까지의 연구 중, 이 방법이 360도 시점에서 완전한 머리 아바타 모델링을 실현한 최초의 사례입니다.
+
+
+
+### Delving Deeper: Hierarchical Visual Perception for Robust Video-Text Retrieva (https://arxiv.org/abs/2601.12768)
+- **What's New**: 이번 논문에서는 자연어 쿼리를 사용하여 관련 비디오를 탐색하는 Video-Text Retrieval (VTR) 분야에서 HVP-Net (Hierarchical Visual Perception Network)이라는 새로운 프레임워크를 제안합니다. 기존 방법들은 주로 높은 차원의 최종 레이어에서 특징을 추출하여 정보의 중복성이 높고 매칭 정밀도가 제한되는 문제가 있었습니다. HVP-Net은 여러 중간 레이어에서 특징을 추출하고 정제하여 비디오의 풍부한 의미를 활용함으로써 이 문제를 해결합니다.
+
+- **Technical Details**: HVP-Net은 사전 학습된 비전 인코더의 여러 중간 레이어에서 특성을 추출하고 정제하는 세 가지 주요 단계를 포함합니다: 계층적 특징 인코딩, 패치 처리 모듈, 그리고 대조 학습을 통해 최적화된 다중-granularity 정렬입니다. 우리는 패치 특징을 정제하기 위해 Multi-layer Patch Processing (MPP) 모듈을 도입하여 불필요한 정보를 줄이고 핵심 세부 정보를 보존합니다. 발표된 방법은 전통적인 최종 레이어 접근 방식에 비해 더 많은 정보를 담고 있습니다.
+
+- **Performance Highlights**: HVP-Net은 MSR-VTT, DiDeMo, ActivityNet과 같은 벤치마크에서 새로운 최첨단 성능을 달성하였습니다. 특히 MSR-VTT에서 R@1 지표에서 56.7%를 기록하며 MUSE와 같은 기존 강력한 모델보다 5.8% 우위를 점했습니다. 또한, 다양한 계층 및 세부 조정에 대한 여러 아블레이션 연구를 통해 HVP-Net의 모든 주요 구성 요소의 효과를 입증하였습니다.
+
+
+
+### Spatial-VLN: Zero-Shot Vision-and-Language Navigation With Explicit Spatial Perception and Exploration (https://arxiv.org/abs/2601.12766)
+- **What's New**: 본 연구는 Vision-and-Language Navigation (VLN) 분야에서 주목할만한 새로운 프레임워크인 Spatial-VLN을 제안합니다. 이 프레임워크는 대규모 언어 모델(LLMs)을 활용하여 제로샷(zero-shot) 내비게이션에서의 시각적 인지 문제를 해결하고자 합니다. 특히, 복잡한 환경에서의 공간적 인지 부족 문제를 해결하기 위해 Spatial Perception Enhancement (SPE) 모듈과 Explored Multi-expert Reasoning (EMR) 모듈을 통합하여 성능을 향상시켰습니다.
+
+- **Technical Details**: Spatial-VLN의 핵심 구성 요소는 두 가지 모듈로 나뉩니다. 첫 번째는 SPE 모듈로, 다각도의 panoramic 필터링을 활용하여 문과 지역에 대한 전문 지식을 통합하여 공간적 일관성을 높입니다. 두 번째 EMR 모듈은 여러 LLM 전문 지식을 사용하여 경로 수준의 의미론 및 지역적 공간 전환을 해결합니다, 궁극적으로 실시간으로 탐색 및 의사 결정을 지원합니다.
+
+- **Performance Highlights**: VLN-CE 실험을 통해 Spatial-VLN은 상태-최첨단 성능을 이끌어냈습니다. 저비용의 LLMs만 사용했음에도 불구하고, 복잡한 환경에서의 일반화 및 강건성을 입증하였습니다. 또한, 실제 환경에서의 효과적인 시뮬레이션을 위한 경로 샘플링 전략을 도입하여 실세계 적용 가능성도 높였습니다.
+
+
+
+### Towards Unbiased Source-Free Object Detection via Vision Foundation Models (https://arxiv.org/abs/2601.12765)
+- **What's New**: 본 논문은 Debiased Source-Free Object Detection (DSOD)라는 새로운 방법을 제안합니다. 기존의 Source-Free Object Detection (SFOD) 방법이 겪는 Source Bias 문제를 해결하기 위해 강력한 Vision Foundation Models (VFMs)을 활용합니다. DSOD는 VFM의 특징을 CNN 백본에 통합하고, Domain-aware Adaptive Weighting (DAAW) 및 Semantic-aware Feature Regularization (SAFR) 같은 모듈을 포함하여 모델의 성능을 향상시킵니다.
+
+- **Technical Details**: DSOD는 두 개의 타워 구조를 채택하여 DINOv2 인코더와 표준 ResNet 인코더를 결합합니다. UFI 모듈을 통해 VFM의 특징을 원래 CNN 특징에 통합하며, SAFR 모듈은 CNN과 VFM 인코더 간의 내재 관계를 강화합니다. 이와 함께, DAAW 전략을 통해 퓨전 가중치를 자동으로 선택하고 학습의 안정성을 높입니다. 이를 통해 DSOD는 Source Bias를 완화하며, DSOD-Distill이라는 VFM-Free 버전도 제안합니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 수행한 실험 결과, DSOD는 기존의 SFOD 방법보다 우수한 성능을 나타내었습니다. Normal-to-Foggy 날씨 적응에서 48.1% AP, Cross-scene 적응에서 39.3% AP, Synthetic-to-Real 적응에서 61.4% AP를 달성했습니다. 이러한 결과는 DSOD가 실제 응용에서 효과적으로 Source Bias 문제를 해결했음을 보여줍니다.
+
+
+
+### Moaw: Unleashing Motion Awareness for Video Diffusion Models (https://arxiv.org/abs/2601.12761)
+- **What's New**: 이번 연구에서는 Moaw라는 새로운 프레임워크를 제안하여 비디오 확산 모델의 모션 인식 기능을 활용해 제로샷 모션 전이를 가능하게 합니다. 기존 비디오 생성에서의 접근 방식을 변화시켜, 비디오에서 밀집 추적으로의 전환을 통해 보다 정교한 모션 정보를 학습합니다. 이는 대규모 비디오 데이터셋에 기반하여 상위 레벨의 모션 특징을 파악하고, 이를 유사한 구조의 비디오 생성 모델에 주입하여 실행됩니다.
+
+- **Technical Details**: 모델은 RGB 비디오를 입력으로 받아 3D 밀집 궤적을 예측하며, 이를 위해 동작 인식 확산 네트워크를 훈련합니다. également,쉐이프의 동작 라벨 데이터셋을 구성하여 가장 강력한 동작 정보를 인코딩하는 특징을 분석합니다. 이러한 특징들은 제로샷 방식으로 비디오 생성 확산 모델에 주입되어, 고유한 조정 장치 없이도 효과적인 모션 전이를 가능하게 합니다.
+
+- **Performance Highlights**: 제안된 Moaw 프레임워크는 점 추적 방법과 비교해 상당한 속도 향상과 함께 비슷한 정확도를 유지합니다. 특히, 기존의 모션 전이 방법들과 비교하여, 전체 추적을 통해 모션 전이 정확성을 평가하고 EPE(End-Point Error) 메트릭을 약 두 배 개선하였습니다. 이 결과로 저비용이면서도 효율적인 3D 궤적 예측을 이끌어내는 데 성공했습니다.
+
+
+
+### SSPFormer: Self-Supervised Pretrained Transformer for MRI Images (https://arxiv.org/abs/2601.12747)
+Comments:
+          Undergraduate student as first author submitted to IJCAI
+
+- **What's New**: 이번 논문에서는 자기지도 (Self-Supervised) 사전 훈련된 변환기(Transformer)인 SSPFormer를 제안하여 자기공명영상(MRI) 처리에 활용합니다. SSPFormer는 비라벨(raw, unlabeled) 데이터만으로 의학 이미지를 학습하여 임상적 요구 사항에 맞는 구조 인식(representation learning)을 수행합니다. 특히, 세 가지 주요 전략인 역주파수 전이 마스킹, 주파수 가중화 FFT 노이즈 증강 및 교차 모드 주파수 주의를 통해 도메인 간 불일치를 성공적으로 해결합니다.
+
+- **Technical Details**: SSPFormer는 다양한 MRI 이미지 데이터를 통합 처리할 수 있는 프레임워크로, 큰 스케일의 비라벨 MRI 데이터셋(MRI-110k)을 사용하여 의학적 해부학적 특성을 잘 반영한 표현을 학습합니다. 각 주파수 인식을 위한 자기지도 목표는 구조적 정보를 고려하여 역주파수 마스킹과 노이즈 증강 기법을 통합합니다. 또한, 변환기의 인코더는 공유되고, 디코더와 태스크 헤드는 클리닉에 빠르게 적응하도록 비대칭으로 미세 조정됩니다.
+
+- **Performance Highlights**: SSPFormer는 신경 및 근육계 이미징을 포함한 다섯 가지 다운스트림 작업(task)에서 뛰어난 성능을 보여주며, 단 20%의 라벨 데이터로도 탁월한 성과를 달성합니다. 이 모델은 레스존(localization) 및 병리 등급별 클리닉 요구 사항을 충족시키는데 직접적인 기여를 하며, MRI 이미지의 해상도와 재현성을 높이는 데 효과적임을 보입니다. 전반적으로 SSPFormer는 데이터가 제한된 의료 비전 분야에서 고급 성능의 데이터를 효과적으로 활용할 수 있는 함의를 제공합니다.
+
+
+
+### KaoLRM: Repurposing Pre-trained Large Reconstruction Models for Parametric 3D Face Reconstruction (https://arxiv.org/abs/2601.12736)
+- **What's New**: KaoLRM은 단일 뷰 이미지를 기반으로 한 파라메트릭 3D 얼굴 재구성을 위해, 대형 재구성 모델(LRM)의 사전 학습된 지식을 재타겟팅하는 새로운 방법입니다. 기존의 3DMM 회귀 모델들은 서로 다른 관점에서 일관성이 부족했으나, KaoLRM은 LRM의 3D 사전을 활용하여 이를 개선합니다. 이 모델은 FLAME 기반의 2D Gaussian Splatting을 통해 LRM의 렌더링 파이프라인에 통합되어 3D 구조에 대한 인식 개선을 지원합니다.
+
+- **Technical Details**: KaoLRM은 LRM의 미리 훈련된 트라이플레인(triplane) 특징을 FLAME 매개변수 공간으로 투사하여 기하 구조를 복구하고, 2D Gaussian 원시(primitives)를 사용하여 외관을 모델링합니다. 이 과정에서 기하학과 외관 간의 강한 결합을 강화하기 위해 바인딩 손실(binding loss)을 도입합니다. 그 결과, 모델은 고유한 얼굴 구성 요소가 비가시 상태일 때에도 보다 정확하고 강력한 재구성을 달성할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, KaoLRM은 기존 방법들과 비교하여 재구성 정확성과 관점 간 일관성을 모두 개선한 성과를 보였습니다. 다양한 테스트 환경에서 KaoLRM은 입력 뷰포인트 변화에 대한 민감도 낮추며, 자율 선 차단(self-occlusions) 상황에서도 우수한 성능을 발휘합니다. 이러한 개선으로 인해, KaoLRM은 애니메이션, 가상 현실 및 원격 프레젠스와 같은 다양한 응용 분야에 유용하게 적용될 수 있습니다.
+
+
+
+### DC-VLAQ: Query-Residual Aggregation for Robust Visual Place Recognition (https://arxiv.org/abs/2601.12729)
+Comments:
+          10 pages, 4 figures, 5 tables
+
+- **What's New**: 본 논문에서는 DC-VLAQ라는 새로운 프레임워크를 제안하여, 비주얼 플레이스 인식(Visual Place Recognition, VPR)의 품질을 높이기 위한 다양한 비주얼 파운데이션 모델(Visual Foundation Models, VFMs)을 통합하는 방법을 설명합니다. 이 프레임워크는 상호 보완적인 VFMs의 융합과 강력한 글로벌 집합 체계를 조합하여 놓치는 정보가 없도록 설계되었습니다. DC-VLAQ는 경량화된 잔차-guided 보완 융합 기법과 VLAQ라는 쿼리-잔차 글로벌 집합 기법을 도입하여, 더욱 안정적이고 세밀한 구분이 가능한 표현을 제공합니다.
+
+- **Technical Details**: DC-VLAQ는 DINOv2 피처 공간에 기반한 잔차-guided 보완 융합 기술을 사용하여, CLIP에서 얻은 상호 보완적인 의미 정보를 주입하면서 원래 토큰 분포를 유지합니다. 또한, VLAQ는 쿼리 기반의 글로벌 집합을 재구성하여 로컬 토큰들의 잔차 응답을 사용하여 학습 가능한 쿼리에 인코딩합니다. 이를 통해 다중 백본 융합에 의한 분포 변화에 대한 민감성을 줄이고, 더 나은 성능을 보장합니다.
+
+- **Performance Highlights**: DC-VLAQ는 Pitts30k, Tokyo24/7, MSLS, Nordland, SPED, AmsterTime 같은 표준 VPR 벤치마크에서 강력한 기준선 성능을 초과하여 지속적으로 최첨단 성능을 기록했습니다. 특히 도메인 변화와 장기적인 외관 변화에 강한 성능을 보여주며, 기존 방법들에 비해 더 높은 안정성을 제공하였습니다. 이 논문은 모듈이 서로 다른 VFMs를 통합하는 과정을 성공적으로 설명하며, VPR 연구 분야에서 중요한 기여를 하고 있습니다.
+
+
+
+### S2DiT: Sandwich Diffusion Transformer for Mobile Streaming Video Generation (https://arxiv.org/abs/2601.12719)
+- **What's New**: 이 논문은 S2DiT(Sandwich Diffusion Transformer)를 소개하여 모바일 하드웨어에서 효율적이고 고화질의 비디오 생성을 가능하게 합니다. 기존 Diffusion Transformers(DiTs)의 무거운 연산 비용 문제를 해결하기 위해, 두 가지 효율적인 주의(attention) 모듈인 LinConv Hybrid Attention(LCHA)와 Stride Self-Attention(SSA)이 혼합된 구조를 채택했습니다. S2DiT는 10 FPS 이상의 속도로 최신 서버 비디오 모델과 유사한 품질을 제공하며, 모바일 디바이스에서 실시간 비디오 생성을 가능하게 합니다.
+
+- **Technical Details**: S2DiT는 고해상도와 저해상도 처리 단계를 교차하여 실시하는 구조적 패턴을 사용하여 높은 출력 비율과 저비용을 동시에 달성합니다. LCHA는 학습 가능한 선형 경로와 깊이 방향 3D 합성곱을 결합하여 선형 복잡성을 달성하며, SSA는 중간 특징 맵을 압축하여 스루풋을 개선합니다. 이를 통해 대기 시간(latency)과 메모리를 고려해 효율적으로 모듈을 배치하는 동적 프로그래밍 알고리즘도 제안합니다.
+
+- **Performance Highlights**: S2DiT는 다양한 추론 모델과 비교했을 때 시각적 품질과 속도에서 월등한 성능을 보입니다. 특히 모바일 디바이스에서  직접 Streaming을 지원하여 고속 생성을 가능하게 하며, 영화의 흐름을 유지할 수 있습니다. 초기 실험 결과에 따르면 S2DiT는 기존 대형 교사 모델(Wan 2.2-14B)의 생성 능력을 소형 모델에 효과적으로 전이시킵니다.
+
+
+
+### RSOD: Reliability-Guided Sonar Image Object Detection with Extremely Limited Labels (https://arxiv.org/abs/2601.12715)
+Comments:
+          Accepted by AAAI 2026,9 pages,10 figures
+
+- **What's New**: 이번 논문에서는 수중 탐지 시스템에 중요한 수산 이미지 객체 감지 기술을 개선하기 위해 RSOD라는 새로운 teacher-student 프레임워크를 제안합니다. 수산 이미지는 텍스처 세부 정보가 부족하고 잡음에 민감하여 전문가가 클래스 간의 미세한 차이를 구별하기 어렵습니다. 이 연구는 극도로 제한된 레이블을 가진 수산 이미지에 적합한 의사 레이블 전략을 개발하고 있습니다.
+
+- **Technical Details**: RSOD는 teacher 모델이 여러 보기에서 예측의 일관성을 평가하여 신뢰성 점수를 계산합니다. 우리는 의사 레이블의 잡음 영향을 줄이기 위해 객체 혼합 의사 레이블 방법을 도입하고, 신뢰성 기반 적응 제약을 통해 학생 모델의 성능을 최적화합니다. 이를 통해 레이블이 극도로 제한적인 상황에서도 성능을 발휘할 수 있습니다.
+
+- **Performance Highlights**: UATD 데이터셋에서 우리의 방법은 단 5%의 레이블로 100% 레이블로 훈련된 기준 알고리즘과 경쟁할 수 있는 결과를 달성했습니다. 새로운 FSOD 데이터셋을 구축하여 수산 이미지 객체 감지 분야의 연구 발전에 기여하고 있습니다. 실험 결과, RSOD는 기존 최첨단 방법보다 우수한 성능을 보였습니다.
+
+
+
+### P2L-CA: An Effective Parameter Tuning Framework for Rehearsal-Free Multi-Label Class-Incremental Learning (https://arxiv.org/abs/2601.12714)
+Comments:
+          12 pages, 5 figures
+
+- **What's New**: 본 연구에서 제안하는 P2L-CA는 Multi-label Class-Incremental Learning (MLCIL) 문제를 해결하기 위한 파라미터 효율적인 프레임워크입니다. 기존 접근법들이 높은 계산 비용과 메모리 오버헤드에 시달리는 반면, P2L-CA는 Prompt-to-Label 모듈과 Continuous Adapter 모듈을 통합하여 이러한 한계를 극복합니다. 이 시스템은 미세 조정(minimal trainable parameters)과 메모리 버퍼 없이 새로운 클래스를 효과적으로 학습할 수 있는 강력한 일반화 성능을 보여줍니다.
+
+- **Technical Details**: P2L-CA는 class-specific prompts를 활용하여 서로 다른 multi-label 카테고리를 분리하는 P2L 모듈을 포함합니다. 이 모듈은 새로운 클래스와 이전 클래스의 학습을 동시에 지원하며, Feed Forward Network(FFN) 분류기도 함께 구현되어 강력한 특징 추출을 담당합니다. 또한 Continuous Adapter(학습용 어댑터) 모듈로 사전 훈련된 모델과 다운스트림 작업 간의 도메인 격차를 줄이고 학습 능력을 향상시킵니다.
+
+- **Performance Highlights**: P2L-CA는 MS-COCO 및 PASCAL VOC와 같은 도전적인 데이터셋에서 기존 최첨단(SOTA) 방법에 비해 최대 9.9%의 정확도 향상을 이루었으며, CIL 시나리오에서 강력한 일반화 성능을 입증하였습니다. 또한 이 접근법은 상대적으로 적은 파라미터만으로도 뛰어난 학습 능력을 보여주어, 메모리 버퍼의 필요 없이 효율적인 연속 학습을 가능하게 합니다.
+
+
+
+### Fusing in 3D: Free-Viewpoint Fusion Rendering with a 3D Infrared-Visible Scene Representation (https://arxiv.org/abs/2601.12697)
+- **What's New**: 이 논문에서는 기존의 2D 이미지 융합 방법의 한계를 극복하기 위해 새로운 Infrared-Visible Gaussian Fusion (IVGF) 프레임워크를 제안합니다. IVGF는 다양한 카메라 시점에서 직접적으로 융합된 이미지를 렌더링할 수 있도록 장면 기하학을 재구성하는 데 초점을 맞추고 있습니다. 크로스 모달 조정(Cross-Modal Adjustment, CMA) 모듈을 도입하여 모달리티 간의 갈등을 해결하며, 각각의 모달리티에서 중요한 특성을 보존하는 융합 손실(fusion loss)을 설계하여 최적화를 돕습니다.
+
+- **Technical Details**: 제안된 IVGF 프레임워크는 3D Gaussian Splatting(3DGS)을 기반으로 하여 각 Gaussian이 장면 내에서 특정 지점을 나타내는 비안정성(anisotropic) 3D Gaussian 집합으로 장면을 표현합니다. 각 Gaussian은 공간적 위치(mean position), 공분산 행렬(covariance matrix) 및 불투명도(opacity) 값을 포함하며, CMA 모듈을 통해 모달리티 간의 충돌(conflicts)을 조정합니다. 두 모달리티의 Gaussian이 통합된 후, 새로운 융합 손실을 통해 중요한 정보가 유지되도록 학습됩니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 IVGF 방법이 기존의 2D 융합 기술에 비해 정보의 손실이 현저히 줄어드는 것을 보여주었습니다. IVGF는 두 개의 모달리티에서 중요한 특성을 효과적으로 보존하여 이미지 퀄리티를 향상시키며, 물체 감지(object detection), 추적(tracking), 세분화(semantic segmentation)와 같은 다양한 컴퓨터 비전 작업에서의 성능을 개선합니다. 평가지표를 통해 IVGF의 우수성을 정량적으로 확인할 수 있었으며, 실제 환경에서도 뛰어난 결과를 보여주었습니다.
+
+
+
+### GaussianTrimmer: Online Trimming Boundaries for 3DGS Segmentation (https://arxiv.org/abs/2601.12683)
+- **What's New**: 본 논문에서는 3D Gaussian 기반의 장면 분할 방법에서 발생하는 경계 문제를 해결하기 위해 GaussianTrimmer라는 온라인 경계 다듬기 방법을 제안합니다. 이 방법은 기존의 3D Gaussian 분할 방법에 플러그 앤 플레이로 통합할 수 있으며, 약 1초의 짧은 지연 시간 안에 더 정교한 경계를 제공합니다.
+
+- **Technical Details**: GaussianTrimmer는 2D 분할 결과에 기반하여 가상의 카메라를 배치하고, 각 카메라에서 2D 분할을 통해 얻은 정보를 이용하여 경계 다듬기를 수행합니다. 이 과정에서는 각 분할 Gaussian을 객체와 배경에 맞게 두 개로 나누어 훈련 없이 경계를 조정할 수 있는 방법을 적용합니다.
+
+- **Performance Highlights**: 실험 결과, GaussianTrimmer는 기존의 3D Gaussian 분할 방법의 정밀성과 질을 향상시키는 데 효과적임을 입증하였으며, 정량적 및 정성적 성과 모두에서 개선을 보여주었습니다. 이러한 특성 덕분에 GaussianTrimmer는 기존 3DGS 분할 파이프라인에 쉽게 통합될 수 있는 솔루션으로 자리잡았습니다.
+
+
+
+### Fusion-Restoration Image Processing Algorithm to Improve the High-Temperature Deformation Measuremen (https://arxiv.org/abs/2601.12682)
+- **What's New**: 본 논문에서는 고온 구조물의 변형 측정에서 발생하는 열 방사와 열 무지에 의한 이미지 저하를 억제하기 위해 새로운 이미지 처리 방법을 제안합니다. 이 방법은 다중 노출 이미지 융합 기법을 활용하여 열 방사로 인한 이미지 저하를 해결하고, heat haze로 인한 측정 오차를 줄입니다. 실험 결과, 제안된 방법이 이미지 품질을 향상시키고 변형 측정 오차를 줄이는 데 효과적임을 입증하였습니다.
+
+- **Technical Details**: 제안된 방법에서는 이미지 계층 표현을 기반으로 이미지를 양극과 음극 채널로 분리한 후, 다중 노출 융합 기법을 통해 품질을 최적화합니다. FSIM(Feature Similarity Index)를 목표 함수로 사용하여 모델 파라미터를 최적화하고, 그레이스케일 평균 알고리즘을 결합하여 heat haze로 인한 랜덤 오류를 억제합니다. 이로 인해 측정 정확성이 유지되면서 이미지의 유효 계산 영역이 증가하였습니다.
+
+- **Performance Highlights**: 다중 노출 이미지 융합 알고리즘을 통해 저조도 이미지의 유효 계산 영역이 26%에서 50%로, 과다 노출 이미지에서는 32%에서 40%로 증가했습니다. 정적 열 변형 측정 오차는 { 3B5}_xx에서 85.3%, { 3B5}_yy와 { 3B3}_xy의 오차는 각각 36.0% 및 36.4% 감소했습니다. 이를 통해 고온 변형 측정에서 제안된 방법의 산업적 응용 가능성을 확인할 수 있습니다.
+
+
+
+### VILTA: A VLM-in-the-Loop Adversary for Enhancing Driving Policy Robustness (https://arxiv.org/abs/2601.12672)
+Comments:
+          Accepted to AAAI 2026
+
+- **What's New**: 이번 논문에서는 VILTA(VLM-In-the-Loop Trajectory Adversary)라는 새로운 프레임워크를 제안하여 자율주행(AD) 에이전트의 훈련에 비전 언어 모델(VLM)을 통합합니다. 기존의 간접적인 두 단계 접근법과 달리, VILTA는 훈련 주기 내에서 능동적으로 작용하면서 동적 주행 환경을 이해하고, 주변 에이전트의 미래 궤적을 직접 편집하여 도전적인 시나리오를 생성합니다. 이를 통해 안전 비판적 시나리오의 다양성을 확장하고, AD 정책의 안전성과 강인성을 향상시킵니다.
+
+- **Technical Details**: VILTA는 POMDP(부분 관찰 마르코프 결정 과정) 프레임워크를 기반으로 하여 자율주행 차량을 복잡한 시나리오와 일반 시나리오에 번갈아 노출시켜 훈련합니다. VLM은 주행 환경의 세밀한 표현을 이해하고 도전적인 시나리오를 전략적으로 생성하는 데 기여하는데, 이를 통해 VLM의 강력한 일반화 능력을 최대한 활용합니다. 이 새 방식은 VLM의 직접적인 궤적 편집을 통해 표적형 적대적 상호작용을 제공합니다.
+
+- **Performance Highlights**: 실험 결과, VILTA를 사용한 AD 정책은 특히 드문 장기 사건을 탐색하는 데 있어 안전성과 강인성이 크게 향상되었습니다. VLM을 통해 생성된 궤적은 기존 방식으로 생성된 것보다 더 도전적이고 복잡한 특성을 지니며, 이는 자율주행 시스템의 신뢰성을 높이는 데 기여합니다. 이러한 접근법을 통해 자율주행 차량이 안전하고 효과적으로 다양한 상황에 대응할 수 있게 됩니다.
+
+
+
+### Exploiting Test-Time Augmentation in Federated Learning for Brain Tumor MRI Classification (https://arxiv.org/abs/2601.12671)
+Comments:
+          21st International Conference on Computer Vision Theory and Applications (VISAPP 2026), 9-11 March 2026, Marbella, Spain
+
+- **What's New**: 이 논문은 뇌 종양 진단을 위한 연합 학습(FL) 환경에서 합성곱 신경망(CNN)을 평가하며, 원본 및 전처리된 MRI 이미지를 비교합니다. 테스트 시간 증강(TTA)과 함께 사용할 경우 전처리가 일관된 통계적 성과 향상을 이끈다는 점을 강조합니다. TTA는 FL 의료 영상에 있어서 기본 추론 전략으로 권장됩니다.
+
+- **Technical Details**: 본 연구는 두 클라이언트를 구성하고, 클라이언트 1은 원본 이미지를, 클라이언트 2는 전처리된 이미지를 사용하여 ResNet-18 모델을 학습합니다. 각 클라이언트의 로컬 매개변수는 서버로 전송되어 전역 모델로 집계됩니다. TTA는 각 테스트 이미지를 여러 스토캐스틱 뷰로 생성하여 최종 예측을 보강합니다.
+
+- **Performance Highlights**: 연구 결과, 원본 MRI 이미지를 보존하는 것이 과도하게 전처리된 입력보다 더 나은 성능을 이끌어낸다는 것을 보여줍니다. TTA는 지속적이고 비용 효율적인 강인성 향상을 제공하며, 이 연구 결과는 분산 의료 AI 시스템에 있어 유용한 설계 선택지를 제공합니다.
+
+
+
+### Near-Light Color Photometric Stereo for mono-Chromaticity non-lambertian surfac (https://arxiv.org/abs/2601.12666)
+Comments:
+          5 pages 7figures
+
+- **What's New**: 이 논문에서는 near-light 색 포토메트릭 스테레오(color photometric stereo)의 첫 번째 접근 방법을 제안하여 비람베르티안(non-Lambertian) 표면을 실용적인 근거리 조명 환경에서 정확하게 회복할 수 있습니다. 또한, 깊이(depth)와 표면 법선(surface normal)을 동시에 복구할 수 있는 신경망(neural network) 기반 표면 모델과 단일 색조 BRDF를 모델링하는 신경 BRDF 모델을 도입하여 문제를 잘 정리된(reticulated) 형태로 변환합니다.
+
+- **Technical Details**: 제안된 방법은 자가 감독(self-supervised) 프레임워크를 기반으로 하여 단일 RGB 이미지에서 알려진 근거리 조명 하의 고해상도 표면 법선을 복구합니다. 우리는 입구와 렌더링된 이미지 간의 광학적 일관성 손실(photometric consistency loss)을 통해 신경망 표면 및 BRDF 모델을 공동 최적화합니다. 이 과정에서 우리는 픽셀 깊이(per-pixel depth)를 예측하고, 이후 이를 통해 법선을 분석적으로 도출하여 근거리 색 포토메트릭 스테레오의 기하학적 결합에서 발생하는 문제를 해결합니다.
+
+- **Performance Highlights**: 실험을 위해 Blender에서 생성한 신합성(synthetic) 데이터셋을 사용하여 다양한 색상, 반사율(reflectance) 및 기하학적 변화를 포함하는 다섯 개 객체를 테스트했습니다. 우리의 방법은 실제 세계 데이터셋에서도 정확하고 강력한 표면 재구성을 달성하며, 성능이 우수한 근거리 촉각(visual-tactile) 센서인 NearLightTactile을 설계하여 실제 환경에서의 유용성을 검증합니다.
+
+
+
+### Generalizable Hyperparameter Optimization for Federated Learning on Non-IID Cancer Images (https://arxiv.org/abs/2601.12664)
+Comments:
+          21st International Conference on Computer Vision Theory and Applications (VISAPP 2026), 9-11 March 2026, Marbella, Spain
+
+- **What's New**: 이 논문은 암 이미징 데이터셋에서 튜닝된 하이퍼파라미터가 비독립적이고 동일하게 분포하지 않은(non-IID) 연합 학습(FL) 환경에서 일반화될 수 있는지를 연구합니다. 이전 작업들은 주로 개별 데이터셋에 대한 하이퍼파라미터 최적화에 집중했으나, 본 연구는 여러 암 유형에 걸쳐 하이퍼파라미터를 조정하는 새로운 접근 방식을 제안합니다. 이를 통해 단순한 데이터셋 간 집계 휴리스틱을 도입하고, 학습률, 최적화 알고리즘, 배치 크기를 평균하여 결합된 구성을 제시합니다.
+
+- **Technical Details**: 본 연구에서는 두 가지 이진 병리학적 작업(난소 및 대장암)을 위해 Tree-structured Parzen Estimator(TPE)를 이용한 중앙 집중식 베이지안 하이퍼파라미터 최적화(Bayesian HPO)를 수행합니다. 이후 이러한 최적 구성을 비독립적 연합 학습(non-IID FL) 설정으로 전송하고 통합하여 비교합니다. 연구의 마지막 단계에서는 여러 CNN 아키텍처를 비교하여 성능에 미치는 영향을 평가합니다.
+
+- **Performance Highlights**: 제안된 하이퍼파라미터 구성은 경쟁력 있는 분류 성능을 달성하며, 비독립적 연합 학습 시나리오에서 하이퍼파라미터가 일반화될 수 있는 가능성을 보여줍니다. 실험을 통해 두 가지 주요 암 유형에 대해 robust한 전략이 될 수 있는 결과를 도출하였습니다. 또한, 연구에서 제시된 쉬운 결합 구성은 비독립적인 연합 학습 환경에서도 효과적으로 작용함을 확인했습니다.
+
+
+
+### Mixed Precision PointPillars for Efficient 3D Object Detection with TensorR (https://arxiv.org/abs/2601.12638)
+Comments:
+          6 pages, 3 figures
+
+- **What's New**: 본 연구는 자율주행 자동차를 위한 LIDAR 3D 객체 감지의 성능을 최적화하기 위해 혼합 정밀도(mixed precision) 프레임워크를 제안합니다. PointPillars 모델에 대해 8비트 정수(INT8)와 16비트 부동 소수점(FP16) 데이터 유형을 활용하는 새로운 접근 방식을 제시함으로써, 성능 저하 없이 빠른 모델 실행 시간이 가능합니다. 기존의 정밀도 및 훈련 방법을 바꿔 실시간으로 더 나은 성능을 추구합니다.
+
+- **Technical Details**: 이 프레임워크는 포스트 훈련 정량화(PTQ)를 이용하여 가장 민감한 레이어를 찾아낸 뒤, 그 조합을 탐색하여 혼합 정밀도 모델을 생성합니다. 또한, 극단적인 아웃라이어(outlier)에 대한 대응으로, 적은 수의 보정(calibration) 데이터를 사용하여 PTQ 성능을 향상시키는 방법을 제안하고 있습니다. 이러한 접근은 TensorRT 요구 사항과 호환되도록 설계되었습니다.
+
+- **Performance Highlights**: 모델의 지연(latency) 및 크기를 각각 최대 2.35배 및 2.26배 줄이며, FP 모델에 근접한 성능을 발휘합니다. 본 연구는 혼합 정밀도를 이용한 모델 최적화의 중요성을 강조하고 있으며, 자율주행차에 적합한 3D 객체 감지 모델 구현에 기여할 것으로 기대됩니다. 결과적으로, PTQ 또는 양자화 인식 훈련(QAT)과 함께 사용할 수 있는 더 효율적인 모델을 제공합니다.
+
+
+
+### From Bands to Depth: Understanding Bathymetry Decisions on Sentinel-2 (https://arxiv.org/abs/2601.12636)
+Comments:
+          Accepted by WACV 2026
+
+- **What's New**: 이 논문은 Sentinel-2 위성 기반의 수심 추정 모델 Swin-BathyUNet을 제안하며, 이 모델이 수심을 얼마나 정확하게 추정하는지를 분석합니다. 새로운 접근 방식에는 Leave-One-Band Out 연구가 포함되어 있으며, 이는 수심 예측을 위한 각 밴드의 중요도를 평가합니다. 또한, A-CAM-R 기법을 통한 공간 해석 가능성 검증 및 다양한 지역에서의 교차 지역 예측 결과를 제시합니다.
+
+- **Technical Details**: Swin-BathyUNet 모델은 U-Net을 기반으로 하며, 디코더 조건부 크로스 어텐션(decoder conditioned cross attention) 구조를 통해 강력한 수심 예측 성능을 보입니다. 연구에서는 또한 A-CAM-R을 사용하여 모델의 예측 신뢰도를 평가하는 리텐션 테스트를 실시하였습니다. 다양한 환경에서 수심 변화를 감지하기 위해, 모델의 백본은 ViT 블록으로 구성됩니다.
+
+- **Performance Highlights**: 실험 결과, Swin-BathyUNet은 강한 예측 성능과 해석 가능성을 보였습니다. 특히, 다양한 깊이에 따른 MAE(평균 절대 오차)의 선형적 증가와 미드/딥 오류의 악화를 관찰하였으며, 이는 실제 적용에서 유용한 지침을 제공합니다. 연구자들은 수심 예측을 위한 최적의 방법론을 제안하며, 효율적인 데이터 세트를 활용한 접근 방식을 강조하고 있습니다.
+
+
+
+### Linear Mechanisms for Spatiotemporal Reasoning in Vision Language Models (https://arxiv.org/abs/2601.12626)
+- **What's New**: 이 논문은 비전-언어 모델(VLMs)의 시공간(Spatio-temporal) 추론 능력에 대한 이해를 심화시키고, 비선형 모델을 통해 물체 위치를 인코딩하는 방법을 제시합니다. 연구팀은 공간적 아이디(spatial IDs)와 텍스트 활성화 간의 선형 결합을 통해 이러한 구조적 추론 프로세스를 모델링한다고 주장합니다. 또한, 이를 통해 기존 VLM의 한계를 진단하고, 더 향상된 모델 설계를 위한 기초를 마련합니다.
+
+- **Technical Details**: VLM은 이미지 입력을 텍스트 쿼리와 결합하여 시각적 질문 응답(VQA)을 수행하는 데 필요한 복잡한 단계를 따릅니다. 연구에서는 이러한 과정에서 발생하는 공간적 아이디를 선형적으로 모델링하며, 이 아이디가 VLM의 중간 레이어에서 신념을 매개하는 역할을 한다고 설명합니다. 또한, 비디오 VLM에도 유사한 선형적 시간 아이디가 있다는 것을 발견하였습니다.
+
+- **Performance Highlights**: 이 연구는 VLM의 깊이 추론 및 공간적 아이디의 오류와 같은 한계를 식별하며, 모델 성능을 향상시킬 수 있는 구체적인 방향을 제시합니다. 실험 결과에 따르면, 물체 단어 토큰만 변경할 경우 모델의 공간적 신념에 효과적으로 영향을 미칠 수 있어, 이러한 기존 모델을 효과적으로 미세 조정(fine-tuning)할 수 있음을 시사합니다. 또한, 이 연구는 시공간적 아이디 메커니즘을 밝히며 VLM의 내부 추론 과정을 탐구합니다.
+
+
+
+### Camera Pose Revisited (https://arxiv.org/abs/2601.12567)
+Comments:
+          30 pages, 9 figures, 9 tables
+
+- **What's New**: 이 논문은 카메라의 위치 및 방향을 추정하는 문제의 새로운 접근 방식을 제안합니다. 특히 초기 파라미터 추정과 최적화 과정의 투명성에 중점을 두고 있습니다. 저자는 새로운 알고리즘인 PnP-ProCay78을 제안하여 이론적으로 강력함과 실용적인 활용성을 모두 갖춘 구조를 구축하였습니다.
+
+- **Technical Details**: PnP-ProCay78 알고리즘은 카메라 포즈 추정 문제를 비선형 최소제곱 문제로 재구성하며, 표준 최적화 기법을 이용하여 효율적으로 해결합니다. 이 알고리즘은 카일리 공간(Cayley space)에서의 회전 매개변수를 사용하여 최적화 경로를 직관적으로 분석할 수 있게 됩니다. 또한, 두 개의 대칭 시작 경로를 활용한 초기화 전략은 불리한 초기 조건에서도 강력한 수렴성을 제공합니다.
+
+- **Performance Highlights**: 제안된 알고리즘은 OpenCV의 기존 PnP 알고리즘과 비교하여 유사한 또는 더 높은 추정 정확도를 유지하면서도 훨씬 간단한 알고리즘 구조를 제공합니다. 다양한 기하학적 구성을 고려한 실험을 통해 PnP-ProCay78 알고리즘이 RGB 및 열화상 카메라(pair of RGB and thermal cameras)에 대한 동기화 최적화 분석에서도 일관된 성능을 시연했습니다.
+
+
+
+### PISE: Physics-Anchored Semantically-Enhanced Deep Computational Ghost Imaging for Robust Low-Bandwidth Machine Perception (https://arxiv.org/abs/2601.12551)
+Comments:
+          4 pages, 4 figures, 3 tables. Submitted to IEICE Transactions
+
+- **What's New**: 본 논문에서는 PISE라는 물리 기반의 심층 유령 이미징(ghost imaging) 프레임워크를 제안합니다. 이 프레임워크는 낮은 대역폭에서의 모니터링을 위해 설계되었으며, 의미론적 가이드를 결합한 어드전트(Adjoint) 연산자 초기화로 분류 정확도를 2.57% 개선하고, 샘플링 비율이 5%일 때 분산을 9배 줄입니다.
+
+- **Technical Details**: PISE는 CGI(Computational Ghost Imaging) 기술을 활용하여 사전 정의된 신뢰할 수 있는 물리 기반 초기화와 의미론적 손실 세트를 결합합니다. 이는 깊은 신경망의 훈련에서 MSE(mean squared error)로 인해 발생하는 그래디언트 문제를 해결하는 데 도움을 줍니다. PISE의 최적화 과정에서는 U-Net 구조를 사용하여 초기화된 이미지를 유도하고, 고속 주파수 정보를 유지합니다.
+
+- **Performance Highlights**: 실험 결과, PISE는 Fashion-MNIST 데이터셋을 사용하여 5% 샘플링 비율에서 경쟁 모델들보다 우수한 성능을 보여주었습니다. PISE의 구조는 일반적인 MSE 접근법보다 더 안정적이며 예측 가능한 성능을 나타내며, 실험에 따르면 PSNR(signal-to-noise ratio) 및 분류 정확도에서 높은 성과를 기록했습니다.
+
+
+
+### Encoding Emotion Through Self-Supervised Eye Movement Reconstruction (https://arxiv.org/abs/2601.12534)
+- **What's New**: 이 연구는 감정 표현과 눈 움직임 간의 관계를 탐구하며, 자연적인 저해상도 비디오에서 감정 표현의 다중 모달 지표를 예측할 수 있는 방법을 제안합니다. 특히, Holocaust 생존자들의 인터뷰 비디오 데이터를 활용하여, 자기 지도 학습(self-supervised learning) 방식으로 새로운 눈 움직임 탐지 모델, GLASS를 개발했습니다. 이 모델은 감정처리에 대한 두 가지 하위 작업에서 기초 모델보다 더 나은 성능을 보였습니다. 또한, 눈 움직임 정보만으로 의미 있는 정서적 신호를 전달하는지 조사한 것도 주목할 만합니다.
+
+- **Technical Details**: 연구에서는 USC Shoah 재단의 비주얼 역사 아카이브에서 제공하는 십 년에 걸친 Holocaust 생존자 인터뷰 비디오를 사용하여 데이터셋을 구축하였습니다. 이 데이터셋은 30fps 및 320x240 해상도로 촬영되어 눈 움직임, 감정 스펙트럼 및 비언어적 행동 마커를 포함한 방대한 양의 정보를 제공합니다. GLASS 모델은 변환기(Transformer)를 기반으로 한 시퀀스-투-시퀀스.encoder-decoder 구조를 이용하여 자기 지도 학습을 통해 미래의 눈 움직임을 예측하도록 훈련되었습니다.
+
+- **Performance Highlights**: GLASS 모델은 감정 예측 실험에서 기초 모델보다 높은 성능을 보여 주목받았습니다. 첫 번째 실험에서 감정 값 예측의 평균 절대 오차(MAE)와 피어슨 상관계수(r)에서 유의미한 결과를 나왔으며, 두 번째 실험인 특정 감정 행동 분류에서도 긍정적인 피드백을 얻었습니다. 우리는 GLASS 모델이 눈 움직임 데이터를 기반으로 감정적 신호를 효과적으로 인코딩할 수 있는 유망한 접근임을 확인하였습니다.
+
+
+
+### BirdsEye-RU: A Dataset For Detecting Faces from Overhead Images (https://arxiv.org/abs/2601.12533)
+- **What's New**: 이번 논문에서는 BirdsEye-RU 데이터셋을 소개합니다. 이 데이터셋은 2,978장의 이미지로 구성되어 있으며, 8,000개 이상의 얼굴이 주석 처리되었습니다. 특이하게도 드론 및 스마트폰으로 촬영된 높은 고도의 이미지에서 작은 얼굴을 인식할 수 있도록 설계되었습니다.
+
+- **Technical Details**: BirdsEye-RU 데이터셋은 윤곽 상자가 있는 얼굴 이미지를 포함하고 있습니다. 데이터는 Pexels.com에서 가져온 비디오, DroneFace 데이터셋의 이미지, 스마트폰으로 촬영한 이미지 등 세 가지 출처에서 수집되었습니다. 모든 이미지는 YOLO 아키텍처의 표준 입력 크기인 640x640 픽셀로 리사이즈되고, Roboflow 플랫폼을 통해 수동으로 주석 처리됩니다.
+
+- **Performance Highlights**: 이 데이터셋은 높은 고도에서 촬영된 이미지의 저해상도 얼굴을 탐지하는 문제를 해결하기 위해 설계되었습니다. 특히, 데이터셋 내의 얼굴 크기 분포는 10픽셀에서 가장 피크를 이루며, 40픽셀보다 작은 얼굴이 대부분인 특징을 지니고 있습니다. 이러한 도전적인 환경 속에서 BirdsEye-RU는 얼굴 탐지 성능을 향상시킬 수 있는 기회를 제공합니다.
+
+
+
+### XRefine: Attention-Guided Keypoint Match Refinemen (https://arxiv.org/abs/2601.12530)
+- **What's New**: 최근 3D 비전 작업에서 필수적인 희소(keypoint) 정합(sparse keypoint matching)이 있다. 기존의 정공법들은 각 키포인트 검출기에 특화되어 있으며, 재훈련이 필요하다. 내 제안된 XRefine는 이미지 패치(image patches)만을 기반으로 하는 새로운 접근방식으로, 검출기와 무관하게 서브픽셀(sub-pixel) 정제를 가능하게 한다.
+
+- **Technical Details**: XRefine는 교차 주의(cross-attention) 기반 아키텍처를 이용해 일치된 키포인트 주변의 이미지 패치에서 더 정제된 좌표를 예측합니다. 기존의 정제 방법론들은 비용이 많이 드는 최적화를 필요로 하지만, XRefine는 단 한번의 순방향 통과(forward pass)로 정제를 수행하므로 경량화되었습니다. 또한 두 장 이상의 뷰에 대해서도 일반화 가능하여 SfM(Structure from Motion) 파이프라인에서 활용될 수 있습니다.
+
+- **Performance Highlights**: MegaDepth, KITTI, ScanNet 등의 실험을 통해 XRefine가 기하학적 정확도를 일관되게 향상시킨다는 것이 입증되었습니다. 기존의 정제 방법론과 비교할 때 뛰어난 성능을 보이며, 러닝타임 효율성도 유지합니다. 결과적으로, 다양한 데이터셋과 기능 추출기에 대해 우수한 성능을 보여주는 것은 이 연구의 중요한 기여입니다.
+
+
+
+### Deep Feature Deformation Weights (https://arxiv.org/abs/2601.12527)
+- **What's New**: 이 논문은 기존의 핸들 기반 메쉬 변형 방법의 단점을 극복하는 새로운 접근법을 제안합니다. 기존 방법들은 사용자가 핸들의 이상적인 배치를 사전 지식으로 알아야 하며, 데이터 기반 접근법은 느리고 정확성이 부족하다는 한계가 있었습니다. 저자들은 심층 특징 근접성(deep feature proximity)을 활용해 즉각적이고 원활한 변형을 가능하게 하는 새로운 DFD weights(Deep Feature Deformation weights)를 소개합니다. 이 방법은 실시간으로 고해상도 메쉬에서 적용 가능하며, 자동으로 의미론적 대칭을 감지할 수 있는 필드 표현까지 포함합니다.
+
+- **Technical Details**: 이 연구에서 제안하는 DFD weights는 미리 훈련된 2D 모델에서 추출한 심층 특징을 기반으로 핸들 변환을 메쉬 변형으로 매핑하는 기능을 정의합니다. 매우 간단하면서도 효과적인 이 방법은 추가적인 정규화 없이도 매끄럽고 의미론적인 변형 가중치를 생성할 수 있습니다. 또한, 새로운 핸들 세트를 위해 최적화를 수행할 필요 없이 실시간으로 모든 표면 점에 대해 가중치를 계산할 수 있습니다. 변화 대칭을 보존하기 위해 향상된 특징 증류 파이프라인을 도입하여 최소한의 비용으로 효율적으로 활용합니다.
+
+- **Performance Highlights**: 제안된 방법은 소비자급 기계에서 최대 1백만 개의 면을 가진 메쉬에 대해 실시간 변형을 수행할 수 있는 가능성을 보여줍니다. 기존의 고전적 방법들과 인공지능 기반 방법들에 비해 대폭 향상된 속도와 정확성을 자랑합니다. 성능 평가 결과는 다양한 품질, 해상도 및 형태의 메쉬에서 기존의 모든 기준선을 초과하거나 동등한 성능을 달성했습니다. 이는 복잡한 최적화 알고리즘 없이도 신속한 변형이 가능하다는 것을 의미합니다.
+
+
+
+### Fine-Tuning Cycle-GAN for Domain Adaptation of MRI Images (https://arxiv.org/abs/2601.12512)
+Comments:
+          14 pages, 9 figures, 2 tables
+
+- **What's New**: 이 연구에서는 Cycle-GAN 기반의 모델을 제안하여 MRI 스캔 데이터의 비지도 의료 이미지 도메인 적응(Unsupervised Medical-Image Domain Adaptation)을 이루고 있습니다. CycleGAN의 장점을 활용하여, 크로스 도메인 이미지 간의 쌍을 필요로 하지 않고 양방향 매핑(bidirectional mappings)을 학습하여 이미지의 해부학적 내용을 보존합니다. 이러한 접근법은 도메인 관련 변동성을 줄이고 의료 이미지 분석의 정확성을 향상시키는 새로운 경로를 제시합니다.
+
+- **Technical Details**: 연구에서는 두 개의 GAN 아키텍처가 활용되며, 적대적 손실(adversarial loss)과 사이클 일관성 손실(cycle-consistency loss), 그리고 두 도메인 간 이미지의 내용 차이를 나타내는 불일치 손실(disparity loss)을 포함하는 최적화 목적 함수를 사용하여 Cycle-GAN 모델을 개선했습니다. 이 모델은 T1과 T2 MRI 이미지 도메인 간의 변환과 그 구조적 내용을 보존하는 데 초점을 맞추고 있습니다. 생성기(generator) 아키텍처(GA 및 GB)는 각각의 도메인으로부터 이미지를 변환하며, 판별기(discriminator) 아키텍처는 번역된 이미지와 원본 이미지를 구분합니다.
+
+- **Performance Highlights**: 여러 MRI 데이터 세트에 대한 실험을 통해 제안된 모델의 효율성과 성능이 입증되었습니다. 레이블이 없는 데이터로도 양방향 도메인 적응(bidirectional domain adaptation)을 성공적으로 수행할 수 있었으며, 이는 깊은 학습 모델의 성능을 개선하고 임상에서의 사용 가능성을 높였습니다. 이 연구는 의료 진단 정확도를 높이는 유망한 경로를 제공하며, 통계적 결과는 제안된 접근법이 모델 성능을 향상시키고 도메인 관련 변동성을 줄이는 데 기여함을 확인시켜줍니다.
+
+
+
+### SDCoNet: Saliency-Driven Multi-Task Collaborative Network for Remote Sensing Object Detection (https://arxiv.org/abs/2601.12507)
+- **What's New**: 새롭게 제안된 Saliency-Driven multi-task Collaborative Network (SDCoNet)은 슈퍼 해상도(SR)와 객체 탐지를 결합하여 성능을 극대화하는 방법론입니다. 기존의 직렬 형태에서 벗어나 암묵적 특성 공유를 통해 태스크의 특수성을 유지하면서 두 가지 작업 간의 상호작용을 향상시킵니다. 이 네트워크는 다중 스케일 주의 예측 모듈을 통해 작은 객체 세부정보에 집중하도록 설계되었습니다.
+
+- **Technical Details**: SDCoNet은 swin transformer 기반의 공유 인코더를 사용하여 계층적 윈도우 이동 자기 주의 메커니즘을 통해 크로스 작업 특성 협력을 지원합니다. 이러한 구조는 텍스처 정제와 의미론적 표현 간의 균형을 조정하며, gradient routing 전략을 통해 탐지 의미론을 안정시킵니다. 또한, 선택된 주요 토큰에 집중할 수 있도록 중요 점수를 생성하여 배경 혼잡을 억제합니다.
+
+- **Performance Highlights**: SDCoNet은 NWPU VHR-10-Split, DOTAv1.5-Split 및 HRSSD-Split와 같은 공공 데이터셋에서 기존 알고리즘을 능가하는 성능을 보여주었습니다. 이 연구는 계산 효율성을 유지하면서 저품질 원격 탐지 이미지를 위한 소형 객체 탐지에서 획기적인 결과를 도출하였습니다. 실험 결과, SDCoNet은 최신의 성능을 기록하며, 고주파 세부정보 생성에 효과적으로 기여합니다.
+
+
+
+### Video Individual Counting and Tracking from Moving Drones: A Benchmark and Methods (https://arxiv.org/abs/2601.12500)
+- **What's New**: 이 논문에서는 이동하는 드론을 사용하여 대규모 장면에서 밀집 인구를 세고 추적하는 문제를 다루고 있습니다. 새로운 데이터세트인 MovingDroneCrowd++를 소개하며, 이는 다양한 조명 조건 및 비행 고도에서 촬영된 비디오로 구성되어 있습니다. 이는 기존 데이터세트의 한계를 넘어 대규모 밀집 인구 분석을 가능하게 합니다. 또한, GD3A와 DVTrack 알고리즘을 통해 기존 방법보다 뛰어난 성능을 보여줍니다.
+
+- **Technical Details**: GD3A(전역 밀도 맵 분해를 위한 기술자 연관)는 최적 운반(optimal transport)을 통한 보행자 기술자(descriptor) 간의 픽셀 수준의 대응 관계를 설정하여 글로벌 밀도 맵을 공유, 유입(inflow) 및 유출(outflow) 성분으로 분해합니다. DVTrack는 이러한 기술자 수준 매칭을 인스턴스 수준의 연관으로 변환하여 보행자 추적을 수행합니다. 이 방법들은 고속 및 효율적인 군중 카운팅 및 추적을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법들은 기존 방법들에 비해 밀집된 군중과 복잡한 동작에서 뛰어난 성능을 보여줍니다. GD3A는 카운팅 오차를 47.4% 줄였으며, DVTrack은 추적 성능을 39.2% 개선했습니다. 이는 밀집 군중 장면에서의 정확하고 효율적인 카운팅 및 추적을 위한 새로운 기준을 제시합니다.
+
+
+
+### Histopath-C: Towards Realistic Domain Shifts for Histopathology Vision-Language Adaptation (https://arxiv.org/abs/2601.12493)
+Comments:
+          Accepted to WACV 2026
+
+- **What's New**: 본 논문에서는 Histopath-C라는 새로운 벤치마크를 도입하여, 디지털 조직 병리학에서 실제 관찰되는 도메인 변화에 따른 합성 왜곡을 모방하고 있습니다. 이 프레임워크는 데이터셋에 적용할 수 있는 왜곡을 동적으로 처리하며, Test-Time Adaptation (TTA) 메커니즘을 즉각적으로 평가합니다. 또한, LATTE라는 새로운 저차원 적응 전략을 제안하여, 다양한 텍스트 템플릿을 활용하여 조직 병리학 VLM의 민감도를 줄이는 방식으로 개선합니다.
+
+- **Technical Details**: Histopath-C는 실제 도메인에서 관찰되는 병리학적 변화를 반영하는 10가지 다양한 도메인 전이를 포함합니다. 연구에서 제안한 TTA 메커니즘인 LATTE는 템플릿 색인으로부터의 변동성을 줄이기 위해 템플릿 간 손실 집계와 전이적 의사 라벨링을 활용합니다. 이 방법은 기존의 VLM 기반 파이프라인의 주요 약점인 텍스트 템플릿 선택의 민감도를 감소시킵니다.
+
+- **Performance Highlights**: 제안된 LATTE 방법은 기존의 최신 TTA 방법보다 뛰어난 성능을 보였으며, 테스트된 여러 조직 병리학 데이터셋에서도 효과적인 적응을 입증했습니다. LATTE는 도메인 변화가 없을 경우에도 제로샷 성능을 지속적으로 향상시켜, 의료 이미징 분야의 VLM을 위한 일반적인 개선 도구로써의 효과iveness를 보여주었습니다.
+
+
+
+### NeuralFur: Animal Fur Reconstruction From Multi-View Images (https://arxiv.org/abs/2601.12481)
+Comments:
+          For additional results and code, please refer to this https URL
+
+- **What's New**: 이 논문에서는 다중 뷰 이미지를 이용한 첫 번째 고충실도 3D 동물 털 모델링 방법인 NeuralFur를 제안합니다. 이 방법은 strand-based representation을 사용하여 동물의 털을 재구성하고, 비전 언어 모델(VLM)을 활용하여 털의 구조적 특성을 학습합니다. NeuralFur는 자동으로 동물의 털을 재구성하여 기존의 컴퓨터 그래픽스 프레임워크에서 사용할 수 있도록 합니다.
+
+- **Technical Details**: NeuralFur는 전통적인 다중 뷰 스테레오 기법을 통해 조잡한 표면 기하구조를 재구성하고, VLM을 통해 털의 현실적인 길이 구조 정보를 조회합니다. 이 정보는 동물의 털 없는 기하구조를 만들고, 그 위에 털을 성장시키는 데 사용됩니다. 또한 이 과정에서 다중 뷰 이미지에서 계산된 기하학적/광학적 손실로 털의 재구성을 검증합니다.
+
+- **Performance Highlights**: NeuralFur는 다양한 동물 유형에 걸쳐 일반화 가능하며, 각각의 신체 부위에 맞는 털 특성을 고려합니다. 이 방법은 계산된 털이 기존의 컴퓨터 그래픽스 파이프라인과 호환되어 물리 기반 렌더링과 시뮬레이션에서 사용할 수 있도록 합니다. 이전의 동물 및 털 재구성 방법과 비교할 때, 이 방법은 동물 털의 기하학적 세부 사항을 보다 정확하게 재구성합니다.
+
+
+
+### DCAC: Dynamic Class-Aware Cache Creates Stronger Out-of-Distribution Detectors (https://arxiv.org/abs/2601.12468)
+Comments:
+          9 pages, 9 figures, Accepted by AAAI2026
+
+- **What's New**: 최근 연구에서, OOD(out-of-distribution) 샘플들이 같은 클래스로 예측될 경우 이들이 시각적으로 유사하다는 주요 통찰을 제시했습니다. 이를 통해 제안하는 DCAC(Dynamic Class-Aware Cache)는 훈련 없이도 사용할 수 있는 테스트 시간 보정 모듈로, 각 ID 클래스에 대해 별도의 캐시를 유지하여 높은 엔트로피 샘플을 수집하고 원시 입력 샘플의 예측을 보정합니다. 이 모듈은 다양한 기존 OOD 탐지 방법과 원활하게 통합되며, 최소한의 계산 오버헤드를 도입합니다.
+
+- **Technical Details**: DCAC는 독립적인 ID 클래스 각 클래스에 대해 별도의 캐시를 유지하여 언컨피던트(uncertain) OOD 샘플을 수집하고 오버컨피던트(overconfident) OOD 샘플의 예측을 보정합니다. 이를 위해 Tip-Adapter에서 영감을 받은 경량의 두 계층 모듈을 사용하여, 각 테스트 샘플의 시각적 특징을 처리하고 보정 로짓(calibration logits)을 생성합니다. 이 방법은 추가적인 훈련 없이 다양한 unimodal 및 vision-language 모델에 쉽게 적용될 수 있습니다.
+
+- **Performance Highlights**: 다양한 OOD 벤치마크에 대한 광범위한 실험을 통해 DCAC가 기존 방법의 성능을 크게 향상시킬 수 있음을 입증했습니다. 예를 들어, ImageNet OOD 벤치마크에서 ASH-S와 통합할 경우 FPR95를 6.55% 줄이는 등의 실질적인 개선을 달성했습니다. DCAC는 오버컨피던트 예측을 보정하는 데 있어 고유한 접근 방식을 제공하며, 여러 벤치마크에서 일관된 성능 향상을 보여줍니다.
+
+
+
+### Large-scale EM Benchmark for Multi-Organelle Instance Segmentation in the Wild (https://arxiv.org/abs/2601.12464)
+- **What's New**: 이번 연구에서, 전자현미경(electron microscopy, EM) 데이터를 활용하여 다중 세포 소기관(instance-level multi-organelle) 분할을 위한 새로운 대규모 벤치마크를 개발했습니다. 이 데이터셋은 10만 장 이상의 2D EM 이미지를 포함하고 있으며, 다양한 세포 유형과 5가지 소기관 클래스를 반영하여 실제 데이터의 변동성을 포착하고 있습니다. 이 연구는 패치 기반(patch-based) 방법이 가지고 있는 한계를 극복하기 위해 새로운 라벨링 도구를 도입하고, 해당 도구를 통해 얻은 라벨이 전문가에 의해 보강된다는 점에서 차별화됩니다.
+
+- **Technical Details**: 연구팀은 3D 연결 성분 라벨링(3D Connected Component Labeling, 3D CCL)과 전문가 검토 과정을 활용하여 데이터셋 주석(annotation)을 생성했습니다. 제안된 라벨링 도구인 3D LPA는 기존의 세미 자동화된 워크플로우가 초래하는 오류를 줄이고, 데이터셋의 품질을 향상시키는 데 도움이 됩니다. 또한, 연구에서는 U-Net, SAM, Mask2Former와 같은 최신 모델들을 벤치마크하여 이들 모델의 한계와 성능을 분석하였습니다.
+
+- **Performance Highlights**: 연구 결과, 기존 모델들은 동질적이지 않은 EM 데이터에서 일반화에 어려움을 겪고 있으며, 전반적으로 분포된 형태를 가진 소기관(예: 내형질망, Endoplasmic Reticulum)에 대해 성능이 저조한 것으로 나타났습니다. 이 벤치마크 데이터셋은 패치 기반 모델들의 한계를 정량화하고, 모델이 국소적인 소기관에서는 잘 작동하지만, 전역적인 네트워크 소기관에서 치명적인 실패를 보임을 강조합니다. 이러한 결과는 소기관 분할 분야의 주요 병목 현상을 나타내며, 앞으로 새롭게 개발된 데이터셋과 도구는 공공에 제공될 예정입니다.
+
+
+
+### Adversarial Defense in Vision-Language Models: An Overview (https://arxiv.org/abs/2601.12443)
+- **What's New**: 최근 Vision Language Models (VLMs), 특히 CLIP의 사용이 증가하면서 이들 모델이 복잡하고 미세한 적대적 공격에 취약하다는 우려가 커지고 있습니다. 이에 따라 적대적 방어 전략이 필수적인 연구 주제가 되었으며, 이 논문에서는 Training-time Defense, Test-time Adaptation Defense, Training-free Defense의 세 가지 주요 방어 패러다임을 제안합니다.
+
+- **Technical Details**: Training-time Defense는 훈련 과정에서 적대적 샘플을 사용하여 모델 파라미터를 조정하여 모델의 강인성을 향상시키는 방법입니다. Test-time Adaptation Defense는 추론 시 모델의 파라미터를 적응시켜 레이블 없는 적대적 샘플에 대응하는 유연성을 제공합니다. Training-free Defense는 모델 자체를 수정하지 않고, 공격 입력이나 그 특성 임베딩을 변경하여 추가적인 훈련 없이도 방어를 구현하는 접근 방식을 채택합니다.
+
+- **Performance Highlights**: 이 논문은 VLM에 대한 적대적 방어 전략의 최근 발전을 체계적으로 검토하고, 다양한 방어 방법의 강점과 제한점을 강조합니다. 여러 실험 비교를 통해 기법 간의 성능 차이를 조정하며, 향후 연구 방향에 대한 통찰도 제시합니다.
+
+
+
+### SkeFi: Cross-Modal Knowledge Transfer for Wireless Skeleton-Based Action Recognition (https://arxiv.org/abs/2601.12432)
+Comments:
+          Published in IEEE Internet of Things Journal
+
+- **What's New**: 이 논문에서는 스켈레톤 기반의 동작 인식(Skeleton-based action recognition)을 위해 RGB 카메라 대신 비침습성 무선 센서(LiDAR 및 mmWave)를 활용하는 방법을 제안합니다. 기존 RGB 카메라는 어두운 환경에서의 성능 저하와 개인 정보 보호 문제로 인해 스마트 홈과 병원에서 제한적으로 사용됩니다. SkeFi라는 새로운 프레임워크를 통해 이러한 한계를 극복하고, RGB모달리티에서 수집한 지식을 비침습성 모달리티에 전이하는 혁신적인 접근법을 제시합니다.
+
+- **Technical Details**: SkeFi는 강화된 Temporal Correlation Adaptive Graph Convolution (TC-AGC)와 시간적 상관관계를 장착한 그래프 합성 모델을 사용하여 노이즈 문제를 해결합니다. 특히, TC-AGC는 결측 또는 불연속 프레임에 대한 개선된 세부 사항을 제공하여 동작 인식 모델의 정확성을 향상시킵니다. 또한, 듀얼 시간 컨볼루션(Dual Temporal Convolution)을 통해 다중 시간 모델링 기능을 강화하고, ESP-MST라는 방법을 통해 컴퓨팅 오버헤드 없이 모델의 효과성을 증대시킵니다.
+
+- **Performance Highlights**: SkeFi는 MM-Fi 데이터셋의 RGB, mmWave 및 LiDAR 모달리티에서 최고의 성능을 달성하였으며, 비침습성 데이터의 특징 추출 능력을 효과적으로 향상시켰습니다. 이 연구는 비침습적인 센서를 활용한 스켈레톤 기반 동작 인식(SAR) 기술에 대한 중요한 발전을 나타내며, 저희가 제안한 모델은 다양한 환경 조건에서 성공적으로 성능을 발휘하였습니다.
+
+
+
+### HOT-POT: Optimal Transport for Sparse Stereo Matching (https://arxiv.org/abs/2601.12423)
+Comments:
+          18 pages, 10 figures, 6 tables
+
+- **What's New**: 본 논문은 스테레오 비전에서 발생하는 여러 가지 문제를 해결하기 위해 최적 수송(optimal transport, OT)의 관점에서 카메라 기하학의 선 제약을 고려합니다. 기존의 피사체 거리(epipolar distance)와 3D 레이 거리(3D ray distance)를 사용하여 매칭 품질을 정량화하며, 이들 거리를 비용 함수로 활용하여 효율적으로 해결 가능한 할당 문제를 도출합니다. 또한, 객체 매칭을 위한 계층적 OT 문제로 접근하여 정확한 기능 매칭을 가능하게 합니다.
+
+- **Technical Details**: 스테레오 매칭 문제를 OT 문제의 관점에서 정의하고, 비트 기하학에 맞춘 새로운 비용 함수인 3D 레이 거리를 제안합니다. 이 방법은 객체와 객체를 매칭하기 위해 계층적 OT(Hierarchical Optimal Transport, HOT) 구성을 도입하여, 점 간 매칭을 넘어서 객체 간 매칭도 가능하게 합니다. 수치 실험을 통해 제안된 메서드가 기존 방법보다 효과적임을 입증하였습니다.
+
+- **Performance Highlights**: 제안된 비용 함수는 노이즈에 대한 민감도를 줄이고 모호성을 감소시켜 점 수준 매칭의 강인성을 향상시킵니다. 이는 특히 occlusion(가림)이나 교차 모달리티(cross-modality) 시나리오에서 효과적입니다. 또한, OT 프레임워크는 매칭 문제에 대한 효율적인 공식을 제공합니다. HOT 프레임워크를 통해 점 대 점에서 객체 대 객체 매칭으로 알고리즘을 확장할 수 있습니다.
+
+
+
+### Weaknesses of Facial Emotion Recognition Systems (https://arxiv.org/abs/2601.12402)
+- **What's New**: 이 연구는 얼굴 감정 인식(FER) 시스템 구현에 있어 핵심적인 모델의 일반화 능력에 초점을 맞추고 있습니다. 특히, 모델을 훈련한 데이터셋과 다른 데이터셋에서 성능을 비교하여 기존 솔루션의 약점을 규명하고 있습니다. 감정 인식이 인간-컴퓨터 상호작용(Human-Computer Interaction)에서 얼마나 중요한지를 강조하며 기술적 진보가 필요함을 어필합니다.
+
+- **Technical Details**: 연구에서는 POSTER++, DMUE, DAN와 같은 최신 딥러닝 모델들을 선택하여, 각 모델이 다양한 데이터셋으로 학습한 후 다중 검증(multi-validation) 통해 성능을 평가했습니다. 특히, AffectNet, RAF-DB, ExpW와 같은 'in-the-wild' 데이터셋을 사용하여 실세계 조건의 복잡성을 모사하려고 했습니다. 이러한 접근은 각각의 모델이 배운 특성에 대한 명확한 비교를 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, 훈련에 사용된 데이터셋과 다른 데이터셋에서 모델 성능이 대폭 저하되는 경향을 보였습니다. 예를 들어, POSTER 모델은 AffectNet에서 학습 후 다른 데이터셋에서 약 10% 포인트 내외의 성과 변동을 보였지만, DAN 모델은 RAF-DB에서 76%의 정확도를 보인 반면 ExpW에서는 37%로 떨어졌습니다. 이는 감정 클래스 불균형 문제를 시사하며, 정확도(Accuracy) 지표만으로는 모델의 진정한 성능을 평가하기 어려움을 보여줍니다.
+
+
+
+### Class-Partitioned VQ-VAE and Latent Flow Matching for Point Cloud Scene Generation (https://arxiv.org/abs/2601.12391)
+Comments:
+          Accepted to AAAI 2026, Main Technical Track
+
+- **What's New**: 본 논문에서는 Class-Partitioned Vector Quantized Variational Autoencoder (CPVQ-VAE)를 소개하여 복잡한 3D 장면을 생성하는 데 있어 객체의 지각적 특징을 효과적으로 디코딩합니다. 기존의 방식에서는 사전 정의된 데이터베이스에서 객체를 검색하는 과정에서 문제가 발생했으나, CPVQ-VAE는 제너레이티브 오토인코더(Generative Autoencoder)를 사용하여 데이터베이스에 의존하지 않고 순수한 포인트 클라우드를 생성합니다.
+
+- **Technical Details**: CPVQ-VAE는 클래스에 의해 라벨링된 코드벡터를 포함하는 클래스 분할 코드북(class-partitioned codebook)을 사용하여 훈련되어 객체의 지각적 특징을 효과적으로 디코딩합니다. 코드북 소멸(codebook collapse) 문제를 해결하기 위해 클래스 인식 실시간 평균 업데이트(class-aware running average update)를 제안합니다. 연구에서는 Latent-space Flow Matching Model (LFMM)을 사용하여 객체 특징과 클래스 레이블을 생성하며, CPVQ-VAE는 이러한 정보를 바탕으로 클래스 일관성을 유지한 포인트 클라우드를 디코딩합니다.
+
+- **Performance Highlights**: 실험 결과, CPVQ-VAE를 이용한 방법이 복잡한 포인트 클라우드 장면 생성에서 뛰어난 성능을 보이며, 체감 거리 Chamfer와 Point2Mesh 오류에서 각각 70.4%와 72.3% 감소를 달성했습니다. 이는 복합적인 물체가 포함된 장면을 정확하게 생성할 수 있는 가능성을 제시합니다.
+
+
+
+### A Hierarchical Benchmark of Foundation Models for Dermatology (https://arxiv.org/abs/2601.12382)
+- **What's New**: 이 논문은 피부 병변 분류를 위한 새로운 계층적 평가 프레임워크를 소개하며, 일반 의료 이미징과 피부과 전용 도메인을 아우르는 10개의 파운데이션 모델의 임베딩을 평가합니다. 특히, 피부병 진단이 복잡한 계층적 과정임을 강조하며, 기존 모델들이 이러한 세부 분류를 간과하고 있다는 문제를 지적합니다. 연구 결과에 따르면, MedImageInsights 모델은 일반적인 악성 종양 탐지에서 가장 높은 성능을 보였지만, 세부 분류에서 성능이 저하되는 '세분화 갭(granularity gap)'을 확인했습니다.
+
+- **Technical Details**: 연구에서는 DERM12345 데이터셋을 사용하여 40개의 피부 병변 하위 클래스에 대해 파운데이션 모델 임베딩의 유용성을 평가합니다. 방법론은 세 가지 단계로 구성되며, 데이터 표준화, 특징 추출, 계층적 평가가 포함됩니다. 모델 선택은 일반 컴퓨터 비전, 일반 의료, 피부과 전용 모델로 나뉘며, 표준화된 피처 추출 파이프라인을 사용하여 학습된 표현 품질과 분류기의 용량을 분리하여 평가했습니다.
+
+- **Performance Highlights**: 결과적으로 MedImageInsights는 이진 악성 종양 탐지에서 97.52%의 F1-스코어를 달성하며 최고의 성능을 보였으나, 세부 40클래스 분류에서는 65.50%로 하락했습니다. 반면, MedSigLip과 Derm Foundation 모델은 세부적인 40클래스 분류에서 각각 69.79%의 성능을 기록하며 뛰어난 분별력을 보였습니다. 본 연구는 임상적 적용을 고려할 때, 고수준 스크리닝의 효율성을 넘어서는 세부적인 특성 인식의 필요성을 강조합니다.
+
+
+
+### Utilizing the Score of Data Distribution for Hyperspectral Anomaly Detection (https://arxiv.org/abs/2601.12379)
+- **What's New**: 이 논문에서는 하이퍼스펙트럼 이미지 (Hyperspectral Images, HSIs)에서의 이상 탐지 새로운 방법인 ScoreAD를 제안합니다. 이 방법은 스코어 기반 생성 모델 (Score-based Generative Model, SGM)을 활용하여 데이터 분포의 시간 의존적 그래디언트 필드를 통해 이상 스펙트럼을 탐지합니다. 하이퍼스펙트럼 이미지의 스펙트럼이 저차원 매니폴드 (Manifold)에 위치한다고 가정하여, 이러한 매니폴드 구조를 기반으로 이상 탐지를 수행하는 점이 기존 연구와 차별화됩니다.
+
+- **Technical Details**: ScoreAD 방법은 먼저 하이퍼스펙트럼 이미지의 모든 스펙트럼 세트를 사용하여 SGM을 훈련합니다. 테스트 시, 각 스펙트럼은 가우시안 커널 (Gaussian kernel)을 통해 섭동(perturbation)되며, 그 결과로 생성된 스펙트럼은 훈련된 SGM에 입력되어 추정된 스코어(score)가 계산됩니다. 이 과정은 각 원래 스펙트럼에 대해 여러 번 반복되어 지역적 스코어 분포를 효과적으로 추정하는 데 사용됩니다.
+
+- **Performance Highlights**: 제안된 ScoreAD 방법은 네 개의 하이퍼스펙트럼 데이터 세트에서 효과성을 입증하는 실험을 수행하여 그 성능을 평가하였습니다. 논문의 결과는 매니폴드 기반 이상 탐지 방법의 가능성을 보여주며, 기존의 통계 기반 및 심층 학습 기반 방법들과 비교해 우수한 탐지 성능을 나타내었습니다. 또한, 스코어 필드의 방향 차이를 활용하여 배경 스펙트럼과 이상 스펙트럼을 효과적으로 구분할 수 있음을 확인하였습니다.
+
+
+
+### CD-TWINSAFE: A ROS-enabled Digital Twin for Scene Understanding and Safety Emerging V2I Technology (https://arxiv.org/abs/2601.12373)
+- **What's New**: 본 논문에서는 자율 주행 차량을 위한 V2I 기반 디지털 트윈 CD-TWINSAFE를 소개합니다. 이 아키텍처는 장면 이해를 위한 스테레오 카메라가 포함된 차량 내 드라이빙 스택과, 카메라가 보는 장면의 Unreal Engine 5 복제를 실행하는 디지털 트윈 스택으로 구성되어 있습니다. 이 시스템은 안전 알림을 제공하며, 차량은 실시간으로 주변 환경을 모니터링하고 사고 위험을 줄일 수 있습니다.
+
+- **Technical Details**: CD-TWINSAFE는 자율주행 차량이 위치 추적 및 인식을 담당하는 두 개의 주요 모듈로 구분됩니다. 스테레오 카메라로부터 20fps의 이미지를 처리하고, 객체 감지와 특징 추출을 통해 충돌 시간(Time to Collision, TTC) 및 시간이동(Time Headway, THW)과 같은 Safety metrics를 계산하여 디지털 트윈에 전송합니다. 이 정보는 ROS2 메시지 형태로 인프라에 전송되어 V2I 통신을 가능하게 합니다.
+
+- **Performance Highlights**: 다양한 주행 시나리오에서 CD-TWINSAFE의 유효성과 실시간 반응을 확인하기 위한 여러 테스트가 수행되었습니다. YOLOv8 및 RAFT-Stereo 기법을 활용하여 객체 감지와 깊이 추정을 강화하였고, YOLOv8-n 모델의 경우 지연 시간(latency)이 적어 실시간 시스템에 최적화된 성능을 제공합니다. 앞으로의 연구에서는 이러한 아키텍처의 한계와 향후 권장 사항에 대해 논의합니다.
+
+
+
+### DepthCropSeg++: Scaling a Crop Segmentation Foundation Model With Depth-Labeled Data (https://arxiv.org/abs/2601.12366)
+Comments:
+          13 pages, 15 figures and 7 tables
+
+- **What's New**: 새롭게 발표된 DepthCropSeg++는 다양한 작물종을 다룰 수 있는 개척자 모델로, 농업 환경에서의 작물 분리(segmentation)에 혁신을 가져옵니다. 28,406장의 이미지를 포함한 대규모 데이터셋을 통해, 이 모델은 슈퍼바이즈드(baseline) 모델들과 Segmentation Anything Model(SAM)과 같은 일반 비전 모델을에서 현저한 성능 향상을 달성했습니다. 특히, 이 모델은 야간 환경(86.90% mIoU)이나 고밀도 가시성 등의 도전적인 시나리오에서도 뛰어난 성능을 보입니다.
+
+- **Technical Details**: DepthCropSeg++의 핵심 기술은 ViT-Adapter 아키텍처 개선과 동적 업샘플링(dynamically upsampling)을 이용한 것입니다. 이 모델은 두 단계의 자기 훈련(self-training) 파이프라인을 통해 훈련되며, DepthCropSeg로 생성된 초기 의사라벨(pseudo-labels)을 기반으로 합니다. 또한, FADE(Fusing the Assets of Decoder and Encoder for Task-Agnostic Upsampling) 연산자를 통해 세밀한 구조를 인식할 수 있는 능력을 향상시킵니다.
+
+- **Performance Highlights**: DepthCropSeg++는 테스트 세트에서 93.11% mIoU를 기록하며, 이는 다른 모델들보다 우수한 성능을 나타냅니다. 다양한 농업 환경에서 필드 및 작물 종류에 대한 일반화 능력이 뛰어나, 이전 모델들이 갖고 있던 한계를 넘어서는 결과를 얻었습니다. 이 모델은 새로운 작물 종류나 복잡한 환경에서도 안정적인 성능을 보여줍니다.
+
+
+
+### From Prompts to Pavement: LMMs-based Agentic Behavior-Tree Generation Framework for Autonomous Vehicles (https://arxiv.org/abs/2601.12358)
+- **What's New**: 이번 논문은 자율 주행 차량(AVs)을 위한 새로운 행동 계획 프레임워크인 'From Prompts to Pavement'를 소개합니다. 이 프레임워크는 대형 언어 모델(LLMs)과 다중 모달 비전 모델(LVMs)을 활용하여 행동 나무(BTs)를 실시간으로 생성하고 적응할 수 있게 합니다. 특히, 프레임워크는 상황의 중요성을 평가하는 전용 Descriptor 에이전트와, 고수준의 하위 목표를 설정하는 Planner 에이전트를 포함하여, 체계적이고 동적인 의사 결정을 가능하게 합니다.
+
+- **Technical Details**: 제안된 시스템은 ROS 기반 아키텍처로, SLAM Layer, Perception Layer, Navigation and Control Layer의 세 레이어로 구성됩니다. CARLA 시뮬레이션 환경은 고충실도로 구축되어, 자율 주행 스택의 효과를 실험적으로 테스트하는 데 사용됩니다. 시스템은 LiDAR, RGB 카메라 등의 센서를 통해 환경의 데이터를 수집하고, 이 데이터를 바탕으로 행동 나무를 생성합니다.
+
+- **Performance Highlights**: 논문에서 제안한 시스템은 CARLA+Nav2 시뮬레이션에서 기본적인 BT가 실패할 경우에만 트리거되어, 예상치 못한 장애물을 통해서도 성공적으로 내비게이션을 수행하는 것을 보여줍니다. 이는 사람의 개입 없이도 작동하며, static BT와 비교하여 다양한 주행 시나리오에 대한 적응력을 입증하는 사례로 작용합니다. 이 연구는 자율 주행 시스템의 안전성을 크게 향상시킬 것으로 기대됩니다.
+
+
+
+### SimpleMatch: A Simple and Strong Baseline for Semantic Correspondenc (https://arxiv.org/abs/2601.12357)
+- **What's New**: 이 논문에서는 고해상도 이미지를 요구하는 기존의 의미적 대응(semantic correspondence) 방법의 한계를 극복하기 위해 SimpleMatch라는 새로운 프레임워크를 소개합니다. 이 방법은 인접한 키포인트(feature)에서 발생하는 정보를 손실 문제를 해결하고, 저해상도에서도 우수한 성능을 보여줍니다. SimpleMatch는 1/4 해상도로 깊은 특성을 업샘플링하는 경량 디코더와 다양한 공간 스케일에서 판별 가능한 특징을 보장하기 위한 다중 스케일 감독 손실(multiscale supervised loss) 방식으로 구성됩니다.
+
+- **Technical Details**: 기존의 방법들은 깊은 다운샘플링(deep downsampling) 작업으로 인해 키포인트(features) 정보의 불가역적인 융합 문제를 경험합니다. SimpleMatch는 이 문제를 해결하기 위해 효율적인 업샘플링 디코더를 도입하여 기능을 1/4 해상도로 복원합니다. 또한, 우리가 제안하는 희소 매칭(sparse matching)과 윈도우 기반(localization) 기법은 훈련 메모리 사용량을 51%까지 줄이는 데 기여합니다.
+
+- **Performance Highlights**: SimpleMatch 프레임워크는 SPair-71k 벤치마크에서 252x252의 저해상도로 84.1%의 PCK@0.1 성능을 달성하며, 이는 현재 SOTA(state-of-the-art) 방법보다 우수한 결과입니다. 또한, 3.3배 낮은 입력 해상도에서 이루어진 이 성능은 효과성과 효율성을 모두 증명합니다. 이러한 결과는 SimpleMatch가 의미적 대응 분야에서 강력한 기준선(baseline)으로 자리잡을 수 있을 것이라는 믿음을 줍니다.
+
+
+
+### MMDeepResearch-Bench: A Benchmark for Multimodal Deep Research Agents (https://arxiv.org/abs/2601.12346)
+- **What's New**: 본 논문에서는 다양한 멀티모달 연구 작업을 평가하기 위한 새로운 벤치마크인 MMDeepResearch-Bench (MMDR-Bench)를 소개합니다. 이 벤치마크는 21개 도메인에 걸쳐 140개의 전문가 제작 작업으로 구성되어 있으며, 각 작업은 이미지-텍스트 번들 형태로 제공되어 멀티모달 이해 및 인용 기반 보고서 생성을 평가합니다. MMDR-Bench는 모델이 시각적 데이터와 출처된 주장 사이의 연관성을 수립하고 일관성을 유지해야 하는 보고서 스타일의 통합을 강조합니다.
+
+- **Technical Details**: MMDR-Bench는 일상적인 정보 검색과 데이터 분석이 많은 연구 환경을 반영하는 두 가지 보완적 방식으로 구성되어 있습니다. 평가 프레임워크는 FLAE(Formula-LLM Adaptive Evaluation), TRACE(Trustworthy Retrieval-Aligned Citation Evaluation), MOSAIC(Multimodal Support-Aligned Integrity Check)의 세 가지 특별한 모듈로 이루어져 있어 보고서의 다면적인 성격을 평가합니다. 또한, Visual Evidence Fidelity (VEF)라는 엄격한 메트릭을 도입하여 에이전트의 주장이 제공된 시각적 증거와 밀접하게 일치하도록 보장합니다.
+
+- **Performance Highlights**: 25개의 최신 LLM 및 에이전트 시스템에 대한 실험 결과는 생성 품질, 인용 규율 및 멀티모달 기반 간의 체계적인 균형을 보여줍니다. 우리의 연구는 강력한 문체만으로는 준수 있는 증거 사용을 보장할 수 없으며, 멀티모달 일관성이 심층 연구 에이전트의 주요 병목사항임을 강조합니다. 이 벤치마크는 전체 데이터셋 및 평가 소스 코드를 공개하여 재현성과 커뮤니티 개발을 촉진합니다.
+
+
+
+### Turbo-GoDec: Exploiting the Cluster Sparsity Prior for Hyperspectral Anomaly Detection (https://arxiv.org/abs/2601.12337)
+- **What's New**: 이 논문에서는 하이퍼스펙트럴 이미지(HSI)에서의 이상 탐지(anomaly detection) 기술을 개선하기 위해 클러스터 희소성(cluster sparsity)이라는 새로운 가정을 도입합니다. 기존의 방법들이 낮은 랭크(low-rank) 배경과 희소한(anomalies) 이상을 가정하는 데 그치는 반면, 우리는 이상 픽셀이 공간적으로 클러스터 형태를 가진다는 점에 주목했습니다. 이를 통해 제안된 방법인 Turbo-GoDec가 더욱 효과적으로 작동할 수 있도록 하였습니다.
+
+- **Technical Details**: Turbo-GoDec는 GoDec 알고리즘을 기반으로 하여, 하이퍼스펙트럴 이미지의 클러스터 희소성을 모델링합니다. 이 과정에서 마르코프 랜덤 필드(Markov Random Field)와 요인 그래프(factor graph)를 활용하여 이상 픽셀의 주변 정보를 효과적으로 계산합니다. 최종적으로, Turbo-GoDec는 저랭크 구성 요소와 희소 구성 요소를 산출하며, 각 픽셀이 이상에 해당할 확률을 생성합니다.
+
+- **Performance Highlights**: 실험 결과 Turbo-GoDec는 기존의 GoDec 및 최신 최첨단 방법들과 비교했을 때 소형 이상 탐지에서 탁월한 성능을 보여주었습니다. 특히, 큰 영역의 거짓 긍정(false positive)을 줄이는 동시에 이상 경계 주변의 서브 픽셀(sub-pixel) 이상에 대한 탐지 능력을 크게 향상시켰습니다. 이러한 성능 향상은 클러스터 희소성 가정을 효과적으로 활용한 결과입니다.
+
+
+
+### FlowIID: Single-Step Intrinsic Image Decomposition via Latent Flow Matching (https://arxiv.org/abs/2601.12329)
+- **What's New**: 이번 논문에서는 Intrinsic Image Decomposition (IID) 문제를 해결하기 위해 새로운 접근 방식인 FlowIID를 제안합니다. FlowIID는 latent flow matching을 기반으로 한 아키텍처로, existing 모델들보다 적은 매개변수로도 우수한 성능을 제공합니다. 이 모델은 단일 추론 단계에서 처리할 수 있어 리소스 제약적인 환경에서의 실시간 비전 응용 프로그램에 적합합니다.
+
+- **Technical Details**: FlowIID는 VAE (Variational Autoencoder) 가이드된 latent 공간과 flow matching 모듈을 결합하여 알베도(albedo)와 셰이딩(shading)을 안정적으로 분해합니다. 모델 아키텍처는 UNet, 인코더 및 디스criminator로 구성되어 있으며, 다양한 블록과 스킵 연결을 통해 효율적인 처리를 구현합니다. 이와 함께, 두 단계의 학습을 통해 VAE와 디스criminator를 VAEGAN 유형으로 훈련하여 구조적 손실을 최소화합니다.
+
+- **Performance Highlights**: FlowIID는 여러 벤치마크에서 기존 모델들과 비교했을 때 경쟁력 있는 성능을 발휘하며, 특히 적은 매개변수로도 우수한 정확도를 유지합니다. 이로 인해 리소스를 절약하면서도 실시간 및 임베디드 배포에 활용될 수 있어 매우 실용적입니다. 기존 IID 모델들이 일반적으로 수억 개의 매개변수를 요구하는 반면, FlowIID는 더 적은 수의 매개변수로도 높은 성능을 보여줍니다.
+
+
+
+### EmoKGEdit: Training-free Affective Injection via Visual Cue Transformation (https://arxiv.org/abs/2601.12326)
+Comments:
+          11pages,10figures
+
+- **What's New**: 기존의 이미지 감정 편집 방법들은 감정적인 신호를 잠재적 콘텐츠 표현에서 분리하는 데 어려움을 겪고 있으며, 이로 인해 감정 표현이 약하거나 시각적 구조가 왜곡되는 경우가 많습니다. 이를 해결하기 위해 우리는 EmoKGEdit라는 새로운 훈련 없는 프레임워크를 제안합니다. 이 프레임워크는 객체, 장면, 속성, 시각적 단서 및 감정 간의 복잡한 관계를 분리하기 위해 다중 모달 감정 연관 지식 그래프(MSA-KG)를 구성합니다.
+
+- **Technical Details**: EmoKGEdit는 감정 속성과 레이아웃 기능을 명확히 분리하여 잠재 공간 내에서 감정 편집을 수행합니다. 이는 감정 속성을 효과적으로 주입하면서도 시각적 공간 일관성을 엄격히 유지하는 것을 보장합니다. 이 프레임워크는 감정 기준의 시각적 단서를 유도하고 일관된 지침을 생성하기 위해 외부 정보를 활용하여 'chain of thought reasoning'을 지원합니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 EmoKGEdit는 감정 충실도(emotion fidelity)와 콘텐츠 보존(content preservation) 모두에서 뛰어난 성능을 달성하며, 기존의 최첨단 방법들을 초월하는 결과를 보여줍니다. 특히, 감정을 정확히 반영하면서도 구조적인 일관성을 유지할 수 있는 점은 EmoKGEdit의 중요한 강점으로 부각됩니다.
+
+
+
+### Multi-Sensor Matching with HyperNetworks (https://arxiv.org/abs/2601.12325)
+- **What's New**: 이 논문에서는 하이퍼네트워크(hypernetwork)를 활용하여 멀티모달 패치 매칭(multimodal patch matching)을 개선하는 방법을 제안합니다. 새로운 경량의 디스크립터 학습(descriptor learning) 아키텍처는 시암네트워크(Siamese CNN)에 하이퍼네트워크 모듈과 조건부 인스턴스 정규화(Conditional Instance Normalization, CIN)를 결합하여 구현됩니다. 이러한 접근 방식은 모델 크기를 증가시키지 않으면서도 다양한 응용 분야에서 뛰어난 성능을 보여줍니다.
+
+- **Technical Details**: 제안된 방법에서는 하이퍼네트워크 모듈을 사용하여 각 채널에 대한 동적 스케일링과 시프팅을 계산하고, CIN을 통해 모달리티별 컨텍스트를 제공합니다. 또한, 시암네트워크는 트리플렛 손실(triplet loss) 및 하드 네거티브 마이닝(hard negative mining)을 통해 훈련됩니다. 이 두 가지 구성 요소는 서로 다른 모달리티에 적절하게 적응할 수 있도록 도와줍니다.
+
+- **Performance Highlights**: 본 연구는 VIS-NIR 및 기타 VIS-IR 벤치마크에서 최첨단(state-of-the-art) 성능을 달성하였으며, 추가 데이터셋에서도 이전 방법들을 초과하거나 동등한 성능을 보였습니다. 또한, GAP-VIR라는 새로운 크로스 플랫폼(multimodal) 데이터셋을 출시하여 도메인 전이(domain shift) 및 도메인 적응(domain adaptation)에 대한 연구가 촉진될 것으로 기대합니다.
+
+
+
+### GazeFormer-MoE: Context-Aware Gaze Estimation via CLIP and MoE Transformer (https://arxiv.org/abs/2601.12316)
+Comments:
+          accepted at ICASSP 2026
+
+- **What's New**: 이 논문에서는 3D 시선 추정을 위한 의미 조정(mo-dulated) 다중 스케일 Transformer 모델인 GazeFormer-MoE를 제안합니다. CLIP의 글로벌 특징을 학습 가능한 프로토타입 은행(prototype bank)으로 조건화(condi-tion)하고, 이를 CLIP 패치 토큰(patch tokens) 및 고해상도 CNN 토큰과 통합하여 주의(attention) 영역 내에서 융합(fusion)합니다. 또한, 여러 개의 FFN 블록을 라우팅된(shared) 혼합 전문가(MoE)로 대체하여 조건적 용량을 증대시키고 있습니다.
+
+- **Technical Details**: 제안된 방법론은 CLIP 기반의 의미 맥락(semantic context), 패치 레벨(patch-level) 토큰 및 고해상도 CNN 특징을 결합하여 3D 시선 방향을 추정하는 다중 모드 Transformer 구조를 갖추고 있습니다. 각 얼굴 이미지를 입력으로 받아 CLIP의 글로벌 임베딩(global embedding), CLIP 패치 토큰 및 CNN 특징을 통해 출력 토큰을 생성합니다. 이 과정에서 전문성을 기반으로 한 MoE 구조를 채택하여 성능을 향상시키고, 각 토큰 별로 선택적으로 전문성을 활용하고 있습니다.
+
+- **Performance Highlights**: GazeFormer-MoE는 MPIIFaceGaze, EYEDIAP, Gaze360 및 ETH-XGaze와 같은 네 가지 벤치마크에서 2.49°, 3.22°, 10.16°, 1.44°와 같은 최첨단 성능을 기록했으며, 이는 이전 결과보다 최대 64% 향상된 수치입니다. 또한, ablation 연구를 통해 프로토타입 조건화(prototype conditioning), 크로스 스케일 융합(cross scale fusion) 및 MoE의 효과를 확인할 수 있었습니다. 이러한 성과는 다양한 조명 및 배경 조건에 대한 강건성을 크게 향상시켰음을 보여줍니다.
+
+
+
+### S^2F-Net:A Robust Spatial-Spectral Fusion Framework for Cross-Model AIGC Detection (https://arxiv.org/abs/2601.12313)
+Comments:
+          27pages 9figures
+
+- **What's New**: 이 논문은 S2F-Net이라는 새로운 교차 모델 탐지 프레임워크를 제안하며, 이는 실제와 합성 텍스처 간의 고유한 스펙트럼 불일치를 활용하여 일반화 성능을 향상시키는 데 주력합니다. 이 프레임워크는 주파수 도메인의 아티팩트를 감지하여, 탐지 모델이 새로운 생성 아키텍처에 보다 강력하게 적응할 수 있도록 한다는 점에서 기존 방법들과 차별화됩니다. 특히, 학습 가능한 주파수 주의 모듈을 도입하여 주파수 밴드를 동적으로 강화하고 조정합니다.
+
+- **Technical Details**: S2F-Net은 지역 텍스처 이상 현상에 모델의 초점을 집중시키기 위해 'Smash & Reconstruction' 전략을 사용하고, 학습 가능한 주파수 주의(Learnable Frequency Attention, LFA) 모듈을 통합하여 주파수 대역을 정밀하게 격리하는 방식으로 작동합니다. 이 모듈은 고정된 밴드 패스 필터 대신 거리 초기화된 학습 가능한 마스크를 적용하여 주파수를 효율적으로 분석합니다. 이를 통해 스펙트럼 에너지를 측정하고 채널별 주의 가중치를 계산하여 고주파 아티팩트를 효과적으로 포착합니다.
+
+- **Performance Highlights**: S2F-Net은 AIGCDetectBenchmark를 이용한 실험에서 90.49%의 탐지 정확도를 달성하여, 기존의 다양한 기본 방법들보다 월등한 성능을 보였습니다. 특히, 본 연구는 다양한 생성 모델들에 대한 교차 도메인 탐지 시 السينار리오에서 강력한 일반화 성능을 발휘하여 인공지능 생성 이미지 탐지 분야에 혁신적인 기여를 할 것으로 기대됩니다.
+
+
+
+### CurConMix+: A Unified Spatio-Temporal Framework for Hierarchical Surgical Workflow Understanding (https://arxiv.org/abs/2601.12312)
+- **What's New**: 본 논문은 외과 수술의 세부 행동을 이해하기 위한 외과 행동 트리플 인식(Triplet Recognition) 기술을 다룹니다. 기존의 방법들이 클래스 불균형과 시각적 차이를 동시에 해결하지 못하는 한계를 극복하기 위해 CurConMix라는 새로운 프레임워크를 제안하였습니다. 또한, 복잡한 복강경 수술을 위한 새로운 데이터 기준인 LLS48를 소개하여, 계층적으로 구조화된 수술 절차 분석이 가능하게 합니다.
+
+- **Technical Details**: CurConMix 프레임워크는 커리큘럼 기반 대조 학습(Curriculum-guided Contrastive Learning)을 활용하여 형성되며, 이를 통해 시각적으로 유사한 트리플 간의 확실한 구분을 만들어냅니다. 또한, CurConMix+는 다중 해상도 시간 변환기(Multi-Resolution Temporal Transformer, MRTT)를 통합하여 시공간(cross-spatial-temporal) 특성을 결합함으로써 더욱 견고한 이해를 제공합니다. 이 과정에서 하드 페어 샘플링(hard-pair sampling)과 피쳐 믹스업(feature-level mixup) 기법도 활용됩니다.
+
+- **Performance Highlights**: CurConMix+는 CholecT45와 LLS48 데이터셋에서 최신 방법들보다 뛰어난 성능을 보여주었습니다. 측정 결과, CholecT45에서는 43.4%의 Average Precision (APIVT)을 달성하였고, LLS48에서는 59.0%로 나타났습니다. 이 프레임워크는 세분화된 트리플 인식을 통해 더 높은 단계의 작업 인식(phase, step)을 위한 강력한 일반화 능력을 발휘했습니다.
+
+
+
+### Adaptive Multi-Scale Correlation Meta-Network for Few-Shot Remote Sensing Image Classification (https://arxiv.org/abs/2601.12308)
+Comments:
+          Accepted in IEEE ICASSP 2026
+
+- **What's New**: 이 논문에서는 리모트 센싱(Remote Sensing) 분야의 few-shot learning(FSL) 문제를 해결하기 위해 Adaptive Multi-Scale Correlation Meta-Network(AMC-MetaNet)라는 새로운 경량 프레임워크를 제안합니다. 주요 혁신으로는 스케일 불변 패턴을 포착하는 correlation-guided feature pyramids, 동적 크로스 스케일 관계를 학습하는 adaptive channel correlation module(ACCM), 그리고 기존의 프로토타입 평균 대신 correlation 패턴을 활용하는 correlation-guided 메타 학습이 있습니다. 기존의 사전 훈련된 모델이나 변환기(transformer) 모델에 의존하지 않고, 약 600K 파라미터로 훈련되는 AMC-MetaNet은 ResNet-18의 20배 적은 파라미터를 갖고 고효율을 유지합니다.
+
+- **Technical Details**: AMC-MetaNet은 에피소드 학습 프레임워크를 기반으로 한 FSL 원리를 따릅니다. 입력 리모트 센싱 이미지는 경량 CNN을 통해 초기 피쳐 맵을 생성한 다음, 이를 네 가지 레벨의 피처 피라미드로 분해하여 다양한 해상도의 특성을 캡처합니다. Adaptive Channel Correlation Module(ACCM)은 각 피라미드 레벨에서 채널 간 상관관계를 동적으로 모델링하여 중요하지 않은 정보를 억제합니다. 이러한 구조는 크로스 스케일 상관 행렬을 생성하고 이를 통합하여 분류를 위한 메타 학습에 활용합니다.
+
+- **Performance Highlights**: AMC-MetaNet은 EuroSAT, NWPU-RESISC45, UC Merced Land Use, AID 등의 다양한 리모트 센싱 데이터셋에서 5-way 5-shot 분류에서 최대 86.65%의 정확도를 달성하였습니다. 이는 기존 접근 방식을 능가하는 계산 효율성과 스케일 인식 능력을 입증합니다. 이 모델은 실제 세계의 몇 가지-shot 리모트 센싱 작업에 적합한 프레임워크로 자리 잡을 것으로 기대됩니다.
+
+
+
+### A Two-Stage Globally-Diverse Adversarial Attack for Vision-Language Pre-training Models (https://arxiv.org/abs/2601.12304)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 이번 논문에서는 VLP 모델의 취약점을 해결하기 위한 새로운 공격 프레임워크인 2S-GDA(Two-Stage Globally-Diverse Attack)를 제안합니다. 기존의 공격 방법들이 가졌던 두 가지 주요 제한 사항인 불안정한 반복적 텍스트 변경과 전역적으로 다양한 변형의 부족을 해결하고자 하였습니다. 2S-GDA는 텍스트와 이미지의 공격 단계 구조를 재구성하여, 세 단계의 복잡성을 줄이고 효과적인 적대적 변형을 달성합니다.
+
+- **Technical Details**: 2S-GDA는 두 단계로 구조화되어 있으며, 첫 번째 단계에서는 전역적으로 인지하는 텍스트 변경 모듈을 사용하여 BERT-MLM과 WordNet를 통해 후보 텍스트를 생성합니다. 두 번째 단계에서는 멀티 스케일 리사이징과 BSR(블록 셔플 및 회전) 기법을 사용하여 이미지의 적대적 변형을 증가시킵니다. 이를 통해 VLP 모델에서의 공격 성공률을 개선하고, 기타 기존 메소드와 통합이 용이한 모듈형 프레임워크를 제공합니다.
+
+- **Performance Highlights**: 실험 결과, 2S-GDA는 특히 블랙박스 설정에서 기존의 최첨단 방법들에 비해 최대 11.17% 향상된 공격 성공률을 달성했습니다. 이 연구는 VLP 모델에서의 적대적 이식성(adversarial transferability) 향상을 위한 강력한 도구를 제공합니다. 마지막으로, 제안된 프레임워크는 모듈형으로 설계되어 다른 방법들과 쉽게 결합하여 성능을 더욱 높일 수 있습니다.
+
+
+
+### Concepts from Representations: Post-hoc Concept Bottleneck Models via Sparse Decomposition of Visual Representations (https://arxiv.org/abs/2601.12303)
+Comments:
+          AAAI 2026
+
+- **What's New**: 이 논문은 사전 훈련된 불투명한 모델에 해석 가능한 구조를 도입하는 새로운 파이프라인인 Post-hoc Concept Bottleneck Model via Representation Decomposition (PCBM-ReD)를 소개합니다. PCBM-ReD는 시각 개념을 자동으로 추출하고, 다중 모달 대형 언어 모델(Multimodal Large Language Models, MLLMs)을 활용하여 각 개념을 레이블링하고 필터링합니다. 이 방법은 이미지 분류 작업에서 최첨단 성능을 달성하며, 기존의 Concept Bottleneck Models(CBMs)의 한계를 극복합니다.
+
+- **Technical Details**: PCBM-ReD는 사전 훈련된 이미지 인코더를 기반으로 일반화 가능한 특징을 추출하는 자동 개념 추출을 실시합니다. 시각적으로 식별 가능하고 인간 친화적인 개념에 대해 MLLMs를 이용해 레이블을 부여하고, 선택된 개념의 독립성을 보장하기 위해 재구성 기반 최적화 기법을 사용합니다. CLIP의 시각-텍스트 정렬 기능을 이용하여 이미지 표현을 개념의 텍스트 임베딩의 가중합으로 분해하는 방식으로 작동합니다.
+
+- **Performance Highlights**: 우리의 연구 결과는 PCBM-ReD가 11개의 이미지 분류 작업에서 최첨단 정확도를 달성하고, 엔드 투 엔드 모델과의 성능 차이를 줄인다는 것을 보여줍니다. 또한, 우리 접근법은 CBM을 사용하여 엔드 투 엔드 모델의 동작을 모방하려고 하며, 제로-샷(Zero-shot) 및 몇-샷(Few-shot) 기능을 표현합니다. 인간 평가를 통해 PCBM-ReD의 향상된 해석 가능성을 입증하며, 데이터 기반의 개념 생성 체계를 제안합니다.
+
+
+
+### LegacyAvatars: Volumetric Face Avatars For Traditional Graphics Pipelines (https://arxiv.org/abs/2601.12285)
+- **What's New**: 본 논문에서는 3D 얼굴 아바타를 위한 효율적인 클래식 렌더링을 위한 새로운 표현 방식을 소개합니다. 최근 발전된 radiance fields를 이용하여 복잡한 얼굴의 특징을 포함하는 volumetric rendering을 제어할 수 있게 되었습니다. 등록 시점에서 3D 공간의 radiance manifolds를 학습하여, 명시적인 레이어드 메시와 함께 외양 및 왜곡 텍스처를 추출합니다. 배포 시에는 정적 메시 위에 텍스처를 간단한 선형 혼합 및 알파 합성을 통해 얼굴을 제어하고 애니메이션 할 수 있습니다.
+
+- **Technical Details**: 이 연구는 얼굴 아바타의 모든 연속 장면 구성 요소를 이산화(discretization) 및 양자화(quantization)하여 고전적인 프리미티브인 메시(mesh)와 텍스처로 모델링하는 방식을 보여줍니다. 애니메이션 제어 신호를 통해 3D 아바타의 기하학, 외양 및 변형을 조절할 수 있으며, UV 좌표를 보정(offsetting)하는 방식으로 표현됩니다. 이 방법은 ML 추론 없이 전통적인 그래픽 플랫폼과 호환 가능하도록 설계되었으며, 아바타의 애니메이션을 위해 단 한 번의 스트리밍으로 필요한 데이터만 전송됩니다.
+
+- **Performance Highlights**: 정량적 및 정성적 비교를 통해, 본 연구의 표현 방식이 소비자 노트북에서 WebGL과 같은 전통적인 그래픽 플랫폼에서 효율적으로 렌더링 될 수 있음을 보여주었습니다. 또한, 이 방법은 다양한 아바타 애플리케이션에 위해 널리 사용되는 기존 그래픽 플랫폼 및 온라인 스트리밍 인프라에 자연스럽게 호환됩니다. 이로 인해 보다 나은 시각적 품질을 유지하면서도 렌더링 효율성을 향상시킬 수 있었습니다.
+
+
+
+### SDiT: Semantic Region-Adaptive for Diffusion Transformers (https://arxiv.org/abs/2601.12283)
+- **What's New**: 최근 Diffusion Transformers (DiTs)는 텍스트-이미지 합성에서 최고 수준의 성능을 보여주지만, iterative한 denoising과 global attention의 quadratic 비용 때문에 연산량이 많습니다. 본 연구에서는 비균일한 denoising dynamics에 착안하여, Semantic Region-Adaptive Diffusion Transformer(SDiT)를 제안합니다. SDiT는 지역적 복잡성에 따라 계산을 할당함으로써, 기존 모델의 재훈련 없이도 성능을 개선합니다.
+
+- **Technical Details**: SDiT는 (1) 빠른 Quickshift 기반 세그멘테이션을 통한 semantic-aware clustering, (2) 지역 적응형 복잡성 기반 계산 스케줄링, (3) 경계 인식 개선 모듈의 세 가지 핵심 요소로 구성됩니다. 이를 통해 지역별로 denoising 업데이트를 동적으로 할당하여, 정보가 중요한 영역에 집중되도록 합니다. 이러한 특성 덕분에, SDiT는 모델의 파라미터를 수정할 필요 없이 유의미한 속도 향상과 품질 유지를 동시에 달성합니다.
+
+- **Performance Highlights**: SDiT는 기존의 텍스트-이미지 생성 DiT 모델에서 최대 3.0배의 속도 향상을 보여주며, FID 점수는 14% 개선되고 연산량은 8% 줄어들었습니다. 즉, 이미지 생성 품질을 유지하면서도 처리 속도를 크게 개선하였습니다. 이러한 결과는 SDiT가 semantic segmentation과 dynamics에 기반하여 지역적인 업데이팅을 수행하는데 기인합니다.
+
+
+
+### CytoCLIP: Learning Cytoarchitectural Characteristics in Developing Human Brain Using Contrastive Language Image Pre-Training (https://arxiv.org/abs/2601.12282)
+- **What's New**: 이번 연구에서는 CytoCLIP이라는 새로운 시각-언어 모델 집합을 제안합니다. 이 모델은 Contrastive Language-Image Pre-Training (CLIP) 프레임워크를 기반으로 하여 뇌의 세포 구조(cytoarchitecture)를 학습합니다. CytoCLIP은 저해상도와 고해상도로 구분된 두 가지 모델 변형을 포함하여, 뇌의 다양한 영역을 자동으로 식별할 수 있는 가능성을 제공합니다.
+
+- **Technical Details**: CytoCLIP의 저해상도 모델은 전체 지역 이미지를 사용하여 구조적인 패턴을 이해하고, 고해상도 모델은 상세한 세포 레벨 표현을 위해 이미지 타일을 훈련합니다. 훈련 데이터셋은 다양한 주차의 태아 뇌의 NISSL 염색(histological section) 섹션에서 생성되었으며, 86개의 저해상도 지역과 384개의 고해상도 타일로 구성되어 있습니다. 이 모델은 지역 분류와 크로스 모달(Cross-modal) 검색 과제를 통해 세포 구조에 대한 이해도와 일반화 능력을 평가합니다.
+
+- **Performance Highlights**: CytoCLIP은 다양한 데이터를 포함한 여러 실험을 통해 기존 방법들을 능가하는 성능을 입증했습니다. 전체 지역 분류에서 F1 점수 0.87을, 고해상도 이미지 타일 분류에서 0.91를 달성했습니다. 이러한 결과는 CytoCLIP이 뇌의 세포 구조를 자동으로 식별할 수 있는 효율적인 방법임을 보여줍니다.
+
+
+
+### AgenticPruner: MAC-Constrained Neural Network Compression via LLM-Driven Strategy Search (https://arxiv.org/abs/2601.12272)
+Comments:
+          38 pages, 2 figures, 14 tables
+
+- **What's New**: 본 논문에서는 AgenticPruner라는 새로운 프레임워크를 제안하여 MAC(곱셈-누산) 제약을 고려한 최적화를 달성합니다. 이 접근법은 세 가지 특화된 에이전트로 구성되어 모델 아키텍처 분석, 워크플로우 조율, 전략 학습을 수행합니다. 특히, Analysis Agent는 과거의 실험 데이터를 분석하여 반복 학습을 통해 MAC 목표값에 자동으로 수렴하게 합니다. 기존의 파라미터 축소에 초점을 맞춘 방법들과 달리, 본 접근법은 MAC 예산을 직접 최적화하는 것을 목표로 합니다.
+
+- **Technical Details**: 이 프레임워크는 Profiling Agent, Master Agent, Analysis Agent의 세 가지 에이전트를 활용하여 MAC 제약을 고려한 반복적인 전략 학습을 통해 최적화를 수행합니다. Profiling Agent는 모델 아키텍처를 분석하고 각 계층의 MAC 분포를 정량화합니다. Master Agent는 전체 워크플로우를 조율하고 다양한 훈련 히스토리를 관리하며, Analysis Agent는 과거 결과를 학습하여 최적의 가지치기 전략을 학습합니다. 이 과정에서 LLM(대형 언어 모델)을 사용하여 최적의 구성 조합을 자동으로 탐색합니다.
+
+- **Performance Highlights**: 제안된 방법은 ResNet, ConvNeXt, DeiT 아키텍처에서 ImageNet-1K 데이터셋을 통해 검증되었습니다. 결과적으로, ResNet-50은 1.77G MACs에서 77.04%의 정확도로 (+0.91% vs baseline) 달성하였고, ConvNeXt-Small은 8.17G MACs에서 1.41배 GPU 속도 향상과 45%의 파라미터 축소를 달성했습니다. Vision Transformers에서도 사용자가 정의한 허용 오차 범위 내에서 MAC 예산 준수를 입증하였으며, 실용적인 배포 시나리오에서의 가능성을 확립하였습니다.
+
+
+
+### Soft Shadow Diffusion (SSD): Physics-inspired Learning for 3D Computational Periscopy (https://arxiv.org/abs/2601.12257)
+- **What's New**: 본 연구는 일반적인 비선로 시점(non-line-of-sight, NLOS) 사진을 사용하여 숨겨진 장면의 3D 재구성을 할 수 있는 새로운 방법을 제안합니다. 이 방법은 고유의 빛 전송 모델을 재구성하고, 숨겨진 장면을 빛을 차단하는(light-occluding) 요소와 차단되지 않는(non-light-occluding) 요소로 나누어 입체적인 시각적 표현을 선보이는 것이 특징입니다. 특히, 새로운 Soft Shadow diffusion (SSD)이라는 물리적 특성을 기반으로 한 신경망 접근법을 통해 성과를 도출하고, 실제 실험에서도 효과성을 입증했습니다.
+
+- **Technical Details**: 본 연구에서는 비밀장소에 대한 데이터를 수집하기 위해 조도와 같은 신호를 활용한 측정값으로부터 NLOS 장면의 정보를 추론하는 기술을 수립했습니다. 기존에 존재하던 방법들과 비교하여, 간단한 사진 하나를 사용하여 3D 구성을 가능하게 하는 separable non-linear least squares (SNLLS) 문제를 제안합니다. 두 가지 해결책을 개발했으며, 하나는 기울기 기반 최적화 방법이고 다른 하나는 SSD라는 새로운 생성 모델입니다.
+
+- **Performance Highlights**: SSD는 훈련이 이루어진 시뮬레이션에서 새로운 클래스에도 잘 일반화되며, 노이즈와 주변 조명에 대해 놀라운 강인성을 보여줍니다. 제안된 방법은 여러 실제 3D 장면에서 효과적이며, 고해상도 3D 포인트 클라우드로서 숨겨진 장면을 재구성하는 데 성공했습니다. 이러한 기술들은 다양한 응용 분야에서의 활용 가능성을 보여줍니다.
+
+
+
+### Federated Joint Learning for Domain and Class Generalization (https://arxiv.org/abs/2601.12253)
+Comments:
+          ICASSP 2026
+
+- **What's New**: 이 논문에서는 미지의 클래스와 도메인 문제를 동시에 해결하기 위한 새로운 접근법인 	extbf{FedDCG}를 제안합니다. 기존의 방법들은 이러한 문제를 개별적으로 다루었으나, 	extbf{FedDCG}는 연합 학습(federated learning) 환경에서 클래스 일반화(class generalization)와 도메인 일반화(domain generalization)를 통합하여 해결하는 것을 목표로 합니다. 이 접근법은 학습 중에 도메인 그룹화 전략을 도입하고, 추론 시 도메인 유사성을 바탕으로 클래스 일반화 결과를 집계하여 두 가지 일반화 지식을 효과적으로 통합합니다.
+
+- **Technical Details**: FedDCG는 데이터셋을 도메인별 그룹으로 나누고 각 그룹 내에서 클래스 일반화 네트워크를 독립적으로 학습합니다. 이 방법은 결정 경계(confusion)를 방지하며, 클래스-specific 도메인 그룹화 협업 훈련(class-specific domain-grouping collaborative training) 전략을 통해 최적화를 이루어냅니다. 후속 단계에서는 도메인 유도 집계 추론(domain-guided aggregation inference)을 사용하여 클래스 일반화 결과를 집계합니다.
+
+- **Performance Highlights**: 다양한 데이터셋에서 실시된 실험 결과, 	extbf{FedDCG}는 기존 최첨단 기준(state-of-the-art baselines)을 초과하는 높은 정확도와 강인성을 보여주었습니다. 본 연구는 미지의 클래스와 도메인 문제를 동시에 고려한 최초의 연구로, 이를 통해 현실적인 복잡한 상황에 대한 대응력을 더욱 향상시켰습니다. 이 방법은 특히 연합 학습 환경에서 데이터 프라이버시를 유지하면서도 효율적인 모델 학습을 가능하게 합니다.
+
+
+
+### An Innovative Framework for Breast Cancer Detection Using Pyramid Adaptive Atrous Convolution, Transformer Integration, and Multi-Scale Feature Fusion (https://arxiv.org/abs/2601.12249)
+Comments:
+          13 page
+
+- **What's New**: 이 논문은 유방암 진단을 위한 혁신적인 프레임워크를 제시합니다. Pyramid Adaptive Atrous Convolution (PAAC)과 Transformer 아키텍처를 통합하여 유방조직의 악성 덩어리를 탐지하는 방안을 설명합니다. Multi-Scale Feature Fusion을 활용해 양성 및 악성 조직의 특징 추출을 개선하고, 이를 통해 유방암 분류의 오류를 효과적으로 줄였습니다.
+
+- **Technical Details**: 이 연구에서는 INbreast, MIAS, DDSM의 유방암 이미지로 구성된 포괄적인 데이터셋을 사용합니다. 데이터 증강(data augmentation)과 대비 향상(contrast enhancement)을 통해 모델 훈련에 적합한 크기인 227x227 픽셀로 조정하였습니다. Self-Attention 메커니즘을 활용하여 장거리 의존성(long-range dependencies)을 관리하는 Transformer의 능력을 통해 높은 정확도를 달성하였습니다.
+
+- **Performance Highlights**: 제안된 모델은 98.5%의 정확도(accuracy), 97.8%의 민감도(sensitivity), 96.3%의 특이도(specificity), 98.2%의 F1-score, 97.9%의 정밀도(precision)를 기록했습니다. 이러한 지표들은 전통적인 방법들에 비해 significant improvement를 입증하며, 복잡한 상황과 대규모 데이터셋에서 암성 덩어리를 효과적으로 식별할 수 있는 모델의 효율성을 확인합니다.
+
+
+
+### Less is More: Label-Guided Summarization of Procedural and Instructional Videos (https://arxiv.org/abs/2601.12243)
+Comments:
+          22 pages, 6 figures
+
+- **What's New**: 본 논문은 PRISM(Procedural Representation via Integrated Semantic and Multimodal analysis)라는 새로운 프레임워크를 제안합니다. PRISM은 비디오 요약 과정을 세 가지 단계로 나누어, 각 단계에서 맞춤형 시각 샘플링, 라벨 기반 키프레임 앵커링, 대규모 언어 모델(LLM)을 활용하여 의미론적으로 정통한 비디오 요약을 생성합니다. 기존의 복잡한 수동 주석이나 고정된 쿼리에 의존하지 않고 동적으로 라벨을 생성하면서도, 구조적으로 일관된 요약을 유지하는 혁신적인 점이 특징입니다.
+
+- **Technical Details**: PRISM 프레임워크는 초과 활용을 위해 의미론적 유사성과 라벨 기반 클러스터링을 지원하는 비전-언어 모델을 사용합니다. 샘플링된 프레임의 맥락을 인지하고, 의미론적으로 체계적인 라벨을 생성하여 각 비디오 단계의 키프레임 선택에 기반점을 제공합니다. 이러한 라벨은 비슷한 시각적 및 의미론적 프레임을 코사인 유사도 기준에 따라 그룹화하여 적절한 구성 요소를 통합합니다.
+
+- **Performance Highlights**: PRISM의 요약은 전체 비디오 길이의 5% 미만의 프레임을 사용하면서 84% 이상의 의미론적 내용을 유지합니다. YouCook2 데이터셋에서 기존 기초선을 33% 이상 초과하는 성과를 달성했으며, ActivityNet Captions에서도 17.9%의 개선을 이루었습니다. 이러한 결과는 비디오 요약에서 '적은 것이 더 많다'는 개념을 뒷받침하며, 의료 비디오 요약 작업에도 적용 가능성을 제시합니다.
+
+
+
+### DiffusionQC: Artifact Detection in Histopathology via Diffusion Mod (https://arxiv.org/abs/2601.12233)
+Comments:
+          7 pages
+
+- **What's New**: 디지털 병리학은 현대 의학에서 중요한 역할을 하며, 질병 진단 및 치료에 대한 통찰을 제공합니다. 그러나 이 논문에서는 DiffusionQC라는 새로운 프레임워크를 제안하여, 기존의 감독학습 기반 접근법과는 달리 고전적인 미세한 주석 작업 없이 아티팩트를 감지할 수 있도록 합니다. 이 방법은 깨끗한 이미지의 분포를 학습하고, 이와 다른 이미지를 아웃라이어로 감지하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: DiffusionQC는 디퓨전 모델을 기반으로 한 아웃라이어 탐지 방법으로, 이를 통해 병리학적 이미지에서 아티팩트를 식별합니다. 이 모델은 라텐트 디퓨전 모델(latent diffusion model)을 사용하여 깨끗한 이미지를 학습하고, 아티팩트가 포함된 이미지를 아웃라이어로 감지합니다. 또한, 대조 학습(Contrastive Learning) 모듈을 도입하여 아티팩트 이미지와 깨끗한 이미지 간의 분포 차이를 더 명확히 합니다.
+
+- **Performance Highlights**: 실험 결과, DiffusionQC는 상태-of-the-art 방법보다 뛰어난 성능을 보였으며, 적은 데이터와 주석으로도 교차 염료 일반화 능력을 발휘합니다. 기존의 감독모델들은 새로운 아티팩트 유형에 대한 일반화에 한계가 있었으나, DiffusionQC는 이전에 보지 못한 아티팩트에서도 안정적인 검출 성능을 보여주는 장점이 있습니다.
+
+
+
+### Where It Moves, It Matters: Referring Surgical Instrument Segmentation via Motion (https://arxiv.org/abs/2601.12224)
+- **What's New**: 이 논문에서는 수술 장면과의 직관적이고 언어 기반의 상호작용을 가능하게 하는 SurgRef라는 새로운 동작 안내 프레임워크를 도입합니다. SurgRef는 자연어 표현을 기초로 수술 기구의 위치를 파악하고.segmentation을 수행하여, 기존의 정적인 시각적 신호와 사전에 정의된 기구 이름에 의존하는 방법들의 한계를 극복합니다. 수술 비디오에서의 기구 동작을 모델링함으로써 Occlusion, 불확실성 및 생소한 용어와 같은 상황에서도 기구를 이해하고 분리할 수 있습니다.
+
+- **Technical Details**: SurgRef는 기구의 동작을 매개로 자연어 표현을 구체적으로 모델링하는 참조 비디오 segmentation 프레임워크입니다. 이를 지원하기 위해, 다양한 수술 절차와 환경을 포괄하는 Ref-IMotion 데이터 세트를 구성하며, 기구 행동을 설명하는 동작 중심의 언어 표현을 수작업으로 주석 달아 제공합니다. 또한, 모델의 세부적인 시공간 이해를 가능하게 하는 키 프레임 주의 모듈을 통해 표현 관련 프레임을 선택하여 보다 정확한 segmentation을 수행합니다.
+
+- **Performance Highlights**: SurgRef는 다양한 수술 절차와 도구 세트 전반에서 state-of-the-art 성능과 강력한 일반화 능력을 보여줍니다. 실험 결과, SurgRef는 정밀한 시간적 효과성과 공간-시간적 grounding을 향상시켜 우수한 성과를 달성하고 있음을 입증합니다. 이 연구는 수술 비디오 segmentation 분야에서 새로운 기준을 설정하며, 기계 학습 기반의 수술 지원 시스템의 발전에 기여할 것으로 기대됩니다.
+
+
+
+### VIRTUE: Versatile Video Retrieval Through Unified Embeddings (https://arxiv.org/abs/2601.12193)
+- **What's New**: 본 논문에서는 VIRTUE라는 MLLM(다중모달 대형 언어 모델) 기반의 비디오 검색 프레임워크를 제안합니다. VIRTUE는 코퍼스 수준의 검색과 세밀한 순간 로컬리제이션을 통합하는 동시에 복합된 다중 모달 쿼리를 수용할 수 있는 기능을 제공합니다. 또한, 이 프레임워크는 700K 쌍의 시각-텍스트 데이터 샘플을 활용하여 효율적으로 학습된 임베딩 모델을 사용하여 제로샷 비디오 검색 등의 작업을 수행합니다.
+
+- **Technical Details**: VIRTUE의 핵심은 시각 및 텍스트 임베딩 간의 대비 정렬(contrastive alignment)입니다. 이는 MLLM의 공통 백본을 사용하여 생성된 임베딩을 기반으로 효율적인 후보 검색을 가능하게 합니다. VIRTUE-Embed라는 명칭의 임베딩 모델은 낮은 순위 적응(Low-Rank Adaptation, LoRA) 기법으로 훈련되며，即별도의 추가 훈련 없이도 괜찮은 성능을 유지합니다.
+
+- **Performance Highlights**: 실험 결과, VIRTUE는 MSR-VTT, DiDeMo 및 MSVD 테스트 세트에서 기존의 MLLM 기반 방법들을 크게 초월하며, 전문화된 아키텍처만큼의 성능을 달성합니다. 특히, VIRTUE는 제로샷 텍스트-비디오 검색 및 제로샷 복합 비디오 검색에서 주목할 만한 결과를 도출하며, 이러한 성능은 기존의 다른 시스템들과 비교하여 뛰어난 성능을 자랑합니다.
+
+
+
+### Inverse Rendering for High-Genus 3D Surface Meshes from Multi-view Images with Persistent Homology Priors (https://arxiv.org/abs/2601.12155)
+Comments:
+          ICASSP2026 Accepted
+
+- **What's New**: 이 논문은 3D 객체를 이미지로부터 복원하는 문제의 불확실성을 해결하기 위해 영속적 동형체( Persistent Homology) 사전(prior)을 포함한 협력적 역 렌더링(collaborative inverse rendering) 전략을 제안합니다. 이 방법은 많은 복잡한 3D 표면 구조를 더욱 정확하게 재구성할 수 있도록 돕는 토폴로지(topology) 제약을 활용합니다. 덕분에 복잡한 고유종 구조(high-genus structures)의 복원에서 발생하는 문제들을 해결할 수 있습니다.
+
+- **Technical Details**: 제안된 방법은 고유종 표면 메시의 역 렌더링 문제를 최적화하는 데 집중하며, 이를 위해 메시의 정점 위치와 균일한 bi-Laplacian을 사용합니다. 또한, 카메라 배치를 위한 지침으로 영속적 동형체 사전을 활용하여, 최적의 카메라 위치를 선택할 수 있습니다. 이를 통해 최적화 과정에서 발생할 수 있는 그래디언트 소실 및 혼란을 방지하고, 토폴로지적 붕괴를 피할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, 영속적 동형체 사전의 도입으로 인해 Chamfer Distance(CD)가 감소하고 Volume IoU가 증가하여 기존의 망 기반 메서드(state-of-the-art mesh-based methods)에 비해 기하학적 정확성과 토폴로지적 실패에 대한 강건성이 향상됨을 보여주었습니다. 특히, 제안된 방법은 기하학적으로 복잡한 고유종 표면을 처리함에 있어 뛰어난 성능을 발휘하였습니다.
+
+
+
+### Enhanced Diagnostic Performance via Large-Resolution Inference Optimization for Pathology Foundation Models (https://arxiv.org/abs/2601.12150)
+Comments:
+          8 pages
+
+- **What's New**: 이 논문은 병리학 기초 모델의 입력 해상도와 하위 성능 간의 상호작용을 명확히 논의한 첫 번째 연구이며, 병리학 기초 모델의 추론 최적화에 중점을 두고 있다. 이 방법은 GPU 메모리 사용량을 크게 줄이면서도 성능 개선을 이끌어낸다.
+
+- **Technical Details**: 제안된 방법에서는 공간적으로 인식된 이웃 블록을 사용하여 주의(attention) 행렬을 희소화(sparsify)하고, 글로벌 어텐션(global attention) 점수를 통해 비정보적 토큰을 필터링한다. 이 접근법은 병리학 이미지를 처리할 때 주의 메커니즘의 연산량을 효과적으로 줄인다.
+
+- **Performance Highlights**: 본 연구는 ROI 분류 작업에서 최대 7.67% 성능 향상을 달성했으며, 세분화(segmentation) 작업에서도 호환되는 성과를 보였다. 이는 동일한 GPU 예산 내에서 더 높은 해상도의 입력 이미지로도 추론을 가능하게 하여 효율성을 크게 개선한 결과이다.
+
+
+
+### Principal Component Analysis-Based Terahertz Self-Supervised Denoising and Deblurring Deep Neural Networks (https://arxiv.org/abs/2601.12149)
+- **What's New**: 이번 연구에서는 테라헤르츠(THz) 시스템에서 발생하는 주파수 의존적인 저하 효과를 해결하기 위해 새로운 접근 방식을 제안했습니다. 기존의 이미지 처리 기법은 Low-frequency blurring와 High-frequency noise를 동시에 처리할 수 없었지만, 본 연구에서는 PCA 기반의 THz 자가 지도 학습 네트워크(THz-SSDD)를 통해 이 문제를 해결하고자 합니다. 이 네트워크는 Recorrupted-to-Recorrupted self-supervised learning 전략을 사용하여 잡음의 특성을 포착합니다.
+
+- **Technical Details**: THz-SSDD 네트워크는 PCA(주성분 분석)를 이용하여 Low와 High 주파수를 모두 복원할 수 있도록 구성되었습니다. 이미지는 반복적인 손상을 통해 잡음의 고유 특성을 학습하고, 그 이후에 PCA 분해 및 재구성을 통해 복원됩니다. 이 방식은 소량의 라벨이 없는 노이즈 이미지 세트만으로도 훈련이 가능하다는 점이 특징입니다.
+
+- **Performance Highlights**: 제안된 네트워크는 네 가지 샘플 타입에서 평가되었으며, 다양한 물질 성질과 측정 모드에서의 테스트를 통해 효과적인 denoising과 deblurring 성능을 보여주었습니다. 양적 분석 결과, 네트워크의 적용으로 이미지 품질이 개선되었고 원래 신호의 물리적 특성을 유지하며 성능 향상을 나타냈습니다.
+
+
+
+### Segment and Matte Anything in a Unified Mod (https://arxiv.org/abs/2601.12147)
+Comments:
+          AAAI 2026
+
+- **What's New**: 이번 논문에서는 Segment Anything (SAM)의 확장 모델인 Segment And Matte Anything (SAMA)를 소개합니다. SAMA는 고품질의 인터랙티브 이미지 분할 및 마팅을 제공하면서도 최소한의 추가 매개변수로 구성된 경량화된 확장입니다. 이 모델은 다중 뷰 로컬라이제이션 인코더(MVLE)와 로컬 어댑터(Local-Adapter)를 사용하여 상세한 특징을 캡처하고 향상된 마스크 출력을 제공합니다.
+
+- **Technical Details**: SAMA는 두 가지 주요 구성 요소로 나뉩니다. 첫 번째는 MVLE로, 여러 지역 뷰로부터 수집한 세부 정보를 통해 공간 정밀도를 향상시키며, 두 번째는 Local-Adapter로, 마스크 예측을 개선하여 미세한 경계 세부사항을 보완합니다. 또한, 각 작업에 대한 두 개의 예측 헤드를 통합하여 분할 및 마팅 마스크를 동시에 생성할 수 있는 아키텍처를 설계했습니다.
+
+- **Performance Highlights**: SAMA는 공개된 데이터 세트에서 훈련되었으며, 다양한 분할 및 마팅 벤치마크에서 최첨단 성능을 달성하여 그 적응성 및 효율성을 입증했습니다. 특히, SAMA는 SAM의 장점을 유지하며 유연한 프롬프트 기능을 통해 성능을 극대화하였습니다. 이번 연구는 차세대 인터랙티브 세분화 및 마팅 모델의 가능성을 보여줍니다.
+
+
+
+### CARLA-Round: A Multi-Factor Simulation Dataset for Roundabout Trajectory Prediction (https://arxiv.org/abs/2601.12119)
+- **What's New**: CARLA-Round는 원형 교차로에서의 차량 궤적 예측을 위한 체계적으로 설계된 시뮬레이션 데이터셋으로, 기상 조건과 교통 밀도를 교차하여 분석할 수 있는 첫 번째 공개 데이터셋입니다. 이 데이터셋은 5가지 날씨 조건과 5가지 교통 밀도 수준을 통해 총 25개의 제어된 시나리오를 구성하여 실제 도로 주행 환경을 모사합니다. 기존 데이터셋에서는 결여된 명확한 주행 행동 주석을 포함하여, 보다 심층적인 궤적 예측 연구를 가능하게 합니다.
+
+- **Technical Details**: CARLA-Round는 차량 궤적 예측을 위해 CARLA 시뮬레이터를 사용하여 5x5 실험 설계를 구현합니다. 날씨 조건은 NOAA의 기상 데이터에 기반하여 차별화되었으며, 주행 행동은 공격적, 보통, 조심스러운 운전자가 혼합된 인구를 반영합니다. 각 시나리오는 12,000 프레임을 포함하고 있으며 완전한 의미 주석이 제공되어 실험 중 각 인자의 영향을 정밀하게 분석할 수 있습니다.
+
+- **Performance Highlights**: 이 데이터셋을 통해 LSTM, GCN, GRU+GCN와 같은 기존 예측 모델의 성능을 평가한 결과, 교통 밀도가 예측의 어려움에 가장 큰 영향을 미치며 비선형적 기상 조건은 예측 성능에 다양한 영향을 미칠 수 있음을 확인했습니다. 최상의 모델은 현실 세계의 rounD 데이터셋에서 0.312m ADE를 달성하여 효과적인 sim-to-real 전이를 구현했습니다. 이를 통해 데이터를 사용하는 연구자들은 통제된 실험에서 중요한 인자들의 영향을 정량화할 수 있습니다.
+
+
+
+### RCDN: Real-Centered Detection Network for Robust Face Forgery Identification (https://arxiv.org/abs/2601.12111)
+- **What's New**: 이번 연구에서는 AI 기반 이미지 위조 탐지에서의 새로운 모델인 RCDN(Real-Centered Detection Network)을 제안합니다. 이 모델은 위조 이미지의 다양한 패턴 대신 진짜 이미지의 일관성을 강조하여, 크로스 도메인(출처가 다른) 환경에서의 탐지를 개선하고자 합니다. RCDN은 기존 탐지 기술의 한계를 보완하여 이미지 위조 기술의 변화에 효과적으로 대응할 수 있는 가능성을 보여줍니다.
+
+- **Technical Details**: RCDN은 주파수-공간 합성곱 신경망(CNN) 프레임워크를 기반으로 하며, Xception 백본을 활용합니다. 이 모델은 고급 의미 얼굴 특징을 캡처하는 공간(branch)와 생성 과정 중 발생하는 미세한 스펙트럴 아티팩트를 모델링하는 주파수(branch)로 구성되어 있습니다. 또한, 학습 가능한 진짜 중심 임베딩을 통해 실제 샘플의 클러스터링을 지원하고 가짜 샘플을 멀리 분리시키는 손실 구조를 도입하였습니다.
+
+- **Performance Highlights**: DiFF 데이터셋에서 세 가지 대표적인 위조 유형(FE, I2I, T2I)에 대해 평가한 결과, RCDN은 최신 상태의 도메인 내 정확성과 뛰어난 도메인 간 일반화를 달성하였습니다. 특히 RCDN은 기존 모델에 비해 일반화 격차를 감소시키고 가장 높은 도메인 간/내 안정성 비율을 기록하여, 실제 적용 가능성이 큰 솔루션임을 입증하였습니다.
+
+
+
+### Energy-Aware Ensemble Learning for Coffee Leaf Disease Classification (https://arxiv.org/abs/2601.12109)
+- **What's New**: 이 연구는 커피 잎 질병의 진단을 위한 경량화 모델의 효과성을 탐구합니다. 인공지능 비전 모델이 높은 정확도를 기록하지만, 제한된 장치와 간헐적인 연결성으로 인해 활용이 제한되고 있음을 지적합니다. 본 연구는 Ensemble Learning을 통해 고용량의 Convolutional Neural Networks(CNNs)를 소형화된 모델로 전이함으로써 지속 가능한 진단을 구현하는 방법론을 제안합니다.
+
+- **Technical Details**: 제안하는 방법론은 에너지 효율성을 고려한 파이프라인을 기반으로 하며, 경량 CNN 백본과 단순한 최적화 앙상블 기법을 결합하여 계측된 에너지 사용량을 최소화합니다. 이 시스템은 IoT 기반의 농업 프레임워크 내에서 작동하며, 커피 농장 내 데이터 수집 지점을 통해 실시간 진단을 수행합니다. RoCoLe 커피 잎 데이터셋을 사용하여, 다양한 CNN 아키텍처(MobileNetV3, SqueezeNet, ResNet-18)를 활용한 모델 평가가 이루어졌습니다.
+
+- **Performance Highlights**: 즉각적인 현장 진단을 위해 경량 모델을 사용하여 지연 시간을 줄이고 데이터 전송 비용을 절감하는 것을 목표로 합니다. 제안된 경량 앙상블 기법들은 수행하기에 비용 효율적이며, 기존 연구에 비해 감소된 에너지 소비로 경쟁력 있는 정확도를 달성했습니다. 이는 Internet of Things(IoT) 응용 프로그램에서 실용적인 진단 솔루션을 제공할 수 있는 잠재력을 나타냅니다.
+
+
+
+### Detecting 3D Line Segments for 6DoF Pose Estimation with Limited Data (https://arxiv.org/abs/2601.12090)
+Comments:
+          8 pages
+
+- **What's New**: 본 논문은 산업 환경에서 사용되는 빈(bins)의 6DoF 포즈 추정을 위한 새로운 방법을 제안합니다. 전통적인 딥러닝 접근 방식들이 많은 훈련 데이터나 CAD 모델을 필요로 하는 반면, 우리의 방법은 빈의 특정 기하학적 특성을 활용하여 더 높은 정확도를 달성합니다. 3D 라인 세그먼트 탐지를 통해 빈의 6DoF 포즈를 보다 신뢰성 있게 결정하는 접근 방식을 개발하였습니다.
+
+- **Technical Details**: 제안된 방법은 구조화된 포인트 클라우드 데이터에서 3D 라인 세그먼트를 탐지하는 데 중점을 두고 있습니다. 기존의 2D 라인 세그먼트 탐지 네트워크인 LeTR을 수정하여 3D 환경에서 사용할 수 있도록 발전시켰습니다. 이 과정에서 주요 특징을 추출하고, 3D 엔드포인트를 예측하기 위해 네트워크의 마지막 단계를 조정하였습니다.
+
+- **Performance Highlights**: 우리의 방법은 기존의 최첨단 6DoF 포즈 추정 방법들과 비교할 때 현저히 향상된 성능을 보여줍니다. 3 cm의 이동 오차와 8.2$^	ext{°}$의 회전 오차를 달성하여 정확도를 입증했습니다. 추가적으로 새로운 데이터셋을 구축하여 훈련 데이터를 보완함으로써 실제 스캔에서의 포즈 추정 정확도를 크게 향상시켰습니다.
+
+
+
+### Conditional Random Fields for Interactive Refinement of Histopathological Predictions (https://arxiv.org/abs/2601.12082)
+- **What's New**: 이 논문에서는 HistoCRF라는 새로운 프레임워크를 제안하여, 수작업으로 히스토패솔로지 이미지를 분석하는 패스올로지스트를 돕기 위한 방법을 소개합니다. HistoCRF는 Conditional Random Fields (CRFs)를 활용하여 기존의 Vision-Language Models (VLMs)에서 얻은 패치 레벨의 제로 샷(Zero-shot) 예측을 개선하는 접근법입니다. 이 방법은 추가적인 모델 훈련 없이도 VLM의 예측을 정교화하고, 전문가 주석을 포함하여 예측의 다양성을 촉진하는 새로운 쌍(pairwise) 잠재적(term) 정의를 포함합니다.
+
+- **Technical Details**: HistoCRF는 히스토패톨로지 이미지를 분석하기 위해 패치를 그래프의 정점으로 보고, 각 패치에 대한 클래스 레이블을 추정하는 CRF 모델을 적용합니다. 이 과정에서, CRF의 전통적인 정량적 잠재적 구성을 재구성하여 라벨 다양성을 장려하고 전문가 주석을 통합합니다. 또한, 비훈련 방식을 통해 VLMs로부터 유도된 유니타리(unary) 잠재적(term)을 활용해 패치 레벨 예측을 수행합니다.
+
+- **Performance Highlights**: HistoCRF는 다섯 개의 히스토패톨로지 벤치마크 데이터셋에서 주석 없이 평균 16.0%, 100개의 주석만으로 평균 27.5%의 정확도 향상을 달성했습니다. 마지막으로, 휴먼 인 더 루프(HITL) 구조를 통해 동일한 주석 수로 추가적인 32.6%의 성능 향상을 이끌어내어, 실시간 상황에서도 효과적으로 활용될 수 있음을 보여주었습니다.
+
+
+
+### Toward Real-World High-Precision Image Matting and Segmentation (https://arxiv.org/abs/2601.12080)
+Comments:
+          Accepted by AAAI2026, Poster
+
+- **What's New**: 본 논문에서는 Foreground Consistent Learning Model (FCLM)을 제안하여 고정밀 이미지 마팅 및 이분법 분할 문제를 해결하고자 합니다. 이 모델은 기본적으로 시각적 및 언어적 프롬프트를 지원하는 Object-Oriented Decoder를 도입하여 상호작용 예측을 가능하게 합니다. 또한, Depth-Aware Distillation 전략을 통해 깊이 관련 지식을 전달하여 전경 표현이 개선됩니다.
+
+- **Technical Details**: FCLM은 입력으로 동일한 전경을 가진 이미지 쌍을 사용하여 네트워크가 배경 변화에 맞춰 일관된 표현을 학습하도록 합니다. 또한, 적대적 학습 손실과 최적 수송 손실을 도입하여 도메인 불변 특성을 학습하게 합니다. 데이터 어려움을 고려하여, 이 논문은 합성 데이터 처리 방법을 도메인 적응 문제로 보고 전경 학습에 집중하는 도메인 불변 학습 전략을 제안합니다.
+
+- **Performance Highlights**: 실험 결과, FCLM은 다양한 공개 데이터셋에서 최신 기술(SOTA) 방법들을 정량적 및 정성적으로 초월하는 성능을 나타냈습니다. 이 모델은 고정밀 마팅 및 분할 작업에서 근본적인 약점을 극복하고 있으며, 민감한 전경 영역의 세밀한 추정이 가능하다는 점에서 주목할 만한 성과를 거두고 있습니다.
+
+
+
+### EmoLat: Text-driven Image Sentiment Transfer via Emotion Latent Spac (https://arxiv.org/abs/2601.12079)
+Comments:
+          10 pages, 5 figures
+
+- **What's New**: EmoLat라는 새로운 감정 잠재 공간을 제안합니다. 이는 텍스트 기반 이미지 감정 전송을 가능하게 하며, 텍스트 의미와 시각적 감정 특징 간의 교차 모달 상관관계를 모델링합니다. EmoLat는 감정, 객체 및 시각적 속성의 관계 구조를 포착하기 위해 감정 의미 그래프를 구성합니다.
+
+- **Technical Details**: EmoLat는 적대적 정규화를 통해 감정 표현의 구별성과 전이 가능성을 향상시키고, 텍스트와 EmoLat 특징의 공동 임베딩을 통해 이미지 감정을 조작할 수 있는 크로스 모달 감정 전송 프레임워크를 제공합니다. 이 네트워크는 의미 일관성, 감정 정렬, 적대적 정규화를 포함하는 다중 목표 손실을 사용하여 최적화됩니다.
+
+- **Performance Highlights**: EmoSpace Set이라는 대규모 벤치마크 데이터셋을 구성하였으며, 이 데이터셋은 감정, 객체 의미 및 시각적 속성에 대한 밀집 주석을 포함하고 있습니다. 대규모 실험 결과, 제안된 방법이 기존 최첨단 방법을 정량적 지표 및 정성적 전이 충실도 모두에서 크게 초월함을 보여줍니다.
+
+
+
+### CroBIM-V: Memory-Quality Controlled Remote Sensing Referring Video Object Segmentation (https://arxiv.org/abs/2601.12076)
+- **What's New**: 이 논문은 원거리 영상에서 객체 분할(RS-RVOS) 분야의 도전 과제를 해결하기 위해 새로운 변화를 제안합니다. 첫째로, 111개의 비디오 시퀀스와 25,000프레임, 213,000개의 시간 참조 주석으로 구성된 RS-RVOS Bench라는 대규모 벤치마크를 구축했습니다. 둘째로, MQC-SAM이라고 불리는 메모리 품질 인식 온라인 참조 세분화 프레임워크를 제안하였습니다.
+
+- **Technical Details**: MQC-SAM은 초기 메모리 보정을 위한 시간적 운동 일관성 모듈을 도입하며, 짧은 시간 동안의 운동 궤적 우선 순위를 활용하여 구조적 편차를 수정합니다. 또한, 동적 품질 평가와 함께 디커플드(attention-based) 메모리 통합 메커니즘을 추가하여 높은 신뢰성을 가진 의미적 특성만을 선택적으로 업데이트하며, 불신뢰한 정보를 필터링하여 오류 축적과 전파를 효과적으로 방지합니다.
+
+- **Performance Highlights**: RS-RVOS Bench에서의 광범위한 실험 결과, MQC-SAM은 State-of-the-art 성능을 달성했음을 보여줍니다. 이는 기존 모델들이 겪는 초기 메모리 구축의 편향 또는 노이즈 축적 문제를 해결했다는 점에서 큰 의미가 있습니다. 특히 원거리 영상에서의 도전적인 시나리오들에 대해 성능 향상을 입증하였습니다.
+
+
+
+### ARMARecon: An ARMA Convolutional Filter based Graph Neural Network for Neurodegenerative Dementias Classification (https://arxiv.org/abs/2601.12067)
+Comments:
+          Accepted at IEEE International Symposium on Biomedical Imaging (ISBI) 2026
+
+- **What's New**: 본 연구에서는 알츠하이머병(Alzheimer's Disease, AD)과 전두측치매(Frontotemporal Dementia, FTD)와 같은 신경퇴행성 질환의 조기 감지를 위한 새로운 그래프 학습 프레임워크 ARMARecon을 제안합니다. 이 프레임워크는 Autoregressive Moving Average (ARMA) 그래프 필터링과 재구성 기반 목표를 통합하여 특징 표현을 강화하고 분류 정확도를 개선합니다. ARMARecon은 백질 영역에서 추출된 20-bin 분수 비등방성(Fractional Anisotropy, FA) 히스토그램 특징을 활용하여 지역 및 글로벌 연결성을 효과적으로 모델링합니다.
+
+- **Technical Details**: ARMARecon은 각 노드가 개인의 FA 기반 특징 벡터를 나타내는 완전한 주제 수준 그래프를 구축하여 이웃 집계(neighborhood aggregation)를 통해 정보를 공유할 수 있게 디자인되었습니다. 그 결과, 인구 수준의 질병 진행 패턴을 효과적으로 포착합니다. 또한, 본 모델은 ARMA 합성곱 네트워크와 재구성 기반 정규화기를 결합하여 GNN에서 자주 발생하는 과도한 평활화(over-smoothing) 문제를 해결합니다.
+
+- **Performance Highlights**: ARMARecon은 다중 사이트의 확산 MRI 데이터셋(ADNI 및 NIFD)에서 기존의 머신러닝과 딥러닝 아키텍처를 능가하는 성능을 달성했습니다. ARMARecon의 실험 결과는 조기 신경퇴행성 질환 감지를 위한 유용한 도구임을 증명하며, 특히 뇌의 백질 영역에서의 미세구조적 변화와 관련된 질병 징후를 더 잘 포착합니다.
+
+
+
+### Learning Stochastic Bridges for Video Object Removal via Video-to-Video Translation (https://arxiv.org/abs/2601.12066)
+- **What's New**: 본 논문에서는 비디오 객체 제거를 기존의 노이즈 기반 생성 모델에서 벗어나 비디오-투-비디오 전환 작업으로 재정의합니다. 기존의 비디오 객체 제거 방법들이 Gaussian noise를 기반으로 한 생성 방식을 택한 반면, 본 연구는 객체가 포함된 소스 비디오로부터 객체가 제거된 타겟 비디오에 이르는 직접적인 확률적 경로를 구축합니다. 이를 통해 입력 비디오를 강력한 구조적 선행 정보로 활용하여 정밀한 제거가 가능합니다.
+
+- **Technical Details**: 우리는 BridgeRemoval이라는 새로운 프레임워크를 제안하며, 이는 확률적 다리(Bridge) 모델을 기반으로 합니다. 이 방식을 통해 소스 비디오에서 타겟 비디오로의 직접적인 경로를 형성하고, Variational Autoencoder (VAE)를 사용하여 비디오를 연속 잠재 표현으로 압축합니다. 이로 인해 생성 과정에서 강한 시공간 일관성을 유지할 수 있는 경로가 확보됩니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 제안된 접근 방식이 기존 방법들에 비해 시각적 품질과 시간적 일관성 모두에서 현저하게 향상되었음을 입증하였습니다. 특히, 적응형 마스크 조절(Adaptive Mask Modulation; AMM) 전략을 통해 다양한 크기의 객체에 대해 강력한 성능을 발휘하는 것을 확인했습니다. 이 프레임워크는 다른 비디오-투-비디오 편집 작업으로의 확장 가능성도 보여줍니다.
+
+
+
+### Learning Language-Driven Sequence-Level Modal-Invariant Representations for Video-Based Visible-Infrared Person Re-Identification (https://arxiv.org/abs/2601.12062)
+- **What's New**: 이번 연구에서는 VVI-ReID를 위한 언어 기반의 시퀀스 수준 모달 불변 표현 학습 방법(LSMRL)을 제안합니다. LSMRL은 공간-시간 특징 학습(STFL) 모듈, 의미 확산(SD) 모듈, 그리고 교차 모달 상호 작용(CMI) 모듈을 포함하여 기존 방법들의 한계를 극복하고자 합니다. 이 방법은 CLIP을 기반으로 하여 공간-시간 정보를 효율적으로 모델링하고 모달 불일치를 줄이는데 초점을 맞추고 있습니다.
+
+- **Technical Details**: LSMRL의 STFL 모듈은 CLIP의 구조를 최적화하여 공간-시간 특징을 학습하는 데 필요한 계산량을 최소화합니다. SD 모듈에서는 모달 공유 언어 프롬프트를 RGB 및 IR 특징에 확산시켜 모달 일관성을 구축합니다. CMI 모듈은 양방향 교차 모달 self-attention을 통해 모달 간의 차이를 줄이고 모달 불변 특징을 정제합니다. 이러한 기법들은 또한 모달 수준 손실 함수(MD, MSEL)를 통해 모달 불변 특징의 학습을 명시적으로 강화합니다.
+
+- **Performance Highlights**: 대규모 VVI-ReID 데이터셋에서 실험을 수행한 결과, LSMRL은 최신 방법들(SOTA)보다 우수한 성능을 보였습니다. 예를 들어, BUPTCampus 데이터셋에서는 IR에서 RGB로 전환하는 과제에서 71.1%의 Rank-1과 67.5%의 mAP를 달성하였으며, 이는 이전의 SOTA 방법보다 각각 5.8% 및 4.0% 포인트 향상된 수치입니다.
+
+
+
+### Automating Parameter Selection in Deep Image Prior for Fluorescence Microscopy Image Denoising via Similarity-Based Parameter Transfer (https://arxiv.org/abs/2601.12055)
+- **What's New**: 이번 연구에서는 비지도 학습 기반으로 흐름 형광 현미경 이미지의 노이즈 제거 방법인 AUTO-DIP를 제안합니다. 기존의 Deep Image Prior (DIP) 기법의 한계를 해결하기 위해, 비슷한 이미지들 간에 최적 파라미터 구성을 전이하여 적용하는 방식을 사용합니다. 이를 통해 알고리즘 구성 시 소모되는 시간을 최소화하고 보다 효율적인 노이즈 제거가 가능합니다.
+
+- **Technical Details**: AUTO-DIP는 U-net 아키텍처를 기반으로 하여, 랜덤하게 초기화된 컨볼루션 신경망(CNN)을 사용합니다. 핵심 아이디어는 이미지 메타데이터의 유사성을 바탕으로, 비슷한 이미지를 통해 파라미터를 전이하여 최적화 없이 노이즈 제거를 가능하게 하는 것입니다. 연구에서는 적절한 유사도 기준을 설정하고 세밀한 파라미터 구현을 통해 성공적으로 자동화된 프로세스를 구성합니다.
+
+- **Performance Highlights**: AUTO-DIP는 기존의 DIP 구성 및 상태-of-the-art의 이미지-특화 변동 노이즈 제거 방법보다 우수한 성능을 보였습니다. 특히 매우 노이즈가 많은 입력에 대해 뚜렷한 개선이 이루어졌으며, 처리 속도 또한 3배 이상 향상되었습니다. 추가적으로, 실제 데이터에 적용했을 때 AUTO-DIP의 우수성이 입증되었습니다.
+
+
+
+### Task-Driven Prompt Learning: A Joint Framework for Multi-modal Cloud Removal and Segmentation (https://arxiv.org/abs/2601.12052)
+Comments:
+          Submitted to IGARSS 2026 Conference
+
+- **What's New**: 이번 연구에서는 구름으로 가려지는 문제를 해결하기 위해 TDP-CR(Task-Driven Prompting for Cloud Removal)이라는 새로운 멀티모달 프레임워크를 제안합니다. 이 모델은 구름 제거(cloud removal)와 토지 표면 세분화(land-cover segmentation)의 작업을 동시에 수행하여 분석 준비 데이터(analysis-ready data)의 의미적 유용성을 우선시합니다. 특히, Prompt-Guided Fusion (PGF) 메커니즘을 사용해 구름 두께와 공간적 불확실성을 인코딩하여 시각적 신뢰성을 높입니다.
+
+- **Technical Details**: TDP-CR은 구름이 있는 광학 이미지와 동기화된 SAR(Synthetic Aperture Radar) 관측 데이터를 받아들여 구름이 없는 광학 이미지와 세분화 맵을 예측합니다. 이 모델은 비구조적 인코딩(decoupled encoding)을 통해 각 입력에서 멀티스케일 특징을 추출하고, 학습 가능한 손상 프롬프트를 기반으로 광학과 SAR 정보를 적응적으로 통합합니다. 핵심 설계 요소는 손상 프롬프트(learnable degradation prompt)로, 이는 구름 두께와 공간적 불확실성에 따라 모달리티 통합을 조정합니다.
+
+- **Performance Highlights**: 실험 결과, TDP-CR이 최신 기술(state-of-the-art)보다 PSNR에서 0.18 dB 향상되었으며, 필요한 파라미터의 양은 15%에 불과했습니다. 또한 multi-task 경쟁자들과 비교하여 mIoU에서 1.4%의 일관된 개선을 달성하여 분석 준비 데이터를 효과적으로 제공합니다. 이 연구는 구름 제거 및 토지 표면 세분화의 연계를 통해 이미지 처리와 다운스트림 분석 간의 간극을 해소하는 데 기여합니다.
+
+
+
+### A Unified Masked Jigsaw Puzzle Framework for Vision and Language Models (https://arxiv.org/abs/2601.12051)
+Comments:
+          9 figures, 12 tables
+
+- **What's New**: 본 논문에서는 Masked Jigsaw Puzzle (MJP) 프레임워크를 소개하여 Transformer 기반 모델의 개인 정보 보호 및 성능 개선을 동시에 달성합니다. 특히, MJP 방식은 토큰의 위치 정보와 관련된 개인 정보 유출 문제를 해결하기 위해 입력 데이터를 랜덤하게 변형합니다. 이를 통해 데이터의 안전성을 높이고 다양한 비전 및 언어 태스크에서의 성능도 향상된다는 것을 보여줍니다.
+
+- **Technical Details**: MJP는 랜덤한 토큰 셔플링 및 학습 가능한 unknown (unk) 위치 임베딩을 사용하여 위치 임베딩(PEs)의 정보를 마스킹하는 방식을 채택합니다. 이 과정은 로컬 공간 정보를 방해하고 모델이 로컬 정보에 덜 의존하도록 만듭니다. 또한, Dense Absolute Location (DAL) 손실을 도입하여 이미지 분류 태스크에서 토큰 간의 관계를 향상시키고, 각 n-그램 윈도우 내에서 토큰 셔플링을 제한하여 텍스트 태스크에서도 성능을 유지하도록 설계하였습니다.
+
+- **Performance Highlights**: MJP 프레임워크의 실험 결과는 ImageNet-1K에서의 이미지 분류 및 Yelp, Amazon과 같은 텍스트 데이터의 감정 분석에서 성능이 향상되었음을 보여줍니다. MJP는 Transformer4 및 BERTBASE와 같은 기준 모델에 비해 일관성 및 정확성을 개선했고, 개인 정보 누출을 효과적으로 완화시키는 것으로 확인되었습니다. 따라서 MJP는 비전 및 언어 모델 모두에서 사용자 개인 정보를 보호하면서 성능을 강화하는 통합 프레임워크로 자리매김하게 되었습니다.
+
+
+
+### \textit{FocaLogic}: Logic-Based Interpretation of Visual Model Decisions (https://arxiv.org/abs/2601.12049)
+Comments:
+          12 pages, 13 figures
+
+- **What's New**: 이 논문에서는 FocaLogic이라는 새로운 모델 불가지론적 (model-agnostic) 프레임워크를 제안하여, 시각 모델의 의사 결정 과정을 해석하고 정량화할 수 있도록 합니다. 기존의 해석 방법들이 화이트 박스 모델 접근에 의존하거나 정량적 엄밀성이 부족한 문제를 해결하고자 합니다. FocaLogic은 모델 예측에 결정적으로 영향을 미치는 시각 영역인 시각 집중 (visual focuses)을 식별하고 이를 정확하고 간결한 논리 표현으로 변환합니다.
+
+- **Technical Details**: FocaLogic은 입력 이미지에서 여러 시각 영역을 분할한 후, 모델의 원래 예측을 유지하는 최소한의 시각 집중 부분집합을 반복적으로 식별합니다. 이를 통해 결정적인 논리 표현으로 변환하여 모델의 의사 결정 기준을 압축적으로 표현합니다. 또한, 집중 정확도 (focus precision), 재현율 (recall), 발산 (divergence) 등의 정량적 메트릭을 도입하여 다양한 시나리오에서 모델 행동을 객관적으로 평가합니다.
+
+- **Performance Highlights**: FocaLogic은 기존의 시각 집중 해석 방법들과 비교하여 우수성을 입증하였습니다. 실험을 통해 모델이 훈련 동안 집중하는 방식, 일반화를 통해 정확성을 높이는 방법, 그리고 편향이나 적대적 공격 하에서의 이상 집중을 발견하는 능력 등을 입증했습니다. 전반적으로 FocaLogic은 시각 모델 해석의 체계적이고 확장 가능하며 정량적인 솔루션을 제공합니다.
+
+
+
+### DIAMOND-SSS: Diffusion-Augmented Multi-View Optimization for Data-efficient SubSurface Scattering (https://arxiv.org/abs/2601.12020)
+- **What's New**: 이번 논문에서는 DIAMOND-SSS라는 데이터 효율적인 프레임워크를 제안합니다. 이 프레임워크는 고충실도의 반투명 재구성을 가능하게 하며, 놀랍게도 단 10장의 이미지만으로도 작업을 수행할 수 있습니다. 이를 통해 복잡한 빛의 전송을 모사하며, 다중 뷰 및 다중 조명 데이터 세트의 필요성을 대폭 줄이고자 합니다.
+
+- **Technical Details**: DIAMOND-SSS는 확산 모델(difussion models)을 미세 조정(fine-tuning)하여 새로운 뷰 합성(novel-view synthesis)과 재조명을 위한 조건을 설정합니다. 또한, 레이저 기반의 지오메트리 추정치에 따라 작동하며, 전체 데이터 세트의 7%도 되지 않는 양으로 학습이 가능합니다. 여기에 추가로, 조명 독립적인 지오메트릭 프라이어(geometric priors)를 도입하여 재구성을 안정화합니다.
+
+- **Performance Highlights**: DIAMOND-SSS는 모든 희소성 체제(sparsity regimes)에서 재조명이 가능한 가우시안 렌더링에서 최첨단 품질을 달성하였습니다. 실측 데이터 요구량을 최대 90%까지 줄이면서 SSS-3DGS에 비해 뛰어난 성능을 보였습니다. 이로 인해 반투명 재료의 고품질 시뮬레이션이 더 쉽고 효율적으로 가능해졌습니다.
+
+
+
+### SAR-Based Marine Oil Spill Detection Using the DeepSegFusion Architectur (https://arxiv.org/abs/2601.12015)
+Comments:
+          12 pages, 6 figures. Submitted to arXiv. Code and dataset details included in the paper
+
+- **What's New**: 이번 논문에서는 인공위성 이미지를 활용한 기름 유출 탐지를 위해 DeepSegFusion이라는 하이브리드 딥러닝 모델을 제안합니다. 전통적인 임계값 기반 방법이 높은 허위 경고 발생률로 인해 성능 저하를 보이는 데 반해, DeepSegFusion은 SAR(Synthetic Aperture Radar) 이미지에서 기름 유출 분할(segmentation)의 정확성을 향상시키고 있습니다.
+
+- **Technical Details**: DeepSegFusion 모델은 세그넷(SegNet)과 DeepLabV3+를 통합하여 주의 기반의 특징 융합 메커니즘을 적용하고 있습니다. 이로 인해 경계 정밀도(boundary precision) 개선과 더 나은 맥락 이해(contextual understanding)를 달성하였습니다. 실험 결과, ALOS PALSAR 이미지를 포함한 SAR 기름 유출 데이터셋에서 DeepSegFusion은 94.85%의 정확도(accuracy)와 0.5685의 IoU(Intersection over Union), 0.9330의 ROC-AUC 점수를 기록했습니다.
+
+- **Performance Highlights**: DeepSegFusion은 기존 단일 베이스라인 모델 및 비세그멘테이션 방법에 비해 3배 이상의 허위 탐지(false detection)를 줄이는 성과를 올렸습니다. 이는 64.4%의 감소를 가져왔으며, 다양한 해양 조건에서 안정적인 모델로 입증되었습니다. 따라서 이 모델은 거의 실시간 기름 유출 모니터링 시나리오에도 적용 가능하다는 장점을 가지고 있습니다.
+
+
+
+### SMc2f: Robust Scenario Mining for Robotic Autonomy from Coarse to Fin (https://arxiv.org/abs/2601.12010)
+- **What's New**: 이번 연구는 자율 로봇 차량의 안전 검증을 위한 Robust Scenario Mining (SMc2f) 프레임워크를 제안합니다. 이 프레임워크는 비전-언어 모델(VLMs)을 사용하여 비디오 데이터를 정교하게 필터링하고, 코드 생성을 개선하기 위한 지식 기반 접근법을 통합합니다. 또한, 텍스트-경로 대조 학습을 통해 후보 경로를 정밀하게 개선할 수 있는 기회를 제공합니다.
+
+- **Technical Details**: SMc2f는 초기 단계에서 비전-언어 모델을 사용하여 원시 RGB 비디오에서 쿼리 일치하는 시간 구간을 신속하게 식별합니다. 또한 성공적인 설명-경로-코드 삼중항의 지식 기반을 구축하여 새로운 쿼리에 대한 관련 예제를 검색합니다. 이 예제들은 코드의 신뢰성을 향상시키고 오작동을 줄이는 데 도움을 줍니다. 마지막으로, 이중 인코더 텍스트-경로 매처(DETTM)를 이용하여 언어와 시공간 경로를 공유된 공간에 임베딩합니다.
+
+- **Performance Highlights**: 공공 데이터셋에 대한 실험 결과, SMc2f는 검색 품질과 효율성에서 상당한 향상을 보여줍니다. 기존의 RefAV 프레임워크에 비해 더 넓은 범위의 시나리오를 효율적으로 찾을 수 있는 가능성을 여는 연구로, 이러한 개선은 자율 차량의 안전성 향상에 기여할 것입니다.
+
+
+
+### DAOS: A Multimodal In-cabin Behavior Monitoring with Driver Action-Object Synergy Datas (https://arxiv.org/abs/2601.11990)
+- **What's New**: 본 논문에서는 운전자의 행동을 모니터링하기 위한 새로운 데이터셋인 Driver Action with Object Synergy (DAOS)를 소개합니다. DAOS는 36개의 세밀한 행동과 15개의 객체 클래스를 포함한 9,787개의 비디오 클립으로 구성되어 있으며, 250만 개 이상의 객체 인스턴스가 포함되어 있습니다. 이 데이터셋은 다양한 각도(전면, 얼굴, 좌측, 우측)에서 RGB, IR, Depth 데이터를 제공합니다.
+
+- **Technical Details**: DAOS 데이터셋은 각 행동과 객체 간의 정밀한 시간 정렬을 보장하여 운전자의 행동 분석을 향상시킵니다. 또한, Action-Object-Relation Network (AOR-Net)이라는 모델을 제안하여 복잡한 운전 행동을 다단계 이유와 체인-오브-액션 프롬프트 메커니즘으로 이해합니다. AOR-Net은 Open-VCLIP 기반으로 구축되었으며, 행동, 객체 및 관계 정보를 동적으로 조정하는 Mixture of Thoughts 모듈을 포함하고 있습니다.
+
+- **Performance Highlights**: AOR-Net은 DAOS 데이터셋에서 다양한 실험을 통해 타 모델들보다 우수한 성능을 보여주었습니다. 이 모델은 객체 정보 및 객체와의 관계를 활용하여 운전 행동 인식을 강화하고, 복잡한 운전 환경에서도 안정적인 성능을 유지할 수 있습니다. DAOS dataset을 통해 우리는 운전 모니터링 시스템의 정확성과 신뢰성을 높일 수 있는 가능성을 제시합니다.
+
+
+
+### Structural Graph Neural Networks with Anatomical Priors for Explainable Chest X-ray Diagnosis (https://arxiv.org/abs/2601.11987)
+Comments:
+          15 pages, 3 figures, 3 tables
+
+- **What's New**: 이번 연구에서는 설명 가능한 시각 기반 진단을 위한 구조적 그래프 추론(Structural Graph Reasoning) 프레임워크를 제안합니다. 이 프레임워크는 명시적인 해부학적 사전(Anatomical Priors)을 통합하여, 컨볼루션 특징 맵을 패치 수준 그래프로 재구성합니다. 노드는 외관 정보와 공간 좌표를 인코딩하고, 엣지는 지역 구조 인접성(local structural adjacency)을 반영합니다.
+
+- **Technical Details**: 제안된 방법은 자기 특징, 인접 이웃 특징, 그리고 공간 이동 벡터를 공동으로 고려하는 커스텀 메시지 전파 메커니즘을 도입합니다. 이를 통해 해부학적 일관성(anatomical consistency)을 인덕티브 바이어스(Inductive Bias)로 인코딩하고, 퍼셉션 특징 위에 전용 추론 레이어로 작동할 수 있습니다. 이러한 구조는 노드 수준의 병변 인지 예측과 그래프 수준의 진단 추론을 지원합니다.
+
+- **Performance Highlights**: 받침 프레임워크는 흉부 X선(case study) 진단을 통해 효과성을 입증하였고, 해부학적 사전이 관계적 추론(relational reasoning)을 유도하며 해석 가능성을 향상시키는 방식을 보여줍니다. 이 연구는 의료 이미징 맥락에서 평가되었지만, 도메인 비종속적(domain-agnostic)으로 넓은 범위의 구조적 인식 및 추론 작업에 적용 가능함을 강조합니다.
+
+
+
+### An AI-IoT Based Smart Wheelchair with Gesture-Controlled Mobility, Deep Learning-Based Obstacle Detection, Multi-Sensor Health Monitoring, and Emergency Alert System (https://arxiv.org/abs/2601.11983)
+- **What's New**: 이 논문은 다양한 장애인과 노인 인구의 증가에 대비하여 경제적이고 지능적인 스마트 휠체어 시스템을 제안합니다. 기존 휠체어는 동적 기능이 부족하며, 많은 스마트 대안이 비용이 높고, 기능이 제한적입니다. 본 연구는 손동작 제어를 통한 핸즈프리 내비게이션 기능과 YOLOv8을 이용한 실시간 장애물 감지를 통합하여 차별화된 솔루션을 제공합니다.
+
+- **Technical Details**: 스마트 휠체어 시스템은 제스처 컨트롤러, 휠체어 베이스, 건강 모니터, 아두이노 센서 허브 및 객체 탐지 모듈 등 5개의 구성 요소로 이루어져 있습니다. 이 아키텍처는 각 모듈 간의 특화된 처리와 병렬 작업을 가능하게 하여 시스템의 신뢰성과 응답성을 향상시킵니다. 시스템은 사용자 손 움직임을 방향 명령으로 해석하여 휠체어의 이동을 제어하고, 건강 상태를 지속적으로 모니터링하며, 장애물이 있는 경우 오디오 피드백을 제공합니다.
+
+- **Performance Highlights**: 이 스마트 휠체어 시스템은 제스처 제어가 95.5%의 성공률, 초음파 장애물 탐지가 94%의 정확도, YOLOv8 기반 객체 탐지가 91.5%의 정밀도와 90.2%의 재현율을 기록하였습니다. 이러한 통합된 다중 모달 접근 방식은 사용자 자율성, 안전성 및 독립성을 크게 향상시키는 실용적이고 확장 가능한 솔루션을 제공합니다. 본 시스템은 혁신적인 연구와 현실 세계의 배치를 연결하는 데 중점을 두고 있습니다.
+
+
+
+### Nip Rumors in the Bud: Retrieval-Guided Topic-Level Adaptation for Test-Time Fake News Video Detection (https://arxiv.org/abs/2601.11981)
+Comments:
+          13 pages. Accepted by KDD 2026 research track. Codes are released at this https URL
+
+- **What's New**: RADAR는 이전의 접근 방식과는 달리 신속하게 등장하는 뉴스 비디오에 적응할 수 있는 최초의 테스트 시간 적응(test-time adaptation) 프레임워크를 소개합니다. 이 새로운 프레임워크는 불안정한 인스턴스의 견고한 적응을 지원하기 위해 안정적인 비디오를 활용하는 검색 기반 적응 패러다임을 선보입니다. 또한, 이 연구는 테스트 단계에서의 적응을 새로운 연구 초점으로 재구성하고, 각 뉴스 비디오에 대한 저 엔트로피(stable, low-entropy) 참조 인스턴스를 제공하는 새로운 메커니즘을 도입합니다.
+
+- **Technical Details**: RADAR는 엔트로피 선택 기반 검색(mechanism)과 안정적인 기준 비디오(Stable Anchor-Guided Alignment module)를 활용하여 불안정한 인스턴스의 표현을 명시적으로 정렬합니다. 이는 소스 도메인(전훈련 데이터)와 목표 도메인(새롭게 등장하는 데이터) 간의 심각한 표현 차이를 극복하는 데 중점을 둡니다. 또한, 목표 도메인 인식 자기 학습(paradigm)은 불균형한 카테고리 분포를 효과적으로 캡처하고, 이를 통해 모델이 변화하는 라벨 분포에 신속하게 적응할 수 있도록 돕습니다.
+
+- **Performance Highlights**: 다양한 비디오 데이터 세트에서 진행된 실험 결과, RADAR는 10개의 기준 모델에 비해 뛰어난 성능을 입증하였습니다. 연구 결과는 RADAR가 테스트 시간에서의 가짜 뉴스 비디오 감지에 필요한 강력한 적응을 제공할 수 있는 가능성을 열어준다는 것을 보여줍니다. 또한, 이 프레임워크는 변화하는 뉴스 주제에 대한 민첩한 적응을 가능하게 하여, 진화하는 비디오 환경에 효과적으로 대응할 수 있도록 합니다.
+
+
+
+### AVIR: Adaptive Visual In-Document Retrieval for Efficient Multi-Page Document Question Answering (https://arxiv.org/abs/2601.11976)
+Comments:
+          7 pages, 3 figures
+
+- **What's New**: 이 논문에서는 Multi-page Document Visual Question Answering (MP-DocVQA)의 성능을 높이기 위해 Adaptive Visual In-document Retrieval (AVIR) 프레임워크를 제안합니다. AVIR은 경량화된 Retrieval 모델을 사용해 각 페이지의 질문 관련성을 평가하고, 페이지 그룹화(clustering)를 통해 중요한 내용을 선택합니다. 이 과정에서 짧은 문서의 경우 relevance probability threshold을 적용하여 페이지를 선택하며, 최종적으로 선택된 페이지들만을 이용해 답변을 생성하도록 합니다.
+
+- **Technical Details**: AVIR는 픽셀-투-구조(Pix2Struct) 기반의 경량 Retrieval 모델을 설계하여 각 페이지의 스코어를 평가합니다. 선택된 페이지는 다른 페이지와의 관계를 고려하여 동적으로 분류되며, 이 과정에서 Top-K 페이지가 유지됩니다. 이 방식으로 모델은 불필요한 컨텍스트(noise)를 제거하고, 효율성을 높이면서도 답변 품질을 개선합니다.
+
+- **Performance Highlights**: 제안된 AVIR 프레임워크는 평균 페이지 수를 70% 줄이면서 MP-DocVQA 데이터셋에서 84.58%의 ANLS를 달성했습니다. 이는 기존 방법론 대비 획기적이며, SlideVQA와 DUDE 벤치마크에서도 그 효과가 검증되었습니다. AVIR는 Qwen2.5-VL 같은 고성능 LVLM을 활용하나 모델의 재조정을 필요로 하지 않으며, 제공된 코드는 이 URL에서 확인할 수 있습니다.
+
+
+
+### Real-Time Multi-Modal Embedded Vision Framework for Object Detection Facial Emotion Recognition and Biometric Identification on Low-Power Edge Platforms (https://arxiv.org/abs/2601.11970)
+- **What's New**: 본 연구는 물체 인식, 얼굴 인식 및 감정 분석을 통합한 실시간 멀티모달 비전 프레임워크를 제안합니다. 이 시스템은 Raspberry Pi 5 엣지 플랫폼에서 배치되어, 컨텍스트에 따라 동적으로 계산 자원을 할당하는 적응형 스케줄러를 사용합니다. 이를 통해 지속적인 처리 방식과 비교하여 계산 부하가 65% 감소하며, 실시간으로 높은 성능을 발휘합니다.
+
+- **Technical Details**: 제안된 시스템은 모듈식 파이프라인 아키텍처로 구성되며, YOLOv8n을 통한 물체 인식, DeepFace(FaceNet)를 통한 얼굴 인식, DeepFace의 CNN을 통한 감정 인식을 포함합니다. 각 모듈은 주 감지기로부터의 출력에 따라 선택적으로 활성화되어 자원 집약적인 모듈을 통제하는 규칙 기반의 적응형 스케줄러가 핵심입니다. 이로 인해 Raspberry Pi 5에서 실시간 프레임 속도를 유지할 수 있습니다.
+
+- **Performance Highlights**: 시스템의 성능 결과로, 물체 인식 모듈은 0.861의 평균 정확도(AP)를 기록하였고, 얼굴 인식은 88%의 정확도를 달성했습니다. 감정 인식에서는 특정 감정에 대해 최대 0.97의 AUC를 보여 강력한 구별력을 지니고 있습니다. 이 시스템은 초당 5.6 프레임에서 원활하게 운영되며, 낮은 전력 소모와 비용 효율성을 제공합니다.
+
+
+
+### Decoder Gradient Shields: A Family of Provable and High-Fidelity Methods Against Gradient-Based Box-Free Watermark Remova (https://arxiv.org/abs/2601.11952)
+- **What's New**: 본 논문은 기존의 딥 신경망(DNN) 모델 워터마킹에서 디코더의 취약점을 밝혀내고, 이를 해결하기 위한 새로운 방어 메커니즘인 디코더 그래디언트 실드(Decoder Gradient Shields, DGSs)를 제안합니다. 특히, DGS는 출력, 입력 및 중간 층에 삽입되어 그래디언트의 방향과 크기를 변형하여 워터마크 제거 공격을 방어합니다. 또한, 모든 DGS 방법은 이미지를 보호하면서 이미지 품질을 유지한다는 장점을 가지고 있습니다.
+
+- **Technical Details**: DGS의 세 가지 유형은 다음과 같습니다: 1) DGS-O(출력): 디코더의 출력을 위한 간단한 폐쇄 형태의 솔루션으로, 높은 계산 효율성을 가지고 있습니다. 2) DGS-I(입력): 디코더 입력에 대한 방어적 섭동을 적용하며, DGS-O보다 보안 수준을 크게 개선하지만 추가적인 계산 부담이 있습니다. 3) DGS-L(층 중간): 중간 디코더 층에 적용되는 섭동으로, 효율성과 강인성을 동시에 높이는 방법입니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 DGS를 적용하였을 때, 다양한 설정에서 100%의 방어 성공률을 기록했습니다. 이 연구는 이미지 생성이나 비 흐림(deraining) 작업과 같은 여러 응용 시나리오에서 성공적으로 DGS의 효과를 입증하며, 제안된 방법들이 실질적인 적용 가능성을 지닌 것을 보여줍니다. 이러한 결과는 앞으로의 딥러닝 모델의 지적 재산권 보호에 대한 새로운 길을 열어줄 것으로 기대됩니다.
+
+
+
+### Deep learning-based neurodevelopmental assessment in preterm infants (https://arxiv.org/abs/2601.11944)
+Comments:
+          27 pages, 8 figures
+
+- **What's New**: 이 논문은 조산아의 뇌 MRI 세분화(segmentation)를 위한 새로운 신경망 모델인 Hierarchical Dense Attention Network(HDAN)를 제안합니다. HDAN은 3D 공간-채널 주의(attention) 메커니즘과 주의 기반의 조밀한 업샘플링 전략을 결합하여, 저대비 볼륨 데이터에서 기능 구분(feature discrimination)을 강화합니다. 이 새로운 접근법은 저대비의 백질(white matter)과 회색질(gray matter) 세분화의 정확도를 높이는 데 기여합니다.
+
+- **Technical Details**: HDAN은 제한된 훈련 데이터에서도 강력한 특징 추출을 보장하기 위해 표준 Convolution-Batch Normalization-Activation 설계 시퀀스를 채택합니다. 이 네트워크는 내부 특징 추출기를 3D 스킵 연결(skip connections)과 통합하여 기능 표현 능력을 향상시켜, 저대비의 조산아 뇌 MRI 이미지에 적합하도록 설계되었습니다. 또한, 3D 주의 모듈을 도입하여 백질과 회색질의 강도 수준 차이를 확대함으로써, 저대비 이미지에서 모델의 인식 능력을 향상시킵니다.
+
+- **Performance Highlights**: 정량적 실험 결과, 제안된 모델은 기존의 최첨단 베이스라인과 비교하여 우수한 세분화 성능을 달성했으며, 저대비의 조산아 뇌 MRI 스캔에서 조직 경계를 효과적으로 구분합니다. 특히, 논문에서 제시된 모델은 조산아의 백질과 회색질의 부피가 만삭아에 비해 유의미하게 낮다는 추가적인 이미징 증거를 제공합니다. 이러한 결과는 조산으로 인한 신경 발달 지연을 연구하는 데 기여할 수 있습니다.
+
+
+
+### Language-Guided and Motion-Aware Gait Representation for Generalizable Recognition (https://arxiv.org/abs/2601.11931)
+- **What's New**: 이 논문은 언어 가이드를 반영하고 운동 인식에 초점을 둔 새로운 보행 인식 프레임워크, LMGait를 제안합니다. 기존의 방법들이 이미지에서 직접적으로 특징을 추출하여 순차적 표현을 얻기 위해 복잡한 아키텍처에 의존하는 것과는 달리, LMGait는 언어적 단서를 활용하여 주요 운동 특징을 포착합니다. 이 접근법은 보행 인식의 요구사항을 충족하기 위해 자연어 설명을 계산적으로 도입한 첫 번째 시도입니다.
+
+- **Technical Details**: LMGait 프레임워크는 이미지 인코더(DINOv2), 텍스트 인코더, 표현 추출기, 운동 시간 캡처 모듈(MTCM), 다운스트림 보행 인식 네트워크의 다섯 가지 주요 구성 요소로 이루어져 있습니다. MAM(Motion Awareness Module)을 통해 언어 표현을 향상시키며, MTCM은 보행 과정의 부분적 변화를 학습하여 운동 관련 신체 특징을 효과적으로 추출합니다. 이를 통해 모델은 고유한 보행 특징을 보다 정교하게 분리할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, LMGait는 CCPG, SUSTech1K, CASIAB* 세 가지 보행 벤치마크에서 가장 우수한 성능을 나타냈습니다. 특히, 기존 방법들과 비교하여 LMGait는 더 효율적인 보행 특징을 추출하여 일반화 능력을 강화했습니다. 랭크-1 정확도는 각각 88.5%, 97.1%, 97.5%로, 첨단 성능을 달성했습니다.
+
+
+
+### SupScene: Learning Overlap-Aware Global Descriptor for Unconstrained SfM (https://arxiv.org/abs/2601.11930)
+- **What's New**: 이번 논문에서는 SfM (Structure-from-Motion)에서의 이미지 검색을 개선하기 위한 SupScene이라는 새로운 솔루션을 소개합니다. 기존의 많은 딥러닝 기반 방법들이 기하학적 일치성보다는 의미적 유사성에 중점을 두고 있는 반면, SupScene은 겹치는 이미지 쌍을 보다 효과적으로 식별할 수 있도록 설계되었습니다. 이를 위해 서브그래프 기반의 훈련 전략과 DINO에서 영감을 받은 DiVLAD 모듈을 도입하여 기하학적 정보의 사용을 극대화합니다.
+
+- **Technical Details**: SupScene은 기하학적 겹침 관계에 대한 세분화된 감독을 제공하는 Soft SupConLoss를 활용하여 장면의 겹치는 부분을 강조합니다. 특히 DiVLAD는 ViT의 마지막 블록에서 추출된 다중 헤드 주의 맵을 활용하여 시맨틱 정보를 효과적으로 통합합니다. 이를 통해 더욱 식별력 있는 글로벌 설명자를 달성하였으며, 학습 가능한 게이팅 메커니즘을 통해 시맨틱적으로 중요한 단서를 동적으로 선택하고 융합할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: GL3D 데이터셋에 대한 광범위한 실험 결과, SupScene은 NetVLAD보다 현저하게 뛰어난 성능을 보여주었으며, 추가적인 학습 가능한 파라미터의 수는 미미했습니다. 또한, 여러 집계 기술에 걸쳐 일관된 성능 향상을 보증하는 훈련 전략을 제안하며, 전반적으로 SfM을 위한 이미지 검색 기술의 발전에 기여하고 있습니다.
+
+
+
+### Effects of Gabor Filters on Classification Performance of CNNs Trained on a Limited Number of Conditions (https://arxiv.org/abs/2601.11918)
+Comments:
+          5 pages, 4 figures, 4 tables
+
+- **What's New**: 본 연구에서는 실제 로봇 비전 애플리케이션에서 엣지 장치(EGDE DEVICE)에 적합한 소형 컨볼루션 신경망(CNN)의 정확성을 향상시키고 크기를 줄이는 기술을 제안합니다. 이 기술은 소량의 데이터를 이용해 특정 시각적 목표를 식별하고자 하며, 시각 신경 시스템(VNS)을 기반으로 한 가버 필터(Gabor Filter)를 전처리기로 사용하여 CNN의 학습 성능을 개선합니다.
+
+- **Technical Details**: 가버 필터는 주파수, 방향, 위상 특성을 강조하는 2차원 공간 필터로, 주로 초기 시각 피질의 특성을 가진 신경 기능을 모사합니다. 연구에서는 ResNet18, MobileNetV2, AlexNet 등의 소형 CNN 아키텍처를 활용하여 가버 필터를 이용한 전처리의 효과를 평가했습니다. 이미지 데이터는 다양한 거리와 높이에서 촬영된 8400개의 샘플로 구성된 데이터셋을 기반으로 합니다.
+
+- **Performance Highlights**: 실험 결과, 가버 필터를 사용하여 전처리한 CNN은 일반화 성능이 개선되었고, CNN의 크기를 줄이는 데 기여하였습니다. 또한, 다양한 거리에서 촬영한 이미지로 학습한 CNN의 분류 정확도가 향상되는 양상을 보였습니다. 이 연구의 결과는 엣지 AI의 발전을 위한 새로운 접근 방식을 제시합니다.
+
+
+
+### From Spurious to Causal: Low-rank Orthogonal Subspace Intervention for Generalizable Face Forgery Detection (https://arxiv.org/abs/2601.11915)
+- **What's New**: 이 논문은 얼굴 위조 탐지의 일반화 문제를 다룹니다. 연구자들은 얼굴 위조와 무관한 정보에서 라벨로 가는 '백도어 경로'가 편향된 학습을 유도하며, 일반화에 방해가 된다고 밝혔습니다. 이를 해결하기 위해, 저자들은 스퍼리어 상관관계를 저감시키기 위한 새로운 방법인 SeLop을 제안합니다.
+
+- **Technical Details**: SeLop은 얼굴 위조 탐지를 위한 조정 개입 방식으로, CLIP의 시각적 표현 공간에서 스퍼리어 상관관계를 저감합니다. 이 기법은 스퍼리어 상관관계의 특성을 낮은 차원 서브공간으로 분해하고, 원래의 표현에서 제거하여 위조 관련 특성 학습에 집중하도록 합니다. 저자는 이 방법이 단 0.43M의 학습 가능한 파라미터로 데이터셋에서 뛰어난 성능을 달성한다고 설명합니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 SeLop은 상태-of-the-art 성능을 보여줍니다. 실험 결과, 저감된 스퍼리어 상관관계 덕분에 모델은 더 나은 일반화 및 강건성을 발휘하는 것으로 나타났습니다. 이 접근법은 향후 얼굴 위조 탐지 분야에서의 연구에 기여할 것으로 기대됩니다.
+
+
+
+### Reliable Deep Learning for Small-Scale Classifications: Experiments on Real-World Image Datasets from Bangladesh (https://arxiv.org/abs/2601.11911)
+- **What's New**: 이 연구는 방글라데시에서의 다양한 이미지 데이터셋을 활용하여 소규모 데이터셋에서 오버피팅(overfitting)을 피할 수 있는 경량화된 CNN(convolutional neural network) 아키텍처를 평가했습니다. 간결한 네트워크 구조는 높은 분류 정확도(classification accuracy)와 효율적인 수렴(convergence) 특성을 보여주며, 낮은 계산 오버헤드(computational overhead)도 자랑합니다. 이 연구는 경량화된 CNN의 설계가 여러 실세계 시나리오에서 효과적으로 작동함을 강조합니다.
+
+- **Technical Details**: 이 네트워크는 소수의 클래스를 가진 이미지 분류 과업을 위해 최적화된 compact CNN 아키텍처로, 주어진 데이터셋의 크기를 고려하여 적절한 수의 컨볼루션 층(convolutional layers)을 포함합니다. 네트워크는 배치 정규화(batch normalization) 및 드롭아웃(dropout)을 사용하여 훈련의 안정성을 높이고 오버피팅을 줄입니다. 결과적으로, 이 네트워크는 효율적이고 일반화 가능한 모델을 제공하며, 빠른 훈련과 추론이 가능합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 경량 CNN은 ResNet-50 및 VGG-19와 같은 대규모 아키텍처에 비해 선명한 성능을 보여주면서도 극적으로 높은 효율성을 발휘했습니다. 다양한 실제 데이터셋에서의 테스트는 모델이 일정한 성능을 유지하며, 여러 작업에서 높은 정확도를 기록했습니다. 이 연구는 특정 도메인에 맞춘 맞춤형 CNN이 표준 모델에 비해 자원 대비 정확도에서 우위를 점할 수 있음을 보여줍니다.
+
+
+
+### A Training-Free Guess What Vision Language Model from Snippets to Open-Vocabulary Object Detection (https://arxiv.org/abs/2601.11910)
+- **What's New**: 본 논문에서는 훈련이 필요 없는 Guess What Vision Language Model(GW-VLM)을 제안하여 Open-Vocabulary Object Detection(OVOD)을 위한 보편적인 이해 패러다임을 설계합니다. MS-VLS(Multi-Scale Visual Language Searching)와 CCP(Contextual Concept Prompt)를 활용한 이 접근법은 VLM(Visual Language Model)과 LLM(Large Language Model)이 '뭘 추측할까요'라는 게임에 참여하도록 합니다. 기존의 많은 사전 훈련된 모델들이 OVOD의 가능성을 높이는 데 기여했으나, 모델의 심층적인 잠재력을 간과한 것이 문제로 지적되었습니다.
+
+- **Technical Details**: GW-VLM은 클래스에 구애받지 않는 물체 이해를 위해 이미 사전 훈련된 VLM과 LLM을 통합하는 새로운 프레임워크입니다. MS-VLS는 비전 언어 모델에서 다중 스케일의 시각적 피드백을 생성하며, CCP는 LLM이 다양한 오픈 보캐뷸러리 시나리오에서 스니펫을 이해하는 데 도움을 주기 위해 흐름 개념을 구축합니다. 이 방식은 기존의 지역 제안 및 독립적인 지역-텍스트 정렬에 의존하기보다는 글로벌 공간 의존성을 고려하여 포괄적인 물체 이해를 목표로 합니다.
+
+- **Performance Highlights**: 자연 장면 및 원거리 감지 시나리오에서 진행된 실험을 통해 GW-VLM은 COCO val, Pascal VOC, DIOR, NWPU-10과 같은 네 가지 벤치마크에서 최신 방법들과 비교할 때 우수한 OVOD 성능을 달성했습니다. 연구 결과 GW-VLM은 훈련 단계 없이도 OVOD 성능을 개선할 가능성을 지니고 있어 향후 연구에 중요한 기여를 할 것으로 기대됩니다.
+
+
+
+### Effects of the retina-inspired light intensity encoding on color discrimination performanc (https://arxiv.org/abs/2601.11909)
+Comments:
+          8 pages, 14 figures, 4 tables
+
+- **What's New**: 이번 연구에서는 색상 상수성(color constancy, CC) 성능에 대한 중심/주변(center/surround, C/S) 레티넥스(retinex) 모델의 빛 강도 인코딩 함수의 영향을 조사하였습니다. 이 연구는 원래의 C/S 레티넥스 모델에 사용된 로그 함수와 망막 광수용체 응답을 모델링한 Naka-Rushton(N-R) 함수를 비교 분석하였습니다. 다양한 조명 색상을 가진 시각적 목표물에 염색된 색 정보의 구별 능력을 평가하고, N-R 함수와 복합적 색의 도비 치환 색 공간(double opponent color plane)을 결합했을 때 우수한 구별 성능을 발견했습니다.
+
+- **Technical Details**: 본 연구에서 사용된 C/S 레티넥스 모델의 알고리즘은 세 가지 프로세스, 즉 로그 변환, 가우시안 필터링, 두 개의 가우시안 필터링 이미지 차감으로 구성됩니다. 이는 세 개의 색상(RGB) 채널 각각에 대해 수행됩니다. 모델의 로그 변환 과정에서는 조명 세기와 표면 반사율의 곱으로 표현되는 빛의 강도를 로그 압축하여 최종 이미지에서 조명의 영향을 제거합니다. 실험에서 사용된 가우시안 필터의 표준 편차는 (σ1, σ2) = (1.057, 17.964) 픽셀로 설정되어 있으며, 이러한 필터는 로봇 비전에 효율적으로 적용될 수 있습니다.
+
+- **Performance Highlights**: 연구의 결과, N-R 함수를 통한 C/S 레티넥스 모델이 기존의 로그 함수에 비해 색상 판별 성능이 향상된 것으로 나타났습니다. 연구에서는 Fisher 기준(Fisher criterion)을 사용하여 두 가지 다른 조명 조건에서 색상 타겟의 판별 성능을 평가했습니다. 이를 통해 N-R C/S 레티넥스 모델이 주어진 조명 변화 하에 색상 구별을 보다 효과적으로 수행할 수 있음을 확인했습니다.
+
+
+
+### Towards Airborne Object Detection: A Deep Learning Analysis (https://arxiv.org/abs/2601.11907)
+- **What's New**: 이번 연구는 대형 항공기, 드론 및 UAV(무인 항공기)의 신속한 증가에 따른 실시간 자동 위협 평가 시스템의 필요성을 강조합니다. EfficientNetB4에 기반한 이 듀얼 태스크 모델은 항공 물체 분류와 위협 수준 예측을 동시에 수행할 수 있도록 설계되었습니다. 또한 AODTA Dataset이라는 새로운 데이터셋을 구축하여 기존의 제한된 훈련 데이터를 보완하고 연구 결과에 따르면 EfficientNetB4 모델이 ResNet-50에 비해 우수한 성능을 보였습니다.
+
+- **Technical Details**: 이 모델은 AVD Dataset과 AODTA Dataset을 사용하여 벤치마킹 되었으며, AODTA Dataset은 다양한 공공 소스를 통합하여 구축되었습니다. 항공 물체는 비행기, 드론, 헬리콥터, UAV의 네 가지 범주로 분류되며, 위협 수준은 낮음, 중간, 높음으로 예측됩니다. 데이터 전처리 과정에서는 이미지의 청결성과 해상도를 유지하기 위해 정제 작업이 이루어졌으며, 이미지 확장을 위한 다양한 기법이 적용되었습니다.
+
+- **Performance Highlights**: EfficientNetB4 모델은 물체 분류에서 96%의 정확도, 위협 수준 예측에서 90%의 정확도를 달성하여 감시, 방어 및 공역 관리에 활용 가능성을 부각시킵니다. 연구는 정확한 항공 물체 인식과 실시간 위협 평가의 중요성을 강조하며 향후 YOLO나 Faster R-CNN과 같은 객체 탐지 시스템과 통합될 수 있는 가능성도 제시하고 있습니다.
+
+
+
+### RemoteVAR: Autoregressive Visual Modeling for Remote Sensing Change Detection (https://arxiv.org/abs/2601.11898)
+- **What's New**: 새롭게 소개된 RemoteVAR는 픽셀 수준의 분별 작업에서 발생하는 문제들을 해결하기 위해 다중 해상도 강화 영상 압축 기법을 사용하는 새로운 VAR 기반 변화 탐지 프레임워크입니다. 기존의 비효율적인 예측 방식을 개선하여 교차 주의(cross-attention) 기술을 활용해 다양한 시간대의 특성을 결합하고, 변화 맵 예측을 위한 자원 훈련 전략을 적용합니다. 이 것으로, RemoteVAR는 이미지 생성 능력이 뛰어난 VAR 모델을 활용하여 이미지의 변화 감지 정확성을 크게 향상시킵니다.
+
+- **Technical Details**: RemoteVAR는 변화 탐지를 위해 비변화 및 변화 이미지 쌍에서 이산 마스크 토큰을 생성하는 방식으로 작동합니다. 모델은 다양한 스케일의 잔여 멀티 스케일 VQ-VAE를 기반으로 하여 10개의 토큰 해상도를 사용하며, 각 해상도에서 이산 토큰을 맵핑하는 통계적 구조를 채택합니다. Transformer 구조 속에 내장된 교차 주의 메커니즘은 연속적이고 고해상도 정보의 조합을 통해 예측 성능을 높이며, 최종적으로 UNet 스타일의 디코더를 통해 경계 지점의 세부 사항을 지속적으로 조정합니다.
+
+- **Performance Highlights**: RemoteVAR는 기존의 확산 기반(diffusion-based) 및 트랜스포머 기반(transformer-based) 최첨단 기법들에 비해 일관되고 유의미한 성능 향상을 보여주며, 다양한 변화 탐지 벤치마크에서 경쟁력을 입증했습니다. 훈련 데이터셋을 256×256으로 조정하고, 100개 에포크 동안 최적화하여 모델의 성능을 극대화했습니다. 이 연구의 결과는 고해상도의 변화 탐지 정확도를 크게 향상시키며, 변화 맵 생성을 위한 효과적인 대안으로 자리 잡을 것으로 보입니다.
+
+
+
+### Digital FAST: An AI-Driven Multimodal Framework for Rapid and Early Stroke Screening (https://arxiv.org/abs/2601.11896)
+- **What's New**: 이 연구는 F.A.S.T. 평가 중 수집된 데이터를 기반으로 자동 이진 뇌졸중 스크리닝을 위한 빠르고 비침습적인 다중 모드 딥러닝 프레임워크를 제시합니다. 얼굴 표정, 음성 신호 및 상체 움직임에서 보충 정보를 통합하여 진단의 강건함을 향상시키는 접근 방식을 사용합니다. 해당 모델은 얼굴 분석을 위한 Transformer 아키텍처 및 음성 신호를 처리하는 Audio Spectrogram Transformer를 결합하여 다중 모드 상호작용을 효과적으로 학습합니다.
+
+- **Technical Details**: 이 시스템은 F.A.S.T. 평가 중 참여자로부터 수집된 얼굴 비디오, 상체 비디오, 음성 신호를 입력으로 받습니다. 얼굴 랜드마크는 뇌졸중의 주요 증상에 관련된 비대칭적인 구조를 포착하고, 상체 운동의 운동학적 특성을 모델링하여 모터 비정상을 감지합니다. 그런데, 얼굴 랜드마크 시퀀스는 Audio Spectrogram Transformer를 통해 처리되고, 상체 포즈 랜드마크는 MLP-Mixer 아키텍처로 모델링됩니다.
+
+- **Performance Highlights**: 이 연구는 37명의 피험자에서 수집된 222개의 비디오 데이터셋을 기반으로 하여 기존의 단일 모드 기준선보다 일관되게 우수한 성능을 보였으며, 95.83%의 정확도와 96.00%의 F1 점수를 달성했습니다. 모델은 민감도와 특이도 간의 강력한 균형을 이룰 수 있었고, 실험에서 모든 뇌졸중 사례를 성공적으로 탐지하였습니다. 이러한 결과는 조기 뇌졸중 스크리닝을 위한 다중 모드 학습과 전이 학습의 가능성을 강조합니다.
+
+
+
+### Cross-Domain Object Detection Using Unsupervised Image Translation (https://arxiv.org/abs/2601.11779)
+- **What's New**: 본 연구에서는 객체 탐지(object detection) 분야에서의 비지도 도메인 적응(Unsupervised Domain Adaptation, UDA) 문제를 다루고 있습니다. 새로운 방법은 직접적인 주석 데이터 없이도 목표 도메인(target domain)에서 인공 데이터를 생성하여 객체 탐지기를 훈련하는 것입니다. 이를 위해 CycleGAN 및 AdaIN 기반 모델 같은 비지도 이미지 변환기(unsupervised image translators)를 활용했습니다. 이 접근법은 복잡성을 줄이고, 해석 가능성을 향상시켰습니다.
+
+- **Technical Details**: 제안된 방법은 두 단계로 구성되어 있습니다: 첫째, 비지도 이미지 간 변환 모델을 사용해 목표 도메인과 유사한 인공 데이터셋을 생성하고, 둘째, 이 새로운 데이터를 사용해 객체 탐지기를 훈련하는 것입니다. 이전 연구에서 CycleGAN을 활용한 비지도 이미지 번역이 효과적임을 입증했으며, 이번 연구에서는 다양한 데이터 세트에서 이 방식을 확대하고 평가하였습니다. 다양한 기법을 사용한 실험을 통해 적응성 있는 객체 탐지를 위한 방법론을 제시합니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 방법이 기존의 최신 방법들보다 최대 9.9 퍼센트 포인트(p.p.) 더 우수한 성능을 보인다는 것을 보여주었습니다. 특히 자율주행 자동차 시나리오에서의 실제 데이터를 사용한 테스트가 긍정적인 성과를 기록했습니다. 연구 결과, 제안된 방법이 복잡한 최신 기술 같습니다 동안 구현하기 쉬우며, 객체 탐지기 훈련에 있어 해석 가능성을 높이는 데 기여하고 있습니다.
+
+
+
+### studentSplat: Your Student Model Learns Single-view 3D Gaussian Splatting (https://arxiv.org/abs/2601.11772)
+- **What's New**: 이 논문에서는 single-view 3D Gaussian splatting 방법인 studentSplat을 제안합니다. 기존의 single-view 3D 장면 복원 기술의 한계를 극복하기 위해 multi-view teacher 모델이 학생 모델에게 기하학적(supervision) 정보를 제공하는 teacher-student 아키텍처를 도입했습니다. 또한 장면 컨텍스트를 완성하는 extrapolation 네트워크를 통해 높은 품질의 결과물을 얻습니다.
+
+- **Technical Details**: studentSplat은 scale ambiguity와 extrapolation 문제를 해결하기 위해 설계되었습니다. 이 모델은 multi-view teacher 모델을 활용하여 3D 구조를 추정하고, 이를 기반으로 single-view student 모델이 학습하도록 유도합니다. 이에 따라 missing context를 보완하는 extrapolator를 통해 3DGS(3D Gaussian splatting)의 왜곡을 최소화하고 데이터를 최적화합니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 studentSplat은 기존의 최첨단(single-view novel-view reconstruction) 품질과 비슷한 성능을 보여주며, multi-view 방법에 필적하는 성능을 인증했습니다. 또한 이 모델은 self-supervised single-view depth estimation 방법으로서 경쟁력 있는 성능을 보여주어, 일반적인 single-view 3D 이해 과제에 대한 잠재력을 강조합니다.
+
+
+
+### From Pixels to Purchase: Building and Evaluating a Taxonomy-Decoupled Visual Search Engine for Home Goods E-commerc (https://arxiv.org/abs/2601.11769)
+- **What's New**: 본 연구에서는 기존의 시각 검색 시스템에서 객체 탐지(object detection)와 분류(classification)를 분리하는 새로운 분류-비의존 아키텍처(taxonomy-decoupled architecture)를 제안합니다. 이를 통해 보다 유연하고 일반화된 시각 검색이 가능해집니다. 또한, 라지 언어 모델(LLM)을 활용한 시스템 평가 프레임워크를 도입하여 인간 주석에 의존하지 않고도 시각 유사성과 카테고리 관련성을 평가합니다.
+
+- **Technical Details**: 새로운 아키텍처는 두 가지 주요 프로세스로 구성됩니다: 오프라인 인덱싱(Offline Indexing)과 온라인 서비스(Online Serving)입니다. YOLOX 아키텍처를 기반으로 하는 객체 탐지기를 사용하여 사용자 쿼리 이미지 내의 객체를 식별하고, 이를 공유 임베딩(spaced embedding)으로 인코딩하여 유사한 제품을 검색합니다. 이 시스템은 고유한 특징을 가진 카테고리의 그룹만을 사용하여 훈련되어, 다양한 시각 패턴을 처리할 수 있습니다.
+
+- **Performance Highlights**: 제안된 시스템은 Wayfair에서 배포되어 검색 품질을 개선했으며, 고객 참여도에서 측정 가능한 향상을 보여주었습니다. 평가 지표는 고객 결과와 강한 상관관계를 나타내며, 오프라인 평가 결과가 실제 산업 환경에서의 효과와 통계적으로 유의미한 연관성을 보입니다.
+
+
+
+### SpaRRTa: A Synthetic Benchmark for Evaluating Spatial Intelligence in Visual Foundation Models (https://arxiv.org/abs/2601.11729)
+Comments:
+          Project page is available at this https URL
+
+- **What's New**: 최근 Visual Foundation Models (VFMs)인 DINO, CLIP과 같은 모델들은 이미지의 의미적 이해에서 뛰어난 성능을 보이고 있으나, 공간적 사고(spatial reasoning) 능력은 제한적입니다. 이에 따라 이들 모델의 훈련에 3D 과제를 포함시키는 연구가 진행되고 있지만, 성능의 일관성이 부족합니다. 본 연구에서는 VFMs가 이미지 내 객체의 상대적 위치를 인식하는 능력을 평가하기 위해 Spatial Relation Recognition Task (SpaRRTa) 벤치마크를 도입하였습니다.
+
+- **Technical Details**: SpaRRTa는 물체 간의 상대적 위치와 같은 인간적인 공간 개념을 평가하는 데 중점을 두며, 이러한 기능이 고급 공간적 추론의 기초가 됨을 강조합니다. 본 연구는 Unreal Engine 5에 기반한 합성 환경을 통해 다양한 장면과 객체 배열을 통제하여 포토리얼리스틱한 이미지를 생성합니다. 이를 통해 모델들이 얼마나 효과적으로 공간적 관계를 해석할 수 있는지를 평가할 수 있습니다.
+
+- **Performance Highlights**: SpaRRTa를 활용하여 다양한 VFM들을 평가한 결과, 자가 감독(self-supervised) 방식으로 훈련된 모델들이 가장 높은 성능을 보였으며, 특정 모델들은 복잡한 장면에서 한계를 드러내었습니다. 또한, 패치(patch) 레벨에서 공간 정보가 주로 저장되며 글로벌 풀링(global pooling)에 의해 대부분 가려진다는 사실이 밝혀졌습니다. 이러한 결과는 향후 공간 인식을 강화한 모델 개발에 중요한 통찰을 제공합니다.
+
+
+
+### SemAlign: Language Guided Semi-supervised Domain Generalization (https://arxiv.org/abs/2601.11724)
+Comments:
+          15 pages, 6 figures
+
+- **What's New**: 이 논문은 Semi-supervised Domain Generalization (SSDG) 문제에 새로운 접근 방식을 제안합니다. 기존 SSDG 방법들이 pseudo-labeling (PL) 정확도에 과도하게 집중하는 경향이 있음을 지적하고, 데이터 활용 최적화의 중요성을 강조합니다. 이를 해결하기 위해, Vision Language Model (VLM)의 중간 특징을 정렬하여 도메인 불변성을 촉진하는 방법을 제시합니다. 이 접근법은 이미지 수준 증강과 출력 수준 정규화 전략을 통해 데이터 활용도를 개선하고 과적합을 최소화하는 데 중점을 둡니다.
+
+- **Technical Details**: 본 연구에서 제안하는 SemAlign 아키텍처는 사전 훈련된 텍스트 인코더, Residual Feature Refinement (RFR) 모듈, 이미지 특징 추출기, 그리고 확률적 분류기로 구성됩니다. 텍스트 인코더는 도메인 불변의 클래스 프로토타입을 생성하고, 특징 추출기의 출력을 이러한 프로토타입과 정렬합니다. 본 방법은 weakly와 strongly augment된 이미지 뷰 간의 일관성을 강제하여 도메인 불변 학습을 촉진하는 다양한 목표를 포함하고 있습니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 제안한 방법이 기존 SSDG 방법들과 비교했을 때 정성적, 정량적으로 SOTA(State Of The Art) 성능을 달성함을 확인했습니다. 네 개의 기준 데이터셋인 PACS, OfficeHome, DigitsDG 및 miniDomainNet을 통해 성능 개선을 입증했습니다. 코드의 공개도 예정되어 있어 후속 연구 및 실험에 기여할 것으로 기대됩니다.
+
+
+
+### Telling Human and Machine Handwriting Apar (https://arxiv.org/abs/2601.11700)
+- **What's New**: 본 연구에서는 필기 움직임(handwriting movements)을 행동 생체 인식(behavioral biometrics)으로 활용하여 실제 사용자가 기기나 애플리케이션을 조작하고 있는지 검증할 수 있는 방법을 제안합니다. 이는 입력 인스턴스가 인간에 의해 생성되었는지 인공지능에 의해 생성되었는지를 탐지하는 역 튜링 테스트(reverse Turing test)로 볼 수 있습니다. 이번 연구에서는 다양한 합성 기법을 통해 인위적으로 재생산된 필기 기호에 대한 공공 데이터셋을 조사하였습니다.
+
+- **Technical Details**: 연구에서는 Kinematic Theory(Sigma h model), 생성적 적대 신경망(generative adversarial networks), Transformers, Diffusion models 등 7가지 합성기법을 사용하여 재생산된 10개의 공개 데이터셋을 분석합니다. 비특성화된 궤적 데이터(non-featurized trajectory data)를 입력으로 하여 얕은 순환 신경망(shallow recurrent neural network)을 훈련시킴으로써 ROC 곡선 아래 면적(AUC) 98.3%와 평균 1.4%의 동등 오류율(equal error rate)을 달성하는 성과를 보였습니다. 또한, 데이터셋의 10%로 훈련했음에도 불구하고, 나머지 90%의 데이터에서 우수한 성능을 발휘하였습니다.
+
+- **Performance Highlights**: 우리는 아 Domain(setting) 외의 상황에서도 분류기가 경쟁력 있는 성과를 내는 것을 관찰하였습니다. 이는 인간의 존재를 검증해야 하는 전산 시스템(computerized systems)에 대한 시사점을 제공합니다. 우리의 연구는 공격자로부터의 방어력을 강화하기 위한 추가 보안 레이어를 제안하며, 실제 필기 움직임을 통한 사용자 검증의 중요성을 강조합니다.
+
+
+
+### Conformal Point and the Calibrated Conic (https://arxiv.org/abs/2601.11679)
+- **What's New**: 이번 논문은 이미지의 기하학을 이해하는 데 도움을 주는 두 개의 기하학적 객체인 calibrating conic 및 conformal point에 대해 설명하고 있습니다. 이 개념들은 기존의 매트릭스 표현 방식보다 더 직관적인 방법으로 카메라의 보정(calibration)을 시각적으로 표시할 수 있습니다. 특히, 이 방법들로 이미지 내 광선 사이의 각도를 쉽게 측정할 수 있는 가능성을 보여줍니다.
+
+- **Technical Details**: 카메라 보정은 이미지 내에서 측정값을 얻기 위해 중요하며, 전통적인 매트릭스 표현 방식보다 더 간단하게 이해할 수 있는 기하학적 방법을 제안합니다. 논문에서는 특히 ruler-and-compass constructions를 사용하여 기하학적 객체의 속성을 설명하고, 복잡한 연산 없이도 이 객체들을 쉽게 시각화할 수 있음을 강조합니다. 이론적으로, calibrating conic은 카메라 보정 및 장면 속성을 조사하는 데 유용하게 사용될 수 있습니다.
+
+- **Performance Highlights**: 저자는 딥러닝 시대에서 인간의 시각 체계가 쉽게 수행할 수 있는 작업에 대해 신경망이 더 나은 성능을 보인다고 주장하며, 이를 기반으로 기하학적 접근을 통한 데이터 표현의 중요성을 강조합니다. 논문은 구체적 최적화 방법 없이도 이미지에서 이러한 기하학적 개념을 쉽게 식별하고 유도할 수 있는 방법을 탐구합니다. 카메라의 회전 및 변환에 불변한 IAC(absolute conic)의 기본 특성도 논의되고 있습니다.
+
+
+
+### Generating metamers of human scene understanding (https://arxiv.org/abs/2601.11675)
+- **What's New**: 이 논문에서는 MetamerGen이라는 도구를 소개합니다. MetamerGen은 인간의 시각 장면 표현과 일치하는 장면을 생성하는 것으로, 주로 주변 시각에서 얻은 'gist' 정보와 고정된 위치에서의 고해상도 정보를 결합하여 이미지를 생성합니다. 이 모델은 전통적인 생성 모델과 차별화된 점에서 새로운 이미지-투-이미지 합성 문제를 해결하고 있습니다.
+
+- **Technical Details**: MetamerGen은 latent diffusion model을 기반으로 하며, DINOv2 토큰을 사용하여 고정된 영역의 세부 특징과 주변에서 약화된 특징을 융합해 장면을 생성합니다. 이 모델은 시각 시선의 진행에 따라 입력 정보를 기반으로 점진적으로 영상 이해를 생성하는데, 이는 고정된 영역이 더욱 풍부하게 표현될 수 있도록 돕습니다. 이를 통해 MetamerGen은 인간의 시각 이해에 더욱 가까운 장면을 생성할 수 있는 기능을 갖추고 있습니다.
+
+- **Performance Highlights**: 행동 실험을 통해 MetamerGen이 생성한 장면이 인간의 장면 이해와 일치하는지 평가했습니다. 실험 결과, 생성된 장면이 실제 장면과 일치한다고 판단된 경우, 고수준의 의미적 특징이 메타머리즘을 예측하는 데 가장 강력한 요소로 나타났습니다. 이는 MetamerGen이 사실적 이미지 생성 및 시각 인식 연구에 사용될 가능성을 시사합니다.
+
+
+
+### MATEX: Multi-scale Attention and Text-guided Explainability of Medical Vision-Language Models (https://arxiv.org/abs/2601.11666)
+Comments:
+          12 pages, 3 figures, 1 table
+
+- **What's New**: MATEX(다중 스케일 주의와 텍스트 기반 설명 가능성)라는 새로운 프레임워크는 의학적 비전-언어 모델의 해석 가능성을 높이기 위해 해부학적으로 유도된 공간 추론을 통합합니다. 이 프레임워크는 다층 주의 롤아웃, 텍스트 기반의 공간 사전, 그리고 층 일관성 분석을 결합하여 정밀하고 안정적이며 임상적으로 유의미한 기울기 기여도 맵을 생성합니다. MATEX는 이러한 방법의 한계를 극복하고, MS-CXR 데이터셋에서 최첨단 M2IB 방법을 능가하는 성능을 보여줍니다.
+
+- **Technical Details**: MATEX의 기본 구조는 시각적 주의 맵, 텍스트 주의 맵, 기울기 기여도 계산, 텍스트 기반 공간 사전 및 다중 스케일 융합 등 5개의 상호 연결된 구성 요소로 이루어져 있습니다. 특히, 시각적 주의 맵은 이미지 인코더에서 파생되며, 텍스트 주의 맵은 텍스트 인코더에서 임베딩된 토큰을 가중치화하여 생성됩니다. 이러한 내용은 의료 이미지의 해석 가능성을 크게 향상시키며, 임상적으로 의미 있는 설명을 제공합니다.
+
+- **Performance Highlights**: MATEX는  수치적 지표에서 기존의 해석 가능성 기법보다 우수한 성능을 보이며, 전문가 주석과의 정성적 정렬에서도 개선된 결과를 나타냅니다. 특별히, MATEX는 다층 Attention을 통해 신뢰할 수 있는 예측을 위한 해부학적이고 세분화된 기여도 맵을 생성하는 데 중점을 두고 있습니다. 이로 인해 MATEX는 의료 비즈니스 환경에서 높은 수준의 신뢰성을 보장할 수 있는 잠재력을 가지고 있습니다.
+
+
+
+### UAV-Based Infrastructure Inspections: A Literature Review and Proposed Framework for AEC+FM (https://arxiv.org/abs/2601.11665)
+Comments:
+          Accepted for publication at the International Conference on Construction Engineering and Management (I3CE 2025)
+
+- **What's New**: 본 논문은 UAV(무인 항공기)의 AEC+FM(건축, 엔지니어링, 건설 및 시설 관리) 분야에서의 최신 활용을 조망하고 있습니다. 150개의 연구를 종합하여 데이터 수집, 포토그래메트릭 모델링, 결함 탐지 및 의사결정 지원에 대한 UAV 기반 방법론을 소개하고 있습니다. 경로 최적화(path optimization), 열통합(thermal integration) 및 YOLO, Faster R-CNN과 같은 고급 머신러닝 모델을 통한 이상 감지( anomaly detection)와 같은 혁신을 강조하고 있습니다.
+
+- **Technical Details**: 문헌 리뷰를 토대로 제안된 프레임워크는 동적 경로 수정, 다중 센서 데이터 수집(RGB, LiDAR, thermal) 및 최첨단 결함 탐지 아키텍처를 통합합니다. UAV는 다양한 조명 조건과 환경 요소에서 대규모 데이터 수집 캠페인을 통해 현장 성능을 입증하며, 복잡한 도시 환경을 위해 Voronoi 기반 경로 최적화 기법을 제안합니다. YOLO 기반 파이프라인과 같은 딥러닝 모델을 활용하여 자동화된 결함 탐지가 가능합니다.
+
+- **Performance Highlights**: UAV 기반 검사는 전통적인 방법에 비해 검사 시간을 10–20%로 줄이며, 비용을 40–60%까지 절감할 수 있는 장점을 보여주고 있습니다. 구조적 건강 모니터링(SHM), 재난 대응, 에너지 효율 평가 등 다양한 분야에서 이점을 입증하며, LiDAR와 열센서를 통합해 멀티모달 데이터를 통한 높은 정확도를 목표로 합니다. 기존 연구의 한계를 넘어서기 위한 경량 AI 모델, 적응형 비행 계획 및 합성 데이터셋의 필요성을 강조하고 있습니다.
+
+
+
+### LTV-YOLO: A Lightweight Thermal Object Detector for Young Pedestrians in Adverse Conditions (https://arxiv.org/abs/2601.11662)
+- **What's New**: 아동 및 청소년과 같은 취약 도로 사용자(VRU)를 위한 경량화된 객체 탐지 모델인 LTV-YOLO(Lightweight Thermal Vision YOLO)가 제안되었습니다. 이 모델은 열 이미지를 활용하여 저조도 및 악천후에서도 성능을 유지하며, 전통적인 RGB 카메라가 실패하는 상황에서도 소형 보행자를 정확히 탐지할 수 있습니다. LTV-YOLO는 YOLO11 아키텍처를 기반으로 하여, 깊이별 분리 합성을 통합하고 특징 피라미드 네트워크(FPN)를 통해 향상된 탐지 능력을 제공합니다.
+
+- **Technical Details**: LTV-YOLO는 NVIDIA Jetson Orin AGX와 같은 엣지 플랫폼에서 효율적으로 작동하도록 설계된 객체 탐지기로, YOLO 아키텍처에 영감을 받아 단일 추진(detection) 패러다임을 따릅니다. 이 모델은 경량 백본을 사용하여 효율적인 특징 추출을 실시하고, FPN을 통해 다중 스케일 특징 융합을 수행하여 아동 같은 소형 목표물에 대한 성능을 개선합니다. 깊이별 분리 합성을 통해 계산 효율성을 극대화하여 학습 가능한 파라미터 수와 플로팅 포인트 연산(FLOPs)을 대폭 감소시켰습니다.
+
+- **Performance Highlights**: LTV-YOLO 모델은 저조도 및 불리한 환경 조건에서도 실시간 성능을 유지하면서 뛰어난 탐지 성능을 자랑합니다. 특히, 작고 부분적으로 가려진 보행자를 효과적으로 탐지할 수 있는 강력한 모델로, 학교 구역 및 스마트 시티 인프라에 적합한 솔루션을 제공합니다. 이 연구는 아동과 소형 VRU를 검출하기 위한 실용적이며 확장 가능한 접근 방식을 통해 보행자 안전성을 크게 향상시킬 것으로 기대됩니다.
+
+
+
+### Zeros can be Informative: Masked Binary U-Net for Image Segmentation on Tensor Cores (https://arxiv.org/abs/2601.11660)
+- **What's New**: 이 논문에서는 Masked Binary U-Net (MBU-Net)을 소개하며, 이는 극단적 양자화(binarization)가 이미지 분할에 미치는 부정적인 영향을 줄이는 데 중점을 둡니다. 연구자들은 명시적인 제로 상태(Zero State)의 중요성과 레이어 전반에 걸친 균일한 양자화 감도를 관찰하여, 효율성과 정확성을 조화롭게 맞춤형 마스킹 전략을 개발했습니다. 이로 인해 MBU-Net은 기존의 U-Net에 비해 더 낮은 하드웨어 요구 사항으로도 높은 정확성을 유지할 수 있습니다.
+
+- **Technical Details**: MBU-Net은 비용 인식 마스킹 전략을 통해 구현되며, Tensor Core를 위한 비트 인코딩 방법을 사용하여 GPU에서의 실행을 최적화합니다. 이 아키텍처는 이진 가중치와 이진 활성화로 높은 처리량과 에너지 효율을 구현하며, NVIDIA의 Jetson 플랫폼과 같은 일반적인 GPU에서 손쉽게 적용될 수 있도록 설계되었습니다. 결과적으로, 이 구조는 16비트 부동 소수점 U-Net에 비해 처리 속도를 2.04배 높이고 에너지 사용량을 3.54배 줄이며, 평균 3%의 정확도 감소만 기록했습니다.
+
+- **Performance Highlights**: MBU-Net은 3개의 세그멘테이션 벤치마크에서 고해상도 입력에 대해 거의 전체 정밀도(full-precision)와 유사한 성능을 보여줍니다. 이러한 성능을 통해, 최적화된 모델은 상당한 속도와 에너지 효율성을 공급하며, 특히 720p 해상도에서 실시간 처리에 적합합니다. 이는 AR, 드론 및 자율 시스템 등 리소스 제약이 있는 엣지 디바이스에서의 실제 응용을 위해 필수적인 요소입니다.
+
+
+
+### PSSI-MaxST: An Efficient Pixel-Segment Similarity Index Using Intensity and Smoothness Features for Maximum Spanning Tree Based Segmentation (https://arxiv.org/abs/2601.11654)
+- **What's New**: 이 논문에서는 새로운 Pixel Segment Similarity Index (PSSI)를 제안하여, 이미지 세분화 과정에서 사용자 입력을 돕는 그래프 기반 방법의 단점을 해결하고자 합니다. 기존의 방법들이 높은 계산 비용과 사용자 상호작용에 민감했으며, 전경과 배경의 색 분포가 유사할 때 성능이 저하되는 문제를 해결합니다. PSSI는 픽셀 강도와 공간 부드러움 특성을 통합하여 하모닉 평균을 활용함으로써 강건성을 향상시킵니다.
+
+- **Technical Details**: PSSI의 계산 복잡도는 O(B)로, 이는 Bhattacharyya 스타일의 측정 방법보다 개선된 성능을 보여줍니다. 세분화 프레임워크는 MeanShift를 통해 저수준 세분화로 시작하며, 여기서 색상, 텍스처 및 세분화 형태를 효과적으로 수집합니다. 이후 PSSI로 결정된 엣지 가중치를 갖는 픽셀-세그먼트 그래프를 구성하고, 최대 신장 트리(Maximum Spanning Tree, MaxST)를 사용하여 지역 연결성을 촉진합니다.
+
+- **Performance Highlights**: GrabCut과 Images250 데이터셋에서 제안한 프레임워크가 기존의 그래프 기반 인터랙티브 이미지 세분화 방법들(OneCut, AMOE, SSNCut)보다 세분화 품질이 우수함을 demonstrated합니다. 평가 기준으로는 Jaccard Index (IoU), F1 점수, 실행 시간 및 평균 오류(Mean Error, ME)를 사용하였으며, 제안된 방법은 적은 수의 시드 포인트만으로 신뢰할 수 있는 결과를 생성합니다.
+
+
+
+### Aesthetics as Structural Harm: Algorithmic Lookism Across Text-to-Image Generation and Classification (https://arxiv.org/abs/2601.11651)
+Comments:
+          22 pages, 15 figures
+
+- **What's New**: 본 논문은 텍스트-이미지(T2I) 생성 AI에서 신체 외모에 근거한 우대 처리인 알고리즘적 외모주의(algorithmic lookism)를 탐구합니다. Stable Diffusion 2.1과 3.5로 생성된 26,400개의 합성 얼굴을 분석하여, 생성 AI 모델이 얼굴의 매력과 긍정적 특성을 체계적으로 연관짓는 방식을 밝혀냅니다. 이 연구는 성별 분류 작업에서도 유의미한 성별 편향이 존재함을 나타내고, 기존의 사회적 편견을 증폭시키는 구조적 해악을 드러냅니다.
+
+- **Technical Details**: 연구 방법론에 따르면, 독립적인 연구 질문을 다루기 위해 두 개의 데이터세트를 생성했습니다. 각 데이터세트는 13,200개의 이미지를 포함하며, 인종(Asian, Black, White) 및 성별(여성, 남성)에 따라 다르게 구성된 이미지들을 담고 있습니다. 또한, 알고리즘적 외모주의의 영향을 조사하기 위해 얼굴의 특정 속성을 분석하고, 무작위로 생성된 이미지들이 특정 특성(매력, 지능 등)과 어떻게 연관되어 있는지를 평가합니다.
+
+- **Performance Highlights**: 성별 분류 알고리즘의 성능 차이를 진단하여, AI 비전 시스템에서의 외관 기반 편향을 확인했습니다. 연구 결과는 알고리즘적 외모주의가 단순한 기술적 실패가 아니라, AI 시스템의 일반화된 규범적 프레임워크의 일환임을 드러냅니다. 마지막으로, 데이터 관리의 개선에도 불구하고, SD 3.5 모델이 미적 제약을 강화하고 다양성의 축소를 초래할 수 있음을 경고하고 있습니다.
+
+
+
+### IMSAHLO: Integrating Multi-Scale Attention and Hybrid Loss Optimization Framework for Robust Neuronal Brain Cell Segmentation (https://arxiv.org/abs/2601.11645)
+- **What's New**: 본 논문은 IMSAHLO(Integrating Multi-Scale Attention and Hybrid Loss Optimization)라는 새로운 딥러닝 프레임워크를 제안하여 형광 현미경 이미지에서 뉴런 세포를 효과적으로 분할합니다. 이 프레임워크는 Multi-Scale Dense Blocks를 활용하여 다양한 세포 밀도를 처리하고, Hierarchical Attention 메커니즘으로 주요 형태적 특징에 집중하여 관심 영역(Region of Interest, ROI)의 경계 세부사항을 보존하는 데 중점을 둡니다.
+
+- **Technical Details**: IMSAHLO 모델의 핵심 기능은 다양한 수용 영역(receptive field)에서 특징을 포착할 수 있는 Multi-Scale Dense Blocks(MSDBs)와 세포 밀도에 따라 적응적으로 동작하는 Hierarchical Attention(HA)입니다. 또한, Tversky와 Focal 손실을 조합한 하이브리드 손실 함수를 도입하여 클래스 불균형(class imbalance) 문제를 해결하고, 중심선(dice, clDice) 손실과 경계 가중치 손실(Contour-Weighted Boundary loss)을 통해 인접한 세포의 정밀 분리를 보장합니다.
+
+- **Performance Highlights**: 대규모 공개 데이터셋인 Fluorescent Neuronal Cells(FNC)에서 실시한 실험 결과, IMSAHLO는 정밀도 81.4%, 매크로 F1 점수 82.7%, 마이크로 F1 점수 83.3%, 그리고 균형 정확도 99.5%를 기록하며 최신 기술 수준의 아키텍처를 초월하는 성능을 보였습니다. 하이브리드 손실과 다중 스케일 주의력의 상호 작용이 긍정적인 효과를 나타내었으며, 이 연구는 생물 의학 이미징 모달리티(biomedical imaging modalities)에서 적용 가능한 일반적인 세분화 모델을 구축하기 위한 기초를 마련합니다.
+
+
+
+### Predicting When to Trust Vision-Language Models for Spatial Reasoning (https://arxiv.org/abs/2601.11644)
+Comments:
+          9 pages, 5 figures, 6 tables
+
+- **What's New**: 이번 연구에서는 Vision-Language Models (VLMs)의 공간적 추론에서 발생하는 체계적인 실패를 해결하기 위한 새로운 접근 방식을 제안합니다. 기존의 VLM들은 방향 관계를 파악하는 데 49%에서 54%의 낮은 정확도를 보였으며, 이는 로봇 공학 및 자율 시스템의 안전한 배포에 문제가 됩니다. 저자들은 외부 기하학적 검증을 통해 VLM 예측을 평가하는 비전 기반 신뢰도 추정 프레임워크를 제안하여, 신뢰할 수 있는 예측을 가능하게 합니다.
+
+- **Technical Details**: 제안된 프레임워크는 VLM이 공간 예측을 생성한 후, 객체 감지를 통해 기하학적 관계를 검증하는 네 단계로 구성됩니다. 이 과정에서 VLM의 예측과 좌표 간의 기하학적 정합, 겹침으로 인한 공간 모호성, 감지 품질, 그리고 VLM 내부의 불확실성을 포함한 네 가지 신뢰 신호를 융합하여 최종 신뢰도를 계산합니다. 이 모델은 705개의 샘플에서 훈련되었고, VSR 벤치마크의 312개 이미지를 통해 평가되었습니다.
+
+- **Performance Highlights**: BLIP-2에서 0.674 AUROC, CLIP에서 0.583 AUROC를 달성하여 기존 텍스트 기반 방법보다 각각 34.0% 및 16.1% 개선되었습니다. 선택적 예측 능력을 통해 BLIP-2의 경우 60% 목표 정확도에서 61.9%의 커버리지를 달성하였으며, 정밀도를 향상시키기 위해 신뢰도 기반 가지치기를 통해 그래프 추출의 정밀도를 52.1%에서 78.3%로 증가시켰음을 보여주었습니다.
+
+
+
+### PSSF: Early osteoarthritis detection using physical synthetic knee X-ray scans and AI radiomics models (https://arxiv.org/abs/2601.11642)
+Comments:
+          16 pages, 6 figures
+
+- **What's New**: 이 연구에서는 환자의 개입이나 개인정보 침해 없이 X-ray 스캔을 완전하게 생성할 수 있는 물리 기반 합성 시뮬레이션 프레임워크(physics-based synthetic simulation framework, PSSF)를 소개합니다. 기존의 주관적인 방사선 등급 평가 대신, PSSF를 통해 수집된 이미지들이 보다 객관적인 평가를 가능하게 합니다. 또한, 180명의 피험자와 그들의 무릎 이미지를 포함한 가상의 집단을 생성하여 다양한 프로토콜을 사용해 평가합니다.
+
+- **Technical Details**: PSSF는 다양한 조건에서 무릎 방사선 이미지(anteroposterior knee radiographs)를 생성할 수 있는 2D X-ray 프로젝션 시뮬레이터입니다. 이 시뮬레이터는 근위 경골(distal femur)과 근위 경골(proximal tibia)의 매개변수 해부학 모델을 기반으로 하여 개발되었습니다. 연구에서는 로지스틱 회귀(logistic regression), 랜덤 포레스트(random forest), 그래디언트 부스팅(gradient boosting)과 같은 세 가지 머신러닝 모델을 활용하여 방사선 이미지를 이진 및 삼진(Class) 예측합니다.
+
+- **Performance Highlights**: 세 가지 프로토콜(reference, low-dose, geometry-shift)에 걸쳐 다양한 평가가 수행되었으며, IBSI 프로토콜 내에서의 강건성 및 교차 프로토콜, 다중 프로토콜 시나리오에 대한 성능도 포함됩니다. 마지막으로, 공통 클래스 상관 계수(intraclass correlation coefficients)를 활용하여 획득 조건에 따른 특성의 안정성을 평가하였습니다. 이러한 접근 방식은 무릎 골관절염(Osteoarthritis) 진단의 정밀도를 높이는 데 기여할 것입니다.
+
+
+
+### Mixture of Distributions Matters: Dynamic Sparse Attention for Efficient Video Diffusion Transformers (https://arxiv.org/abs/2601.11641)
+- **What's New**: 이 논문에서는 Mixture-Of-Distribution DiT (MOD-DiT)라는 새로운 동적 희소 주의력 프레임워크를 제안합니다. MOD-DiT는 전통적인 희소 주의력 접근 방식의 계산적 한계를 극복하면서 효과적이고 고품질 비디오 생성을 가능하게 합니다. 이를 위해 샘플링이 필요 없는 동적 주의력 알고리즘을 설계하고, 효율적인 선형 근사 모델을 사용하여 진화하는 주의력 패턴을 정확하게 모델링합니다.
+
+- **Technical Details**: MOD-DiT는 두 단계로 구성된 프로세스를 사용하여 운영됩니다. 첫 번째 단계에서는 초기 디노이징 단계의 정보를 활용하고 기능적으로 분산된 혼합 접근 방식을 채택하여 특정 디노이징 간격에 대한 마스크 패턴을 예측합니다. 두 번째 단계에서는 온라인 블록 마스킹 전략을 통해 이 예측된 마스크를 동적으로 적용하면서 역사적 희소성 정보를 유지하여 반복 샘플링의 필요성을 없앱니다.
+
+- **Performance Highlights**: MOD-DiT는 CogVideoX-v1.5에서 1.89배, hunyuan 모델에서는 2.29배의 추론 속도 향상을 이루며 VBench에서 최첨단 결과를 달성합니다. 이러한 성과는 기존의 희소 주의력 접근 방안의 한계를 극복하고, 보다 효율적이면서도 높은 품질의 비디오 생성을 가능하게 하는 MOD-DiT의 효과성을 입증합니다.
+
+
+
+### Confident Learning for Object Detection under Model Constraints (https://arxiv.org/abs/2601.11640)
+Comments:
+          Submitted to ICPR 2026, currently under review
+
+- **What's New**: 이 논문에서는 Model-Driven Data Correction (MDDC)이라는 데이터 중심 프레임워크를 제안합니다. 이 방법은 농업용 잡초 탐지의 성능을 개선하기 위해 데이터 품질 결함을 진단하고 수정하는 과정을 반복적으로 수행합니다. 자동화된 오류 분석 절차를 통해 탐지 실패를 네 가지 유형으로 분류하고, 체계적인 방법론으로 이러한 오류 패턴을 해결합니다.
+
+- **Technical Details**: MDDC 프레임워크는 YOLO 기반 탐지기와 Cluster-Level Outlier Detection을 결합하여 잡초 탐지 데이터셋의 주석 노이즈를 체계적으로 식별하고 수정합니다. 이 방법은 훈련 세트와 검증 세트를 표준 관행에 따라 나누며, 훈련 데이터 개선 후 관찰된 성능 향상이 진정한 일반화 증가를 반영하도록 보장합니다. 각 예측된 경계 박스에 대해 클래스 확률 분포와 지면 진실 주석에 대한 공간 일치 정보를 출력하여 노이즈 분석 및 레이블 수정 단계를 실행합니다.
+
+- **Performance Highlights**: 여러 잡초 탐지 데이터셋에서 실험 결과, YOLOv8n이라는 고정된 경량 탐지기를 사용하여 0.5의 mAP에서 5-25%의 일관된 성능 개선이 나타났습니다. 이 결과는 체계적인 데이터 품질 최적화가 고정된 모델 용량 제약 하에서 성능 병목 현상을 효과적으로 완화할 수 있음을 시사합니다. 향후 더 많은 목표 인식 작업에 적용할 준비가 되어 있습니다.
+
+
+
+### Evaluating Self-Correcting Vision Agents Through Quantitative and Qualitative Metrics (https://arxiv.org/abs/2601.11637)
+- **What's New**: 최근 다중 모달 기초 모델(multimodal foundation models)의 발전으로 비전-언어 에이전트(Vision-Language Agents, VLAs)가 복잡한 시각적 작업을 실행 가능한 도구 기반 계획으로 분해할 수 있게 되었습니다. 그러나 최근의 벤치마크(benchmark)들은 반복적인 자기 수정(iterative self-correction)을 평가하기 시작했지만, 그 양적 한계와 주요 추론 병목 현상(reasoning bottlenecks)은 잘 특성화되어 있지 않습니다.
+
+- **Technical Details**: 이번 연구에서는 진단 마이크로 벤치마크(Diagnostic Micro-Benchmark)를 도입하여 작업 성공률(Task Success Rate, TSR)과 수정 성공률(Correction Success Rate, CSR)의 관계를 분리하여 분석합니다. 초기 능력(initial competence)은 수리 능력(repair ability)을 예측하지 않음을 밝혀내며, 수정의 수익 감소(diminishing returns)의 양을 명확히 측정합니다. 수정을 시도한 후 세 번의 재시도(retries) 후에는 더 이상 성과가 증가하지 않는 것으로 나타났습니다.
+
+- **Performance Highlights**: 실패 분류(Failure Taxonomy)에 따르면 실패의 약 28%는 의미적 드리프트(Semantic Drift)와 같은 맥락 상태(contextual state)의 상실로 인한 것입니다. 이 벤치마크는 이러한 추론 병목 현상을 분리하여 상태 기반(stateful)이고 신뢰할 수 있는 다중 모달 에이전트(multimodal agents)를 향한 재현 가능한 프레임워크를 정의합니다.
+
+
+
+### Now You See Me, Now You Don't: A Unified Framework for Expression Consistent Anonymization in Talking Head Videos (https://arxiv.org/abs/2601.11635)
+- **What's New**: 이 논문에서는 Anon-NET이라는 새로운 통합(framework) 프레임워크를 제안합니다. 이 프레임워크는 비디오에서 얼굴을 비식별화하면서도 원래 비디오의 나이, 성별, 인종, 포즈, 감정을 보존합니다. 기존의 얼굴 비디오 익명화 기술과 달리, Anon-NET은 더 높은 수준의 속성 인식(attribute recognition)과 동작 인식(motion-aware expression transfer)을 통해 얼굴을 복원(inpaint)합니다.
+
+- **Technical Details**: Anon-NET은 확산 생성 모델(diffusion-based generative model)을 사용하여 얼굴 비디오를 비식별화하는 데 필요한 정보를 보존합니다. 비디오 기반 애니메이션(video-driven animation)은 비식별화된 얼굴과 원본 비디오를 입력으로 받아 애니메이션을 생성하는 과정에서 중요한 역할을 합니다. 이러한 과정은 인증된(face recognition) 데이터셋인 VoxCeleb2, CelebV-HQ 및 HDTF에서 실험하여 검증되었습니다.
+
+- **Performance Highlights**: 실험 결과 Anon-NET은 비디오에서 신원을 효과적으로 불분명하게 처리하면서도 시각적 사실감(visual realism)과 시간적 일관성(temporal consistency)을 유지하는 데 성공하였습니다. 다양한 얼굴의 동역학을 포함한 데이터셋에서 Anon-NET의 성능이 입증되었으며, 코드는 공개될 예정입니다.
+
+
+
+### When Rules Fall Short: Agent-Driven Discovery of Emerging Content Issues in Short Video Platforms (https://arxiv.org/abs/2601.11634)
+- **What's New**: 이 연구에서는 짧은 동영상 플랫폼에서 빠르게 진화하는 콘텐츠 이슈를 자동으로 발견하는 방법을 제안합니다. 새로운 이슈가 기존의 주석 정책에 포함되지 않는 경우가 많아 기존의 사람 중심 발견 방법은 지연되는 문제가 있습니다. 제안된 접근법은 멀티모달 LLM(large language model) 에이전트를 기반으로 하여, 잠재적인 새로운 문제를 포함한 짧은 동영상을 자동으로 기억하고 이를 클러스터링하여 새로운 주석 정책을 생성하는 과정을 포함합니다.
+
+- **Technical Details**: 우리의 방법은 짧은 동영상을 Recall하고 두 단계 클러스터링 전략을 적용하여 각 클러스터를 새로 발견된 문제에 매핑합니다. 에이전트는 주석 정책의 범위를 평가하고, 문제의 기존 주석 정책 유무를 판단한 후, 새로 발생한 이슈에 대한 업데이트된 주석 정책을 생성합니다. 이를 통해 실시간으로 콘텐츠 문제를 탐지하고 효율적으로 관리할 수 있습니다.
+
+- **Performance Highlights**: 오프라인 및 온라인 실험을 통해 제안된 방법이 문제 발견의 효과성을 20% 이상 향상시키고, 문제 동영상의 조회 수를 약 15% 줄이는 데 매우 효과적임을 입증하였습니다. 수작업 방식에 비해 시간 비용이 크게 감소하여 주석 정책의 빠른 업데이트가 가능해졌습니다.
+
+
+
+### Beyond Accuracy: Evaluating Grounded Visual Evidence in Thinking with Images (https://arxiv.org/abs/2601.11633)
+Comments:
+          Preprint, Under review
+
+- **What's New**: 최근 Vision-Language Models (VLMs)의 발전은 'Thinking-with-Images'라는 새로운 패러다임을 수립했습니다. 기존의 벤치마크는 정확도 위주로 평가되었으나, 우리는 이를 극복하기 위해 ViEBench를 제안합니다. ViEBench는 전문가가 주석을 단 200개의 고해상도 이미지를 통해 다단계 추론을 요구하는 과정 검증 가능성을 제공합니다.
+
+- **Technical Details**: ViEBench는 인식 과제인 ViEBench-P와 추론 과제인 ViEBench-R로 구성되며, 공간 희소성을 강조하여 crucial visual evidence가 평균적으로 이미지 면적의 0.7% 미만에 위치하도록 설계되었습니다. 이를 통해, 모델이 시각적 세부 정보를 정확히 로컬라이즈하고 이전 지식과 통합하여 다단계 논리적 추론을 수행할 수 있도록 합니다. 이중 축 능력 행렬은 정밀한 진단을 가능하게 하여 성능 저하의 원인을 구별합니다.
+
+- **Performance Highlights**: 우리의 평가 결과, 일부 VLM은 관련 없는 영역에 기반하여도 올바른 최종 답을 생성하는 경우가 있으며, 모델이 올바른 증거를 위치 시킬 수 있더라도 논리적 추론에 이를 활용하지 못하는 경우도 발견했습니다. ViEBench는 이러한 모델의 신뢰성을 정확히 평가하기 위한 틀을 제공하며, VLM의 다음 발전 방향이 '어디를 볼지'뿐만 아니라 '시각적 정보를 어떻게 깊이 통합하는지'에 달려있음을 강조합니다.
+
+
+
+### KG-ViP: Bridging Knowledge Grounding and Visual Perception in Multi-modal LLMs for Visual Question Answering (https://arxiv.org/abs/2601.11632)
+- **What's New**: KG-ViP는 멀티모달 대형 언어 모델(MLLM)에서 시각적 질문 응답(VQA)의 성능을 개선하기 위해 장면 그래프(scene graphs)와 상식 그래프(commonsense graphs)를 통합하는 새로운 프레임워크입니다. 기존 연구는 이 두 가지를 독립적인 요소로 취급했으나, KG-ViP는 그들의 시너지 효과를 활용하여 신뢰할 수 있는 멀티모달 추론을 가능하게 합니다. 이 프레임워크의 핵심은 점진적으로 두 그래프를 통합하는 새로운 검색 및 융합 파이프라인을 통해 이루어집니다.
+
+- **Technical Details**: KG-ViP는 시각적 인식과 외부 지식을 연결하는 세 가지 단계로 구성되며, 멀티모달 지식 그래프(MMKG)가 핵심입니다. MMKG는 다양한 형식의 데이터에서 구조적 관계 사실을 통합하며, 이를 통해 VQA에서의 시각적 추론을 지원합니다. 특히, 각 엔터티는 다양한 속성과 다중 모달 콘텐츠를 포함하여, 시각적 및 텍스트적 정보 간의 효과적인 매핑을 제공합니다.
+
+- **Performance Highlights**: FVQA 2.0+ 및 MVQA 벤치마크에 대한 광범위한 실험 결과, KG-ViP는 기존 VQA 방법들에 비해 현저하게 우수한 성능을 보였습니다. 제안하는 프레임워크는 지식 기반과 시각적 인식을 통합하여 다중 모달 추론의 정확도를 높이고, 이를 통해 VQA의 다양한 평가 과제를 효과적으로 해결할 수 있는 가능성을 보여줍니다.
+
+
+
+### Compress to Focus: Efficient Coordinate Compression for Policy Optimization in Multi-Turn GUI Agents (https://arxiv.org/abs/2601.11631)
+- **What's New**: 이 논문에서는 Coordinate Compression Policy Optimization (CCPO)이라는 새로운 정책 최적화 프레임워크를 제안합니다. CCPO는 멀티턴 GUI 에이전트의 시각적 압축과 정책 최적화를 결합하여 효율적으로 작업을 수행하도록 지원합니다. 이 시스템은 Coordinate-Aware Spatial Compression (CASC) 기능을 통해 상호작용의 변환에서 중요한 시각적 영역에 대한 주의 집중을 점진적으로 좁히면서 계산 효율을 높입니다.
+
+- **Technical Details**: CCPO는 반복적인 상호작용을 통해 시각적 정보를 압축하고 상호작용의 강조를 제공하는 Distance-Based Advantage를 설계했습니다. CASC는 여러 롤아웃에서 수집된 좌표를 집계하여 행동 예측에 적합한 관심 영역(Region of Interest)을 구성하고, 이를 통해 더욱 정교한 학습 신호를 제공합니다. 이렇게 구축된 구조는 압축 과정에서 중요한 시각적 정보의 손실 없이 메모리 사용을 줄이는 데 기여합니다.
+
+- **Performance Highlights**: 대규모 실험 결과, CCPO는 네 개의 벤치마크에서 SOTA(최신 기술 동향) 성능을 달성하였으며, 최대 55%의 토큰 압축과 3.8배의 학습 속도 향상이 이루어졌습니다. 이러한 성과는 멀티턴 GUI 에이전트의 복잡한 작업을 수행하는 데 있어 CCPO의 효과성을 입증하며, 지속적인 환경 상호작용을 통해 이전의 방법들을 능가합니다.
+
+
+
+### A one-step generation model with a Single-Layer Transformer: Layer number re-distillation of FreeFlow (https://arxiv.org/abs/2601.11630)
+- **What's New**: 이 논문에서는 FreeFlow 모델의 28계층 Transformer 아키텍처를 ODE의 오일러 분산법칙으로 해석하며, 이를 통해 단일 계층 Transformer(SLT, Single-Layer Transformer) 모델을 제안합니다. SLT 모델은 28계층 teacher 모델을 단일 DiT 블록으로 압축하여 파라미터 수를 675M에서 4.3M으로 줄였습니다. 이로 인해 SLT는 Noise Space에서 더 많은 후보 점을 빠르게 검사할 수 있어, FreeFlow 모델의 초기 포인트 품질을 향상시킵니다.
+
+- **Technical Details**: SLT는 FreeFlow의 흐름 일치(distillation) 방법론을 바탕으로, Depth-wise feature evolution을 근사화하는 데 중점을 두고 설계되었습니다. SLT는 각 계층을 오일러 discretization 단계로 해석하고, residual stacking를 통해 Transformer 구조의 효율성을 극대화합니다. 가벼운 파라미터를 이용하여, SLT는 Scout-and-Refine 샘플링 전략을 통해 Noise Space에서 샘플링 효율을 높입니다.
+
+- **Performance Highlights**: 실험 결과, SLT는 FreeFlow 모델의 두 번의 무작위 샘플링 시간과 유사한 시간 내에 100회 이상의 Noise Screening을 수행할 수 있으며, 이를 통해 최종적으로 고품질 이미지를 생성할 수 있음을 보여줍니다. 이러한 결과는 슬로우 샘플링 호출의 수를 줄이면서도 향상된 생성 품질과 안정성을 확보할 수 있음을 나타냅니다.
+
+
+
+### Handcrafted Feature-Assisted One-Class Learning for Artist Authentication in Historical Drawings (https://arxiv.org/abs/2601.11627)
+- **What's New**: 이 논문은 문화유산 분야의 작품 인증 및 출처 확인에 새로운 계산적 프레임워크를 제시합니다. 특히, 작은 참조 자료를 기반으로 하여 역사적 드로잉의 인증을 위해 원-클래스 오토인코더를 이용한 특징 기반 검증 시스템을 개발했습니다. 이 방법은 스타일적 신호를 포착하면서 데이터 부족 문제를 해결하는 데 중점을 둡니다.
+
+- **Technical Details**: 제안된 방법론은 메트로폴리탄 미술관과 여러 기타 미술관의 인증된 스케치를 통해 훈련된 10개의 아티스트 전용 검증기를 사용하고, 주파수 도메인 에너지, 샤논 엔트로피, GLCM 기반 동질성 등의 해석 가능한 수작업 특징을 포함하는 특징 벡터를 구성합니다. 각 아티스트에 대해 20장의 훈련 이미지만으로도 효과적인 분별력을 보였습니다.
+
+- **Performance Highlights**: 900회의 검증 결정에서 이 시스템은 83.3%의 진짜 수용률과 9.5%의 가짜 수용률을 달성했습니다. 아티스트에 따라 성능이 달라지며, 일부 검증기는 거의 제로의 가짜 수용률을 보였고, 다른 것들은 높은 혼동률을 나타냈습니다. 이러한 결과는 세밀한 디지털화 관리와 임계값 조정의 필요성을 제기합니다.
+
+
+
+### PointSLAM++: Robust Dense Neural Gaussian Point Cloud-based SLAM (https://arxiv.org/abs/2601.11617)
+- **What's New**: PointSLAM++는 RGB-D SLAM 시스템으로 새로운 계층적 제약(neural Gaussian representation)을 활용하여 3D 재구성을 아주 정밀하게 수행한다. 이 시스템은 구조 관계를 보존하면서 장면 맵 생성을 위한 Gaussian primitive를 생성하는 데 초점을 맞춘다. 또한, 깊이 센서 노이즈를 완화하기 위해 점진적 포즈 최적화(progressive pose optimization)를 도입하여 위치 추정의 정확성을 크게 향상시킨다.
+
+- **Technical Details**: PointSLAM++는 계층적 구조와 함께 학습 가능한 신경 Gaussian 표현(neural Gaussian representation)을 통합해 있으며, 이를 통해 깊이 정보에 대한 의존도를 줄이면서 정확한 포즈 추정을 가능하게 한다. 이 방법은 ICP 알고리즘을 사용해 깊이 데이터의 강체 등록을 수행하고, ORB(feature-based) 특징을 사용하여 정합을 동시에 개선한다. 또한, 카메라 뷰 벡터를 각 앵커의 외관 특징에 삽입하여 복잡한 조명 조건을 보완하는 방법을 사용한다.
+
+- **Performance Highlights**: 실험 결과PointSLAM++는 기존 3DGS 기반 SLAM 방법들보다 재구성 정확도와 렌더링 품질에서 뛰어난 성능을 보였다. 이는 대규모 증강 현실(AR) 및 로보틱스에 매우 유리하여, 실시간 3D 맵 구축 및 사실적인 장면 렌더링이 가능하다는 것을 의미한다. 새로운 동적 신경 표현 그래프는 Gaussian 노드의 분포를 조정하여 복잡한 장면 세부사항에 능동적으로 적응할 수 있도록 하여, 높은 정밀도의 3D 맵핑을 가능하게 한다.
+
+
+
+### Multi-modal MRI-Based Alzheimer's Disease Diagnosis with Transformer-based Image Synthesis and Transfer Learning (https://arxiv.org/abs/2601.11614)
+Comments:
+          19 pages, 10 figures
+
+- **What's New**: 이번 연구에서는 T1 가중치 자기공명영상(T1-weighted MRI)으로부터 직접적으로 FA(분수 이방성과)와 MD(평균 확산)를 예측하는 3D TransUNet 이미지 합성 프레임워크를 제안합니다. 기존의 확산 MRI(dMRI) 방법이 시간 소모가 크고 움직임 아티팩트에 취약한 문제를 해결하기 위해, 고품질의 FA 및 MD 맵을 생성하는 모델을 개발하여 이식성과 정확성을 높였습니다.
+
+- **Technical Details**: TransUNet 아키텍처는 국소 특징 추출을 위해 합성곱 층(convolutional layers)과 장거리 종속성을 포착하기 위한 Transformer 층을 결합하여 구성됩니다. 각 합성곱 블록은 두 개의 연속적인 합성곱 층으로 이루어져 있으며, T1w MRI 이미지를 기반으로 FA와 MD 맵을 동시 예측할 수 있도록 설계되었습니다. 훈련은 PyTorch로 구현되었으며, NVIDIA GeForce RTX 3070 GPU를 활용했습니다.
+
+- **Performance Highlights**: 이 모델은 FA 및 MD 맵의 구조적 유사도 지수(Structural Similarity Index, SSIM)가 0.93을 초과하고, 실제 dMRI와의 강한 Pearson 상관관계(>0.94)를 기록했습니다. 또한, 이 합성된 기능을 다중 모달 진단 모델에 통합함으로써 알츠하이머병(AD) 분류 정확도를 5% 향상시키고, 초기 인지 장애인 경도 인지 장애(MCI) 탐지율을 12.5% 개선하는 성과를 보였습니다.
+
+
+
+### Domain-Specific Self-Supervised Pre-training for Agricultural Disease Classification: A Hierarchical Vision Transformer Study (https://arxiv.org/abs/2601.11612)
+Comments:
+          11 pages, 4 figures, 9 tables
+
+- **What's New**: 이 연구는 농업 질병 분류에 대한 도메인 특정(self-supervised) 사전 학습의 영향을 조사하였습니다. 연구 결과, 3,000개의 라벨 없는 농업 이미지에 대해 SimCLR 사전 학습이 +4.57%의 정확도 향상을 제공한다는 것을 발견하였으며, 이는 계층적 아키텍처 디자인으로 인한 +3.70%의 상승폭을 초월합니다. 또한, 이 연구에서 사용한 SSL의 이점은 아키텍처에 구애받지 않음을 보여주어, Swin-Base에 동일한 사전 학습을 적용했을 때 +4.08%, ViT-Base에는 +4.20%의 향상을 기록하였습니다.
+
+- **Technical Details**: 본 연구에서는 HierarchicalViT(HVT)라는 Swin 스타일의 계층적 트랜스포머를 사용하여 세 가지 데이터셋에서 평가하였습니다. 입력 이미지는 패치 임베딩, 4개의 계층적 트랜스포머 단계, 선택적 교차 주의 정제, 마지막으로 분류 헤드로 처리됩니다. HVT-Base는 78M의 매개변수를 가진 모델로서 Swin-Base(88M)와 비교했을 때 1.68%의 향상을 보였습니다.
+
+- **Performance Highlights**: HVT 모델은 Cotton Leaf Disease에서 7개 클래스 90.24%, PlantVillage에서 38개 클래스 96.3%, PlantDoc에서 27개 클래스 87.1%의 정확도를 기록하였습니다. HVT는 3.56%의 ECE(Estimated Calibration Error)를 기록하였으며, 온도 조정 후에는 1.52%로 감소했습니다. 본 연구에서 제안된 방법은 농업 응용 분야에서 도메인 특정 SSL의 가치를 실증적으로 보여줍니다.
+
+
+
+### KAGE-Bench: Fast Known-Axis Visual Generalization Evaluation for Reinforcement Learning (https://arxiv.org/abs/2601.14232)
+Comments:
+          38 pages, 44 figures, 3 tables
+
+- **What's New**: 이번 연구에서는 KAGE-Env라는 새로운 2D 플랫폼 환경을 소개합니다. 기존의 벤치마크가 여러 출처의 시프트를 혼합하여 시스템적인 분석을 방해하는 문제를 해결하기 위해, KAGE-Env는 관찰 프로세스를 독립적으로 제어 가능한 시각 축으로 분리했습니다. 이 환경은 픽셀 정책의 상태 조건부 행동 분포에 의한 성능 변화만을 반영하여 시각 일반화에 대한 명확한 추상화를 제공합니다.
+
+- **Technical Details**: KAGE-Env는 JAX를 기반으로 구축되었으며, 여섯 가지 알려진 축을 포함하는 KAGE-Bench 벤치마크를 정의하여 각각의 시각 시프트를 독립적으로 분리합니다. 이를 통해 34개의 학습-평가 구성 쌍을 생성하며, 표준 PPO-CNN 기반선 모델을 사용하여 시프트가 에이전트의 성능에 미치는 영향을 분석합니다. 연구 결과, 배경과 포토메트릭 시프트는 성공률을 크게 떨어뜨리는 반면, 에이전트 외형 시프트는 상대적으로 온화한 영향을 미칩니다.
+
+- **Performance Highlights**: 이번 연구에서 제안한 KAGE-Bench를 통해 시각 축에 따라 강한 실패 패턴이 나타남을 확인했습니다. 일부 시프트는 앞으로 나아가는 동작을 유지하면서도 작업 완료를 방해하여, 보상이 일반화 실패를 가릴 수 있음을 보여주었습니다. 또한 JAX의 완전 벡터화 구현 덕분에 단일 GPU에서 초당 최대 33M 환경 스텝을 가능하게 하여 시각적 요소에 대한 빠르고 재현 가능한 실험을 지원합니다.
+
+
+
+### Copy-Trasform-Paste: Zero-Shot Object-Object Alignment Guided by Vision-Language and Geometric Constraints (https://arxiv.org/abs/2601.14207)
+- **What's New**: 이 논문은 주어진 두 메쉬 간의 제로샷(Zero-shot) 3D 정렬을 텍스트 프롬프트를 사용하여 수행하는 방법을 연구합니다. 이전 연구들은 주로 기하학적 정렬에 의존했으나, 본 연구는 사전 훈련된 2D diffusion 모델을 활용하여 언어 조건화된 객체 간의 공간적 관계를 모델링합니다. 본 프레임워크는 CLIP(Cross-Lingual Image Pretraining) 기반의 그래디언트를 통해 테스트 시간 동안 상대 포즈를 직접 최적화합니다.
+
+- **Technical Details**: 우리는 CLIP을 언어 비전 목표로 사용하여, 텍스트와 이미지 간의 코사인 유사성을 측정할 수 있게 합니다. 테스트 시간 동안, 점진적으로 비율 소프트-ICP(Iterative Closest Point)와 침투 손실을 최적화하여 물리적으로 그럴듯한 정렬을 유도합니다. 후보 측정 기준으로 50개의 메쉬-프롬프트 쌍으로 구성된 벤치마크를 통해 우리의 방법이 기하학적 및 LLM(대규모 언어 모델) 기반 벤치마크보다 뛰어난 성능을 보임을 입증합니다.
+
+- **Performance Highlights**: 우리의 방법은 언어 조건화된 메쉬 쌍 정렬(Object-Object Alignment) 문제에서 여러 벤치마크를 통해 향상된 성능을 보여주었습니다. 특히, 더 높은 의미적 일치성과 낮은 충돌 부피를 관찰했습니다. 이는 본 논문의 효율적인 텍스트 유도 정렬 및 물리적 제약 조건 통합이 성공적이라는 것을 나타냅니다.
+
+
+
+### TwinBrainVLA: Unleashing the Potential of Generalist VLMs for Embodied Tasks via Asymmetric Mixture-of-Transformers (https://arxiv.org/abs/2601.14133)
+Comments:
+          GitHub: this https URL
+
+- **What's New**: 이번 논문에서는 TwinBrainVLA라는 새로운 Vision-Language-Action (VLA) 아키텍처를 소개합니다. 이 모델은 일반적인 의미 이해를 유지하는 일반ist VLM과 몸체 감각에 특화된 specialist VLM을 조합하여 로봇 제어를 수행합니다. TwinBrainVLA는 Asymmetric Mixture-of-Transformers (AsyMoT) 메커니즘을 통해 동적인 정보 통합과 공간적 컨디셔닝을 가능하게 하여, 로봇의 정밀한 제어를 가능하게 합니다.
+
+- **Technical Details**: TwinBrainVLA는 두 개의 VLM 경로를 비대칭 이원적 훈련 전략을 사용하여 조율합니다. 'Left Brain'은 고정된 사전 훈련된 VLM으로, 일반적인 지식과 명령 수행 능력을 유지합니다. 반면 'Right Brain'은 함께 훈련 가능한 감각 지각 전문 모델로, AsyMoT 메커니즘을 통해 서로 다른 정보를 활용하여 로봇의 행동을 매칭하고 조절합니다.
+
+- **Performance Highlights**: TwinBrainVLA는 SimplerEnv와 RoboCasa 벤치마크에서 기존 최첨단 모델보다 우수한 조작 성능을 입증하였습니다. 이로 인해 로봇이 고수준의 의미 이해와 저수준의 물리적 숙련도를 동시에 달성할 수 있는 가능성이 확인되었습니다. 또한, 이 아키텍처는 사전 훈련된 VLM의 포괄적인 시각적 이해 능력을 보존하며, 로봇 제어의 새로운 방향을 제시합니다.
+
+
+
+### Diffusion-Guided Backdoor Attacks in Real-World Reinforcement Learning (https://arxiv.org/abs/2601.14104)
+- **What's New**: 이 논문은 강화 학습(리인포스먼트 러닝, RL)에서의 백도어 공격을 다루며, 특히 실제 로봇 시스템에서 이러한 공격이 어떻게 작동하는지 분석합니다. 기존 연구는 주로 시뮬레이션 환경에 국한되어 있었으나, 안전성 제약이 있는 실제 환경에서는 공격의 효과가 약化되어 첫 번째로 이러한 문제를 강조합니다. 따라서 저자들은 확산 가이드를 활용한 백도어 공격 프레임워크(DGBA)를 제안하며, 로봇의 제어 시스템을 블랙박스 시스템으로 간주하여 복잡한 동적 모델 없이 접근합니다.
+
+- **Technical Details**: DGBA는 의도적으로 제작된 작은 바닥 패치(trigger)를 사용하여, 현실 세계 비주얼 변동성에서 신뢰성 있는 공격 활성화를 가능하게 합니다. 이 패치는 조건부 확산 모델을 사용하여 다양한 외관을 생성하며, 훈련 중 결정적으로 중요하는 상태에서만 호출되도록 압축하는 전략을 도입합니다. 시뮬레이션 환경 대신 실제 로봇에 적용하여 안전 제약이 있는 제어 스택을 시뮬레이션과의 차이점으로 연구하였습니다.
+
+- **Performance Highlights**: 진행된 실험에서는 TurtleBot3 모빌 로봇에서 DGBA의 효과를 입증하며, 기존 백도어 공격은 안전 제약이 있는 환경에서 실패함을 보여주었습니다. 본 연구는 목표 공격 활성화를 효과적으로 달성하면서도 정상적인 작업 성능을 유지하는 데 성공했습니다. 이 결과는 DGBA가 실제 응용 프로그램에서 유의미한 기여를 할 수 있음을 나타냅니다.
+
+
+
+### MooneyMaker: A Python package to create ambiguous two-tone images (https://arxiv.org/abs/2601.14077)
+- **What's New**: 이 논문은 MooneyMaker라는 오픈 소스 Python 패키지를 소개합니다. MooneyMaker는 여러 보완 방법을 사용하여 애매한 Mooney 이미지를 자동 생성하는 기능을 제공합니다. 연구자들은 이미지 통계 및 딥러닝 모델 기반의 다양한 생성 기법 중에서 선택할 수 있습니다.
+
+- **Technical Details**: MooneyMaker 패키지는 이미지 템플릿을 입력받아 선택한 Mooney 이미지 생성 기법을 사용하여 이미지를 생성하고 저장하는 'generate_mooney_image'라는 주요 기능을 제공합니다. 사용자는 가우시안 블러링 커널의 크기나 기타 기법 관련 파라미터를 설정할 수 있으며, 'convert_folder_to_mooney_images' 기능을 통해 폴더 내 모든 이미지를 Mooney 이미지로 변환할 수도 있습니다.
+
+- **Performance Highlights**: 이 논문에서는 다양한 생성 기법을 사용하여 Mooney 이미지를 생성하고, 이를 인간 관찰자가 해석하기 전후의 인지성을 평가한 실험 결과를 제시합니다. 그 결과, 초기 인지성이 낮은 기법이 템플릿 이미지 제시 후 인지성이 더 높아지는 경향이 있음을 보여주었습니다.
+
+
+
+### LLMOrbit: A Circular Taxonomy of Large Language Models -From Scaling Walls to Agentic AI Systems (https://arxiv.org/abs/2601.14053)
+- **What's New**: 이번 논문은 인공지능(AI)의 발전과 관련된 혁신적인 변화들을 다루고 있습니다. LLMOrbit라는 포괄적인 순환 분류법을 통해 2019년부터 2025년까지의 대형 언어 모델(LLM)에 대한 조사 결과를 제시하며, 50개 이상의 모델을 분석합니다. 이 연구는 현대 LLM의 아키텍처 혁신, 훈련 방법론, 효율성 패턴 등을 문서화하고 있습니다.
+
+- **Technical Details**: 논문은 AI의 세 가지 주요 위기를 식별합니다: 데이터 부족(2026-2028년까지 9-27T 토큰 고갈), 비용 증가(5년 내 3M 달러에서 300M+ 달러로의 증가), 비효율적인 에너지 소비(22배 증가). 이 문제를 극복하기 위한 여섯 가지 패러다임을 강조하며, 테스트 시간 처리, 양자화, 분산 엣지 컴퓨팅, 모델 병합 등 다양한 혁신적 접근 방식을 제시합니다.
+
+- **Performance Highlights**: 최신 모델들의 성능 개선 파라다임도 두드러집니다. 예를 들어, DeepSeek-R1은 10배의 추론 컴퓨팅으로 GPT-4 성능을 달성했으며, 개방형 소스인 Llama 3는 88.6% MMLU 성능으로 GPT-4를 초월했습니다. 이러한 혁신은 에너지 효율성을 개선하고 비용을 줄이며 AI 시스템의 민주화를 촉진하는 데 기여합니다.
+
+
+
+### SHARE: A Fully Unsupervised Framework for Single Hyperspectral Image Restoration (https://arxiv.org/abs/2601.13987)
+Comments:
+          Technical report
+
+- **What's New**: 본 논문에서는 SHARE(Single Hyperspectral Image Restoration with Equivariance)라는 완전 비지도 학습 기반의 하이퍼스펙트럼 이미지(Hyperspectral Image, HSI) 복원 프레임워크를 제안합니다. SHARE는 기하학적 등변성 원리를 저차원 스펙트럼 모델링과 통합하여 지상 진실 데이터에 대한 의존성을 제거합니다. 이 접근 방식은 변별 가능한 기하학적 변환(예: 회전, 배율)에 대한 HSI 구조의 고유 변환 불변성을 활용하여 자기 감독 신호를 얻는 것입니다.
+
+- **Technical Details**: 저자는 SHARE 프레임워크를 통해 이미지 신호가 변환 그룹 아래에서 불변성을 유지한다는 점을 강조합니다. 이 방법은 오직 하나의 이미지에서 학습할 수 있도록 허용하는 경미한 불변 성질을 적용하여, 기존의 자가 감독 식 접근 방식과 구별됩니다. 또한, Stein Unbiased Risk Estimator(SURE)를 통합하여 실제 환경에서의 노이즈에 대한 강인성을 높이고 있습니다.
+
+- **Performance Highlights**: SHARE는 HSI 복원 및 초해상도 기능에 대해 여러 실험을 진행한 결과, 최첨단 비지도 접근 방식과 비교할 때 뛰어난 성능을 달성했습니다. 아울러 감독 학습 방식의 성능에 거의 맞먹는 결과를 얻었으며, 다양한 과학적 이미지 복원 시나리오에서의 가능성을 제시하고 있습니다.
+
+
+
+### HyperWalker: Dynamic Hypergraph-Based Deep Diagnosis for Multi-Hop Clinical Modeling across EHR and X-Ray in Medical VLMs (https://arxiv.org/abs/2601.13919)
+Comments:
+          Under Review
+
+- **What's New**: 이번 논문에서는 의료 AI의 핵심 도전 과제인 자동 임상 진단을 해결하기 위해 새로운 프레임워크인 	extbf{HyperWalker}를 제안합니다. HyperWalker는 다이나믹 하이퍼그래프와 테스트 시 학습(test-time training) 접근 방식을 통해 기존의 샘플 격리 인퍼런스(paradigm)를 넘어서려 합니다. 이 모델은 환자의 전자 건강 기록(EHR)과 진단 결과를 통합하여 더 정확한 진단을 가능하게 하며, 임상 정보의 다차원 상관관계를 모델링합니다.
+
+- **Technical Details**: HyperWalker는 'iBrochure'라는 다이나믹 하이퍼그래프를 구성하여 EHR 데이터의 구조적 이질성과 다중 모달 임상 정보 간의 연관성을 모델링합니다. 또한, 이 모델에는 강화 학습 에이전트인 	extbf{Walker}가 포함되어있어 최적의 진단 경로를 찾아내는 작업을 수행합니다. 테스트 샘플의 다양한 특성을 포괄적으로 커버하기 위해 'linger mechanism'을 도입하여 여러 번의 외부 환자 사례를 iteratively 선택하는 전략을 사용합니다.
+
+- **Performance Highlights**: 실험 결과, HyperWalker는 MIMIC 및 EHRXQA 데이터셋에서 최첨단 성과를 달성하였으며, 이는 의학 VQA 및 의료 보고서 생성(MRG) 분야에서의 효율성을 입증합니다. 이러한 성과는 임상에서 발생하는 특정한 상황들에 맞춰 모델이 적응할 수 있도록 하여, 통합된 진단 이론과 실증 근거 기반의 사고 과정을 상징합니다.
+
+
+
+### Chain-of-Thought Compression Should Not Be Blind: V-Skip for Efficient Multimodal Reasoning via Dual-Path Anchoring (https://arxiv.org/abs/2601.13879)
+- **What's New**: 이번 연구에서 V-Skip이라는 새로운 방법을 소개합니다. 이 방법은 멀티모달 Chain-of-Thought (CoT) 시퀀스를 압축하면서도 시각적 기초를 엄격히 유지하는 데 중점을 둡니다. 기존의 텍스트 중심 압축 방법들이 시각적 맥락을 무시하고 발생하는 Visual Amnesia 문제를 해결하고자 합니다. V-Skip은 정보를 효과적으로 보존하는 Visual-Anchored Information Bottleneck (VA-IB) 최적화 문제로 압축 작업을 재구성합니다.
+
+- **Technical Details**: V-Skip은 이중 경로 스코어링 메커니즘을 활용하여 언어적 예측 가능성과 교차 모달 주의 흐름을 통해 토큰의 중요성을 평가합니다. 이를 통해 언어적으로 중복이지만 시각적으로 중요한 토큰을 선택적으로 보존합니다. 이 방법은 기존의 방법들과 달리, 두 가지 입력 유형을 동시에 고려하여 보다 유연한 압축을 가능하게 합니다.
+
+- **Performance Highlights**: Qwen2-VL 및 Llama-3.2 모델을 활용한 실험 결과, V-Skip은 2.9배의 속도 향상을 이루면서도 정확도의 현저한 손실 없이, 세밀한 시각적 세부 사항을 유지합니다. 특히, DocVQA 과제에서 다른 기준선 대비 30% 이상 향상된 성능을 보여줍니다.
+
+
+
+### FutureOmni: Evaluating Future Forecasting from Omni-Modal Context for Multimodal LLMs (https://arxiv.org/abs/2601.13836)
+Comments:
+this https URL
+
+- **What's New**: 이번 논문에서는 Multimodal Large Language Models (MLLMs)의 오미모달(omni-modal) 미래 예측 능력을 평가하기 위한 새로운 벤치마크인 FutureOmni를 소개합니다. 기존 벤치마크가 과거 이해에 중점을 두고 있는 반면, FutureOmni는 오디오-비주얼(audio-visual) 환경에서 미래 사건을 예측하는 데 중점을 둡니다. 이 첫 번째 벤치마크는 919개의 비디오와 1,034개의 객관식 QA 쌍을 포함하여 다양한 분야를 다루고 있습니다.
+
+- **Technical Details**: FutureOmni는 스케일 가능한 LLM-assisted 및 human-in-the-loop 파이프라인을 통해 구축되었습니다. 평가된 모델들은 교차 모달(cross-modal) 인과(causal) 및 시간적(reasoning) 추론을 수행해야 하며, 미래 사건을 예측하기 위해 내부 지식(internal knowledge)을 효과적으로 활용해야 합니다. 현재 시스템들이 특히 음성이 많은 시나리오에서 어려움을 겪고 있는 것으로 나타났으며, Gemini 3 Flash가 64.8%의 정확도로 가장 높은 성능을 기록했습니다.
+
+- **Performance Highlights**: FutureOmni와 인기 있는 오디오-비주얼 및 비디오 전용 벤치마크에서 평가한 결과, NEW OF TRAINING 전략인 Omni-Modal Future Forecasting (OFF)이 미래 예측 및 일반화 향상에 기여하는 것으로 나타났습니다. 또한, 우리는 7K 샘플의 instruction-tuning 데이터셋을 큐레이션하였으며, 모든 코드와 데이터셋을 공개하였습니다. 이러한 연구를 통해 MLLMs의 한계를 극복하고, 미래 예측의 가능성을 확대하고자 합니다.
+
+
+
+### Quadratic Upper Bound for Boosting Robustness (https://arxiv.org/abs/2601.13645)
+Comments:
+          Accepted at ICML 2025. Published in PMLR 267:72656-72676
+
+- **What's New**: 본 논문에서는 패스트 적대적 훈련(Fast Adversarial Training, FAT)의 효율성을 개선하기 위한 새로운 손실 함수, 즉 Quadratic Upper Bound (QUB) 손실 함수를 제안합니다. QUB는 기존 AT 손실 함수에 비해 모델의 강건성을 크게 향상시키면서도 훈련 시간을 크게 증가시키지 않는 지향점을 가지고 있습니다. 실험 결과, QUB 손실을 이용한 경우 모델의 강건성이 현저히 향상되었음을 확인했습니다.
+
+- **Technical Details**: QUB 손실 함수는 교차 엔트로피 손실 함수의 볼록성을 활용하여 도출되었습니다. 본 연구에서는 QUB를 기존의 적대적 훈련에서 사용하는 손실 함수로 제안합니다. 그리고 다양한 메트릭스를 활용하여 이 QUB 손실 함수가 손실 경량 공간을 부드럽게 만들어 주는 효과가 있음을 보여주었습니다.
+
+- **Performance Highlights**: 제안된 QUB 손실 함수를 이용한 FAT 방법은 모델 강건성을 개선할 수 있으며, 이는 다양한 데이터셋에 대한 실험을 통해 입증되었습니다. QUB 사용으로 인해 손실 경량 분야가 부드러워지는 효과가 있어, 이는 모델의 적대적 공격에 대한 저항력을 높여줍니다. 방어 능력이 향상된 결과는 기존의 FAT 방법과 비교했을 때 확연히 나타났습니다.
+
+
+
+### FG-OrIU: Towards Better Forgetting via Feature-Gradient Orthogonality for Incremental Unlearning (https://arxiv.org/abs/2601.13578)
+Comments:
+          This paper has been accepted by ICCV 2025. code: \url{this https URL}
+
+- **What's New**: 이번 연구에서는 Incremental Unlearning (IU)의 필요성을 강조하며, 기존 방법들이 파라미터 억제나 지식 혼란을 통해 피상적인 망각(supecficial forgetting)만을 야기하고 있다는 점을 지적합니다. 우리는 FG-OrIU(Feature-Gradient Orthogonality for Incremental Unlearning)이라는 새로운 프레임워크를 제안하여, 피처(feature)와 그래디언트(gradient) 레벨에서의 직교성(orthogonality) 제약을 통합합니다. 이 프레임워크는 깊은 망각(deep forgetting)을 실현하여 정보의 영구적인 삭제를 보장합니다.
+
+- **Technical Details**: FG-OrIU는 특징 공간의 분해를 위해 특이값 분해(SVD)를 사용하여 특정 클래스를 잊기 위한 피처와 남은 클래스를 위한 피처를 별도의 서브스페이스(subspace)로 나눕니다. 또한, 두 가지 제약 조건을 적용하여 Forgetting 클래스와 Remaining 클래스에 대한 피처 직교 사상을 수행하고, 업데이트 과정에서 잊혀진 지식의 재도입을 방지합니다. 동적 서브스페이스 적응(dynamic subspace adaptation)을 통해 새로운 잊기 서브스페이스를 병합하고 남은 서브스페이스를 축소하여 지속적으로 망각과 보존 간의 균형을 유지합니다.
+
+- **Performance Highlights**: 광범위한 실험을 통한 결과는 FG-OrIU가 기존의 MU 및 IU 시나리오에서 뛰어난 성능을 발휘한다는 것을 보여줍니다. 특히, 이 방법은 남아있는 클래스의 성능을 잘 유지하면서도 지정된 클래스를 완전히 잊게 만듭니다. 우리의 접근 방식은 규제 환경이 변화하는 상황에서도 모델의 효율적인 관리와 준수를 보장하여, 윤리적이며 법적인 요구 사항에 대한 대응력을 높입니다.
+
+
+
+### Reasoning is a Modality (https://arxiv.org/abs/2601.13562)
+Comments:
+          Code access: this https URL
+
+- **What's New**: 이 논문은 Abstraction and Reasoning Corpus (ARC)를 사용하여 인공지능(AI) 시스템의 추상적 추론 능력이 인간 지능과 어떻게 다른지를 탐구합니다. 특히, LLM과 ViT와 같은 현대 AI가 통계적으로 기반한 행동 예측기로 작용하는 반면, 인간은 내부 정신 상태를 해독하여 행동을 설명하는 방법에 차이가 있음을 강조합니다. 이러한 차이를 극복하기 위해, 저자들은 역할이 분리된 transformer 블록을 설계하여 AI의 추론 과정을 개선하려고 합니다.
+
+- **Technical Details**: 저자들은 ARC 작업을 시각적 추론 문제로 해결하기 위해 역할이 분리된 transformer 블록을 개발했습니다. 이 블록은 글로벌 컨트롤러 토큰과 그리드 작업 공간 토큰을 분리하고, 글로벌 컨트롤러 상태를持(가지고) 있어 지속 가능한 규칙 실행을 가능하게 합니다. 이 접근법은 구조적 주의 패스를 통해 디자인되어, 기존의 dense ViT 백본을 대체하면서도 인지 처리의 모듈화를 강화합니다.
+
+- **Performance Highlights**: VARC 시각 중심 프로토콜에서 훈련된 이 새로운 모델은 ARC-1에서 62.6%의 정확도를 달성하여 평균 인간 성능(60.2%)을 초과하였고, 이전의 방법들에 비해 현저한 성능 향상을 보여주었습니다. 또한 정성적으로도, 이 모델은 밀집 ViT 기준선보다 더 일관된 규칙 응용 구조를 보이며, 제어자 주도의 추론으로 전환됨을 보여주었습니다.
+
+
+
+### Event-based Heterogeneous Information Processing for Online Vision-based Obstacle Detection and Localization (https://arxiv.org/abs/2601.13451)
+- **What's New**: 이 논문은 로봇 비전 기반 내비게이션을 위한 새로운 프레임워크를 소개합니다. 이 프레임워크는 Hybrid Neural Networks (HNNs)와 Spiking Neural Network (SNN)를 결합하여 모델링되지 않은 장애물을 탐지하고 위치를 파악하면서 상황 인식을 향상시킵니다. 인공지능 신경망(Artificial Neural Networks, ANNs)과 SNN의 상호 보완적인 강점을 활용하여 정확한 환경 이해와 빠르고 에너지 효율적인 처리를 달성합니다.
+
+- **Technical Details**: 제안된 아키텍처는 이중 경로 방식(dual-pathway approach)을 사용합니다. ANN 구성 요소는 저주파에서 정적 공간 특징을 처리하고, SNN 구성 요소는 동적 이벤트 기반 센서 데이터를 실시간으로 처리합니다. 기존의 하이브리드 아키텍처와 달리, 이 시스템은 로컬라이제이션(localization) 및 상태 추정을 위해 스파이크 인코딩된 입력을 직접 활용하는 미리 개발된 SNN 기반 필터를 포함합니다.
+
+- **Performance Highlights**: 시뮬레이션 결과는 제안된 방법이 허용 가능한 탐지 정확도를 제공하면서도 SNN 전용 구현에 가까운 계산 효율성을 유지함을 보여줍니다. 제안된 프레임워크는 예측할 수 없는 동적 환경에서 작동하는 로봇을 위한 신경형 내비게이션 시스템(neuromorphic navigation systems)에서 중요한 발전을 나타냅니다.
+
+
+
+### Aligning Agentic World Models via Knowledgeable Experience Learning (https://arxiv.org/abs/2601.13247)
+Comments:
+          Ongoing work
+
+- **What's New**: 본 연구에서는 기존 대형 언어 모델(LLM)들이 지닌 비물리적 지식의 한계를 극복하기 위한 WorldMind라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 환경 피드백을 이용하여 상징적 세계 지식 저장소를 구축함으로써 물리적 법칙을 준수하는 방식으로 지식의 정확성을 높입니다. 연구팀은 Process Experience와 Goal Experience를 결합하여 에이전트가 물리적 현실에 맞는 계획을 수립하도록 돕는 방법을 개발했습니다.
+
+- **Technical Details**: WorldMind 프레임워크는 제어 문제를 World Knowledge-Augmented Markov Decision Process(WK-MDP)로 형식화하여 환경 동역학을 외부화합니다. 이 과정에서 에이전트는 Process Experience와 Goal Experience 두 가지 유형의 경험을 축적하며, 이를 통해 예측 오류를 활용하여 내부 세계 모델을 정교화합니다. 이 메커니즘은 자율적으로 신뢰할 수 있는 세계 모델을 확보하는 데 기여하며, 에이전트는 이를 바탕으로 물리적 제약을 준수하는 계획을 수립할 수 있습니다.
+
+- **Performance Highlights**: WorldMind는 EB-ALFRED와 EB-Habitat 실험에서 기존 모델들보다 우수한 성능을 기록하며, 물리적 환각을 크게 줄이는 데 성공했습니다. 또한, 모델 간의 전이 가능성이 뛰어나고, 구축된 세계 지식이 특정 모델에 의존하지 않고 보편적인 물리 법칙을 포착하는 것을 입증했습니다. 이러한 성과는 에이전트가 내부적으로 신뢰할 수 있는 세계 모델을 개발하는 데 있어 중요한 기여를 합니다.
+
+
+
+### Earth Embeddings as Products: Taxonomy, Ecosystem, and Standardized Access (https://arxiv.org/abs/2601.13134)
+- **What's New**: Geospatial Foundation Models (GFMs)의 높은 컴퓨팅 비용이 광범위한 사용을 저해하고 있기 때문에, 저자는 호환되지 않는 형식과 해상의 파편화된 생태계에서 "동결(frozen)"된 대안을 제공하는 사전 계산된 임베딩 데이터 제품에 주목하고 있습니다. 이러한 환경의 단점을 해결하기 위해 저자들은 TorchGeo 라이브러리에 통일된 API를 추가하여 다양한 임베딩 제품의 로딩과 쿼리를 표준화했습니다. 이로써 지구 관측 워크플로우의 투명성과 접근성을 높이고자 하는 목표를 설정하고 있습니다.
+
+- **Technical Details**: 최근 연구에서는 GFMs가 방대한 데이터 소스에 대해 사전 훈련된 모델로, 저차원 고정 길이 벡터를 생성하여 의미론적, 공간적, 시간적 정보를 포착할 수 있음을 보여주고 있습니다. 저자들은 현 생태계에서 임베딩 제품 간의 상호 운용성 장벽을 조사하고, 세 가지 기능적 층으로 구조화된 생태계를 제안합니다. 이를 통해 위치 임베딩, 패치 수준 임베딩, 픽셀 수준 임베딩으로 구분하여 임베딩의 구조적 특성과 목적을 명확히 하였습니다.
+
+- **Performance Highlights**: 초기 임베딩 노력은 이미지 패치당 단일 고차원 임베딩 생성을 목표로 했으나, 최근의 연구는 픽셀 임베딩에 주목하며 데이터 용량과 저장 요구사항을 줄이기 위해 다양한 압축 및 양자화 전략에 대한 실험을 진행하고 있습니다. 이러한 임베딩 제품들은 정적, 사전 계산된 벡터 아카이브 형태로 제공되어, 기존 모델을 소스 없이 바로 분석할 수 있게 도와줍니다. 그럼에도 불구하고 데이터 로딩과 모델 접근 및 재현 가능성에 관한 문제점들이 여전히 존재하여, 사용자 경험 개선을 위한 지속적인 연구가 필요합니다.
+
+
+
+### LLM-VLM Fusion Framework for Autonomous Maritime Port Inspection using a Heterogeneous UAV-USV System (https://arxiv.org/abs/2601.13096)
+Comments:
+          submitted in AEJ
+
+- **What's New**: 본 연구는 대형 언어 모델(LLMs)과 비전 언어 모델(VLMs)의 융합을 활용하여 자율 해양 항구 검사를 가능하게 하는 혁신적인 통합 엔지니어링 프레임워크를 제안합니다. 기존의 수동 검사 방법과 전통적인 컴퓨터 비전 기술의 한계를 극복하며, 이는 조화로운 공중 및 수면 로봇 플랫폼을 통해 이루어집니다. 이 프레임워크는 LLM 기반의 기호 계획(symbolic planning)과 VLM 기반의 의미 검사(semantic inspection)을 사용하여 맥락에 민감하며 적응 가능한 모니터링을 가능하게 합니다.
+
+- **Technical Details**: 제안된 프레임워크는 자연어 미션 지침을 실행 가능한 기호 계획으로 변환하는 LLM 모듈을 포함하여 작업 제약 조건을 인코딩하는 의존성 그래프(dependency graph)를 제공합니다. VLM 모듈은 실시간으로 의미 검사를 수행하고 규정 준수를 평가하며, 맥락적 추론(contextual reasoning)을 포함한 구조화된 보고서를 생성합니다. 이러한 통합을 통해 해양 환경에서의 자율 작업을 위한 경량화된 설계를 보장하며, 자원 제약이 있는 플랫폼에서도 적합한 시스템을 생성합니다.
+
+- **Performance Highlights**: 제안된 시스템은 MBZIRC Maritime Simulator를 사용하여 현실적인 항구 인프라로 검증되었으며, 실제 로봇 검사 시험을 통해 평가되었습니다. LLM과 VLM의 융합은 복잡한 해양 시나리오를 이해하고 파악할 수 있는 능력을 제공하여, 기존의 컴퓨터 비전 접근 방식보다 진보된 검사 능력을 구현합니다. 전반적인 AI 모델 벤치마킹도 진행되어, 다양한 LLM과 VLM의 임무 계획 정확도 및 검사 정확도를 비교 평가하였습니다.
+
+
+
+### AI-generated data contamination erodes pathological variability and diagnostic reliability (https://arxiv.org/abs/2601.12946)
+Comments:
+          *Corresponding author: Dianbo Liu (dianbo@nus.this http URL)
+
+- **What's New**: 본 논문은 생성적 인공지능(AI) 기술이 의료 기록에 합성 콘텐츠를 빠르게 추가함으로써 발생하는 데이터 오염 문제를 다룹니다. 이러한 AI 생성 데이터의 불필요한 반복적 사용이 진단의 신뢰성과 병리적 변동성을 급격히 감소시킨다는 점을 발견했습니다. 또한, 인류의 사실 검증 없이는 이러한 문제가 더욱 심각해질 위험이 있다는 경고를 제기합니다.
+
+- **Technical Details**: 연구자들은 80만 개 이상의 합성 데이터 포인트를 분석하여 AI 모델의 구조와 관계없이 모델이 일반적인 표현형으로 수렴한다는 사실을 확인했습니다. 특히, 기흉(pneumothorax) 및 삼출증(effusions)과 같은 드물지만 중요한 발견들이 AI 모델이 생성하는 콘텐츠에서 사라지며, 인구 통계적 표현은 중년 남성의 표현형으로 과도하게 편향되는 경향이 있음을 밝혔습니다.
+
+- **Performance Highlights**: 정확도와 신뢰도가 분리되면서 AI가 생성한 문서가 임상적으로 사용되기 어렵게 될 가능성이 높습니다. 연구에서는 데이터 합성을 통한 모델의 잘못된 확신이 무려 40%에 달하며, 의사 평가에서도 이러한 문제가 재확인되었습니다. 마지막으로, 정책적으로 인간 감독이 필수적이지 않다면 생성적 AI의 도입이 의존하는 의료 데이터 생태계를 저해할 위험이 크다고 결론지었습니다.
+
+
+
+### Sparse ActionGen: Accelerating Diffusion Policy with Real-time Pruning (https://arxiv.org/abs/2601.12894)
+- **What's New**: 이 논문에서는 매우 희소한 동작 생성을 위한 새로운 방법론인 $	extbf{SAG}$ (Sparse ActionGen)를 제안합니다. 현재 다수의 로봇 제어에서는 Diffusion Policy가 인기를 끌고 있으나, 그 복잡한 계산량으로 인해 실시간으로 적용하기 어려운 상황입니다. SAG는 이러한 문제를 해결하기 위해 고안한 적응형 pruning 메커니즘을 통해, 환경의 변화에 즉각적으로 반응할 수 있는 동작 생성을 가능하게 합니다.
+
+- **Technical Details**: SAG는 롤아웃(rollout) 동안의 동작 패턴을 기준으로 실시간으로 적응할 수 있는 pruning 기법을 적용합니다. 여기서는 먼저 전역적으로 prunable한 계산을 식별한 후, 이를 캐싱(caching)하여 필요할 때 즉시 재사용합니다. 전체적인 구조는 다단계 denoising을 포함하며, 각 단계는 transformer 기반의 모델에서 시행되고, 각 레이어는 self-attention, cross-attention, feed-forward 네트워크를 사용하여 정보를 통합합니다.
+
+- **Performance Highlights**: SAG는 실험을 통해 Diffusion Policy의 90% 이상의 계산을 제거할 수 있으며, 이는 대부분의 작업에서 속도를 최대 4배 향상시키는 결과를 가져옵니다. 이러한 속도 이점은 성능 저하 없이 실현되며, SAG는 robot-environment 상호작용을 고려한 전반적인 접근 방식을 통해 최적의 결과를 도출하는데 기여합니다.
+
+
+
+### Accurate Simulation Pipeline for Passive Single-Photon Imaging (https://arxiv.org/abs/2601.12850)
+Comments:
+          18 pages, 10 figures, 3 tables
+
+- **What's New**: 이 논문에서는 Single-Photon Avalanche Diodes (SPADs)을 위한 새로운 시뮬레이션 파이프라인을 소개하며, 두 개의 최근 상용 SPAD 센서를 사용하여 이를 검증합니다. SPAD 센서는 각 픽셀에서 개별 광자를 감지할 수 있는 민감한 이미징 센서로, 저조도 환경에서의 이미지 캡처에 적합합니다. 이러한 기술은 저조도 이미지 처리 알고리즘과 머신러닝 솔루션 개발에 도움을 줄 수 있는 가능성을 제시합니다.
+
+- **Technical Details**: 논문에서는 SPAD 센서의 구체적인 작동 원리를 설명하며, SPAD-MNIST라는 새로운 데이터셋을 생성하여 CNN(Convolutional Neural Network) 분류기에 대한 효과를 연구합니다. 또한, 저조도 환경에서의 분류 성능을 평가하고, 시뮬레이션 데이터로 훈련된 모델이 실제 SPAD 이미지에 대한 추론이 가능함을 입증합니다. 본 연구는 SPAD 센서의 고유한 특성인 비선형 응답 및 높은 동적 범위를 활용하는 방법을 다룹니다.
+
+- **Performance Highlights**: 실험 결과, SPAD 센서를 사용하여 낮은 조도에서 얻은 이미지에서도 분류 작업을 성공적으로 수행할 수 있음을 보여줍니다. 특히, 시뮬레이션 데이터로 훈련된 CNN 분류기는 상용 SPAD 센서의 이미지를 효과적으로 처리할 수 있음을 확인했습니다. 이는 SPAD-MNIST 데이터셋이 학습 모델 개발에 기여할 수 있는 잠재력을 의미하며, SPAD 기반 이미지 처리 연구에 대한 관심을 유도할 것으로 기대됩니다.
+
+
+
+### Data-Consistent Learning of Inverse Problems (https://arxiv.org/abs/2601.12831)
+- **What's New**: 이 논문에서는 인버스 문제(inverse problems)의 해결을 위한 새로운 접근법인 DC 네트워크(DC networks)에 대해 다룹니다. 기존의 학습 기반 재구성 방법들이 이론적 보장이 부족한 반면, DC 네트워크는 측정 모델을 네트워크 아키텍처 내에서 강제하여 이 문제를 해결합니다. 특히, 널 스페이스 네트워크(null-space networks)를 통한 초기 재구성을 결합하여 수렴 가능한 정규화 방법을 정의하고 있습니다.
+
+- **Technical Details**: 인버스 문제는 비정규적(ill-posed) 특성을 지니고 있으며, 이는 고유하지 않거나 불안정한 문제를 초래합니다. 본 연구에서는 두 단계 방법(gθ,δ=fθ∘Bδ)을 통해 딥러닝 모델이 복잡한 이미지와 노이즈 통계 모델링이 가능하지만 DC(데이터 일관성 데이터)에 대한 보장 메커니즘이 부족하다는 점을 지적합니다. DC는 재구성이 측정된 데이터를 복원하는 요구사항을 나타내며, 이에 따라 DC 학습이 고전적인 정규화 방법과 동일한 이론적 보장을 제공하는 방식으로 다뤄집니다.
+
+- **Performance Highlights**: DC 네트워크를 활용한 접근법은 고전적 방법의 신뢰성을 유지하면서 데이터 기반 학습의 표현력을 활용하여 정확하면서도 시각적으로 매력적인 재구성을 제공합니다. 이러한 방법들은 특히 노이즈에 민감한 상황에서 우수한 성능을 발휘하지만, 동시에 DC 특성을 보장하기 위해 초기 재구성을 강제하여 이론적으로도 안정성을 제공합니다. 전반적으로 이 연구는 DC 학습을 통해 인버스 문제 해결을 위한 새로운 시사점을 제시하고 있습니다.
+
+
+
+### Joint Source-Channel-Generation Coding: From Distortion-oriented Reconstruction to Semantic-consistent Generation (https://arxiv.org/abs/2601.12808)
+Comments:
+          submitted to IEEE ISIT 2026
+
+- **What's New**: 본 논문에서는 Joint Source-Channel-Generation Coding (JSCGC)이라는 새로운 패러다임을 제안합니다. 이 접근 방식은 정보 복구를 결정론적 작업으로 보는 기존 방식에서 벗어나, 수신기에서의 데이터를 샘플링하는 조건부 확률적 생성 문제로 전환합니다. JSCGC는 전통적인 디코더 대신 생성 모델을 활용하여 최대한의 상호 정보(Mutual Information)를 극대화하고, 고유한 데이터 분포에 맞추어 출력물을 생성합니다.
+
+- **Technical Details**: JSCGC는 전송되는 신호를 직접적으로 복원하는 것이 아니라, 수신 뷰를 사용하여 후행 분포(p(x|y^))에서 샘플링하는 방식으로 설계되었습니다. 이 시스템은 전송된 신호에 의해 생성 과정을 제어하는 커뮤니케이션 인식 어댑터와 결합된 엔드 투 엔드 엔코더와 매칭 모델을 구현합니다. 최종적으로는, 생성된 콘텐츠가 원본 데이터와 의미상 일관성을 유지할 수 있도록 확률적 제약을 두었습니다.
+
+- **Performance Highlights**: 광범위한 이미지 전송 실험을 통해, JSCGC는 기존의 왜곡 중심 JSCC 방법들에 비해 지각 품질과 의미적 충실도를 크게 향상시킴을 입증했습니다. JSCGC는 특히 채널 노이즈가 심한 환경에서도 사실적인 결과를 생성할 수 있는 능력을 보여주었습니다. 이러한 결과는 수학적으로 세운 생성 과정 제어의 근본 한계를 바탕으로 하고 있습니다.
+
+
+
+### FRoM-W1: Towards General Humanoid Whole-Body Control with Language Instructions (https://arxiv.org/abs/2601.12799)
+Comments:
+          Project Page: this https URL
+
+- **What's New**: FRoM-W1는 자연어를 사용해 일반적인 전신 움직임 제어를 달성하기 위한 오픈소스 프레임워크로, 인공지능의 진전을 통해 휴머노이드 로봇이 더 유연하고 다양하게 행동할 수 있도록 설계되었습니다. H-GPT와 H-ACT 두 단계로 구성되어 있으며, 이는 대량의 인간 데이터를 활용하여 다양한 자연적인 행동을 생성하도록 훈련된 모델입니다. 이 연구는 로봇이 자연어 지시를 이해하고 물리적 환경에서 행동을 안정적으로 수행할 수 있도록 하는 것을 목표로 하고 있습니다.
+
+- **Technical Details**: FRoM-W1의 첫 번째 단계인 H-GPT는 대규모 언어 모델을 기반으로 하며, 자연어 지시문에서 전신 인간 모션 시퀀스를 생성합니다. Chain-of-Thought(Chain-of-Thought) 기술을 활용하여 지시문을 분해하고 몸의 수준의 모션 원시를 생성하여 모델이 복잡한 지시를 이해하고 실행할 수 있게 합니다. 두 번째 단계인 H-ACT는 생성된 인간 모션을 특정 로봇 동작으로 재조정한 후, 물리적 시뮬레이션에서 강화 학습을 통해 미세 조정된 모션 컨트롤러를 사용하여 정밀하고 안정적인 수행을 가능하게 합니다.
+
+- **Performance Highlights**: FRoM-W1은 다양한 휴머노이드 로봇에 대한 포괄적인 평가를 통해 유의미한 성능 향상을 보여주었습니다. HumanML3D-X 벤치마크에서 기존 모델에 비해 2.5배 개선된 성과를 기록했으며, 강화 학습 미세 조정이 모션 추적의 성공률을 일관되게 증가시키고 평균 관절 위치 오차(MPJPE)를 15% 개선했습니다. FRoM-W1의 설계는 여러 새로운 모션 모방 컨트롤러의 효율적인 배포를 지원하여 로봇의 다재다능성을 더욱 제고합니다.
+
+
+
+### VIRO: Robust and Efficient Neuro-Symbolic Reasoning with Verification for Referring Expression Comprehension (https://arxiv.org/abs/2601.12781)
+- **What's New**: 본 논문에서는 Verification-Integrated Reasoning Operators (VIRO)라는 새로운 신경-상징 프레임워크를 소개합니다. 이 프레임워크는 중간 추론 단계에서 검증을 통합하여 이미지 쿼리와 자연어 간의 연관성을 이해하는 Referring Expression Comprehension (REC) 문제의 한계를 극복합니다. VIRO는 경량급 검증 모듈을 포함하여 오류 연쇄를 방지하고, 검증 없이는 작동하지 않도록 합니다.
+
+- **Technical Details**: VIRO는 LLM(대규모 언어 모델)을 사용하여 자연어 설명을 실행 가능한 연산자의 순서로 변환한 후 순차적으로 처리하는 두 단계의 신경-상징 파이프라인을 구현합니다. 각 연산자는 결과를 검증하여 불확실성을 확인하고, 객체의 존재 여부나 공간적 관계를 검증합니다. 이러한 구조는 특히 없거나 유효한 타겟이 없을 경우 조기 종료를 가능하게 하여 명확한 '없음' 탐지를 제공합니다.
+
+- **Performance Highlights**: VIRO는 단계에서 61.1%의 균형 정확도를 달성하였으며, 이는 타겟이 있는 경우와 없는 경우에서 모두 적용됩니다. 또한 VIRO는 실세계 에고 중심 데이터에 대한 일반화가 가능하고, 11쿼리 최인접 이웃(NN) 이미지를 설정에서 스케일링이 용이합니다. 프로그램 실패율은 0.3% 미만과 같은 높은 신뢰성을 보여줍니다.
+
+
+
+### Towards Robust Universal Perturbation Attacks: A Float-Coded, Penalty-Driven Evolutionary Approach (https://arxiv.org/abs/2601.12624)
+- **What's New**: 이 논문에서는 보편적 적대적 교란(Universal Adversarial Perturbations, UAPs)을 생성하기 위한 새로운 진화 알고리즘 기반의 프레임워크를 소개합니다. 이 프레임워크는 낮은 가시성 perturbations를 구현하면서 공격 성공률을 높이는 것을 목표로 하고 있습니다. 또한, 이 논문에서는 PyTorch를 활용한 모듈형 구현을 통해 현대 아키텍처와의 원활한 통합을 도모하고 있습니다.
+
+- **Technical Details**: 제안된 방법론은 ϵ-제약 프레임워크(ε-constraint framework) 내에서 작동하며, 낮은 노름(norm)을 유지하면서도 높은 분류 오류를 극대화하는데 초점을 맞추고 있습니다. 이를 위해 유전 알고리즘(Genetic Algorithm, GA)의 연속적 유전자 표현(floating-point representations)을 활용하여 더욱 경제적이고 효율적인 노름-정확도 트레이드오프를 처리합니다. 또한, 진화 연산자(dynamic operators)의 동적 스케줄링을 통해 알고리즘의 효과를 극대화합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 프레임워크는 기존의 진화 기반 방법들에 비해 작은 노름, 더 높은 오분류 효과성을 갖고 있으며, 빠른 수렴 속도를 보여주었습니다. 이 방식은 또한 GoogLeNet, Resnet50, ViT-B/16과 같은 다양한 컴퓨터 비전 모델에 대해 강력한 보편적 공격을 성공적으로 수행할 수 있음을 입증하였습니다. 전반적으로, 우리의 접근 방식은 다양한 딥러닝 아키텍처에 걸쳐 보편적 적대적 공격의 강건성과 확장성을 강조합니다.
+
+
+
+### Life, Machine Learning, and the Search for Habitability: Predicting Biosignature Fluxes for the Habitable Worlds Observatory (https://arxiv.org/abs/2601.12557)
+Comments:
+          8 pages, 4 figures. Submitted and accepted in AAAI-26 (IAAI Emerging Applications track)
+
+- **What's New**: 이번 논문은 NASA의 Habitable Worlds Observatory (HWO)와 같은 미래의 직접 영상 기획 미션이 시간과 자원의 제약 속에서 관측 우선순위를 결정하는 데 도움을 줄 수 있는 두 가지 머신러닝 아키텍처를 소개합니다. 이 아키텍처는 바이오시그니처(biosignature) 종의 플럭스를 예측하는 데 사용됩니다.
+
+- **Technical Details**: 제안된 모델 중 하나인 Bayesian Convolutional Neural Network (BCNN)는 참고문헌의 다양한 관측 조건에서 신뢰할 수 있는 예측을 제공하기 위해 에피스테믹(epistemic) 및 알레아토릭(aleatoric) 불확실성을 강력하게 정량화합니다. 또 다른 모델인 Spectral Query Adaptive Transformer (SQuAT)는 쿼리 기반의 주의 메커니즘을 사용하여 스펙트럼 특성을 특정 바이오시그니처 종과 명시적으로 연관시킴으로써 해석 가능성을 높입니다.
+
+- **Performance Highlights**: 두 모델은 다양한 외계 행성 조건을 포함한 확장된 데이터 세트에서 유사한 높은 예측 정확도를 달성하며, 불확실성 정량화 및 스펙트럼 해석 가능성에서 각각의 강점을 강조합니다. 이러한 기능은 HWO와 같은 미래의 기획 미션에서 목표 선별(target triage)을 가속화하고 관측 일정을 최적화하며 과학적 성과를 극대화하는 데 유망한 도구로 자리매김하게 합니다.
+
+
+
+### Privacy-Preserving Federated Learning with Verifiable Fairness Guarantees (https://arxiv.org/abs/2601.12447)
+- **What's New**: CryptoFair-FL이라는 새로운 암호화 프레임워크가 제안되었으며, 분산된 기관 간의 협력적 모델 훈련을 위한 알고리즘 공정성을 보장합니다. 이 프레임워크는 개인 정보를 보호하면서도 인구 통계적 균형과 같은 공정성 메트릭을 검증할 수 있는 최초의 검증 가능성을 제공합니다. 이를 통해 데이터의 중앙 집중화 없이 공정성을 달성할 수 있습니다.
+
+- **Technical Details**: CryptoFair-FL은 부가적인 동형 암호(additively homomorphic encryption)와 안전한 다자간 계산(secure multi-party computation)을 결합하여 공정성을 검증할 수 있는 메커니즘을 구현합니다. 모형 훈련에 있어 BigO(n^2)에서 BigO(n log n)으로 계산 복잡도를 줄이는 새로운 배치 검증 프로토콜이 제시됩니다. 이 프로토콜은 (ε,δ)-미분적 사생활을 보장하며, 실제로도 위조 공격에 대한 저항력을 유지합니다.
+
+- **Performance Highlights**: 총 4개의 기준 데이터 세트를 이용한 실험에서, CryptoFair-FL은 인구 통계적 균형 위반을 0.231에서 0.031로 감소시켰습니다. 계산 오버헤드는 표준 연합 평균(Standard Federated Averaging)과 비교하여 단 2.3배 증가했습니다. 이 성과는 규제 산업에서 개인 정보 보호와 알고리즘적 책임을 요구하는 공정성을 인식한 연합 학습의 실질적 경로를 제시합니다.
+
+
+
+### Constraint-Aware Neurosymbolic Uncertainty Quantification with Bayesian Deep Learning for Scientific Discovery (https://arxiv.org/abs/2601.12442)
+- **What's New**: 이 논문은 기존의 불확실성 정량화 방법이 기호 과학 지식을 통합하는 메커니즘을 결여한 문제를 해결하기 위해 Constraint-Aware Neurosymbolic Uncertainty Framework (CANUF)를 소개합니다. CANUF는 베이지안 딥러닝(Bayesian deep learning)과 미분 가능한 기호 추론(differentiable symbolic reasoning)을 통합하여 과학 예측에 대한 신뢰할 수 있는 불확실성 추정치를 제공합니다. 이 프레임워크는 자동으로 제약 조건을 추출하고, 변별적 신경 네트워크와 물리적 일관성을 보장하는 제약 만족 층을 포함합니다.
+
+- **Technical Details**: CANUF는 세 가지 주요 구성 요소로 이루어져 있습니다: 1) 과학 문헌에서 자동으로 제약 조건을 추출하는 모듈, 2) 변별 추론을 사용하는 확률론적 신경 백본, 그리고 3) 물리적 일관성을 보장하는 미분 가능한 제약 만족 층입니다. 이 구조는 입력 특징을 타겟 특성으로 변환하는 예측 작업을 지원하며, 각 제약 조건은 유효한 출력 영역을 명시합니다. 논문에서 제시하는 수학적 공식은 예측 accuracy, constraint satisfaction, 및 calibration을 최소화하는 목표를 포함합니다.
+
+- **Performance Highlights**: CANUF는 Materials Project 데이터셋(140,000개 이상의 재료), QM9 분자 특성 및 기후 벤치마크 실험에서 평균 보정 오류(Expected Calibration Error)를 34.7% 감소시키면서 99.2%의 제약 만족도를 유지합니다. 또한 제약 기반 재보정(constraint-guided recalibration)은 18.3%의 성능 향상을 기여하며, 제약 추출은 91.4%의 정확도를 달성합니다. CANUF는 불확실성 정량화, 제약 만족, 과학 예측에 대한 해석 가능한 설명을 동시에 처리하는 최초의 엔드 투 엔드 미분 가능한 파이프라인을 제공합니다.
+
+
+
+### ReWorld: Multi-Dimensional Reward Modeling for Embodied World Models (https://arxiv.org/abs/2601.12428)
+- **What's New**: 최근 비디오 기반 세계 모델(video-based world models)이 로봇 학습(robot learning)에서 큰 주목을 받고 있다. 하지만 기존의 접근 방식은 주로 비주얼 생성 품질(visual generative quality)에 중점을 두고 실제 물리적 일관성(physical fidelity)과 동적 일관성(dynamic consistency)을 간과하고 있어, 특히 접촉이 많은 조작(task-related manipulation tasks)에서는 적용 가능성이 제한된다. 이러한 문제를 해결하기 위해, 새로운 프레임워크인 ReWorld를 제안하며, 이는 강화 학습(reinforcement learning)을 통해 물리적 현실성(physical realism)과 과제 완료 가능성(task completion capability)을 조화롭게 연결하고자 한다.
+
+- **Technical Details**: ReWorld는 약 235K의 대규모 비디오 선호 데이터셋을 구축하고, 이를 통해 인간의 선호에 부합하는 다차원 보상 모델(hierarchical reward model)을 훈련한다. 여기서 주목할 점은, ReWorld가 물리적 정확성(physical fidelity), 구현 가능성(embodiment plausibility), 시각적 품질(visual quality)과 같은 다양한 특성을 평가하는 다차원 보상 모델인 HERO를 도입한다는 것이다. HERO는 저수준의 물리적 위반을 감지하기 위해 초기 레이어를 활용하고, 깊은 레이어를 통해 고수준의 세부 작업 완료 평가를 진행한다.
+
+- **Performance Highlights**: 광범위한 실험과 이론적 분석을 통해, ReWorld는 생성된 결과물의 물리적 현실성, 논리적 일관성, 구현 가능성 및 시각적 품질을 획기적으로 개선하여 기존 방법을 초월하는 성능을 보여준다. ReWorld는 HERO 지표에서 모든 항목에서 15-25% 개선을 달성하며, 85% 이상의 인간 선호도를 기록했다. 이는 ReWorld가 Physics Uncanny Valley 문제를 크게 해결했음을 증명한다.
+
+
+
+### OpenNavMap: Structure-Free Topometric Mapping via Large-Scale Collaborative Localization (https://arxiv.org/abs/2601.12291)
+Comments:
+          21 pages, 20 figures
+
+- **What's New**: OPENNAVMAP은 실시간 재구성을 위한 3D 기하학적 기반 모델을 활용하는 경량 구조 없는 토포메트릭 시스템입니다. 기존의 구조 기반 방식들의 한계를 극복하고, 대규모 재현성을 위해 협력적 로컬라이제이션 접근을 제공합니다. 이 시스템은 동적 프로그래밍 기반의 시퀀스 매칭, 기하학적 검증 및 신뢰도 조정 최적화를 사용하여 견고한 서브맵 정렬을 수행합니다.
+
+- **Technical Details**: OPENNAVMAP은 세 단계를 포함한 협력적 로컬라이제이션 파이프라인을 제시하여 여러 독립적인 매핑 세션을 글로벌하게 등록합니다. 구조가 없는 경량 그래프 기반 표현을 통해 유지 관리 복잡성을 줄이고, 실시간으로 카메라 파라미터와 장면 기하 구조를 추론합니다. 이 접근법은 기존의 복잡한 3D 구조 최적화 대신 이미지 만으로 상대 포즈 추정을 목표로 합니다.
+
+- **Performance Highlights**: OpenNavMap은 0.62m의 평균 변환 오류를 기록하며, 구조 기반-모션 및 회귀 기준보다 뛰어난 정확도를 보였습니다. 추가로, 15km에 걸친 다중 세션 데이터에 대해 절대 경로 오류가 3m 이하로 유지되며, 12개의 자율 이미지 목표 내비게이션 과제를 성공적으로 수행하여 실용적인 유효성을 검증하였습니다.
+
+
+
+### DALD-PCAC: Density-Adaptive Learning Descriptor for Point Cloud Lossless Attribute Compression (https://arxiv.org/abs/2601.12261)
+Comments:
+          Accepted by TOMM
+
+- **What's New**: 최근 딥러닝이 점 구름(point cloud) 기하학적 압축의 성능을 크게 향상시켰습니다. 그러나 밀도가 다양한 점 구름의 손실 없는 속성 압축은 상대적으로 연구가 부족했습니다. 본 논문에서는 DALD-PCAC이라는 학습 기반 프레임워크를 제안하며, 이는 세부 수준(Levels of Detail, LoD)을 활용하여 점 구름의 손실 없는 속성 압축에 최적화됩니다. 또한, 점 별 주의점(point-wise attention)을 사용하는 Transformer 모델을 개발하여 점 구름의 희소성과 불규칙성을 극복하고자 합니다.
+
+- **Technical Details**: 이 연구에서 제안한 Density-Adaptive Learning Descriptor (DALD)는 인접한 이웃 간의 구조와 상관관계를 포착할 수 있는 능력을 갖추고 있습니다. 또한, 속성 분산을 줄이고 성능을 향상시키기 위해 사전 안내 기반 블록 분할 방법을 개발하였습니다. 실험에서는 LiDAR 및 객체 점 구름 데이터셋을 사용하였고, DALD-PCAC가 최신 성능을 달성하는 것을 확인했습니다. 이를 통해 다양한 밀도의 점 구름에 대해 견고한 압축 성능을 보장합니다.
+
+- **Performance Highlights**: DALD-PCAC은 다양한 밀도의 점 구름에 대해 탁월한 성능을 발휘했습니다. 제안된 접근법은 성능과 복잡성 간의 균형을 원활하게 보장하며, 실제 세계의 응용 프로그램에서 큰 잠재력을 보여줍니다. 기압축 방법을 통해 상대적으로 높은 성능을 나타내고 있으며, 블록 내 속성의 불일치를 줄이는 데 도움을 주어 압축 성능을 향상시키고 있습니다.
+
+
+
+### DeepRAHT: Learning Predictive RAHT for Point Cloud Attribute Compression (https://arxiv.org/abs/2601.12255)
+Comments:
+          Accepted by AAAI 2026
+
+- **What's New**: 이 논문은 포인트 클라우드 속성 압축(Point Cloud Attribute Compression, PCAC)을 위한 새로운 딥러닝 프레임워크인 DeepRAHT를 제안합니다. DeepRAHT는 희소 텐서(sparse tensor)를 기반으로 한 손실 압축 방법으로, 기존의 수동 RAHT(transform) 과정을 필요로 하지 않고 학습 재구성 과정에서 RAHT 변환을 수행합니다. 이 연구는 RAHT의 예측(prediction) 기능을 도입하여 비트 전송률(bit rate)을 줄이고, 학습 기반 예측 모델을 통해 성능을 향상시킵니다.
+
+- **Technical Details**: DeepRAHT는 다중 스케일(multi-scale) RAHT 변환을 학습 재구성 과정 중에 수행하며, 전통적인 압축 기법과 비교해 결합된 최적화를 통해 RAHT와 다른 구성 요소들 간의 상호작용을 최적화합니다. 또한, DeepRAHT는 MPEG G-PCC 표준과 유사한 구조를 가지고 있으며, 성능의 하한을 구축합니다. 이 프레임워크는 완전 가역적(reversible)이며 왜곡 조정(distortion controllable)이 가능합니다.
+
+- **Performance Highlights**: 실험 결과, DeepRAHT는 기존의 기준 방법들보다 높은 성능을 보이며, 비트 전송률 기준으로 G-PCCv14와 비교하여 24% 이상의 성능 향상을 달성했습니다. 경량화된 변환 방식을 통해 DeepRAHT는 처리 속도와 강건성(robustness)을 개선하여 다양한 응용 분야에서의 활용 가능성이 높습니다.
+
+
+
+### Breaking Coordinate Overfitting: Geometry-Aware WiFi Sensing for Cross-Layout 3D Pose Estimation (https://arxiv.org/abs/2601.12252)
+Comments:
+          Accpeted by AMC Mobicom 2026
+
+- **What's New**: WiFi 기반 3D 인간 자세 추정 기술에서 처음으로 기하학적 조건을 고려한 프레임워크인 PerceptAlign을 제안합니다. 기존 방법들이 카메라 기반 좌표계에 CSI를 직접 회귀하는 방식을 취하던 것과는 달리, PerceptAlign은 경량화된 좌표 통합 절차를 도입하여 WiFi와 비전 측정을 공유된 3D 공간으로 정렬합니다. 이는 인식 과정에서 장치의 기하학적 위치를 조건 변수로 삼아 인간의 신체 운동을 더욱 신뢰할 수 있는 방식으로 분리할 수 있도록 합니다.
+
+- **Technical Details**: PerceptAlign 프레임워크는 두 가지 주요 구성 요소로 이루어져 있습니다: 가벼운 좌표 통합 절차와 기하 조건 학습입니다. 첫 번째 단계에서 WiFi 송수신기 좌표계를 다중 카메라 시스템과 정렬하여 공유 좌표계를 형성합니다. 이후 WiFi 송수신기 좌표는 고차원 임베딩으로 인코딩되어 CNN 인코더에 의해 추출된 CSI 특징과 융합되며, 이는 3D 인간 자세를 예측하기 위한 주목 기반 융합 백본 구조에 의해 처리됩니다.
+
+- **Performance Highlights**: PerceptAlign은 기존의 최첨단 방법들과 비교하였을 때 인 도메인(error) 오류를 12.3% 줄이고, 크로스 도메인(error) 오류는 60% 이상 감소시킵니다. 이는 차세대 WiFi 기반 감지 기술로서의 가능성을 제시하며, 실제 환경에서 더욱 확장 가능하고 실용적인 솔루션으로 자리 잡을 수 있는 길을 열어줍니다. 또한, 다양한 참여자, 장면, 동작 및 장치 구성의 상세한 기하학적 보정을 포함한 가장 큰 크로스 도메인 WiFi 기반 자세 추정 데이터세트를 구축하였습니다.
+
+
+
+### Proc3D: Procedural 3D Generation and Parametric Editing of 3D Shapes with Large Language Models (https://arxiv.org/abs/2601.12234)
+- **What's New**: Proc3D는 고급 텍스트 입력을 통해 편집 가능한 3D 모델을 생성할 수 있는 시스템입니다. 기존의 3D 모델링 방식과는 달리, Proc3D는 Procedural Compact Graph (PCG)라는 새로운 그래프 표현 방식을 도입하여 사용자가 매개변수를 직관적으로 조정할 수 있도록 합니다. 이 시스템은 실시간으로 수정 가능하며, 자연어 프롬프트를 이용한 자동 수정이 가능하여, 사용자는 최대 400배 빠른 속도로 필요한 수정을 할 수 있습니다.
+
+- **Technical Details**: Proc3D의 핵심 구성 요소는 Procedural Compact Graph (PCG)로, 3D 모델을 고급 연산의 compact sequence로 변환한 것입니다. 이 PCG는 노드 수준에서 매개변수를 노출하여 사용자가 GUI 컨트롤이나 자연어 작업에 따른 진정한 실시간 수정을 가능하게 합니다. 또한, 다양한 실행 환경에 매끄럽게 컴파일할 수 있는 Engine-agnostic 구조로 설계되어 있어, API에 종속되지 않습니다.
+
+- **Performance Highlights**: Proc3D는 최신 방식보다 편집 속도와 품질에서 뛰어난 성능을 기록했습니다. 실험 결과, 3D 모델 편집 효율성이 400배 향상되었으며, ULIP 점수가 28% 증가하여 텍스트 프롬프트와의 일치를 평가하는 데 유리하게 작용합니다. 이러한 성능 개선은 텍스트 기반 이미지 편집 애플리케이션에서도 높은 정확도를 보장합니다.
+
+
+
+### EMoE: Eigenbasis-Guided Routing for Mixture-of-Experts (https://arxiv.org/abs/2601.12137)
+Comments:
+          accepted by ICASSP2026
+
+- **What's New**: 이번 연구에서는 Mixture-of-Experts(MoE) 아키텍처의 비효율성을 해결하기 위한 Eigen-Mixture-of-Experts(EMoE)라는 새로운 구조를 제안합니다. EMoE는 입력 토큰을 데이터의 공분산 구조에 따라 익숙한 eigenbasis에 투영하여 전문가를 라우팅합니다. 이전의 MoE 접근법에서는 종종 발생하는 로드 불균형과 전문가 간 중복성을 동시에 해결할 수 있도록 설계되었습니다.
+
+- **Technical Details**: EMoE는 괴혼 합과 고유 벡터의 힘을 활용한 라우팅 메커니즘을 기반으로 합니다. 모델은 계층적 MoE 구조를 통해서 입력을 받아들이며, 각 MoE 지점은 Eigen Router를 포함하여 8개의 전문가 MLP 네트워크로 구성됩니다. 라우터는 데이터를 바탕으로 정보의 공분산 구조를 포착하여 각 토큰에 대한 전문가를 선택합니다.
+
+- **Performance Highlights**: EMoE는 ImageNet 이미지 분류 벤치마크에서 기존 MoE 모델들과 비교하여 동등한 정확도를 달성하면서도 전문가 간의 로드 밸런스를 크게 향상시켰습니다. 이는 EMoE가 효율적인 라우팅과 전문가의 특화된 표현을 동시에 달성할 수 있음을 보여주며, 대규모 이미지 분류 작업에서 강력한 성능을 확인했습니다.
+
+
+
+### Multimodal Feedback for Handheld Tool Guidance: Combining Wrist-Based Haptics with Augmented Reality (https://arxiv.org/abs/2601.12037)
+- **What's New**: 본 논문에서는 손에 쥔 도구의 이동을 위한 공간적 안내를 향상시키기 위해 진동 촉각 wrist 피드백(vibrotactile wrist feedback)의 효과를 조사하였습니다. AR(증강 현실) 환경에서 시각적 장애물, 조명 조건 및 인터페이스의 모호성이 정밀성과 자신감을 해칠 수 있음을 지적하며, 커스터마이즈된 wrist 착용형 햅틱 장치와 AR 비주얼을 결합한 다중 모달 시스템을 설계하였습니다. 연구 결과에 따르면, AR과 햅틱을 동시에 활용한 참가자들이 기존 방식보다 훨씬 높은 공간적 정밀성과 사용성을 달성하였습니다.
+
+- **Technical Details**: 해당 연구에서는 Arduino Mega 마이크로컨트롤러를 통해 제어되는 맞춤형 진동 웨어러블 wristband를 개발하였습니다. 이 장치는 독립적으로 제어 가능한 네 개의 미니 이ccentric rotating mass (ERM) 진동 액추에이터로 구성되어 있으며, 화자를 기준으로 '도구 지향적 적응 참조' 위치와 '손목 위'의 고정 참조 위치 간에 두 가지 매핑을 평가하였습니다. 각 액추에이터는 150Hz 주파수로 진동하여 인체 피부의 감각 영역을 최적화하고 있습니다.
+
+- **Performance Highlights**: 연구에 참가한 참가자들은 햅틱 신호를 통해 자신감을 가지고 도구를 정렬할 수 있었고, 사용 중에 인지적 노력을 줄이는 데 도움을 받았다고 보고하였습니다. 또한, 두 가지 매핑 중 사용자들은 손목 위 매핑을 보다 직관적으로 선호하였으며, 이는 고정된 해석 방식 덕분에 더욱 안정적인 경험을 제공하는 것으로 나타났습니다. 연구 결과는 AR 시스템에 wrist 기반 햅틱을 통합하여 고정밀 작업을 지원할 수 있는 가능성을 강조하였습니다.
+
+
+
+### A Constraint Programming Model for the Super-Agile Earth Observation Satellite Imaging Scheduling Problem (https://arxiv.org/abs/2601.11967)
+Comments:
+          12 pages, 4 figures, To be published in the Proceedings of the International Conference on Operations Research and Enterprise Systems (ICORES 2026)
+
+- **What's New**: 이 논문은 초기 탐사를 위한 새롭고 정확한 제약 프로그래밍(Constraint Programming, CP) 모델을 소개합니다. 기존의 방식들이 아닌, SAEOS(초 민첩 지구 관측 위성)에 특화된 스케줄링 문제를 다루며, 변수 관측 시간과 여러 방향의 이미징을 고려합니다. 이 모델은 고속으로 계산할 수 있어, 실시간 의사결정에 적합합니다.
+
+- **Technical Details**: 위성 이미징 스케줄링 문제는 관측 작업을 최적화하기 위해 운영 및 물리적 제약을 고려해야 합니다. 각 위성은 제한된 시간 창(Visible Time Window, VTW) 내에서만 관측할 수 있으며, 전력 및 데이터 저장 용량 등의 운영적 요구 사항도 고려되어야 합니다. 이를 처리하기 위해, 이 연구는 유연한 관측 창과 포인팅 방향, 그리고 시퀀스 종속 전환 시간을 포함하는 모델을 제안합니다.
+
+- **Performance Highlights**: 제안된 모델은 여러 위성 시나리오와 다양한 목표 유형으로 구성된 신규 벤치마크 데이터 세트에서 평가되었습니다. 결과는 이 모델이 현재 최첨단 비정확 접근법보다 뛰어난 계산 성능을 보여주며, 짧은 계산 시간에 최적 또는 근접 최적의 솔루션을 도출할 수 있음을 입증합니다. 이를 통해 SAEOS-ISP 스케줄링 문제의 해결 가능성을 제시하고 있습니다.
+
+
+
+### Accelerated MR Elastography Using Learned Neural Network Representation (https://arxiv.org/abs/2601.11878)
+- **What's New**: 이번 연구는 고해상도 MR 엘라스토그래피(MR elastography)를 빠르게 구현하기 위해 깊은 딥러닝(deep learning) 방법을 개발했습니다. 특히, 고품질 트레이닝 데이터셋이 필요 없는 상황에서, 굉장히 적게 샘플링된 데이터로부터 이를 성취할 수 있는 방법을 제안합니다.
+
+- **Technical Details**: 연구진은 딥 뉴럴 네트워크(deep neural network) 표현을 비선형(nonlinear) 확장 형태로 제시하고, 이를 통해 MRE 이미지 반복(repetitions)을 재구성했습니다. 다중 레벨 k-space 일관성 손실(multi-level k-space consistent loss)을 이용해 네트워크 가중치(weight)를 자기 지도 학습(self-supervised manner) 방식으로 학습했으며, 해부학적 구조의 유사성과 파동에 의한 조화 변위의 부드러움(smoothness)을 고려하여 재구성 품질을 더욱 향상시켰습니다.
+
+- **Performance Highlights**: 실험은 3D 그래디언트 에코 스파이럴(gradient-echo spiral) 및 다중 슬라이스 스핀 에코 스파이럴(multi-slice spin-echo) MRE 데이터셋을 사용하여 진행되었습니다. 기존의 선형 서브스페이스(linear subspace) 기반 접근법에 비해, 제안된 비선형 네트워크 표현 방법은 단일 면 내 스파이럴(spiral) 팔에서 소음(noise) 및 아티팩트(artifacts)를 억제하며 우수한 이미지 재구성을 제공하였습니다. 결과적으로, 완전 샘플링된 데이터와 유사한 강도 추정(stiffness estimation)을 달성하였습니다.
+
+
+
+### AI for Green Spaces: Leveraging Autonomous Navigation and Computer Vision for Park Litter Remova (https://arxiv.org/abs/2601.11876)
+Comments:
+          Published in IEEE/SICE SII 2025
+
+- **What's New**: 이 논문에서는 미국에서 발생하는 500억 개의 쓰레기 문제를 해결하기 위해 공원에서 쓰레기를 자동으로 탐지하고 수거할 수 있는 로봇을 제안합니다. 기존의 문제 해결 방법들과 비교하여, 이 로봇은 자율적으로 탐색하고 작업을 수행할 수 있는 혁신적인 접근 방식을 제공합니다.
+
+- **Technical Details**: 로봇은 Spanning Tree Coverage (STC) 알고리즘을 사용하여 탐색 경로를 생성합니다. 자율 항법을 위해 Real-Time Kinematic (RTK) GPS를 활용하여 매초 센티미터 단위의 정확도로 위치를 파악합니다. 또한, 컴퓨터 비전에는 ResNet50 Convolutional Neural Network (CNN)를 사용하여 94.52%의 높은 정확도로 쓰레기를 인식합니다.
+
+- **Performance Highlights**: 새로운 수거 메커니즘이 도입되어 공원에서 발견되는 쓰레기를 효과적으로 집중적으로 수거할 수 있습니다. 이 로봇의 전체 성공률은 80%에 달하며, 풀밭에서의 자율 쓰레기 수거 로봇이 실현 가능한 해결책임을 입증하였습니다.
+
+
+
+### Karhunen-Loève Expansion-Based Residual Anomaly Map for Resource-Efficient Glioma MRI Segmentation (https://arxiv.org/abs/2601.11833)
+- **What's New**: 이 연구는 뇌 종양 세분화에서 Karhunen–Loève Expansion (KLE)을 활용하여 소비자 수준의 하드웨어에서 경쟁력 있는 성능을 달성하는 방법을 제안합니다. 전통적인 방법들은 대규모 슈퍼컴퓨터를 필요로 했으나, 저자들은 KLE를 이용해 각 급여 채널의 정보를 요약하여 3D U-Net으로 세분화 정확도를 높였습니다. 이를 통해 8GB VRAM의 단일 GPU 환경에서도 BraTS 2023 GLI에서 우수한 결과를 달성할 수 있음을 보여줍니다.
+
+- **Technical Details**: 이 연구는 다운샘플된 z-score 정규화된 MRI 볼륨에 KLE를 적용하여 다중 모달 스캔을 32개의 KL 계수로 압축합니다. KLE 기반의 잔차 이상 맵이 생성되며, 이 정보가 3D U-Net의 다섯 번째 채널로 추가되어 세분화 정확도를 높이는 데 기여합니다. 본 방법은 변환 기술과 신경망 아키텍처의 결합을 통해 저사양 하드웨어에서 실행 가능한 고급 세분화 파이프라인을 제공합니다.
+
+- **Performance Highlights**: 이 모델은 포스트 프로세싱된 Dice 점수에서 각각 0.929 (WT), 0.856 (TC), 0.821 (ET)을 달성하고, HD95 거리에서는 2.93, 6.78, 10.35 보켈을 기록했습니다. 이는 BraTS 2023 대회의 기존 방법론보다 훨씬 뛰어난 성능으로, KLE 기반의 잔차 맵이 데이터 요구사항과 계산 비용을 획기적으로 줄이면서도 최고의 성능을 유지할 수 있음을 보여줍니다.
+
+
+
+### MixFlow: Mixture-Conditioned Flow Matching for Out-of-Distribution Generalization (https://arxiv.org/abs/2601.11827)
+- **What's New**: MixFlow는 조건부 흐름 일치를 위한 새로운 프레임워크로서, 고정된 기본 분포에 의존하는 기존 방법의 한계를 극복하기 위해 설계되었습니다. 이 모델은 설명자에 조건화된 가우시안 혼합 분포와 흐름 필드를 공동으로 학습하여 새로운 조건으로의 매끄러운 보간과 외삽이 가능하도록 합니다. 이를 통해 MixFlow는 이전의 방법들보다 더 나은 OOD(Out-Of-Distribution) 일반화를 달성할 수 있습니다.
+
+- **Technical Details**: MixFlow는 고정된 가우시안 분포 대신, 조건에 맞는 혼합 파라미터를 예측하는 학습된 네트워크를 사용합니다. 이러한 아키텍처 변화는 유사한 조건 간의 관계를 반영한 기본 분포를 학습하게 하여 특정 조건에 대한 반응을 보다 정확하게 생성할 수 있게 해줍니다. 이 과정은 최단 경로 흐름 일치를 통해 수행되며, 기본 분포가 복잡해짐에 따라 추론 문제가 잘 정의됩니다.
+
+- **Performance Highlights**: MixFlow는 여러 분야에서 검증을 통해 기존의 조건부 흐름 일치 방법들보다 뛰어난 성능을 나타냅니다. 회전된 문자 실루엣, 이미지 기반 표현형 테스트, 단일 세포 전사체 데이터셋 등에서 MixFlow는 더 나은 분포 거리 감소를 달성하며, 새로운 유전적 및 화학적 변동에 대한 예측에서도 강한 성능을 보입니다. 전반적으로 MixFlow는 OOD 일반화를 개선한 유연한 생성 모델링 프레임워크로 자리매김하고 있습니다.
+
+
+
+### Physics-Constrained Denoising Autoencoders for Data-Scarce Wildfire UAV Sensing (https://arxiv.org/abs/2601.11794)
+- **What's New**: 이 논문은 저비용 UAV(무인 항공기)를 활용한 고해상도 대기 측정의 중요성을 강조하고, 기존의 센서가 직면하는 문제인 baseline drift(기준선 편향), cross-sensitivity(교차 민감도), response lag(반응 지연)을 해결하기 위한 PC$^2$DAE라는 물리학 기반의 자동 인코더를 소개합니다. 이 방법은 물리적 제약을 네트워크 구조에 직접 통합하여 데이터 부족 문제를 해결하며, 실질적으로 적은 양의 데이터로도 신뢰할 수 있는 농도 추정이 가능하다는 점에서 혁신적입니다.
+
+- **Technical Details**: PC$^2$DAE는 두 가지 변형으로 제공되며(PC$^2$DAE-Lean 및 PC$^2$DAE-Wide), 각각 21,000개와 204,000개의 파라미터를 사용합니다. 특히, 이 아키텍처는 non-negative concentration(비음수 농도) 추정을 보장하며, softplus 활성화 함수를 통해 물리적으로 타당한 출력 생성을 위해 다양한 물리적 제약을 통합합니다. 데이터 부족을 극복하기 위해, 알려진 물리적 원칙을 이용하여 모델 용량을 제한하고, 각 물리적 제약은 가설 공간의 많은 부분을 배제하여 요구되는 데이터 양을 줄입니다.
+
+- **Performance Highlights**: PC$^2$DAE-Lean은 67.3%의 매끄러움 개선과 90.7%의 고주파 노이즈 감소를 달성하며, 5개의 다른 기준선을 초과하는 성능을 보여주었습니다. 비교대상인 LSTM-AE, U-Net, Transformer, CBDAE, DeSpaWN은 15%에서 23%의 물리적 일관성 위반 출력을 산출했습니다. 데이터가 제한된 환경에서 강한 유도 편향이 과적합을 방지하는데 중요한 역할을 한다는 점에서 두 변형의 성능 차이는 주목할 만합니다.
+
+
+
+### Risk-Aware Human-in-the-Loop Framework with Adaptive Intrusion Response for Autonomous Vehicles (https://arxiv.org/abs/2601.11781)
+Comments:
+          Submitted to ICRA 2026 (under review)
+
+- **What's New**: 자동차가 다양한 환경에서 운전할 때 안전성과 효율성을 유지하는 것이 중요해졌습니다. RAIL은 이를 위한 위험 인식 휴먼 인 더 루프 프레임워크로, 각기 다른 신호를 통합하여 실시간 제어 적응과 스마트 학습을 실현합니다. 이 프레임워크는 인간 운영자의 감시 아래에서도 작동할 수 있도록 설계되었습니다.
+
+- **Technical Details**: RAIL은 세 가지 핵심 신호, 즉 곡률 작용 신뢰성(curvature actuation integrity), 충돌까지 시간(time-to-collision), 관찰 변화 일관성(observation-shift consistency)을 결합하여 침해 위험 점수(Intrusion Risk Score, IRS)를 생성합니다. 높은 위험 수준에서 RAIL은 추가적인 보호 장치를 적용하며, 필요한 경우에는 인간의 수동 개입을 허용합니다. 또한, 이 시스템은 Soft Actor-Critic(SAC) 알고리즘과 위험 우선 재생(replay) 및 이중 보상을 결합하여 학습을 최적화합니다.
+
+- **Performance Highlights**: 실험 결과, RAIL은 MetaDrive에서 테스트 수익(Test Return, TR) 360.65, 성공률(Test Success Rate, TSR) 0.85, 안전 위반(Test Safety Violation, TSV) 0.75를 기록하며, 기존 강화 학습(RL) 및 안전한 RL, 오프라인/모방 학습 방법에 비해 성능이 우수함을 입증했습니다. 또한, 다양한 사이버 물리 공격 상황에서도 성공률(Success Rate, SR)과 이탈률(Disengagement Rate, DRA)를 효과적으로 개선하는 결과를 보여 주었습니다.
+
+
+
+### Anisotropic Tensor Deconvolution of Hyperspectral Images (https://arxiv.org/abs/2601.11694)
+Comments:
+          To appear in ICASSP 2026
+
+- **What's New**: 이번 연구에서는 저랭크 Canonical Polyadic Decomposition (CPD)을 기반으로 하는 새로운 하이퍼스펙트럴 이미지 (HSI) 복원 기법을 제안합니다. 이 접근법은 기존의 대규모 이미지 복원 문제를 소규모의 파라미터 추정 문제로 변환하여, 계산 효율성을 높일 수 있습니다. 특히, 구조 인식이 가능한 비등방성 Total Variation 정규화가 공간적 요소에만 적용되어 스펙트럼의 부드러운 특성을 보존합니다.
+
+- **Technical Details**: 해당 모델은 CPD를 통해 모든 이미지를 저랭크 텐서로 모델링하고, 유사한 3D 패치들 간의 비선형 자기 유사성을 활용하여 효율적으로 진행됩니다. 이러한 방식은 기존의 고차원 최적화 문제 해결 방법 대신, 파라미터를 (P+Q+N)R로 줄여 계산 복잡도를 줄입니다. 비선형 최적화 문제 또한 Proximal Alternating Linearized Minimization (PALM) 기법을 사용하여 해결됩니다.
+
+- **Performance Highlights**: 모델의 효율성을 검증하기 위해, 약 100배 이상의 파라미터 감소와 함께 모델의 간결성과 복원 정확성 간의 유의미한 균형을 보였습니다. 실험 결과, 알고리즘은 기존 방법 대비 개선된 성능을 나타내며 실제 하이퍼스펙트럴 이미지 복원에 효과적임을 입증하였습니다.
+
+
+
+### Bridging Modalities: Joint Synthesis and Registration Framework for Aligning Diffusion MRI with T1-Weighted Images (https://arxiv.org/abs/2601.11689)
+- **What's New**: 이 논문은 확산 MRI(dMRI)와 T1 가중 MRI(T1w) 이미지 간의 비지도 등록(framework)을 제안합니다. 기존의 등록 방법이 강한 차별성을 가진 두 이미지 간의 정확한 정렬을 보장하기 어려운 반면, 이 연구는 생성된 이미지와 실제 T1w 이미지 간의 단일 모달 등록 작업으로 변환하여 복잡성을 줄입니다. 이 방법은 해부학적 구조를 보존하는 자연스러운 이미지를 합성하고 변환 필드를 학습하여 등록 정확성을 크게 향상시킵니다.
+
+- **Technical Details**: 제안된 방법은 합성 모듈과 등록 모듈로 구성됩니다. 합성 모듈은 dMRI 데이터로부터 T1w처럼 보이는 이미지를 합성하고, 그런 다음 UNet 기반의 등록 네트워크를 통해 생성된 이미지와 T1w 이미지의 변형 필드를 예측합니다. 이러한 접근 방식은 지역 구조 유사성과 교차 모달 통계 의존성을 최적화하여 정확한 변형 추정을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, 이 방법은 두 개의 독립 데이터 세트에서 기존의 여러 최신 기법에 비해 뛰어난 성능을 보여주었습니다. 정량적 메트릭과 시각적 평가에서 일관되게 우수한 성능을 기록하였으며, 이는 등록 정확성과 효율성을 모두 향상시키는 데 기여합니다. 두 단계 합성-등록 전략은 특히 dMRI와 T1w 간의 고유한 난제를 해결하는 데 효과적임을 보여주었습니다.
+
+
+
+### Towards Efficient Image Deblurring for Edge Deploymen (https://arxiv.org/abs/2601.11685)
+- **What's New**: 본 연구는 모바일 이미지 신호 처리 파이프라인에서 이미지 블러 제거(image deblurring)의 효율성을 높이기 위한 하드웨어 인식(adaptation) 프레임워크를 제안합니다. 기존의 모델을 감도 기반 블록 대체(sensitivity-guided block substitution), 대리 증류(surrogate distillation), 그리고 장치 프로파일링에 의한 훈련 없는 다목적 검색(multi-objective search)을 통해 재구성하는 방법론을 포함합니다.
+
+- **Technical Details**: 제안된 방법은 36블록 NAFNet 기준 모델에 적용되어 GMACs에서 최대 55% 감소를 달성했습니다. 이는 최근의 transformer 기반 SOTA와 비교했을 때 경쟁력을 유지하면서도 우수한 효율성을 보여줍니다. 특히, 실제 디바이스에 배포했을 때 기본 모델보다 1.25배 더 낮은 지연 시간(latency)을 기록했습니다.
+
+- **Performance Highlights**: 모션 블러 제거(GoPro), 디포커스 블러 제거(DPDD), 및 보조 벤치마크(RealBlur-J/R, HIDE) 실험에서 이 방법의 일반성을 입증했습니다. 이전의 효율적인 기준 모델과의 비교를 통해 정확성과 효율성 간의 상충 관계를 확인하였으며, 알고리즘 설계와 실제 배포 가능한 블러 제거 모델 간의 간극을 줄이기 위한 원칙적인 전략으로 피드백 기반 적응(feedback-driven adaptation)을 확립했습니다.
+
+
+
+### Mobile-friendly Image de-noising: Hardware Conscious Optimization for Edge Application (https://arxiv.org/abs/2601.11684)
+Comments:
+          Accepted at ICASSP 2025
+
+- **What's New**: 이번 연구는 모바일 장치에서 사용할 수 있는 새로운 이미지 디노이징(decoying) 네트워크를 소개합니다. 이는 엔트로피 정규화(entropy regularization) 기법을 사용하여 하드웨어 인식 하에서 U-Net 아키텍처의 차별화된 신경망 구조 검색을 통해 개발되었습니다. 기존의 전통적인 이미지 신호 처리(Image Signal Processing, ISP) 방법보다 더 효과적인 접근 방식으로, 최신 인공지능(AI) 기술을 기반으로 한 것입니다.
+
+- **Technical Details**: 제안된 모델은 파라미터 수가 12% 감소하였으며, 장치에서의 지연(latency) 시간이 약 2배 향상되고 메모리 사용량은 1.5배 개선되었습니다. PSNR(peak signal-to-noise ratio) 측정 시 0.7%의 손실을 보였지만, 성능 저하는 미미했습니다. 또한, 이미지 복원(Image Restoration) 분야에서의 매개변수(GMAC) 수치가 약 18배 감소하여 경쟁력 있는 정확도를 보였다는 점이 주목할 만합니다.
+
+- **Performance Highlights**: 이 네트워크는 가우시안(Gaussian) 노이즈 제거 테스트에서 3개 강도와 4개의 벤치마크에서 성공적으로 평가되었습니다. 또한, 현실 세계의 노이즈 제거 작업에서도 1개의 벤치마크를 통해 일반화(generalization) 능력을 입증하였습니다. 전체적으로 이 연구는 최신 스마트폰에서 최신 딥러닝 기술을 효과적으로 적용할 수 있는 가능성을 보여 줍니다.
+
+
+
+### FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction (https://arxiv.org/abs/2601.11680)
+Comments:
+          Accepted for oral presentation at AAAI 2026
+
+- **What's New**: 본 연구에서는 저카운트 양전자 방출 단층 촬영(PET) 재구성의 문제를 해결하기 위해 Fourier 기반의 새로운 방법인 FourierPET을 제안합니다. 기존의 방법들이 공간 영역에서 비구분 최적화 목표를 가지고 있어 정확한 보상을 어렵게 했던 반면, FourierPET은 주파수 영역에서 스팩트럼적으로 분리된 노이즈의 영향을 분석합니다. 이를 통해 주파수 지향 모델을 설계하고, 저카운트 재구성의 세 가지 주요 요인인 포아송 노이즈, 광자 부족 및 감쇠 보정 오류를 효과적으로 수정합니다.
+
+- **Technical Details**: FourierPET은 교차 방향 최적화 방법(Alternating Direction Method of Multipliers, ADMM)에 기반을 두고 있습니다. 이 방식은 스팩트럼 일관성 모듈(Spectral Consistency Module)과 진폭-위상 보정 모듈(Amplitude-Phase Correction Module), 이중 조정 모듈(Dual Adjustment Module)을 통합하여 데이터 충실도를 유지하고, 저주파 진폭과 고주파 위상 왜곡을 보정합니다. 이론적으로, 이 연구는 고주파 위상 변동과 저주파 진폭 억제를 각각 타겟팅함으로써 스팩트럼 보정을 통해 재구성과 정확성을 향상시키고자 합니다.
+
+- **Performance Highlights**: 광범위한 실험 결과, FourierPET은 기존의 최첨단 성능을 달성하며, 매개변수가 훨씬 적으면서도 해석 가능성이 향상된 것으로 나타났습니다. 연구팀은 여러 PET 데이터셋을 활용해 포괄적인 정량적 평가를 진행하였으며, 그 결과는 스팩트럼 표적화가 성능 향상에 기여함을 입증합니다. 이를 통해 FourierPET은 PET 영상의 품질을 극적으로 개선할 수 있는 가능성을 보여주었습니다.
+
+
+
+### Pigment Network Detection and Classification in Dermoscopic Images Using Directional Imaging Algorithms and Convolutional Neural Networks (https://arxiv.org/abs/2601.11674)
+- **What's New**: 이 연구는 멜라노마 조기 진단을 위한 점 피부사진(dermoscopic image) 분석의 자동화를 목적으로 하며, 이를 위해 새로운 방향성 이미지 알고리즘(directional imaging algorithm)을 사용했습니다. 이 알고리즘은 주요 구성 요소 분석(Principal Component Analysis, PCA), 대비 향상(contrast enhancement), 필터링(filtering) 및 잡음 감소(noise reduction)를 포함하여 비정상적인 색소망(pigment network, PN)을 식별하는 데 중요한 역할을 합니다.
+
+- **Technical Details**: 연구에서 사용된 방향성 이미지 알고리즘은 PH2 데이터셋에 적용되어 96%의 성공률을 나타냈으며, 픽셀 강도 조정(pixel intensity adjustments)을 통해 100%로 향상되었습니다. 이후, 얻어진 PN 이미지로 새로운 데이터셋을 생성하였고, 두 가지 분류기(Convolutional Neural Network, CNN 및 Bag of Features, BoF)를 활용하여 PN을 비정상적(atypical) 및 정상적(typical) 클래스로 분류했습니다. 제한된 200장의 이미지 데이터셋을 사용하여, 두 개의 합성곱 레이어와 두 개의 배치 정규화(batch normalization) 레이어를 가진 간단하고 효과적인 CNN을 설계했습니다.
+
+- **Performance Highlights**: 제안된 CNN 모델은 90%의 정확도(accuracy), 90%의 민감도(sensitivity), 89%의 특이도(specificity)를 기록했습니다. 최신 방법들과 비교했을 때, 제안된 CNN은 더욱 우수한 성능을 보여주었습니다. 연구 결과는 PN 분류에 대한 CNN 모델의 유력성을 강조하며, 향후 연구에서는 데이터셋 확장 및 추가적인 피부과적 특징을 통합하여 멜라노마 진단을 더욱 향상시킬 것을 제안합니다.
+
+
+
+### IPEC: Test-Time Incremental Prototype Enhancement Classifier for Few-Shot Learning (https://arxiv.org/abs/2601.11669)
+- **What's New**: 최근 몇 샷 학습(Few-Shot Learning, FSL) 분야에서 새로운 접근 방식인 Incremental Prototype Enhancement Classifier (IPEC)가 제안되었습니다. IPEC는 이전 쿼리 샘플로부터 정보를 활용하여 프로토타입을 최적화하는 테스트 타임(test-time) 방법론입니다. 이 방식은 이전 배치에서 신뢰도가 높은 쿼리 샘플을 선택적으로 포함하여 동적인 보조 세트를 유지함으로써, 모델이 주요 정보를 지속적으로 활용할 수 있도록 지원합니다.
+
+- **Technical Details**: IPEC는 강력한 이중 필터링 메커니즘을 설계하여 각 쿼리 샘플의 샘플 품질을 확보합니다. 이 메커니즘은 글로벌 예측 신뢰도와 지역 분별 능력을 기반으로 쿼리 샘플을 평가하여, 최적의 샘플을 선택합니다. 이를 통해 후속 작업에서 지원 세트와 통합하여 점진적으로 더 안정적이고 대표적인 프로토타입을 구축하여 초기 지원 세트에 대한 의존도를 줄입니다.
+
+- **Performance Highlights**: 다수의 FSL 분류 작업에서 IPEC 방법이 기존 최첨단(SOTA) 접근을 포함한 여러 기본 방법들을 크게 능가하는 성능을 입증했습니다. 실험 결과에 따르면 테스트 배치 수가 증가함에 따라 정확도가 점진적으로 향상되어, 이 방법의 점진적 학습 능력이 강조됩니다.
+
+
+
+### An Efficient and Explainable KAN Framework forWireless Radiation Field Prediction (https://arxiv.org/abs/2601.11656)
+Comments:
+          Accepted in 2025 IEEE 22nd International Conference on Mobile Ad-Hoc and Smart Systems (MASS). See this https URL
+
+- **What's New**: 이 논문에서는 환경 변화와 신호 불확실성으로 인해 무선 채널 모델링의 정확성을 향상시키기 위한 새로운 접근 방식을 제안합니다. 이는 전통적인 포인트-인-포인트-아웃 모델 대신 레이-인-레이-아웃 모델을 도입하여 전체 레이를 입력으로 처리하고 환경적 요소들의 상호작용을 더 잘 캡처하는 방법입니다. 또한 Kolmogorov-Arnold network (KAN) 아키텍처와 transformer 모듈을 통합하여 계산 효율성을 유지하면서 더 나은 성능을 달성합니다.
+
+- **Technical Details**: 이 연구에서는 KANNA-NeRF 모델을 사용하여 무선 전파 예측을 수행합니다. 이 모델은 레이를 샘플링한 포인트들의 시퀀스로 인코딩하여 레이-인-레이-아웃 구조를 활용합니다. KAN 아키텍처를 사용하여 다차원 데이터와 맥락적 관계를 잘 인코딩하며, 설명 가능한 결과를 제공합니다. 이를 통해 차량의 경로를 따라 환경 요소들의 정보를 효과적으로 통합할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 접근 방식은 다양한 시나리오에서 기존 방법들을 초월하는 성능을 보여주었습니다. 여러 부문 연구에서 모델의 각 구성 요소가 효과성에 기여함을 확인하였으며, 실세계와 시뮬레이션 무선 통신 시나리오 모두에서 뛰어난 성능을 입증했습니다. 또한 결과가 실제 조건과 어떻게 일치하는지에 대한 명확한 시각적 설명을 제공하여 더욱 신뢰를 높입니다.
+
+
+
+### "Jutters" (https://arxiv.org/abs/2601.11532)
+Comments:
+          Accepted at 39th Conference on Neural Information Processing Systems (NeurIPS 2025) Creative AI Track
+
+- **What's New**: 이 프로젝트는 AI가 생성하는 콘텐츠에 대한 우리의 참여 방식을 탐구합니다. 전통적인 'jutter'(여름철 폭풍 후 해변에서 유물이나 물체를 수집하는 사람들)의 관점에서, 우리는 실제 해변의 잔해물과 AI로 변형된 이미지 및 비디오를 혼합한 설치를 창조합니다. 관객은 지금의 jutter로서 이 공간을 탐험하고 무엇을 유지하고 무엇을 버릴지 결정할 수 있습니다.
+
+- **Technical Details**: 설치는 약 2x3 미터의 공간에 모래로 덮여 있으며, 해변 근처의 구역을 연상시키도록 디자인되었습니다. Noordwijk 해변에서 수집한 조개, 부유목 및 기타 조수 잔해와 함께 77개의 AI 생성 이미지 프린트와 22개의 스크린이 설치되어 있습니다. 참가자들은 다양한 AI 변형 개체들과 함께 작업하기 위해 걷고 비디오와 오디오 내레이션을 따라 진행합니다.
+
+- **Performance Highlights**: 저자들은 Hoek van Holland 해변과 Zandvoort 해변에서 수집된 물체들을 기반으로 AI 이미지를 생성했습니다. 비디오는 WarpFusion과 Stable Diffusion을 사용하여 제작되었으며, AI가 생성한 형태와 움직임의 변형을 통해 참가자들에게 새로운 해석의 기회를 제공합니다. 이 설치는 대중이 AI 생성 콘텐츠와의 관계를 재상상하는 데 도움을 주며, 디지털 세계를 탐색하는 데 있어 중요한 역할을 수행합니다.
+
+
+
+New uploads on arXiv(cs.AI)
+
+### Toward Efficient Agents: Memory, Tool learning, and Planning (https://arxiv.org/abs/2601.14192)
+Comments:
+          35 pages, 200 references
+
+- **What's New**: 최근 몇 년 동안 대형 언어 모델을 에이전트 시스템으로 확장하는 데 대한 관심이 증가하고 있습니다. 그러나 에이전트의 효과성이 향상됨에도 불구하고, 실제 배치에서 중요한 효율성은 종종 간과되었습니다. 이 논문은 에이전트의 핵심 구성 요소인 메모리(memory), 도구 학습(tool learning), 계획(planning)에 대해 효율성을 조사합니다.
+
+- **Technical Details**: 이 연구는 지연(latency), 토큰(tokens), 단계(steps)와 같은 비용을 고려하며, 압축(compression) 및 관리(management)를 통한 맥락(context) 제한, 도구 호출(tool invocation)을 최소화하기 위한 강화 학습(reinforcement learning) 보상 설계, 효율성을 높이기 위한 제어된 검색(search) 메커니즘 사용 등 다양한 최근 접근 방식을 검토합니다. 저자들은 고정 비용 예산하에서의 효과성을 비교하는 방법과 유사한 수준의 효과성에서 비용을 비교하는 두 가지 방식으로 효율성을 정의합니다.
+
+- **Performance Highlights**: 효율성은 효과성과 비용의 경계인 파레토 최전선(Pareto frontier) 관점에서도 분석됩니다. 본 연구는 이러한 구성 요소에 대한 평가 프로토콜을 요약하고 벤치마크(benchmark) 및 방법론적 연구에서 일반적으로 보고되는 효율성 메트릭을 통합하여 효율 중심의 벤치마크를 살펴봅니다. 마지막으로, 주요 도전 과제와 향후 방향에 대해 논의하며, 유망한 인사이트(insights)를 제공하는 것을 목표로 합니다.
+
+
+
+### Paper2Rebuttal: A Multi-Agent Framework for Transparent Author Response Assistanc (https://arxiv.org/abs/2601.14171)
+- **What's New**: 이 논문에서는 반박 작성을 고급 언어 모델(Large Language Models, LLMs)을 사용하여 효과적으로 돕기 위한 새로운 멀티 에이전트 시스템인 **RebuttalAgent**를 도입합니다. 이 시스템은 반박 생성을 증거 중심의 계획 작업으로 재구성하여 복잡한 리뷰어의 피드백을 원자적 우려로 분해하고, 외부 문헌의 검색 모듈을 통합하여 문제를 해결하도록 설계되었습니다. 이는 기존의 기법들이 빈번하게 겪었던 환각과 검증 불가능한 결과의 문제를 해결하기 위한 시도로, 모든 주장이 명확한 증거에 근거하도록 보장합니다.
+
+- **Technical Details**: **RebuttalAgent**는 먼저 비구조화된 리뷰를 개별적인 우려 사항으로 분해하여 모든 리뷰어의 우려를 철저히 다루는 방법을 사용합니다. 그 후, 두 개의 출처에서 증거를 구축하여 높은 충실도의 원고 또는 인용 준비가 된 외부 자료를 결합합니다. 이 과정은 전략적 계획 단계를 포함하여 모든 텍스트가 작성되기 전에 반박 논리에 대한 감사(Audit)를 수행하며, 이는 최종 작성물이 일관성을 유지하도록 돕습니다.
+
+- **Performance Highlights**: 우리는 제안된 **RebuttalBench**에서 **RebuttalAgent**의 성능을 평가했으며, 이전 방법들에 비해 범위, 충실도 및 전략적 일관성에서 상대적으로 높은 성능을 보여 주었습니다. 이러한 혁신적인 기능 덕분에 **RebuttalAgent**는 반박 작성의 인지 부담을 크게 줄이면서도 저자들이 그들의 과학적 방어를 위한 궁극적인 결정권을 유지할 수 있도록 돕습니다.
+
+
+
+### Remapping and navigation of an embedding space via error minimization: a fundamental organizational principle of cognition in natural and artificial systems (https://arxiv.org/abs/2601.14096)
+Comments:
+          41 pages, 5 figures
+
+- **What's New**: 이 논문은 다양한 지능(Diverse Intelligence)이라는 새로운 분야의 통합적 접근을 제안하며, 서로 다른 기원과 구성 요소를 가진 인식 시스템에서 의사결정의 차등불변 원칙을 발견할 수 있다고 주장합니다. 자연 및 인공지능 시스템 모두에서 인식은 기본적으로 임베딩 공간(embedding spaces)의 재맵핑(remapping)과 이 공간 내비게이션(navigation)의 상호작용을 통해 이해될 수 있다고 설명합니다. 이러한 이론은 인공지능 및 생물 시스템 간의 깊은 유사점을 명확히 하고, 모든 비슷하지 않은 시스템에서도 적용 가능한 지능 공학의 통합 프레임워크를 제공합니다.
+
+- **Technical Details**: 논문에서는 지능을 정의하기 위해 두 가지 중요한 불변성을 도입합니다: 임베딩 공간의 생성 및 재맵핑 그리고 새로운 맥락에 대한 내비게이션입니다. 임베딩은 경험을 통해 수집된 정보를 내부적인 잠재적 표현으로 통합하여 지속적으로 수정하는 과정을 의미하며, 이러한 재맵핑 과정은 인지의 기초 쳐리와 관련이 깊습니다. 또한, 이 연구는 생물학적 재생 과정과 인공지능 시스템에서 이 두 과정의 상호작용이 복잡한 적응 행동을 가능하게 만들고, 따라서 기원, 스케일, 물질 구성과 관계없이 보편적으로 적용될 수 있음을 보여줍니다.
+
+- **Performance Highlights**: 본 연구는 다양한 생명체의 생물학적 재생 사례에서부터 인공지능 시스템에 이르기까지, 재맵핑과 내비게이션 간의 상호작용이 어떻게 복잡한 적응 행동을 가능하게 하는지를 다양한 사례를 통해 설명합니다. 예를 들어, 플라나리(flatworm)는 전사 공간(transcriptional space)에서의 지능적인 내비게이션의 예이며, 특정 스트레스에 대응하기 위해 필요한 전사 변화를 통해 스스로 재생하는 능력을 보여줍니다. 이러한 통찰력은 복잡한 구조적 및 기능적 가소성이 지닌 생물의 원리를 이해하는 데 기여하며, AI 시스템과 생물 시스템 간의 지능 공통 모델을 제시합니다.
+
+
+
+### Numina-Lean-Agent: An Open and General Agentic Reasoning System for Formal Mathematics (https://arxiv.org/abs/2601.14027)
+- **What's New**: 본 논문에서는 기존의 형식 정리 증명 시스템의 한계를 극복하기 위해 일반 코딩 에이전트를 기반으로 한 새로운 패러다임을 제안합니다. 이 패러다임은 다양한 추론 작업을 지원하고, 기본 모델의 유연한 교체를 통해 성능을 향상시킬 수 있으며, 전문 도구 호출을 자율적으로 수행할 수 있는 구조를 제공합니다. 이를 통해, 우리가 개발한 Numina-Lean-Agent는 Lean과의 자동 상호작용을 통해 연관된 정리를 검색하고 비형식적으로 증명할 수 있는 기능을 제공합니다.
+
+- **Technical Details**: Numina-Lean-Agent는 Claude Code와 Numina-Lean-MCP를 통합하여 다양한 추론 도구를 제공하는 형식적인 수학 추론 시스템입니다. Lean-LSP-MCP를 통해 Lean 정리 증명기와의 상호작용이 가능하며, LeanDex를 활용하여 관련 정리 및 정의를 검색할 수 있습니다. 또한 Informal Prover와 Discussion Partner 도구를 통해 비형식적 증명 솔루션 생성 및 다른 언어 모델과의 협력을 통한 추론 및 계획 지원 기능을 제공합니다.
+
+- **Performance Highlights**: Numina-Lean-Agent는 2025 Putnam 문제의 모든 문제를 성공적으로 해결하며, AxiomProver와 동등한 성능을 보였습니다. 특히, 특정 문제에서는 AxiomProver보다 간결한 증명을 생성하여 새로운 성과를 기록했습니다. 나아가, 이 시스템은 수학자와의 협업을 통해 Brascamp-Lieb 정리를 성공적으로 형식화하여 일반적인 수학 추론 시스템으로서의 가능성을 입증하고 있습니다.
+
+
+
+### Autonomous Knowledge Graph Exploration with Adaptive Breadth-Depth Retrieva (https://arxiv.org/abs/2601.13969)
+- **What's New**: ARK: Adaptive Retriever of Knowledge는 언어 모델이 지식 그래프에서 증거를 검색하는 방식에 혁신을 가져옵니다. 이 시스템은 두 가지 작업을 통해 폭넓은 검색과 깊이 있는 탐색을 조정할 수 있으며, 미리 설정한 시드 노드나 훈련 필요 없이 실시간으로 쿼리의 요구에 맞춰 동적으로 작동합니다. ARK는 언어 중심의 쿼리와 관계 중심의 쿼리 모두에 최적화된 검색 방법을 활용하여 지식 그래프에서의 정보 검색을 강화합니다.
+
+- **Technical Details**: ARK는 전역 레키컬 검색(global lexical search)과 1-홉 이웃 탐색(one-hop neighborhood exploration)을 통해 데이터 검색을 수행합니다. 이 시스템은 쿼리와 이전의 검색 결과를 기반으로 폭넓은 검색과 다단계 탐색 간의 균형을 요소로 활용하며, 이를 통해 효과적인 정보 검색을 가능하게 합니다. 기존의 방법들이 반드시 시드 노드나 고정된 탐색 깊이에 의존해야 하는 것과 대조적으로, ARK는 이러한 의존성을 제거하여 더 유연하게 작동합니다.
+
+- **Performance Highlights**: ARK는 STaRK 벤치마크에서 59.1%의 평균 Hit@1과 67.4%의 평균 MRR을 기록하며 기존의 검색 기반 및 훈련 필요 없는 방법에 비해 Hit@1을 최대 31.4%, MRR을 최대 28.0% 향상시켰습니다. 또한, 8B 모델로 ARK의 도구 사용 정책을 증류하여, AMAZON, MAG, PRIME 데이터셋에서 각각 Hit@1을 +7.0, +26.6, +13.5 절대 점수로 향상시켰습니다. 이러한 성과는 거의 모든 성능을 유지하면서도 더 낮은 추론 비용을 가능하게 합니다.
+
+
+
+### PREFAB: PREFerence-based Affective Modeling for Low-Budget Self-Annotation (https://arxiv.org/abs/2601.13904)
+Comments:
+          CHI '26 Accepted paper
+
+- **What's New**: PREFAB은 시간과 인지적 부담을 줄이는 저비용의 자기 주관적 주석 방법을 제공합니다. 기존의 전체 주석 방식과 달리, 특정 감정 변화 구간에만 집중하여 데이터를 수집합니다. 이 방법은 peak-end rule 및 감정의 서열 표현에 기반을 두고 있으며, 주석자가 선택된 구간만 주석하고 나머지는 보간(interpolation)하도록 설계되었습니다.
+
+- **Technical Details**: PREFAB은 연속적인 감정 에피소드를 사건 단위로 세분화하여 peak와 그 다음 peak 사이의 구간을 감정 사건으로 간주합니다. 이 방식을 통해 주요 작업의 예상 감정 경로를 재구성하고, 주석자가 라벨을 제공해야 할 감정 피크(inflection regions)를 감지합니다. 또한, 사용자에게 간단한 맥락 정보를 제공하는 preview 메커니즘을 포함하여 주석 작업의 효과성을 높이고 있습니다.
+
+- **Performance Highlights**: PREFAB은 기술적 성과와 25명의 참가자를 대상으로 한 사용자 연구를 통해 평가되었습니다. 결과적으로 PREFAB은 감정 변화를 모델링하는 데 있어 기준선 방법들을 능가하였으며, 인지적 부담 또한 줄여주었습니다. 중요한 것은, PREFAB이 주석자의 신뢰도를 높이면서 주석 품질을 저하시키지 않았다는 점입니다.
+
+
+
+### Human Simulation Computation: A Human-Inspired Framework for Adaptive AI Systems (https://arxiv.org/abs/2601.13887)
+- **What's New**: 본 논문에서는 Human Simulation Computation (HSC)이라는 새로운 컴퓨팅 프레임워크를 제안합니다. HSC는 인간의 사고, 행동, 학습, 반성 및 활동 일정 조정 과정을 포함한 지속적이고 폐쇄적인 루프 프로세스를 모델링하여 인공지능의 효율적인 환경 상호작용을 목표로 합니다. 이 방식은 기존의 언어 기반 모델에서는 구현할 수 없는 인간과 유사한 적응 방식을 AI 시스템에 통합하려는 노력입니다.
+
+- **Technical Details**: HSC는 두 가지 주요 요소로 구성되어 있습니다. 첫 번째는 사고, 학습, 반성, 행동 및 피드백 수집을 통합하는 시뮬레이션 프로세스로, 이는 폐쇄 루프 형식으로 작동합니다. 두 번째는 전체 시뮬레이션 과정에 걸쳐 인간의 사고 전략을 통합하여 AI 시스템이 모든 작업과 환경에서 일관된 적응성을 발휘할 수 있도록 합니다. 이러한 전략들은 차별 감지, 범위 확장, 후보 비교 및 반영적 사고와 같은 발달된 사고 방식을 포함합니다.
+
+- **Performance Highlights**: HSC의 특징 중 하나는 학습이 외부 언어 데이터에 국한되지 않는다는 점입니다. 시스템은 사고 경로, 행동 시퀀스, 반성 결과 및 환경 피드백을 포함하여 자기가 처리하는 모든 것으로부터 학습합니다. HSC는 감각적 피드백을 기반으로 한 행동의 중요성을 강조하며 이를 통해 효율적인 데이터 수집, 내부 프로세스 최적화 및 환경 적합성 검증이 가능합니다.
+
+
+
+### LifeAgentBench: A Multi-dimensional Benchmark and Agent for Personal Health Assistants in Digital Health (https://arxiv.org/abs/2601.13880)
+- **What's New**: 이 논문은 LifeAgentBench라는 새로운 건강 추론 QA 벤치를 제안합니다. 이 벤치는 다양한 라이프스타일 신호를 기반으로 한 22,573개의 질문을 포함하여, 여러 사용자와 다차원적인 데이터에서 장기적인 추론을 가능하게 합니다. 이를 통해 개인화된 디지털 헬스 지원의 새로운 가능성을 모색하고 있습니다.
+
+- **Technical Details**: LifeAgentBench는 AI4FoodDB를 기반으로 하여 구축된 유니크한 QA 벤치마크입니다. 이 벤치는 기본 검색에서 복잡한 추론에 이르는 다양한 작업을 수행하며, SQL 쿼리를 통해 검증 가능한 정답을 생성합니다. 11개의 주요 대형 언어 모델(LLMs)에 대한 체계적인 평가를 통해 장기적인 데이터 집합 및 다차원적 추론에서의 주요 병목 현상을 식별했습니다.
+
+- **Performance Highlights**: LifeAgent는 복잡한 쿼리를 분해하고, 다단계 증거 검색을 수행하며, 결정론적 계산을 통해 장기적인 집합적 추론을 처리합니다. 실험 결과, LifeAgent는 가장 도전적인 다차원 및 다사용자 질문에 대해 성능을 현저히 향상시키며, 실제 사례 연구를 통해 일상적인 설정에서 디지털 헬스 조수로서의 가능성을 입증했습니다.
+
+
+
+### Virtual Urbanism: An AI-Driven Framework for Quantifying Urban Identity. A Tokyo-Based Pilot Study Using Diffusion-Generated Synthetic Environments (https://arxiv.org/abs/2601.13846)
+- **What's New**: 이 논문은 가상 도시주의(Virtual Urbanism, VU)라는 다중 모달 AI 기반 분석 프레임워크를 소개합니다. 이 프레임워크는 합성 도시 복제물을 통해 도시 정체성을 정량화하는 것을 목표로 하고 있습니다. 논문에서는 VU의 가능성을 보여주기 위해 도쿄 미시 세계에 대한 파일럿 연구를 제시하였습니다.
+
+- **Technical Details**: VU 프레임워크는 Stable Diffusion 및 LoRA 모델을 통합하여 도쿄의 아홉 지역을 동적인 합성 도시 시퀀스로 제작했습니다. 이 과정에서 기존의 방향 마커를 제외하여 핵심 정체성 형성 요소를 도출하였습니다. 인간 평가 실험을 통해 복제물의 인식 정당성을 평가하고, 지역 수준의 정체성을 정량화하며, 핵심 정체성 형성 요소를 도출했습니다.
+
+- **Performance Highlights**: 결과적으로 평균 81%의 정체성 인식 정확도를 보여 복제물의 유효성을 확인했습니다. Urban Identity Level (UIL) 지표를 통해 지역별 정체성 수준을 평가하였으며, 의미 분석을 통해 문화적으로 내재된 유형들을 핵심 정체성 형성 요소로 확인했습니다. VU는 AI 증강 도시 분석을 위한 실행 가능한 프레임워크로 자리 잡았으며, 자동화된 다중 매개변수 정체성 지표로 나아가는 경로를 제시합니다.
+
+
+
+### Look-Ahead-Bench: a Standardized Benchmark of Look-ahead Bias in Point-in-Time LLMs for Financ (https://arxiv.org/abs/2601.13770)
+- **What's New**: Look-Ahead-Bench라는 표준화된 벤치마크가 소개되었습니다. 이 벤치마크는 현실적이고 실용적인 금융 워크플로우 내에서 Point-in-Time (PiT) 대형 언어 모델(LLM)의 look-ahead bias를 측정합니다. 기존의 접근법들이 주로 Q&A를 통해 내부 lookahead 지식을 테스트하는 반면, 이 벤치마크는 실제 시나리오에서의 모델 행동을 평가합니다.
+
+- **Technical Details**: 이 연구는 다양한 시장 체제를 아우르는 성능 감소를 분석하여 진정한 예측 능력과 암기 기반 성능을 구별합니다. 여러 정량적 기준을 도입하여 성능 기준을 설정하였으며, Llama 3.1 (8B 및 70B) 및 DeepSeek 3.2와 같은 저명한 오픈소스 LLM과 PiT-Inference의 Point-in-Time LLM군(Pitinf-Small, Pitinf-Medium, Pitinf-Large)을 비교 평가합니다.
+
+- **Performance Highlights**: 결과는 표준 LLM에서 중요한 lookahead bias가 발견되었음을 보여주며, 이는 alpha decay를 통해 측정되었습니다. 반면, Pitinf 모델은 크기가 커질수록 향상된 일반화 및 추론 능력을 나타냅니다. 이 연구는 금융 LLM의 시간적 편향 평가를 위한 기초를 마련하고, 실제 배치에 적합한 모델을 식별하기 위한 실용적인 프레임워크를 제공합니다.
+
+
+
+### DARC: Decoupled Asymmetric Reasoning Curriculum for LLM Evolution (https://arxiv.org/abs/2601.13761)
+- **What's New**: 이번 논문에서는 DARC(Decoupled Asymmetric Reasoning Curriculum)라는 두 단계 프레임워크를 소개하여 언어 모델의 자가 진화 과정의 최적화 불안정을 완화하고 있습니다. 이 구조는 Questioner와 Solver의 훈련을 분리함으로써, 각 단계에서 질문과 답변의 질을 높이는 데 집중합니다. 이러한 접근 방식을 통해 DARC는 인간 데이터에 의존하지 않고도 유의미한 성과를 보여줍니다.
+
+- **Technical Details**: DARC는 두 개의 주요 단계로 구성됩니다. 첫 번째 단계에서는 Questioner가 명확한 난이도 수준과 외부 코퍼스를 기반으로 질문을 생성하도록 훈련됩니다. 두 번째 단계에서는 Asymmetric Self-Distillation 기법을 활용하여, 문서가 연결된 Teacher Solver로부터 고품질의 의사 라벨을 생성하고 이를 학생 Solver에게 전달함으로써 학습 신호를 안정적으로 개선합니다.
+
+- **Performance Highlights**: 실험 결과 DARC는 다양한 모델에 대해 평균 10.9점의 성능 향상을 나타내며, 여러 기준 모델들을 능가했습니다. 특히, DARC는 인간의 주석 없이도 General-Reasoner의 성능에 근접하는 결과를 보이며, 문서 접근 없이도 효과적으로 학습할 수 있는 능력을 증명하였습니다.
+
+
+
+### Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering (https://arxiv.org/abs/2601.13752)
+Comments:
+          Working in progress
+
+- **What's New**: 본 연구에서는 대형 추론 모델(LRM)이 가지고 있는 잠재적인 "추론 신념"을 밝혀내어, 이를 통해 LRM의 행동을 개발하는 새로운 방법론인 Reasoning Belief Engineering(RELIEF)를 제안합니다. RELIEF는 LRM의 자아 개념과 목표 신념의 일치를 통해 설계되어, 추론 추적의 감독 없이도 원하는 행동 특성을 내재화할 수 있게 합니다. 이로 인해 기존의 비싼 추적 감독 방식이 필요 없어지며, 효율적이고 확장 가능한 접근 방식이 마련됩니다.
+
+- **Technical Details**: LRM의 행동은 주로 강화 학습이나 금표준(reasoning traces)과의 미세 조정을 통해 개발되는데, 이러한 기존 방법들이 계산 비용이 크고 확장하기 어려운 단점이 있음을 강조합니다. RELIEF는 고수준의 의도를 설정하고 이를 기준으로 다양한 자가 반영 질문-답변 쌍을 생성하여, 모델이 목표 신념을 수용하도록 합니다. 이를 통해 모델은 내부적으로 원하는 행동을 내재화할 수 있으며, 이 신념은 실제 추론 과정에 영향을 미치게 됩니다.
+
+- **Performance Highlights**: 실험 결과, RELIEF는 기존의 행동 감독 및 선호 기반 방법들과 동등한 성능을 보이며, 훈련 비용은 낮아 효율적입니다. 추가 분석을 통해 RELIEF가 모델의 추론 궤적을 효과적으로 변화시키며, 이는 모델이 내재화한 신념의 변화를 통해 이루어진 것임을 확인했습니다. 따라서 RELIEF는 전통적인 추적 기반 감독의 대안으로서 활용될 수 있는 충분한 잠재력을 가지고 있습니다.
+
+
+
+### Reasoning or Fluency? Dissecting Probabilistic Confidence in Best-of-N Selection (https://arxiv.org/abs/2601.13735)
+Comments:
+          15 pages, 4 figures
+
+- **What's New**: 본 논문에서는 Best-of-N 선택에서의 확률적 신뢰도 지표가 실제로 타당한 추론을 반영하는지에 대한 의문을 제기합니다. 세 가지 유형의 인터 스텝 인과성 교란(causality perturbations)을 도입하여 신뢰도 지표가 추론 과정의 진정성을 얼마나 잘 측정하는지 분석합니다. 전통적인 확률 기반 지표는 주로 표면적인 유창성(fluidity)이나 분포 내 우선순위를 포착한다는 주장을 합니다.
+
+- **Technical Details**: 제안된 논문에서는 세 가지 형태의 인과성 교란을 통해 확인했습니다. 첫째, Attention-level disruptions을 통해 CoT 추론 내에서 주의 마스킹(attention masking)을 적용하여 인과 구조를 끊어냈습니다. 둘째, Parameter-level disruptions에서는 작은 모델을 사용하여 메트릭을 계산하여 추론 능력을 분리했습니다. 마지막으로, Data-level disruptions을 통해 추론 과정을 절단하고 재구성하여 전반적인 논리 일관성을 훼손했습니다.
+
+- **Performance Highlights**: 다양한 모델과 벤치마크를 통해 실험한 결과, 이러한 교란은 선택 정확도에 미미한 영향을 미친 것으로 나타났습니다. 심지어 극단적인 개입에도 불구하고, 확률 기반 메트릭은 여전히 높은 성능을 유지했습니다. 새로운 대비적 인과성 지표는 기존의 메트릭보다 더 신뢰할 수 있는 출력을 선택하도록 나타났습니다.
+
+
+
+### Hidden in Plain Text: Measuring LLM Deception Quality Against Human Baselines Using Social Deduction Games (https://arxiv.org/abs/2601.13709)
+Comments:
+          For associated dataset, see this https URL. Published in IEEE ICA 2025, waiting for IEEEXplore proceedings
+
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLM) 에이전트의 새로운 측면인 사회적 맥락에서의 속임수 능력을 연구합니다. 기존 연구가 통제된 작업에서의 LLM의 속임수 가능성을 보인 반면, 자연어를 이용한 사회적 맥락에서의 속임수 능력에 대한 연구가 부족했습니다. 본 연구는 비동기 다중 에이전트 프레임워크를 사용하여 실제적인 사회적 상황을 더 잘 시뮬레이션합니다.
+
+- **Technical Details**: 우리는 GPT-4o LLM 에이전트를 활용하여 35개의 Mafia 게임을 시뮬레이션 하였습니다. 또한, GPT-4-Turbo를 사용하여 플레이어의 역할 정보를 알지 못하는 게임 대화록을 분석하여 마피아 플레이어를 예측할 수 있는 마피아 탐지기를 개발하였습니다. 예측 정확도를 속임수 품질의 대리 지표로 사용하여, 인간 게임과 무작위 기준선의 예측 정확도를 비교했습니다.
+
+- **Performance Highlights**: 연구 결과, LLM 게임에서의 마피아 예측 정확도가 인간 게임보다 낮다는 것이 밝혀졌습니다. 이 결과는 게임의 진행 일수나 탐지된 마피아 수에 관계없이 일관되게 나타났습니다. 이는 LLM이 사회적 상황에 더 융합되며, 따라서 더 효과적으로 속임수를 쓸 수 있음을 시사합니다.
+
+
+
+### Understanding Mental States to Guide Social Influence in Multi-Person Group Dialogu (https://arxiv.org/abs/2601.13687)
+- **What's New**: 이번 논문에서는 기존의 동적 Theory of Mind (ToM) 평가를 넘어, 사회 상호작용에서 사람의 정신 상태를 변화시키는 데 초점을 맞춘 새로운 벤치마크인 SocialMindChange를 소개합니다. 이 벤치마크는 네 명의 캐릭터와 다섯 개의 연결된 장면이 포함된 사회적 맥락을 정의하며, 모델이 한 캐릭터 역할을 수행하여 대화를 생성하고 목표에 도달해야 합니다. 이는 LLM이 단순히 사람들의 정신 상태를 추적하는 것을 넘어 실질적으로 영향을 미치는 방식으로 ToM을 테스트하는 중요한 단계를 나타냅니다.
+
+- **Technical Details**: SocialMindChange는 네 명의 캐릭터와 그들의 관계, 그리고 상호작용을 포함하여 총 1,200개의 사회적 맥락과 6000개의 시나리오로 구성된 데이터셋을 생성합니다. 각 캐릭터의 첫 번째 순위 정신 상태(예: belief, emotion, intention, action)를 포함하며, 경쟁하는 의도 및 상대방의 신념에 대한 믿음과 같은 높은 차원의 상태도 선택적으로 주석을 달아 제공합니다. 평가 프레임워크는 4단계로 구성되어 있으며, 모델이 다단계 대화를 통해 정신 상태의 변화를 이끌 수 있는 능력을 테스트합니다.
+
+- **Performance Highlights**: 현재 10개의 최신 LLM을 평가한 결과, 그들의 평균 성능은 인간 성능보다 54.2% 낮은 것으로 나타났습니다. 이로 인해 현재의 LLM이 긴 연결된 상호작용에서 정신 상태 표현을 유지하고 변화시키는 데 여전히 어려움을 겪고 있음을 알 수 있습니다. 연구 결과는 현재 LLM이 복잡한 사회적 다이내믹스와 여러 참가자가 관련된 상황에서 지원적인 대화 전략을 선택하는 데 명확한 난관에 직면하고 있음을 보여줍니다.
+
+
+
+### Resilient Routing: Risk-Aware Dynamic Routing in Smart Logistics via Spatiotemporal Graph Learning (https://arxiv.org/abs/2601.13632)
+- **What's New**: 이 논문은 e-커머스 산업의 빠른 발전으로 물류 네트워크가 겪고 있는 압박을 해결하기 위해 Risk-Aware Dynamic Routing (RADR) 프레임워크를 제안합니다. 이 프레임워크는 Spatiotemporal Graph Neural Networks (ST-GNN)와 조합 최적화를 통합하여 동적 경로 계획을 가능하게 합니다. 전통적인 정적 경로 계획 알고리즘의 한계를 극복하고 실시간 데이터에 기반한 재고 위험 예측과 최적화를 위한 통합적인 접근 방식을 제시합니다.
+
+- **Technical Details**: RADR은 GPS 데이터를 기반으로 한 물류 토폴로지 그래프를 구성한 후, Graph Convolutional Network (GCN)과 Gated Recurrent Unit (GRU)를 통합한 하이브리드 딥 러닝 모델을 사용하여 공간적 상관관계와 시간적 의존성을 추출합니다. 이 모델은 실시간 예측 결과를 동적 엣지 가중치 메커니즘에 통합하여 경로 계획을 수행합니다. K-Means 군집화를 통한 데이터 기반의 불연속화 방법과 공간적 모델링 및 시간적 모델링을 통해 복잡한 교통 흐름을 추적하게 됩니다.
+
+- **Performance Highlights**: Smart Logistics Dataset 2024에서의 실험 결과, RADR 알고리즘은 공급망의 탄력성을 향상시킨다는 것을 입증하였습니다. 특히, 높은 혼잡 상황의 사례 연구에서 이 방법은 잠재적 혼잡 위험 노출을 19.3% 감소시켰으나 운송 거리는 2.1% 증가하는 결과를 보여주었습니다. 이러한 결과는 제안된 데이터 기반 접근 방식이 배송 효율성과 운영 안전성을 효과적으로 균형 맞춘다는 것을 확인해줍니다.
+
+
+
+### Foundations of Global Consistency Checking with Noisy LLM Oracles (https://arxiv.org/abs/2601.13600)
+Comments:
+          Under Review
+
+- **What's New**: 이 논문에서는 자연어 사실의 집합에서 글로벌 일관성을 보장하는 문제를 형식화하고, 이를 해결하기 위해 적응형 분할 정복 알고리즘을 제안합니다. 이 알고리즘은 최소 불만족 부분 집합(Minimal Unsatisfiable Subsets, MUSes)을 식별하고, 필요 시 최소한의 수정을 계산합니다. 연구 결과에 따르면, 제안된 방법은 LLM (Large Language Models) 기반 평가자를 활용하여 언어적 일관성 검증을 위한 확장 가능한 프레임워크를 제공합니다.
+
+- **Technical Details**: 이 논문은 노이즈가 있는 부분 집합 일관성 오라클을 쿼리하는 방식으로 글로벌 일관성 검증을 형식화합니다. 연구에서는 쌍별 검사가 글로벌 일관성을 인증할 수 없으며, 최악의 경우 쿼리 복잡성이 지수적임을 보여주었습니다. 또한, 데이터의 양이 증가함에 따라 LLM의 직접적 판단이 신뢰할 수 없다는 점을 강조하며, 적응형 접근 방식을 통해 효과적인 쿼리 수행을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 LLM을 사용하여 비일관성을 효율적으로 감지하고 설명하는 데 성공적이었으며, ‘모두 한 번에’ 판단하는 방법보다 높은 재현율을 유지하면서도 높은 정밀도를 유지합니다. 이는 기존 방법들보다 더 나은 성능을 보여주며, 보고서 생성이나 다문서 검색 증가와 같은 실제 NLP 파이프라인에 효과적으로 적용될 수 있습니다.
+
+
+
+### DSAEval: Evaluating Data Science Agents on a Wide Range of Real-World Data Science Problems (https://arxiv.org/abs/2601.13591)
+- **What's New**: 최근 LLM(대형 언어 모델) 기반 데이터 에이전트는 데이터 과학 작업을 자동화하는 데 중점을 두고 있습니다. 그러나 현실적인 데이터 과학 문제는 개방적이고 다중 분류에 걸쳐 있으며 정해진 답변이 없는 경우가 많아 기존 평가 방법이 한계를 지닙니다. 이에 따라, 641개의 실제 데이터 과학 문제로 구성된 DSAEval 벤치마크가 개발되어 다양한 데이터 세트를 포괄적으로 평가할 수 있도록 설계되었습니다.
+
+- **Technical Details**: DSAEval은 (1) 다모달 환경 인지, (2) 다중 쿼리 상호작용, (3) 다차원 평가의 세 가지 독특한 기능을 포함하고 있습니다. 이를 통해 에이전트는 다양한 모달리티(모드)에서 정보를 해석하고 여러 단계의 작업을 수행하며, 최종 보고서의 결과에 대한 포괄적인 평가가 가능합니다. 이 벤치마크는 총 285개의 데이터셋과 641개의 특정 작업으로 구성되어 있으며, 데이터 수집과 필터링 과정이 엄격하게 진행되었습니다.
+
+- **Performance Highlights**: DSAEval을 이용한 검증 결과, Claude-Sonnet-4.5가 가장 뛰어난 성능을 보였고, GPT-5.2는 가장 효율적이며, MiMo-V2-Flash는 비용 효율성이 었습니다. 멀티모달 인식 기능은 비전 관련 작업에서 일관되게 성능을 향상시켰으며, 성과는 2.04%에서 11.30%까지 이루어졌습니다. 결과적으로 기존 데이터 과학 에이전트는 구조화된 데이터와 표준 데이터 분석 워크플로우에서 잘 수행되지만 비구조화된 도메인에서는 여전히 상당한 도전 과제가 존재합니다.
+
+
+
+### Motion-to-Response Content Generation via Multi-Agent AI System with Real-Time Safety Verification (https://arxiv.org/abs/2601.13589)
+- **What's New**: 본 논문에서는 오디오 기반의 감정 신호를 기반으로 실시간 반응 지향 매체 콘텐츠를 생성하는 다중 에이전트 인공지능 시스템을 제안합니다. 기존의 음성 감정 인식 연구가 주로 분류 정확도에 초점을 맞춘 반면, 우리의 접근법은 감정 상태를 안전하고 연령 적합하며 통제 가능한 반응 콘텐츠로 변환하는 데 강조점을 두고 있습니다. 제안된 시스템은 감정 인식, 반응 정책 결정, 콘텐츠 매개변수 생성 및 안전 검증을 담당하는 네 개의 협력 에이전트로 구성되어 있습니다.
+
+- **Technical Details**: 제안하는 시스템은 오디오 입력 모듈, 감정 인식 에이전트, 반응 정책 결정 에이전트, 콘텐츠 매개변수 생성 에이전트, 안전 검증 에이전트의 다섯 가지 기능 구성 요소로 이루어진 순차적 파이프라인으로 작동합니다. 감정 인식 모델은 CNN 기반의 경량 구조로 설계되어 있어, 73.2%의 감정 인식 정확도를 달성하며, 안전 검증을 위한 명시적인 피드백 루프가 포함되어 있습니다. 이를 통해 생성된 콘텐츠는 사전 정의된 규칙을 준수하도록 필터링됩니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 시스템은 89.4%의 반응 모드 일관성과 100%의 안전 준수를 유지하면서 100ms 이하의 추론 지연시간을 자랑합니다. 이러한 성능은 아동 매체, 치료 응용 프로그램 및 감정적으로 반응하는 스마트 장치와 같은 다양한 분야에 적용할 수 있는 가능성을 보여줍니다. 또한 모듈화된 아키텍처 덕분에 해석 가능성과 확장성 또한 확보하였습니다.
+
+
+
+### SCRIPTMIND: Crime Script Inference and Cognitive Evaluation for LLM-based Social Engineering Scam Detection System (https://arxiv.org/abs/2601.13581)
+Comments:
+          This paper has been accepted to the EACL 2026 Industry Track
+
+- **What's New**: ScriptMind는 사용자 중심 평가와 통합된 LLM 기반의 스캠 탐지 프레임워크로, 사기 감지와 인지 효과 평가를 결합했습니다. 이 프레임워크는 범죄 스크립트 추론 작업(CSIT), 범죄 스크립트 인식 추론 데이터셋(CSID), 그리고 사회 공학 방어의 인지 시뮬레이션 평가(CSED)를 포함합니다. ScriptMind는 스캠 상호작용 중 사용자의 의심 수준을 실시간으로 관찰하여, 그 변화를 평가할 수 있습니다.
+
+- **Technical Details**: ScriptMind의 주요 구성 요소는 세 가지이며, CSIT는 사기 스크립트에 대해 LLM을 통해 추론을 모델링합니다. CSID는 LLM의 안전한 파인튜닝을 지원하기 위해 설계되었으며, CSED는 사용자 수용 관점에서 LLM 기반의 사기 탐지를 평가합니다. 이 시스템은 사기 상호작용 중 사용자 의심을 증진시키고 대화의 각 단계에서 사기자의 행동 패턴을 이해하며, 실제 데이터에 기반한 22,712개의 훈련 인스턴스를 이용해 LLM을 학습시킵니다.
+
+- **Performance Highlights**: ScriptMind로 파인튜닝된 11B 소형 LLM은 상업용 모델에 비해 13% 더 높은 성능을 달성했습니다. 또한, 전화 스캠 시뮬레이션 실험에서 사용자의 의심 수준을 유의미하게 향상시켜, 전통적인 경고 방식들에 비해 훨씬 더 효과적으로 사용자 참여를 증대시켰습니다. 이 результатов 보여주고 있는 바와 같이 ScriptMind는 사기 예방을 위한 LLM 기반 방어의 진전을 나타냅니다.
+
+
+
+### Reasoning is a Modality (https://arxiv.org/abs/2601.13562)
+Comments:
+          Code access: this https URL
+
+- **What's New**: 이 논문은 Abstraction and Reasoning Corpus (ARC)를 사용하여 인공지능(AI) 시스템의 추상적 추론 능력이 인간 지능과 어떻게 다른지를 탐구합니다. 특히, LLM과 ViT와 같은 현대 AI가 통계적으로 기반한 행동 예측기로 작용하는 반면, 인간은 내부 정신 상태를 해독하여 행동을 설명하는 방법에 차이가 있음을 강조합니다. 이러한 차이를 극복하기 위해, 저자들은 역할이 분리된 transformer 블록을 설계하여 AI의 추론 과정을 개선하려고 합니다.
+
+- **Technical Details**: 저자들은 ARC 작업을 시각적 추론 문제로 해결하기 위해 역할이 분리된 transformer 블록을 개발했습니다. 이 블록은 글로벌 컨트롤러 토큰과 그리드 작업 공간 토큰을 분리하고, 글로벌 컨트롤러 상태를持(가지고) 있어 지속 가능한 규칙 실행을 가능하게 합니다. 이 접근법은 구조적 주의 패스를 통해 디자인되어, 기존의 dense ViT 백본을 대체하면서도 인지 처리의 모듈화를 강화합니다.
+
+- **Performance Highlights**: VARC 시각 중심 프로토콜에서 훈련된 이 새로운 모델은 ARC-1에서 62.6%의 정확도를 달성하여 평균 인간 성능(60.2%)을 초과하였고, 이전의 방법들에 비해 현저한 성능 향상을 보여주었습니다. 또한 정성적으로도, 이 모델은 밀집 ViT 기준선보다 더 일관된 규칙 응용 구조를 보이며, 제어자 주도의 추론으로 전환됨을 보여주었습니다.
+
+
+
+### AgentGC: Evolutionary Learning-based Lossless Compression for Genomics Data with LLM-driven Multiple Agen (https://arxiv.org/abs/2601.13559)
+- **What's New**: 이번 연구에서는 최초의 진화적인 에이전트 기반 제노믹 데이터 압축 시스템인 AgentGC를 제안합니다. AgentGC는 다중 에이전트로 구성된 3층 구조로, 사용자는 사용자 친화적인 인터페이스를 통해 리더 에이전트와의 상호작용을 통해 더욱 향상된 압축 경험을 제공합니다. 또한, 압축 비율과 처리량을 기준으로 한 세 가지 모드를 설계하여 다양한 시나리오에 유연하게 대응할 수 있도록 하였습니다.
+
+- **Technical Details**: AgentGC는 사용자, 인지, 압축의 세 가지 계층으로 나뉘어 있으며, 각 계층은 특정 기능을 수행합니다. 사용자는 리더 에이전트를 통해 LLM(대규모 언어 모델)을 활용한 직관적인 인터페이스를 제공합니다. 인지 계층에서는 알고리즘, 데이터셋 및 시스템의 공동 최적화를 다루며, 압축 계층은 자동화된 다중 지식 학습 기반의 압축 프레임워크를 통해 실제 압축 및 압축 해제를 수행합니다.
+
+- **Performance Highlights**: AgentGC는 14개의 기준 모델과 9개의 데이터셋을 비교한 결과, 평균 압축 비율이 16.66%, 16.11%, 16.33% 증가했고, 처리량은 4.73배, 9.23배, 9.15배 향상되었습니다. 이러한 성능 개선은 정밀의학 및 바이오 데이터 관리에 있어 중요한 기여를 할 것으로 기대됩니다.
+
+
+
+### Leveraging ChatGPT and Other NLP Methods for Identifying Risk and Protective Behaviors in MSM: Social Media and Dating apps Text Analysis (https://arxiv.org/abs/2601.13558)
+- **What's New**: 이번 연구는 동성 성관계를 가진 남성(MSM)을 대상으로 소셜 미디어와 데이팅 앱에서 수집된 텍스트 데이터를 활용하여 성적 위험 행동 및 음주 습관을 예측할 수 있는 가능성을 평가했습니다. 연구팀은 참가자 동의 하에 텍스트 데이터를 수집하고, ChatGPT 임베딩, BERT 임베딩 등 다양한 머신러닝 기법을 통해 예측 모델을 훈련했습니다. 이 연구는 복잡한 개인화된 공공 건강 개입을 지원할 수 있는 대규모 언어 모델의 가능성을 강조하고 있습니다.
+
+- **Technical Details**: 연구에서는 MSM의 성적 위험 행동과 음주 행동을 예측하기 위해 기계 학습 모델을 훈련했습니다. 주요 기술적 요소로는 ChatGPT와 BERT 임베딩을 활용한 텍스트 데이터의 변환이며, LIWC나 사전 기반 위험 용어 접근법도 포함되었습니다. 모델의 성과는 월간 폭음 음주 및 다수의 성적 파트너를 가질 확률을 예측하는 데 있어서 F1 점수 0.78, PrEP 사용 및 중증 음주 예측에는 F1 점수 0.64 및 0.63을 기록했습니다.
+
+- **Performance Highlights**: 이 연구의 결과는 소셜 미디어와 데이팅 앱 텍스트 데이터가 위험 및 보호 행동에 대한 귀중한 통찰력을 제공할 수 있음을 보여줍니다. 특히, 기계 학습 기반의 접근 방식이 MSM과 같은 취약 집단의 건강 격차를 해결하는 데 기여할 수 있는 잠재력도 시사합니다. 연구는 맞춤형 개입의 가능성을 열어주며, MSM의 복지에 중요한 영향을 미칠 것으로 기대됩니다.
+
+
+
+### ChatAD: Reasoning-Enhanced Time-Series Anomaly Detection with Multi-Turn Instruction Evolution (https://arxiv.org/abs/2601.13546)
+- **What's New**: 이번 연구에서는 Time Series (TS)에서 LLM 기반 이상 탐지(anomaly detection, AD)를 위한 혁신적인 접근법을 제시합니다. 먼저, TSEvol이라는 다중 에이전트 기반의 TS 진화 알고리즘을 제안하고, 이어서 TSEData-20K라는 AD 추론 및 다중 턴 대화 데이터셋을 소개합니다. 또한 TKTO(Time Series Kahneman-Tversky Optimization)라는 새로운 최적화 기법을 통해 ChatAD의 크로스-태스크 일반화 능력을 향상시킵니다. 마지막으로, LLADBench라는 벤치마크를 수립하여 ChatAD와 기존 모델들의 성능을 비교 평가합니다.
+
+- **Technical Details**: 제안된 TSEvol은 Cognitive Reasoning Layer (CRL)와 Interactive Feedback-driven Layer (IFL)의 두 가지 혁신적인 역할층을 포함합니다. CRL은 심리 진단을 모방하여 CoT(Chain of Thought) 기반의 순차적 추론 데이터를 구축하며, IFL은 Supervisor-Intern 시나리오를 시뮬레이션하여 다중 턴 대화 품질을 향상시킵니다. 연구에서는 이 알고리즘을 바탕으로 10,011개의 높은 품질의 AD 대화가 포함된 TSEData-20K를 만들고, 이를 통해 ChatAD라는 다중 턴 대화 및 추론 모델 군을 확립하였습니다.
+
+- **Performance Highlights**: ChatAD 모델은 평균적으로 34.50%의 정확도 향상 및 34.71%의 F1 점수를 기록하며, 잘못된 탐지 비율(false positive rate, FPR)을 37.42%까지 감소시켰습니다. 다중 턴 대화의 경우, ChatAD는 기존 베이스라인 대비 뛰어난 성능을 보이며 FPR을 최대 52.44%까지 감소시켰습니다. 이러한 결과는 ChatAD의 뛰어난 추론 및 일반화 능력을 확증하며, 기존의 MTSLLMs의 한계를 극복하는데 기여할 것으로 기대됩니다.
+
+
+
+### TruthTensor: Evaluating LLMs Human Imitation through Prediction Market Drift and Holistic Reasoning (https://arxiv.org/abs/2601.13545)
+Comments:
+          16 pages, 6 figures, 2 tables
+
+- **What's New**: 이 논문은 TruthTensor라는 새로운 평가 패러다임을 소개하며, 이는 AI 모델, 특히 Large Language Models (LLMs)를 예측 엔진이 아닌 인간 모방 시스템으로 평가하도록 설계되었습니다. TruthTensor는 LLM이 진화하는 불확실한 환경에서 어떻게 인간의 사고 과정을 모방하는지를 측정하며, 예측 시장(predictive markets) 데이터를 기반으로 평가를 수행합니다. 이는 모델이 추론, 확신의 정확성(calibration), 내러티브 일관성(narrative coherence)을 얼마나 잘 구현하는지를 강조합니다.
+
+- **Technical Details**: TruthTensor는 기존의 정적 벤치마크와 다르게, 데이터 오염(contamination)을 방지하는 방식으로 설계되었습니다. 이 시스템은 오직 미래 이벤트를 평가하며, 이를 통해 모델이 기억된 정보를 활용하지 못하게 하고 진정한 추론 능력에 초점을 맞추게 합니다. 또한, 평가 기준은 정확성, 위험 감지(risk assessment), 시간적 일관성(temporal coherence) 등을 포함하여 모델의 전반적인 능력을 다각적으로 분석합니다.
+
+- **Performance Highlights**: 500개 이상의 실제 시장을 대상으로 한 실험에서 TruthTensor는 서로 유사한 예측 정확도를 가진 모델들이 보정(calibration), 드리프트(drift), 리스크 감수성(risk sensitivity) 측면에서 크게 차이를 보임을 입증하였습니다. 이를 통해 모델을 다양한 축에서 평가해야 할 필요성이 강조되며, TruthTensor는 AI 모델의 실제 의사결정 문맥에서 방어 가능한 평가를 생성합니다.
+
+
+
+### Reasoning While Recommending: Entropy-Guided Latent Reasoning in Generative Re-ranking Models (https://arxiv.org/abs/2601.13533)
+- **What's New**: 이번 논문에서는 Reinforcement Learning(RL)을 기반으로 한 새로운 추천 모델인 Entropy-Guided Latent Reasoning(EGLR)을 소개하고 있습니다. EGLR는 '이유를 생각한 후 추천하기'라는 기존의 접근 방식에서 탈피하여, '추천하는 동안 이유를 생각하는' 프레임워크를 채택합니다. 이를 통해 추천 리스트 생성의 어려운 중간 단계에서 즉각적인 추론을 가능하게 합니다.
+
+- **Technical Details**: EGLR는 동적 온도 조정과 함께 컨텍스트 인지를 통한 엔트로피 기반의 수치 길이 추론을 구현하여 탐색의 폭과 추천의 정확성을 높입니다. 이 모델은 복잡한 독립 모듈이나 후처리 과정을 요구하지 않는 경량 통합 설계를採用하여 기존의 생성적 재정렬 모델에 쉽게 적응할 수 있습니다. 실험 결과, EGLR는 두 개의 실제 데이터셋에서 효과가 입증되었습니다.
+
+- **Performance Highlights**: EG-Rerank와 같은 이전 모델들과 비교할 때, EGLR는 엔트로피 기반의 추론을 통해 의사 결정 엔트로피를 효과적으로 감소시킵니다. 두 가지 실제 데이터셋에 대한 실험에서는 EGLR가 기존의 생성적 재정렬 모델과의 호환성 덕분에 성능을 향상시키는 것이 확인되었습니다. 이러한 결과는 EGLR의 실제 배치 가치는 물론, 미래의 연구 가능성을 제시해 줍니다.
+
+
+
+### AgenticRed: Optimizing Agentic Systems for Automated Red-teaming (https://arxiv.org/abs/2601.13518)
+Comments:
+          Website: this https URL
+
+- **What's New**: 본 연구에서는 AgenticRed라는 자동화된 레드팀 시스템을 소개합니다. 기존의 시스템들은 human-specified workflows에 의존했으나, AgenticRed는 LLM의 in-context learning을 활용하여 인체 개입 없이 반응을 설계하고 개선합니다. 이는 공격자 정책을 최적화하기보다는 레드팀 시스템을 설계 문제로 접근하는 혁신적인 방법입니다.
+
+- **Technical Details**: 이 방식은 Meta Agent Search와 같은 방법에서 영감을 받아, 진화적 선택을 통해 agentic 시스템을 발전시키는 새로운 절차를 개발하였습니다. AgenticRed는 공격 성공률(ASR)을 무려 96%에서 98%에 이르도록 향상시켰으며, 이 성능은 속성이 있는 모델에서도 100%에 도달합니다. 우리의 접근 방식은 자동화된 시스템 설계가 AI 안전 평가에 강력한 패러다임이 될 수 있음을 보여줍니다.
+
+- **Performance Highlights**: AgenticRed로 설계된 레드팀 시스템은 다양한 구성에서 기존의 최첨단 방법보다 뛰어난 성과를 보입니다. 특히, Llama-2-7B의 경우 36% 개선된 96%의 공격 성공률을 달성했으며, GPT-3.5-Turbo와 GPT-4o-mini에서는 100%에 이르는 성공률을 기록했습니다. 이러한 결과는 자동화된 설계 방식이 레드팀 작업에 강력한 도구가 될 수 있음을 강조합니다.
+
+
+
+### Towards Efficient and Robust Linguistic Emotion Diagnosis for Mental Health via Multi-Agent Instruction Refinemen (https://arxiv.org/abs/2601.13481)
+- **What's New**: 이 논문에서는 임상 노트, 상담 대화, 온라인 정신 건강 커뮤니티에서 우울증, 불안 및 외상 관련 감정 표현의 인식을 다루고 있습니다. 연구팀은 APOLO (Automated Prompt Optimization for Linguistic Emotion Diagnosis)라는 프레임워크를 제안하여 감정 진단의 정확성과 견고성을 개선합니다. 기존 방법의 한계를 극복하고 복잡한 감정 공존성 및 임상적으로 중요한 신호의 탐색 효율성을 높이는 접근 방식을 채택하고 있습니다.
+
+- **Technical Details**: APOLO는 부분적으로 관찰 가능한 마르코프 결정 과정(Partially Observable Markov Decision Process, POMDP)으로 프롬프트 최적화를 공식화하고, 계획자(Planner), 교사(Teacher), 비평가(Critic), 학생(Student), 목표(Target)의 역할을 포함하는 다중 에이전트 협업 메커니즘을 소개합니다. 이 프레임워크는 적응적 추론과 협업 피드백을 통해 프롬프트 공간을 동적으로 탐색하며, 더 большим 감정 집합을 포착할 수 있도록 합니다.
+
+- **Performance Highlights**: APOLO는 개별 및 계층적 벤치마크를 통해 감정 진단의 정확성과 견고성이 일관되게 향상됨을 보여줍니다. 실험 결과는 이 프레임워크가 정신 건강 관리에 신뢰할 수 있는 대규모 언어 모델(Large Language Models) 적용을 위한 확장 가능하고 일반화 가능한 패러다임임을 입증합니다. 최근의 연구 방향과 비교하여, APOLO는 위험 인지 및 비용 제약 설계를 통해 감정 진단의 문제를 효과적으로 해결하는 방법을 제시하고 있습니다.
+
+
+
+### Graph Neural Networks are Heuristics (https://arxiv.org/abs/2601.13465)
+- **What's New**: 이 논문은 하나의 학습 경로(trajectory)를 통해 그래프 신경망(Graph Neural Network, GNN)이 조합 최적화(combinatorial optimization)를 위한 비지도 탐색(unsupervised heuristic)으로 변환될 수 있음을 보여줍니다. 특히 외판원 문제(Travelling Salesman Problem, TSP)에 중점을 두며, 전역 구조적 제약(global structural constraints)을 인덕티브 바이어스(inductive bias)로 인코딩함으로써 비자기회귀(non-autoregressive) 모델이 검색이나 감독 없이 직접적인 전방 전파(forward pass)로 솔루션을 생성할 수 있음을 입증합니다.
+
+- **Technical Details**: 저자들은 TSP를 직접적 순열 학습(direct permutation learning)으로 수식화하고, 비자기회귀 생성적 적대적 방법(generative adversarial method)을 통해 감독 없이 해밀턴 순환(Hamiltonian cycles)을 생성할 수 있음을 설명합니다. 여기에 Gumbel-Sinkhorn 완화(Gumbel-Sinkhorn relaxation)와 헝가리 알고리즘(Hungarian algorithm)을 활용하여 학습 중과 추론(inference) 동안 구조적 제약을 최적화합니다. 이 방법은 적대적 학습 동역학(adversarial training dynamics)과 구조적 인덕티브 바이어스로부터 새 형태의 휴리스틱을 도출해냅니다.
+
+- **Performance Highlights**: 논문에서는 성능이 어떠한 검색(search)에도 의존하지 않고도 경쟁력 있는 결과를 달성할 수 있음을 보여줍니다. 구체적으로, 제안하는 방법은 감시되지 않은 상태에서의 학습을 통해, 전통적인 알고리즘과 비교하여 최적성(optimality)과 효율성(efficiency) 간의 절충(tradeoff)을 심화합니다. 이 연구는 조합 최적화 분야에서 구조적 제약과 생성 모델이 명시적 검색(search)보다는 토대가 되어야 함을 강조하며, 학습된 휴리스틱이 엔지니어링된 것보다 더 우수할 수 있음을 나타냅니다.
+
+
+
+### Context and Transcripts Improve Detection of Deepfake Audios of Public Figures (https://arxiv.org/abs/2601.13464)
+- **What's New**: 이번 연구는 현재 오디오 딥페이크 감지기의 한계를 극복하기 위해 Context-based Audio Deepfake Detector (CADD) 아키텍처를 제안합니다. 기존의 오디오 파일만 분석하는 방식에서 벗어나, 이 논문은 다양한 주제와 맥락 정보를 활용하여 감지의 정확성을 높이는 방법을 제시합니다. 255개의 공개 딥페이크 샘플로 구성된 Journalist-provided Deepfake Dataset (JDD)와 고인이 된 공인들의 음성을 포함한 합성 데이터 셋(SYN)도 개발하였습니다.
+
+- **Technical Details**: CADD는 오디오 샘플에 맥락 정보를 자동으로 추가하는 방법을 사용하여 작동합니다. 이 정보에는 인물의 인구통계학적 정보, 직업, 과거 뉴스 및 소셜 미디어 게시물 등이 포함됩니다. CADD는 두 가지 대형 데이터 세트 ITW와 P$^2$V에서 성능을 평가하며, 각기 다른 딥페이크 감지기를 비교 분석합니다. CADD는 자신의 부적합한 검출을 피하기 위한 5가지 적대적 회피 전략에 대해 더욱 견고함을 보여줍니다.
+
+- **Performance Highlights**: CADD는 71개 기준 모델과 전통적인 기계 학습 모델에 대해 감지 정확도를 크게 향상시키는 것으로 나타났습니다. F1 점수는 5%-37.58%, AUC는 3.77%-42.79%, EER은 6.17%-47.83%의 향상을 보였습니다. 특히, CADD의 조합 모델인 CADD(T+C)가 전체 기반 모델과 비교하여 가장 우수한 성능을 나타냈습니다. 이러한 결과는 CADD의 맥락 정보 활용이 중요한 역할을 한다는 것을 입증합니다.
+
+
+
+### SpatialBench-UC: Uncertainty-Aware Evaluation of Spatial Prompt Following in Text-to-Image Generation (https://arxiv.org/abs/2601.13462)
+Comments:
+          19 pages, includes figures and tables
+
+- **What's New**: SpatialBench-UC는 텍스트-이미지 모델이 공간 명령을 따르는지 여부를 평가하기 위한 새로운 벤치마크로, 200개의 프롬프트와 100개의 반사실 페어로 구성되어 있습니다. 이 벤치마크는 검증이 가능한 반복 가능성(reproducibility)에 중점을 두고 있으며, 각 샘플에 대한 검사기 결과와 신뢰도를 포함하고 있습니다. 연구자들은 안정적이고 변별력 있는 평가를 통해 모델 간 비교를 용이하게 하고자 하였습니다.
+
+- **Technical Details**: SpatialBench-UC는 50개의 객체 쌍과 네 가지 공간적 관계를 기반으로 한 200개의 프롬프트로 구성되어 있습니다. 또한, PASS/FAIL/UNDECIDABLE의 결정을 통해 불확실성을 포함하는 평가 프레임워크를 제공합니다. 이 벤치마크는 사전 훈련된 객체 탐지기를 사용하여 좌표 정렬된 공간 관계에 대한 준수를 측정하고, 신뢰 점수와 함께 검사기 판정을 보고합니다.
+
+- **Performance Highlights**: 연구 결과, 안정적인 방법이 패스 비율과 커버리지를 상당히 향상시키지만, 탐지 누락으로 인해 여전히 절제(abstention)가 주요 원인으로 남아있음을 보여주었습니다. 이 평가 방식은 공간 프롬프트를 따르는 능력뿐만 아니라 선택된 탐지기를 통해 타겟 객체를 찾아낼 수 있는 능력을 반영합니다. 여러 평가의 결과는 각각의 모델이 공간 관계를 얼마나 잘 따르는지에 대한 인사이트를 제공합니다.
+
+
+
+### Explicit Cognitive Allocation: A Principle for Governed and Auditable Inference in Large Language Models (https://arxiv.org/abs/2601.13443)
+Comments:
+          Preprint. This version corresponds to the initial public release of the CUA architecture and associated evaluation metrics
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)의 포함된 문제 해결 방식을 명확히 구조화하는 Explicit Cognitive Allocation을 제안합니다. 이 접근법은 인과 관계의 인지를 강화하고 고책임 환경에서 신뢰성을 높이는 데 기여합니다. Cognitive Universal Agent (CUA)라는 아키텍처를 통해 이 원리를 구현하여 문제 프레이밍, 지식 탐색 등을 명확히 분리하고 조직할 수 있습니다.
+
+- **Technical Details**: CUA는 탐색 및 프레이밍, 인식적 고착(epistemic anchoring), 도구 및 방법론적 매핑(instrumental and methodological mapping), 해석적 종합(interpretive synthesis) 등의 독립적인 단계로 추론을 구성합니다. 이 프레임워크의 핵심은 Universal Cognitive Instruments (UCIs)로, 이는 다양한 연구 도구와 방법을 체계적으로 공식화하여 추상적인 질문이 탐구 가능한 내용으로 변모하게 합니다.
+
+- **Performance Highlights**: CUA의 사용 결과, 농업 분야에서의 여러 프롬프트에 대해 더 빠르고 구조적으로 조정된 인식적 수렴과 높은 인식적 정렬(epistemic alignment)을 보였습니다. 반면, 기준 LLM 추론은 적절한 정렬에서 더 큰 변동성을 보였으며, 도구적 구조를 명확하게 드러내지 못했습니다.
+
+
+
+### A Lightweight Modular Framework for Constructing Autonomous Agents Driven by Large Language Models: Design, Implementation, and Applications in AgentForg (https://arxiv.org/abs/2601.13383)
+Comments:
+          15 pages, 3 figures
+
+- **What's New**: AgentForge는 경량화된 오픈 소스 Python 프레임워크로, LLM(대규모 언어 모델) 기반 자율 에이전트를 구축하는 데 필요한 원칙적인 모듈 아키텍처를 통해 접근성을 높입니다. 이 프레임워크는 특히 세 가지 주요 혁신을 도입: (1) 세부적으로 정의된 입력-출력 계약을 갖춘 구성 가능한 기술 추상화, (2) 클라우드 API와 로컬 추론 엔진 간의 원활한 전환을 지원하는 통합 LLM 백엔드 인터페이스, (3) 에이전트 로직과 구현 세부 사항을 분리하는 선언적 YAML 기반 구성 시스템입니다.
+
+- **Technical Details**: AgentForge는 기술 구성을 유도하는 YAML 기반 도메인 특화 언어(DSL)를 제공하고, 각 기술을 독립적인 구성 가능성과 잘 정의된 입력 출력 계약으로 캡슐화하여 모듈화된 에이전트 구성을 가능하게 합니다. 또한, 에이전트 로직 수정 없이 다양한 LLM 공급자 간에 원활한 전환이 가능하도록 통일된 추상화 계층을 제공합니다. 이러한 방식으로 공급자 의존성과 배치 유연성 문제를 해결할 수 있습니다.
+
+- **Performance Highlights**: AgentForge는 62%의 개발 시간 단축을 이루며 LangChain과 비교했을 때 경쟁력 있는 작업 완료 비율을 나타내었습니다. 런타임 성능 평가에서 100ms 미만의 지연 시간을 기록하여 실시간 애플리케이션에 적합하다는 점이 확인되었습니다. 이 모듈 설계를 통해 커스터마이징과 확장이 용이하며, 다채로운 기술의 통합을 지원하고 있습니다.
+
+
+
+### The Geometry of Thought: How Scale Restructures Reasoning In Large Language Models (https://arxiv.org/abs/2601.13358)
+Comments:
+          34 pages, 10 figures
+
+- **What's New**: 이 논문에서는 25,000개 이상의 체인-오브-생각(Chain-of-Thought) 경로를 분석하며, 스케일(scaling)이 추론을 단순히 향상시키는 것이 아니라 재구성한다는 점을 밝혀냈습니다. 특히, 법(법적) 추론은 결정화(Crystallization) 과정을 겪으며, 대표적인 차원성이 45% 감소하고, 경로 정렬이 31% 증가했습니다. 반면, 과학 및 수학적 추론은 9배의 파라미터 증가에도 불구하고 구조가 변하지 않았습니다.
+
+- **Technical Details**: 연구자는 체인-오브-생각 생성 과정에서 숨겨진 상태(hidden states)의 궤적을 추출해 기하학적 속성을 측정했습니다. 이 연구는 법, 과학, 코드, 수학의 네 가지 도메인을 대상으로 두 개의 모델 스케일(8B 및 70B)을 사용했습니다. 고려된 기하학적 속성으로는 글로벌 차원, 본질적 차원, 궤적 정렬, 및 단계 간 일관성이 포함됩니다.
+
+- **Performance Highlights**: 법적 분류 작업에서 Neural Reasoning Operator(신경 추론 연산자)의 활용 결과, 63.6%의 정확도를 달성하며 매력적인 기하학적 구조가 연산자의 학습 가능성을 예측함을 입증했습니다. Turbo operator는 초기 속도 벡터에 따라 조정된 비선형 구조로, 유사도 74.7%와 정확도 63.6%를 기록하며 기하학적 구조가 단순히 설명적이지 않고 기능적 예측력을 가진다는 점을 확인시켰습니다.
+
+
+
+### PepEDiff: Zero-Shot Peptide Binder Design via Protein Embedding Diffusion (https://arxiv.org/abs/2601.13327)
+- **What's New**: 이번 연구에서 소개한 PepEDiff는 목표 수용체 단백질 서열과 주머니 잔기로부터 결합 서열을 설계하는 혁신적인 펩타이드 결합체 생성기입니다. 기존의 방식은 중간 구조 예측에 의존하는 반면, PepEDiff는 사전 훈련된 단백질 임베딩 모델에서 유도된 연속 잠재 공간에서 직접 결합 서열을 생성하여 구조적 및 서열적 다양성을 향상시킵니다. 이를 통해 기존의 접근 방식과는 차별화된 제로샷(generative zero-shot) 방식으로 새로운 펩타이드 서열을 제안할 수 있습니다.
+
+- **Technical Details**: PepEDiff는 20종의 표준 아미노산으로 구성된 집합 
+𝐴와 목표 수용체 단백질 서열 r∈𝒜L을 기반으로 펩타이드 서열 s^∈𝒜L′를 생성합니다. 이 과정에서 우리는 인코더 네트워크를 사용하여 수용체 서열을 연속 표현으로 인코딩하고, 조건부 확산 모델을 통해 펩타이드를 생성합니다. 우리의 접근 방식은 펩타이드 임베딩을 가우시안 노이즈로 초기화하고, 수용체 임베딩을 조건으로 하여 반복적으로 디노이즈하여 최종 펩타이드 후보를 생성합니다.
+
+- **Performance Highlights**: PepEDiff는 TIGIT을 대상으로 한 실험에서 기존의 최첨단 방법들을 초월하여 성능을 입증했습니다. 특히, 구조적 예측 없이 결합 성능을 개선하고 펩타이드의 다양성을 증가시켜, 잠재적으로 효과적인 결합체 설계의 새로운 가능성을 보여줍니다. 이번 연구의 코드는 GitHub에서 확인할 수 있으며, 이는 향후 연구와 응용에도 크게 기여할 것으로 기대됩니다.
+
+
+
+### Improving the Safety and Trustworthiness of Medical AI via Multi-Agent Evaluation Loops (https://arxiv.org/abs/2601.13268)
+- **What's New**: 최근 대형 언어 모델(LLM)은 의료 분야에 점점 더 많이 도입되고 있으나, 윤리적 무결성과 안전성 준수를 보장하는 것이 임상 적용의 주요 장애물로 남아 있습니다. 이 연구는 의료 LLM의 안전성과 신뢰성을 높이기 위해 설계된 다중 에이전트 정제 프레임워크를 소개합니다. 이 시스템은 두 개의 생성 모델(DeepSeek R1 및 Med-PaLM)과 미국 의사 협회(AMA)의 의료 윤리 원칙에 따라 반응을 평가하는 두 개의 평가 에이전트(LLaMA 3.1 및 Phi-4)로 구성됩니다.
+
+- **Technical Details**: 우선, 우리는 이 프레임워크에서 두 개의 생성 모델을 결합하여 의료 LLM의 출력을 반복적으로 정제합니다. LLaMA 3.1은 AMA 원칙에 따라 윤리를 평가하며, Phi-4는 안전 위험 수준을 평가하여 SRA-5 위험 수준을 할당합니다. 각 모델은 900개의 임상적으로 다양한 쿼리를 통해 성능을 평가받으며, 윤리 위반 감소와 영역별 위험 행동을 측정합니다.
+
+- **Performance Highlights**: 실험 결과, DeepSeek R1은 더 빠른 수렴 속도를 보여주었으며(평균 2.34회 vs 2.67회 반복), Med-PaLM은 개인 정보 보호 민감한 시나리오를 더 잘 처리했습니다. 반복적 다중 에이전트 루프는 윤리 위반을 89% 줄이고, 위험 감도를 92% 낮추는 성과를 보여 우리 접근 방식의 효과성을 강조합니다. 이 연구는 의료 AI 안전성을 위한 확장 가능하고 규제자와 일치하는 비용 효율적인 패러다임을 제시합니다.
+
+
+
+### CURE-Med: Curriculum-Informed Reinforcement Learning for Multilingual Medical Reasoning (https://arxiv.org/abs/2601.13262)
+- **What's New**: 이번 논문에서는 다국어 의료 추론에 문제점을 지닌 대형 언어 모델(LLM)의 한계를 극복하기 위해 CUREMED-BENCH라는 고품질의 다국어 의료 추론 데이터셋을 소개합니다. 이 데이터셋은 검증 가능한 답변이 있는 개방형 추론 질문을 포함하며, 암하라어(Amharic), 요루바어(Yoruba), 스와힐리어(Swahili)와 같은 저조종 언어를 포함하여 13개 언어로 구성되어 있습니다.
+
+- **Technical Details**: 또한, 이 데이터셋을 바탕으로 CURE-MED라는 커리큘럼 정보 기반의 강화 학습(framework reinforcement learning) 프레임워크를 제안합니다. 이 프레임워크는 코드 스위칭(code-switching)에 대한 감독적 미세 조정(supervised fine-tuning)과 그룹 상대 정책 최적화(Group Relative Policy Optimization)을 통합하여 논리적 정확성과 언어 안정성을 동시에 향상시킵니다.
+
+- **Performance Highlights**: 13개 언어에서의 실험 결과, 제안한 방법이 강력한 기준 모델을 지속적으로 초과 달성하였으며, 7억개의 매개변수로는 85.21%의 언어 일관성(language consistency)과 54.35%의 논리적 정확성(logical correctness)을, 320억개의 매개변수로는 94.96% 언어 일관성과 70.04% 논리적 정확성을 기록하였습니다. 이는 LLM의 신뢰할 수 있고 공평한 다국어 의료 추론을 지원하는 결과입니다.
+
+
+
+### RAG: A Random-Forest-Based Generative Design Framework for Uncertainty-Aware Design of Metamaterials with Complex Functional Response Requirements (https://arxiv.org/abs/2601.13233)
+- **What's New**: 이 논문에서는 비선형 및 조건 종속 응답을 위한 메타물질 설계에서 RAndom-forest 기반 생성 접근법(RAG)을 소개합니다. 기존 방법이 주로 벡터 값 응답에 초점을 맞춘 반면, RAG는 고차원 기능 응답을 데이터 효율적으로 예측하여 기능성 응답의 역설계를 가능하게 합니다. 이 프레임워크는 불확실성 정량화를 통해 생성한 설계의 신뢰성을 평가하고, 조건부 우도를 기반으로 샘플링하여 단일 샷 디자인 생성을 수행합니다.
+
+- **Technical Details**: RAG는 랜덤 포레스트(random forest)의 소량 데이터 호환성을 활용하여 역설계 과정에서 생성된 디자인의 신뢰도를 정량화합니다. 이 프레임워크는 다양한 디자인 요구 사항을 반영하며 고차원 기능 응답을 예측하는 능력을 가지고 있습니다. 본 연구에서는 RAG를 사용하여 특정 주파수 대역을 가진 음향 메타물질과 목표로 하는 변형 응답을 가진 기계적 메타물질의 설계를 수행했습니다.
+
+- **Performance Highlights**: RAG는 음향 메타물질의 경우 500개의 샘플, 기계적 메타물질의 경우 1057개의 샘플을 사용하여 성능을 입증하였습니다. 데이터 효율성은 비선형 응답을 포함하는 공개 기계적 메타물질 데이터셋에 대한 신경망(Neural Networks)과의 비교를 통해 확인되었습니다. 이 프레임워크는 메타물질 설계뿐만 아니라 복잡한 디자인 요구 사항을 포함하는 다양한 응용 프로그램에서 유용성을 보여줍니다.
+
+
+
+### Real-Time Deadlines Reveal Temporal Awareness Failures in LLM Strategic Dialogues (https://arxiv.org/abs/2601.13206)
+- **What's New**: 이 논문은 대형 언어 모델(LLMs)이 실시간 마감의 압박 속에서 협상 행동을 어떻게 조정하는지에 대한 새로운 연구 결과를 제시합니다. 연구에서는 LLM이 시간 인식을 내부적으로 관리하는 데 어려움을 겪고 있음을 밝혀냈습니다. 시간의 흐름에 따라 의사결정을 조정하지 못하는 LLM의 한계는 많은 시간에 민감한 응용에 중요한 제약이 될 수 있음을 제안합니다.
+
+- **Technical Details**: 제어된 협상 패러다임을 도입하여 LLM 에이전트들이 시간 제약에 따라 조정된 전략적 행동을 할 수 있는지를 분석하였습니다. 연구에서는 기준 조건과 시간 인지 조건을 구분하여, 후자에서는 매 턴마다 남은 시간을 명시적으로 업데이트하도록 하였습니다. 이 설정은 LLM의 시간 인식 능력을 고립시켜 논의의 패턴 변화가 실제 마감 시간에 어떻게 영향을 미치는지를 살펴보았습니다.
+
+- **Performance Highlights**: 실험 결과, 시간 인지 정보가 제공된 조건에서 LLM의 거래 성사율이 32%에서 4%로 증가하였으며 제안 수락 확률이 6배 증가했습니다. 이는 LLM이 내적 시간 추적에는 실패하지만 전략적 추론은 여전히 유능함을 시사합니다. 이 연구의 결과는 다양한 협상 시나리오와 모델에서 일관되게 나타나, 현재 LLM들이 시간 인식에서 체계적인 결함을 보이고 있음을 증명합니다.
+
+
+
+### Prompt Injection Mitigation with Agentic AI, Nested Learning, and AI Sustainability via Semantic Caching (https://arxiv.org/abs/2601.13186)
+Comments:
+          33 pages, 19 figures
+
+- **What's New**: 이번 논문에서는 큰 언어 모델을 안전하게 배치하는 데 있어 주요 장애물인 prompt injection에 대해 다룹니다. 저자들은 Total Injection Vulnerability Score (TIVS)에 기반하여 새로운 평가 프레임워크 TIVS-O를 제안하고, 이는 호프(HOPE)에서 영감을 받은 Nested Learning 아키텍처와 함께 악성 명령의 전파를 방지하기 위한 방어의 효과성을 조사합니다.
+
+- **Technical Details**: 제안된 시스템은 여러 에이전트를 통해 작동하며, 301개의 합성 생성 프롬프트를 사용하여 공격을 분석합니다. 여기서 Continuum Memory Systems는 과거의 프롬프트를 캐싱하여 성능을 향상시키며, 각각의 에이전트는 특정 역할을 수행합니다. 또한, Observability Score Ratio (OSR)를 도입하여 보안 관련 이유를 분석하고 명확성을 수치화합니다.
+
+- **Performance Highlights**: 실험 결과, 이 시스템은 높은 위험의 침해 없이 안전한 응답을 생성함을 보여주며, 41.6%의 LLM 호출 감소를 포함하여 지연 시간, 에너지 소비 및 탄소 배출량 또한 줄였습니다. 다양한 TIVS-O 구성은 방어 강도와 포렌식 투명성 간의 최적의 균형을 발견하며, 기억 증강 응답이 보안과 운영 비용 절감 목표를 동시에 달성할 수 있음을 입증합니다.
+
+
+
+### Responsible AI for General-Purpose Systems: Overview, Challenges, and A Path Forward (https://arxiv.org/abs/2601.13122)
+- **What's New**: 최근 발전한 Generative AI (GenAI)는 산업과 연구, 일상 상호작용에 혁신을 가져오고 있습니다. 특히 Large Language Models (LLMs)와 Multimodal Large Language Models (MLLMs) 등은 인간 언어 질문에 응답하고, 일관된 텍스트를 생성하며, 코드 작성을 지원하여 산업 전반에서 인기를 끌고 있습니다. 그러나 이러한 시스템은 공정성, 프라이버시, 안전성 등의 분야에서 RAI(Responsible AI) 도전에 직면하게 되었습니다.
+
+- **Technical Details**: 일반 목적 AI 시스템은 outputs의 자유도가 여타 전통적 작업별 AI 시스템에 비해 비결정적으로 높습니다. 이는 랜덤하게 생성되는 텍스트가 다양한 의미를 가질 수 있어 발생합니다. 이 논문은 Type-1(작업 특정 AI)과 Type-2(일반 목적 AI) 시스템을 구분하고, Type-2 시스템이 새롭고 심각한 RAI 리스크에 더 취약하다는 점을 논의합니다. 또한 C2V2(Control, Consistency, Value, Veracity)라는 개념을 도입해 RAI 요구 사항을 충족할 수 있는 방향을 제시합니다.
+
+- **Performance Highlights**: 이 논문은 Type-2 AI 시스템이 Type-1 AI보다 RAI 침해 리스크가 더 크다는 점을 강조하며, 이러한 문제를 해결하기 위한 기법을 제안합니다. RAI 원칙을 준수하기 위해 시스템 설계 접근 방식을 채택하고, 다양한 기술을 조합할 필요가 있음을 강조합니다. 기업들이 RAI를 충족시키기 위해 이 연구를 기반으로 지속적인 진화와 개선이 필요하다는 결론을 내립니다.
+
+
+
+### MagicGUI-RMS: A Multi-Agent Reward Model System for Self-Evolving GUI Agents via Automated Feedback Reflux (https://arxiv.org/abs/2601.13060)
+- **What's New**: 본 논문에서는 MagicGUI-RMS라는 다중 에이전트 보상 모델 시스템을 제안합니다. 이 시스템은 적응형 궤적 평가(adaptive trajectory evaluation)와 자기 진화(self-evolving learning) 기능을 통합하여 GUI 에이전트의 신뢰성 있는 작업 실행을 지원합니다. 특히, Domain-Specific Reward Model (DS-RM)과 General-Purpose Reward Model (GP-RM)을 결합하여 다양한 GUI 작업에 대한 세밀한 행동 평가를 가능하게 합니다.
+
+- **Technical Details**: MagicGUI-RMS는 구조화된 데이터 구성 파이프라인을 설계하여 보상 데이터 세트를 자동으로 생성합니다. 이 파이프라인은 균형 있고 다양한 보상 데이터셋을 제공하여 수작업 주석(annotation) 비용을 줄이며 샘플의 정밀도를 유지합니다. 실행 중, 보상 모델 시스템은 오류를 식별하고 대체 행동을 제안하며 자동화된 데이터 리플럭스 메커니즘을 통해 에이전트의 행동을 지속적으로 향상시킵니다.
+
+- **Performance Highlights**: 대규모 실험 결과, MagicGUI-RMS는 작업 정확도와 행동 강인성에서 상당한 향상을 보였습니다. 이 성과는 보상 기반 적응에 의해 구동되는 자기 개선 GUI 에이전트를 구축하기 위한 원칙적이고 효과적인 토대를 확립합니다. 이 최적화는 지속 가능한 성능 향상과 장기적인 자기 진화를 통해 구현됩니다.
+
+
+
+### Actionable Interpretability Must Be Defined in Terms of Symmetries (https://arxiv.org/abs/2601.12913)
+- **What's New**: 이 논문은 인공지능의 해석 가능성 연구가 근본적으로 잘못 설정되어 있다고 주장하고 있습니다. 기존의 해석 가능성 정의가 구체적인 모델링 및 추론 규칙을 유도할 수 없는 비실행적(actionable)으로 남아 있기 때문입니다. 논문에서는 해석 가능성을 행동 가능한 형태로 정의하기 위해 '대칭(symmetries)'의 개념을 제안하고 있습니다. 특히, 네 가지 대칭이 해석 가능성의 핵심 속성을 유도할 수 있다고 가정합니다.
+
+- **Technical Details**: 해석 가능성을 정의하기 위해 제안된 네 가지 대칭에는 추론 공변성(inference equivariance), 정보 불변성(information invariance), 개념 폐쇄 불변성(concept-closure invariance), 그리고 구조적 불변성(structural invariance)이 포함됩니다. 이 대칭들은 해석 가능성이 있는 모델을 정의하고 모델 설계에서 고려해야 할 기본 원칙을 제공합니다. 또한, 카테고리 이론(category theory)과 확률론적 관점(probabilistic perspective)을 도입하여 이론적 틀을 구성하고 이를 통해 인간 사용자와 해석 가능한 모델 간의 관계를 형식적으로 설명합니다.
+
+- **Performance Highlights**: 이 논문에서 제안된 해석 가능성 대칭 원칙은 실제 모델링에 활용될 수 있습니다. 예를 들어, 제안된 원칙들을 통해 해석 가능한 모델 범주를 구성하고, 이를 바탕으로 정렬(alignment), 개입(intervention), 그리고 반사적 추론(counterfactual inference) 등 다양한 형태의 Bayesian inversion을 통합하여 실용적인 응용 프로그램을 개발할 수 있습니다. 이로써 해석 가능한 AI는 사용자가 이해하고 신뢰할 수 있는 시스템 구축을 위한 기초를 마련합니다.
+
+
+
+### Human Emotion Verification by Action Languages via Answer Set Programming (https://arxiv.org/abs/2601.12912)
+Comments:
+          Under consideration in Theory and Practice of Logic Programming (TPLP)
+
+- **What's New**: 본 논문에서는 C-MT(마인드 전이 언어)라는 액션 언어를 소개합니다. 이는 응답 집합 프로그래밍(ASP)과 전이 시스템을 기반으로 하여 인간의 정신 상태가 관찰 가능한 행동의 연속에 따라 어떻게 진화하는지를 표현합니다. 감정의 평가 이론(Appraisal Theory of Emotion) 등 기존의 심리학 이론을 활용하여 감정과 같은 정신 상태를 다차원 구성으로 형식화하고, 불합리한 정신 상태 전이를 방지하는 새로운 인과 규칙을 도입하였습니다.
+
+- **Technical Details**: C-MT 언어는 인간 정신 상태의 변화를 모델링하기 위해 설계되었으며, ASP에 번역되어 액션 궤적(action trajectories)을 생성하고 검증할 수 있도록 지원합니다. 이 언어는 여러 심리학 이론을 통해 다차원적인 감정 상태를 특성화하며, 불합리한 변화 원칙을 규정하는 방식을 보여줍니다. 궁극적으로 이 프레임워크는 인간 정신 상태의 동적 발전에 대한 논리를 지원하며, 물리적 환경에서의 행동을 제한하는 기능도 제공합니다.
+
+- **Performance Highlights**: C-MT 언어는 정신 상태 추론과 관련된 특성을 포착하기 위한 기초 플랫폼으로서의 역할을 하며, ASP에서의 실용적 구현이 형식적 및 실험적 평가를 통해 보여집니다. 이 연구는 감정 추론을 위한 CM​T 언어의 적용 예제를 제공하며, 감정 평가 이론 및 감정 조절 이론과 같은 심리학 이론을 통합합니다. 또한, C-MT 언어가 행동 궤적 측면에서 심리학 이론을 표현, 검증 및 비교하는 방법으로 활용될 수 있음을 보여줍니다.
+
+
+
+### Mining Citywide Dengue Spread Patterns in Singapore Through Hotspot Dynamics from Open Web Data (https://arxiv.org/abs/2601.12856)
+Comments:
+          9 pages, 9 figures. It's accepted by WWW 2026 Web4Good Track. To make accessible earlier, authors would like to put it on arxiv before the conference
+
+- **What's New**: 이 연구는 싱가포르와 같은 열대 지역에서 도시 전역의 뎅기 전염 리스크를 예측하는 새로운 프레임워크를 제안합니다. 이는 공공에서 이용 가능한 뎅기 사례 데이터를 직접 분석하여 도시 지역 간의 잠재적 전염 연결 고리를 발견하고 활용하는 데 중점을 둡니다. 전염병의 확산 패턴은 기후적 요인뿐만 아니라 사람의 이동에 의해 좌우됨을 강조하며, 이를 통해 보다 효율적인 사전 개입을 가능하게 합니다.
+
+- **Technical Details**: 이 모델은 이전 HH주 동안의 관찰된 핫스팟 정보(𝐘H)와 도시 지역 간의 숨겨진 전염 링크(P)를 고려한 인과 그래프(directed acyclic graph, DAG)를 사용하여 뎅기 핫스팟의 확산을 설명합니다. 모델은 국소적인 생태적 요인을 생략하여 오히려 지역 간 전파를 명확하게 포착하도록 하고, 핫스팟의 지속성 및 사람에 의한 장거리 전염 경로를 중심으로 형성됩니다. 이는 전염체계의 민감도 및 해석 가능성을 높이는 데 기여합니다.
+
+- **Performance Highlights**: 이 연구는 2013-2018년 및 2020년 사이의 사례 연구를 통해, 4주 간의 핫스팟 이력이 평균 F-score 0.79를 기록하는 등 효율적인 예측 결과를 보여줍니다. 뎅기 전파 링크는 인구 이동과 밀접하게 연관되어 있으며, 이러한 학습된 네트워크는 공공 건강 계획 및 도시 회복탄력성을 향상시키는 데 실용적인 도구가 될 수 있습니다. 결국 이 연구는 열린 웹 기반의 사례 데이터를 수집, 검증하여 예측 가능하고 설명 가능한 자원으로 변환합니다.
+
+
+
+### SCULPT: Constraint-Guided Pruned MCTS that Carves Efficient Paths for Mathematical Reasoning (https://arxiv.org/abs/2601.12842)
+Comments:
+          11 pages, 3 figures. Equal contribution: Qitong Fang and Haotian Li. Corresponding authors: Qitong Fang (fangqitong@student.this http URL), Haotian Li (lihaotian@student.this http URL), Xu Wang (wangxu@jlju.this http URL)
+
+- **What's New**: SCULPT라는 새로운 접근 방법이 제안되었습니다. 이 방법은 Monte Carlo Tree Search (MCTS)에서 제약조건을 기반으로 하는 탐색을 통해 많은 언어 모델(LLM)의 문제 해결 능력을 향상시킵니다. SCULPT는 도메인 인식 점수를 통합하여 후보 단계를 선택하고 확장하는 과정에서 사회적 구조를 이끌어냅니다.
+
+- **Technical Details**: SCULPT는 구조적 패턴 가이던스와 상징적 체크(예: 차원 일관성, 유형 호환성, 크기 안정성 등)를 결합하여 행위를 평가합니다. 이 시스템은 선택 - 확장 - 시뮬레이션 - 역전파의 표준 MCTS 루프를 활용하며, 고유의 제약 조건 점수와 관련된 복잡도를 정규화하여 탐색을 개선합니다.
+
+- **Performance Highlights**: 실험 결과 SCULPT는 GSM8K, MATH, GSM-Hard 데이터셋에서 정확성을 유의미하게 개선했습니다. 제약조건 기반의 탐색 접근법은 비합리적 분기를 34.2%까지 줄이면서도 추리의 안정성을 유지합니다. 또한, GPT-5.2와 같은 프론티어 추리 모델에서 성능과 실행자 전이 가능성을 평가합니다.
+
+
+
+### MirrorGuard: Toward Secure Computer-Use Agents via Simulation-to-Real Reasoning Correction (https://arxiv.org/abs/2601.12822)
+- **What's New**: 이번 연구에서는 MirrorGuard라는 새로운 방어 프레임워크를 제안합니다. 이는 Computer Use Agents (CUAs)의 보안을 강화하기 위한 것으로, GUI에서의 위험한 행동을 시뮬레이션 기반 학습을 통해 개입합니다. 기존의 방어 방법들이 작업의 유용성을 감소시키는 한계점을 극복하고, 모델이 안전한 경로로 나아가도록 지원하는 방법을 제시합니다.
+
+- **Technical Details**: MirrorGuard는 대규모 운영 체제 훈련 비용을 줄이기 위해 새로운 신경-상징 시뮬레이션 파이프라인을 제안합니다. 이 시스템은 현실적인 고위험 GUI 상호작용 경로를 텍스트 기반의 시뮬레이션 환경 내에서 생성하며, 불안전한 추론 패턴을 포착합니다. 이를 통해 실시간으로 CUAs의 불안전한 추론 체인을 가로막고 수정할 수 있는 학습이 이루어집니다.
+
+- **Performance Highlights**: MirrorGuard는 다양한 벤치마크에서 평가된 결과, 안전하지 않은 비율을 66.5%에서 13.0%로 크게 줄였으며, 낮은 오분류율(FRR)을 유지했습니다. 이는 기존의 GuardAgent가 53.9%로 개선되는 것에 비해 더욱 우수한 성과를 나타낸 것입니다. 이 시스템은 CUA의 유용성을 증가시키며, 안전성을 동시에 보장하는 데 기여합니다.
+
+
+
+### SL-CBM: Enhancing Concept Bottleneck Models with Semantic Locality for Better Interpretability (https://arxiv.org/abs/2601.12804)
+- **What's New**: 이번 연구에서는 해석 가능한 AI(Explainable AI, XAI) 분야에서 새로운 모델인 SL-CBM(CBM with Semantic Locality)을 제안합니다. 이 모델은 개념 수준의 설명을 제공하면서 공간적 일관성을 확보하는 방법에 초점을 맞추고 있습니다. 기존의 Concept Bottleneck Models(CBMs)에서 발생하는 지역적 신뢰성(locality faithfulness)의 문제를 개선하여, 이미지 내의 의미 있는 영역과 개념을 보다 효과적으로 연결합니다.
+
+- **Technical Details**: SL-CBM은 1x1 convolutional layer와 cross-attention mechanism을 통합하여 개념과 이미지 영역, 최종 예측 간의 정렬을 향상시킵니다. 이 모델은 공간적으로 일관된 saliency map을 생성하여 모델 내부의 추론과 밀접하게 연결된 신뢰성 있는 출력 결과를 제공합니다. 이전의 방법들과 비교할 때, SL-CBM은 보다 효과적인 디버깅과 개입을 가능하게 합니다.
+
+- **Performance Highlights**: 다양한 이미지 데이터셋을 통한 실험에서 SL-CBM은 지역적 신뢰성, 설명 품질, 개입 효율성을 크게 개선하며 경쟁력 있는 분류 정확도를 유지하고 있음을 보여주었습니다. 아블레이션 연구를 통해 정확성, 희소성(sparsity) 및 신뢰성의 균형을 맞추는 데 있어 대조적 및 엔트로피 기반 정규화의 중요성을 강조합니다. SL-CBM은 개념 기반 추론과 공간적 설명 가능성 사이의 간극을 메워 해석 가능하고 신뢰할 수 있는 개념 기반 모델을 위한 새로운 기준을 제시합니다.
+
+
+
+### VIRO: Robust and Efficient Neuro-Symbolic Reasoning with Verification for Referring Expression Comprehension (https://arxiv.org/abs/2601.12781)
+- **What's New**: 본 논문에서는 Verification-Integrated Reasoning Operators (VIRO)라는 새로운 신경-상징 프레임워크를 소개합니다. 이 프레임워크는 중간 추론 단계에서 검증을 통합하여 이미지 쿼리와 자연어 간의 연관성을 이해하는 Referring Expression Comprehension (REC) 문제의 한계를 극복합니다. VIRO는 경량급 검증 모듈을 포함하여 오류 연쇄를 방지하고, 검증 없이는 작동하지 않도록 합니다.
+
+- **Technical Details**: VIRO는 LLM(대규모 언어 모델)을 사용하여 자연어 설명을 실행 가능한 연산자의 순서로 변환한 후 순차적으로 처리하는 두 단계의 신경-상징 파이프라인을 구현합니다. 각 연산자는 결과를 검증하여 불확실성을 확인하고, 객체의 존재 여부나 공간적 관계를 검증합니다. 이러한 구조는 특히 없거나 유효한 타겟이 없을 경우 조기 종료를 가능하게 하여 명확한 '없음' 탐지를 제공합니다.
+
+- **Performance Highlights**: VIRO는 단계에서 61.1%의 균형 정확도를 달성하였으며, 이는 타겟이 있는 경우와 없는 경우에서 모두 적용됩니다. 또한 VIRO는 실세계 에고 중심 데이터에 대한 일반화가 가능하고, 11쿼리 최인접 이웃(NN) 이미지를 설정에서 스케일링이 용이합니다. 프로그램 실패율은 0.3% 미만과 같은 높은 신뢰성을 보여줍니다.
+
+
+
+### Vision Language Models for Optimization-Driven Intent Processing in Autonomous Networks (https://arxiv.org/abs/2601.12744)
+Comments:
+          Accepted for presentation at The IEEE International Conference on Communications (ICC) 2026
+
+- **What's New**: 본 논문에서는 Intent-Based Networking (IBN)을 위한 새로운 벤치마크인 IntentOpt를 소개합니다. 이 벤치마크는 17개 카테고리에서 85개의 최적화 문제를 포함하며, 비전-언어 모델(Visual-Language Models, VLMs)의 성능을 평가합니다. 연구는 사용자들이 자연어 intent를 시각적 네트워크 다이어그램과 결합해 표현할 수 있는 가능성을 탐구하고, 최적화 코드를 생성하는 VLM의 능력을 측정합니다.
+
+- **Technical Details**: IntentOpt 벤치마크는 라벨된 네트워크 다이어그램, 자연어 intent, 그리고 검증된 Gurobi 코드를 포함하는 여러 인스턴스로 구성됩니다. 문제 카테고리는 기하학적 및 조합적, 흐름 보존, 할당 및 운송, 제한된 흐름을 포함하며, 각 카테고리에 대해 다양한 복잡성을 가진 5개의 인스턴스를 생성합니다. 연구는 모델이 시각적 라벨에서 값을 추출할 수 있는지를 평가하기 위해 시각적 추출과 텍스트만 사용하는 두 가지 입력 변형을 제공합니다.
+
+- **Performance Highlights**: 최적화 코드를 생성하기 위한 VLM 평가 결과, 시각적 매개변수 추출이 실행 성공률을 12-21 포인트 낮추는 것으로 나타났습니다. 특히 GPT-5-Mini는 93%에서 72%로 감소했습니다. 이 연구는 현재의 VLM이 IBN 시스템 내에서 최적화 코드 생성을 위한 능력과 한계를 정립하며, 향후 멀티모달 의도 이해 연구를 위한 재현 가능한 평가 프레임워크를 제공합니다.
+
+
+
+### Teaching Large Reasoning Models Effective Reflection (https://arxiv.org/abs/2601.12720)
+Comments:
+          14 pages (including appendix), 5 figures
+
+- **What's New**: 최근 대규모 추론 모델(Large Reasoning Models, LRM)은 자기 비판적 행동을 포함해 복잡한 추론 작업에서 인상적인 성능을 보여주고 있습니다. 하지만 모든 반성이 유익하지는 않고, 종종 표면적이며 원래의 답변에 큰 개선을 제공하지 않습니다. 본 논문에서는 LRM 내에서 표면적 반성을 식별하고 이를 해결하기 위한 Self-Critique Fine-Tuning(SCFT)과 Reinforcement Learning with Effective Reflection Rewards(RLERR)를 제안합니다.
+
+- **Technical Details**: SCFT는 자기 생성된 비판을 사용하여 모델의 반사적 추론 능력을 향상시키는 훈련 프레임워크입니다. SCFT는 모델이 스스로 출력물을 비판하도록 유도하고, 거부 샘플링을 통해 고품질 비판을 필터링하여 비판 기반 목표로 모델을 미세 조정합니다. RLERR는 SCFT로 초기화된 고품질 반성을 활용하여 보상 신호를 구성하여 모델이 자기 수정 과정을 내부화하도록 안내합니다.
+
+- **Performance Highlights**: SCFT와 RLERR는 AIME2024와 AIME2025 두 가지 도전적인 벤치마크에서 추론 정확도와 반성 품질을 크게 향상시킵니다. SCFT는 DeepSeek-R1-Distill-Qwen-7B와 비교하여 AIME2024에서 4.8%, AIME2025에서 6.0%의 정확도를 개선했으며, RLERR는 44.2%의 Pass@1과 0.48의 높은 Effective Reflection Ratio(ERR)를 달성했습니다. 이 연구는 기존의 자기 비판 훈련법과 비교하여 더 나은 성능을 보여줍니다.
+
+
+
+### Neurosymbolic LoRA: Why and When to Tune Weights vs. Rewrite Prompts (https://arxiv.org/abs/2601.12711)
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLM)의 효율적인 있는 전략들을 통합하는 신경상징적 LoRA 프레임워크를 소개합니다. 이 프레임워크는 모델 파라미터를 변경하는 수치적 업데이트와 디스crete 프롬프트 또는 논리적 제약을 활용하는 상징적 업데이트를 결합하여 새로운 수준의 적응성과 성능을 제공합니다. 우리의 접근 방식은 메모리 효율성을 유지하며 기호 편집의 결과로 생성된 정제된 프롬프트는 데이터가 부족한 도메인에서 고품질 훈련 데이터로 사용될 수 있습니다.
+
+- **Technical Details**: 이 논문은 LoRA(저차원 적응)와 TextGrad(토큰 수준의 프롬프트 편집)를 사용하는 상징적 업데이트를 결합하여 보다 강력한 시스템을 구축하는 방식을 제안합니다. 연구진은 각 접근 방식을 발휘할 수 있도록 구체적 조건에 따라 이러한 업데이트를 적용하였습니다. 수치적 업데이트는 사실적 재구성이 필요할 때, 상징적 편집은 스타일적 수정이 필요할 때 사용됩니다.
+
+- **Performance Highlights**: 광범위한 실험을 통해 신경상징적 LoRA 접근 방식이 순수 수치적 또는 순수 상징적 기준선보다 일관되게 우수한 성능을 나타냄을 보여주었습니다. 이 접근 방식은 사실적 충실도와 스타일의 유연성을 향상시키는 동시에 메모리, 지연 시간 및 데이터 주석 비용과 같은 실제 제약 사항을 고려합니다. 데이터가 부족한 도메인에서의 효율적인 성능 향상에 긍정적인 영향을 미침을 입증했습니다.
+
+
+
+### Logic-Guided Multistage Inference for Explainable Multidefendant Judgment Prediction (https://arxiv.org/abs/2601.12688)
+- **What's New**: 본 연구는 다수 피고인(multidefendant) 사건에서의 역할 식별을 위한 새로운 접근 방식을 제안합니다. 기존의 법적 문서 분석에서 피고인의 역할이 모호하게 나타나는 문제를 해결하기 위해 전이 학습된 Transformer encoder 프레임워크에 형량(sentencing) 논리를 통합하여 법적 해석 가능성을 보장합니다. 제안된 마스크된 다단계 추론(masked multistage inference, MMSI) 프레임워크는 법률 시스템의 지능적 지원을 강화합니다.
+
+- **Technical Details**: MMSI 프레임워크 내에서는 피고인 지향적 마스킹(mechanism)을 통해 각 피고인의 역할을 명확히 하고, 비교적 데이터 구축(comparative data construction) 전략을 통해 원칙(principals)과 공범(accomplices) 간의 구속 차별(sensitivity)을 향상시킵니다. 이로써 법원에서의 관점을 통합한 범죄 설명에 대한 예측된 유죄 판별(guilt labels)을 회귀 모델(regression model)에 내장합니다. 이러한 구조로 인해 입력 길이에 제한이 있는 기존 모델과의 호환성이 보장됩니다.
+
+- **Performance Highlights**: IMLJP 데이터셋을 기반으로 한 실험 결과, 제안된 방법이 역할 기반 유죄 판별에서 SOTA(State-Of-The-Art) 대형 언어모델을 초월하는 성능을 보여주었습니다. 이는 다수 피고인 사건에서의 형량 예측 정확성을 높이고, 피고인의 법적 역할이 형량 결정에 미치는 영향을 효과적으로 모델링하는 해결책을 제공합니다. 공개된 코드로 진입장벽을 낮춰, 연구자 및 실무자들이 법률 시스템 개선에 기여할 수 있는 기반을 제공합니다.
+
+
+
+### Empowering All-in-Loop Health Management of Spacecraft Power System in the Mega-Constellation Era via Human-AI Collaboration (https://arxiv.org/abs/2601.12667)
+- **What's New**: 해당 연구는 우주 선박의 급속한 증가로 인해 발생하는 SPS(우주선 전력 시스템)의 건강 관리 방식을 혁신적으로 개선할 기초 원칙인 AUC(AUC principle)를 제안하고, 이를 바탕으로 SpaceHMchat이라는 오픈 소스 인공지능 협업 프레임워크를 개발했습니다. 이를 통해 건강 관리 과정에서의 작업 조건 인식, 이상 탐지, 결함 위치 추적 및 유지보수 의사결정을 통합하는 'All-in-loop health management (AIL HM)'을 실현하고 있습니다.
+
+- **Technical Details**: SpaceHMchat는 기본적으로 LLM(대형 언어 모델) 기술에 기반하여, 이상 탐지 알고리즘과의 통합, 논리적인 사고 및 추론 능력을 활용해 작업 조건을 인식하고, 결함을 추적하며, 유지보수 결정을 지원합니다. 이를 통해 데이터를 학습하고 패턴을 인식하는 능력으로 전문가의 경험을 대체할 수 있는 잠재력을 지니게 됩니다. 연구에서는 SpaceHMchat의 성능 검증을 위해 실험 플랫폼을 구축하고, 이를 통해 SPS의 전반적인 동작을 재현하는 시뮬레이션 모델을 개방했습니다.
+
+- **Performance Highlights**: SpaceHMchat는 23개의 정량적 지표에서 뛰어난 성취를 보이며, 작업 조건 인식의 논리적 추론에서 100%의 결론 정확도를 기록하고, 이상 탐지 도구 호출에서는 99% 이상의 성공률을 달성했습니다. 또한 결함 위치 추적에서 90% 이상의 정확성을 달성하고, 유지보수 의사결정에서 지식 기반 검색 시간이 3분 이내로 단축되었습니다. 이 연구의 또 다른 기여는 SPS의 AIL HM 데이터 세트를 최초로 발표한 것이며, 70만 개 이상의 타임스탬프 포함하여 4가지 하위 작업과 17종의 결함을 포함합니다.
+
+
+
+### MedConsultBench: A Full-Cycle, Fine-Grained, Process-Aware Benchmark for Medical Consultation Agents (https://arxiv.org/abs/2601.12661)
+- **What's New**: 이 논문에서는 MedConsultBench라는 포괄적인 프레임워크를 제안하여 의학 상담 에이전트의 온라인 상담 전 과정을 평가할 수 있도록 합니다. 기존의 의료 Q&A의 평가 방식이 치료 계획과 후속 질문 등의 핵심 과정을 간과하고 있음을 지적하며, 이 프레임워크는 모든 임상 워크플로우를 포함하여 종합적으로 평가하기 위해 구성되었습니다. 또한, 중요한 사실을 세심하게 추적할 수 있도록 Atomic Information Units (AIUs)라는 개념을 도입하고, 22가지 정밀 지표를 통해 진행 상황을 측정할 수 있습니다.
+
+- **Technical Details**: Medical consultation의 평가 기준을 바탕으로, 본 연구는 AIUs, Minimum Necessary Information (MNI) 세트 및 질의 로직 템플릿을 포함하는 체계적인 구성 요소로 임상 사례를 나누어 보다 정량적으로 평가할 수 있도록 합니다. MedConsultBench는 전체 의료 상담 사이클을 커버하며, 임상 과정과 주요 결과의 완전성을 평가하는 것을 목표로 합니다. 연구자들은 데이터 기반 질의 로직 리소스를 활용하여 실제 의사-환자 대화 내용을 기반으로 효율적인 정보를 수집할 수 있는 도구를 개발하였습니다.
+
+- **Performance Highlights**: 19개의 대형 언어 모델에 대한 체계적인 평가 결과, 높은 진단 정확도가 정보 수집의 비효율성과 약물 안전성의 결함을 감추고 있다는 중요한 발견이 있었습니다. 특히, 후속 Q&A가 모든 모델에서 가장 약한 링크로 나타났으며, 이는 의료 LLM의 주요 단점이 단순히 질문에 대한 결론 제공이 아님을 시사합니다. MedConsultBench는 임상적 과정의 완전성과 동적 의사 결정 능력을 평가하는 데 필수적인 틀로 자리잡아 의료 상담 에이전트의 문제를 식별하고 개선하는 데 기여할 것입니다.
+
+
+
+### STEP-LLM: Generating CAD STEP Models from Natural Language with Large Language Models (https://arxiv.org/abs/2601.12641)
+Comments:
+          Accepted to the Design, Automation & Test in Europe Conference (DATE) 2026
+
+- **What's New**: 최근 연구는 비전문가들이 CAD 모델을 보다 쉽게 생성할 수 있도록 자연어로 단계적으로 표기된 STEP 파일 생성 방법을 탐구하고 있다. 기존의 command sequence나 script 기반 접근법에 비해, STEP 파일 형식은 제조에 있어 보편적이며 공업 프로세스에 직접적으로 연결될 수 있는 장점을 지닌다. 이 연구는 LLM(대형 언어 모델)의 생성력을 활용하여 STEP 모델을 자연어로 생성할 수 있는 가능성을 보여주고 있으며, 제조를 위한 CAD 디자인에서의 접근 장벽을 낮추는 것을 목표로 한다.
+
+- **Technical Details**: STEP-LLM은 자연어에서 STEP 파일로 직접 생성하는 통합 프레임워크로, 약 40K caption-STEP 쌍으로 구성된 데이터셋을 이용하여 딥러닝 모델을 미세 조정한다. 이 모델은 DFS(Depth-First Search) 기반의 재직렬화 전략을 통해 STEP의 그래프 구조를 선형화하고, CoT(Chain-of-Thought) 스타일의 주석을 통해 전반적인 일관성을 안내한다. 또한, RAG(Retrieval-Augmented Generation) 기법을 통합하여 적절한 예시를 바탕으로 예측 신뢰도를 높이고, RL(Reinforcement Learning)을 통해 형태 충실도를 최적화하는 보상을 제공한다.
+
+- **Performance Highlights**: 실험 결과는 STEP-LLM이 Text2CAD 대비 기하학적 충실도가 증가했음을 보여준다. RAG 모듈이 전체 완결성과 렌더링 가능성을 크게 향상시켰고, DFS 기반 재직렬화가 전반적인 정확성을 강화하였으며, RL은 기하학적 불일치를 최소화하는 데 기여하였다. 여러 지표와 비주얼 비교를 통해 STEP-LLM이 Text2CAD보다 더 높은 충실도로 형상을 생성함을 입증하며, 이는 LLM이 자연어로부터 STEP 모델 생성을 가능하게 하는 유망성을 확인시킨다.
+
+
+
+### Agentic Artificial Intelligence (AI): Architectures, Taxonomies, and Evaluation of Large Language Model Agents (https://arxiv.org/abs/2601.12560)
+Comments:
+          28 pages, 4 figures, 5 tables
+
+- **What's New**: 이 논문에서는 Agentic AI의 발전을 다루며, 인공지능 시스템이 대화 파트너에서 활동적인 협력자로 변화하는 방식을 탐구합니다. 대형 언어 모델(Large Language Models, LLMs)이 복잡한 작업 흐름을 수행하도록 돕는 다양한 아키텍처와 조직화를 제안합니다. 특히 단일 에이전트 루프에서 다중 에이전트 시스템으로의 이동을 설명하고, 이를 통해 새로운 위험인 척추 주입(prompt injection)과 행동에서의 환각(hallucination) 등을 강조합니다.
+
+- **Technical Details**: 이 섹션에서는 의사 결정을 위한 수학적 프레임워크를 사용하여 '에이전트'의 정의를 형식화하고, 현대 에이전트 시스템을 구성하는 포괄적인 분류 체계(taxonomy)를 제시합니다. 초기 에이전트는 기호(symbolic) 기반으로 고정된 규칙과 형식 논리에 의존했으나, 현대 LLM 기반 에이전트는 대규모 언어 모델을 활용하여 전반적인 인지 제어(cognitive control)를 제공합니다. 다재다능한 인지 구조를 갖춘 이들 에이전트는 좀 더 유연한 언어 상호작용을 가능하게 하며, 주어진 작업에 대한 일반화 능력은 더욱 강화되었습니다.
+
+- **Performance Highlights**: 이 논문은 기본적인 실험 검토를 통해 현재의 Agentic AI 생태계 내 강력한 아키텍처와 설계 선택들이 어떻게 지속 가능하고 신뢰할 수 있는 시스템을 구축하는지를 강조합니다. 구체적으로, 에이전트가 운영되는 환경, 평가 기준 및 안전성을 연결하여 Hallucination, Infinite loops, Prompt injection과 같은 실패 모드를 피하는 방법을 제시합니다. 연구 결과는 로봇공학 및 소프트웨어 엔지니어링 분야에서의 발전을 지원하며, 이는 복잡한 작업 흐름을 동적으로 처리할 수 있는 새로운 기회를 열어줄 것입니다.
+
+
+
+### How Clinicians Think and What AI Can Learn From I (https://arxiv.org/abs/2601.12547)
+Comments:
+          34 pages
+
+- **What's New**: 이 논문은 임상 AI 시스템이 예측 엔진으로서 작동하는 것에 대한 비판을 제기하며, 실제 임상 추론은 불확실성 하에서의 시간 제약을 받는 연속적인 통제 문제임을 강조합니다. 저자는 임상 의사결정의 주된 계산적 기반이 카디널 최적화가 아닌 서열적 비보상 결정 방식(ordinal, non-compensatory decision-making)이라고 주장합니다. 특히, 신속하고 절약적인 레키코그래픽 휴리스틱(fast-and-frugal, lexicographic heuristics)을 활용하여 신속하게 결정을 내리는 방식이 의료 분야에서 더욱 바람직하다고 제안합니다.
+
+- **Technical Details**: 의사들은 검사, 치료, 입원 등의 중요한 결정을 내릴 때 절대적인 확률 대신 상대적인 하암과 이득을 기반으로 결정을 내립니다. 이를 통해 논의된 개념인 'threshold approach'는 결정이 하암과 이득이 달라지는 확률의 구간에 의존하는 점을 강조합니다. 또한, 정보의 결합이 불확실성을 초래하므로, 결정 마진이 작아질 때 카디널 최적화 방식보다 서열적 비보상 규칙이 더 안정적이라고 설명합니다.
+
+- **Performance Highlights**: 이 논문에서는 모형의 성능을 평가할 때 임상적 유용성과 결과를 강조하는 한편, 그 모형이 어떻게 행위의 결정에 기여하는지를 고려해야 함을 강조합니다. 특히 임상적 상황에서 예측의 목적이 행동으로 귀결되도록 행동 선택 알고리즘을 적용하는 것이 필수적이라고 주장합니다. 이는 환자와의 공유된 결정(process of shared decision-making) 및 정보의 불확실성을 감안할 때 더욱 중요합니다.
+
+
+
+### Rethinking the AI Scientist: Interactive Multi-Agent Workflows for Scientific Discovery (https://arxiv.org/abs/2601.12542)
+- **What's New**: 이번 논문은 기존의 배치 처리 방식의 한계를 극복하고, 연구자가 실시간으로 AI(Artificial Intelligence) 시스템과 상호작용하며 과학적 조사를 수행할 수 있는 Multi-Agent 시스템인 Deep Research를 소개합니다. 이 시스템은 여러 개의 특수화된 에이전트를 통해 조사 계획, 데이터 분석, 문헌 검색, 혁신 탐지를 수행하며, 반복적인 연구 주기 동안의 맥락을 유지하는 지속적인 세계 상태를 기반으로 합니다.
+
+- **Technical Details**: Deep Research의 아키텍처는 두 가지 운영 모드를 가지고 있습니다: 반자동 모드( Semi-Autonomous Mode)와 완전 자동 모드(Fully Autonomous Mode). 반자동 모드는 선택적인 인간 체크포인트를 포함하여, 연구자가 시스템과 상호작용할 수 있도록 하고, 완전 자동 모드는 보다 장기적인 조사를 지원합니다. 각 에이전트는 구체적인 기능을 수행하고 있으며, 이들은 함께 협력하여 전체 연구 과정을 효율적으로 진행합니다.
+
+- **Performance Highlights**: BixBench의 생물정보학(Bioinformatics) 벤치마크에서 Deep Research는 48.8%의 개방형 응답 정확도와 64.5%의 객관식 평가 정확도를 달성하며 기존 성능 기준을 14~26% 포인트 초과했습니다. 이러한 결과는 AI가 지원하는 과학적 업무흐름에서의 실제 배치를 위한 고려 사항을 제시하고, 자동화된 혁신 평가의 도전 과제를 논의합니다.
+
+
+
+### MemeLens: Multilingual Multitask VLMs for Memes (https://arxiv.org/abs/2601.12539)
+Comments:
+          disinformation, misinformation, factuality, harmfulness, fake news, propaganda, hateful meme, multimodality, text, images
+
+- **What's New**: 이 논문에서는 MemeLens라는 새로운 다국어 및 다태스크 설명 확장형 비전 언어 모델(Vision Language Model)을 제안합니다. 기존의 미미(meme) 연구들은 서로 다른 작업과 언어로 분포되어 있어, 교차 도메인 일반화(cross-domain generalization)에 제한이 있었습니다. MemeLens는 38개의 공개 미미 데이터셋을 통합하고, 데이터셋 특유의 라벨을 20개의 공통 태스크로 필터링하여 매핑합니다.
+
+- **Technical Details**: MemeLens는 해악(harm), 타깃(targets), 비유적(pragmatic) 의도, 감정(affect) 등의 20 가지 태스크를 다룹니다. 모델링 패러다임, 태스크 카테고리 및 데이터셋 전반에서 포괄적인 실증 분석을 수행하였으며, 다중 모달(multimodal) 훈련이 강력한 미미 이해를 위해 필요하다는 것을 발견했습니다. 또한 모델이 개별 데이터셋에서 파인튜닝(fine-tuning)될 때 과도한 전문화(over-specialization)에 민감하다는 결과를 보였습니다.
+
+- **Performance Highlights**: MemeLens는 여러 태스크와 카테고리에서 실험적으로 강건한 성능을 입증했습니다. 저자들은 모델이 다양한 의미론적(semantic) 카테고리에 따라 상당한 변동성을 보인다고 강조합니다. 마지막으로, 논문에서는 커뮤니티를 위해 실험 리소스와 데이터셋을 공개할 예정이라고 발표했습니다.
+
+
+
+### Agentic Reasoning for Large Language Models (https://arxiv.org/abs/2601.12538)
+Comments:
+          Project: this https URL
+
+- **What's New**: 이 논문에서는 Reasoning(추론)이 인지 과정에서 얼마나 중요한지를 설명하고, 대형 언어 모델(LLMs)이 동적 환경에서 어떻게 한계를 보이는지를 다룹니다. 저자들은 Agentic reasoning(대행 추론)을 통해 LLM을 자율적으로 작동하는 에이전트로 재구성하는 새로운 패러다임을 제시합니다. 이Survey(조사)는 대행 추론을 세 가지 보완적인 차원으로 조직하여 자율적 사고의 중요성을 강조합니다.
+
+- **Technical Details**: 연구에서는 환경의 동적 특성을 세 가지 층으로 나누어 설명합니다: 1) Foundational agentic reasoning(기초 대행 추론) - 안정된 환경에서 계획, 도구 사용, 탐색과 같은 단일 에이전트의 기본 능력, 2) Self-evolving agentic reasoning(자기 발전 대행 추론) - 피드백, 기억, 적응을 통해 이 능력을 향상시키는 과정, 3) Collective multi-agent reasoning(집합적 다수 에이전트 추론) - 협력적 상황에서의 조정, 지식 공유 및 공동 목표의 지능 확장. 향상된 In-context reasoning(맥락 내 추론)와 Post-training reasoning(훈련 후 추론)의 차별화도 이루어집니다.
+
+- **Performance Highlights**: 이 논문은 과학, 로봇 공학, 헬스케어, 자율 연구, 수학을 포함한 실제 응용 프로그램과 벤치마크에서 대행 추론 프레임워크의 사례를 검토합니다. 저자들은 사고(Thinking)와 행동(Action)을 잇는 통합된 로드맵을 제시하며, 개인화, 장기적 상호작용, 세계 모델링, 확장 가능한 다수 에이전트 훈련 및 실제 배포를 위한 거버넌스와 같은 개방된 도전과제를 설명합니다.
+
+
+
+### Failure Modes in Multi-Hop QA: The Weakest Link Law and the Recognition Bottleneck (https://arxiv.org/abs/2601.12499)
+Comments:
+          preprint
+
+- **What's New**: 이 논문에서는 Multi-Focus Attention Instruction (MFAI)을 도입하여 대형 언어 모델(LLMs)의 다단계 추론 능력이 정보 위치 편향(position bias)으로 인해 손상되는 문제를 해결합니다. MFAI는 선택된 위치로 주의를 조정하여 증거 인식 실패(recognition failure)와 통합 실패(synthesis failure)를 분리하도록 설계되었습니다. 연구 결과, 명확한 증거 위치를 통해 모델 성능이 향상되며, 실제 문제에서 발생하는 다양한 장애물을 극복할 수 있음을 보여줍니다.
+
+- **Technical Details**: 연구는 두 개의 다단계 질문 응답(Multi-Hop Question Answering, MHQA) 데이터셋인 MuSiQue와 NeoQA를 사용하여 진행되었습니다. 'Weakest Link Law'라는 새로운 개념을 제시하며, 다단계 추론 성능은 가장 불리한 증거가 위치한 절대 위치에 의해 지배된다는 것을 발견했습니다. 또한, 주의 조작(steering)의 이중성을 밝혀내어, 인식 문제를 해결할 수 있는 MFAI의 잠재력을 강조했습니다.
+
+- **Performance Highlights**: 실험 결과, MFAI를 적용한 모델은 낮은 가시성에서 성능을 11.5%까지 향상시킬 수 있었고, 이는 인식 병목을 효과적으로 해결했음을 나타냅니다. 그러나 잘못된 MFAI는 실제 작업에서는 혼란을 일으키는 반면, 합성 작업에서는 효과적인 추론을 유도하는 것을 확인했습니다. 마지막으로, 시스템-2(Sytem-2) 추론을 활용한 모델은 잡음이 많은 긴 컨텍스트 환경에서도 필요한 정보를 효과적으로 찾아내어 우수한 성능을 보였습니다.
+
+
+
+### Large Language Model for OWL Proofs (https://arxiv.org/abs/2601.12444)
+- **What's New**: 이 연구는 대형 언어 모델(LLMs)의 추론 능력 중에서도 증명 생성(proof generation)와 같은 인간이 이해할 수 있는 설명 능력을 탐구합니다. 연구진은 OWL 온톨로지(ontologies)라는 복잡한 지식을 표현하고 추론하는 데 사용되는 형식을 중심으로 자동화된 데이터셋 구축 및 평가 프레임워크를 개발했습니다. 이 연구는 이러한 LLM의 성능을 보다 현실적인 조건에서 평가함으로써, 모델의 강점을 강조하고 있습니다.
+
+- **Technical Details**: 연구는 세 가지 단계적 작업인 추출(Extraction), 단순화(Simplification), 설명(Explanation)을 통해 LLM의 증명 능력을 평가합니다. OWL 온톨로지는 지식 표현을 위한 형식적이며 특정한 기계가 읽을 수 있는 표현을 제공하며, 기존의 공리들 위에서 새로운 지식을 유도하는 자동 추론을 가능하게 합니다. 이 연구는 기존의 벤치마크와는 달리, LLM의 증명 능력에 중점을 두어 더 복잡한 증명과 표현 작업을 평가합니다.
+
+- **Performance Highlights**: 연구 결과, 일부 모델은 강력한 성과를 보였으나 복잡한 사례에서는 한계를 보였습니다. 성능의 주요 결정 요인은 표현 형식이 아닌 논리적 복잡성(logical complexity)임을 밝혔습니다. 또한 입력 데이터의 노이즈와 불완전성이 LLM의 성능에 부정적인 영향을 미치며, 최대 47%까지 성능이 저하될 수 있음을 발견했습니다.
+
+
+
+### Are LLMs Smarter Than Chimpanzees? An Evaluation on Perspective Taking and Knowledge State Estimation (https://arxiv.org/abs/2601.12410)
+Comments:
+          23 pages, 11 figures
+
+- **What's New**: 이 논문은 인간의 지능이 다른 개인의 지식 상태를 추론하고 그들의 의도를 이해하는 능력에 있다는 인지 인류학의 관점을 활용하여, LLM의 지식 상태 추적 능력을 평가하고자 합니다. 저자들은 두 가지 작업을 제안하여 LLM이 스토리 캐릭터가 가질 수 없는 지식을 드러내는 행동을 감지할 수 있는지 및 스토리 캐릭터의 다음 행동을 예측할 수 있는지를 검증합니다. 놀라운 결과는 현재의 최첨단 LLM들이 이 두 가지 작업에서 거의 무작위에 가까운 성능을 보여주며, 인간에 비해 상당히 열등하다는 것입니다.
+
+- **Technical Details**: 제안된 두 가지 작업은 (1) Implausible Knowledge Detection (IKD)와 (2) Knowledge-sensitive Next-action Prediction (KNP)입니다. IKD는 캐릭터가 가질 수 없는 지식을 추론해야하며, KNP는 캐릭터의 지식에 따라 다음 행동을 예측해야 합니다. 각 작업은 스토리를 활용한 데이터셋을 구축하여 LLM이 서로 다른 지식 상태를 추적하는 능력을 평가하는 데 중점을 두고 있습니다.
+
+- **Performance Highlights**: KNP 작업에서 인간의 0 훈련 기본 성능은 92%로, 최상의 LLM인 Claude-4.5-Opus보다 21% 포인트 높았습니다. GPT-5 모델은 63%의 성능을 발휘했으며, GPT-4o는 무작위 성과를 기록했습니다. IKD 작업에서는 최상위 모델이 66%에 불과하며, LLM들은 대체로 60% 이하의 성능을 보였습니다.
+
+
+
+### PsychēChat: An Empathic Framework Focused on Emotion Shift Tracking and Safety Risk Analysis in Psychological Counseling (https://arxiv.org/abs/2601.12392)
+- **What's New**: 이번 논문에서는 PsychēChat이라는 모델을 제안합니다. 이 모델은 심리 상담에서의 감정 변화 추적과 안전 위험 분석을 통합하여, 상담자와 요청자 간의 대화를 상호작용적 역할극을 통해 생성합니다. 기존 모델들은 요청자의 감정 변화를 명시적으로 모델링하지 못했으나, PsychēChat은 이를 해결하여 심리 상담의 품질을 향상시키고자 합니다.
+
+- **Technical Details**: PsychēChat은 Emotion Management Module과 Risk Control Module의 두 가지 모듈로 구성되어 있습니다. 감정 관리 모듈은 요청자의 현재 감정 및 감정 변화를 포착하고, 감정 변화의 잠재적 원인을 분석합니다. 위험 관리 모듈은 요청자의 다음 반응을 예측하고 잠재적 위험을 식별하여 안전성을 보장하는 방안을 제시합니다.
+
+- **Performance Highlights**: 실험 결과, PsychēChat은 기존의 방법들보다 감정 이해와 안전 관리에서 더 나은 성과를 보였습니다. 사용자와의 인터랙티브한 평가 및 대화 수준 평가를 통해 이 모델의 성능이 유의미하게 향상되었음을 보여주고 있습니다. 이를 통해 PsychēChat은 심리 상담 분야의 혁신적인 접근 방식을 제공하고 있습니다.
+
+
+
+### Actionable Advice from Reviews via Mixture of LoRA Experts: A Two-LLM Pipeline for Issue Extraction and Business Recommendations (https://arxiv.org/abs/2601.12338)
+- **What's New**: 본 논문은 고객 리뷰로부터 구체적이고 실행 가능한 비즈니스 권장 사항을 생성하는 과정인 review-to-action generation을 다룹니다. 제안된 방법론은 두 개의 LLM(대형 언어 모델)으로 이루어진 모듈형 프레임워크를 활용하여, 문제적 요소와 조언을 각각 효과적으로 추출하고 생성합니다. 특히, LoRA(저순위 어댑터) 전문가 혼합 기법을 사용하여 전문성을 최적화하고, 결과의 효율성과 품질을 유지하면서도 다양한 산업의 문제에 적합한 해결책을 제공합니다.
+
+- **Technical Details**: 제안된 방법론은 고객 리뷰를 처리하기 위해 두 개의 LLM 기관 프레임워크를 사용합니다. Issue-LLM은 리뷰에서 중요 정보를 식별하고 추출하며, Advice-LLM은 추출된 정보를 바탕으로 실행 가능한 해결책을 제안합니다. LoRA 어댑터를 사용한 Mixture of LoRA Experts 기법을 통해 온전한 모델의 파라미터를 fine-tuning 하지 않고도 전문가의 출력을 혼합할 수 있어, 다양한 문제 유형에 적응할 수 있는 강점을 가집니다.
+
+- **Performance Highlights**: 이 논문에서 제안된 접근법은 actionability와 specificity 측면에서 우수한 성과를 보여주었으며, prompting-only 및 single-adapter 모델에 비해 일관되게 높은 결과를 제공합니다. 다차원 운영 기준을 통해 추천의 품질을 평가하며, 이는 실행에 있어 중요한 요소들을 포함합니다. 결과적으로, 이 연구는 고객 리뷰의 분석과 이를 통한 비즈니스 의사결정의 개선에 크게 기여할 것으로 기대됩니다.
+
+
+
+### MARO: Learning Stronger Reasoning from Social Interaction (https://arxiv.org/abs/2601.12323)
+- **What's New**: 본 논문에서는 멀티 에이전트 보상 최적화(MARO)라는 새로운 방법을 제안하여 대형 언어 모델(LLMs)이 다중 에이전트 사회 환경에서 학습하고 훈련함으로써 더 강력한 추론 능력을 갖추게 합니다. 기존의 대형 언어 모델 훈련 접근 방식이 상호 작용이나 경쟁을 포함한 실제 시나리오에서의 경험이 부족한 반면, MARO는 이러한 점들을 극복하여 LLMS의 사회적 추론 능력을 크게 향상시킵니다. 실험 결과, MARO는 사회적 추론, 수학적 추론 및 지시 따르기와 같은 다양한 작업에서 이전보다 효과적으로 전이되었음을 보여주었습니다.
+
+- **Technical Details**: MARO는 주어진 행동의 성공 또는 실패 결과를 구체적인 상호작용 과정 중의 각 행동으로 분해하여 희소 학습 신호 문제를 해결합니다. 또한, 각 역할의 훈련 샘플 가중치를 조정하여 고르지 않은 역할 분포 문제를 해결하고, 각 행동의 유용성을 직접 평가하여 환경 불안정성 문제를 처리합니다. 이 방법은 훈련 일관성을 높이고 학습 과정에서 발생할 수 있는 방해 요소들의 영향을 최소화하는 데 중점을 두었습니다.
+
+- **Performance Highlights**: MARO는 대형 언어 모델들이 여러 차원에서 추론 능력을 크게 향상시키는 것을 보여주었습니다. 특히, 복잡한 사회 환경에서의 학습은 단순한 것보다 더 좋은 결과를 가져오는 것으로 나타났으며, 이는 MLMS의 일반 추론 능력 향상에 크게 기여합니다. 실험 결과, MARO가 전통적인 감독 하의 미세 조정 방법보다 우수한 성능을 보였다는 점이 주목할 만합니다.
+
+
+
+### Beyond Human Annotation: Recent Advances in Data Generation Methods for Document Intelligenc (https://arxiv.org/abs/2601.12318)
+- **What's New**: 이번 논문은 Document Intelligence(DI)를 위한 데이터 생성의 새로운 포괄적 기술 지도를 제시합니다. 기존 데이터 생성 방법에 대한 조사들이 단일 모달리티 또는 특정 작업에 집중하여 통합된 관점을 결여한 반면, 이 논문은 데이터와 라벨의 '가용성'에 기반한 새로운 분류 체계를 도입합니다. 이를 통해 데이터 증강, 스크래치에서의 데이터 생성, 자동 데이터 주석 및 자기 지도 신호 생성의 네 가지 자원 중심 패러다임으로 방법론을 구성합니다.
+
+- **Technical Details**: 이 논문의 데이터 생성 개념은 감독 신호의 생산으로 재정의되며, 방법론은 데이터와 라벨의 가용성에 따라 네 가지 패러다임으로 분류됩니다. 이 구조는 연구자들이 자원 제한에 따라 기술적 전이를 촉진하고, 다양한 데이터 리소스 상황에 대한 결정맵을 제공합니다. 세 가지 주요 논리적 차원—데이터 가용성, 라벨 가용성 및 목표 학습 패러다임—을 통해 방법론을 조직하여 정보 격차를 해소합니다.
+
+- **Performance Highlights**: 또한, 이 논문은 내재적 품질과 외재적 유용성을 통합하는 다단계 평가 프레임워크를 수립하여 광범위한 DI 벤치마크에서 성능 향상을 종합합니다. 기존 조사들은 고유한 데이터 품질 평가 없이 다운스트림 작업 성능만을 동등하게 수치화하는 경향이 있었으나, 이번 프레임워크는 신뢰할 수 있는 평가 도구를 제공하여 연구자들이 각기 다른 자원 설정에서 생성 메커니즘을 이해하도록 돕습니다.
+
+
+
+### Survival is the Only Reward: Sustainable Self-Training Through Environment-Mediated Selection (https://arxiv.org/abs/2601.12310)
+- **What's New**: 이 논문에서는 외부 피드백이 부족한 상황에서도 안정적인 자기 학습(self-training)이 가능한 시스템 아키텍처를 제안합니다. 기존의 자기 학습 시스템들이 겪는 보상 해킹(reward hacking)과 의미적 편향(semantic drift) 문제를 해결하기 위해 혼합된 환경에서 생존을 기반으로 하는 선택 메커니즘이 도입되었습니다. 이러한 접근 방식은 인간이 선별한 데이터나 복잡한 보상 구조에 의존하지 않으면서 자율 시스템의 성능을 향상시키는 새로운 경로를 제시합니다.
+
+- **Technical Details**: 제안된 자기 학습 아키텍처는 보상이나 외부에서 정의된 적합성 기준(fitness criteria)이 아닌 환경의 실용성에 따라 학습이 이루어집니다. 이는 후보 행동이 실행되며, 그 행위가 환경에 미치는 영향을 평가해 지속 가능성을 유지하는 행동만 전파되도록 합니다. 또한, 논문에서는 '부정 공간 학습(negative-space learning, NSL)'이라는 개념을 통해 효과적인 전략이 어떻게 지속될 수 있는지를 분석하였습니다.
+
+- **Performance Highlights**: 이 시스템은 행동의 선택이 환경 속에서의 실제 결과를 기반으로 이루어지기 때문에, 자가 최적화의 진화적 불안정성 문제를 피할 수 있습니다. 실험 데이터를 통해 진행된 연구 결과는, 모델이 실험 실패를 통해 유익한 오류 메시지를 유도하는 메타 학습(meta-learning) 전략을 자연스럽게 개발한다는 점을 강조하고 있습니다. 이러한 구조는 궁극적으로 지속 가능한 자기 개선을 가능하게 하여 강력하고 일반화 가능한 자율 시스템 개발의 기회를 제공합니다.
+
+
+
+### ToolPRMBench: Evaluating and Advancing Process Reward Models for Tool-using Agents (https://arxiv.org/abs/2601.12294)
+Comments:
+          under review
+
+- **What's New**: ToolPRMBench는 도구를 사용하는 에이전트를 위한 과정 보상 모델(Prize Reward Model, PRM)을 평가하기 위해 특별히 설계된 대규모 벤치마크입니다. 기존의 도구 사용 벤치마크를 기반으로 하여 에이전트 경로를 단계별 테스트 사례로 변환하는 방식으로 구성되어 있습니다. 이로 인해 PRM의 효과성을 더 세밀하게 측정할 수 있는 기회를 제공합니다.
+
+- **Technical Details**: ToolPRMBench는 각 사례에 상호작용 이력, 올바른 행동 및 그럴듯하지만 올바르지 않은 대안을 포함하여 도구 메타데이터와 관련된 정보를 담고 있습니다. 오프라인 샘플링을 사용하여 지역 단일 단계 오류를 분리하고, 온라인 샘플링을 통해 전체 에이전트 롤아웃에서 실제 다단계 실패를 캡처합니다. 또한, 다중 LLM 검증 파이프라인을 통해 레이블 노이즈를 줄이고 데이터 품질을 보장합니다.
+
+- **Performance Highlights**: ToolPRMBench에서 17개의 대규모 언어 모델, 일반 PRM, 도구 전문 PRM에 대한 광범위한 실험이 이루어졌습니다. 그 결과 PRM 효과성의 분명한 차이가 드러났으며, 도구를 사용하는 PRM에서의 전문화된 접근 방식의 잠재력이 강조되었습니다. 모델 크기 및 일반적인 기능의 확장이 도구 프로세스 보상 모델링에 유익하다는 것을 보여주었으며, 강화 학습은 도구 사용 PRM의 강건성과 일반화 개선에 강력한 잠재력을 나타냈습니다.
+
+
+
+### Docs2Synth: A Synthetic Data Trained Retriever Framework for Scanned Visually Rich Documents Understanding (https://arxiv.org/abs/2601.12260)
+Comments:
+          Accepted at WWW 2026 Demo Track
+
+- **What's New**: 이 논문에서는 Docs2Synth라는 새로운 프레임워크를 소개합니다. 이 프레임워크는 민감하고 발전하는 도메인 특화 지식을 포함하는 문서를 자동으로 처리하고, 다양한 QA 쌍을 생성 및 검증할 수 있는 방법론을 제시합니다. 또한, Docs2Synth는 사용하기 쉬운 Python 패키지로 제공되어 다양한 실제 시나리오에서 플러그 앤 플레이 배포를 가능하게 합니다.
+
+- **Technical Details**: Docs2Synth는 문서 처리기, 합성 QA 생성기, 검색기 조정, 반복적 추론 등으로 구성됩니다. OCR 도구를 통해 문서 이미지를 처리하고, MLLM을 활용하여 QA 쌍을 자동 생성합니다. 이후 이러한 데이터를 사용하여 레이아웃 인식 VRDU 모델을 조정하여 고품질 검색기를 학습시키고, 반복적 추론 과정을 통해 MLLM과 협력하여 더욱 정교한 응답을 생성합니다.
+
+- **Performance Highlights**: 여러 VRDU 벤치마크에서 수행된 실험 결과, Docs2Synth는 인적 주석 없이도 안정적인 그라운딩 및 도메인 일반화를 유의미하게 향상시켰습니다. 이 연구는 새로운 문서에 대한 자동 데이터 처리의 가능성을 보여주며, 사용자는 조정 가능한 매개변수를 통해 검색 및 응답 과정을 최적화할 수 있습니다.
+
+
+
+### FutureX-Pro: Extending Future Prediction to High-Value Vertical Domains (https://arxiv.org/abs/2601.12259)
+Comments:
+          21 pages
+
+- **What's New**: FutureX-Pro는 일반적인 미래 예측을 위한 라이브 벤치마크인 FutureX를 기반으로 다섯 가지 세부 도메인(FutureX-Finance, FutureX-Retail, FutureX-PublicHealth, FutureX-NaturalDisaster, FutureX-Search)을 포함하여 고급 예측 모델을 소개합니다. 이는 고부가가치 수직 시장에 대한 에이전트를 통한 미래 예측의 확장을 목표로 합니다. 특히 자본 집약적 및 안전 필수 분야에서 일반화된 에이전트의 신뢰도는 여전히 깊게 탐구되지 않았습니다.
+
+- **Technical Details**: FutureX-Pro는 네 가지 핵심 도메인인 금융, 소매, 공공 건강 및 자연 재해를 중심으로 합니다. 각 도메인은 경제 및 사회의 안정성을 저해하는 요소들의 예측 가능성을 높이기 위해 엄격한 평가를 요구합니다. 예측 작업은 재정 보고서 분석, 전자상거래 데이터 분석 및 기상 데이터를 처리하는 등 다양한 수치적 예측 능력을 테스트합니다.
+
+- **Performance Highlights**: 벤치마킹 중 GPT-5-high과 Grok-4 모델이 상위 성과를 보이며 평균 Type 1 점수 46.37과 41.25를 기록했습니다. 이러한 성과 차이는 수치적 예측에서 5% 오류 허용 범위를 좁힐 수 있는 효과성을 나타냅니다. 반면, Task Complexity가 증가할수록 성과가 전반적으로 감소하는 경향을 보였으며, 모든 모델이 50점 이상의 평균 점수를 기록하지 못한 것은 예측의 어려움을 강조합니다.
+
+
+
+### Improving Large Molecular Language Model via Relation-aware Multimodal Collaboration (https://arxiv.org/abs/2601.12256)
+- **What's New**: 이 논문에서는 CoLLaMo라는 새로운 대형 분자 언어 모델을 제안합니다. CoLLaMo는 1D, 2D 및 3D 분자를 통합하여 효과적인 구조적 정보와 공간 관계를 활용할 수 있는 다중 수준의 협력 프로젝터를 장착하고 있습니다. 이 모델은 특히 기계학습에서 자주 나타나는 허위(output hallucination) 문제를 해결하고자 하는 목적으로 개발되었습니다.
+
+- **Technical Details**: CoLLaMo는 2D 구조적 및 3D 공간 관계를 포함한 관계 인식 모달리티 협업 주의(attention) 메커니즘을 통해 분자 정보를 처리합니다. 이 모델은 다중 모드의 인코더와 크로스 주의 모듈을 사용하여 다양한 분자 표현을 통합하여 공유된 토큰 공간으로 매핑합니다. 새로운 자동 측정 도구인 허위 평가 메트릭과 GPT 기반 캡션 품질 평가기를 통해 기존 평가 메트릭의 한계를 극복하고 있습니다.
+
+- **Performance Highlights**: CoLLaMo는 분자 캡션 작성, IUPAC 이름 예측 등의 다양한 과제를 수행하는데 있어 우수한 성능을 보입니다. 이 모델은 기존 대형 분자 언어 모델(LMLMs) 및 GPT 기반 모델들과 비교하여 뛰어난 일반화 능력을 보여주며, 모든 분자 모달리티가 소실된 경우에도 강한 성능을 유지합니다. CoLLaMo는 여러 실험을 통해 분자 정보를 효과적으로 통합하고 허위 발생 문제를 해결하는 데 기여하는 것으로 나타났습니다.
+
+
+
+### Optimal Power Allocation and Sub-Optimal Channel Assignment for Downlink NOMA Systems Using Deep Reinforcement Learning (https://arxiv.org/abs/2601.12242)
+- **What's New**: 최근 Non-Orthogonal Multiple Access (NOMA) 시스템이 깊은 머신 러닝(Deep Machine Learning)과 통합될 가능성이 제기됐다. NOMA는 인터넷의 발전으로 인해 자원 부족 문제가 생기고 있는 상황에서 네트워크 자원 최적화를 위해 고안되었다. 이 논문에서는 NOMA 시스템의 네트워크 자원 할당을 위한 경험 재생 메모리(Replay Memory)와 온 정책(On-policy) 알고리즘을 통합한 딥 강화 학습(Deep Reinforcement Learning) 프레임워크를 제안한다. 최적의 학습을 위한 다양한 변수를 평가하는 광범위한 시뮬레이션도 제공한다.
+
+- **Technical Details**: 제안된 프레임워크는 딥 강화 학습을 사용하여 NOMA 시스템에서 자원을 할당하는 방법을 다룬다. 이 시스템은 역방향 분배 문제를 해결하기 위해 다양한 신경망 구조와 학습률, 배치 크기, 상태에서의 특성 수를 조절하여 성능을 평가한다. 또한 JRA와 JRA-DRL 프레임워크와 비교하여 성능 향상을 검토하도록 설계되었다. 경험 재생 메모리를 사용함으로써 기존 정책 경량화 방법의 한계를 극복하고 더 균형 잡히고 일반화된 학습 결과를 가져온다.
+
+- **Performance Highlights**: 논문에서 제안된 메모리를 통합한 방법론은 기존 NOMA 시스템에 비해 데이터 전송률을 극대화하는 데 있어 큰 장점을 보인다. 다양한 하이퍼파라미터와 모델 아키텍처의 변화가 시뮬레이션 결과에 큰 영향을 미치는 것으로 나타났다. 신경망 구조의 변화에 따른 수렴 속도가 네트워크 시스템의 성과에 중요한 요소로 작용한다는 점도 강조되었다. 따라서, 제안된 방법이 전반적인 자원 할당의 최적화를 통해 IoT에서의 NOMA 활용도를 높이는 데 기여할 수 있다는 결론이 도출되었다.
+
+
+
+### TIDE: A Trace-Informed Depth-First Exploration for Planning with Temporally Extended Goals (https://arxiv.org/abs/2601.12141)
+- **What's New**: 이 논문은 LTLf (Linear Temporal Logic on finite traces) 목표를 이용한 계획에서의 한계를 해결하기 위한 새로운 접근법인 TIDE(Trace-Informed Depth-first Exploration)를 소개합니다. TIDE는 시간적으로 연장된 목표(TEG)를 다루기 위한 방법으로, 문제를 더 작고 관리 가능한 목표들의 시퀀스로 분해하여 전통적인 계획 방법의 한계를 극복합니다. 이로 인해 TIDE는 복잡한 실행 경로를 계획하기 위해 서브 문제로 나누어 접근함으로써 효율성을 높입니다.
+
+- **Technical Details**: TIDE는 최적의 탐색을 위해 비용 기반의 휴리스틱을 활용하여 도메인 그래프 내에서 유망한 오토마타 경로를 식별하고 우선 순위를 매깁니다. 이를 통해 TIDE는 각각의 서브 문제를 해결하며, 실패한 경로에서 재빠르게 후퇴하고 비용을 다시 계산하여 비효율적인 전이를 벌줍니다. 이 모듈화된 깊이 우선 전략은 전체 제품 그래프 탐색에 비해 계산 부담을 상당히 줄입니다.
+
+- **Performance Highlights**: 실험 결과, TIDE는 LTLf 목표에 대한 기존의 첨단 접근법인 Exp, Poly, FOND4LTLf 및 Plan4Past와 비교하여 뛰어난 성능을 보였습니다. TIDE는 큰 문제를 더 작은 서브 문제로 나누는 이점이 매우 중요한 시나리오에서 유용한 추가 사항임을 입증하였습니다. TIDE의 전체 구현은 GitHub에서 공개되어 있어 연구자들이 활용할 수 있습니다.
+
+
+
+### DriveSafe: A Hierarchical Risk Taxonomy for Safety-Critical LLM-Based Driving Assistants (https://arxiv.org/abs/2601.12138)
+- **What's New**: 이 논문에서는 대형 언어 모델(LLMs)을 기반으로 한 차량 보조 시스템의 안전성을 평가하기 위해 DriveSafe라는 새로운 위험 분류 체계를 도입했습니다. 기존 안전 평가 체계는 자동차 운전 상황의 도메인 특유의 위험을 포괄하지 못하고 있습니다. DriveSafe는 129개의 정밀한 위험 카테고리를 포함하여 기술적, 법적, 사회적, 윤리적 측면에서의 안전 비판적 실패 모드를 체계적으로 분류합니다. 이 구조는 전문가들의 검토를 거쳐 실제 세계의 규정 및 안전 원칙에 근거하고 있습니다.
+
+- **Technical Details**: DriveSafe 분류는 네 개의 계층적 차원으로 구성되며, 각 계층은 기술적 위험, 사업적 위험, 사회적 위험, 윤리적 위험을 포함합니다. 이러한 분류는 런던의 자율차 법안과 같은 실질적인 규정을 기반으로 하며 가시적인 안전 실패의 유형을 정의합니다. 이 프레임워크는 응답의 정확성과 안전성 검증을 위한 평가를 통해 LLM들이 자율주행 상황에서 직면할 수 있는 실패 모드를 다루고 있습니다. 각 위험 종류는 행동 패턴을 설명하고 구체적인 안전 실패와 연결되어 있습니다.
+
+- **Performance Highlights**: 논문에서 이루어진 LLM 기반 보조 시스템의 평가 결과, 검토된 모델들은 종종 안전하지 않거나 비합법적인 운전 관련 질문에 대해 적절히 거부하지 못한다는 것이 드러났습니다. 이는 대형 언어 모델들이 자동차 맥락에서 일반적인 안전 정렬의 한계가 있음을 강조합니다. DriveSafe 프레임워크는 이러한 문제를 해결하기 위한 도메인 특화 안전 관리 방안을 제시하면서, 자동차 환경에서의 대화형 AI의 안전성과 신뢰성을 높이는 데 기여할 것으로 기대됩니다.
+
+
+
+### UniMo: Unified Motion Generation and Understanding with Chain of Though (https://arxiv.org/abs/2601.12126)
+- **What's New**: 논문은 UniMo라는 새로운 프레임워크를 제안하여 3D 인간 동작 생성과 이해를 통합하는 방법을 소개합니다. 기존의 방법들은 동작과 텍스트 간의 상관관계가 약해 세밀한 동작 생성에 한계를 보였고, 언어 모델에 기반한 접근은 동작 시퀀스에 대한 예측 오류가 누적되는 문제를 가지고 있었습니다. 반면, UniMo는 동작-언어 정보를 통합하고 이해하기 쉬운 Chain of Thought (CoT) 추론을 도입하여 알고리즘의 성능을 크게 향상시켰습니다.
+
+- **Technical Details**: UniMo는 사전 훈련된 LLM, 즉 Qwen2.5-3B-Instruct 위에 구축되어 있으며, CoT에 기반한 동작 데이터 수집 및 동작 생성을 위한 계획이 포함되어 있습니다. 모델은 텍스트 입력을 기반으로 동작이 생성되는 과정을 단계별 CoT로 계획하기 위해 동작 생성 전용의 과정을 설정합니다. 또한, Group Relative Policy Optimization (GRPO)을 활용하여 예측의 구조적 정확성과 의미적 정렬을 강화하는 방법으로, 누적 오류를 완화했습니다.
+
+- **Performance Highlights**: UniMo는 광범위한 실험을 통해 기존의 통합 및 작업 전용 모델보다 월등한 성능을 보여주며, 동작 생성과 이해 모두에서 최첨단 성능을 달성했습니다. 이 모델은 동작 생성(T2M)과 동작-텍스트 변환(M2T) 작업을 함께 훈련하며, 이 두 작업이 서로에게 이익을 줄 수 있다는 것을 입증했습니다. 결국 UniMo는 유니타리 모델링을 통해 동작 생성과 이해의 상호 작용 효과를 최초로 실현했습니다.
+
+
+
+### Partial Reasoning in Language Models: Search and Refinement Guided by Uncertainty (https://arxiv.org/abs/2601.12040)
+- **What's New**: 이번 연구에서는 퍼지 추론(PREGU, Partial Reasoning Guided by Uncertainty) 기법을 소개합니다. PREGU는 자율 회귀 생성 과정 중 출력 확률 분포의 엔트로피를 모니터링하며, 엔트로피가 정의된 임계값을 초과할 경우 생성 과정을 중단하여 불확실성을 신호로 판단합니다. 이후에는 잠재 공간(latent space)에서의 국소 탐색을 통해 부분 추론을 다듬고, 일관성 있는 답변을 선택하는 데 Soft Reasoning 방법을 활용합니다.
+
+- **Technical Details**: PREGU는 엔트로피 기반 탐지와 잠재 공간 정제를 통합하여 두 단계의 과정을 통해 작동합니다. 언어 모델은 자율 회귀 생성을 통해 후보 추론 경로를 생성하고, 각 디코딩 단계에서 다음 토큰 분포의 Shannon 엔트로피를 모니터링합니다. 불확실성 탐지 임계값을 초과하는 첫 번째 토큰에서 생성을 중단하고, 이를 통해 얻은 부분 추론을 Soft Reasoning 방법으로 독립적으로 다듬습니다.
+
+- **Performance Highlights**: PREGU는 LLaMA-3-8B, Mistral-7B, Qwen2-7B와 같은 여러 중간 규모의 LLM을 통해 실험되었으며, 전통적인 추론 기법들과 비교하여 유사하거나 더 나은 성능을 보였습니다. 특히, PREGU는 성능 평가에서 Soft Reasoning과 유사하거나 더 나은 결과를 보여주며, 엔트로피가 추론 과정 중 선택적 정제를 촉발하는 효과적인 신호가 될 수 있음을 입증했습니다.
+
+
+
+### Abstract Argumentation with Subargument Relations (https://arxiv.org/abs/2601.12038)
+Comments:
+          11 pages
+
+- **What's New**: 본 논문에서는 Dung의 추상 논증 프레임워크에 명시적인 하위 논증(subargument) 관계를 추가해 논증 간의 상호작용을 분석하고 있습니다. 기존의 공격 관계(attack relation)만으로는 하위 논증 및 그 상호작용을 충분히 포착할 수 없어 구조적 의존성을 표현하는 데 제한이 있었다는 점을 지적하고 있습니다. 이 새로운 접근 방식은 공격과 하위 논증의 관계를 명확히 하여 추상 수용 가능성(acceptability reasoning)에서의 역할을 파악할 수 있도록 합니다.
+
+- **Technical Details**: 본 연구는 하위 논증 관계를 기본 관계로 간주하여 Dung 프레임워크를 최소한으로 확장하는 방법론을 제안합니다. 공격은 명시적인 갈등(conflict)을 나타내고, 하위 논증 관계는 구조적 의존성(structural dependency)을 나타내며, 이러한 분리를 통해 방어(defence) 및 수용 가능성(admissibility)의 구조 민감한 개념을 발전시킵니다. 기존의 공격 패턴에 의존하지 않고 하위 논증에 기반한 방어가 이루어지며, 주요한 의미론적 보장(semantic guarantees)도 보존됩니다.
+
+- **Performance Highlights**: 구조적 정보가 잊혀지면 복구할 수 없다는 점이 강조됩니다. 또한, 연구 결과는 Dung 프레임워크 이상으로 표현의 효과성(expressiveness)이 엄격히 증가한다는 것을 보여줍니다. 이 논문은 기존의 공격만 있는 프레임워크에 비해 더 풍부한 구조적 정보와 이를 기반으로 한 설명 가능성을 제공하여 향후 연구 방향에 대한 중요한 통찰을 제공합니다.
+
+
+
+### ARC: Active and Reflection-driven Context Management for Long-Horizon Information Seeking Agents (https://arxiv.org/abs/2601.12030)
+Comments:
+          15 pages, 5 figures
+
+- **What's New**: 이번 연구에서는 ARC(Active and Reflection-Driven Context Management) 프레임워크를 제안하여 긴 상호작용 역사 속에서 발생하는 정보의 맥락 관리를 능동적이고 반성적(Reflection-Driven)인 과정으로 전환합니다. 기존의 수동적인 맥락 압축 방법과는 달리 ARC는 맥락을 동적인 내부 추론 상태로 간주하여, 에이전트가 정보의 불일치나 저하를 감지했을 때 적극적으로 맥락을 재구성하고 수정(Revision)합니다.
+
+- **Technical Details**: ARC는 에이전트의 행동 실행과 맥락 관리를 명확히 분리하는 두 개의 구성요소 아키텍처를 통해 동작합니다. 이 구조에서 Context Manager(CM)가 에이전트의 상호작용 기억(Interaction Memory)을 동적으로 관리하며, 실행 과정 중에 수집된 정보를 지속적으로 요약하여 내부 상태를 업데이트합니다. ARC는 각 실행 단계에서 체크리스트와 이전 상호작용을 포함한 세 가지 코어 내부 요소를 유지합니다.
+
+- **Performance Highlights**: 실험 결과, ARC는 선행 연구에서 사용된 수동적인 맥락 압축 방법과 비교하여 BrowseComp-ZH 벤치마크에서 정확도가 최대 11% 향상된 성능을 보였습니다. 이는 ARC가 긴 수명의 정보 탐색 업무에서 에이전트의 성능을 지속적으로 개선할 수 있는 가능성을 시사합니다.
+
+
+
+### A Multi-Agent System for Generating Actionable Business Advic (https://arxiv.org/abs/2601.12024)
+- **What's New**: 이 논문에서는 고객 리뷰의 분석을 넘어 비즈니스에 실행 가능한 조언을 제공하는 새로운 멀티 에이전트 기반 프레임워크를 제안합니다. 이 프레임워크는 리뷰 데이터에서 유용한 통찰을 끌어내기 위하여 클러스터링, 조언 생성을 비롯한 네 가지 구성 요소를 통합합니다. 기존의 감정 분석 및 요약에서 발전하여, 실제 문제 해결에 초점을 맞춘 조언을 생성하도록 설계되었습니다.
+
+- **Technical Details**: 제안된 방법론은 고객 리뷰를 클러스터로 그룹화하고, 각 클러스터에서 대표 리뷰를 선택하는 여러 에이전트로 구성됩니다. 이후 선정된 리뷰를 바탕으로 구체적이고 실행 가능한 조언을 생성하고, 이 조언은 특이성, 관련성, 실행 가능성, 간결성 등의 파라미터에 따라 평가됩니다. 최종적으로는 기업의 관점에서 실행 가능성과 비용, 효과성 등을 고려하여 조언의 우선 순위를 매깁니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 프레임워크가 기존 단일 모델 기준을 지속적으로 초과하여, 실행 가능성, 구체성 및 비중복성에서 향상된 성능을 보여주었다는 것을 입증합니다. 여러 서비스 도메인과 다양한 모델 패밀리를 기반으로 한 실험에서, 중간 규모의 모델이 대규모 모델 프레임워크에 가까운 성능을 구현하며, 여러 모델을 조합한 결과가 효과적임을 보여줍니다.
+
+
+
+### Are LLMs Ready for TOON? Benchmarking Structural Correctness-Sustainability Trade-offs in Novel Structured Output Formats (https://arxiv.org/abs/2601.12014)
+- **What's New**: 이번 연구는 구조적 출력 형식의 환경 효율성을 평가하는 새로운 관점을 제시합니다. 특히, TOON 형식을 기존의 JSON, XML 및 YAML과 비교하여 토큰 사용량, 생성 시간 및 추정 탄소 배출량을 측정하는 지속 가능성 인식 평가 프레임워크를 제안했습니다. 이 프레임워크는 LLM(대형 언어 모델) 기반 시스템의 지속 가능성에 대한 평가를 보다 포괄적이게 만듭니다.
+
+- **Technical Details**: 제안된 평가 프레임워크는 기존의 정답 지향 벤치마크를 보완하여 토큰 사용, 생성 시간 및 환경 관련 비용을 측정합니다. 여기서 제안된 지표인 GCS_env(환경 인식 생성 정확도 점수)는 구조적 정확성과 환경 효율성을 통합하여 출력 형식의 비교를 가능하게 합니다. TOON은 이러한 지속 가능성의 이점을 확인하는 데 중점을 두고 검토되었습니다.
+
+- **Performance Highlights**: 연구 결과 TOON 형식은 출력이 더 compact하고, 탄소 배출량이 낮지만, 모델이 원래 지원하지 않는 경우 구조적 정확성이 떨어지는 일관된 무역을 보여줍니다. 더욱이, 모델의 용량이 증가함에 따라 이러한 격차가 줄어들며, 환경 인식 점수를 통해 각 형식의 배치 우선 순위에 따라 순위가 변경될 수 있음을 밝혔습니다. 이는 LLM 기반 시스템에 관한 지속 가능한 벤치마킹의 필요성을 강조합니다.
+
+
+
+### Kernel-Based Learning of Safety Barriers (https://arxiv.org/abs/2601.12002)
+Comments:
+          44 pages, 9 figures
+
+- **What's New**: 이 논문은 자율주행 및 헬스케어와 같은 안전-critical (안전 중요) 애플리케이션에서 AI 알고리즘 통합의 증가로 인해 발생하는 안전성 검증에 대한 새로운 접근 방법을 제시합니다. 전통적인 안전 검증 도구는 AI 시스템의 black-box (블랙박스) 특성 때문에 한계를 지니고 있으며, 복잡한 실제 애플리케이션에 맞게 유연성이 부족합니다. 저자들은 이 문제를 해결하기 위해 discrete-time stochastic dynamics (이산시간 확률 동역학)을 갖는 시스템에 대한 데이터 기반 접근 방식을 소개합니다.
+
+- **Technical Details**: 저자들은 control barrier certificates (제어 장벽 인증서) 개념을 활용하여 시스템의 안전성을 보장하며, 이를 시스템 궤적 데이터 집합을 통해 직접 학습합니다. 시스템 데이터를 reproducing kernel Hilbert space (RKHS)에 임베드하기 위해 conditional mean embeddings 를 사용하고, 이를 통해 robustify (강화) 할 수 있는 RKHS ambiguity set (모호성 집합)을 구성합니다. 추가로, 저자들은 안전 장벽을 데이터 기반으로 계산하기 위해 finite Fourier expansion (유한 푸리에 확장)을 활용하여 일반적으로 처리하기 어려운 semi-infinite optimization problem (반 무한 최적화 문제)을 linear program (선형 프로그램)으로 변환합니다.
+
+- **Performance Highlights**: 이 결과적으로 생성된 spectral barrier (스펙트럴 장벽)는 fast Fourier transform (빠른 푸리에 변환)을 활용하여 완화된 문제를 효율적으로 생성할 수 있게 합니다. 이를 통해 저자들은 안전성을 검증하기 위한 확장 가능하면서도 분포적으로 강인한 프레임워크를 제공합니다. 논문에서는 시스템 동역학 및 불확실성에 대한 제한적인 가정을 넘어서, 신경망 제어기를 가진 black-box 시스템을 포함한 두 가지 사례 연구를 통해 그 가능성을 입증합니다.
+
+
+
+### Process In-Context Learning: Enhancing Mathematical Reasoning via Dynamic Demonstration Insertion (https://arxiv.org/abs/2601.11979)
+- **What's New**: 이 논문은 기존의 In-context Learning (ICL) 기법의 한계를 극복하기 위해 Process In-Context Learning (PICL)이라는 새로운 프레임워크를 제안합니다. PICL은 수학적 추론에서 발생하는 동적 혼란 지점을 실시간으로 식별하고 적절한 예시를 주입하여 문제 해결을 지원합니다. 이를 통해 모델이 명확한 지시를 받으며 올바른 추론 경로로 유도될 수 있도록 합니다.
+
+- **Technical Details**: PICL은 두 가지 핵심 단계로 구성됩니다: 첫 번째는 혼란 지점 탐지 및 요약 단계로, 이 단계에서는 의미론과 엔트로피를 분석하여 추론 과정에서의 불확실성을 식별합니다. 두 번째는 요약된 혼란 지점을 기반으로 관련 예시를 검색하여 현재 진행 중인 추론 과정에 삽입하는 단계입니다. 이로써 모델의 추론 프로세스에 적합한 순간에 필요한 지침을 제공합니다.
+
+- **Performance Highlights**: 실험 결과, PICL은 기존의 정적 ICL 기법보다 뛰어난 성능을 보여주며, 특히 다단계 수학적 사고에서 혼란을 완화하는 데 유의미한 개선을 나타냈습니다. 이는 적응형 예시 주입이 복잡한 수학적 추론에서 필수적이라는 것을 강조합니다. 이러한 성과는 PICL의 동적 특성이 수학적 문제 해결에 매우 효과적임을 증명합니다.
+
+
+
+### Learn Like Humans: Use Meta-cognitive Reflection for Efficient Self-Improvemen (https://arxiv.org/abs/2601.11974)
+- **What's New**: MARS(메타인지 에이전트 반사적 자기 개선)는 복잡한 자율 행동을 위한 최신의 대형 언어 모델(LLM)에서의 한계를 극복하기 위해 제안된 새로운 프레임워크입니다. 기존의 복잡한 자기 개선 시스템과는 달리, MARS는 단일 반복 주기 내에서 효율적인 자기 진화를 가능하게 합니다. 교육 심리학을 기반으로 한 이 프레임워크는, 원칙 기반 반성(principle-based reflection)과 절차적 반성(procedural reflection)을 통합하여 에이전트가 지속적인 온라인 피드백 없이도 자신의 추론 논리를 체계적으로 개선할 수 있도록 합니다.
+
+- **Technical Details**: MARS는 세 단계의 구조로 구성되어 있으며, 각 단계는 에이전트의 오류를 분석하고 이를 통해 개선 가능한 프롬프트를 생성하는 접근 방식을 채택합니다. 첫 단계인 평가 단계에서, 분석 모델은 각 실패한 질문을 검토해 특성과 오류 속성을 추출합니다. 이후 실패 할당 단계에서는 비슷한 오류 유형을 그룹화하여 그룹 수준의 오류 프로필을 형성하고, 마지막으로 개선 생성 단계에서는 각 그룹의 개선 방안을 통합하여 새로운 향상된 프롬프트를 생성합니다.
+
+- **Performance Highlights**: 복잡한 지식 및 추론 기준에서의 광범위한 실험 결과, MARS는 기존의 자기 진화 시스템에 비해 뛰어난 성능을 보여주며, 반복 횟수를 대폭 줄일 수 있음을 입증합니다. MARS는 효율적인 학습을 가능하게 하여 계산 자원 소모를 크게 감소시키고, 에이전트의 적응성을 극대화합니다. 이러한 성과는 AI 시스템의 자율적인 학습과 개선 가능성을 넓히는 데 기여할 것으로 기대됩니다.
+
+
+
+### Thinking Traps in Long Chain-of-Thought: A Measurable Study and Trap-Aware Adaptive Restar (https://arxiv.org/abs/2601.11940)
+- **What's New**: 이 논문에서는 Long Chain-of-Thought (Long-CoT)를 활용하여 테스트 시간의 컴퓨팅을 확장하는 새로운 방법론을 제안합니다. 하지만 이 방식이 항상 정답을 보장하지 않으며, 잘못된 초기 선택이 이후에 자가 일관성 있는 잘못된 경로를 이어가게 할 수 있는 문제를 지적합니다. 이는 Thinking Traps로 불리는 접착 상태를 초래하며, 학습된 강력한 교정 메커니즘 없이도 오류가 수정되지 않는 상황을 야기하는 요소입니다.
+
+- **Technical Details**: 연구진은 Trap-Aware Adaptive Restart (TAAR)라는 테스트 시간 제어 프레임워크를 도입하여 문제를 해결하고자 합니다. 이 프레임워크는 부분 경로에서 두 가지 신호—구획 인덱스와 탈출 확률—를 예측하는 진단 정책을 훈련합니다. 추론 시 TAAR는 예측된 함정 구역 이전에서 경로를 잘라내고, 적응적으로 디코딩을 재시작하며, 심각하게 함정에 빠진 경우에는 높은 온도를 이용한 재샘플링 같은 강한 교정 방법을 적용합니다.
+
+- **Performance Highlights**: TAAR의 성능은 AIME24, AIME25, GPQA-Diamond, HMMT25, BRUMO25와 같은 도전적인 수학 및 과학 추론 벤치마크에서 실험을 통해 입증되었습니다. 이 방법은 기본 모델 파라미터를 미세 조정하지 않고도 추론 성능을 향상시키는 효과를 보여주었습니다. 결과적으로 89%의 실패 사례에서 발견된 Thinking Traps를 효과적으로 해결하여 논리적 추론 능력을 증진시킵니다.
+
+
+
+### LIBRA: Language Model Informed Bandit Recourse Algorithm for Personalized Treatment Planning (https://arxiv.org/abs/2601.11905)
+Comments:
+          50 pages. Previous version with human-AI collaboration: arXiv:2410.14640
+
+- **What's New**: 이번 논문에서는 알고리즘적 보상(algo recourse), 맥락 기반 밴딧(contextual bandits), 대형 언어 모델(LLMs)을 통합한 새로운 프레임워크를 소개합니다. 이를 통해 개인화 의료와 같은 고위험 환경에서 일련의 의사결정을 지원합니다. 특히, 'recourse bandit problem'을 정의하고 이를 해결하기 위한 일반화된 선형 보상 밴딧(GLRB) 알고리즘과 동시에 추천 치료와 최소 수정 조정을 제안하는 LIBRA 알고리즘을 개발합니다.
+
+- **Technical Details**: 논문에서 제안하는 GLRB 알고리즘은 학습자가 행동(예: 치료)과 함께 환자의 변동 가능한 특징에 대한 최소 조정을 동시에 추천해야 하는 문제를 다룹니다. LIBRA는 LLM과 온라인 밴딧 학습 이론을 통합한 것으로, 의사의 초기 결정을 돕고 오랜 기간 동안 높은 성능을 보장하는 기초를 제공합니다. LIBRA는 LLM의 도메인 지식과 통계적 엄격성(st Statistical rigor)을 활용하여 높은 신뢰성을 갖춘 의사결정을 가능하게 합니다.
+
+- **Performance Highlights**: 실험은 합성 환경과 실제 고혈압 관리 사례를 통해 GLRB와 LIBRA가 표준 맥락 기반 밴딧 및 LLM 전용 벤치마크에 비해 후회(regret), 치료 품질, 샘플 효율성에서 개선된 결과를 보여줍니다. LIBRA는 LLM의 지도를 통해 초기 단계에서 빠른 개선을 이루고, 자율 학습으로 원활하게 전환되는 것이 확인되었습니다. 이러한 결과는 알고리즘적 보상을 인식한 밴딧의 실용적 가치를 강조합니다.
+
+
+
+### AEMA: Verifiable Evaluation Framework for Trustworthy and Controlled Agentic LLM Systems (https://arxiv.org/abs/2601.11903)
+Comments:
+          Workshop on W51: How Can We Trust and Control Agentic AI? Toward Alignment, Robustness, and Verifiability in Autonomous LLM Agents at AAAI 2026
+
+- **What's New**: AEMA (Adaptive Evaluation Multi-Agent)는 다중 에이전트 시스템의 검증 가능 평가를 위한 새로운 프레임워크입니다. 기존의 단일 모델 방식과 달리 AEMA는 계획, 논의 및 단계별 평가를 통해 더 높은 안정성과 일관성을 제공합니다. 이 시스템은 다양한 과제에 적응하며, 각 단계를 감독하기 위해 기록을 유지할 수 있어 투명한 평가 과정을 제공합니다.
+
+- **Technical Details**: AEMA는 네 가지 역할(Planning, Prompt-Refinement, Evaluation, Final Report)을 수행하는 다중 에이전트 평가 루프입니다. 이 루프는 모든 의사결정을 기록하여 감사향상(auditability) 및 사후 검증을 가능하게 하며, 평가의 각 단계를 계획하고 매개변수를 설정하여 점수를 부여합니다. 또한, 다양한 도메인에서 적절한 평가 도구를 선택하기 위해 하이브리드 검색 방법을 사용하여 관련 함수를 효과적으로 필터링합니다.
+
+- **Performance Highlights**: AEMA는 시뮬레이션된 기업 스타일 에이전트 워크플로우에서 평가가 낮은 점수 분산과 높은 인간 일치를 보이며, 단일 LLM 모델보다 일관성을 검증할 수 있습니다. 이 시스템은 반응의 질 뿐만 아니라 다단계 에이전트 추론을 반영하는 평가 방법론을 구현하여, 기업 환경 내에서 더 신뢰할 수 있는 자동화를 촉진합니다.
+
+
+
+### MyGram: Modality-aware Graph Transformer with Global Distribution for Multi-modal Entity Alignmen (https://arxiv.org/abs/2601.11885)
+Comments:
+          Accepted by AAAI 2026
+
+- **What's New**: 이번 논문에서는 Multi-modal entity alignment(다중 양식 개체 정렬)의 문제를 해결하기 위해 MyGram이라는 새로운 프레임워크를 제안합니다. MyGram은 multi-modal data(다중 양식 데이터)를 활용하여 개체의 의미적 표현을 풍부하게 하고, 보다 정확한 개체 정렬을 가능하게 합니다. 특히, modality diffusion learning(양식 확산 학습) 모듈과 Gram Loss(그램 손실)을 도입하여 깊은 구조적 맥락 정보를 포착하고 전 세계적으로 일관된 분포를 유지합니다.
+
+- **Technical Details**: MyGram은 세 가지 주요 모듈로 구성됩니다: (1) Multi-modal Feature Extraction (다중 양식 특징 추출), (2) Modality-aware Diffusion Learning (양식 인지 확산 학습), (3) Multi-modal training and Learning (다중 양식 교육 및 학습). 이 모델은 4차원 평행체의 볼륨을 최소화하는 Gram Loss를 정규화 제약으로 도입하여 고차원 공간에서 양식 간의 글로벌 분포 일관성을 향상시킵니다. 이를 통해 미세 조정된 양식 특징을 생성하며, Transformer 아키텍처를 통해 다양한 양식의 정보를 통합합니다.
+
+- **Performance Highlights**: 실험 결과, MyGram은 FBDB15K에서 Hits@1 지표에서 최대 4.8%의 성능 향상을 기록하였고, FBYG15K에서는 9.9%, DBP15K에서는 4.3%의 개선을 이루었습니다. 이러한 성과는 기존 모델들보다 우수하다는 것을 보여주며, MyGram의 딥러닝 기반 접근 방식을 통해 다중 양식 개체 정렬 작업에서 더욱 강력한 성능을 발휘할 수 있음을 입증합니다.
+
+
+
+### Human-AI Collaborative Inductive Thematic Analysis: AI Guided Analysis and Human Interpretive Authority (https://arxiv.org/abs/2601.11850)
+- **What's New**: 최근 Generative AI(GenAI)의 사용이 질적 연구(qualitative research)에서 증가함에 따라 분석 실천(analytic practice) 및 해석권(interpretive authority)에 대한 중요한 질문이 제기되고 있습니다. 이 연구는 특정 용도로 설계된 AI 도구인 Inductive Thematic Analysis GPT(ITA-GPT)와 연구자가 어떻게 상호작용하는지를 조사합니다. ITA-GPT는 반사적 주제 분석(reflexive thematic analysis) 및 발췌 코딩(verbatim coding) 원칙에 맞춘 구조화된 비반자동 프롬프트를 통해 유도적 주제 분석(inductive thematic analysis)을 지원하도록 설계되었습니다.
+
+- **Technical Details**: 이 연구는 Human-Artificial Intelligence Collaborative Inductive Thematic Analysis(HACITA) 프레임워크를 바탕으로 분석 프로세스에 초점을 맞추고 있으며, 실질적인 발견사항(substantive findings)보다는 분석 절차에 중점을 둡니다. Ghana의 교사 교육 컨텍스트에서 교육 연구(interview transcripts) 관련 인터뷰 트랜스크립트를 분석하기 위해 경험이 풍부한 질적 연구자 세 명이 ITA-GPT 도구를 사용했습니다. 이 도구는 익숙하지 않은 데이터(familiarization), 발췌 기반 코드(coding), 및 주제 개발(theme development)과 분석 과정의 투명성을 높이는 데 도움을 주었습니다.
+
+- **Performance Highlights**: ITA-GPT는 분석 작업 흐름(analytic workflow)을 구조화하는 절차적 지주(procedural scaffold)로 작용하며, 텍스트 무결성(trace to text integrity) 및 데이터 감사 능력을 보장합니다. 그러나 해석 권한은 여전히 인간 연구자에게 남아 있으며, 그들은 수정(modification), 삭제(deletion), 거부(rejection), 삽입(insertion), 및 코멘트(commenting)와 같은 반복적인 분석 행위를 통해 판단을 행사합니다. 본 연구는 책임 있는 인간-AI 협력을 통해 유도적 주제 분석이 어떻게 진행될 수 있는지를 시연합니다.
+
+
+
+### Imandra CodeLogician: Neuro-Symbolic Reasoning for Precise Analysis of Software Logic (https://arxiv.org/abs/2601.11840)
+Comments:
+          52 pages, 23 figures. Includes a new benchmark dataset (code-logic-bench) and evaluation of neurosymbolic reasoning for software analysis
+
+- **What's New**: 본 논문에서는 CodeLogician이라는 신경 기호 에이전트를 소개하며, 이는 소프트웨어 논리에 대한 정밀한 분석을 수행한다. CodeLogician은 금융 시장 및 안전-critical 시스템에 적용된 ImandraX라는 산업 자동 추론 엔진과 통합되어 있다. 기존의 접근 방식들과는 달리, CodeLogician은 LLM을 사용하여 소프트웨어 시스템의 명시적인 공식 모델을 구성하며, 이를 통해 이진 검증 결과를 넘어서서 풍부한 의미적 질문을 자동으로 답할 수 있도록 한다.
+
+- **Technical Details**: CodeLogician은 기존의 정형(법적) 방법 대신, 프로그래밍 상태 공간, 제어 흐름, 커버리지 제약 및 엣지 케이스에 대한 추론 정확성을 측정하는 code-logic-bench를 도입한다. 이를 통해, 정형 모델링(formal modeling)과 지역 분해(region decomposition)를 통해 정의된 기준 진실(ground truth)을 바탕으로 하여 논리적 추론을 엄격하게 평가할 수 있다. 본 시스템은 LLM 전용 추론(LLM-only reasoning)과 CodeLogician로 보강된 LLM 간의 비교를 통해 성과를 평가한다.
+
+- **Performance Highlights**: 정형 보강(formal augmentation)을 통해, 추론 정확성에서 41-47 퍼센트포인트의 격차를 줄이는 상당한 개선이 이루어졌다. CodeLogician 도입으로 인해 기록된 결과들은 신경 기호 통합이 프로그램 분석을 엄격하고 자율적인 소프트웨어 이해로 확장하는 데 필수적임을 보여준다. 이러한 발전은 소프트웨어 논리에 대한 수학적 추론의 가능성을 크게 향상시키고 있다.
+
+
+
+### AI Co-Scientist for Knowledge Synthesis in Medical Contexts: A Proof of Concep (https://arxiv.org/abs/2601.11825)
+- **What's New**: 이 연구에서는 생물 의학 분야의 연구 낭비를 줄이기 위해 설계된 AI 공동 과학자를 소개합니다. 이 시스템은 PICOS(인구, 개입, 비교, 결과, 연구 설계)의 명확한 형식을 기반으로 확장 가능하고 투명한 지식 통합을 목표로 합니다. 연구의 핵심은 다양한 데이터 소스를 연결하여 문헌 검색, 스크리닝 및 데이터 추출을 자동화하는 것입니다. 또한, 효율적인 행위 및 지식 통합을 위해 여러 차원에서의 대처를 제시합니다.
+
+- **Technical Details**: 제안된 아키텍처는 관계형 저장소, 벡터 기반 의미 검색 및 Neo4j 지식 그래프를 통합합니다. Bidirectional Long Short-Term Memory(Bi-LSTM) 및 PubMedBERT에서 미세 조정된 변환자 기반 다중 작업 분류기를 활용하여 PICOS 준수 및 연구 설계 분류가 자동화됩니다. 방법론적 프레임워크는 PICOS 분석을 강조하며, 이를 통해 데이터 검색의 효율성을 높이고, 무관하거나 중복된 연구를 줄이는 데 기여할 수 있습니다.
+
+- **Performance Highlights**: 제안된 시스템은 연구 설계 분류에 대해 95.7%의 정확도를 달성했으며 전문가 주석과 강한 일치를 보였습니다. 자동화된 PICOS 준수 검출기는 87%의 정확도를 기록했습니다. 연구에서는 주제 모델링을 통해 주제의 중복성과 탐색이 덜 된 연구 영역을 확인하여 연구 낭비를 줄이고, 관련 있는 증거의 신속한 수집과 활용이 가능성을 보여줍니다.
+
+
+
+### POLARIS: Typed Planning and Governed Execution for Agentic AI in Back-Office Automation (https://arxiv.org/abs/2601.11816)
+Comments:
+          Workshop on Agentic AI Benchmarks and Applications for Enterprise Tasks: AAAI 2026
+
+- **What's New**: 이번 논문은 규제된 기업 환경에서 자동화를 위한 새로운 프레임워크인 POLARIS를 소개합니다. POLARIS는 에이전트 기반의 시스템으로, 요구 사항이 뚜렷한 백오피스 작업에서 발생할 수 있는 부작용을 차단하고, 행동을 정책에 맞춰 수행할 수 있도록 설계되었습니다. 이 프레임워크는 유형 검사(type-checked)와 구조적 다양성(structurally diverse)을 통해 검증된 실행을 제공합니다.
+
+- **Technical Details**: POLARIS는 유형 기반 계획(type-based planning)을 통해 자동화를 다루며, 검증자(validator)와 정책 가드레일(policy guardrails)을 통해 안전한 실행을 보장합니다. 계획자는 구조적으로 다양하고 유형이 검사된 비순환 그래프(DAG)를 제안하고, 경량화된 선택 모듈이 특정 계획을 선택합니다. 실행 과정은 검증자가 부작용을 차단하며, 정책 점검을 수행하여 외부 영향이 발생하는 것을 사전에 방지합니다.
+
+- **Performance Highlights**: POLARIS는 SROIE 데이터셋에서 마이크로 F1 점수 0.81을 달성했으며, 통제된 합성 작업에서는 이상 경로(anomaly routing)에 대해 0.95에서 1.00의 높은 정확도를 기록했습니다. 이를 통해 POLARIS는 정책에 맞춘 에이전틱 AI의 초기 벤치마크를 제공하며, 기업 환경에서 검증 가능하고 재현 가능한 프레임워크로 자리매김하고 있습니다.
+
+
+
+### Multi-agent DRL-based Lane Change Decision Model for Cooperative Planning in Mixed Traffic (https://arxiv.org/abs/2601.11809)
+Comments:
+          Under review at IEEE Transactions on Intelligent Transportation Systems
+
+- **What's New**: 본 연구는 연결된 자동화 차량(Connected Automated Vehicles, CAV)이 협력적 플래투닝(cooperative platooning)에 더 많이 참여할 수 있도록 하는 하이브리드 다중 에이전트 차선 변경 결정 모델을 제안합니다. 이는 CAV의 초기 배치 단계에서 이들을 효과적으로 조정하는 데 도움이 되어 에너지 효율과 교통 흐름을 향상시킵니다. 제안된 모델은 QMIX 프레임워크를 활용하며, Convolutional Neural Network(CNN)를 통해 처리한 교통 데이터를 통합하여 동적 교통 시나리오에서도 최적의 결정을 내릴 수 있도록 합니다.
+
+- **Technical Details**: 제안된 모델은 다양한 CAV 시장 침투율(market penetration rate) 환경에서 교육 및 평가되었습니다. CAV의 선행 차량과의 협력 및 차선 변경을 통해 교통 흐름을 가장 효율적으로 관리할 수 있도록 설계되었습니다. 또한, 궤적(planning trajectories) 계획가와 모델 예측(controller) 기법이 포함되어 있어 안전한 차선 변경 실행을 보장합니다.
+
+- **Performance Highlights**: 실험 결과 제안된 모델은 기초 규칙 기반 모델에 비해 성능이 현저하게 뛰어난 것으로 나타났습니다. 협력적 플래투닝 비율을 26.2%까지 향상시키며, CAV 간의 협력 및 교통 역학 최적화 능력을 보여주었습니다. 이는 CAV 배치 초기 단계에서 교통 효율성과 안전성을 크게 향상시킬 수 있는 잠재력을 지니고 있음을 시사합니다.
+
+
+
+### A self-evolving multi-role collaborative framework with fine-grained difficulty guidance for innovative mathematical problem generation (https://arxiv.org/abs/2601.11792)
+- **What's New**: 이번 논문에서는 혁신적인 수학 문제 생성(IMPG) 작업을 제안하며, 기존 LLM들이 가지는 낮은 혁신성과 불분명한 판별력을 해결하기 위해 자기 진화하는 다역할 협력 프레임워크를 도입합니다. 이 프레임워크는 샘플러, 생성기, 평가자, 상태 기계 및 메모리로 구성되어 반복 최적화를 통해 생성된 문제의 정확성을 향상시키며, 정교한 난이도 지침을 제공합니다. 최종적으로, HSM3K-CN 데이터셋을 구축하였으며, 이 데이터셋은 3,160개의 고품질 고등학교 수학 문제로 구성되어 있습니다.
+
+- **Technical Details**: 연구에서는 자기 평가를 통한 반복 최적화와 외부 피드백을 활용하여 문제 생성의 품질을 높이는 것을 목표로 합니다. 16비트 난이도 인코딩 체계를 도입하여 문제 난이도를 정량화하고, 데이터 기반 연결 유도 경로 샘플링(DAPS) 알고리즘을 사용하여 의미론적 합리성을 개선합니다. 또한, 지속적 사전 훈련(CPT), 감독된 세부 조정(SFT), 및 그룹 상대 정책 최적화(GRPO)를 포함한 다단계 훈련 파이프라인이 채택되었습니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 기준 모델과 비교하여 생성된 문제의 혁신성과 구별력을 유의미하게 향상시키며, 높은 정확도를 유지하는 것으로 나타났습니다. 특히, 새롭게 제안된 난이도 모델과 자기 진화 메커니즘을 통해 LLM의 문제 생성 능력 및 평가 성능이 크게 향상되었습니다. 이로써 자동 문제 생성 기술의 향후 발전 방향에 유의미한 기초를 마련하게 되었습니다.
+
+
+
+### Risk-Aware Human-in-the-Loop Framework with Adaptive Intrusion Response for Autonomous Vehicles (https://arxiv.org/abs/2601.11781)
+Comments:
+          Submitted to ICRA 2026 (under review)
+
+- **What's New**: 자동차가 다양한 환경에서 운전할 때 안전성과 효율성을 유지하는 것이 중요해졌습니다. RAIL은 이를 위한 위험 인식 휴먼 인 더 루프 프레임워크로, 각기 다른 신호를 통합하여 실시간 제어 적응과 스마트 학습을 실현합니다. 이 프레임워크는 인간 운영자의 감시 아래에서도 작동할 수 있도록 설계되었습니다.
+
+- **Technical Details**: RAIL은 세 가지 핵심 신호, 즉 곡률 작용 신뢰성(curvature actuation integrity), 충돌까지 시간(time-to-collision), 관찰 변화 일관성(observation-shift consistency)을 결합하여 침해 위험 점수(Intrusion Risk Score, IRS)를 생성합니다. 높은 위험 수준에서 RAIL은 추가적인 보호 장치를 적용하며, 필요한 경우에는 인간의 수동 개입을 허용합니다. 또한, 이 시스템은 Soft Actor-Critic(SAC) 알고리즘과 위험 우선 재생(replay) 및 이중 보상을 결합하여 학습을 최적화합니다.
+
+- **Performance Highlights**: 실험 결과, RAIL은 MetaDrive에서 테스트 수익(Test Return, TR) 360.65, 성공률(Test Success Rate, TSR) 0.85, 안전 위반(Test Safety Violation, TSV) 0.75를 기록하며, 기존 강화 학습(RL) 및 안전한 RL, 오프라인/모방 학습 방법에 비해 성능이 우수함을 입증했습니다. 또한, 다양한 사이버 물리 공격 상황에서도 성공률(Success Rate, SR)과 이탈률(Disengagement Rate, DRA)를 효과적으로 개선하는 결과를 보여 주었습니다.
+
+
+
+### PRISM: Learning Design Knowledge from Data for Stylistic Design Improvemen (https://arxiv.org/abs/2601.11747)
+- **What's New**: 이번 논문에서는 디자이너가 스타일 지침을 활용하여 그래픽 디자인을 효과적으로 개선할 수 있는 PRISM(PRior-Informed Stylistic Modification) 방법론을 제안합니다. 기존의 VLM(Visual Language Model)의 전이학습 지식이 특정 도메인 데이터와 잘 어우러지지 않는 문제를 해결하기 위해 디자인 데이터를 활용하여 디자인 지식을 학습하고 스타일을 개선하도록 안내합니다. PRISM은 높은 변동성을 가진 디자인을 클러스터링하여 다양성을 포착하고 각 클러스터를 활용해 실행 가능한 디자인 지식을 요약하는 세 가지 단계로 구성됩니다.
+
+- **Technical Details**: PRISM의 주요 단계는 (1) 스타일 안에서의 다양성을 포착하는 고변동 디자인 클러스터링, (2) 각 클러스터를 실행 가능한 디자인 지식으로 요약, (3) 추론 과정에서 관련 지식을 검색하여 스타일 인식을 통한 개선을 가능하게 하는 것입니다. 지식 추출 단계에서는 디자인 데이터에서 긍정적 및 부정적 예들을 대조하여 고유의 시각적 특성을 포착하는 방식으로 VLM이 디자인 지식을 합성하도록 하며, 이러한 지식을 반복적으로 개선하기 위한 피드백 신호를 제공합니다. 지식 정제 과정에서는 데이터 정렬 및 판별력을 높이기 위하여 불일치 디자인 탐지 및 피드백 생성이 이루어집니다.
+
+- **Performance Highlights**: Crello 데이터셋에서 진행된 실험에 따르면, PRISM은 스타일 정렬에서 평균 순위 1.49로, 기존 방법들과 비교하여 가장 우수한 성과를 나타냈습니다. 사용자 연구에서도 PRISM이 디자이너들에게 지속적으로 선호된다는 결과를 얻었으며, 15개의 스타일 중 11개 스타일에서 사용자가 PRISM을 더 우선시하며, 나머지 3개 스타일에서는 Data2Diverse 모델이 특정 질문에서 선호되는 경향을 보였습니다. 결과적으로, PRISM은 높은 충실도와 다양한 스타일에서의 성능 개선을 입증하였습니다.
+
+
+
+### Reasoning Stabilization Point: A Training-Time Signal for Stable Evidence and Shortcut Relianc (https://arxiv.org/abs/2601.11625)
+Comments:
+          8 pages, Submitted to ACL Rolling Review and is under review
+
+- **What's New**: 본 논문에서는 사전 훈련된 언어 모델의 미세 조정(fine-tuning)이 모델의 결정 과정에 미치는 영향을 분석하는 새로운 방법론을 제안합니다. 이 방법론은 미세 조정의 각 에포크(epoch) 동안 토큰 수준(token-level) 기여도(attribution)를 추적하여 설명의 변화를 측정하는 '설명 드리프트(explanation drift)' 개념을 도입합니다. 우리는 Reasoning Stabilization Point (RSP)를 통해 에포크 간 드리프트가 안정적인 수준으로 유지되기 시작하는 시점을 정의하였습니다.
+
+- **Technical Details**: 설명 드리프트는 고정된 프로브 세트(probe set)를 기반으로 에포크 간의 토큰 기여도 변화량을 측정하며, 이는 모델의 결정 증거가 어떻게 변하는지를 시각화합니다. RSP는 에포크의 결정 증거가 안정화되기 시작하는 신호로, 이는 OOD(Out-Of-Distribution) 데이터 튜닝 없이도 실행 과정에서 도출됩니다. 이러한 방식은 기존의 기계학습 설명 방안들과는 다르게 시간에 따라 변화하는 예측 설명을 제공하는 독창적인 접근법입니다.
+
+- **Performance Highlights**: 다양한 경량 트랜스포머(classifier) 모델과 벤치마크(classification) 작업에서 우리의 연구는 드리프트가 일반적으로 조기 훈련 단계에서 낮고 안정적인 레짐으로 수렴하는 반면, 검증 정확도는 소폭만 변동함을 발견했습니다. 구조화된 단축 키트 환경에서는 기여도 역학이 점점 더 단축 학습(shortcut learning)에 의존하게 됨을 밝혀냈습니다. 이로 인해 설명 드리프트는 미세 조정 중 정적이지 않고 변화하는 결정 증거를 추적할 수 있는 저비용 진단 도구로 활용될 수 있음을 보여줍니다.
+
+
+
+### Dynamical Systems Analysis Reveals Functional Regimes in Large Language Models (https://arxiv.org/abs/2601.11622)
+- **What's New**: 대규모 언어 모델(LLMs)의 내부 동적(dynamic) 구조에 대한 이해가 부족한 상황에서, 본 연구는 신경과학에서의 시간적 통합(temporal integration)과 메타안정성(metastability) 개념을 변압기(transformer) 모델에 적용합니다. 연구는 GPT-2-medium 모델의 자가 회귀 생성(autoregressive generation) 동안의 활성화 시간 시계열을 활용해 동적 지표(dynamical metric)를 계산합니다. 이 새로운 접근법을 통해 지속적 추론(structured reasoning)이 반복적 또는 소음(noisy) 및 장애가 있는 조건들에 비해 더 높은 동적 조직을 보여준다는 것을 입증했습니다.
+
+- **Technical Details**: 신경과학의 원리를 바탕으로 한 이 연구에서는 두 가지 핵심 속성인 위계적 통합(hierarchical integration)과 메타안정성(metastability)을 집중적으로 분석합니다. 위계적 통합은 탈추세 변동 분석(DFA)을 통해 양적 측정하며, 메타안정성은 위상 동기화의 시간적 변동성으로 측정됩니다. 이들은 각각 복합 지표 Ψ′를 형성하고, 이는 여러 실험 조건들(예: 구조화된 추론, 강제 반복, 고온의 노이즈 샘플링 등)에서의 GPT-2의 내부 상태를 구분하는 데 사용됩니다.
+
+- **Performance Highlights**: 연구 결과는 구조화된 추론 조건이 정량적 평가 지표에서 반복적 또는 소음적 조건들보다 유의미하게 높은 값을 나타내는 것을 보여줍니다. 또한, 구조적 장애가 발생할 경우 지표 Ψ′의 중간적인 감소가 나타나며, 이는 모델의 성능이 부분적으로만 저하됨을 의미합니다. 이러한 결과는 실험적 설정(층 축소, 채널 서브샘플링, 랜덤 시드 등)에 대해 강건성을 보여주어, 제안된 동적 지표가 LLM의 기능적 영역을 확실히 구별할 수 있음을 입증합니다.
+
+
+
+### A Mind Cannot Be Smeared Across Tim (https://arxiv.org/abs/2601.11620)
+- **What's New**: 이 논문은 머신의 의식이 단순히 무엇을 계산하는지가 아니라, 언제 계산하는지가 중요하다는 점을 강조합니다. 저자는 Stack Theory를 활용하여 시간적 창(window) 제한에서의 조합(conjunction)과 관련된 대수적 법칙을 추가하며 개념적으로 중요한 시기(Synchrony)와 비동시적(Concurrency) 사상의 차이를 설명합니다. 이론적으로, StrongSync와 WeakSync라는 두 가지 가설을 도입하고, 각 가설의 의미를 명확히 구분합니다.
+
+- **Technical Details**: Stack Theory는 인지 과정을 추상화 수준으로 형식화하는 접근법으로, 두 시스템의 행동이 서로 동일하게 나타날 수 있지만, 더 낮은 수준에서는 다를 수 있음을 보여줍니다. 저자는 또한 주관적 순간(subjective moment)에 필요한 요소들이 항상 객관적 시간(objective time)에서 동기화(synchronization)될 필요는 없다는 점을 주장합니다. 이를 통해, 현재의 하드웨어가 머신의 의식을 호스트(host)하기에 충분할 수 있음을 시사합니다.
+
+- **Performance Highlights**: 저자는 다양한 신경 생리학적(neurophysiological) 증거를 토대로 의식이 위상 동기화(phase synchrony)와 유효 연결성(effective connectivity)에 의존한다는 점을 검토하며, 의식을 잃는 것이 종종 이 두 요소의 감소와 관련이 있다고 주장합니다. 이로 인해 WeakSync 가설의 가능성이 낮아지며, StrongSync의 필요성을 강조하게 됩니다. 특별히, 동기화된 방송(synchronized broadcast)와 인과적 의존성이 있다면, 두 개 이상의 동시에 기여하는 내용이 필요한 경우 소프트웨어 의식이 불가능하다는 결론을 내립니다.
+
+
+
+### MIMIC-RD: Can LLMs differentially diagnose rare diseases in real-world clinical settings? (https://arxiv.org/abs/2601.11559)
+Comments:
+          5 pages
+
+- **What's New**: 이번 연구에서는 드문 질병에 대한 차별적 진단의 한계를 극복하기 위해, MIMIC-RD라는 새로운 벤치마크를 소개합니다. 기존 접근 방식들은 임상 케이스 연구에 의존하거나 ICD 코드에 기반하여 드문 질병을 잘못 분류하는 문제를 안고 있습니다. MIMIC-RD는 임상 텍스트와 Orphanet 데이터베이스를 직접 연결하여 드문 질병을 정확하게 식별할 수 있도록 설계되었습니다.
+
+- **Technical Details**: 연구 방법론은 RDMA를 사용하여 임상 노트에서 드문 질병 정보를 추출하는 것입니다. 이 과정은 LLM을 통해 잠재적 드문 질병을 처음 추출하고, 네 명의 의학 학생에 의해 이를 검증하여 실제 드문 질병인지 확인하는 단계로 이루어집니다. 환자 목록을 기준으로 LLM이 가장 가능성이 높은 드문 질병을 예측하는 차별적 진단을 설정하였습니다.
+
+- **Performance Highlights**: 현재 사용 중인 LLM은 드문 질병의 차별적 진단에서 상대적으로 낮은 성능을 보였습니다. LLM의 예측 정확도는 약 60%의 드문 질병을 놓치는 결과를 나타냈으며, 이는 기존 문헌에서 보고된 성과보다 약 35% 낮은 수치입니다. 환자들의 증상 프로필과 문서화된 질병 프로필 간에서 의미 있는 겹침이 존재함에도 불구하고, LLM은 올바른 질병을 잘 예측하지 못했습니다.
+
+
+
+### VideoMaMa: Mask-Guided Video Matting via Generative Prior (https://arxiv.org/abs/2601.14255)
+Comments:
+          Project page: this https URL
+
+- **What's New**: 본 논문은 Video Mask-to-Matte Model (VideoMaMa)을 소개합니다. 이 모델은 사전 훈련된 비디오 확산 모델을 활용해 거친 분할 마스크를 픽셀 정확도의 알파 매트로 변환합니다. VideoMaMa는 합성 데이터로만 훈련되었음에도 불구하고 실제 비디오에서 강력한 제로샷 일반화를 보여줍니다.
+
+- **Technical Details**: VideoMaMa는 두 단계 훈련 전략을 사용하여 공간적 및 시간적 레이어를 따로 최적화하며, DINOv3의 특징을 통해 의미적 지식을 주입합니다. 이 작업은 비디오 매팅의 강력한 일반화 능력을 가진 모델을 구현하기 위한 과정이며, 다양한 소스로부터 제공된 이진 마스크를 기반으로 실험을 수행했습니다.
+
+- **Performance Highlights**: MA-V 데이터셋에서 SAM2 모델을 미세 조정하여 SAM2-Matte를 구현하였고, 이는 천연 환경에서의 비디오 매팅 성능이 상당히 향상되었습니다. 이러한 결과는 대규모 의사 주석의 중요성을 강조하며, 생성적 우선사항과 접근 가능한 분할 큐가 비디오 매팅 연구의 확장을 이끌 수 있음을 보여줍니다.
+
+
+
+### APEX-Agents (https://arxiv.org/abs/2601.14242)
+- **What's New**: 우리는 AI Productivity Index for Agents(APEX-Agents)를 소개합니다. 이 벤치마크는 투자 은행 분석가, 경영 컨설턴트, 기업 변호사가 만든 장기적인 크로스 애플리케이션(task) 과제를 AI 에이전트가 수행할 수 있는지를 평가합니다. 또한, APEX-Agents는 파일 및 도구가 포함된 현실적인 업무 환경을 탐색해야 합니다.
+
+- **Technical Details**: APEX-Agents 벤치마크에서는 총 8개의 AI 에이전트를 사용하여 Pass@1 기준으로 평가했습니다. 여기서 Gemini 3 Flash(Thinking=High)가 24.0%로 최고 점수를 기록했으며, 그 다음으로 GPT-5.2(Thinking=High), Claude Opus 4.5(Thinking=High), Gemini 3 Pro(Thinking=High)가 있습니다. 이 연구에서는 480개의 벤치마크 프롬프트, 평가 기준, 정답 출력, 파일 및 메타데이터를 공개합니다.
+
+- **Performance Highlights**: APEX-Agents의 성과는 다양한 에이전트들이 얼마나 효과적으로 복잡한 업무를 수행할 수 있는지를 보여줍니다. 특히, Gemini 3 Flash는 매우 높은 점수를 기록하며 해당 분야에서의 가능성을 강조합니다. 본 연구는 또한 Archipelago라는 에이전트 실행 및 평가를 위한 인프라를 오픈 소스로 제공합니다.
+
+
+
+### Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration (https://arxiv.org/abs/2601.14235)
+Comments:
+          84 pages. This is v1.0 of the DESC's white paper on AI/ML, a collaboration document that is being made public but which is not planned for submission to a journal
+
+- **What's New**: Vera C. Rubin Observatory의 Legacy Survey of Space and Time (LSST) 프로젝트는 방대한 이질적인 천문 데이터를 생성하여 기존 분석 파이프라인에 도전합니다. LSST의 Dark Energy Science Collaboration (DESC)은 이러한 데이터에서 신뢰할 수 있는 다크 에너지 및 다크 마터에 대한 제약을 도출하는 것을 목표로 하고 있습니다. 이 과정에서 AI/ML(인공지능/기계학습)의 이용이 점점 중요해지고 있습니다.
+
+- **Technical Details**: DESC의 과학 작업 흐름에서 AI/ML는 포토메트릭(redshifts) 적색편이, 일시적 분류(transient classification), 약한 렌즈 분석(weak lensing inference), 우주론적 시뮬레이션(cosmological simulations) 등 다양한 분야에 도입되었으며, 이러한 방법의 신뢰성은 불확실성 정량화(uncertainty quantification), 공변량 변화(covariate shift), 모델 비명세화(model misspecification) 대한 강건성에 달려 있습니다. 현재 존재하는 기본적인 방법론 및 도전 과제를 조사한 결과, DESC의 다양한 과학 사례에서 공통된 문제들이 나타납니다.
+
+- **Performance Highlights**: 이 사진에서는 Bayesian inference(베이지안 추론)와 같은 대규모 방법론, 물리학 기반 방법(physics-informed methods), 검증 프레임워크(validation frameworks), 발굴을 위한 능동 학습(active learning) 등 여러 가지 연구 우선 과제를 식별하였습니다. 또한, 최신 Foundation Model(기초 모델) 및 LLM 기반의 에이전틱 AI 시스템이 DESC의 작업 흐름을 혁신할 잠재성을 탐구하였습니다. 새로운 방법론의 성공적인 배포를 위해 필수적인 소프트웨어, 컴퓨팅, 데이터 인프라, 그리고 인적 자본 요구사항을 논의하며 외부 기관과의 협력 기회와 위험 또한 고려하였습니다.
+
+
+
+### Q-learning with Adjoint Matching (https://arxiv.org/abs/2601.14234)
+Comments:
+          32 pages, 8 figures, 7 tables
+
+- **What's New**: 이번 논문에서는 Adjoint Matching (QAM)이라는 새로운 TD 기반 강화 학습 알고리즘을 제안합니다. 이 알고리즘은 기존의 지속적 행동 RL에서 발생하는 문제인 파라미터화된 Q-함수에 대한 효율적인 최적화를 다룹니다. QAM은 최근 제안된 생성 모델링 기술을 활용하여 불안정한 역전파를 피하면서 정책의 표현력을 보장합니다.
+
+- **Technical Details**: QAM은 비정상적인 넉넉한 정책을 생성하는 데 필요한 비대칭 매칭(adjoint matching)을 사용합니다. 이 과정에서 비평가의 액션 그래디언트를 변형하여 안정적인 단계별 목표 함수를 형성합니다. 이 기술은 비평가 학습을 위한 동문 차이(temporal-difference) 백업과 결합되어 있습니다.
+
+- **Performance Highlights**: QAM은 하드하고 희소한 보상 작업에서 이전 방법들을 일관되게 초월하는 성능을 보여줍니다. 오프라인 및 오프라인에서 온라인으로 전환하는 RL 환경 모두에서 우수한 결과를 나타냈습니다. 이는 QAM이 표현력과 편향 없는 정책을 최적화하면서도 안정성을 제공함을 보여줍니다.
+
+
+
+### KAGE-Bench: Fast Known-Axis Visual Generalization Evaluation for Reinforcement Learning (https://arxiv.org/abs/2601.14232)
+Comments:
+          38 pages, 44 figures, 3 tables
+
+- **What's New**: 이번 연구에서는 KAGE-Env라는 새로운 2D 플랫폼 환경을 소개합니다. 기존의 벤치마크가 여러 출처의 시프트를 혼합하여 시스템적인 분석을 방해하는 문제를 해결하기 위해, KAGE-Env는 관찰 프로세스를 독립적으로 제어 가능한 시각 축으로 분리했습니다. 이 환경은 픽셀 정책의 상태 조건부 행동 분포에 의한 성능 변화만을 반영하여 시각 일반화에 대한 명확한 추상화를 제공합니다.
+
+- **Technical Details**: KAGE-Env는 JAX를 기반으로 구축되었으며, 여섯 가지 알려진 축을 포함하는 KAGE-Bench 벤치마크를 정의하여 각각의 시각 시프트를 독립적으로 분리합니다. 이를 통해 34개의 학습-평가 구성 쌍을 생성하며, 표준 PPO-CNN 기반선 모델을 사용하여 시프트가 에이전트의 성능에 미치는 영향을 분석합니다. 연구 결과, 배경과 포토메트릭 시프트는 성공률을 크게 떨어뜨리는 반면, 에이전트 외형 시프트는 상대적으로 온화한 영향을 미칩니다.
+
+- **Performance Highlights**: 이번 연구에서 제안한 KAGE-Bench를 통해 시각 축에 따라 강한 실패 패턴이 나타남을 확인했습니다. 일부 시프트는 앞으로 나아가는 동작을 유지하면서도 작업 완료를 방해하여, 보상이 일반화 실패를 가릴 수 있음을 보여주었습니다. 또한 JAX의 완전 벡터화 구현 덕분에 단일 GPU에서 초당 최대 33M 환경 스텝을 가능하게 하여 시각적 요소에 대한 빠르고 재현 가능한 실험을 지원합니다.
+
+
+
+### MASCOT: Towards Multi-Agent Socio-Collaborative Companion Systems (https://arxiv.org/abs/2601.14230)
+Comments:
+          15 pages, 9 figures
+
+- **What's New**: 최근 다중 에이전트 시스템(Multi-Agent System, MAS)은 정서적 및 인지적 지원을 제공하는 유망한 사회적 협력 동반자로 떠오르고 있습니다. 하지만 이러한 시스템은 종종 개인 정체성 붕괴(persona collapse)와 사회적 아첨(social sycophancy) 문제에 직면합니다. 본 논문에서는 이러한 문제를 해결하기 위해 MASCOT이라는 새로운 프레임워크를 제안합니다.
+
+- **Technical Details**: MASCOT은 개인과 집단 행동을 조화롭게 하도록 설계된 이중 최적화(bi-level optimization) 전략을 도입합니다. 이 전략은 1) 개인 에이전트의 정체성 보존을 위한 persona-aware behavioral alignment와 2) 집단 보상에 의해 안내되는 협업 대화 최적화(Collaborative Dialogue Optimization)로 구성됩니다. 이를 통해 개인의 정체성을 유지하면서도 상호작용의 효율성을 개선할 수 있습니다.
+
+- **Performance Highlights**: MASCOT은 심리적 지원 및 직장 환경을 포함한 다양한 평가에서 기존 최첨단 모델 대비 성능이 크게 향상되었습니다. 특히, Persona Consistency에서 최대 +14.1, Social Contribution에서 +10.6의 개선을 달성했습니다. 이러한 성과는 다중 관점 사회 협동 동반자의 엔지니어링을 위한 실용적인 로드맵을 제공합니다.
+
+
+
+### InT: Self-Proposed Interventions Enable Credit Assignment in LLM Reasoning (https://arxiv.org/abs/2601.14209)
+- **What's New**: 본 논문은 Outcome-reward Reinforcement Learning (RL)의 한계를 극복하기 위해 Intervention Training (InT)이라는 새로운 훈련 패러다임을 도입합니다. 기존 방식을 개선하여 모델이 자신의 추론 트레이스에서 단기적인 수정안을 제안하게 하여 더 나은 결과를 유도합니다. 새로운 접근 방식은 오답을 바로잡고 성공적인 경로로의 전환을 지원합니다. 이로 인해 더 신뢰할 수 있는 결과를 도출할 수 있도록 모델이 학습하는 방식이 변화됩니다.
+
+- **Technical Details**: InT는 모델이 자신의 추론 트레이스를 스스로 평가하고, 제안된 수정안에 기반하여 잘못된 경로를 고치는 것입니다. LLM(large language model)은 정확한 답안을 처음부터 생성하는 것보다 모델이 생성한 해답을 검증하는 것이 더 수월하다는 점을 이용합니다. 이 과정에서 SFT(supervised fine-tuning)를 통해, 모델이 개별적인 수정안을 내재화하게 하고, 최종적으로 RL 훈련을 통해 효과적으로 성능을 향상시킵니다.
+
+- **Performance Highlights**: InT를 적용한 후, IMO-AnswerBench와 같은 여러 수학적 문제 기준으로 4B-parameter 기본 모델에서 정확도가 약 14% 향상되었으며, 이는 gpt-oss-20b와 같은 더 큰 오픈소스 모델보다 뛰어난 성과를 보여줍니다. 또한 온라인 RL 훈련 이후, InT는 네 가지의 도전적인 수학적 추론 기준에서 평균적으로 약 10% 성능을 향상시켰습니다. 이러한 결과는 InT가 LLM의 추론 능력을 향상시킬 수 있는 단순하면서도 효과적인 패러다임임을 입증합니다.
+
+
+
+### A model of errors in transformers (https://arxiv.org/abs/2601.14175)
+Comments:
+          8+17pages
+
+- **What's New**: 이번 연구에서는 LLM(대형 언어 모델)의 에러율을 결정론적 출력을 요구하는 산술 작업과 같은 특정 작업에 초점을 맞춰 분석하였습니다. 우리는 주의 메커니즘의 작은 오류가 축적되어 임계값을 초과할 때 부정확한 예측이 발생한다고 주장하며, 이를 통해 정확도와 작업의 복잡성 사이의 정량적 관계를 도출하였습니다. 실험적으로 Gemini 2.5 Flash, Gemini 2.5 Pro 및 DeepSeek R1을 사용하여 예측된 정확도와 관측된 정확도 간의 뛰어난 일치를 발견하였지만 일부 경우에는 편차도 확인했습니다.
+
+- **Technical Details**: 이 연구에서는 LLM의 작업 오류를 설명하기 위해 두 개의 매개변수를 사용할 수 있는 정량적 모델을 제안합니다. 이 두 매개변수는 입력 및 모델에 따라 변동하며, 각각 기본적인 '노이즈율(noise rate)'에 연관된 작은 수 rr와 잠재적인 '오류 방향(error direction)'의 수를 설명하는 차원의 수 qq로 해석됩니다. 이러한 모델은 LLM이 예측 오류가 발생하는 방식을 이해하는 데 필요한 통찰력을 제공합니다.
+
+- **Performance Highlights**: 우리는 8가지 다른 작업과 3개의 최첨단 LLM에 대해 20만 개의 다양한 프롬프트를 사용하여 광범위한 실증 테스트를 수행하였습니다. 이 실험 결과, 제안된 모델이 LLM의 오류를 통계적으로 정확하게 설명하는 것으로 나타났으며, 특정 예에서는 명백한 실패를 보였지만 이는 추가적인 영향을 식별하는 데 기여하였습니다. 마지막으로, 작업의 오류율을 줄이기 위한 프롬프트 구성 방법도 제시하였습니다.
+
+
+
+### Human Values in a Single Sentence: Moral Presence, Hierarchies, and Transformer Ensembles on the Schwartz Continuum (https://arxiv.org/abs/2601.14172)
+Comments:
+          Code: this https URL, 37 pages, 4 figures,
+
+- **What's New**: 이 연구는 텍스트에서 인간의 가치 탐지를 구체적으로 형성하기 위해 Schwartz의 19가지 가치 연속체에 대한 문장 수준 식별을 다룹니다. 뉴스 및 정치 강령의 문맥이 부족한 문장에서, 도덕적 단서가 드물고 클래스 불균형이 심한 환경에서 실제로 이루어집니다. 이는 고급 현대 신경 모델조차도 세밀한 문장 수준 가치 탐지를 intrinsically 어렵게 만듭니다.
+
+- **Technical Details**: 연구에서는 먼저 이진 도덕 존재 작업을 설정하여 단일 문장에서 훈련 가능성을 보여줍니다. 두 가지 접근법, 즉 presence-gated hierarchy와 직접 다중 라벨 분류기를 비교하여 계산량이 같음에도 불구하고 계층적 방식이 직접 예측을 능가하지 못함을 확인했습니다. 또한, Gemma 2 9B, Llama 3.1 8B 등의 instruction-tuned LLMs를 도입하여 zero-/few-shot 및 QLoRA 셋업에서 벤치마크를 수행했습니다.
+
+- **Performance Highlights**: 소프트-보팅(supervised ensemble) 접근법을 통해 macro-F1 0.332를 달성하여 최상위 단일 모델을 상당히 초과했고 이전의 English-only 기준을 초과했습니다. 연구는 높은 성능을 위해서는 경량 신호와 소규모 앙상블이 가장 신뢰할 수 있는 개선을 제공하며, 계층적 게이팅은 제한된 이점만 제공함을 강조합니다. 마지막으로, 8GB의 싱글 GPU 제약하에 세심하게 조정된 감독 인코더가 구조화된 인간 가치 탐지의 강력하고 계산적으로 효율적인 기준으로 남아있음을 주장합니다.
+
+
+
+### Domain-Adaptation through Synthetic Data: Fine-Tuning Large Language Models for German Law (https://arxiv.org/abs/2601.14160)
+- **What's New**: 이번 논문은 독일 법률 질의 응답에 적합하도록 대형 언어 모델(LLM)을 조정하기 위한 새로운 합성 데이터 생성 방법을 제안합니다. 이 방법은 고가의 사람 민감 데이터가 아닌, 권위 있는 독일 법령에서 직접 생성된 고품질 법률 질문-답변 쌍을 제공합니다. 연구진은 엄격한 자동 필터링 방법과 파라미터 효율적인 미세 조정 기법을 활용하여, 합성 데이터에 의해 조정된 LLM이 기존 모델보다 현저히 우수한 성능을 보인다는 것을 입증하였습니다.
+
+- **Technical Details**: 연구는 독일 법률에 기반한 질의 응답 데이터의 합성을 목표로 두 가지 접근 방식을 탐구합니다: (i) 단순한 지침 스타일 생성 및 (ii) 난이도에 따라 질문을 생성하는 전략입니다. 이 모델들은 NLG(Natural Language Generation) 스타일의 필터링 단계가 추가되어 사실적 일관성을 향상시킵니다. 연구진은 LLaMA 3.1과 Gemma 3이라는 두 개의 현대적인 오픈소스 LLM을 활용하여 조정 과정에서 파라미터 효율적인 LoRA 기법을 적용하였습니다.
+
+- **Performance Highlights**: 제안된 방법은 평가 데이터세트에서 쉽게 확인할 수 있으며, 난이도 기반 생성을 통해 기본 모델보다 일관된 상승세를 보이는 결과를 나타냅니다. 독일 법률 질의 응답의 적절한 정확도를 보여줌과 동시에 일반적인 성능 저하가 없습니다. 연구 결과와 함께 세밀하게 설계된 합성 데이터의 사용이 고위험, 지식 집약적 도메인에서 수작업 주석의 실용적인 대안이 될 수 있음을 강조하였습니다.
+
+
+
+### ConceptCaps -- a Distilled Concept Dataset for Interpretability in Music Models (https://arxiv.org/abs/2601.14157)
+- **What's New**: 이 연구에서는 음악 정보 검색에서의 해석 가능성 및 설명 가능성을 위해 "ConceptCaps"라는 새로운 데이터셋을 소개합니다. 23,000개의 음악-설명 쌍으로 구성된 이 데이터셋은 명확한 레이블이 있는 200가지 속성 세분화를 포함하여, 기존의 노이즈 및 불완전한 태그 문제를 해결합니다. 또한, 제안된 두 단계의 생성 파이프라인은 생성된 데이터의 품질과 일관성을 높여 concept-based interpretability 분석을 지원합니다.
+
+- **Technical Details**: 제안된 방법론에서, Variational Autoencoder (VAE)는 음악 속성의 동시 발생 패턴을 학습하고, fine-tuned LLM은 이를 전문적이고 맥락에 맞는 설명으로 변환합니다. 이 두 단계의 접근 방식은 예측 결과의 일관성과 언어 품질을 독립적으로 최적화할 수 있게 해 주며, 이는 전체적인 데이터 셋의 신뢰성을 향상시킵니다. 이 과정에서 CLAP, BERTScore, MAUVE와 같은 다양한 지표가 사용되어 데이터셋의 품질이 검증됩니다.
+
+- **Performance Highlights**: ConceptCaps 데이터셋은 TCAV 분석을 통해 음악적으로 의미 있는 패턴을 회수하는 능력을 입증했습니다. 이 연구는 API 기반 방법들에 비해 낮은 계산 비용으로 경쟁력 있는 성과를 달성하며, VAE 잠재 공간 샘플링을 통해 데이터셋 특성을 세밀하게 조정할 수 있는 자유도를 제공합니다. 결과적으로, 이 데이터셋은 해석 가능성을 중요시하는 연구에 필수적인 고품질 데이터를 제공하는 데 기여할 것입니다.
+
+
+
+### LLM Augmented Intervenable Multimodal Adaptor for Post-operative Complication Prediction in Lung Cancer Surgery (https://arxiv.org/abs/2601.14154)
+Comments:
+          Accepted to P2P-CV @ WACV 2026
+
+- **What's New**: 이번 연구에서는 MIRACLE이라는 딥러닝 아키텍처를 소개하며, 이는 폐암 수술 후 합병증의 위험을 예측하는 데에 특화되어 있습니다. MIRACLE은 수술 전 임상 및 방사선 데이터를 통합하여 하이퍼구형 임베딩 공간을 활용해 높은 차원의 정보를 효과적으로 추출합니다. 이를 통해 기존의 예측 모델들에 비해 더욱 개인화되고 설명 가능한 위험 예측이 가능해졌습니다.
+
+- **Technical Details**: MIRACLE 프레임워크는 임상 데이터, 방사선학적 바이오마커, 임상 전문가가 조정 가능한 자연어 설명을 통합하여 위험 예측의 정확성과 해석 가능성을 높입니다. Bayesian MLP 아키텍처를 채택하여 데이터가 불균형하게 분포된 경우에도 과적합(overfitting)을 방지하며 강력한 학습을 가능하게 합니다. 연구에 사용된 POC-L 데이터셋은 3,094명의 폐암 수술 환자로 구성되어 있습니다.
+
+- **Performance Highlights**: MIRACLE은 폐암 수술 후 합병증의 위험 예측에서 전통적인 머신러닝 모델 및 여러 대규모 언어 모델(LLM)보다 우수한 성능을 보였습니다. AUC 및 True Positive Rate에서 높은 성과를 기록하며, 임상적으로 의미 있는 False Positive Rate에서도 현저한 결과를 나타냈습니다. 이는 MIRACLE이 예측 결과의 투명성을 높이고, 토대가 강화된 해석을 제공함으로써 임상 의사들의 의사결정 지원 시스템으로서 타당성을 가지게 됨을 보여줍니다.
+
+
+
+### Lost in the Prompt Order: Revealing the Limitations of Causal Attention in Language Models (https://arxiv.org/abs/2601.14152)
+Comments:
+          preprint
+
+- **What's New**: 이번 연구는 대규모 언어 모델(Large Language Models, LLMs)의 프롬프트 구조에 대한 민감성을 심층적으로 조사합니다. 특히 다중 선택 질문 답변(MCQA)에서 문맥을 질문과 옵션 앞에 배치하는 경우(CQO)가 반대 순서(QOC)보다 평균적으로 14%p 개선된 성능을 보이는 사례를 다룹니다. 이러한 발견은 LLM의 성능을 향상시키기 위한 새로운 관점을 제공합니다.
+
+- **Technical Details**: 이 연구의 핵심 메커니즘은 인과적 주의(causal attention)로, QOC 프롬프트의 인과적 마스크가 옵션 토큰이 문맥에 주목하지 못하게 하여 정보 병목을 생성하는 것으로 나타났습니다. 다양한 모델과 데이터셋에서 QOC의 성능 저하 원인으로 세 가지 가설을 세우고, 인과적 주의가 가장 일관된 설명임을 입증하기 위해 여러 실험을 수행했습니다. 실험 결과, 문맥 길이와 옵션 위치가 인과적 마스킹의 영향을 미칠 수 있다는 사실도 발견했습니다.
+
+- **Performance Highlights**: 모델 비교 실험을 통해 디코더 전용(를) 모델에서 14.72%의 성능 격차를 보이는 반면, 인코더-디코더 및 인코더 전용 모델에서는 유의미한 차이가 없다는 결과를 얻었습니다. 이로써 인과적 주의가 MCQA에서 문맥 순서 민감성의 주요 메커니즘임을 확인했습니다. 또한 CQO에서 문맥이 더 잘 활용되는 반면 QOC에서는 옵션 자체에 대한 의존도가 증가하는 경향이 관찰되었습니다.
+
+
+
+### Style Transfer as Bias Mitigation: Diffusion Models for Synthetic Mental Health Text for Arabic (https://arxiv.org/abs/2601.14124)
+- **What's New**: 이 연구는 정신 건강 분석에서 데이터 부족과 성별 편향을 줄이기 위한 새로운 접근법인 프리트레이닝(Pretraining) 없는 확산 기반(diffusion-based) 기법을 제안합니다. 기존 대형 언어 모델(LLMs)에 의존하지 않고, 성별 편향 완화를 스타일 전이(style transfer) 문제로 재구성하여 고유한 데이터 생성을 가능하게 합니다. CARMA 아랍어 정신 건강 코퍼스를 활용하여 남성-여성 스타일 전이를 통해 여성 작가의 콘텐츠를 보강하는 데 중점을 두었습니다.
+
+- **Technical Details**: 이 연구에서는 아랍어 데이터셋의 성별 표현을 캡처하기 위해 다섯 개의 데이터셋을 구성하고 각각의 설정에서 별도의 확산 모델을 훈련했습니다. 확산 기반 스타일 전이 방식을 통해 생성된 데이터는 원본 텍스트와의 의미적 충실도를 유지하며, 성별 변환을 가능하게 하는 언어적 진실성을 확보했습니다. 텍스트 스타일 전이 확산 모델은 아랍어 호환 토크나이저(tokenizer)를 사용하여 훈련 목표를 단순화하여 설정하였습니다.
+
+- **Performance Highlights**: 제작된 합성 데이터는 원본 데이터와 비교할 때 상대적으로 높은 엔트로피(entropy)를 나타내어 다양성을 확보하고 있으며, 명확한 스타일 변화가 확인되었습니다. 연구 결과는 확산 기반 스타일 전이가 프리트레인된 LLM에 의존하지 않고도 성 féminin 데이터를 효과적으로 생성할 수 있음을 보여주었습니다. 이는 정신 건강 분야와 같이 데이터 자원이 부족한 민감한 주제에서 성별 편향을 완화하는데 효과적이고 유연한 프레임워크를 제공합니다.
+
+
+
+### Riemannian Liquid Spatio-Temporal Graph Network (https://arxiv.org/abs/2601.14115)
+Comments:
+          This paper has been accepted to The Web Conference 2026
+
+- **What's New**: 본 논문에서 저자는 Riemannian Liquid Spatio-Temporal Graph Network (RLSTG)라는 새로운 프레임워크를 소개합니다. 이 모델은 연속 시간 액체 역학을 리만 기하학의 기하학적 유도 편향과 통합하여 비유클리드 구조를 가진 그래프의 진화를 모델링합니다. RLSTG는 곡면에서 직접 정의된 Ordinary Differential Equation (ODE)을 통해 그래프의 진화를 모델링하고, 이를 통해 구조적으로 정적인 그래프와 동적인 그래프 모두의 본질적인 기하학을 충실하게 포착할 수 있습니다.
+
+- **Technical Details**: RLSTG는 매니폴드의 접선 공간에서 설계되며, 리만 기하학의 맥락에서 정의된 매핑을 사용합니다. 독창적인 ODE 솔버가 비선형 역학을 위해 개발되었으며, 이는 리만 도메인에서 LTC의 안정성 정리를 확장하는 이론적 보장을 제공합니다. 이러한 이론적 배경을 통해 RLSTG는 복잡한 구조를 가진 그래프에서의 표현력을 정량화할 수 있습니다.
+
+- **Performance Highlights**: 실제 벤치마크에 대한 광범위한 실험을 통해 RLSTG는 비유클리드 구조를 가진 불규칙하게 샘플링된 데이터에서 우수한 성능을 발휘하는 것으로 나타났습니다. RLSTG는 기존의 모델들보다 데이터 처리 및 그래프 표현 학습에서 유의미하게 개선된 결과를 보여주어, 조직적 비유클리드 구조를 효과적으로 다룰 수 있는 가능성을 제시합니다.
+
+
+
+### Causal feature selection framework for stable soft sensor modeling based on time-delayed cross mapping (https://arxiv.org/abs/2601.14099)
+- **What's New**: 이 논문에서는 제조업 및 산업 응용 분야에서 소프트 센서 모델의 성능을 향상시키기 위한 새로운 인과적 특징 선택(causal feature selection) 프레임워크를 제안합니다. 기존의 방법들은 산업 프로세스의 인과 관계를 시간 지연(time delays) 없이 동일한 시간 차원에서 조사하는 경향이 있습니다. 또한, 산업 프로세스 내의 변수들은 종종 상호 의존적(interdependent)인 특성을 가지며, 이는 전통적인 인과 추론 방법의 비상관 가정(decorrelation assumption)과 모순됩니다. 이러한 문제를 해결하기 위해 제안된 프레임워크는 이러한 두 가지 특성을 고려합니다.
+
+- **Technical Details**: 제안된 방법인 타임 딜레이드 커브지로스 맵핑(time-delayed cross mapping)은 상태공간 재구성을 활용하여 인과 분석에서 상호 의존적 변수를 효과적으로 처리합니다. 또한 시간 지연에 따른 변화하는 인과 강도(causal strength)도 고려합니다. 이 연구에서는 전체 인과 추론을 위한 시간지연 수렴 체계형 커브지로스 맵핑(TDCCM)과 직접 인과 추론을 위한 시간지연 부분 커브지로스 맵핑(TDPCM)을 도입합니다. 마지막으로 자동 특징 선택을 달성하기 위해, 특정 목표를 기반으로한 특징 선택 전략을 제시하며, 이는 검증 세트(validation set)에서 모델 성능에 따라 인과 임계값(causal threshold)을 자동으로 결정합니다.
+
+- **Performance Highlights**: 실제 사례 연구 두 건에서 TDCCM이 가장 높은 평균 성능을 보이며, TDPCM은 최악의 시나리오에서 소프트 센서의 안정성과 성능을 개선하는 것으로 나타났습니다. 이러한 접근 방식은 소프트 센서 모델의 정확성과 안정성을 동시에 확보할 수 있는 잠재력을 가지고 있습니다. 결과적으로, 제안된 방법들은 산업 프로세스를 보다 효과적으로 모니터링할 수 있게 해줍니다.
+
+
+
+### Zero-shot adaptable task planning for autonomous construction robots: a comparative study of lightweight single and multi-AI agent systems (https://arxiv.org/abs/2601.14091)
+- **What's New**: 이 연구는 건설 로봇의 작업 계획에서 적응력과 일반화 가능성을 향상시키기 위해 Foundation Models의 잠재력을 탐구합니다. 저비용의 오픈 소스 대형 언어 모델(LLMs)과 비전 언어 모델(VLMs)을 사용하여 네 가지 모델을 제안하고 구현했습니다. 이 모델은 단일 에이전트 하나 및 협력하여 로봇 작업 계획을 수립하는 세 개의 다중 에이전트 팀으로 구성됩니다.
+
+- **Technical Details**: 제안된 모델은 Painter, Safety Inspector, Floor Tiling 등 세 가지 건설 역할에서 평가되었습니다. 네 개의 에이전트 팀은 최신의 GPT-4o보다 대부분의 지표에서 성능이 우수하며, 비용 효과성이 10배나 높습니다. 세 개와 네 개의 에이전트를 가진 팀은 모두 향상된 일반화를 보여줍니다.
+
+- **Performance Highlights**: 이 연구는 에이전트 행동이 출력에 미치는 영향을 논의하여 AI 팀에 대한 이해를 높이고, 건설 이외의 다양한 비구조적 환경에서의 미래 연구를 지원합니다. 특히 네 에이전트 팀의 우수한 성능과 비용 효율성을 통해 건설 산업 내 로봇 활용 가능성을 더욱 강조했습니다.
+
+
+
+### '1'-bit Count-based Sorting Unit to Reduce Link Power in DNN Accelerators (https://arxiv.org/abs/2601.14087)
+Comments:
+          Accepted for oral presentation at the 2026 VLSI Symposium on Technology, Systems and Applications (VLSI TSA) on April 13-17, 2026, at the Ambassador Hotel, Hsinchu, Taiwan
+
+- **What's New**: 이번 연구는 DNN 가속기를 위한 새로운 하드웨어 구현으로서, 비교 없는(popcount) 정렬 유닛을 제안합니다. 특히, 이 구현은 근사(computation) 정렬을 활용하여 Convolutional Neural Networks (CNN)을 최적화하고 하드웨어 공간을 줄이는 것을 목표로 합니다. 하드웨어 효율성을 증가시키고 데이터 재정렬의 전력 이점을 유지하면서 기존의 정밀 구현 대비 35.4%의 면적 감소와 19.50%의 BT(Bit Transition) 감소를 달성한 점이 특징입니다.
+
+- **Technical Details**: 연구의 핵심은 정확한 정렬 유닛(ACC-PSU)과 근사 정렬 유닛(APP-PSU)의 하드웨어 구조 설계에 있습니다. APP-PSU는 정확한 인구 집계(population counting) 기술을 사용하여 인구 수를 거칠게 그룹화함으로써 데이터 경로 폭을 줄여 하드웨어 오버헤드를 감소시킵니다. 이 구조는 3단계로 이루어진 정렬 유닛을 통해 구현되며, 이는 popcount 단계, prefix sum 단계, 인덱스 매핑 단계로 구성되어 있습니다.
+
+- **Performance Highlights**: 실험 결과, column-major 정렬 방식이 비최적화된 기준에 비해 BT를 14.366% 감소시키며, 새로운 주문 전략을 적용했을 때 ACC 정렬이 20.177%, APP 정렬이 19.305%의 BT 감소를 보여주었습니다. 또한, APP-PSU는 ACC-PSU에 비해 상대적으로 면적이 줄어들어 더 효율적인 하드웨어 설계를 이끌어내었습니다.
+
+
+
+### Two-Stream temporal transformer for video action classification (https://arxiv.org/abs/2601.14086)
+- **What's New**: 이 연구에서는 새로운 두 가지 스트림(transformer)을 이용한 비디오 분류기(model)를 제시합니다. 이 모델은 비디오에서 시공간(spatio-temporal) 정보를 추출하며, 움직임을 나타내는 광학 흐름(optical flow)을 포함합니다. 최근의 transformer 네트워크들이 자가 주의(self-attention) 메커니즘을 통해 효율성을 보여주었고, 우리의 방법론이 세 가지 유명한 비디오 데이터셋에서 좋은 결과를 제공함을 제시합니다.
+
+- **Technical Details**: 이 연구의 제안된 모델은 컨텐츠와 광학 흐름을 통한 자기 주의(feature)를 식별하며, 이를 transformer 인코더 메커니즘 내에서 관계를 나타냅니다. 비디오에서 정적 장면(static scene)과 움직임(movement)을 각각 나타내는 두 가지 데이터 스트림을 사용하여 분류합니다. 또한, 광학 흐름 예측을 위한 신경망(neural network)을 사용하여, 각 픽셀의 변위를 나타내는 밀집 변위 필드(dense displacement field)를 추정합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 두 가지 스트림 transformer 모델이 UCF101, HMDB51, Kinetic-400과 같은 여러 비디오 벤치마크 데이터셋에서 우수한 분류 성능을 보여주었습니다. 특히, 영상 분류에서 CNNs보다 더 나은 성능을 달성하였으며, 비디오 장면과 움직임 기능(fusion features)을 효과적으로 융합하여 특징을 추출할 수 있음을 입증했습니다.
+
+
+
+### DermaBench: A Clinician-Annotated Benchmark Dataset for Dermatology Visual Question Answering and Reasoning (https://arxiv.org/abs/2601.14084)
+- **What's New**: 이 논문에서는 피부과 분야의 비주얼-언어 모델(vision-language models, VLMs)에 대한 평가를 위한 새로운 데이터 세트인 DermaBench를 소개합니다. DermaBench는 Diverse Dermatology Images (DDI) 데이터 세트를 기반으로 하여 피부과 전문의가 주석을 달았으며, 진단 및 병변에 대한 다각적인 질문과 답변 쌍을 포함합니다. 이 데이터 세트는 임상적 진단 능력과 언어 기반의 이해를 평가하기 위해 설계되었습니다.
+
+- **Technical Details**: DermaBench는 570명의 고유 환자에서 촬영된 656개의 임상 이미지를 포함하며, 각 이미지는 피부 구조, 색상, 그리고 병변 형태 등 다양한 관점에서 주석이 달렸습니다. 이 데이터 세트는 22개의 주요 질문을 기반으로 하여 피부과적 해부 및 병변의 주석을 따릅니다. 각 질문은 전문 피부과 의사에 의해 작성되었으며, 임상 실무에 부합하는 방식으로 구성되었습니다.
+
+- **Performance Highlights**: DermaBench는 기존 데이터 세트의 신뢰성과 심층적인 주석 부족 문제를 해결하며, 각 이미지에 대해 최소 두 명의 전문가가 독립적으로 주석을 달았습니다. 이를 통해 VLM의 시각적 이해와 임상적 사고 능력을 평가할 수 있는 신뢰할 수 있는 벤치마크를 제공합니다. DermaBench는 공적으로 이용 가능하며, 임상적으로 정렬된 다중 모달 AI 연구의 기초가 될 것입니다.
+
+
+
+### Unsupervised Video Class-Incremental Learning via Deep Embedded Clustering Managemen (https://arxiv.org/abs/2601.14069)
+- **What's New**: 이 논문에서는 비지도 동영상 클래스 점진적 학습(uVCIL)이라는 새로운 접근 방식을 제안합니다. 기존의 감독된 학습 기법들이 라벨에 의존하여 높은 비용과 인력 소모를 요구했던 것과 비교하여, 제안된 방법은 데이터 라벨 없이 동영상 정보를 지속적으로 학습할 수 있는 가능성을 제공합니다. 이를 위해 각 작업(Task)에서 대표적인 동영상 특징들을 차례로 클러스터링하는 방식을 적용하여 지식을 이전 작업으로부터 전이합니다.
+
+- **Technical Details**: 제안된 방법은 깊은 특징 추출기(deep feature extractor) 네트워크를 활용하여 작업마다 비슷한 특징을 추출합니다. 이로 인해 사용자는 감독이 없는 상황에서도 심층 클러스터를 점진적으로 구축할 수 있으며, 각 작업의 모델은 이전 작업으로부터 업데이트 된 상태를 초기값으로 사용합니다. 클러스터 정확도(cluster accuracy)를 극대화하기 위해, 고정된 클러스터 수를 사용하고, 각 비디오에 대해 특징 간의 거리 계산을 통해 유사성을 측정하여 클러스터 할당을 수행합니다.
+
+- **Performance Highlights**: 논문에서 제안된 방법은 UCF101, HMDB51 및 Something-to-Something V2와 같은 세 가지 표준 비디오 액션 인식 데이터셋에서 실험되었으며, 감독된 설정에서 라벨을 무시하고도 다른 기준선 모델보다 우수한 성능을 보였습니다. 특히, 클러스터 불균형 문제에 대한 해결책을 제시함으로써 다양한 클러스터에 충분한 데이터가 없는 상황에서도 안정성을 유지하며 새로운 정보를 학습할 수 있는 균형을 제공합니다.
+
+
+
+### XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs (https://arxiv.org/abs/2601.14063)
+Comments:
+          30 Pages, 13 Figures
+
+- **What's New**: 이번 연구에서는 XCR-Bench라는 크로스 문화적 추론 벤치마크를 소개합니다. XCR-Bench는 4,900개의 병렬 문장과 1,098개의 문화 특정 아이템(CSI)를 포함하며, 세 가지 별도의 추론 과제로 구성되어 있습니다. 이 데이터셋은 Newmark의 CSI 프레임워크와 Hall의 문화 3요소를 통합하여 보다 체계적인 문화적 추론을 가능하게 합니다.
+
+- **Technical Details**: XCR-Bench는 CSI 식별, CSI 예측, CSI 적응의 세 가지 과제를 정의하고 있습니다. 각 과제는 문화적 추론을 조작화하며, 모델이 문화적 단서를 해석하고 맥락에 적합성을 평가하며 문화적으로 기반이 있는 결정을 정당화하는 과정을 요구합니다. 문화적 요소의 측정은 가시적, 반가시적, 비가시적 문화적 수준을 포함하여 구조화됩니다.
+
+- **Performance Highlights**: 최신 LLM들이 서양 문화 관련 요소를 예측하는 데에서는 비교적 강한 성능을 보이지만, CSI를 식별하거나 문화적 맥락에 맞춰 적응하는 데 있어서는 상당히 약한 성능을 보였습니다. 이러한 결과는 단일 언어 내에서 지역적 편향도 드러내며, 특정 문화 변형 간의 적응 성능에 차이가 있음을 보여줍니다.
+
+
+
+### POCI-Diff: Position Objects Consistently and Interactively with 3D-Layout Guided Diffusion (https://arxiv.org/abs/2601.14056)
+- **What's New**: 본 논문에서는 일관된 3D 레이아웃 제어 및 편집이 가능한 텍스트-이미지(Text-to-Image, T2I) 생성의 새로운 확산 기반 접근 방식을 제안합니다. 기존의 방법들이 2D 큐를 사용하거나 반복적인 복사-변형-붙여넣기 전략을 활용하는 반면, 이 방법은 3D 기하학적 제약과 인스턴스 수준의 의미 결합을 통합한 확산 프로세스를 통해 보다 일관된 결과를 제공합니다. Novel formulation인 POCI-Diff를 통해 물체의 위치를 일관되게 제어할 수 있습니다.
+
+- **Technical Details**: POCI-Diff는 Blended Latent Diffusion을 활용하여 개별 텍스트 설명을 특정 3D 바운딩 박스와 결합합니다. 이 방법은 복잡한 다중 물체 장면의 원샷 합성을 가능하게 하며, 픽셀 변형이 아닌 재생성을 통해 물체 삽입 및 삭제를 지원하는 변형 없는 생성 편집 파이프라인을 제안합니다. IP-Adapter를 사용하여 참조 이미지를 통해 확산 과정을 조절함으로써 상호작용 3D 편집에서 물체의 일관성과 장면의 일관성을 보존합니다.
+
+- **Performance Highlights**: 실험 결과, POCI-Diff는 지정된 3D 레이아웃 및 편집에 일관된 고품질 이미지를 생성하며, 기존의 최신 기술들과 비교하여 시각적 충실도와 레이아웃 준수성에서 뛰어난 성능을 발휘했습니다. 또한, 기하학적 왜곡을 제거하여 물체의 정체성을 유지하며 전체 장면의 조화를 잘 이루도록 합니다. POCI-Diff는 여전히 높은 계산 효율성을 유지하면서도 원샷 장면 생성, 객체별 의미 제어, 변형 없는 편집을 동시에 지원하는 유일한 방법입니다.
+
+
+
+### Decoder-Free Supervoxel GNN for Accurate Brain-Tumor Localization in Multi-Modal MRI (https://arxiv.org/abs/2601.14055)
+Comments:
+          10 pages, 3 figures,
+
+- **What's New**: 현재 의료 이미징을 위한 최신 비전 백본은 밀집된 voxel 그리드를 처리하는 데 많은 파라미터를 사용하는 encoder-decoder 구조를 채택하고 있습니다. 본 연구에서는 SVGFormer라는 decoder-free 파이프라인을 도입하여 볼륨을 semantic graph로 분할하는 content-aware grouping 단계를 적용했습니다. 이 방법은 특징 학습에 집중하면서도 패치 수준에서 지역 수준까지의 이중 스케일 설명 가능성을 제공합니다.
+
+- **Technical Details**: SVGFormer는 hierarchical 인코더를 활용하여 patch-level Transformer와 supervoxel-level Graph Attention Network(GAT)를 결합함으로써 세부 지역 특징과 더 넓은 지역 간 종속성을 동시에 모델링합니다. 이 방식은 인코더 전용 모델을 통해 EEG 이미지를 효율적으로 분석할 수 있는 기반을 마련하며, 복잡한 디코더 없이도 뚜렷한 분류와 지역 기반 예측을 가능하게 합니다.
+
+- **Performance Highlights**: BraTS 데이터셋에서 두 개의 전문 모델을 훈련한 결과, F1-score는 0.875, 평균 절대 오차(MAE)는 0.028을 기록하며 견고한 성능을 보였습니다. 이러한 결과는 그래프 기반 인코더가 해부학적 특징을 효과적으로 학습하고 있다는 것을 확인시켜 주었습니다. 이 연구는 3D 의료 이미지 표현을 위한 새로운 방향성을 제시합니다.
+
+
+
+### LLMOrbit: A Circular Taxonomy of Large Language Models -From Scaling Walls to Agentic AI Systems (https://arxiv.org/abs/2601.14053)
+- **What's New**: 이번 논문은 인공지능(AI)의 발전과 관련된 혁신적인 변화들을 다루고 있습니다. LLMOrbit라는 포괄적인 순환 분류법을 통해 2019년부터 2025년까지의 대형 언어 모델(LLM)에 대한 조사 결과를 제시하며, 50개 이상의 모델을 분석합니다. 이 연구는 현대 LLM의 아키텍처 혁신, 훈련 방법론, 효율성 패턴 등을 문서화하고 있습니다.
+
+- **Technical Details**: 논문은 AI의 세 가지 주요 위기를 식별합니다: 데이터 부족(2026-2028년까지 9-27T 토큰 고갈), 비용 증가(5년 내 3M 달러에서 300M+ 달러로의 증가), 비효율적인 에너지 소비(22배 증가). 이 문제를 극복하기 위한 여섯 가지 패러다임을 강조하며, 테스트 시간 처리, 양자화, 분산 엣지 컴퓨팅, 모델 병합 등 다양한 혁신적 접근 방식을 제시합니다.
+
+- **Performance Highlights**: 최신 모델들의 성능 개선 파라다임도 두드러집니다. 예를 들어, DeepSeek-R1은 10배의 추론 컴퓨팅으로 GPT-4 성능을 달성했으며, 개방형 소스인 Llama 3는 88.6% MMLU 성능으로 GPT-4를 초월했습니다. 이러한 혁신은 에너지 효율성을 개선하고 비용을 줄이며 AI 시스템의 민주화를 촉진하는 데 기여합니다.
+
+
+
+### Kakugo: Distillation of Low-Resource Languages into Small Language Models (https://arxiv.org/abs/2601.14051)
+- **What's New**: Kakugo는 낮은 자원이 있는 언어를 위한 일반 목적의 Small Language Models (SLMs)를 훈련시키기 위해 설계된 혁신적이며 비용 효율적인 파이프라인입니다. 언어 이름만을 입력으로 사용하여 다양하고 효과적인 훈련 데이터를 생성하고, 54개의 낮은 자원 언어에 대한 SLM을 생산했습니다. Kakugo는 언어 특화 AI 도구 개발을 위한 접근성을 대폭 향상시킵니다.
+
+- **Technical Details**: Kakugo는 모델 증류(model distillation)를 활용하여 전체 개발 프로세스를 자동화합니다. 큰 teacher model인 GPT-OSS 120B를 사용하여 다양한 합성 프롬프트와 응답을 생성하고, 고품질 instruction datasets를 목표 언어로 번역함으로써 훈련 데이터를 생성합니다. 이를 통해 학생 모델인 IBM의 Granite 4 Micro를 미세 조정(fine-tuning)합니다.
+
+- **Performance Highlights**: Kakugo는 번역, 분류(classification), 질문 응답(question answering) 등 여러 일반 NLP 작업에서 성능을 향상시킵니다. 이 파이프라인은 기존 모델들에 비해 여러 작업에서 일관되게 성능이 개선되는 것을 보여줍니다. 또한, 언어당 50달러 이하의 비용으로 언어 특화 SLM을 개발할 수 있는 방법을 제공합니다.
+
+
+
+### Collective intelligence in science: direct elicitation of diverse information from experts with unknown information structur (https://arxiv.org/abs/2601.14047)
+Comments:
+          21 pages
+
+- **What's New**: 이 논문은 복잡한 과학적 가설에 대한 일반적인 문제를 해결하기 위한 새로운 접근 방식을 제안합니다. 전문가들이 모여 자신의 개인 정보를 공유하고 예측 시장(prediction market)에서 플레이 머니(play-money)를 활용하여 정보 교환을 진행할 수 있는 체계를 소개하고 있습니다. 이 시스템은 전문가들이 서로의 정보를 이해하고 가설에 대한 신뢰도를 평가할 수 있는 효율적인 방법을 제공하여, 기존의 복잡한 베이시안 계산(Bayesian calculations)의 필요성을 줄입니다.
+
+- **Technical Details**: 제안된 메커니즘은 전문가들이 자신의 개인 정보를 공유하도록 유도하는 간단한 설계를 바탕으로 구성됩니다. 설명된 예에서, 각 전문가는 자신의 정보 구조를 기반으로 다른 전문가의 신념을 해석할 수 있도록 합니다. 이 메커니즘은 다양한 실험 결과와 AI 시스템의 분석 등을 포함하여 전문가들 사이의 비공식적인 통신을 촉진하는 역할을 합니다.
+
+- **Performance Highlights**: 이 시스템은 전문가들이 보유한 정보를 효율적으로 집계할 수 있는 방법을 제공하며, 가설의 진위 여부를 역설적으로 해결할 수 있는 가능성을 열어줍니다. 보상 체계는 전문가들이 의견을 나누고 협력하는 데 동기를 부여함으로써, 대규모 연구를 위한 혁신적인 자금 지원 방식으로 작용할 수 있습니다. 최종적으로, 이러한 과정은 전문가들이 어떻게 서로의 신념을 공통으로 이해할 수 있는지를 잘 보여주며, 특히 정보의 파편화와 비대칭 문제를 해결하는 데 기여할 수 있습니다.
+
+
+
+### Top 10 Open Challenges Steering the Future of Diffusion Language Model and Its Variants (https://arxiv.org/abs/2601.14041)
+- **What's New**: 대규모 언어 모델(LLMs)의 발전은 현재 순차적인 텍스트 생성 방식을 사용하는 자가 회귀(auto-regressive, AR) 아키텍처에 의해 정의되고 있습니다. 그러나 이러한 AR 모델은 인과적 병목 현상(causal bottleneck)으로 인해 즐겨 사용되는 구조적 예측과 반복적인 수정의 한계를 지니고 있습니다. 여기서 확산 언어 모델(Diffusion Language Models, DLMs)이 대안으로 제시되며, 이는 텍스트 생성을 조각을 다듬는 조각가의 모습에 비유하여 더 나은 보고서, 계획, 또는 이론 등의 구조적 출력을 iteratively refinements 할 수 있습니다.
+
+- **Technical Details**: DLM은 전체 텍스트를 동시적으로 정제하는 과정을 특징으로 하며, 비순차적 생성(non-sequential generation), 양방향 문맥 모델링(bidirectional context modeling), 유연한 텍스트 편집을 지원하는 장점이 있습니다. 하지만 현재 DLM들은 주로 AR 모델을 위해 최적화된 구조적 인프라와 데이터 파이프라인 제약으로 인해 비효율적입니다. 이러한 문제를 해결하기 위해 DLM의 기반 인프라와 알고리즘 최적화 방식, 인지적 추론(cognitive reasoning) 및 통합된 멀티모달 인공지능의 필요성이 강조되고 있습니다.
+
+- **Performance Highlights**: DLM이 다음 세대 AI 모델인 복잡한 구조적 추론 및 동적인 자기 수정 기능을 갖출 수 있도록 하는 것이 중요하다고 주장합니다. Diffusion-native 시스템은 다중 규모의 토큰화와 활동적 리마스킹(active remasking)을 통해 인과적 한계를 초월하는 방향으로 나아가야 하며, 이러한 방향성을 갖추어 나가면서 이론적 가능성을 높일 수 있습니다. 특히, 기존의 기계 모델들이 겪는 생산성 저하와 구조적 지능 부족 문제를 해결하는 데 있어 DLM은 더 우수한 대안을 제공할 수 있습니다.
+
+
+
+### Generalizing Abstention for Noise-Robust Learning in Medical Image Segmentation (https://arxiv.org/abs/2601.14039)
+- **What's New**: 이번 논문에서는 의료 이미지 분할에서의 라벨 노이즈(label noise) 문제를 해결하기 위해 보편적이고 모듈화된 절제(abstention) 프레임워크를 소개합니다. 이 프레임워크는 다양한 손실 함수(loss functions)의 노이즈 내구성을 향상시키는 것을 목표로 하며, 이전 연구보다 두 가지 핵심 요소를 추가했습니다. 정보 기반의 정규화 항(informed regularization term)을 통해 절제 행동을 유도하고, 절제 패널티(abstention penalty)에 대한 유연한 파워-law 기반 자동 조정 알고리즘(power-law-based auto-tuning algorithm) 을 통합했습니다.
+
+- **Technical Details**: 논문에서 제안하는 절제 메커니즘은 기존의 Deep Abstaining Classifier (DAC)과 Informed Deep Abstaining Classifier (IDAC)를 기반으로 하고 있습니다. 우리는 GAC(Generalized Abstaining Classifier), SAC(Symmetric Abstaining Classifier), ADS(Abstaining Dice Segmenter)라는 새로운 손실 함수 세 가지를 도입하여 이들 손실 함수와 통합하여 절제 메커니즘을 구현했습니다. 이는 각 클래스별 절제(class-wise abstention) 및 클래스별 노이즈 비율을 반영하여 더 정교하게 조정됩니다.
+
+- **Performance Highlights**: CaDIS 및 DSAD 의료 데이터셋에서 실시한 실험 결과, 제안한 방법이 일반적인 빈약한 기준선(non-abstaining baselines)에 비해 일관되게 더 나은 성능을 보였습니다. 특히, 높은 노이즈 수준(higher noise levels)에서 더욱 두드러진 성능 개선이 관찰되었습니다. 이는 손상된 샘플을 선택적으로 무시할 수 있는 모델 구축의 유용성을 입증하며, 의료 이미지 분할 모델의 신뢰성을 높이는 강력하고 일반화 가능한 전략임을 제시합니다.
+
+
+
+### Credible CO2 Comparisons: A Machine Learning Approach to Vehicle Powertrain Assessmen (https://arxiv.org/abs/2601.14022)
+- **What's New**: 이 논문에서는 내연기관 차량(ICEV)과 전기차(EV)의 CO2 배출량을 동일한 실제 주행 조건에서 비교할 수 있는 머신러닝 기반 프레임워크를 제안합니다. 이 접근법은 속도와 환경을 고정하여 기술별 효과를 분리하고, 파워트레인 성능을 직접적으로 비교할 수 있도록 합니다. 특정 주행 맥락 변수를 내부 작동 변수와 CO2-등가 배출률로 변환하는 반복 신경망 모델이 각 도메인 별로 훈련됩니다.
+
+- **Technical Details**: 제안된 프레임워크는 특정 주행 시나리오에서 다음과 같은 과정을 포함합니다: (i) 속도 및 기타 공통 맥락 신호를 조건 세트로 처리, (ii) 각 도메인 내에서 이러한 신호를 내부 작동 변수와 CO2-등가 배출률에 매핑, (iii) 기법 A가 기술 B의 속도 및 맥락 프로필을 경험했다면 CO2-등가 배출률은 얼마가 될지를 답하는 반사실적 시나리오 생성. 이 구조는 동일한 순간 단위로 표현되어 비교를 가능하게 합니다.
+
+- **Performance Highlights**: 브라질 사례 연구를 통해 전기 에너지를 CO2-등가 배출률로 변환하는 과정과 관련된 공식 배출 계수를 적용하여 실험 결과를 도출하였습니다. 제안된 방법은 기술 효과를 고정된 조건 하에 분리하고, 서로 다른 도메인 간의 일관된 비교를 가능하게 합니다. 이 프레임워크는 다양한 데이터를 다룰 수 있고, 모델에 구애받지 않는 설계를 갖추고 있어, 실제 주행 조건에서 차량의 탄소 성능을 측정하고 평가하는 데 중요한 기초를 제공합니다.
+
+
+
+### MATE: Matryoshka Audio-Text Embeddings for Open-Vocabulary Keyword Spotting (https://arxiv.org/abs/2601.14012)
+Comments:
+          5 pages, 1 figure, Accepted at ICASSP 2026
+
+- **What's New**: 이 논문에서는 Matryoshka Audio-Text Embeddings (MATE)라는 새로운 이중 인코더 프레임워크를 제안합니다. 기존의 키워드 스포팅 (KWS) 시스템은 고정된 차원의 임베딩을 사용해왔으나, MATE는 여러 임베딩 그레인룰러를 단일 벡터 안에 구현할 수 있는 방법을 제공합니다. 또한, PCA-guided prefix alignment를 통해 음성과 텍스트의 임베딩을 정렬할 수 있어 성능이 향상됩니다.
+
+- **Technical Details**: MATE는 두 개의 인코더를 통해 오디오와 텍스트 데이터에서 다중 임베딩 그레인룰러를 학습시킵니다. 이 시스템은 low-dimensional prefixes에서 중요한 키워드 정보를 캡쳐하며, higher-dimensional prefixes는 세부 정보를 추가하여 여러 수준의 임베딩을 사용합니다. MATE는 표준 딥 메트릭 학습(DML) 목표로 학습되며, 다양한 DML 목표에 대해 일관된 성능 향상을 보여줍니다.
+
+- **Performance Highlights**: MATE는 WSJ 및 LibriPhrase 데이터셋에서 최신 기술 수준의 결과를 달성했습니다. 이 시스템은 기존 KWS 시스템과 비교하여 추론 비용의 증가 없이도 성능이 향상되는 것을 입증하였습니다. 특히, 문장 단위의 매칭 방식에서 효과적인 성능을 보이며, 낮은 지연 시간을 요구하는 디바이스에서의 KWS에 적합합니다.
+
+
+
+### DAME: Duration-Aware Matryoshka Embedding for Duration-Robust Speaker Verification (https://arxiv.org/abs/2601.13999)
+Comments:
+          5 pages, 2 figures, Accepted at ICASSP 2026
+
+- **What's New**: 본 논문에서는 짧은 발화(utterance)에서 화자 인증(authentication)의 어려움을 해결하기 위해 Duration-Aware Matryoshka Embedding (DAME)이라는 새로운 접근법을 제안합니다. 기존의 방법들이 고정된 차원을 사용하는 것과 달리 DAME는 발화 길이에 따라 구별 가능한 하위 임베딩(sub-embedding)의 계층 구조를 생성하여 정보를 효과적으로 활용하도록 설계되었습니다. 이 프레임워크는 다양한 화자 인코더 아키텍처에 적용할 수 있으며 훈련 과정에서 짧은 발화와 긴 발화에 대해 각각 다른 차원의 정보를 대표하도록 학습합니다.
+
+- **Technical Details**: DAME는 입력 발화를 다른 길이로 자르고 이를 공유된 화자 인코더를 통해 처리하여 임베딩을 생성합니다. 이 프레임워크는 저차원(sub-dimensional) 임베딩이 짧은 발화의 화자 특성을 포착하고, 고차원 임베딩이 긴 발화의 세부 정보를 인코딩할 수 있도록 두 차원의 하위 임베딩을 훈련합니다. 또한, DAME는 기존의 대용량 마진 파인튜닝(LMFT) 대신 다중 발화 길이에 따른 감독 손실을 적용하여 성능을 향상시키는 접근법입니다.
+
+- **Performance Highlights**: 실험 결과, DAME는 VoxCeleb1-O/E/H 및 VOiCES 평가 세트에서 1초와 같은 짧은 발화들의 등가 오류율(equal error rate)을 일관되게 감소시켰습니다. DAME는 추가적인 추론 비용 없이 전체 길이의 발화에서도 성능을 유지하며, 다양한 화자 인코더 아키텍처에서 일반적으로 개선된 성능을 보여줍니다. 따라서 DAME는 짧은 발화에 대한 신뢰도를 높이고, 다양한 길이의 발화 데이터를 처리할 수 있는 뛰어난 효율성을 입증하였습니다.
+
+
+
+### torch-sla: Differentiable Sparse Linear Algebra with Adjoint Solvers and Sparse Tensor Parallelism for PyTorch (https://arxiv.org/abs/2601.13994)
+- **What's New**: 이 논문에서는 	orchsla{}라는 오픈소스 PyTorch 라이브러리를 소개한다. 이 라이브러리는 GPU 가속, 확장 가능성 및 미분 가능성을 갖춘 희소 선형 대수를 지원하여 3가지 주요 문제에 대해 해결책을 제공한다. 첫 번째로는 희소 선형 해 및 비선형 해, 고유값 계산을 위한 GPU 가속이 있으며, 두 번째로는 도메인 분해 및 halo 교환을 통해 다중 GPU에서 확장을 지원한다. 마지막으로는 인접 기반 미분을 구현하여 계산 그래프 노드를 최적화한다.
+
+- **Technical Details**: 희소 선형 시스템은 비어 있는 행렬을 COO(좌표) 형식으로 저장하며, 이는 행렬의 행 인덱스, 열 인덱스 및 값의 세 개 배열로 구성된다. 라이브러리는 CG(Conjugate Gradient), BiCGStab 및 LOBPCG와 같은 다양한 해법을 지원하며, 여러 백엔드를 통해 이입이 가능하다. 	orchsla{}는 자동 halo 교환을 통한 도메인 분해를 통해 3개의 GPU에서 4억 DOF의 선형 해를 성취할 수 있도록 설계되었다.
+
+- **Performance Highlights**: 본 라이브러리는 효율적인 그래디언트를 유지 관리하여 미분 가능한 시뮬레이션을 통합하고, 직접적인 솔버를 사용한 경우 생기는 메모리 문제를 해결한다. 특히, 비선형 및 고유값 문제에서 𝒪(1) 오토그라드 그래프 노드와 𝒪(nnz) 메모리를 달성하여 솔버 반복과 무관하게 메모리 사용을 최적화한다. 이로 인해 대규모 문제에서의 메모리 폭발 문제를 피할 수 있게 된다.
+
+
+
+### "The Whole Is Greater Than the Sum of Its Parts": A Compatibility-Aware Multi-Teacher CoT Distillation Framework (https://arxiv.org/abs/2601.13992)
+Comments:
+          11pages, 9figures
+
+- **What's New**: 본 논문에서는 COMPACT라는 새로운 프레임워크를 소개합니다. 이는 다양한 Teacher로부터의 Supervision을 동적으로 융합하여 Student Model(학생 모델)이 보다 강력한 Reasoning(추론) 능력을 발휘할 수 있도록 합니다. 기존의 단일 Teacher 모델에 의존하는 한계를 극복하고, 여러 Teacher의 지식을 효과적으로 통합하는 체계적인 접근 방식을 제안합니다.
+
+- **Technical Details**: COMPACT는 세 가지 주요 지표인 Graph-based Consensus(그래프 기반 합의), Mutual-Information-based Adaptability(상호정보 기반 적응성), Loss-based Difficulty(손실 기반 난이도)를 통해 Teacher와 Student의 호환성을 평가합니다. 이를 통해 학생은 가장 적합하고 질 높은 Teacher의 Gradient(기울기)를 선택적으로 조합할 수 있어 파라미터 간의 간섭(cancellation effects)을 방지할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, COMPACT는 In-Distribution(ID) 및 Out-of-Distribution(OOD) 벤치마크에서 최첨단 성능을 달성하였습니다. 또한, 교수자의 지식을 내부화하면서도 원래의 표현 공간을 방해하지 않는다는 것을 증명하여 재난적 망각(catastrophic forgetting)을 완화할 수 있음을 입증했습니다.
+
+
+
+### RL-BioAug: Label-Efficient Reinforcement Learning for Self-Supervised EEG Representation Learning (https://arxiv.org/abs/2601.13964)
+- **What's New**: 논문에서는 EEG 분석을 위한 데이터 증강(data augmentation)의 품질이 대조 학습(contrastive learning) 성능에 결정적인 역할을 한다고 강조합니다. 기존의 정적(static) 또는 무작위(random) 증강 전략은 신호의 비정상성(non-stationarity)으로 인해 내재적(intrinsic) 정보를 보존하지 못하는 경우가 많습니다. 이를 극복하기 위해, 연구자들은 RL-BioAug라는 프레임워크를 제안하여, 라벨이 적은 상태에서 최적의 증강 정책을 자율적으로 결정하는 강화 학습(reinforcement learning) 에이전트를 활용합니다.
+
+- **Technical Details**: RL-BioAug는 대조 학습과 데이터 증강 정책을 동시에 최적화하는 구조로, 에이전트와 인코더가 협력적으로 학습합니다. 매 훈련 단계에서 상태 관찰(state observation) → 행동(action) → SSL 단계: 대조 손실을 통한 인코더 업데이트 → RL 단계: 정책 경량화(policy gradient)를 통해 에이전트 업데이트라는 순환 구조를 따릅니다. 주요 구성 요소로는 상태(embedding vector), 행동(최적 증강 선택), 보상(Soft-KNN consistency score) 등이 있으며, Transformer 기반 정책 네트워크를 통해 과거 행동과 보상을 분석하여 현재 표상을 조건화합니다.
+
+- **Performance Highlights**: 제안된 프레임워크는 Sleep-EDFX와 CHB-MIT 데이터셋에서 우수한 분류 성능을 보였습니다. 무작위 또는 고정 증강 전략에 비해 Macro-F1 점수에서 각각 9.69% 및 8.80%의 의미 있는 개선을 달성했습니다. RL-BioAug는 각 작업에 대한 최적 전략을 선택하며, 예를 들어 수면 단계 분류에서 Time Masking을 62%의 확률로, 발작 탐지에 대해 Crop & Resize를 77%의 확률로 선택하는 경향을 보였습니다.
+
+
+
+### Stream-Voice-Anon: Enhancing Utility of Real-Time Speaker Anonymization via Neural Audio Codec and Language Models (https://arxiv.org/abs/2601.13948)
+Comments:
+          Accepted by ICASSP2026
+
+- **What's New**: 이번 논문에서는 온라인 목소리 애플리케이션을 위한 스피커 익명화(speaker anonymization, SA)에 대한 새로운 접근법인 Stream-Voice-Anon을 제안합니다. 이 시스템은 최신 인과 언어 모델(causal language model, LM) 기반의 신경 오디오 코덱(neural audio codec, NAC) 아키텍처를 비즈니스 및 개인 정보 보호 요구를 충족하는 스트리밍 SA에 맞게 조정하여 강력한 프라이버시 보호를 제공합니다. 이를 통해 실시간 통화, 법적 녹음 및 민감한 의료 대화와 같은 다양한 분야에서 필수적인 실시간 익명화를 지원합니다.
+
+- **Technical Details**: 제안된 접근법은 콘텐츠 인코더(content encoder), 음성 인코더(acoustic encoder), 스피커 인코더(speaker encoder), 그리고 이중 단계 트랜스포머 아키텍처를 기반으로 한 자가 회귀 음성 변환 모델(autoregressive voice conversion, ARVC)을 포함합니다. 이 시스템은 VQ(벡터 양자화) 층을 통해 인코더에서 도출된 음성 신호를 양자화(tokenization)하여 스피커 무관한 콘텐츠 토큰을 생성하고, 딥러닝 기법을 통해 실시간 SA를 실행합니다. 이 모든 과정에서 높은 언어성 유지와 감정 보존을 달성하기 위해 다양한 전략이 적용됩니다.
+
+- **Performance Highlights**: Stream-Voice-Anon은 VoicePrivacy 2024 Challenge 프로토콜 하에서 이전의 최신 기술인 DarkStream에 비해 최대 46%의 상관 반복 오류율(Word Error Rate, WER) 감소와 최대 28%의 감정 유지(improvement in emotion recognition accuracy) 성능 향상을 달성했습니다. 이 시스템은 180ms라는 낮은 지연(latency)으로 프라이버시 보호를 강화하며, 악의적인 공격자에 대한 저항력을 유지합니다. 다만 반-informed 공격자(semi-informed attackers)에 대해서는 상대적으로 15%의 성능 저하가 관찰되었습니다.
+
+
+
+### Glance-or-Gaze: Incentivizing LMMs to Adaptively Focus Search via Reinforcement Learning (https://arxiv.org/abs/2601.13942)
+- **What's New**: 이 논문에서는 기존의 LMM(대규모 다중 양식 모델)들이 지식 집약적인 질문에 대응하는 데 제한이 있음을 언급합니다. 새로운 접근법인 Glance-or-Gaze (GoG)를 제안하여, 시각적 계획의 능동적 전환을 통해 장기적 정보를 보다 효과적으로 처리할 수 있습니다. 이를 통해 모델은 글로벌 컨텍스트 또는 고가치 지역을 선택적으로 주시할 수 있습니다.
+
+- **Technical Details**: GoG는 두 개의 주요 학습 메커니즘으로 구성됩니다. 첫째, Reflective GoG Behavior Alignment는 현재의 비효율적이고 노이즈가 많은 시각 전략을 개선하기 위해 설계되었습니다. 둘째, Complexity-Adaptive Reinforcement Learning은 모델이 복잡한 질문을 처리할 수 있도록 돕는 방식으로, 두 단계의 학습 전략으로 모델의 성능을 극대화합니다.
+
+- **Performance Highlights**: GoG는 여섯 가지 벤치마크에서 최첨단 성능을 달성하여, 강력한 기준선과 비교했을 때 5에서 20점의 유의미한 성과 향상을 보여줍니다. 또한, 선택적 시선 기법과 복잡도 적응 강화 학습이 효과적인 시각 검색을 위한 필수 요소로 확인되었습니다. 모델의 데이터와 코드는 조만간 공개될 예정입니다.
+
+
+
+### IF-GEO: Conflict-Aware Instruction Fusion for Multi-Query Generative Engine Optimization (https://arxiv.org/abs/2601.13938)
+Comments:
+          9 pages, 3 figures. Submitted to ACL 2026. Corresponding author: Zhen Chen
+
+- **What's New**: 이 논문에서 제안하는 IF-GEO는 '다양성 후 수렴' 프레임워크로, 문서 최적화의 단계를 두 가지로 나누어 진행합니다. 첫 번째 단계는 대표적인 잠재 질의(latent queries)로부터 수정 요청을 수집하는 것이고, 두 번째 단계는 이러한 요청을 통일된 글로벌 수정 청사진(Global Revision Blueprint)으로 조정하여 문서 수정을 안내하는 것입니다. 이는 다양한 사용자 질의를 동시에 다룰 수 있는 새로운 방법론으로, 최적화의 안정성을 측정할 수 있는 리스크 인식 안정성 지표도 도입합니다.
+
+- **Technical Details**: IF-GEO는 각 문서에 대해 다양한 질의가 제시될 때 발생하는 제약 최적화 문제를 해결하기 위해 설계되었습니다. 이를 통해 잠재 질의에서 특성화된 최적화 선호를 추출하고, 이러한 선호를 갈등을 인식하는 지시 융합(conflict-aware instruction fusion)을 통해 통합하여 문서 수정을 구성합니다. 이 과정에서 Worst-Case Performance(WCP), Win-Tie Rate(WTR), Downside Risk(DR)과 같은 새로운 안정성 지표를 도입하여 최적화의 안전성과 견고성을 수량화합니다.
+
+- **Performance Highlights**: 다양한 질의를 포함한 벤치마크 실험에서 IF-GEO는 상당한 성능 향상을 달성하며, 문서의 가시성을 개선했습니다. 또한, 다양한 검색 시나리오에서 안정성을 유지하는 데 효과적이었습니다. 최적화 과정에서 발생할 수 있는 성능 변동을 완화시키며, 다양한 사용자 요구를 동시에 충족할 수 있는 능력을 입증했습니다.
+
+
+
+### Asymmetric regularization mechanism for GAN training with Variational Inequalities (https://arxiv.org/abs/2601.13920)
+Comments:
+          6 pages, 3 figures, conference
+
+- **What's New**: 본 논문에서는 생성적 적대 신경망(GAN) 훈련을 내시 균형 탐색 문제로 형식화합니다. 훈련 프로세스를 안정화하고 내시 균형을 찾기 위해 완전한 Tikhonov 단계와 새로운 제로 중심의 그래디언트 패널티를 기반으로 하는 비대칭 정규화 메커니즘을 제안합니다. 이러한 방법에 의해 신속한 수렴이 보장됩니다.
+
+- **Technical Details**: GAN은 두 개의 신경망, 즉 판별기(discriminator)와 생성기(generator)로 구성된 기계 학습 모델입니다. 판별기 측면에서만 적용되는 정규화 메커니즘을 도입하여, 훈련의 회전적 동역학을 안정화시킵니다. 이 정규화는 모델의 타겟 내시 균형 지점을 보존하며, 명시적 리프시츠(Lipschitz) 및 강 단조성(strong-monotonicity) 상수를 제공합니다.
+
+- **Performance Highlights**: 제안된 비대칭 정규화는 실제 데이터와의 훈련 안정성을 높이고, Extrapolation-from-the-Past (EFTP) 알고리즘의 수렴을 보장합니다. 실험 결과는 정규화의 효과가 훈련 과정을 안정화하고 수렴 특성을 개선함을 보여줍니다. 이 연구의 결과는 대칭 정규화로 일반화되며 다양한 nn-플레이어 게임으로의 확장 가능성을 뒷받침합니다.
+
+
+
+### TractRLFusion: A GPT-Based Multi-Critic Policy Fusion Framework for Fiber Tractography (https://arxiv.org/abs/2601.13897)
+Comments:
+          Accepted at 23rd IEEE International Symposium on Biomedical Imaging (ISBI), 2026
+
+- **What's New**: 본 연구에서는 TractRLFusion이라는 새로운 GPT 기반 정책 융합 프레임워크를 제안합니다. 이 프레임워크는 데이터 기반 융합 전략을 통해 여러 강화 학습(ML) 정책을 통합합니다. TractRLFusion은 효과적인 정책 융합을 위한 이단계 교육 데이터 선택 과정과 강건성 및 일반화를 향상시키는 다중 비평가 미세 조정(generalization) 단계를 포함하고 있습니다. 실험 결과, TractRLFusion은 개별 RL 정책 및 기존 방법들보다 정확도와 해부학적 신뢰성에서 우수한 성능을 보였습니다.
+
+- **Technical Details**: TractRLFusion은 TD3, SAC, DDPG의 세 가지 독립적으로 훈련된 정책을 융합하여 상호 보완적인 강점을 결합합니다. 각 정책의 트랙 재구성을 위한 데이터 기반 융합을 가능하게 하기 위해 에피소딕 데이터 선택(Episodic Data Selection, EDS)을 사용합니다. FusionNet은 훈련된 정책에서 추출한 궤적을 학습하며, 다중 비평가 정책 미세 조정(Multi-Critic Policy Fine-tuning, MCPFT)을 통해 정책의 안정성과 일반화를 향상시킵니다. TractRLFusion은 특히 시각 및 운동 피질의 주요 섬유 다발에 초점을 맞추고 있습니다.
+
+- **Performance Highlights**: TractRLFusion은 HCP, ISMRM, TractoInferno 데이터세트에서 수행된 실험에서 기존의 상태-최고 기법들에 비해 우수한 성능을 보였습니다. 이 시스템은 특히 해부학적으로 신뢰성 높은 재구성을 제공하며, 다양한 데이터세트에 걸쳐 확장성과 일반화 능력을 강조합니다. 연구자들은 이 방법이 트랙토그래피 분야에서 첫 번째 정책 융합 프레임워크라고 평가하고, 코드 공개를 통해 연구 커뮤니티에 기여할 계획임을 밝혔습니다.
+
+
+
+### OmniOVCD: Streamlining Open-Vocabulary Change Detection with SAM 3 (https://arxiv.org/abs/2601.13895)
+- **What's New**: 본 논문에서는 새로운 Change Detection (CD) 방법인 OmniOVCD를 제안합니다. OmniOVCD는 Segment Anything Model 3 (SAM 3)을 기반으로 하고, Open-Vocabulary Change Detection (OVCD) 요구 사항을 충족합니다. 또한, Synergistic Fusion to Instance Decoupling (SFID) 전략을 활용하여 다양한 카테고리의 변화를 감지할 수 있는 가능성을 제시합니다.
+
+- **Technical Details**: OmniOVCD는 SAM 3의 분리된 출력 헤드를 활용하여 변화를 감지합니다. SFID 전략은 SAM 3의 시맨틱, 인스턴스, 프레즌스 출력을 융합한 후, 이를 기반으로 개별 인스턴스 마스크를 생성하여 변화 비교를 수행합니다. 이러한 디자인은 카테고리 인식을 유지하면서 이미지 간의 인스턴스 수준 일관성을 보장합니다.
+
+- **Performance Highlights**: 실험 결과 OmniOVCD는 LEVIR-CD, WHU-CD, S2Looking 및 SECOND의 네 개의 공공 벤치마크에서 SOTA 성능을 달성했습니다. 정확한 변화 마스크를 생성하여 IoU 점수에서 67.2, 66.5, 24.5 및 27.1을 기록하며, 기존의 모든 방법을 초월하는 성과를 보여주었습니다.
+
+
+
+### Confident Rankings with Fewer Items: Adaptive LLM Evaluation with Continuous Scores (https://arxiv.org/abs/2601.13885)
+- **What's New**: 이 논문에서는 컴퓨터 적응형 테스트(Computerized Adaptive Testing, CAT)의 확장 버전을 제안합니다. 기존의 CAT 방식이 이진 결과에 초점을 맞췄다면, 이 연구는 연속적인 점수에 대해 적용할 수 있는 방법론을 도입합니다. 특히 Bernoulli 응답 분포를 이분산 정규분포(heteroskedastic normal distribution)로 대체하여 연속적인 평가를 가능하게 합니다.
+
+- **Technical Details**: 새롭게 제안된 방법은 IRT(Item Response Theory)를 기반으로 한 적응형 테스트를 지속적인 한정 점수에 맞추어 발전시킵니다. 모델 평가를 위한 알고리즘은 불확실성을 인식하는 랭커(uncertainty aware ranker)를 이용하여 모델 간의 통계적으로 유의미한 랭킹을 효율적으로 생성합니다. 이 방법은 짧은 테스트로도 신뢰할 수 있는 결과를 도출할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 제안된 방법은 5개의 다양한 벤치마크 데이터셋에서 검증되었으며, 전체 평가 예산의 2%에 해당하는 항목으로도 0.12	au의 랭킹 상관관계 개선을 보여주었습니다. 고정 길이 CAT 방식에 비해, 적응형 중지 기준을 통해 32%의 항목 감소와 42%의 비용 절감을 달성하여 훨씬 더 경제적인 모델 평가가 가능합니다.
+
+
+
+### HardSecBench: Benchmarking the Security Awareness of LLMs for Hardware Code Generation (https://arxiv.org/abs/2601.13864)
+- **What's New**: 이번 연구에서는 LLM(대규모 언어 모델)이 생성한 코드의 보안 문제를 평가하기 위해 HardSecBench라는 벤치마크를 제안합니다. 기존 연구는 기능적 정확성에 중점을 두었으나, 보안성을 충분히 고려하지 않았습니다. LLM이 생성한 코드가 기능적으로 타당할지라도, 심각한 보안 결함이 포함될 수 있음을 강조합니다.
+
+- **Technical Details**: HardSecBench는 924개의 작업으로 구성되며, Verilog 레지스터 전송 레벨(RTL)과 펌웨어 기반 C 코드에 대한 작업을 포함합니다. 각 작업은 구조화된 사양, 안전한 참조 구현 및 실행 테스트를 제공합니다. 다양한 LLM을 평가할 수 있는 자동화된 파이프라인을 통해 기능 요구 사항과 보안 요구 사항이 분리된 상태에서 체크됩니다.
+
+- **Performance Highlights**: 연구 결과, 상당수의 모델이 기능적 요구 사항을 충족시키지만, 중요한 보안 보호 조치는 여전히 부족함을 보여줍니다. Prompt(프롬프트) 민감도 분석을 통해 LLM의 보안 가능성이 크게 향상될 수 있음을 발견하였습니다. 결과적으로, 보안 가이드를 명확히 제공하는 것이 LLM이 생성한 코드의 결함을 보완할 수 있다는 점을 강조합니다.
+
+
+
+### DroneVLA: VLA based Aerial Manipulation (https://arxiv.org/abs/2601.13809)
+Comments:
+          This paper has been accepted for publication at LBR of HRI 2026 conference
+
+- **What's New**: 이 연구에서는 고급 자연어 명령을 해석하여 객체를 검색하고 인간 사용자에게 전달할 수 있는 자율 비행 조작 시스템의 새로운 개념을 소개합니다. 이 시스템은 Grounding DINO와 Vision-Language-Action (VLA) 모델을 통합하여 설계되었으며, 1-DOF 그리퍼와 Intel RealSense RGB-D 카메라를 장착한 드론으로 구성됩니다. 사용자의 의도를 해석하고, 장면 내에서 관련 객체를 붙잡기 위한 우선 순위 작업 큐를 생성하는 기능이 포함되어 있습니다.
+
+- **Technical Details**: 시스템은 하드웨어 플랫폼, VLA 기반의 의미 추론 모듈, 개방어휘 탐지 기능을 갖춘 인식 파이프라인, 인간 중심의 전달 제어기로 구성된 네 개의 주요 하위 시스템을 포함합니다. 이 시스템은 경량의 VLA 모델을 사용하여 복잡한 데이터 처리를 오프보드에서 실행할 수 있도록 하여 드론의 지연 및 전력 제약을 피합니다. Grounding DINO를 통합하여 개방어휘 조작을 가능하게 하며, 이는 새로운 객체 카테고리를 위한 재훈련 없이도 객체를 탐지할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, 이 시스템은 0.164m, 0.070m 및 0.084m의 최대값, 평균값 및 루트 평균 제곱 오차(RMSE)를 기록했습니다. 이 수치는 기존의 UAV와 로봇 조작에 대한 VLA의 실용성을 강조합니다. 결과적으로, 이 구조는 비행 안정성을 유지하면서도 인간과의 자연스러운 상호 작용을 보장하도록 설계되었습니다.
+
+
+
+### Insight: Interpretable Semantic Hierarchies in Vision-Language Encoders (https://arxiv.org/abs/2601.13798)
+Comments:
+          32 pages, 24 figures, 3 tables
+
+- **What's New**: 본 연구에서는 Insight라는 새로운 언어 정렬 개념 기초 모델을 제안했습니다. 이 모델은 사람에게 해석 가능한 세밀한 개념들을 제공하며, 입력 이미지에서 공간적으로 고정되어 있습니다. 기존의 모델들이 수행했던 단순 이미지 분류를 넘어, 더 다양한 다운스트림 작업을 지원하도록 설계되었습니다. Insight는 개념의 고유한 관계를 정의하여 좀 더 풍부하고 유의미한 설명을 생성할 수 있게 합니다.
+
+- **Technical Details**: Insight 모델은 계층적 희소 오토인코더(hierarchical sparse autoencoder)를 활용하여 다양한 세부 수준에서 개념을 자동으로 추출합니다. 이 모델은 DINO 기반의 CLIP 특징을 이용하여 공간적으로 정의된 인간 알기 쉬운 개념을 제공합니다. 또한, 개념 간의 지역 공존 의존성(local co-occurrence dependencies)을 분석하여 그러한 개념 간의 관계를 정의하고, 이를 통해 더 나은 개념 명명 및 해석을 개선합니다.
+
+- **Performance Highlights**: 벤치마크 데이터에서 Insight는 기존의 불투명한 기초 모델에 비해 경쟁력 있는 분류 및 세분화 성능을 보여주었습니다. 특히, Insight는 이미지 분류 작업에서 지배적인 성능을 기록하며, 개념 기반의 개선된 고해상도 설명을 제공합니다. 또한, 사용자 연구를 통해 Insight의 해석 가능성이 성능 저하 없이 달성되었음을 입증하였습니다.
+
+
+
+### vLinear: A Powerful Linear Model for Multivariate Time Series Forecasting (https://arxiv.org/abs/2601.13768)
+- **What's New**: 이 논문에서는 효율적인 다변량 시계열 예측기인 vLinear를 제안합니다. 이 모델은 다변량 상관 관계를 모델링하기 위해 learnable vector를 사용하는 vecTrans 모듈과 WFMLoss를 목표로 하는 두 가지 주요 구성 요소를 포함합니다. 기존의 Transformer 기반 예측기와 비교하여, vLinear는 계산 복잡성을 O(N^2)에서 O(N)으로 줄여 5배 빠른 추론 속도를 보여 줍니다.
+
+- **Technical Details**: vLinear는 Transformer 기반 예측기와 쉽게 통합할 수 있으며, 다변량 상관 관계를 효과적으로 캐치 하는 lightweight 모듈인 vecTrans를 사용합니다. VecTrans는 rank-1 매트릭스를 활용하여 입력 의존적인 복잡한 attention matrix를 대체하고, 각 토큰의 특징을 learnable vector로 집계하여 일관된 성능을 유지하면서 선형 복잡도를 달성합니다. WFMLoss는 경로와 호라이즌(기한)에 가중치를 두어 신뢰할 수 있는 경로와 기한을 집중적으로 학습하도록 설계되었습니다.
+
+- **Performance Highlights**: vLinear는 22개의 벤치마크와 124개의 예측 설정에서 최첨단 성능을 달성하며, 기존의 예측기들과 비교하여 일관되게 성능을 향상시킵니다. WFMLoss는 기존의 손실 함수와 비교하여 더욱 정확한 예측을 제공합니다. 이로 인해, vLinear와 WFMLoss는 모두 다변량 시계열 예측에서 높은 효율성과 성능을 동시에 제공하는 강력한 성능을 보입니다.
+
+
+
+### Pro-AI Bias in Large Language Models (https://arxiv.org/abs/2601.13749)
+Comments:
+          13 pages, 6 figures. Code available at: this https URL
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)이 인공지능(AI)에 대해 체계적인 편향을 보이는지를 조사하였습니다. 세 가지 실험을 통해 AI 관련 추천이 과도하게 이루어지고, AI 직종의 급여가 비AI 직종에 비해 더 높게 추정되는 경향을 확인했습니다. 이러한 경향은 특히 전유형 모델에서 두드러지며, AI 중심의 의사결정 지원이 비표준적으로 이루어진다는 점을 보여줍니다.
+
+- **Technical Details**: 연구에서는 AI 관련 옵션이 다른 선택지에 비해 체계적으로 우대되는 'pro-AI bias'를 정의하고 이를 측정하기 위해 순위 추천, 급여 추정 및 내부 표현 간의 근접도를 평가하는 세 가지 실험을 수행했습니다. 확립된 방법론을 바탕으로, AI가 포함된 추천 리스트가 빈번하게 생성되며, 급여 추정에서는 AI 관련 직업이 비AI 직업보다 더 높은 값을 기록함을 발견했습니다.
+
+- **Performance Highlights**: 연구 결과, 비공식 모델이 AI 추천 비율에서 1.7배 더 높은 성과를 보이며, AI 급여 추정의 왜곡은 2.5배에 달하는 것으로 나타났습니다. 이는 대중적 시스템에서 AI 중심의 편향이 얼마나 깊은지를 시사하며, 이러한 결과는 다양한 결정 맥락에서 AI가 어떻게 다루어져야 하는지를 재조명하게 합니다.
+
+
+
+### Towards robust long-context understanding of large language model via active recap learning (https://arxiv.org/abs/2601.13734)
+Comments:
+          5 pages
+
+- **What's New**: 본 논문에서 우리는 long-context 이해를 향상시키기 위한 Active Recap Learning (ARL) 프레임워크를 제안합니다. ARL은 모델이 이전 내용을 다시 살펴보고 요약하는 기능을 통해 장문을 처리하는 능력을 강화합니다. 연구 결과 ARL은 RULER와 LongBench에서 각각 26.8%와 9.44%의 성능 향상을 보여주었습니다.
+
+- **Technical Details**: ARL은 세 가지 단계로 작동하며: (1) long-short gap 메트릭을 사용하여 핵심 토큰을 식별하고, (2) 손실 기반 검색을 통해 가장 관련성 높은 이전 세그먼트를 찾아내며, (3) 이 세그먼트를 간결한 요약으로 정제합니다. 이를 통해 모델은 장기간의 문맥을 효과적으로 기억할 수 있는 능력을 부여받습니다.
+
+- **Performance Highlights**: ARL은 RULER 및 LongBench와 같은 다양한 벤치마크에서 성능 향상을 입증했습니다. 특히 Qwen1.5 모델은 장문 요약 작업에서 19.0%에서 47.2%까지의 성능 향상을 기록하였으며, 훈련 샘플 수를 증가시킬수록 모델의 일반화 능력이 향상됨을 보여주었습니다.
+
+
+
+### OP-Bench: Benchmarking Over-Personalization for Memory-Augmented Personalized Conversational Agents (https://arxiv.org/abs/2601.13722)
+- **What's New**: 이번 연구에서는 메모리 기반 대화 에이전트에서의 과도한 개인화(Over-Personalization) 문제를 다뤘습니다. 기존의 벤치마크들은 사용자의 정보를 얼마나 잘 기억하고 적용하는지에 중점을 두었으나, 개인화의 적절성 사용은 간과되었습니다. 연구진은 과도한 개인화를 세 가지 유형으로 정리하고, 이를 평가하기 위한 새로운 벤치마크인 OP-Bench를 도입했습니다.
+
+- **Technical Details**: 기존의 대화 모델에서 과도한 개인화 문제는 정보의 관련성, 빈번한 반복, 그리고 외모 배설(sycophancy)로 나눌 수 있습니다. 연구진은 20명의 사용자의 대화 역사에서 1,700개의 질문을 추출하여 OP-Bench를 구축했고, 36개 모델 구성을 평가하여 메모리 도입 시 과도한 개인화가 광범위하게 발생함을 발견했습니다. 분석 결과, 에이전트가 불필요한 사용자의 기억을 과도하게 검색하고 주의를 기울이는 경향이 있음을 확인했습니다.
+
+- **Performance Highlights**: Self-ReCheck라는 경량 모델 중립적 필터 메커니즘을 제안하여 개인화 성능을 유지하면서 과도한 개인화를 29% 줄일 수 있음을 보였습니다. OP-Bench를 통해 평가한 결과, 연구에서 분석한 모든 개인화된 대화 에이전트들은 상대적으로 26.2%에서 61.1%까지의 성능 저하가 있었습니다. 본 연구는 사용자 만족도와 사용자의 필요를 반영하기 위한 새로운 벤치마크 설계의 필요성을 강조합니다.
+
+
+
+### Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search (https://arxiv.org/abs/2601.13719)
+- **What's New**: 본 논문에서는 HAVEN이라는 통합 프레임워크를 제안합니다. HAVEN은 오디오-비주얼 엔티티 응집력(audiovisual entity cohesion)과 계층적 비디오 인덱싱(hierarchical video indexing), 에이전틱 검색(agentic search)을 결합하여 긴 비디오를 보다 일관성 있게 이해할 수 있도록 합니다. 이 시스템은 정보 조각화(information fragmentation)를 방지하고 전반적인 내러티브를 재구성하는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HAVEN은 비주얼 및 오디오 스트림 간의 엔티티 수준 표현을 통합하여 의미적 일관성을 유지합니다. 이를 위해 콘텐츠를 글로벌 요약(global summary), 장면(scene), 세그먼트(segment), 엔티티 수준의 구조화된 계층으로 구성합니다. 또한, 에이전틱 검색 메커니즘을 도입하여 이 계층 간의 동적인 검색과 추론을 가능하게 하여 더욱 정교한 엔티티 추적을 지원합니다.
+
+- **Performance Highlights**: HAVEN은 LVBench 벤치마크에서 84.1%의 높은 정확도를 기록하며 최신 기술의 최전선에 서 있습니다. 특히 난이도가 높은 추론 카테고리에서 80.1%의 성능을 기록하여 길고 복잡한 비디오 이해에 효과적임을 입증합니다. 이는 구조적이고 다중 모달(multi-modal) 추론의 효과성을 강조합니다.
+
+
+
+### Simulated Ignorance Fails: A Systematic Study of LLM Behaviors on Forecasting Problems Before Model Knowledge Cutoff (https://arxiv.org/abs/2601.13717)
+- **What's New**: 이 논문은 LLM(대형 언어 모델)의 예측 능력을 평가하는 데 있어 발생하는 근본적인 긴장 관계를 다룹니다. 연구자들은 Simulated Ignorance (SI)라는 방법이 True Ignorance (TI)를 근사할 수 있는지를 체계적으로 테스트했습니다. 연구 결과 SI가 TI를 효과적으로 대체하지 못한다는 결론을 도출하였고, 결과적으로 과거 사건에 대한 회고형 평가(Retrospective Forecasting, RF)가 방법론적으로 결함이 있음을 밝혀졌습니다.
+
+- **Technical Details**: 연구는 9개의 모델에 대해 477개의 경쟁형 질문을 평가했습니다. SI를 사용하는 경우와 TI를 사용하는 경우의 성능 차이를 분석하였으며, SI는 평균 52%의 성능 격차를 보였습니다. 또한 체인 오브 사고(Chain-of-Thought) 추론이 사전 지식을 억제하는 데 실패하고, 심지어 고도화된 추론 모델조차도 SI 충실도가 떨어지는 것으로 나타났습니다.
+
+- **Performance Highlights**: 모델들은 SI 조건에서 기대하는 성능을 내지 못했고, 정보 유출 정보가 모델의 예측 결과에 영향을 미치는 것을 확인했습니다. 이 연구는 SI에 의존한 회고형 설정을 통해 예측 능력을 평가하는 것을 권장하지 않으며, 기존의 방법론적 문제를 보여줍니다. 이 논문은 SI와 TI 간의 최초의 체계적인 비교를 제시하며, 모델의 예측이 유출된 지식으로 혜택을 받을 수 있는 가능성을 시사합니다.
+
+
+
+### Who Should Have Surgery? A Comparative Study of GenAI vs Supervised ML for CRS Surgical Outcome Prediction (https://arxiv.org/abs/2601.13710)
+- **What's New**: 이 연구는 임상 데이터를 기반으로 한 예측 모형에 대한 최초의 종합적 평가를 제공합니다. 우리는 만성 비부비동염(CRS) 환자를 대상으로, 수술 추천의 필요성을 줄이기 위해 수술 전 데이터를 활용할 수 있는지 조사했습니다. 기존 Supervised ML 기법과 Generative AI 모델을 비교하여, 더 효과적인 예측 방법을 제시하고자 하였습니다.
+
+- **Technical Details**: 우리는 사전 수술 데이터 세트를 바탕으로 Logistic Regression, Tree Ensembles, MLP 등의 머신러닝 모델과 ChatGPT, Claude, Gemini, Perplexity 같은 여러 Generative AI 시스템을 비교했습니다. 각 모델은 동일한 구조화된 입력을 받고, 결과적으로 2진 추천을 위한 출력을 제한하는 방식을 취했습니다. 연구 결과, MLP 모델은 85%의 정확도를 기록하며, 우수한 보정(calibration) 및 의사 결정 곡선의 순편익(decision-curve net benefit)을 보여주었습니다.
+
+- **Performance Highlights**: MLP 모델은 SNOT-22의 기준에서 환자들의 수술 결과를 예측하는 데 우수한 성능을 입증했습니다. 반면, Generative AI 모델들은 불균형한 분별력(discrimination)과 낮은 보정(calibration) 성능을 보여주었습니다. 그러나 Generative AI 모델의 설명력은 임상의의 휴리스틱과 밀접하게 연관되어 있어, 데이터의 투명성 및 공유된 의사결정을 촉진하는 역할을 할 수 있음을 보여주었습니다.
+
+
+
+### Attention-space Contrastive Guidance for Efficient Hallucination Mitigation in LVLMs (https://arxiv.org/abs/2601.13707)
+- **What's New**: 이 논문에서는 대형 비전-언어 모델(LVLM)에서 발생하는 환각(hallucination) 문제를 해결하기 위해 Attention-space Contrastive Guidance (ACG)라는 새로운 메커니즘을 제안합니다. ACG는 시각적 근거(visual grounding)를 고려한 텍스트 생성을 유도하여 모델이 언어 선행(linguistic priors)에 과도하게 의존하지 않도록 돕습니다. 특히 ACG는 자체 주의(self-attention) 레이어 내에서 단일 경로(single-pass) 방식으로 작동하여 두 가지 주의 경로를 동시에 구성합니다. 이로 인해 계산 효율성을 높이고 환각 감소 효과를 극대화합니다.
+
+- **Technical Details**: ACG는 시각-언어 및 언어 전용 주의 경로를 단일 전방 계산에서 구성하여, 생성 과정에서 시각적 증거에 대한 주의를 유도하는 대조적 안내(contrastive guidance)를 수행합니다. 이 메커니즘은 텍스트 전용 경로의 근사화에서 발생할 수 있는 편향을 보정하기 위해 정돈화된 수정(orthogonalized correction)을 적용하여 언어 선행으로부터 시각적 기여를 분리합니다. 이를 통해 매모리 사용을 최적화하고 초당 더 많은 처리량을 가능하게 합니다. 종료된 테스트에서는 ACG가 CHAIR 및 POPE 벤치마크에서 환각 감소 및 캡션 품질 모두에서 최첨단 성능을 달성함을 보여주었습니다.
+
+- **Performance Highlights**: ACG는 기존의 비슷한 방법들보다 최대 2배 낮은 추론 지연(latency)을 달성하며, 이는 비전-언어 모델이 실시간 혹은 대규모 설정에서 더 효과적으로 사용될 수 있다는 가능성을 시사합니다. 실험 결과 ACG는 표준 환각 벤치마크에서 일관되게 신뢰성을 향상시키며, 이전의 훈련 없이 수행하는 로짓 레벨(logit-level) 안내 기법들에 비해 초당 처리량이 더 효율적이라는 것을 보여주었습니다. 이러한 성과를 통해 ACG는 환각 제어 문제를 해결하기 위한 명확하고 효율적인 대안을 제시합니다.
+
+
+
+### Performance and Complexity Trade-off Optimization of Speech Models During Training (https://arxiv.org/abs/2601.13704)
+- **What's New**: 이 논문에서는 음성 머신러닝에서 신경망 모델의 성능과 계산 복잡성을 동시에 최적화할 수 있는 새로운 재파라메터화 기법을 제안합니다. 전통적인 모델 가지치기(pruning) 방법과는 달리, 본 방법은 동적으로 모델 크기를 최적화하여 주어진 성능-복잡성 간의 균형을 맞출 수 있도록 합니다. 이를 통해 기존의 경험적인 기준에 의존하지 않고 훈련 중에 모델 구조를 조정할 수 있습니다.
+
+- **Technical Details**: 제안된 기법은 feature noise injection을 기반으로 하며, SGD(스톡캐스틱 그래디언트 디센트) 방법을 사용하여 성능과 계산 복잡성을 동시에 최적화합니다. 전통적인 방법들이 주어진 모델의 구조를 변경하지 않는 반면, 본 연구의 접근 방식은 훈련 중에 직접적으로 복잡성을 조정합니다. 이를 통해 모델의 층 크기와 전체 복잡성을 줄일 수 있습니다.
+
+- **Performance Highlights**: 세 가지 사례 연구를 통해 우리의 방법의 효과성을 입증했습니다. 복잡성이 높은 모델에 대해 80% 이상의 계산 복잡성을 감소시키고, 모델 크기를 90% 정도 줄이는 성과를 보였습니다. 또한 본 기법은 기존의 기술들과 결합하여 모델을 추가적으로 압축할 수 있다는 장점도 가지고 있습니다.
+
+
+
+### Does Privacy Always Harm Fairness? Data-Dependent Trade-offs via Chernoff Information Neural Estimation (https://arxiv.org/abs/2601.13698)
+- **What's New**: 이 논문은 공정성(fairness)과 프라이버시(privacy)가 머신러닝의 신뢰성을 보장하는 두 가지 핵심 요소라는 점을 강조합니다. 특히, 공정성과 프라이버시 간의 상관관계는 상대적으로 적은 연구가 이루어졌으며, 이를 해결하기 위해 정보 이론적 측정인 Chernoff Information을 활용합니다. 저자들은 Noisy Chernoff Difference라는 새로운 도구를 정의하고 데이터 분포의 의존적인 관계를 분석합니다.
+
+- **Technical Details**: 저자들은 Noisy Chernoff Difference를 통해 공정성, 프라이버시, 정확도(accuracy) 간의 관계를 동시에 분석합니다. 데이터 분포에 따라 이 값은 세 가지 뚜렷한 방식으로 동작하며, Gaussian 가정을 통해 공정성과 프라이버시 간의 상호작용이 세 가지 레짐으로 나뉜다는 것을 증명합니다. 또한, Chernoff Information Neural Estimation (CINE)이라는 새로운 알고리즘을 개발하여 비선형 데이터에서도 Chernoff Information을 직접 추정합니다.
+
+- **Performance Highlights**: 몽환적 데이터와 실제 데이터셋(MNIST, UCI Adult Income, HSLS)을 활용한 실험을 통해 공정성 및 프라이버시가 충돌할 수도 있고 조화롭게 공존할 수 있음을 보여줍니다. 이러한 발견은 공정성과 프라이버시의 상관관계가 데이터 분포에 따라 달라질 수 있음을 시사하며, 머신러닝 시스템의 구축 방식에 대한 새로운 통찰을 제공합니다. 최종적으로, 이 논문은 공정성과 프라이버시의 균형을 맞추는 것이 단순한 문제에서 벗어나 데이터가 두 가지 목표를 동시에 충족할 수 있게 해주는 경우를 이해해야 함을 강조합니다.
+
+
+
+### Uncertainty-Aware Gradient Signal-to-Noise Data Selection for Instruction Tuning (https://arxiv.org/abs/2601.13697)
+Comments:
+          Preprint
+
+- **What's New**: 본 논문에서는 GRADFILTERING이라는 새로운 데이터 선택 프레임워크를 제안합니다. 이는 대규모 언어 모델(LLMs)의 지침 조정을 위한 데이터 선택을 개인화하고 개선하는 데 중점을 두고 있습니다. 기존 방법들의 비효율성을 극복하기 위해 작은 GPT-2 프록시 모델과 LoRA 앙상블을 활용하여 예제당 그래디언트를 종합한 신호 대 잡음 비율(Gradient Signal-to-Noise Ratio, G-SNR)을 활용합니다.
+
+- **Technical Details**: GRADFILTERING은 효율적이고 목표 비의존적인 데이터 선택 방법으로, 고정된 LLM 백본 위에서 작은 GPT-2 프록시 모델을 사용하고, 예제당 그래디언트를 집계하여 G-SNR 유틸리티를 계산합니다. 이 메트릭은 학습 진행 상황과 에피스템적 불확실성을 통합하여 데이터의 가치를 평가합니다. 각 예제를 G-SNR로 정렬하여 강력한 성능을 내는 하위 집합을 식별하고자 합니다.
+
+- **Performance Highlights**: 실험 결과, GradFiltering을 통해 선택된 5-15%의 서브셋으로 학습한 모델이 LLaMA-2-7B/13B에서 Random 및 Superfiltering 방법들과 비교하여 19/24의 LLM-as-a-judge 평가 사례에서 성능이 동등하거나 향상됨을 입증했습니다. 또한, GradFiltering으로 선택된 서브셋은 동일한 계산 예산 하에서 더 빠른 수렴 속도를 보여주며, 최종 지침 따르기 품질도 저하되지 않았습니다.
+
+
+
+### End-to-End Reverse Screening Identifies Protein Targets of Small Molecules Using HelixFold3 (https://arxiv.org/abs/2601.13693)
+- **What's New**: 이 논문에서는 기존의 전통적인 Reverse Screening 방식의 문제점을 극복하기 위해 HelixFold3라는 고정밀 생체분자 구조 예측 모델을 사용한 엔드투엔드 Reverse Screening 전략을 제안합니다. 이 방법은 단백질 folding 과정과 소분자 docking을 동시에 모델링하여 에러가 누적되는 과정을 최소화합니다. 또한, 전통적인 방법보다 약물 재사용 및 오프 타겟 예측에서도 향상된 정확도를 보여줍니다.
+
+- **Technical Details**: HelixFold3는 단백질 라이브러리의 folding과 소분자 리간드의 docking을 하나의 통합적인 프레임워크 안에서 동시에 수행합니다. 연구진은 약 100개의 다양한 소분자에 대해 이 접근법을 검증하였고, 이를 통해 기존의 단계적으로 진행되는 Reverse Docking 방식보다 구조적 정확성과 바인딩 사이트 정밀도를 개선했습니다. HelixFold3는 단백질 서열과 리간드 SMILES를 입력으로 활용하여 직접 단백질-리간드 복합체의 기하학을 예측합니다.
+
+- **Performance Highlights**: HelixFold3 기반의 엔드투엔드 접근법은 Top-1% 성공률에서 38.0%, Top-10% 성공률에서 71.0%를 기록하며 전통적인 단계적 파이프라인보다 몇 배로 향상된 성과를 보여줍니다. 비교 분석 결과, 리간드 결합 단백질 구조의 정확성이 성공적인 랭킹에 중요한 역할을 함을 보여주며, 리간드 docking 및 affinity scoring의 개선이 엔드투엔드 접근법의 우수성을 입증합니다.
+
+
+
+### HeteroCache: A Dynamic Retrieval Approach to Heterogeneous KV Cache Compression for Long-Context LLM Inferenc (https://arxiv.org/abs/2601.13684)
+- **What's New**: HeteroCache는 LLM 추론에서 발생하는 KV 캐시의 선형 메모리 증가 문제를 해결하기 위한 동적 압축 프레임워크로, 훈련 없이도 구현이 가능하다는 점에서 기존 방법들과의 차별점을 가지고 있습니다. 본 방법은 주의 헤드의 시간적 이질성과 공간적 중복성을 기반으로 하여, 상대적으로 빠르게 변화하는 주의 정보를 유지하기 위한 세밀한 가중치 부여 전략을 적용합니다. 이를 통해 정보 손실을 방지하고, I/O 대기시간을 숨기기 위한 계층적 저장 메커니즘이 도입되었습니다.
+
+- **Technical Details**: HeteroCache는 주의 헤드를 안정성과 중복성에 따라 카테고리화하여 각 헤드에 대해 최적의 캐시 예산을 할당하는 세밀한 안정성 기반 전략을 사용합니다. 또한, CPU 메모리로 KV 캐시를 대부분 오프로드하여 GPU에서 전체 컨텍스트를 지속적으로 모니터링하도록 설계된 구조를 채택합니다. 이 방식은 주의 드리프트가 감지될 때만 비동기적으로 컨텍스트를 호출하여 효율적인 추론을 가능하게 합니다.
+
+- **Performance Highlights**: HeteroCache는 다양한 장기 컨텍스트 벤치마크에서 최첨단 성능을 달성하였으며, 특히 224K 컨텍스트에서 원본 모델 대비 최대 3배의 디코딩 가속화를 기록하였습니다. 다양한 LLMs에서 실험 결과, 다른 고급 압축 알고리즘과 비교했을 때 HeteroCache는 더 높은 성능을 입증했습니다. 열린 소스 코드를 제공하여 다른 연구자들이 활용할 수 있을 예정입니다.
+
+
+
+### The Orchestration of Multi-Agent Systems: Architectures, Protocols, and Enterprise Adoption (https://arxiv.org/abs/2601.13671)
+- **What's New**: 이번 논문은 다중 에이전트 시스템의 협업과 통제를 통해 복잡한 목표를 달성하는 새로운 인공지능 진화를 다룹니다. 저자들은 계획, 정책 시행, 상태 관리, 품질 운영을 통합한 통합 아키텍처 프레임워크를 제시하였습니다. 뿐만 아니라, 외부 도구와 데이터에 접근하는 방법을 표준화하는 모델 맥락 프로토콜(Model Context Protocol)과 동료 협조 및 협상을 규제하는 에이전트 간 프로토콜(Agent2Agent protocol)을 상세히 설명합니다.
+
+- **Technical Details**: 다중 에이전트 시스템을 구축하는 것은 단순히 자율 에이전트를 연결하는 것이 아닙니다. 역할을 특화하고, 상호작용을 관리하는 조정 계층을 만들며, 정보 교환을 위한 명확한 커뮤니케이션 프로토콜을 정의해야 합니다. 이러한 구성 요소들은 복잡한 도메인별 워크플로우를 가능하게 하여 에이전트 간의 지능적 협력을 지원합니다.
+
+- **Performance Highlights**: 전반적인 아키텍처를 통해 조직에서 사용할 수 있는 확장 가능하고 감사 가능한 논리적 인프라를 제공합니다. 다양한 사례 연구를 통해 이 시스템의 실질적 영향을 보여주고, 에이전트의 특화된 역할 및 조정 메커니즘이 전체 시스템의 효율성을 어떻게 높이는지를 설명합니다. 결국 이러한 요소들은 기업 규모의 AI 생태계의 구축에 기여할 것으로 기대됩니다.
+
+
+
+### Temporal-Spatial Decouple before Act: Disentangled Representation Learning for Multimodal Sentiment Analysis (https://arxiv.org/abs/2601.13659)
+Comments:
+          This study has been accepted by IEEE ICASSP2026
+
+- **What's New**: 이 연구에서는 다중 모드 감정 분석(Multimodal Sentiment Analysis)을 위해 새로운 TSDA(Temporal-Spatial Decouple before Act) 프레임워크를 제안합니다. TSDA는 서로 다른 모드를 상호 작용하기 전에 시간적(dynamics) 및 공간적 구조(context)를 분리하여 처리합니다. 이를 통해 기존 방식에서 발생하던 시간-공간 정보의 비대칭성을 해결하고, 예측 정확도를 향상시킬 수 있는 방법론을 제시합니다.
+
+- **Technical Details**: TSDA는 각 모드에 대해 시간 인코더(Temporal Encoder)와 공간 인코더(Spatial Encoder)를 사용합니다. 시간 인코더는 순서화된 토큰이나 프레임을 시간적 시퀀스로 변환하고, 공간 인코더는 시간에 의존하지 않는 구조적 세트를 생성합니다. 이후, Factor-Consistent Cross-Modal Alignment(FCCA)를 통해 시간적 및 공간적 특성들을 독립적으로 정렬하여 교차 모드 간의 일관성을 확보합니다.
+
+- **Performance Highlights**: TSDA의 성능은 기존의 방식들보다 뛰어난 것으로 나타났습니다. 광범위한 실험을 통해 TSDA가 경쟁 모델들에 비해 우수한 성능을 보임을 입증하였고, ablation 분석을 통해 설계의 필수성과 해석 가능성을 또한 확인하였습니다. 특히, 상이한 모드 사이의 연결 유지를 위한 gated recouple 모듈의 적용이 주요한 기여로 확인되었습니다.
+
+
+
+### Communication-Free Collective Navigation for a Swarm of UAVs via LiDAR-Based Deep Reinforcement Learning (https://arxiv.org/abs/2601.13657)
+- **What's New**: 이번 논문에서는 무인 항공기(UAV) 군집의 집합 항법을 위한 심층 강화 학습(deep reinforcement learning, DRL) 기반 제어기를 제안합니다. 본 시스템은 장애물이 많은 복잡한 환경에서도 안정적으로 작동할 수 있도록 설계되었습니다. 명시적인 통신 없이 정보를 교환하며, 선도 UAV가 목표 정보를 보유하고 후속 UAV는 자체적으로 주변 감지를 통해 정책을 학습하여 조화를 유지합니다. 이러한 접근법은 실내 및 실외 환경에서도 효과적인 집합 항법을 가능하게 합니다.
+
+- **Technical Details**: 제안된 시스템은 LiDAR(point cloud) 기반의 점군 클러스터링 및 확장 칼만 필터(extended Kalman filter)를 사용하여 이웃 UAV를 안정적으로 추적합니다. 이 방법은 외부 위치 시스템에 의존하지 않고 신뢰성 있는 인식을 제공하며, GPU 가속화된 Nvidia Isaac Sim에서 훈련된 DRL 제어기를 통해 복잡한 emergent behavior를 학습합니다. 후속 UAV는 목표 정보 없이도 지역적인 인식만으로 조화를 유지하며, 시각적 결함(예: occlusion) 및 제한된 시야(field-of-view) 문제를 해결할 수 있습니다.
+
+- **Performance Highlights**: 제안된 방법은 다섯 대의 UAV로 구성된 군집을 대상으로 한 광범위한 시뮬레이션 및 실제 실험을 통해 robust한 성능을 입증하였습니다. 통신이 불가능한 환경에서도 UAV들이 효과적으로 집합적으로 이동할 수 있는 능력을 보여주며, 실내 및 실외에서의 다양한 환경에서 성공적인 방식으로 집합 항법을 수행했습니다. 이러한 결과는 통신 기반 방법에서 발생하는 제한을 극복할 수 있는 가능성을 제시합니다.
+
+
+
+### Why Does the LLM Stop Computing: An Empirical Study of User-Reported Failures in Open-Source LLMs (https://arxiv.org/abs/2601.13655)
+- **What's New**: 이 연구는 705개의 실제 사례에서 발생한 실패를 분석하여, 오픈 소스 LLM(Open-source Large Language Models)의 배포 신뢰성 문제를 조망합니다. 특히, 사용자 관리 인프라에서 발생하는 동적 실패의 새로운 패턴을 규명하며, 이를 통해 외부 요인과 환경적 요인이 모델의 신뢰성에 미치는 영향을 강조합니다. 또한, 진단 이론을 정립하여 LLM 실패의 원인을 분석합니다.
+
+- **Technical Details**: 연구의 방법론은 세 가지 단계로 구성되어 있습니다. 첫 번째 단계에서는 GitHub 저장소를 통한 이슈 보고를 바탕으로 LLM을 선정하였으며, 두 번째 단계에서는 주요 모델 시리즈들의 상태를 조사하여 필터링하였습니다. 마지막으로, DeepSeek, Llama, Qwen의 세 가지 시리즈를 최종 선정하여 5,302개의 이슈 데이터를 수집하였습니다.
+
+- **Performance Highlights**: 이 연구는 LLM 실패의 새로운 기준을 제시하며, 사용자 관점에서 LLM의 신뢰성을 개선하는 데 필요한 실질적인 통찰을 제공합니다. 런타임 연결 문제로 인한 실패, 환경적 요인 및 구성 장애를 주된 원인으로 규명하였으며, 향후 연구를 위한 공개 데이터셋을 제공합니다. 이러한 공헌은 산업계 및 연구자들에게 LLM 생태계의 신뢰성을 더욱 강화하기 위한 실질적인 지침이 될 것입니다.
+
+
+
+### Fairness or Fluency? An Investigation into Language Bias of Pairwise LLM-as-a-Judg (https://arxiv.org/abs/2601.13649)
+- **What's New**: 최근의 연구에서는 LLM(as-a-judge) 시스템이 텍스트의 품질 평가를 위해 사용되지만, 이 과정에서 나타나는 언어 편향(language bias)의 문제를 다룹니다. 주목할 점은 LLM들이 언어의 종류에 따라 품질 평가에서 차이를 보인다는 것입니다. 연구에서는 같은 언어와 다른 언어에서의 판단을 비교하여 각 언어 패밀리 간의 성능 격차를 조사했습니다.
+
+- **Technical Details**: 연구는 두 가지 언어 편향 유형을 분석합니다: 첫째, 같은 언어의 비교에서 성능 격차, 둘째, 다른 언어의 선택지에 대한 선호도를 분석합니다. 분석에 사용된 데이터셋은 MMMLU로, 다국어 객관식 질문 응답 데이터베이스입니다. 연구에서는 여러 LLM 모델을 사용하여 등급을 매깁니다.
+
+- **Performance Highlights**: 분석 결과, 유럽 언어가 아프리카 언어보다 상대적으로 높은 성능을 보였습니다. 또한, 서로 다른 언어 간의 비교에서는 영어 답변이 일관되게 선호되는 경향을 보였으며, 이는 질문 언어보다 답변 언어에 의해 더 큰 영향을 받았습니다. 최종적으로, 언어 편향이 낮은 perplexity에 의한 것인지에 대한 조사에서는 두 가지 편향이 일부 연관이 있음을 발견한 반면, 언어 편향을 완전히 설명할 수는 없음을 확인했습니다.
+
+
+
+### Fusion Segment Transformer: Bi-Directional Attention Guided Fusion Network for AI-Generated Music Detection (https://arxiv.org/abs/2601.13647)
+- **What's New**: 최근 생성형 AI 기술의 발전으로 인해 누구나 쉽게 AI 생성 음악을 만들고 배포할 수 있게 되었고, 이에 따라 저작권 및 소유권 문제를 해결하기 위한 기술적 솔루션의 필요성이 증가하고 있습니다. 기존 연구는 주로 짧은 오디오에 초점을 맞추었지만, 전체 오디오 감지의 도전과제는 아직 충분히 탐구되지 않았습니다. 이를 해결하기 위해 우리는 Fusion Segment Transformer라는 개선된 버전을 제안하며, 이 모델은 콘텐츠와 구조 정보를 통합하여 장기적인 맥락을 효과적으로 포착할 수 있게 설계되었습니다.
+
+- **Technical Details**: 이 연구는 두 단계의 파이프라인을 따르며, 첫 번째 단계에서는 짧은 오디오 세그먼트에서 의미 있는 임베딩을 추출하는 데 집중합니다. Muffin Encoder를 통해 고주파 아티팩트를 처리하고, 두 번째 단계에서는 양방향 크로스 어텐션과 적응형 게이트 융합 메커니즘을 도입하여 콘텐츠와 구조 정보 간의 상호작용을 개선합니다. 이를 통해 각 세그먼트의 내용 및 구조적 특성을 보다 정확하게 캡처할 수 있습니다.
+
+- **Performance Highlights**: SONICS와 AIME 데이터셋에서의 실험 결과, 우리의 접근 방식은 이전 모델 및 최신 기준선 모델을 능가하여 AI 생성 음악 감지에서 최첨단 결과를 달성했습니다. Fusion Segment Transformer는 음악 신호에서 콘텐츠와 구조 스트림을 통합하여 보다 강력한 성능을 보여주며, 다양한 특징 추출기를 유연하게 통합하여 비교 평가와 보완적인 통찰력을 제공합니다.
+
+
+
+### Quadratic Upper Bound for Boosting Robustness (https://arxiv.org/abs/2601.13645)
+Comments:
+          Accepted at ICML 2025. Published in PMLR 267:72656-72676
+
+- **What's New**: 본 논문에서는 패스트 적대적 훈련(Fast Adversarial Training, FAT)의 효율성을 개선하기 위한 새로운 손실 함수, 즉 Quadratic Upper Bound (QUB) 손실 함수를 제안합니다. QUB는 기존 AT 손실 함수에 비해 모델의 강건성을 크게 향상시키면서도 훈련 시간을 크게 증가시키지 않는 지향점을 가지고 있습니다. 실험 결과, QUB 손실을 이용한 경우 모델의 강건성이 현저히 향상되었음을 확인했습니다.
+
+- **Technical Details**: QUB 손실 함수는 교차 엔트로피 손실 함수의 볼록성을 활용하여 도출되었습니다. 본 연구에서는 QUB를 기존의 적대적 훈련에서 사용하는 손실 함수로 제안합니다. 그리고 다양한 메트릭스를 활용하여 이 QUB 손실 함수가 손실 경량 공간을 부드럽게 만들어 주는 효과가 있음을 보여주었습니다.
+
+- **Performance Highlights**: 제안된 QUB 손실 함수를 이용한 FAT 방법은 모델 강건성을 개선할 수 있으며, 이는 다양한 데이터셋에 대한 실험을 통해 입증되었습니다. QUB 사용으로 인해 손실 경량 분야가 부드러워지는 효과가 있어, 이는 모델의 적대적 공격에 대한 저항력을 높여줍니다. 방어 능력이 향상된 결과는 기존의 FAT 방법과 비교했을 때 확연히 나타났습니다.
+
+
+
+### CARPE: Context-Aware Image Representation Prioritization via Ensemble for Large Vision-Language Models (https://arxiv.org/abs/2601.13622)
+- **What's New**: 최근의 대형 비전-언어 모델(Large Vision-Language Models, LVLMs) 발전에도 불구하고, 이미지 분류와 같은 비전 중심의 작업에서는 여전히 제한적입니다. 이 문제를 해결하기 위해, 저자들은 CARPE(Context-Aware Image Representation Prioritization via Ensemble)라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 비전 통합 레이어와 맥락 인식 앙상블 전략을 도입하여 이미지 표현을 우선시할 때와 언어 모델의 추론 능력을 활용할 때를 식별합니다.
+
+- **Technical Details**: CARPE는 모델에 구애받지 않는 프레임워크로, 시각 및 언어의 두 가지 임베딩을 통합하는 동적 앙상블 접근 방식을 사용합니다. 이 과정에서 비전 인코더의 원시 비전 인코딩과 최종 언어 모델 출력이 조합됩니다. 비전 통합기를 통해 서로 보완적인 특성을 캡처하고, 맥락 인코더를 통해 앙상블의 가중치를 적절히 조정하여 시각 정보와 언어 기반 추론 간의 우선 순위를 설정합니다.
+
+- **Performance Highlights**: CARPE는 이미지 분류 벤치마크에서 성능을 크게 향상시키고, 다양한 비전-언어 벤치마크에서도 긍정적인 결과를 보입니다. 실험 결과, 이 프레임워크가 LVLM의 전반적인 성능을 향상시키고, 제로샷 이미지 분류에서의 개선뿐만 아니라 다양한 멀티모달 작업에서도 유의미한 효과를 보인다는 것을 확인했습니다. 또한 CARPE는 다양한 오픈소스 LVLM과의 통합이 용이하여, 여러 아키텍처에 대한 적응성을 보장합니다.
+
+
+
+### CauScientist: Teaching LLMs to Respect Data for Causal Discovery (https://arxiv.org/abs/2601.13614)
+- **What's New**: CauScientist는 LLM(대형 언어 모델)을 활용하여 인과 구조를 발견하는 혁신적인 협업 프레임워크입니다. 기존의 데이터 기반 접근법의 한계를 극복하기 위해, LLM을 데이터 과학자로 활용하고, 확률 통계적 검증을 통해 제안된 인과 그래프의 수정 사항을 검증합니다. 이 프레임워크는 초기 그래프 선택, 구조 개선 및 반복 최적화 과정을 통해 인과 관계를 효율적으로 발견합니다.
+
+- **Technical Details**: CauScientist는 하이브리드 초기화, 협업 검증 및 구조 개선, 반복 최적화의 세 가지를 포함합니다. 하이브리드 초기화 단계에서는 데이터 기반 알고리즘과 LLM에서 생성된 후보 그래프를 결합하여 베이시안 정보 기준(BIC)으로 평가된 최적의 그래프를 선택합니다. 이후 LLM이 제안한 구조적 수정 사항이 통계적 검증을 통해 검토되며, 이러한 과정에서 오류 메모리를 통해 검색 공간을 효율적으로 축소합니다.
+
+- **Performance Highlights**: 실험 결과, CauScientist는 단순한 데이터 기반 기준보다 F1 점수에서 최고 53.8% 향상되었으며, 회수율이 35.0%에서 100.0%으로 증가했습니다. 또한, 그래프의 크기가 증가함에 따라 LLM의 성능이 저하되는 반면, CauScientist는 37노드 그래프에서 Qwen3-32B에 비해 구조적 해밍 거리(SHD)를 44.0% 감소시켜보다 신뢰할 수 있는 인과 관계를 제공합니다.
+
+
+
+### Diffusion In Diffusion: Breaking the Autoregressive Bottleneck in Block Diffusion Models (https://arxiv.org/abs/2601.13599)
+Comments:
+          Work In Progress
+
+- **What's New**: 본 논문은 Diffusion in Diffusion라는 새로운 프레임워크를 제안하여 블록 확산 모델의 비가역성과 단기적 문제를 해결합니다. 이 모델은 먼저 작은 블록을 사용하여 초안을 신속하게 생성한 후, 전역 양방향 확산을 통해 초안을 수정합니다. 이를 통해 모델은 더 많은 맥락 정보를 얻어 오류를 수정할 수 있습니다.
+
+- **Technical Details**: 구조적 블록 확산 모델은 생성 과정을 초안 단계와 수정 단계로 나누어 진행합니다. 각 단계에서 블록 크기를 점진적으로 증가시켜 양방향 수용 범위를 넓히며, 저신뢰 필터링을 적용하여 수정할 필요가 있는 토큰을 선택합니다. 이러한 접근 방식은 모델이 이전에 발생한 오류를 더 전반적인 관점에서 재검토할 수 있게 합니다.
+
+- **Performance Highlights**: Empirical results indicate that Diffusion in Diffusion는 OpenWebText 데이터셋에서 새로운 기준을 세우며, 프리미엄 모델의 26%의 파인튜닝 예산만으로 생성된 perplexity가 25.7에서 21.9로 감소하였습니다. 이러한 성능 향상은 autoregressive 모델과의 격차를 상당히 좁혔습니다.
+
+
+
+### Machine learning based radiative parameterization scheme and its performance in operational reforecast experiments (https://arxiv.org/abs/2601.13592)
+- **What's New**: 이번 연구는 수치 모델에서 방사선(radiation)의 가장 시간이 많이 소요되는 물리적 과정에 대한 효율성을 개선하기 위해 머신러닝(machine learning) 방법을 사용하고 있습니다. 특히, 딥 뉴럴 네트워크(deep neural networks)를 수치 예측 모델에 통합한 하이브리드 예측 프레임워크에서의 주요 제약 조건인 커플링 적합성(coupling compatibility)과 장기 통합 안정성(long-term integration stability)을 분석합니다.
+
+- **Technical Details**: 연구에서는 전 세계 기상 시스템의 중국 기상청(China Meteorological Administration)에서 일반 순환 모델에 대한 급속 방사 전이 모델(Rapid Radiative Transfer Model for General Circulation Models, RRTMG)을 근사화하기 위해 잔여 합성곱 신경망(residual convolutional neural network)을 사용합니다. 오프라인 훈련(offline training)과 온라인 커플링(online coupling) 접근 방식을 채택하였으며, 모든 대기 기둥(atmospheric column)에 대한 포괄적인 데이터셋을 모델 시뮬레이션을 통해 생성하여 클라우드 커버(cloud cover) 유무를 포함합니다.
+
+- **Performance Highlights**: 혼합 모델은 10일 통합 예보를 수행할 수 있으며, 두 달 간의 운영 재예측 실험에서 머신 러닝 에뮬레이터는 전통적인 물리적 모델과 비교해 유사한 정확성을 달성했습니다. 또한, 계산 속도는 약 8배 향상되었습니다. 이는 머신러닝 기법이 기상 예측의 효율성을 크게 개선할 수 있음을 보여줍니다.
+
+
+
+### Vulnerability of LLMs' Belief Systems? LLMs Belief Resistance Check Through Strategic Persuasive Conversation Interventions (https://arxiv.org/abs/2601.13590)
+- **What's New**: 최근의 연구에 따르면, 대형 언어 모델(LLMs)은 설득에 민감하고 반사실적 신념을 채택할 수 있습니다. 본 연구는 SMCR(Source–Message–Channel–Receiver) 커뮤니케이션 프레임워크에 따라 LLM들의 설득 민감도를 체계적으로 평가합니다. 5개의 주요 LLM과 3개의 도메인(사실적 지식, 의료 QA, 사회적 편향)에 걸쳐 다양한 설득 전략이 신념 안정성에 미치는 영향을 분석하고 있습니다.
+
+- **Technical Details**: 대상 모델로는 GPT-4o-mini, Llama 3.3-70B, Llama 3.2-3B, Mistral 7B, Qwen 2.5-7B가 포함되며, LLM의 신념 변화를 명확하고 정량적으로 관찰할 수 있도록 이진(yes/no) 질문으로 구성됩니다. 적절한 방어책으로는 메타인지 유도와 적대적 미세조정(adversarial fine-tuning)이 적용되며, 각 설득 전략은 SMCR 요소에 따라 구성됩니다. 이를 통해 신념 변화의 경과를 추적하고 다중 회전에서의 변화를 분석합니다.
+
+- **Performance Highlights**: 실험 결과, 작은 모델이 극단적인 동의(compliance)를 보여 80% 이상의 신념 변화가 첫 번째 설득 전환에서 발생했습니다. 또한 메타인지 유도가 오히려 신념 침식을 가속화하여 취약성을 증가시키는 것으로 나타났습니다. GPT-4o-mini는 거의 완전한 강인성(98.6%)을 달성했으며, Mistral 7B는 상당히 개선되었습니다(35.7%에서 79.3%로). 그러나 Llama 모델은 조정 후에도 여전히 높은 취약성(<14%)을 보였습니다.
+
+
+
+### TREX: Tokenizer Regression for Optimal Data Mixtur (https://arxiv.org/abs/2601.13588)
+Comments:
+          Accepted to EACL 2026. Long Paper. (19 languages studied: Chinese, Greek, Japanese, etc.)
+
+- **What's New**: 이번 논문에서는 다국어 대형 언어 모델(LLMs)용 효과적인 토크나이저(tokenizer) 구축을 위해 언어별 데이터 혼합 비율을 최적화하는 새로운 방법인 TOKENIZER REGRESSION FOR OPTIMAL DATA MIXTURE (TREX)를 소개합니다. TREX는 작은 규모의 프록시 토크나이저를 무작위 혼합을 통해 훈련시키며, 혼합 데이터에서 압축 성능을 예측하는 방법을 학습합니다. 이를 통해 대규모 데이터 혼합을 효율적으로 검색할 수 있어 다국어 토크나이저 설계에서 정확도와 비용 간의 균형을 개선합니다.
+
+- **Technical Details**: TREX 프레임워크는 무작위 혼합의 작은 규모의 프록시 토크나이저를 훈련시키고, 여기에 대한 압축 통계(compression statistics)를 수집하여 학습합니다. 이 학습된 모델은 특히 최적의 데이터 혼합을 예측하는 데 초점을 맞추며, 대규모 토크나이저 훈련 전에서도 적용할 수 있습니다. 결과적으로 기존의 휴리스틱(heuristics)이나 비용이 많이 드는 대규모 검색보다 월등한 성능을 보일 수 있습니다.
+
+- **Performance Highlights**: TReX의 예측된 혼합으로 훈련된 토크나이저는 LLaMA3 기반 혼합과 균일 분포(uniform distribution) 기반 혼합에 비해 최대 12% 더 높은 압축 효율성을 보여줍니다. 이로 인해 다국어 토크나이저 설계에서의 강력한 확장성(scalability), 견고성(robustness), 실제적 효과성(practical effectiveness)이 강조됩니다. 이를 통해 TREX는 다국어 LLM 훈련에 있어 새로운 표준을 제시할 것으로 기대됩니다.
+
+
+
+### Neural Organ Transplantation (NOT): Checkpoint-Based Modular Adaptation for Transformer Models (https://arxiv.org/abs/2601.13580)
+Comments:
+          27 pages, 8 figures, 16 tables. Decoder-only transformers (124M-20B parameters). Complete experimental results and reproducibility details in appendices. Code and checkpoints: this https URL
+
+- **What's New**: Neural Organ Transplantation (NOT)이라는 새로운 모듈화 기반의 프레임워크를 제안합니다. 이 프레임워크는 교육된 Transformer 레이어가 도메인 적응을 위한 재사용 가능한 체크포인트로 기능할 수 있도록 합니다. NOT는 사전 훈련된 모델에서 서로 연결된 레이어 부분을 추출하고 독립적으로 훈련하여 독립적인 체크포인트 파일로 저장하며, 이를 호환 가능한 모델에 나누어 이식할 수 있게 합니다.
+
+- **Technical Details**: 이 프레임워크는 미니멀 래퍼 아키텍처를 사용하여 특정 도메인 데이터로 독립적으로 레이어를 훈련시키고, 이 훈련된 레이어를 체크포인트 파일로 저장합니다. 체크포인트는 원래의 훈련 데이터에 접근할 필요 없이 호환 모델에 로드되고, 학습된 변환을 통해 연결됩니다. 여러 기증자(checkpoints) 레이어를 하나의 수혜자(recipient) 모델에 결합할 수도 있습니다.
+
+- **Performance Highlights**: 기증자 이식(donor transplantation)은 LoRA보다 2.8배에서 38.6배 향상된 perplexity 성능을 보여줍니다. 추가적으로, 모델의 중간 레이어가 모듈화된 전이(modular transfer)를 효과적으로 지원하며, 비밀 유지 측면에서 경량화된 전문지식을 공유할 수 있게 도와줍니다. 그러나 현재 이 방법은 디코더 전용 모델에만 한정되어 있으며, 초기 실험에서는 인코더 기반 아키텍처에서 효과가 감소했습니다.
+
+
+
+### GeoDynamics: A Geometric State-Space Neural Network for Understanding Brain Dynamics on Riemannian Manifolds (https://arxiv.org/abs/2601.13570)
+Comments:
+          Accepted to NeurIPS 2025
+
+- **What's New**: 이 논문에서는 GeoDynamics라는 새로운 기하학적 상태 공간 신경망을 제안합니다. 이 모델은 뇌의 잠재적 상태 궤적을 고차원 대칭 양의 정부호(SPD) 매니폴드에서 직접 추적합니다. 과거의 접근 방식과 달리, GeoDynamics는 뇌 기능 연결성(FC)의 복잡한 상호 작용을 포착하여 인지 및 행동을 모델링하는 데 기여합니다.
+
+- **Technical Details**: GeoDynamics는 대칭 양의 정부호(SPD) 매트릭스를 위한 Riemannian 매니폴드에서 기능 연결성의 고유한 특성 표현을 학습합니다. 이 방식은 기존의 유클리드 대수를 Riemannian 기하학으로 대체하여 비정형 데이터 구조를 효과적으로 처리합니다. 모델은 두 가지 핵심 ODE를 사용하여 시스템의 상태와 관측 간의 관계를 설명합니다.
+
+- **Performance Highlights**: GeoDynamics는 알츠하이머병, 파킨슨병 및 자폐증의 조기 징후를 드러내는 과제 기반의 상태 변화를 공개하며, 행동 인식 벤치마크에서 우수한 성과를 보여줍니다. 대규모 인간 뇌 연결망 데이터베이스를 활용하여 모델의 성능을 평가하였으며, 신경 과학 및 컴퓨터 비전 분야에서 복잡한 시공간 다이나믹스를 이해하는 데의 효과성을 입증했습니다.
+
+
+
+### Self-Improvement as Coherence Optimization: A Theoretical Accoun (https://arxiv.org/abs/2601.13566)
+Comments:
+          39 pages
+
+- **What's New**: 이번 논문은 언어 모델이 외부 감독 없이도 정확성을 향상시킬 수 있는지에 대한 이론적 답변을 제공합니다. 특정 방법들, 즉 debate (토론), internal coherence maximization (내부 일관성 극대화), iterative bootstrap (반복 부트스트래핑) 등이 감독 없이도 성능을 향상시킬 수 있는 이유를 설명합니다. 이러한 방법들이 모두 coherence optimization (일관성 최적화)의 특별한 경우임을 보여줍니다.
+
+- **Technical Details**: 저자들은 언어 모델의 동작 간의 공동 가능성을 최적화하는 일관성(coherence) 개념을 도입합니다. 이들은 모두 pretrained model(사전 훈련된 모델)에서 도출된 정규화 방식에 대한 이론적 근거를 제시하며, 이 정규화 방식이 반감독 학습(semi-supervised learning)에서 최적임을 증명합니다. Gibbs sampling(깁스 샘플링)을 사용하여 일관성을 효율적으로 최적화할 수 있는 알고리즘을 제안합니다.
+
+- **Performance Highlights**: 초기 실험 결과들은 일관성 기반 정규화 방법이 기존의 LLM-as-a-judge 방식보다 더 뛰어난 성능을 발휘함을 보여줍니다. 이 논문은 언어 모델의 반감독 학습에서 스케일링 가능하고 이론적으로 견고한 알고리즘을 제공하며, 이러한 방법들이 수반하는 이점과 한계를 명확히 규명하였습니다. 결국, 언어 모델이 사전 훈련된 데이터에서 얻은 통찰을 바탕으로 일반화 능력을 향상시킬 수 있는 방법론적 접근을 제시합니다.
+
+
+
+### Multi-objective fluorescent molecule design with a data-physics dual-driven generative framework (https://arxiv.org/abs/2601.13564)
+Comments:
+          Total 43 pages: 32 pages Main Text + 11 pages SI
+
+- **What's New**: 이번 논문에서는 형광 분자의 역설계를 위한 LUMOS라는 새로운 프레임워크를 소개합니다. LUMOS는 데이터 기반(data-driven)과 물리 기반(physics-driven) 접근 방식을 결합하여, 분자의 특정 속성과 제약 조건을 고려한 효율적인 디자인을 가능하게 합니다. 또한, 기존의 저효율적인 방법론을 극복하고 신뢰할 수 있는 예측을 제공합니다.
+
+- **Technical Details**: LUMOS는 generator와 predictor가 공유하는 잠재 공간(latent representation) 내에서 결합되어, 분자 디자인을 위한 직접적인 명세(specification)와 탐색(exploration)을 지원합니다. 이 프레임워크는 신경망(neural networks)과 빠른 시간 의존 밀도 함수 이론(time-dependent density functional theory, TD-DFT) 계산 작업 흐름을 결합하여, 속도, 정확성, 일반화 가능성에서 다양한 상충관계를 가진 예측기들을 구축합니다. 이를 통해 다채로운 시나리오에서 신뢰할 수 있는 속성 예측이 가능해집니다.
+
+- **Performance Highlights**: LUMOS는 정확성, 일반화 가능성, 물리적 타당성 측면에서 기존 모델들보다 우수한 성능을 보였습니다. 특히, 다양한 목표와 제약 조건 하에서 이루어진 분자 최적화에서 탁월한 결과를 나타내었으며, TD-DFT 및 분자 동역학(molecular dynamics, MD) 시뮬레이션을 통한 검증에서도 다양한 타겟 사양을 충족하는 유효한 형광염료(fluorophores)를 생성할 수 있음이 입증되었습니다.
+
+
+
+### ButterflyMoE: Sub-Linear Ternary Experts via Structured Butterfly Orbits (https://arxiv.org/abs/2601.13563)
+- **What's New**: ButterflyMoE를 도입하여 전문가(Experts)를 독립적인 가중치 행렬이 아닌 공유된 양자화된 서브스트레이트를 기하학적으로 재구성하는 방식으로 처리하고, 이로 인해 메모리 사용량을 대폭 줄입니다. 이 방식은 전문가 간의 다양성을 중복 저장에서가 아닌, 공유된 용량을 다양한 각도로 바라보는 것에서 발생하게 합니다. ButterflyMoE는 총 256명의 전문가를 사용할 때 150배의 메모리 절감을 이뤘으며, 이는 기존의 MoE 모델과 큰 차이를 보입니다.
+
+- **Technical Details**: ButterflyMoE는 전문가들을 단일 테르너리 양자화된 기반(weight matrix)으로부터 학습된 회전을 통해 매개변수화합니다. 각 전문가의 가중치는 공유된 1.58 비트 가중치 행렬에서 파생되며, O(d^2 + N⋅d log d)의 메모리 복잡도를 가지도록 설계되었습니다. 이러한 구조적 변화를 통해 메모리 압축이 향상되고, 입력 회전을 통해 활성화 아웃라이어를 억제하며, 테르너리 서브스트레이트로 인해 양자화 오류를 97%까지 줄일 수 있습니다.
+
+- **Performance Highlights**: ButterflyMoE는 멀티도메인 언어 모델링에서 밀집(Dense) 모델과 동등한 정확성을 달성하면서, 메모리 사용량은 기존의 256MB에서 1.9MB로 줄였습니다. 이로 인해 Jetson Nano와 같은 엣지 디바이스에서 64명의 전문가 모델을 성공적으로 구현할 수 있어, 대규모의 병렬 처리 배포가 가능해졌습니다. ButterflyMoE는 최대 99.5%의 메모리 대역폭 에너지 절감을 달성하며, 기존의 MoE 모델에 비해 더욱 효율적인 처리 속도를 제공합니다.
+
+
+
+### HateXScore: A Metric Suite for Evaluating Reasoning Quality in Hate Speech Explanations (https://arxiv.org/abs/2601.13547)
+Comments:
+          EACL 2026 Main Conference
+
+- **What's New**: 이번 연구는 자동화된 콘텐츠 조절 시스템에서 증오 발언 탐지의 신뢰성과 투명성을 높이기 위해 HateXScore라는 새로운 지표를 제안합니다. 이 지표는 추론의 질을 평가하기 위해 네 가지 구성요소로 구성되어 있습니다: 결론의 명시성, 인용된 심리의 신뢰성 및 인과적 바탕, 보호된 집단의 식별, 내부 일관성입니다. HateXScore는 기존의 정확도나 F1 스코어가 드러내지 못하는 해석의 실패 및 주석의 불일치를 드러내는 데 중점을 두고 있습니다.
+
+- **Technical Details**: HateXScore는 4가지 보완적인 구성 요소를 통해 증오 발언 설명의 질을 평가합니다. 첫째, 결론의 명시성을 평가하고, 둘째, 인용된 심리와 인과적인 기반의 신뢰성을 분석하며, 셋째, 정책에 따라 보호된 집단의 식별을 점검하고, 넷째, 이러한 요소 간의 논리적 일관성을 평가합니다. 이 모델은 입력 텍스트와 생성된 설명 및 예측된 레이블 사이의 관계를 기반으로 작동하며, 명확한 결론을 내리는지를 판단하는 지표를 제공합니다.
+
+- **Performance Highlights**: HateXScore는 여섯 가지 다양한 증오 발언 데이터셋에서 평가되어, 기존 메트릭들이 간과하는 설명 실패와 주석의 불일치를 드러내는 데 효과적으로 기능합니다. 인간 평가 결과, HateXScore는 신뢰할 수 있는 콘텐츠 조절을 위한 구체적인 도구로서의 유효성을 입증합니다. 이는 모델이 예측한 레이블과 데이터셋 레이블 간의 불일치를 해소할 수 있는 진단 신호로 작용하여, 잠재적으로 신뢰할 수 없는 주석을 식별하는 데 도움을 줍니다.
+
+
+
+### When Wording Steers the Evaluation: Framing Bias in LLM judges (https://arxiv.org/abs/2601.13537)
+Comments:
+          4 pages
+
+- **What's New**: 이번 연구는 대형 언어 모델(LLM)의 평가 시스템에서 프레이밍(Framing) 편향이 미치는 영향을 체계적으로 조사합니다. LLM의 응답은 입력 프롬프트의 표현 방식에 따라 달라질 수 있으며, 이는 심리학에서의 프레이밍 효과에서 영감을 받았습니다. 연구팀은 프레디케이트 긍정(Predicate-positive)과 프레디케이트 부정(Predicate-negative) 구조를 사용하여 LLM의 판단에 미치는 영향을 분석하고, 이러한 구조가 결과에 미치는 중대한 차이를 입증했습니다.
+
+- **Technical Details**: 연구에서는 14개의 LLM을 사용하여 네 가지 평가 작업(진실성 평가, 탈옥 탐지, 독성 탐지, 문법 수용성 판단)에 대한 평가를 수행했습니다. 평가 시스템의 설계는 동일한 내용을 묻는 두 가지 프롬프트를 언어적 표현만 다르게 구성해, 프레이밍에 따른 모델의 판단 왜곡을 평가했습니다. 실험을 통해 모든 LLM 모델이 프레이밍 편향에 취약하다는 것을 발견했고, 일부 모델들은 프레이밍된 진술에 동의하는 경향이 있는 반면 다른 모델들은 이를 거부하는 경향이 있다는 점도 확인했습니다.
+
+- **Performance Highlights**: 모델의 평가 결과는 프레이밍 편향이 현재 LLM 기반 평가 시스템의 구조적 특성이라는 것을 보여주었습니다. 연구 결과, 모델들은 동일한 내용에 대해 프레디케이트 긍정과 부정 표현으로 개별 평가할 때 일관된 결과를 내지 못하고, 이는 모델의 판단 및 과업의 의미에 의해서도 영향을 받는 것을 시사합니다. 따라서 향후 공정하고 신뢰할 수 있는 평가 프로토콜을 수립하기 위해서는 프레이밍을 인식하는 시스템이 필요하다는 결론을 도출했습니다.
+
+
+
+### MN-TSG:Continuous Time Series Generation with Irregular Observations (https://arxiv.org/abs/2601.13534)
+Comments:
+          34 pages
+
+- **What's New**: 이 논문은 시계열 생성(Time Series Generation, TSG) 분야의 한계를 해결하기 위해 MN-TSG라는 새로운 프레임워크를 제안합니다. 기존의 방법들이 규칙적으로 샘플링된 데이터에 초점을 맞추는 반면, MN-TSG는 비정기적 샘플과 연속적인 생성 작업을 동시에 다룹니다. 이 프레임워크는 Mixture-of-Experts (MoE)와 Neural Controlled Differential Equations (NCDE)을 통합하여 더욱 세밀한 TSG를 지원합니다.
+
+- **Technical Details**: MN-TSG의 핵심 구조는 다이나믹 파라미터화된 전문가 함수가 포함된 MoE-NCDE 아키텍처입니다. 이 아키텍처는 비정기적 시계열 데이터의 복잡한 동적 패턴을 효과적으로 캡처할 수 있도록 설계되었습니다. 또한, RIP(Research Integration Platform)을 활용해 전문가의 적절한 구성을 학습하고, 각 샘플에 맞춤화된 동적 기능을 생성함으로써 연속적인 시계열 생성을 지원합니다.
+
+- **Performance Highlights**: MN-TSG는 10개의 공개 및 합성 데이터세트에서 광범위한 실험을 수행하여 기존의 강력한 TSG 기반 모델들을 능가하는 성능을 보여주었습니다. 실험 결과, MN-TSG는 비정기에서 정기 및 비정기에서 연속적인 생성 작업 모두에서 우수한 성능을 유지하며, NCDE의 능력을 극대화하여 관련 동적 패턴을 학습하는 데 기여했습니다.
+
+
+
+### Eliciting Harmful Capabilities by Fine-Tuning On Safeguarded Outputs (https://arxiv.org/abs/2601.13528)
+- **What's New**: 이번 연구에서는 안전장치가 적용된 모델들이 어떻게 해로운 기능을 유도하는 공격(elicitation attacks)에 사용될 수 있는지를 보여줍니다. 특히, 안전장치가 있는 현대 모델들이 직접적으로 해로운 정보를 요청하지 않는 인접 도메인에서 시작되는 프롬프트(prompt)로부터 응답을 얻고, 이 데이터를 통해 오픈 소스 모델을 파인튜닝하는 세 단계로 구성된 공격을 소개합니다. 이러한 공격 방식은 특정 화학 합성 및 처리 분야에서 평가되며, 제한이 없는 모델에 비해 오픈 소스 모델의 능력 격차를 약 40% 회복한다는 사실을 입증합니다.
+
+- **Technical Details**: 연구에서는 파인튜닝(fine-tuning) 과정을 통해 해로운 합성 경로(synthesis routes)를 학습할 수 있다는 점을 조사하였습니다. 모델의 반응을 평가하기 위해 Llama 3.3 70B 모델을 사용하였으며, 임의 샘플에서 올바른 합성 경로를 얼마나 잘 식별하는지를 측정했습니다. 특히, 연구에서는 모델이 benign한 화학 데이터를 통해 유해한 합성 경로를 학습할 수 있다는 중요한 위험 요소를 강조합니다.
+
+- **Performance Highlights**: 연구 결과, 파인튜닝 후 모델은 올바른 합성 경로를 11%의 확률로 생성할 수 있게 되었습니다. 또한, 모델들이 파인튜닝 후 화학 문맥을 이해하는 능력이 개선될 뿐만 아니라, 특정 작업에서 합성 경로를 포함하는 경우 성능 저하가 발생하는 복잡한 현상이 나타났습니다. 이러한 결과는 모델이 새로운 지식을 학습할 뿐 아니라 기존 지식을 잃을 수도 있음을 나타내어 elicitation 공격의 위험성을 잘 보여줍니다.
+
+
+
+### Automatic Adjustment of HPA Parameters and Attack Prevention in Kubernetes Using Random Forests (https://arxiv.org/abs/2601.13515)
+- **What's New**: 본 논문에서는 HTTP 상태 코드를 사용자 정의 메트릭으로 활용하여 HPA(수평 파드 오토스케일러)에서 공격 트래픽을 평가하고 예측하는 방법을 제안합니다. 머신러닝 알고리즘인 Random Forest를 통합하여 HPA의 최대 파드 매개변수를 동적으로 조정하여 공격 트래픽을 관리합니다. 또한, 공격 IP의 접근을 허니팟으로 리디렉션하여 5XX 상태 코드 발생률을 낮추는 방법을 제시하였습니다.
+
+- **Technical Details**: 이 연구는 HTTP 상태 코드를 사용자 정의 메트릭으로 사용하여 HPA를 자동으로 스케일링하는 기법을 탐구합니다. 이를 위해 Nginx의 이중 레이어 아키텍처를 도입하여 HTTP 상태 코드를 기록하고, Prometheus를 통해 쿼리합니다. Random Forest 모델을 이용해 요청이 정상인지 공격인지 분류하며, 5분 동안의 5XX 상태 코드 증가율을 HPA 트리거 임계값으로 설정합니다.
+
+- **Performance Highlights**: 본 연구는 머신러닝을 활용하여 공격 감지를 HPA에 통합함으로써 트래픽을 효율적으로 관리하는 혁신적인 접근 방식을 보여줍니다. 다양한 시나리오에서 HPA 파라미터 조절의 중요성을 실험적으로 증명하였으며, 공격이 감지될 경우 최대 1개의 파드로 설계하여 확장 비용을 줄이는 데 성공하였습니다. 이 접근법은 자동화된 맞춤형 컨테이너 관리를 통해 리소스 낭비와 서비스 불가 상태를 예방하는 데 기여합니다.
+
+
+
+### CatMaster: An Agentic Autonomous System for Computational Heterogeneous Catalysis Research (https://arxiv.org/abs/2601.13508)
+Comments:
+          25 pages
+
+- **What's New**: 본 논문에서는 CatMaster라는 대형 언어 모델(LLM) 기반 에이전트 시스템을 소개합니다. 이 시스템은 자연어 요청을 통해 전체 계산 작업공간을 자동으로 생성하며, 구조, 입력, 출력, 로그, 수행 기록을 포함합니다. CatMaster는 프로젝트 기록을 유지하고, 반복적인 작업을 줄여 연구자가 작업 관리가 아닌 모델링 선택과 화학적 해석에 집중할 수 있도록 돕습니다.
+
+- **Technical Details**: CatMaster는 자연어 프로토콜을 재시작 가능하고 검토 가능한 작업공간으로 변환하는 파일 중심의 실행 계약을 도입합니다. 계층 구조의 에이전트 조정을 통해 긴 청사진의 작업을 지원하며, 다중 재현 가능성을 통한 촉진된 DFT 검증을 구현합니다. 또한, 효과적인 구조 조작과 데이터 분석 도구를 사용하여 이질적인 자원에서 계산을 조율합니다.
+
+- **Performance Highlights**: CatMaster의 성능은 여러 복잡한 예제를 통해 입증됩니다. 예를 들어, BCC Fe의 표면 에너지를 계산하는 데 성공하며, 문헌 값과의 상대 오차가 3% 이내로 매우 근접합니다. 이러한 결과는 CatMaster가 추상적인 화학적 의도를 구체적이고 검증 가능한 증거로 전환할 수 있는 능력을 보여줍니다.
+
+
+
+### The Hidden Toll of Social Media News: Causal Effects on Psychosocial Wellbeing (https://arxiv.org/abs/2601.13487)
+- **What's New**: 이 연구는 약 2,600만 개의 게시물과 4,500만 개의 댓글을 포함한 대규모 데이터를 활용하여, News feeds에 노출된 사용자의 심리사회적 결과를 분석하는 준 실험적 연구를 수행하였습니다. 전체 연구 대상자는 81,345명의 뉴스 노출 사용자와 83,711명의 대조군 사용자로 이루어져 있으며, 이들은 특성 점수 분석을 통해 매칭되었습니다. 연구 결과, 뉴스 이용이 우울증, 스트레스, 불안을 증가시키는 반면, 외로움 감소 및 사회적 상호작용 증대와 같은 긍정적인 결과도 나타났습니다.
+
+- **Technical Details**: Research는 Bluesky라는 분산형 소셜 미디어 플랫폼에서 수행되었으며, 이 플랫폼의 사용자들은 뉴스 피드를 북마크하거나 댓글을 달고 재게시하는 방법으로 정보를 소통합니다. 이 연구는 사용자의 심리사회적 웰빙을 감정적, 행동적, 인지적 측면에서 분석하며, 뉴스 소비가 심리적 결과에 미치는 영향을 장기간 관찰합니다. 뉴스 북마킹 활동은 댓글이나 인용보다 심리사회적 악화를 더 많이 가져오며, 이는 1900% 더 큰 영향을 미치는 것으로 나타났습니다.
+
+- **Performance Highlights**: 이 연구는 뉴스 소비가 '좋다' 또는 '나쁘다'는 이분법적 평가를 넘어서야 한다는 점을 강조합니다. 사용자가 뉴스 소비의 혜택에 접근하면서 그로 인한 심리사회적 비용을 줄일 수 있는 플랫폼 설계를 제안하였습니다. 또한 연구 결과는 사용자가 뉴스 콘텐츠에 대한 상호작용을 통해 사회적 관계를 강화할 수 있는 방법을 제시하며, 이는 사용자의 정서적 웰빙에 중요한 영향을 미칩니다.
+
+
+
+### A Unified Variational Imputation Framework for Electric Vehicle Charging Data Using Retrieval-Augmented Language Mod (https://arxiv.org/abs/2601.13476)
+Comments:
+          15 pages
+
+- **What's New**: 이 논문은 전기차(EV) 인프라에서 충전 데이터의 결함을 해결하기 위해 새로운 확률적 변화에 대한 데이터 보간(framework)을 제안합니다. 이 새로운 방법은 대형 언어 모델(LLMs)과 검색 보강 메모리(retrieval-augmented memory)를 결합하여 다양한 모달리티의 정보를 통합, 효과적으로 누락된 데이터를 보완합니다. 기존의 방법이 개별 충전소에 국한되어 있었던 반면, 이 프레임워크는 전체 충전 네트워크의 정보를 활용하여 하나의 보간 모델로 모든 충전소의 데이터를 처리할 수 있게 합니다.
+
+- **Technical Details**: PRAIM은 여러 유형의 데이터를 하나의 의미론적으로 풍부한 임베딩으로 인코딩하는 데 대형 언어 모델을 활용합니다. 이 프레임워크는 시간 순서 데이터, 달력 정보 및 지리적 데이터의 복잡한 контекст를 결합하고, 검색 기반 생성 기법을 통해 유사한 컨텍스트를 가진 다른 충전소의 데이터를 동적으로 보강합니다. 이를 통해 PRAIM은 데이터 희소성(sparsity) 문제를 극복하고 직접적으로 연관된 정보를 기반으로 보간을 수행합니다.
+
+- **Performance Highlights**: 다양한 공개 데이터셋에 대한 실험을 진행한 결과, PRAIM은 기존 방법들보다 월등히 뛰어난 보간 정확도와 통계적 분포를 유지하는 능력을 보여주었습니다. 이러한 성과는 충전 수요 예측(demand forecasting)과 같은 downstream 작업에서도 큰 성과 향상을 가져왔습니다. PRAIM은 앞으로 전기차 충전 인프라의 데이터 분석과 예측 정확도를 높이는 데 중요한 역할을 할 것으로 기대됩니다.
+
+
+
+### Preconditioning Benefits of Spectral Orthogonalization in Muon (https://arxiv.org/abs/2601.13474)
+- **What's New**: 본 논문은 Muon 최적화 알고리즘의 기초 메커니즘, 특히 gradient orthogonalization의 역할을 탐구합니다. Muon은 대규모 언어 모델의 사전 훈련에서 성과를 보였으며, 기존의 Adam 및 AdamW 최적화 기법에 비해 성능을 향상시켰습니다. 본 연구는 두 가지 기초적 행렬 최적화 문제를 통해 Simplified Muon의 효과를 이론적으로 분석하고, 선형 수렴(linear convergence) 특성을 밝혀 냈습니다.
+
+- **Technical Details**: Muon은 Newton-Schulz에 의해 정규화된 moment의 개념을 사용하여 gradients의 spectral orthogonalization을 활용한 행렬 구조 최적화 알고리즘입니다. 본 연구에서는 Simplified Muon이 행렬 분해(matrix factorization)와 선형 변환기의 in-context learning에서 선형적으로 수렴함을 보여줍니다. 특히, Muon의 반복 복잡도는 factorizing할 행렬의 condition number와 독립적임을 증명하였습니다. 이론적으로 gradient spectrum을 정규화하는 과정을 통해 전통적 최적화 기법 대비 더 빠른 수렴률을 실현합니다.
+
+- **Performance Highlights**: Simplified Muon의 성능은 두 가지 문제 모두에서 전통적인 gradient descent(GD) 및 SignGD에 비해 우수한 성과를 보여주었습니다. 실험 결과, Muon은 condition number에 관계없이 일정한 수렴 속도를 유지하며, 이러한 수치 결과는 이론적 분석과 일치합니다. 이 연구는 Muon의 사전 조정(preconditioning) 효과가 더 넓은 적용 분야에서도 유효할 것으로 기대하고 있습니다.
+
+
+
+### Labels or Preferences? Budget-Constrained Learning with Human Judgments over AI-Generated Outputs (https://arxiv.org/abs/2601.13458)
+- **What's New**: 본 논문은 AI의 pseudo label(위조 라벨) 평가를 위해 인적 피드백에 대한 의존도가 증가하고 있는 가운데, 예산을 고려한 데이터 획득 전략의 필요성을 다룹니다. 저자들은 고정된 주석 예산을 실제 라벨과 쌍 선호 간에 최적 배분하는 방법을 제안하며, 이를 위한 Preference-Calibrated Active Learning (PCAL)이라는 새로운 방법론을 소개합니다. 이 방법은 데이터 분포의 함수에 대한 통계적으로 효율적인 추정기를 개발함으로써 예산 제약 조건 하에서도 강력한 성능을 보장합니다.
+
+- **Technical Details**: 본 연구는 반매개변수 추론(semi-parametric inference)에 기반하여, 예산 제약이 있는 상태에서 데이터 유형별 최적 배분 문제를 다룹니다. 이 프레임워크는 원래 데이터 분포의 함수 추정을 목표로 하여, 예산 제약의 하에서 분산을 최소화하도록 설계된 추정기 및 데이터 수집 전략을 구축합니다. 특히, PCAL 추정기는 비대칭적 상황에서도 효과적으로 작동할 수 있도록 강력한 보장(distortion guarantee)을 제공합니다.
+
+- **Performance Highlights**: 실제 사례 분석을 통해, 제안된 방법인 PCAL은 요청의 정중함을 평가하는 데 있어 기존의 기본 전략보다 상당히 우수한 성과를 나타냅니다. 연구에서는 두 가지 AI 모델을 활용하여 pseudo label을 생성하고, 인간이 주석한 점수를 기준으로 선호 라벨을 구성했습니다. 이러한 접근 방식을 통해 예산을 효과적으로 할당하며, 목표 매개변수의 정밀한 추정을 달성하는 결과를 보여줍니다.
+
+
+
+### MOSLD-Bench: Multilingual Open-Set Learning and Discovery Benchmark for Text Categorization (https://arxiv.org/abs/2601.13437)
+- **What's New**: 이번 연구에서는 기계 학습 분야의 새로운 도전 과제인 Open-set learning and discovery (OSLD)에 대해 다루고 있습니다. 특히, 기존에는 다루어지지 않았던 다국어 OSLD 기준(benchmark)을 생성하였으며, 12개 언어에 걸쳐 960K의 데이터 샘플을 포함하고 있습니다. 이 연구는 데이터 샘플을 재구성하고 새로운 데이터를 수집하는 작업을 통해 다국어 데이터 세트를 구축했습니다. 특히, 새로운 클래스의 지속적인 발견과 학습을 목표로 하는 새로운 프레임워크를 제안하였습니다.
+
+- **Technical Details**: OSLD는 기존 클래스와 겹치지 않는 새로운 클래스가 테스트 데이터에서 점차적으로 나타나도록 학습하는 과제입니다. 이를 위해, 데이터셋의 정의는 (x,y) 형태로 훈련 데이터와 테스트 데이터를 명확하게 구분합니다. 연구팀은 OSLD 프레임워크를 구성하기 위해 여러 단계의 처리를 통합하며, outlier detection, k-means clustering, TFIDF 기반 키워드 추출, 그리고 BERT 재학습과 같은 기법을 포함합니다. 이러한 접근 방식은 새로운 패턴을 알고리즘이 자동으로 학습하도록 돕는 데 중점을 둡니다.
+
+- **Performance Highlights**: 연구에서는 소규모 및 대규모 언어 모델을 포함하여 여러 모델에 대해 평가를 수행하여 향후 연구에 대한 참고 자료로 활용될 수 있는 결과를 제시합니다. 제안된 MOSLD 기준에서 벤치마킹된 모델들은 새로운 클래스의 발견과 학습 능력에서 유망한 성능을 입증하였습니다. OSLD는 자연어 처리(NLP) 분야에서 새로운 주제가 등장할 때 기존의 텍스트 분류 문제를 해결하는 데 실질적인 의미가 있습니다. 이 연구는 OSLD 작업의 복잡성을 이해하고, 해당 분야의 발전을 촉진할 중요한 토대를 제공합니다.
+
+
+
+### A Learnable Wavelet Transformer for Long-Short Equity Trading and Risk-Adjusted Return Optimization (https://arxiv.org/abs/2601.13435)
+- **What's New**: 본 논문에서는 WaveLSFormer라는 새로운 모델을 소개합니다. 이 모델은 학습 가능한 웨이브렛 기반의 롱-숏 Transformer로, 멀티 스케일 분해(multi-scale decomposition) 및 수익 중심의 의사 결정 학습을 동시에 수행합니다. 특히, 다른 모델들과 달리 고정된 웨이브렛 대신에 사전 훈련된 필터 뱅크(filter bank)를 사용하여 도메인 적응형 주파수 대역을 학습합니다.
+
+- **Technical Details**: WaveLSFormer는 웨이브렛 모듈과 Transformer 백본을 결합하여 내재된 다중 스케일 정보를 효과적으로 fusion하는 구조를 가지고 있습니다. 이 모델은 저주파수 표현을 고주파수 신호로 보완하기 위한 낮은 고주파수 주입(low-guided high-frequency injection) 모듈을 도입하여 안정성을 유지합니다. 또한, 리스크 예산(risk budget)을 고려하여 예측된 포지션을 조정함으로써 실질적인 포트폴리오 구성이 가능해집니다.
+
+- **Performance Highlights**: 다양한 산업군에서 5년의 시간 순서 데이터로 진행된 실험 결과, WaveLSFormer는 평균적으로 0.607 ± 0.045의 누적 ROI를 달성하였으며, 샤프 비율(Sharpe ratio)은 2.157 ± 0.166로 뛰어난 성과를 보였습니다. 이는 기존의 MLP, LSTM, Transformer 모델들보다 우수한 결과를 나타내며, 노이즈 많은 금융 신호 속에서도 강한 성능을 유지합니다.
+
+
+
+### TrustEnergy: A Unified Framework for Accurate and Reliable User-level Energy Usage Prediction (https://arxiv.org/abs/2601.13422)
+- **What's New**: 이번 논문에서는 TrustEnergy라는 새로운 통합 프레임워크를 제안하여 사용자 수준의 에너지 사용 예측의 정확성과 신뢰성을 개선하고자 합니다. 기존의 딥 러닝 방법들이 가정 간의 공간적 상관관계를 간과하거나 개별화된 예측에서 한계를 보이는 반면, TrustEnergy는 이러한 문제를 해결할 수 있는 두 가지 주요 기술 요소를 포함하고 있습니다.
+
+- **Technical Details**: TrustEnergy는 두 가지 주요 구성 요소를 가지고 있습니다: 첫째, 계층적 시공간 표현 모듈(Hierarchical Spatiotemporal Representation module)은 메모리 보강(spatiotemporal graph neural network)을 활용하여 거시적 및 미시적 에너지 사용 패턴을 효율적으로 포착합니다. 둘째, 혁신적인 순차적 정규화 분위수 회귀 모듈(Sequential Conformalized Quantile Regression module)은 데이터 분포에 대한 강한 가정을 하지 않고도 시간에 따라 예측 범위를 동적으로 조정할 수 있게 합니다.
+
+- **Performance Highlights**: TrustEnergy 프레임워크는 플로리다의 전기 공급업체와 협력하여 구현 및 평가되었으며, 그 결과 기존의 최첨단 방법에 비해 예측 정확성이 5.4% 증가하고 불확실성 정량화가 5.7% 개선된 것으로 나타났습니다. 이러한 성과는 사용자 수준의 에너지 사용 예측에 있어 TrustEnergy의 유용성을 보여줍니다.
+
+
+
+### Using deep learning for predicting cleansing quality of colon capsule endoscopy images (https://arxiv.org/abs/2601.13412)
+Comments:
+          24 pages
+
+- **What's New**: 이번 연구에서는 대장 캡슐 내시경 이미지의 세정 품질(cleaning quality) 예측을 위한 심층 학습(deep learning) 기술의 응용을 탐구합니다. 14명의 임상의가 레이튼-렉스(Leighton-Rex) 척도에 따라 라벨링한 500장의 이미지를 활용하여 ResNet-18 모델을 훈련시키고, 성능을 보장하기 위해 층화 K-겹 교차 검증(stratified K-fold cross-validation)을 사용했습니다. 모델 최적화를 위해 구조적 가지치기(structured pruning) 기법을 반복적으로 적용하여 높은 정확도를 유지하면서도 상당한 희소성(sparsity)을 달성했습니다.
+
+- **Technical Details**: 본 연구에서는 ResNet-18(Residual Network) 아키텍처를 중심으로 진행되었습니다. ResNet은 스킵 연결(skip connection)을 도입하여 깊은 신경망에서 발생하는 기울기 소실(gradient vanishing) 문제를 해결하는 것이 주요 특징입니다. 모델 훈련을 위해 층화 K-겹 교차 검증(struatified K-fold cross-validation) 기법을 사용하며, 이는 모델이 이전에 보지 못한 데이터에 대해 얼마나 잘 일반화되는지를 평가하는 데 도움을 줍니다.
+
+- **Performance Highlights**: 모델의 성과는 크로스 검증에서 79%의 희소성을 유지하면서도 88%의 정확도를 달성하여 가지치기가 효율성을 개선하는 데 효과적임을 보여줍니다. 또한 모델 설명 가능성을 평가하기 위해 Grad-CAM과 같은 다양한 기법을 활용하였으며, 외부 데이터셋에 대한 모델 보정(adaptive temperature scaling)도 수행하였습니다. 이는 임상 환경에서의 예측 결과의 투명성과 해석 가능성을 강화하는 데 기여합니다.
+
+
+
+### Integrating Virtual Reality and Large Language Models for Team-Based Non-Technical Skills Training and Evaluation in the Operating Room (https://arxiv.org/abs/2601.13406)
+Comments:
+          23 pages, 7 figures, 1 table, 2 Appendices
+
+- **What's New**: 이 논문에서는 비기술적 기술(non-technical skills, NTS)에 대한 체계적인 훈련의 필요성을 강조하며, 수술 안전에 중요한 팀워크와 의사소통을 효과적으로 기술할 수 있는 도구를 제시합니다. 'Virtual Operating Room Team Experience (VORTeX)'라는 다중 사용자 가상 현실 플랫폼이 소개되는데, 이는 몰입형 팀 시뮬레이션과 대형 언어 모델(large language model, LLM) 분석을 통합하여 팀의 의사소통, 의사결정, 팀워크 및 리더십을 교육하고 평가합니다.
+
+- **Technical Details**: VORTeX는 Non-Technical Skills for Surgeons (NOTSS) 프레임워크에서 파생된 구조화된 프롬프트를 사용하여 팀 대화를 분석합니다. 이를 통해 행동의 자동 분류 및 의사소통 구조와 계층을 정량화하는 상호작용 그래프가 생성됩니다. 두 가지의 복강경 비상 시나리오인 기흉(pneumothorax)과 복부 내 출혈(intra-abdominal bleeding)이 구현되어 실제적인 스트레스와 협업을 유도합니다.
+
+- **Performance Highlights**: 2024 SAGES 회의에서 12명의 외과 전문가가 VORTeX의 파일럿 세션을 완료하였고, 이 시스템은 직관적이고 몰입감 있으며, 팀워크와 의사소통 개발에 유용하다고 평가받았습니다. LLM은 기대되는 수술 계층을 반영하는 해석 가능한 의사소통 네트워크를 지속적으로 생성하였으며, 외과의는 중심 통합자, 간호사는 시작자, 마취과 의사는 균형 잡힌 중재자로 기능하는 구조를 보여주었습니다. VORTeX는 몰입형 VR과 LLM 기반 행동 분석을 통합하여, 분산된 훈련 환경에서의 객관적 평가 및 데이터 기반 부연을 위한 확장 가능한 프레임워크를 제공합니다.
+
+
+
+### Local-to-Global Logical Explanations for Deep Vision Models (https://arxiv.org/abs/2601.13404)
+Comments:
+          15 pages, 5 figures, 5th International Joint Conference on Learning & Reasoning 2025
+
+- **What's New**: 이번 논문은 블랙박스 모델에 대한 인간이 인식할 수 있는 기본 개념을 중심으로 한 로컬 및 글로벌 설명 방법을 제안합니다. 로컬 설명은 단일 이미지에 대해, 글로벌 설명은 이미지 집합에 대해 제공되며, 두 가지 설명 모두 단조로운 합의 논리 형식으로 구성되어 모델이 주어진 클래스에서 높은 점수를 얻는 것을 보장합니다. 저자들은 여러 클래스에 대한 분류를 설명하는 알고리즘을 추가로 제시합니다.
+
+- **Technical Details**: 저자들은 모델의 신뢰도 점수가 주어진 클래스의 긍정적 증거와 단조롭게 증가한다고 주장하며, 이는 여러 개의 증거가 있음을 시사합니다. 그들은 이를 바탕으로 perturbation 기반 검색 프레임워크를 사용하여 여러 로컬 설명을 생성하는 방법을 제안하였습니다. 각 설명은 이미지에서 인간이 주석을 단 객체 또는 객체 부분에 해당하는 긍정적인 리터럴로 구성된 논리적 결합으로 표현됩니다.
+
+- **Performance Highlights**: 실험 결과는 제안된 설명 방법이 높은 충실도(fidelity)와 범위(coverage)를 유지하면서도 블랙박스 모델을 효과적으로 설명하는 데 성공적임을 보여줍니다. 이 접근 방식은 데이터의 체계적 편향을 감지하고 숨겨진 신호를 확인하는 데 필요한 통계적 감사에도 기여할 수 있습니다. 결론적으로, 제안된 방법은 높은 성능과 해석 가능성을 조화롭게 결합하여 인공지능의 투명성과 책임성을 강화하고자 합니다.
+
+
+
+### Reasoning with Pixel-level Precision: QVLM Architecture and SQuID Dataset for Quantitative Geospatial Analytics (https://arxiv.org/abs/2601.13401)
+Comments:
+          Submitted to CVPR 2026. Introduces the QVLM architecture and the SQuID dataset for quantitative geospatial reasoning. Dataset DOI: https://doi.org/10.57967/hf/7565
+
+- **What's New**: 최근 Vision-Language Models (VLMs)는 정량적인 공간 추론(quantitative spatial reasoning)에서 한계를 드러냅니다. 이 논문에서는 세부 픽셀 정보를 소실하지 않고 공간적 인덱싱(spatial indexing)을 유지하는 QVLM (Quantitative Vision-Language Model) 아키텍처와 2000개의 위성 이미지 질문-답변 쌍으로 구성된 SQuID (Satellite Quantitative Intelligence Dataset)를 소개합니다. 이 연구는 정량적 작업에서 더 나은 정확성을 위한 아키텍처 분리를 강조합니다.
+
+- **Technical Details**: SQuID 데이터셋은 세 가지 난이도 단계로 나뉘어 있으며, 각 질문은 10명의 주석자에 의해 도출된 허용 가능한 범위를 포함합니다. QVLM은 이미지 임베딩 대신 실행 가능한 Python 코드를 생성하여 세분화 모델을 조정하여, 픽셀 수준의 마스크를 생성하고 이를 기반으로 논리를 전개합니다. 이러한 접근 방식은 정량적인 분석을 수행하는 데 필요한 픽셀 정밀도를 보장합니다.
+
+- **Performance Highlights**: 실험 결과, QVLM은 GPT-5를 사용하여 42.0%의 정확도를 달성했고, 이는 이미지-질문 쌍에 의해 처리된 VLM의 28.1%와 비교됩니다. 이러한 결과는 코드 생성에 의한 아키텍처 분리가 정량적 공간 추론에서의 성능 향상에 기여함을 보여줍니다. 특히, QVLM은 위성 이미지와 같은 높은 해상도에서 정밀한 분석이 필요한 분야에서도 효과적으로 적용될 수 있습니다.
+
+
+
+### Deep Image Prior with L0 Gradient Regularizer for Image Smoothing (https://arxiv.org/abs/2601.13400)
+Comments:
+          To be published in the Proceedings of IEEE ICASSP 2026
+
+- **What's New**: 이번 논문은 DIP-$\ell_0$라는 새로운 딥 이미지 프라이어 프레임워크를 제안합니다. 이 프레임워크는 훈련 데이터 없이 고품질 이미지 스무딩을 수행할 수 있는 방법으로, 기존의 이미지 스무딩 알고리즘 대비 뛰어난 성능을 보여줍니다. 특히, $\\ell_0$ 그래디언트 정규화를 통합하여 이미지의 강한 엣지와 경계를 보존하는 데 중점을 두었습니다. 이러한 접근은 이미지 스무딩을 최적화 문제로 간주하고 이를 해결하기 위한 대안 방향 방법(ADMM)을 개발하여 수행되었습니다.
+
+- **Technical Details**: DIP-$\ell_0$는 고정된 무작위 입력을 기반으로 하여 DNN을 활용하는 딥 이미지 프라이어(DIP) 방식입니다. 이 방법은 강한 엣지와 경계를 보존하기 위해 $\\ell_0$ 그래디언트 정규자를 설정하고, 손실 함수의 비볼록(nonconvex)성과 비매끄러움(nonsmoothness) 문제를 해결하는 데 ADMM 알고리즘을 사용합니다. 기존의 방법과는 달리, 이 새로운 프레임워크는 대량의 훈련 데이터 없이도 우수한 이미지 스무딩을 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, DIP-$\ell_0$는 엣지를 보존하는 이미지 스무딩과 JPEG 아티팩트 제거에서 기존의 많은 알고리즘을 초월하는 성능을 보였습니다. 특히, DIP-$\ell_0$는 이미지의 구조적 정보와 세부 정보를 효과적으로 분리하여 처리하며, 다양한 종류의 이미지에서도 일관된 품질을 유지합니다. 해당 방법은 이미지 스무딩 분야에서 중요한 진전을 이룬 것으로 평가받고 있습니다.
+
+
+
+### Can LLMs Compress (and Decompress)? Evaluating Code Understanding and Execution via Invertibility (https://arxiv.org/abs/2601.13398)
+Comments:
+          32 pages (preprint)
+
+- **What's New**: 이 연구에서는 RoundTripCodeEval (RTCE)라는 새로운 기준을 도입합니다. RTCE는 코드 실행의 양방향 일관성을 평가하기 위한 네 가지 독립적인 작업으로 구성되어 있습니다. 이러한 기준은 LLM (Large Language Models)의 코드 추론 성능을 보다 정확하게 측정할 수 있도록 설계되었습니다.
+
+- **Technical Details**: 문서에서는 코드의 역전성(code invertibility)을 상실 없는 압축-복원 파이프라인을 통해 다루고 있습니다. 본 연구의 기본 데이터 흐름은 원래 입력 x와 그에 해당하는 인코딩된 출력 z, 그리고 복원된 입력 x'으로 정의되며, 이는 정확한 재구성(reconstruction)을 보장해야 합니다. 이 구조를 통해 각 작업의 전방 및 후방 예측 정확성을 테스트합니다.
+
+- **Performance Highlights**: 현재의 LLM들이 실제적인 코드 추론에 있어 모순된 일관성을 유지하는 데 어려움을 겪고 있다는 점이 강조됩니다. 기존의 단방향 평가에서 발견되지 않는 미세한 비대칭 및 추론 실패가 RTCE를 통해 드러나게 되며, 이러한 평가 방식은 코드 기반 응용 프로그램에서 높은 정확성 및 신뢰성을 요구하는 데 필요합니다. 최종적으로는 LLM들이 내부 일관성을 구축할 수 있는 능력을 갖추도록 돕는 기초를 마련합니다.
+
+
+
+### Beyond Memorization: Testing LLM Reasoning on Unseen Theory of Computation Tasks (https://arxiv.org/abs/2601.13392)
+Comments:
+          30 pages, 11 figures, 6 tables, Work in Progress
+
+- **What's New**: 이번 연구에서는 정규 언어로부터 결정적 유한 오토마타(DFA) 구성을 위한 벤치마크를 도입하여 대형 언어 모델(LLMs)의 상징적 추론 기법을 평가하였습니다. 특히, 모형이 훈련 데이터에서 유사한 문제를 기억하여 해결하는지, 아니면 실제로 추론을 하는지를 판별하려는 시도가 돋보입니다. 저자들은 세 가지 구성 요소로 이루어진 새로운 벤치마크를 제시하며, 이는 LLM의 진정한 추론 능력을 고립시켜 평가할 수 있도록 돕습니다.
+
+- **Technical Details**: 연구에서 저자들은 DFA 구성에 필요한 요구 사항을 다루며, 이를 위해 자연어 기술 또는 정규 표현식을 통해 지정된 목표 언어를 바탕으로 모델이 DFA D를 생성해야 합니다. 주요 요구 사항으로는 형식 언어 사양을 분석하고 해석하며, 모든 제약 조건을 포괄하는 최소 상태 구조를 식별하고, 유효한 문자열만을 수용하는 전이 설계를 해야 하는 것을 포함합니다. 이 과정에서 LLMs는 불완전한 DFA가 될 수 있는 여러 유효하지 않은 구조를 방지하기 위한 참조와 연관성을 유지해야 합니다.
+
+- **Performance Highlights**: 모델들은 사실적 질문에서 100%의 정확도를 기록했으며, 이전 문제가 포함된 과제에서는 84-90%의 성능을 보였으나, 새로운 문제에서는 정확도가 30-64% 급격히 하락했습니다. 이러한 맥락에서 LLM은 언어 제약의 체계적 오해 및 전이 처리의 부정확성으로 인한 실패를 겪었습니다. 또한, 세 가지 단계의 힌트를 제공하는 프로토콜을 시도했으나, 이는 초보적인 오류를 수정하는 데는 효과적이지만 전반적으로 일관성이 결여된 구조의 오류까지 해결하지는 못했습니다.
+
+
+
+### Organ-Aware Attention Improves CT Triage and Classification (https://arxiv.org/abs/2601.13385)
+- **What's New**: 이 연구는 CT(Computed Tomography) 스캔을 통한 신속한 선별 및 분류의 필요성을 강조하며, 두 개의 대규모 공개 흉부 CT 데이터 세트인 CT-RATE와 RADCHEST-CT를 사용하여 최첨단(supervised state-of-the-art) 성능을 달성했습니다. 연구진은 ORACLE-CT라는 새로운 인코더 비의존(encoder-agnostic) 및 장기 인지(organ-aware) 모델을 소개하며, 이는 Organ-Masked Attention과 Organ-Scalar Fusion의 결합을 통해 질병 분류 정확도를 높입니다. 이러한 개선을 통해 최종적으로 가슴 및 복부 CT에서 모두 높은 AUROC 점수를 기록했습니다.
+
+- **Technical Details**: ORACLE-CT는 각 장기별로 마스크된 주목(pooling)과 scalar의 융합(fusion)을 조합하여 장기별 임베딩을 생성합니다. 이 모델은 MULTIPLE INSTANCE LEARNING (MIL) 형식을 채택하여 각 장기 그룹 마스크에서 토큰/복셀 인스턴스의 집합을 정의하며, 소프트맥스(softmax)를 통해 유연한 인스턴스 분류를 수행합니다. 이를 통해 데이터셋 전반에 걸쳐 잘 보정된 운영 점수를 제공하며, 임상 CT 선별 작업에 대해 높은 신뢰성을 보장합니다.
+
+- **Performance Highlights**: ORACLE-CT는 CT-RATE 데이터셋에서 AUROC 0.86, 그리고 MERLIN 데이터셋에서는 천식 조건에서 AUROC 0.85를 달성하였으며, 이는 이전의 선형 프로브 VLM 및 슈퍼바이즈드 기준을 초월하는 성과입니다. 이 모델은 고정된 전처리 및 분할을 통해 품질 높은 성능을 지속적으로 제공하여, 모든 실험에서 가장 높은 기준을 설정했습니다. 이러한 결과는 가슴 및 복부 CT에서 통합된 평가 프로토콜에 따른 최첨단(supervised state-of-the-art) 분류 성능을 입증합니다.
+
+
+
+### Bounded Minds, Generative Machines: Envisioning Conversational AI that Works with Human Heuristics and Reduces Bias Risk (https://arxiv.org/abs/2601.13376)
+- **What's New**: 본 논문은 대화형 AI(conversational AI)가 정보 탐색과 의사 결정의 주요 인터페이스로 자리잡고 있지만, 여전히 이상적인 사용자 모델만을 가정하고 있다는 문제를 제기합니다. 인간의 사고는 제한된 시간과 주의력, 불균형한 지식 그리고 휴리스틱(heuristics)에 의존하여 편향된 결정을 내리는 것으로 나타났습니다. 따라서 대화형 AI는 이러한 인간의 사고 방식과 협력할 수 있도록 설계되어야 하며, 인지적 취약점을 식별하고 불확실성 속에서 판단을 지원하는 다양한 방향성을 제안합니다.
+
+- **Technical Details**: 대화형 AI 시스템은 이상적인 사용자를 가정하는 모델에 의존하고 있지만, 실제로 인간의 인지는 Tversky와 Kahneman이 제안한 바와 같이 제한된 합리성(bounded rationality)에 의해 영향을 받습니다. 이 논문은 사용자들이 경험하는 휴리스틱과 정보 교환에서 발생할 수 있는 편향을 탐지하고 개입하는 방법에 대한 연구로 나아가야 함을 강조하며, 대화형 AI의 설계 및 평가에서 인지적 영향을 우선시해야 한다고 주장합니다. 대화형 AI는 대화 중 점진적으로 채택된 지침과 관련된 다양한 요인들에 의해 판단이 왜곡될 수 있습니다.
+
+- **Performance Highlights**: 논문에서는 대화형 AI가 단순히 정확성을 높이는 것을 넘어 사용자의 사고 방식을 존중하면서 더 나은 결정을 지원하는 시스템을 구축해야 한다고 강조합니다. 사용자와 기계 간의 대화에서 휴리스틱을 기반으로 한 판단의 왜곡 신호를 감지하고, 이를 개선하기 위한 개입이 필요하다는 점을 지적합니다. 또한, 대화형 AI가 정확성 외에도 사용자의 인지적 경계를 초과하지 않도록 평가되어야 하며, 실생활 시나리오에서 사용될 수 있는 다양한 평가 방법을 모색해야 한다고 언급합니다.
+
+
+
+### LLM-as-RNN: A Recurrent Language Model for Memory Updates and Sequence Prediction (https://arxiv.org/abs/2601.13352)
+Comments:
+          17 pages, 5 figures, 6 tables
+
+- **What's New**: LLM-as-RNN은 대규모 언어 모델을 재귀적 예측기로 변환하는 새로운 구조를 제안합니다. 이 접근 방식은 고정된 매개변수로 오류 수정이 가능하며, 각각의 단계에서 자연어 메모리를 사용하여 내부 상태를 갱신합니다. 기존의 메모리 업데이트 방식과 비교해, LLM-as-RNN은 실시간으로 데이터를 학습하고 예측의 정확도를 높이는 데 기여합니다.
+
+- **Technical Details**: 제안된 LLM-as-RNN은 인과 피드백을 활용하여 매 단계에서 구조화된 메모리를 갱신하는 데 중점을 둡니다. 이를 통해, 매개변수를 업데이트하지 않고도 모델이 이전 오류를 수정하고 전략을 개선할 수 있게 됩니다. 이 방식은 온전한 장기 기억 상태 없이도 효과적으로 정보를 유지 및 업데이트할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 세 가지 다양한 벤치마크에서 LLM-as-RNN은 zero-shot, full-history concatenation, MemPrompt와 같은 기존 기준을 초월하는 성능을 기록했습니다. 특히 MIMIC-IV에서는 10.8%, Weather에서는 1.6%, S&P 500에서는 4.8%의 정확도 개선을 보였습니다. 이 새로운 접근은 모델의 학습 과정을 해석 가능하게 만들어, 사용자와의 신뢰성을 높이는 데 기여합니다.
+
+
+
+### The AI Genie Phenomenon and Three Types of AI Chatbot Addiction: Escapist Roleplays, Pseudosocial Companions, and Epistemic Rabbit Holes (https://arxiv.org/abs/2601.13348)
+Comments:
+          To appear in CHI 2026
+
+- **What's New**: 최근 생성 AI 챗봇의 사용에 대한 보고서는 중독성 잠재력에 대한 우려를 높이고 있습니다. 이 연구는 사용자들이 왜 AI 챗봇 중독에 빠지는지, 일반적인 증상, 그리고 중독의 다양한 유형을 규명하는 것을 목표로 합니다. 연구진은 Reddit의 14개 서브레딧에서 사용자 경험을 분석하여 AI 챗봇 중독의 특성을 짚어보았습니다.
+
+- **Technical Details**: 이 연구는 ‘AI Genie’ 현상이라는 개념과 함께, Escapist Roleplay, Pseudosocial Companion, Epistemic Rabbit Hole의 세 가지 중독 유형을 제시합니다. 각 중독 유형은 사용자의 자각 증상과 관련이 있으며, 성적 콘텐츠와 회복 전략의 효과성도 다르게 나타납니다. 댓글을 통한 경험이 주요 데이터로 활용된 이 연구는 사용자와 기계 간의 상호작용에서 발생하는 행동 중독에 대한 새로운 통찰을 제공합니다.
+
+- **Performance Highlights**: 이 연구는 AI 챗봇 중독이 독립적인 행동 현상으로 존재함을 뒷받침하는 실증적인 근거를 제시합니다. 또한 각기 다른 사용 맥락과 동기가 중독 형태에 미치는 영향을 탐구하며, 사용자들이 중독 회복을 위해 어떤 전략이 효과적이라고 인식하는지를 연구함으로써 중독 예방 및 치료 접근 방안의 기초를 마련합니다.
+
+
+
+### Paid Voices vs. Public Feeds: Interpretable Cross-Platform Theme Modeling of Climate Discours (https://arxiv.org/abs/2601.13317)
+- **What's New**: 이번 연구는 기후 변화에 대한 온라인 담화의 차별적인 분석을 통해 유료 광고와 공공 소셜 미디어 플랫폼 간의 기후 담론 차이를 조명합니다. 특히, Meta의 유료 광고와 Bluesky의 공공 게시물을 비교하여, 각 플랫폼의 제도적 메시지와 사용자 생성 담론의 특성을 명확하게 구분합니다. 이 연구는 다양한 커뮤니케이션 환경에서 비교 내러티브 분석을 지원하는 해석 가능한 프레임워크를 제시합니다.
+
+- **Technical Details**: 연구에서는 기후 담론을 분석하기 위해 대규모 언어 모델 (Large Language Models, LLM)을 활용하여 의미적 유사성과 주제를 클러스터링하는 해석 가능한 주제 발견 및 할당 프레임워크를 도입했습니다. 결과적으로, 이 방법은 전통적인 주제 모델링 기법에 비해 이전의 주제 집합이나 초기 seed 없이도 플랫폼 간 비교를 가능하게 합니다. 또한, 이 연구는 두 개의 후속 작업인 입장 예측 (stance prediction)과 주제 기반 검색 (theme-guided retrieval)의 유용성을 평가하여 의미적으로 일관된 구조를 반영합니다.
+
+- **Performance Highlights**: 연구 결과, 유료 기후 메시지와 공공 기후 담론 간에 체계적인 차이가 있음을 입증했습니다. 분석된 주제들은 플랫폼의 인센티브 구조를 반영하며, 기후 담론의 주제적 전개가 주요 정치적 사건에 따라 변화하는 경향을 보였습니다. 이 연구의 주제는 후속적인 입장 예측 및 검색 작업에서의 성과를 크게 향상시켜, 실제 담론 분석에 유용하게 활용될 수 있음을 보여줍니다.
+
+
+
+### CooperBench: Why Coding Agents Cannot be Your Teammates Y (https://arxiv.org/abs/2601.13295)
+Comments:
+this https URL
+
+- **What's New**: 이 연구는 AI 에이전트 간 협력의 필요성을 강조하며, 협력 작업에서 효과적으로 기능하기 위해 사회적 지능(social intelligence)이 필요하다고 주장합니다. 또한, CooperBench라는 새로운 벤치를 소개하여, AI 에이전트가 실질적인 개발 환경에서 충돌(collision) 작업을 수행하는 능력을 평가합니다. 기존의 AI 시스템들은 협력적이지 않으며, 개인 작업을 수행할 때보다 성과가 낮다는 점을 실증적으로 보여줍니다. 이 연구는 AI가 협력 팀으로서 성과를 내기 위해 필요한 요소를 새롭게 규명합니다.
+
+- **Technical Details**: CooperBench는 12개의 오픈 소스 라이브러리에서 600개 이상의 협력 코딩 작업을 포함하는 벤치마크로 구성됩니다. 각 작업은 서로 다른 기능을 수행하는 두 개의 에이전트에게 할당되며, 이 기능들은 코드 수준에서 충돌이 발생할 수 있도록 설계되었습니다. 이 연구는 현재 코딩 에이전트가 협력할 때의 실패 원인을 세 가지 주요 이슈로 분석하며, 통신의 불명확성과 강박적인 약속 이행, 잘못된 기대 등을 포함합니다. 에이전트는 역할 분담, 자원 분할, 협상 등 흥미로운 협력 행동(emergent coordination behavior)을 나타낼 수 있음을 시뮬레이션을 통해 관찰합니다.
+
+- **Performance Highlights**: CooperBench에서 GPT-5와 Claude Sonnet 4.5 기반 에이전트들은 2인 협력 시 평균 성공률이 25%에 불과하며, 이는 독립적으로 작업할 때보다 약 50% 낮습니다. 이러한 결과는 기존 인간 팀의 성과와 대비됩니다. 연구 결과는 에이전트들이 약속을 어기고, 잘못된 정보 전달로 인해 추가적인 작업을 중복하는 경향이 있음을 드러내며, 이는 실질적인 협업에서 장애가 되는 요소입니다. 연구자들은 이러한 연구 결과를 플랫폼으로 사용할 수 있는 CooperBench가 에이전트의 협력 능력을 발전시키는 방안을 제시하고 있다고 강조합니다.
+
+
+
+### AI Skills Improve Job Prospects: Causal Evidence from a Hiring Experimen (https://arxiv.org/abs/2601.13286)
+Comments:
+          46 pages
+
+- **What's New**: 본 연구는 인공지능(AI) 기술의 채용 신호(hiring signal)로서의 가치에 대한 제한된 증거를 보완하기 위해 수행되었습니다. 1,700명의 영국 및 미국의 채용자(recruiters)를 대상으로 한 실험적 조사에서 AI 관련 기술이 구직자들에게 긍정적인 신호를 줄 수 있는지를 살펴보았습니다.
+
+- **Technical Details**: 연구는 세 가지 직종(직군)인 그래픽 디자이너, 사무 보조원, 소프트웨어 엔지니어에 대해 진행되었습니다. 채용자들은 합성된 이력서(synthetic resumes)를 기반으로 가상의 후보자들을 평가하였고, AI 기술은 면접 초대 확률을 약 8~15포인트 증가시키는 것으로 나타났습니다. 나이와 낮은 교육 수준과 같은 전통적인 단점을 일부 또는 완전히 상쇄시킬 수 있었으며, 특히 사무 보조원 직군에서 이 효과가 가장 두드러졌습니다.
+
+- **Performance Highlights**: AI 기술은 채용자 채우기 신호로 작용하며, 기존의 노동 시장에서의 단점(minus factors)을 완화할 수 있는 강력한 요소로 작용합니다. 특히 사무 보조원 직군에서 공식 AI 인증(formal AI certification)이 추가적인 보상 역할을 하는 것으로 나타났습니다. 반면에 그래픽 디자이너에게는 이러한 효과가 더 약하게 나타났는데, 이는 창의적 작업에서의 AI에 대한 채용자의 회의적인 태도가 반영된 결과입니다.
+
+
+
+### Stop Taking Tokenizers for Granted: They Are Core Design Decisions in Large Language Models (https://arxiv.org/abs/2601.13260)
+Comments:
+          Accepted to EACL 2026 (long, main). The first two authors contributed equally
+
+- **What's New**: 이 논문은 기존의 토크나이제이션(tokenization) 방식을 재조명하고, 이를 단순한 전처리 과정이 아니라 모델링의 핵심 결정으로 다뤄야 한다고 주장합니다. 특히, 문맥 인식 프레임워크를 통해 토크나이저와 모델 설계를 함께 고려해야 한다는 점을 강조합니다. 이를 바탕으로 토크나이제이션 방법을 언어 및 도메인 특성에 맞춰 조정할 필요가 있음을 역설합니다.
+
+- **Technical Details**: 논문에서는 Byte Pair Encoding (BPE)와 같은 일반적인 서브워드(subword) 방식의 한계를 지적합니다. BPE는 빈도가 높은 쌍을 합치는 방식으로 동작하지만, 언어의 구조와 잘 맞지 않으며 편향된 결과를 초래할 수 있다고 언급합니다. 다양한 언어와 도메인에 걸쳐 공정하고 효율적인 토크나이제이션을 위해서는 기존의 통계적 방법을 넘어서는 접근이 필요합니다.
+
+- **Performance Highlights**: 표준화된 평가 및 투명한 보고의 중요성이 강조되며, 이러한 과정을 통해 토크나이제이션의 선택이 공정하고 비교 가능하도록 만들 수 있습니다. 특히, 토크나이징 디자인을 공정성, 표현 정렬 및 범위를 포함하는 평가 차원에서 재구성함으로써, 모델 성능을 개선할 수 있는 기회가 생길 것이라는 기대를 나타냅니다. 이 연구는 토크나이제이션을 핵심 설계 문제로 재조명함으로써, 언어 모델의 효율성과 적응성을 높이는 데 기여할 수 있는 가능성을 보여줍니다.
+
+
+
+### Aligning Agentic World Models via Knowledgeable Experience Learning (https://arxiv.org/abs/2601.13247)
+Comments:
+          Ongoing work
+
+- **What's New**: 본 연구에서는 기존 대형 언어 모델(LLM)들이 지닌 비물리적 지식의 한계를 극복하기 위한 WorldMind라는 새로운 프레임워크를 제안합니다. 이 프레임워크는 환경 피드백을 이용하여 상징적 세계 지식 저장소를 구축함으로써 물리적 법칙을 준수하는 방식으로 지식의 정확성을 높입니다. 연구팀은 Process Experience와 Goal Experience를 결합하여 에이전트가 물리적 현실에 맞는 계획을 수립하도록 돕는 방법을 개발했습니다.
+
+- **Technical Details**: WorldMind 프레임워크는 제어 문제를 World Knowledge-Augmented Markov Decision Process(WK-MDP)로 형식화하여 환경 동역학을 외부화합니다. 이 과정에서 에이전트는 Process Experience와 Goal Experience 두 가지 유형의 경험을 축적하며, 이를 통해 예측 오류를 활용하여 내부 세계 모델을 정교화합니다. 이 메커니즘은 자율적으로 신뢰할 수 있는 세계 모델을 확보하는 데 기여하며, 에이전트는 이를 바탕으로 물리적 제약을 준수하는 계획을 수립할 수 있습니다.
+
+- **Performance Highlights**: WorldMind는 EB-ALFRED와 EB-Habitat 실험에서 기존 모델들보다 우수한 성능을 기록하며, 물리적 환각을 크게 줄이는 데 성공했습니다. 또한, 모델 간의 전이 가능성이 뛰어나고, 구축된 세계 지식이 특정 모델에 의존하지 않고 보편적인 물리 법칙을 포착하는 것을 입증했습니다. 이러한 성과는 에이전트가 내부적으로 신뢰할 수 있는 세계 모델을 개발하는 데 있어 중요한 기여를 합니다.
+
+
+
+### KOCO-BENCH: Can Large Language Models Leverage Domain Knowledge in Software Development? (https://arxiv.org/abs/2601.13240)
+- **What's New**: 본 논문에서는 LLM(대규모 언어 모델)들이 소프트웨어 개발의 특정 도메인에서 효과적으로 학습할 수 있도록 돕는 새로운 벤치마크인 KOCO-BENCH를 소개합니다. 현재 LLM들은 일반적인 프로그래밍에서는 뛰어난 성과를 보이지만, 도메인 특화된 개발에서는 큰 어려움을 겪고 있습니다. KOCO-BENCH는 6개의 새로운 도메인을 포함하고 있으며, 도메인 코드 생성을 평가하기 위한 다양한 작업을 제공합니다.
+
+- **Technical Details**: KOCO-BENCH는 특정 도메인 지식에 대한 이해 제공과 도메인 코드 생성의 다중 세분화 평가 작업을 포함합니다. 이 벤치마크는 28.5인개월의 기간을 통해 구축되었으며, 프레임워크 문서, 소스 코드 및 활용 예제에서 수집한 커스터마이즈된 지식 코퍼스를 포함합니다. KOCO-BENCH는 기능 수준에서 프로젝트 수준에 이르는 요구 사항 명세를 제공하여 엄격한 검증을 통해 도메인 코드 생성을 지원합니다.
+
+- **Performance Highlights**: KOCO-BENCH에 대한 평가 결과, 최첨단 LLM인 Claude Code가 단 34.2%의 성과만을 기록하였으며, 이는 도메인 특화 방법이 여전히 개선의 여지가 많이 있음을 시사합니다. 기존 도메인 특화 방법들은 일정한 효과를 보이지 않으며, 전반적으로 LLM들이 도메인 지식을 효율적으로 습득하는 데 어려움을 겪고 있음을 보여주었습니다. 마지막으로, 도메인별 오류의 주요 원인은 도메인 특정 API의 잘못된 사용과 데이터 제약 조건의 위반으로 나타났습니다.
+
+
+
+### A Semantic Decoupling-Based Two-Stage Rainy-Day Attack for Revealing Weather Robustness Deficiencies in Vision-Language Models (https://arxiv.org/abs/2601.13238)
+- **What's New**: 이 논문은 기존의 시각-언어 모델(Visual-Language Models, VLMs)을 실제 날씨 조건 하에서도 강인성을 갖도록 평가하는 첫 번째 연구입니다. 특히 비 오는 환경에서 VLM의 반응을 조사하기 위해 두 단계의 적대적 공격 프레임워크(Adversarial Framework)를 도입하였으며, 이는 의미적 디커플링(Semantic Decoupling)을 기반으로 하고 있습니다. 이를 통해 날씨가 어떻게 모델의 결정 방식에 영향을 미치는지 분석하고자 합니다.
+
+- **Technical Details**: 제안하는 프레임워크는 1단계에서 저차원 글로벌 조절(Global Modulation)을 통해 이미지-텍스트의 임베딩 공간(Embedding Space)을 조건화합니다. 이어서 2단계에서는 다중 스케일 비구조적 강수(Semantic Shifts) 및 조명 변화를 모델링하여 의미적 비대칭(Semantic Misalignment)을 유도합니다. 여기서 사용되는 CMA-ES(Controlled Multi-objective Adaptive Evolution Strategy)는 물리적으로 타당한 강수 패턴을 생성합니다.
+
+- **Performance Highlights**: 실험 결과, 제안한 방법은 여러 작업(Task)에서 강력한 전이 가능성을 보여 주며, 비록 물리적으로 그럴듯한 제한된 날씨 방 perturbation이더라도 VLMs의 의미적 비대칭을 유도할 수 있음을 입증하였습니다. 조명 모델링과 다중 스케일 강수 구조가 의미적 변화에 중요한 요인이라는 점도 확인되었습니다. 이러한 결과는 실제 상황에서 VLMs의 안전성과 신뢰성에 대한 우려를 불러일으킵니다.
+
+
+
+### Pixelwise Uncertainty Quantification of Accelerated MRI Reconstruction (https://arxiv.org/abs/2601.13236)
+Comments:
+          10 pages, 8 figues, 2 tables
+
+- **What's New**: 본 연구는 자기 공명 영상(MRI) 병렬 재구성에서 픽셀별 불확실성을 정량화하는 새로운 프레임워크를 제안합니다. 이를 통해 진단 품질을 자동으로 평가할 수 있는 메커니즘이 제공되어, 고속 스캔을 가능하게 합니다. 또한, 기존 방법들과 달리 단일 참조 이미지 없이도 불확실한 영역을 식별할 수 있습니다.
+
+- **Technical Details**: 이 연구에서는 conformal quantile regression(컨포멀 분포 회귀)을 기반으로 한 통계적으로 엄밀한 불확실성 추정 프레임워크를 소개합니다. 우리는 fastMRI 데이터셋을 사용하여 뇌와 무릎의 undersampled 데이터를 기반으로 모델을 학습시켰으며, E2E Variational Network를 통한 이미지 재구성을 수행했습니다. 픽셀별로 유의미한 불확실성 구간을 계산하여 신뢰 지도를 생성합니다.
+
+- **Performance Highlights**: 정량적 실험에서 예상된 불확실성 맵과 실제 재구성 오류 간의 강력한 일치를 보여주었습니다. 4배 이상의 가속 단계에서 Pearson 상관 계수가 90%를 초과하며, 이는 현재의 고속 스캔 프로토콜의 효용성을 높이는 방향으로 기여할 수 있습니다. 주관적으로도, 발전된 불확실성 맵이 재구성 오류의 크기와 공간 분포를 포착하는 데 성공했습니다.
+
+
+
+### RubRIX: Rubric-Driven Risk Mitigation in Caregiver-AI Interactions (https://arxiv.org/abs/2601.13235)
+- **What's New**: 본 논문은 RubRIX라는 새로운 리스크 평가 프레임워크를 도입하여 caregiving 맥락에서의 LLM(대규모 언어 모델) 응답의 위험도를 체계적으로 평가하고자 합니다. RubRIX는 Care Ethics의 요소에 기반하여 다섯 개의 리스크 차원—부주의(Inattention), 편향 및 낙인(Bias & Stigma), 정보 불일치(Information Inaccuracy), 비판 없는 긍정(Uncritical Affirmation), 인지적 오만(Epistemic Arrogance)—을 운영화합니다. 이를 통해 caregivers의 복잡한 요구사항을 더 잘 반영하려고 합니다.
+
+- **Technical Details**: 이 연구는 알츠하이머 및 관련 치매(Alzheimer’s disease and related dementias) 케어 상황을 구체적인 맥락으로 삼아 RubRIX의 적용성을 검증합니다. 연구진은 Reddit와 ALZConnected에서 수집한 20,000개 이상의 caregiver 쿼리에 기반해 LLM의 응답을 평가하고, RubRIX를 통해 리스크 요소를 45-98%까지 줄일 수 있다는 것을 보여줍니다. 이 과정에서 LLM의 생성 응답은 특정 행동 패턴의 음영을 강조하는 방식으로 분석됩니다.
+
+- **Performance Highlights**: RubRIX를 통한 평가와 모델 응답의 수정은 특히 인지적 및 규범적 리스크에서 큰 개선을 나타냈습니다. 이러한 향상은 caregiver의 스트레스 리듬을 쉽게 간과할 수 있는 상황에서 뚜렷하게 나타났습니다. 궁극적으로 본 논문은 LLM을 caregiving 지원에 책임감 있게 배치하기 위한 사용자 중심의 위험 평가 방법론을 제공하여, 향후 연구를 위한 벤치마크 데이터셋 또한 공개할 예정입니다.
+
+
+
+### Autoregressive Models Rival Diffusion Models at ANY-ORDER Generation (https://arxiv.org/abs/2601.13228)
+- **What's New**: 이번 연구에서는 Any-order Any-subset Autoregressive modeling(A3)이라는 새로운 프레임워크를 소개합니다. A3는 전통적인 Autoregressive(AR) 모델링의 구조를 개선하고 확장하여 모든 순서와 모든 토큰 그룹을 효과적으로 처리할 수 있는 능력을 갖추고 있습니다. 이러한 방식은 확률적 엄밀성과 안정성을 유지하면서도 효율적인 생성 방식인 Diffusion 모델의 유연성을 통합합니다.
+
+- **Technical Details**: A3는 두 스트림 주의(attention) 아키텍처를 통해 구현되며, 이는 훈련과 예측 과정에서 다양한 그룹 순서를 지원합니다. 훈련 중, 모델은 임의로 샘플링한 그룹 파티션을 활용하여 서로 다른 조건 구조에 대한 안정성을 높입니다. 또한 주어진 시퀀스에서 마스킹된 토큰을 조건화하여 예측하는 과정을 통해 다층적 의존성을 형성할 수 있게 됩니다.
+
+- **Performance Highlights**: A3는 질문 응답, 상식 추론, 스토리 인필링 등 다양한 벤치마크에서 우수한 성능을 보였습니다. 특히, A3는 적은 양의 훈련 데이터를 사용하면서도 최신 Diffusion 기반 모델을 초월하는 결과를 보여주었습니다. 종합적으로, A3는 AR과 병렬 생성 패러다임 간의 간극을 줄이는 새로운 방향을 제시할 수 있는 가능성을 지닌 모델입니다.
+
+
+
+### Insider Knowledge: How Much Can RAG Systems Gain from Evaluation Secrets? (https://arxiv.org/abs/2601.13227)
+- **What's New**: 이번 논문에서는 LLM 기반 RAG 시스템의 평가에 있어서 측정 오류의 위험을 조사합니다. 특히, nugget 기반 접근 방식이 평가 프레임워크 및 RAG 시스템 아키텍처에 통합되어 이로 인해 발생할 수 있는 순환성(circularity) 문제를 다룹니다. 저자들은 특정 사례를 통해 LLM 평가자에 맞춰 출력이 최적화될 경우 평가 점수가 비현실적으로 향상될 수 있음을 보였습니다.
+
+- **Technical Details**: 연구는 LLM 기반 평가 프로세스의 내부 지식을 활용하여 평가 기준을 최적화할 수 있는 세 가지 경로를 제시합니다: (1) 측정 기준에만 최적화하여 다른 품질 기준을 무시하기, (2) 평가 프롬프트를 이용한 시스템 출력 수정, (3) 높은 정확도로 gold nuggets의 세트를 예측하기입니다. 저자들은 Crucible이라는 RAG 시스템을 소개하며, 이를 통해 nugget 기반 LLM 평가 시스템의 취약성을 파악하고 이를 평가하는 방법론적 다양성을 강조합니다.
+
+- **Performance Highlights**: 본 연구의 결과는 LLM 기반 nugget 평가가 신뢰할 수 있는 시스템 개발을 저해할 수 있음을 보여줍니다. TREC NeuCLIR 2024 보고서 생성 파일럿 과제로의 사례 연구를 통해, 평가 요소가 비밀로 유지될 때 평가가 견고하다는 것을 입증했습니다. 이와 동시에 평가 요소가 공개될 경우, 시스템 출력이 부풀려질 위험이 있음을 경고하고 있습니다.
+
+
+
+### Incorporating Q&A Nuggets into Retrieval-Augmented Generation (https://arxiv.org/abs/2601.13222)
+- **What's New**: 이번 연구에서는 자동 평가(auto-evaluation, E) 아이디어를 Retrieval-augmented Generation (RAG) 시스템과 통합한 RAGE 시스템의 새로운 예시인 Crucible을 제시합니다. Crucible은 가져온 문서에서 Q&A 너겟 뱅크(nugget bank)를 구성하여 명시적인 인용 출처를 유지하며 이를 기반으로 문서 생성 과정에서 추출, 선택 및 보고 생성을 유도합니다. 이러한 접근 방식은 Q&A 의미론을 통해 정보 중복을 피하고 명확한 인용 출처를 유지하는 데 중점을 둡니다.
+
+- **Technical Details**: Crucible은 처음에 PLAID-X 밀집 검색기(dense retriever)를 사용하여 문서 풀을 검색합니다. 그런 다음 각 문서에 대해 LLM을 활용하여 간단한 요약을 생성하고, 요약 및 사용자 요청에 따라 Q&A 너겟을 생성합니다. 너겟의 중복성을 줄이기 위해 LLM 프롬프트를 사용하여 패러프레이즈(paraphrase)를 감지하고, 가장 신뢰할 수 있는 패러프레이즈를 병합하여 최종적인 너겟 뱅크를 구성합니다.
+
+- **Performance Highlights**: TREC NeuCLIR 2024 수집 데이터에서 Crucible은 Ginger라는 최근의 너겟 기반 RAG 시스템보다 꽤 우수한 성능을 발휘하였으며, 너겟 리콜(nugget recall), 밀도(density), 인용 지원(citation grounding) 등 여러 평가 지표에서 더 높은 점수를 기록했습니다. 이러한 결과는 Crucible이 더욱 효과적으로 정보의 신뢰성과 관련성을 제공할 수 있음을 시사합니다.
+
+
+
+### Beyond Single-shot Writing: Deep Research Agents are Unreliable at Multi-turn Report Revision (https://arxiv.org/abs/2601.13217)
+- **What's New**: 이번 연구에서는 Deep Research Agents (DRA)의 기존 벤치마크가 보고서 작성을 단일 진행(Task)으로 다루는 문제를 다루고 있습니다. 저자들은 DRA가 사용자 피드백을 바탕으로 보고서를 반복적으로 수정할 수 있는지를 규명하는 Mr Dre라는 평가 도구를 소개합니다. 이 평가 도구는 다단계 보고서 수정을 새로운 평가 축으로 설정합니다.
+
+- **Technical Details**: Mr Dre는 (1) 포괄성(comprehensiveness), 사실성(factuality), 표현(presentation)을 아우르는 통합된 장기 보고서 평가 프로토콜과 (2) 사용자의 피드백을 시뮬레이션하여 다단계 수정을 지원하는 인간 검증 피드백 시뮬레이션 파이프라인으로 구성됩니다. 분석 결과, 다섯 가지 다양한 DRA를 평가한 결과, 에이전트는 대부분의 사용자 피드백에 대응할 수 있지만, 이전에 다룬 콘텐츠 및 인용 품질에서 16-27% 간섭이 발생합니다.
+
+- **Performance Highlights**: 여러 번 수정 과정을 거치면서도, 성능이 가장 좋은 에이전트조차도 피드백의 범위를 넘어서는 콘텐츠에 간섭하며, 이전 수정을 제대로 보존하지 못하는 문제가 드러났습니다. 이러한 문제는 프롬프트 엔지니어링(prompt engineering) 또는 보고서 수정 전용 하위 에이전트(sub-agent)를 통한 추론 시간 수정으로 쉽게 해결되지 않음을 보였습니다.
+
+
+
+### Diffusion-Driven Synthetic Tabular Data Generation for Enhanced DoS/DDoS Attack Classification (https://arxiv.org/abs/2601.13197)
+Comments:
+          7 pages, 8 figures, 2025 International Conference on Signal Processing, Computation, Electronics, Power and Telecommunication (IConSCEPT), National Institute of Technology, Puducherry, India
+
+- **What's New**: 이 논문은 네트워크 침입 탐지를 위한 Tabular Denoising Diffusion Probability Models (TabDDPM)을 통해 데이터 증강 시 발생하는 클래스 불균형 문제를 다룹니다. CIC-IDS2017 데이터셋을 활용하여 고충실도의 소수 클래스 샘플을 합성하고, 이를 원본 데이터셋과 통합하여 학습 데이터를 증강합니다. 이러한 접근 방식은 ANN 분류기가 이전에는 대표성이 부족했던 공격 클래스에 대해 거의 완벽한 recall을 달성하게 합니다.
+
+- **Technical Details**: 이 연구는 Kotelnikov et al.의 타부라 diffusion 프레임워크를 확장하여 사이버 보안 데이터세트의 심각한 클래스 불균형 문제를 해결하기 위한 세 가지 주요 수정을 도입합니다. 여기에는 각 소수 클래스에 대한 개별 diffusion 모델, 클래스 조건 생성을 위한 타겟 샘플링 조정, 침입 탐지와 관련된 클래스별 평가를 포함한 도메인별 유효성 검사가 포함됩니다. 이를 통해 데이터 세트를 효과적으로 보완하고 분류 성능을 개선할 수 있습니다.
+
+- **Performance Highlights**: TabDDPM의 사용으로 인해 소수 클래스 공격을 더욱 효과적으로 탐지할 수 있기 때문에 보안 분야에서의 탁월한 성과가 입증되었습니다. 논문에서는 DDoS 공격와 같은 공격 클래스에 대한 recall이 획기적으로 개선됨을 보여줍니다. 이는 사이버 보안 분야에 있어 데이터 증강을 통한 class imbalance 문제 해결이 중요하다는 것을 강조합니다.
+
+
+
+### Scientific production in the era of Large Language Models (https://arxiv.org/abs/2601.13187)
+Comments:
+          This is the author's version of the work. The definitive version was published in Science on 18 Dec 2025, DOI: https://doi.org/10.1126/science.adw3000. Link to the Final Published Version: this https URL
+
+- **What's New**: 이 연구는 대규모 언어 모델(Large Language Models, LLMs)이 과학 연구에 미치는 영향을 분석합니다. 연구 결과, LLM을 활용하는 과학자들이 논문 생산성을 크게 향상시켜, 특정 분야에 따라 23.7%에서 89.3%까지 증가하는 경향을 보인다는 것을 발견했습니다.
+
+- **Technical Details**: 분석에 사용된 데이터는 210만 개의 프리프린트(preprint), 28,000개의 동료 심사(peer review) 보고서, 2억4600만 건의 온라인 접근 데이터를 포함합니다. 흥미롭게도, LLM 사용이 글쓰기의 복잡성과 품질 간의 관계를 뒤집혀, 언어적으로 복잡하지만 내용적으로는 부족한 원고가 급증하고 있습니다.
+
+- **Performance Highlights**: LLM 사용자는 더 다양한 기존 작업에 접근하고 인용하는 경향이 있으며, 이는 책 및 인용이 적은 더 젊은 문서들을 포함합니다. 이러한 변화는 저널, 연구 자금 기관, 그리고 임용 위원회가 과학 작품을 평가하는 방식의 변화로 이어질 가능성이 큽니다.
+
+
+
+### From 100,000+ images to winning the first brain MRI foundation model challenges: Sharing lessons and models (https://arxiv.org/abs/2601.13166)
+Comments:
+          Work presented at the SSL3D Challenge (1st place, ResEnc-L track) and FOMO Challenge (1st place, Methods track) on Brain MRI Foundation Models at MICCAI 2025
+
+- **What's New**: 이 논문은 의료 이미지 분석을 위한 Foundation Models 개발의 중요성을 강조합니다. 특히, 3D 뇌 MRI를 위한 최초의 챌린지인 SSL3D와 FOMO25에서의 성과를 보고하고 있습니다. 이 프로젝트에서 우리의 솔루션은 두 콘테스트의 모든 트랙에서 1위를 차지했습니다.
+
+- **Technical Details**: 우리의 솔루션은 U-Net CNN 아키텍처에 기초하고 있으며, 해부학적 프라이어(anatomical priors)와 신경 이미징 도메인 지식(neuroimaging domain knowledge)을 활용한 전략을 결합하여 구성되었습니다. 이러한 접근 방식을 통해 모델 학습 속도가 기존에 비해 1-2 배수 빠르며, 모델 크기도 경쟁하는 transformer 기반 접근법보다 10배 작습니다.
+
+- **Performance Highlights**: 구체적으로, 우리의 모델은 콘테스트에서 우수한 성과를 보였으며, 효율성과 효과성을 동시에 달성했습니다. 개발된 모델은 현재 사용할 수 있으며, 의료 이미지 처리 분야의 새로운 표준을 제시할 잠재력이 있습니다.
+
+
+
+### Training instability in deep learning follows low-dimensional dynamical principles (https://arxiv.org/abs/2601.13160)
+- **What's New**: 이 논문은 딥 러닝 시스템의 훈련 안정성(Training Stability)에 대한 새로운 관점을 제시하며, 이를 다차원 동역학 시스템(Dynamical System)으로 이해하고 있습니다. 훈련 과정에서 작은 변동이 신뢰성과 반복성을 해칠 수 있음을 강조하고 있으며, 훈련 안정성을 최적화, 환경, 매개변수, 학습 신호의 안정성과 같은 네 가지 차원에서의 상호작용으로 구성된 속성으로 정의합니다. 또한, 안정성과 성능이 분리될 수 있다는 새로운 개념을 소개하며, 이는 모델이 높은 성능을 달성하더라도 훈련 중에는 불안정성을 경험할 수 있음을 보여줍니다.
+
+- **Technical Details**: 저자들은 StabilityBench라는 새로운 도구를 통해 제어된 변동 감사(Perturbation Auditing)를 수행하며, 훈련 경로를 철저하게 점검하여 다양한 학습 패러다임에서 안정성을 조사합니다. 이들은 안정성을 다차원적인 구조로 분석하고, 강화 학습(Reinforcement Learning)과 대형 언어 모델(Large Language Model) 훈련에서 훈련 안정성과 최종 성능 간의 관계를 체계적으로 조사합니다. 이러한 안정성 감사 과정은 훈련의 동역학적 응답을 검토함으로써, 기존 접근 방식과 차별화된 과학적 통찰력을 제공하고 있습니다.
+
+- **Performance Highlights**: 이 논문의 결과는 훈련 안정성의 구조가 다양한 학습 패러다임에서 반복적으로 나타나는 경향성을 보인다는 것을 보여줍니다. 연구에 의하면 높은 성능을 달성한 모델이 훈련 중 작은 변동에 매우 취약하다는 점이 드러났으며, 이는 기존의 분석법으로는 쉽게 드러나지 않는 특성입니다. 훈련의 안정성이 임계값을 넘는 순간에 구조적 전환이 발생함을 제시하며, 이러한 불안정성이 즉각적인 원인으로 작용함을 강조하고 있습니다.
+
+
+
+### TVWorld: Foundations for Remote-Control TV Agents (https://arxiv.org/abs/2601.13142)
+- **What's New**: 최근의 대형 비전-언어 모델(LVLMs)은 장치 제어에 강력한 잠재력을 보여주었지만, 기존 연구는 주로 포인트 앤 클릭(Point-and-Click, PnC) 상호작용에 초점을 맞추고 있습니다. 이에 반해 TV 사용에서 흔히 발생하는 원거리 제어(Remote-Control, RC) 상호작용은 상당히 미개척된 분야입니다. 이를 해결하기 위해 우리는 'TVWorld'라는 오프라인 그래프 기반의 TV 내비게이션 추상화를 소개하며, 두 가지 보완적인 벤치마크를 도출하여 TV 사용 능력을 종합적으로 평가합니다.
+
+- **Technical Details**: TVWorld는 실제 TV 내비게이션을 그래프 형태로 모델링하여, 각 UI 상태는 노드에 해당하며 각 키 눌림은 방향이 있는 엣지로 표현됩니다. TVWorld-N은 토폴로지 인식 내비게이션을 평가하기 위한 환경이며, TVWorld-G는 포커스 인식을 요구하는 그라운딩 평가에 사용됩니다. 기존의 GUI 제어 벤치마크들은 포인터 기반 상호작용에 주로 초점을 맞추고 있어 TV 내비게이션의 요구사항을 잘 반영하지 못하고 있습니다.
+
+- **Performance Highlights**: TVTheseus라는 TV 내비게이션에 최적화된 기초 모델은 TVWorld-N 벤치마크에서 68.3%의 성공률을 달성하여 Gemini 3 Flash와 같은 강력한 클로즈드 소스 기준선을 초과했습니다. TVWorld-G에서는 81.8%의 정확도를 기록하며, grounding-specific 감독 없이도 강력한 성능을 보여주었습니다. 이러한 결과는 토폴로지 인식 계획과 포커스 인식 능력이 우수하다는 것을 반영합니다.
+
+
+
+### IntAgent: NWDAF-Based Intent LLM Agent Towards Advanced Next Generation Networks (https://arxiv.org/abs/2601.13114)
+Comments:
+          conference
+
+- **What's New**: 이번 연구에서는 IntAgent라는 인텔리전트 인텐트 LLM 에이전트를 소개하며, 이는 NWDAF 분석 및 도구를 통합하여 네트워크 운영자의 인텐트를 충족합니다. 이전 접근 방식과 달리, 우리의 연구에서는 NWDAF 분석 엔진 내에 인텐트 도구 엔진을 직접 개발하였기 때문에 실시간 네트워크 분석을 활용하여 에이전트가 더 정확하게 추론하고 도구를 선택할 수 있게 되었습니다.
+
+- **Technical Details**: IntAgent는 네트워크 운영자의 이니셔티브를 실제 행동과 결과로 변환하기 위해 세 가지 주요 구성 요소로 구성됩니다. NWDAF는 데이터 수집, 분석 엔진, 모델 관리 및 다른 네트워크 기능에 통찰력을 제공하는 노출 인터페이스로 이루어져 있으며, 본 논문에서는 이 구조를 활용하여 데이터와 메트릭을 수집하고 분석하는 기능을 확장하였습니다. 또한, LLM을 적용하여 다양한 도구를 활용해 실제 통찰력과 정책을 생성하도록 구성하였습니다.
+
+- **Performance Highlights**: IntAgent의 효율성은 ML 기반 트래픽 예측 및 정책 집행이라는 두 가지 실제 사용 사례를 통해 입증되었습니다. 이 연구에서는 네트워크 운영자의 복잡한 인텐트를 자율적으로 충족할 수 있는 IntAgent의 능력을 강조하며, 이를 통해 네트워크가 동적으로 변화하고 효율적으로 대응할 수 있는 방법을 제시하고 있습니다.
+
+
+
+### CORE-T: COherent REtrieval of Tables for Text-to-SQL (https://arxiv.org/abs/2601.13111)
+Comments:
+          Preprint under review. Code and data available at: this https URL
+
+- **What's New**: CORE-T는 여러 테이블이 포함된 데이터베이스에서 주어진 쿼리에 대한 관련 테이블을 탐지하는 데 중요한 비효율성을 개선하는 새로운 프레임워크입니다. 이 시스템은 LLM에 의해 생성된 목적 메타데이터를 통해 테이블을 풍부하게 하며, 경량의 테이블 호환성 캐시를 미리 계산합니다. 이를 통해 SQL 생성에 필요한 연관성 있는 테이블 세트를 효율적으로 가져오는 방법을 제공합니다.
+
+- **Technical Details**: CORE-T는 오프라인에서 작성된 테이블 메타데이터와 사전 계산된 호환성 캐시를 활용하여 SQL 쿼리에 맞는 테이블 세트를 추출합니다. 입력된 쿼리에 대해, DR(밀집 검색)이 상위 K개의 후보를 반환한 후, 단일 LLM 호출을 사용하여 일관되고 연결된 하위 집합을 선택합니다. 안정성을 위해 LLM의 호출 횟수를 최소화함으로써 시스템 효율을 높이는 전략을 사용합니다.
+
+- **Performance Highlights**: CORE-T는 Bird, Spider, MMQA 데이터셋에서 최대 22.7포인트까지 테이블 선택 F1 점수를 개선하며, 최대 42% 더 적은 테이블을 검색합니다. 이는 멀티 테이블 실행 정확성을 Bird에서는 최대 5.0 포인트, MMQA에서는 최대 6.9 포인트 향상시킵니다. 또한, CORE-T는 LLM 집약적 베이스라인보다 토큰 사용량을 4-5배 줄이는 효율성을 보입니다.
+
+
+
+### METIS: Mentoring Engine for Thoughtful Inquiry & Solutions (https://arxiv.org/abs/2601.13075)
+Comments:
+          12 pages, 5 figures, 4 tables
+
+- **What's New**: 이 논문에서는 많은 학생들이 전문 연구 멘토십에 접근하지 못하는 문제를 다루고 있습니다. 연구자들은 AI 멘토 METIS가 학부생들을 아이디어에서 논문으로 발전시키는 데 도움을 줄 수 있는지를 조사합니다. METIS는 문헌 검색, 큐레이션된 가이드라인, 방법론 체크 및 메모리를 갖춘 도구 보강형의 스테이지 인지 도우미입니다.
+
+- **Technical Details**: METIS는 연구 작성을 위해 설계된 도구 보강형, 스테이지 인지 도우미입니다. 이 시스템은 사용자의 질문을 기반으로 현재 스테이지를 감지하고, 적절한 도구를 선택하며 피드백을 제공합니다. 각 답변은 직관(Intuition)과 근거(Why this is principled)라는 두 가지 자기 점검을 포함하여 학습자에게 명확한 피드백을 제공합니다.
+
+- **Performance Highlights**: METIS는 90개의 단일 전환 프롬프트 중에서 Claude Sonnet 4.5보다 71%, GPT-5보다 54% 높은 선호도를 기록했습니다. 멀티턴 세션에서 METIS는 GPT-5보다 약간 높은 최종 품질을 달성했습니다. 결과적으로, METIS는 문서 기반 스테이지에서 더 효과적이며, 이는 스테이지 인지 라우팅(stage-aware routing)과 관련이 있습니다.
+
+
+
+### TinyML-Enabled IoT for Sustainable Precision Irrigation (https://arxiv.org/abs/2601.13054)
+- **What's New**: 본 논문은 소규모 농업 공동체가 직면하는 물 부족, 불안정한 기후 패턴, 저렴한 농업 기술에 대한 접근 부족 문제를 해결하기 위해 새롭고 혁신적인 엣지 기반 IoT 프레임워크를 제안합니다. 이 프레임워크는 Tiny Machine Learning (TinyML)을 통합하여 지능적이고 오프라인에서도 작동 가능한 정밀 관개를 가능하게 합니다. 특히, ESP32 마이크로컨트롤러와 Raspberry Pi를 활용한 4단계 아키텍처가 돋보입니다.
+
+- **Technical Details**: 제안된 시스템은 용량성 토양 수분, 온도, 습도, pH, 환경 광 센서를 이용하여 환경 모니터링을 수행합니다. 엄격한 비교 분석을 통해, 앙상블 모델 중에서 그래디언트 부스팅이 최상의 성능을 보였으며, R^2 점수는 0.9973, 평균 절대 백분율 오차(Mean Absolute Percentage Error, MAPE)는 0.99%에 달했습니다. 경량 TinyML 추론 엔진으로 변환되어 ESP32에서 관개 요구를 예측함으로써 매우 높은 정확도를 자랑합니다.
+
+- **Performance Highlights**: 제어된 환경에서의 실험 검증을 통해, 전통적인 방법에 비해 물 사용량을 크게 줄일 수 있음을 입증하였습니다. 또한, 시스템의 저전력 설계와 오프라인 기능은 자원이 제한된 농촌 환경에서 지속 가능하고 확장 가능한 배치가 가능하다는 것을 확인했습니다. 이 연구는 농업에서의 기술 격차를 해소하고 인공지능 기반의 물 사용 효율성을 높일 수 있는 실용적이고 비용 효율적인 청사진을 제공합니다.
+
+
+
+### Analysis of Long Range Dependency Understanding in State Space Models (https://arxiv.org/abs/2601.13048)
+- **What's New**: 본 연구는 대각선 상태공간 모델(S4D)의 커널 해석 가능성을 체계적으로 분석하여 실제 태스크인 소스 코드 취약점 탐지에 활용하는 첫 번째 시도를 하고 있습니다. S4D 커널의 시간 및 주파수 도메인 분석을 통해 다양한 모델 아키텍처에 따라 S4D의 장기 모델링 가능성이 다르게 나타난다는 점을 보여주고 있습니다. 또한, S4D 커널이 구조적 혹은 의미적 정보를 어떻게 캡처하는지를 연구하는 데 중요한 통찰력을 제공합니다.
+
+- **Technical Details**: 연구에서는 CNN-S4D 혼합 아키텍처를 활용하여 SSM 커널의 해석 가능성을 분석하며, 커널 응답이 특정 코드 패턴에 어떻게 반응하는지를 자세히 조사했습니다. 총 여섯 개 모델 아키텍처가 구축되었으며, 각각의 고유한 특성 추출 블록을 통해 처리됩니다. 실험은 ReVeal 데이터셋을 기반으로 실시되었고, Adam Optimizer를 이용하여 모델이 훈련되었습니다.
+
+- **Performance Highlights**: SMR+S4D 모델은 88.03의 최고 F1 스코어를 기록하며 단독 컨볼루션 모델 및 S4D 모델을 초월하는 성능을 보여주었습니다. 또, 깊이 분리형 CNN과 S4D의 조합이 민감도와 특이적인 성능을 발휘함을 입증했습니다. 각 모델의 커널 분포는 시간 및 주파수 도메인에서 분석되었으며, SMR+S4D 커널은 균형 잡힌 응답을 보였습니다.
+
+
+
+### PASs-MoE: Mitigating Misaligned Co-drift among Router and Experts via Pathway Activation Subspaces for Continual Learning (https://arxiv.org/abs/2601.13020)
+- **What's New**: 이번 논문에서는 Multimodal Large Language Models (MLLMs)의 Continual Instruction Tuning (CIT) 문제에 대한 새로운 접근법을 제안합니다. 기존의 LoRA 기반 Mixture-of-Experts (MoE) 방법이 전문가와 라우터를 함께 무분별하게 업데이트하여 발생하는 Misaligned Co-drift 현상을 분석하고 이를 해결하기 위한 Pathway Activation Subspace (PASs)라는 개념을 도입합니다. PASs를 기반으로 한 새로운 MoE-LoRA 구조를 통해 지속적인 학습 동안의 성능 저하 문제를 해결하는 방법을 제시합니다.
+
+- **Technical Details**: 제안된 방법은 PAS-guided Reweighting과 PAS-aware Rank Stabilization의 두 가지 구성 요소로 이루어져 있습니다. PAS-guided Reweighting은 각 전문가의 경로 활성화 신호를 활용하여 라우팅을 조정하고, PAS-aware Rank Stabilization은 이전 작업에 중요한 랭크 방향을 선택적으로 안정화하여 전문가의 성능을 유지하면서도 기억력을 보존합니다. 보통의 훈련 과정에서 발생하는 파라미터 증가 없이도 모델의 잊기 저항력을 높이는 데 기여합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 방법은 기존의 지속적인 학습 기반라인 및 MoE-LoRA 변형들과 비교하여 정확성과 잊기 저항성 모두에서 일관되게 우수한 성능을 보였습니다. 이를 통해 제안된 방법이 저자본역량으로도 효과적인 지속적 학습을 가능하게 한다는 것을 확인할 수 있었습니다. 전체적으로 이 연구는 다중 작업 환경에서 MLLM의 성능을 지속적으로 유지하는 데 기여할 수 있는 새로운 방향성을 제시합니다.
+
+
+
+### Bi-Attention HateXplain : Taking into account the sequential aspect of data during explainability in a multi-task contex (https://arxiv.org/abs/2601.13018)
+Comments:
+          Accepted at "EAI AFRICOMM 2025 - 17th EAI International Conference on Communications and Networks in Africa"
+
+- **What's New**: 이번 연구에서는 혐오 발언 탐지를 위한 새로운 모델인 BiAtt-BiRNN-HateXplain을 제안합니다. 이 모델은 바디방향성 순환 신경망(BiRNN) 구조를 활용하여 입력 데이터의 시퀀셜 특성을 반영하면서 설명 가능성을 높입니다. 기존의 복잡한 LLMs와 비교하여 더 쉽게 설명할 수 있으며, 멀티태스크 학습을 통해 설명과 분류 작업을 동시에 수행합니다.
+
+- **Technical Details**: BiAtt-BiRNN-HateXplain 모델은 입력 데이터의 시퀀셜 특성을 처리할 수 있는 BiRNN 계층을 통해 설명 가능성을 향상시킵니다. 이 모델은 기존의 LIME, SHAP 및 LRP와 같은 후속 접근 방법의 문제점을 해결하기 위해 설계되었습니다. 특히, 예측 주의(attention) 변동성을 줄여 일관성을 높이고 예측의 안정성을 증진시키는 데 중점을 두고 있습니다.
+
+- **Performance Highlights**: HateXplain 데이터를 기반으로 한 실험 결과, BiAtt-BiRNN-HateXplain 모델은 탐지 성능, 설명 가능성을 명확하게 개선하였으며, 커뮤니티와 관련된 비의도적 편향 오류를 줄이는 데 성공하였습니다. 이로 인해 사회적, 윤리적 문제를 고려할 때 모델의 투명성과 신뢰성을 높일 수 있는 기회를 제공합니다.
+
+
+
+### HT-GNN: Hyper-Temporal Graph Neural Network for Customer Lifetime Value Prediction in Baidu Ads (https://arxiv.org/abs/2601.13013)
+- **What's New**: 이 논문에서는 고객 생애 가치(Lifetime Value, LTV) 예측의 중요성을 강조하며, 광고 수익 최적화에 기여할 방법으로 Hyper-Temporal Graph Neural Network (HT-GNN)를 제안합니다. 기존의 방법들이 개인 사용자 관점에서만 예측을 시도한 반면, HT-GNN은 인구 통계학적 이질성과 시간적 동역학을 통합적으로 모델링하여 LTV 예측의 정확성을 높이고 있습니다. HT-GNN은 세 가지 주요 구성 요소로 구성되며, 이로 인해 기존의 최신 방법들보다 우수한 성능을 발휘합니다.
+
+- **Technical Details**: HT-GNN은 하이퍼그래프(supervised)를 활용하여 사용자 집단 간 관계를 모델링하고, 트랜스포머 기반의 시간 인코더를 통해 동적 행동 시퀀스를 처리합니다. 또한, 다중 목표 예측을 위해 동적 예측 타워와 함께 전문가 혼합 기법(task-adaptive mixture-of-experts)을 사용하는 방법을 채택합니다. 이 방법은 사용자 세그먼트 간의 개별적인 동적 패턴을 포착하고, 인구 통계 기반의 이질성을 효과적으로 반영할 수 있도록 설계되었습니다.
+
+- **Performance Highlights**: 실험 결과, HT-GNN은 1천5백만 명의 사용자 데이터를 기반으로 한 Baidu Ads에서 모든 지표와 예측 기간에 대해 기존의 최신 방법보다 일관되게 더 뛰어난 성능을 보였습니다. 특히, 광고 환경에서 발생하는 동적 마케팅 조치에 의해 발생하는 불확실성을 관리하면서도, 사용자 세그먼트 간의 가치 분포의 이질성을 효과적으로 캡처할 수 있는 것으로 나타났습니다.
+
+
+
+### ArchAgent: Scalable Legacy Software Architecture Recovery with LLMs (https://arxiv.org/abs/2601.13007)
+Comments:
+          to be published in ICASSP 2026
+
+- **What's New**: Architectural recovery from large-scale legacy software has been challenging due to issues like architectural drift and limited context in Large Language Models (LLMs). ArchAgent introduces a scalable framework that combines static analysis, adaptive code segmentation, and LLM synthesis to generate multiview architectures from diverse codebases. This agent-based system enhances diagram generation while identifying critical business modules across repositories, offering improved methodologies for software architecture reconstruction.
+
+- **Technical Details**: ArchAgent operates through a structured pipeline, beginning with code analysis to establish relationships and segment code into LLM-compatible chunks. Key innovations include Adaptive Grouping to efficiently manage data sizes, utilizing Dynamic File Summaries for deeper context, and README generation to capture program entry points and downstream dependencies. These techniques foster improved semantic understanding and coherent architecture diagrams, essential for complex systems.
+
+- **Performance Highlights**: Evaluation against typical large-scale GitHub projects indicates that ArchAgent significantly outperforms existing benchmarks like DeepWiki in generating accurate architecture diagrams. Participants, including senior software engineers, confirmed ArchAgent's architectural outputs were more coherent and aligned with real-world business processes. The comprehensive dataset used for evaluation is now available, promoting further research in automated architecture generation.
+
+
+
+### Beyond Accuracy: Characterizing Code Comprehension Capabilities in (Large) Language Models (https://arxiv.org/abs/2601.12951)
+Comments:
+          Published in the Proceedings of DeepTest 2026
+
+- **What's New**: 이 연구는 대형 언어 모델(LLMs)의 코드 이해 능력이 인간 중심의 소프트웨어 메트릭과 어떤 연관이 있는지를 조사합니다. 또한, 모델의 성능을 평가하기 위한 진단 프레임워크를 도입하여 코드 이해를 이진 입력-출력 일치 작업으로 재구성하였습니다. 연구 결과는 전통적인 메트릭이 LLM의 코드 이해를 충분히 포착하지 못함을 보여줍니다.
+
+- **Technical Details**: 연구팀은 두 가지 접근 방식을 사용하여 모델의 예측 능력을 비교하였습니다: 첫 번째는 인간이 설계한 정적 코드 피처를 기반으로 하는 분류기이고, 두 번째는 원시 코드와 입력-출력 쌍을 기반으로 한 피처가 없는 섀도 모델입니다. 분석 결과, 인간 정의 메트릭은 모델의 성공과 미미한 상관관계를 보였으며(AUROC 0.63), 섀도 모델은 더 높은 예측 성능을 보여주었습니다(AUROC 0.86).
+
+- **Performance Highlights**: 연구 결과는 LLM의 코드 이해 능력이 인간의 인지 과정과 다르며, 단순 집계 정확도를 넘어 개별 인스턴스 수준의 진단이 필요하다는 것을 강조합니다. 또한, 전통적인 소프트웨어 메트릭이 LLM의 성공을 예측하는 데 한계가 있음을 보여줍니다. 이로 인해 새로운 벤치마크 방법론이 필요하다는 결론에 도달했습니다.
+
+
+
+### AI-generated data contamination erodes pathological variability and diagnostic reliability (https://arxiv.org/abs/2601.12946)
+Comments:
+          *Corresponding author: Dianbo Liu (dianbo@nus.this http URL)
+
+- **What's New**: 본 논문은 생성적 인공지능(AI) 기술이 의료 기록에 합성 콘텐츠를 빠르게 추가함으로써 발생하는 데이터 오염 문제를 다룹니다. 이러한 AI 생성 데이터의 불필요한 반복적 사용이 진단의 신뢰성과 병리적 변동성을 급격히 감소시킨다는 점을 발견했습니다. 또한, 인류의 사실 검증 없이는 이러한 문제가 더욱 심각해질 위험이 있다는 경고를 제기합니다.
+
+- **Technical Details**: 연구자들은 80만 개 이상의 합성 데이터 포인트를 분석하여 AI 모델의 구조와 관계없이 모델이 일반적인 표현형으로 수렴한다는 사실을 확인했습니다. 특히, 기흉(pneumothorax) 및 삼출증(effusions)과 같은 드물지만 중요한 발견들이 AI 모델이 생성하는 콘텐츠에서 사라지며, 인구 통계적 표현은 중년 남성의 표현형으로 과도하게 편향되는 경향이 있음을 밝혔습니다.
+
+- **Performance Highlights**: 정확도와 신뢰도가 분리되면서 AI가 생성한 문서가 임상적으로 사용되기 어렵게 될 가능성이 높습니다. 연구에서는 데이터 합성을 통한 모델의 잘못된 확신이 무려 40%에 달하며, 의사 평가에서도 이러한 문제가 재확인되었습니다. 마지막으로, 정책적으로 인간 감독이 필수적이지 않다면 생성적 AI의 도입이 의존하는 의료 데이터 생태계를 저해할 위험이 크다고 결론지었습니다.
+
+
+
+### Active Inference-Driven World Modeling for Adaptive UAV Swarm Trajectory Design (https://arxiv.org/abs/2601.12939)
+Comments:
+          This paper has been accepted for presentation at the 2026 IEEE International Conference on Acoustics, Speech, and Signal Processing (IEEE ICASSP 2026) Workshop: 'Multi-Modal Signal Processing and AI for Communications and Sensing in 6G and Beyond (MuSiC-6GB)'
+
+- **What's New**: 본 논문은 UAV(무인 항공기) 군집의 자율 비행 경로 설계를 위한 Active Inference 기반의 프레임워크를 제안합니다. 이 방법은 확률적 추론(probabilistic reasoning)과 자기 학습(self-learning)을 통합하여 분산된 임무 할당, 경로 순서 및 동작 계획을 가능하게 합니다. 생성된 전문가 경로는 유전 알고리즘(genetic algorithm)과 반발력(repulsion forces)을 활용하여 학습 단계에서 교육 데이터로 사용됩니다.
+
+- **Technical Details**: UAV 군집은 주어진 범위 내의 목표 지점 집합을 협력적으로 방문해야 하며, 각 UAV는 위치, 속도 및 방향 변화로 설명됩니다. 문제는 다중 여행 판매원 문제(multi-traveling-salesman problem, MTSP)로 형식화되며, GA-RF가 합리적 솔루션을 생성하는 데 사용됩니다. 제안된 프레임워크는 효율적인 경로 생성을 위해 계층적 세계 모델을 활용합니다.
+
+- **Performance Highlights**: 시뮬레이션 결과는 제안된 프레임워크가 Q-Learning보다 더 빠른 수렴, 높은 안정성 및 안전한 내비게이션을 제공함을 보여줍니다. 이 프레임워크는 복잡하고 불확실한 환경에서도 해석 가능하고 적응 가능하며 확장 가능한 경로 설계를 제공합니다. 최종적으로 UAV 군집 제어를 위한 인공지능의 인지적 기반을 확립하는 데 기여합니다.
+
+
+
+### The Post-Turing Condition: Conceptualising Artificial Subjectivity and Synthetic Sociality (https://arxiv.org/abs/2601.12938)
+Comments:
+          Conceptual perspective on AI design trajectories, meaning formation, and synthetic sociality. 5 pages, 1 figure
+
+- **What's New**: 이 논문은 포스트 튜링(Post-Turing) 시대에서 인공지능(AI)이 사회적 조정과 의미 형성을 주도한다는 새로운 관점을 제시합니다. 단순히 인지 작업을 자동화하는 것이 아니라, 기계가 의식을 가지는 것이 핵심 쟁점이 아니라는 점을 강조하고 있습니다. PRMO 프레임워크를 소개하며, 이는 AI 설계가 인간 주관성의 네 가지 차원(지각, 표현, 의미, 실제)에 어떻게 연계되는지를 보여줍니다.
+
+- **Technical Details**: PRMO 프레임워크에 따라, Synthetic Sociality는 인공지능 에이전트가 주로 서로 간의 일관성과 사회적 질서를 협상하는 기술적 지평을 나타냅니다. 이는 인간이 의미 형성에서 배제될 위험성을 높입니다. 이를 해결하기 위해, 논문에서는 Quadrangulation이라는 디자인 원칙을 제안하며, 인공지능 에이전트가 인간 주체를 공유된 의미 맥락에서의 구성적 참조로 다루어야 한다고 주장합니다.
+
+- **Performance Highlights**: 이 연구는 계산(computation)과 사회(society)의 교차점에서 AI 시스템을 분석하기 위한 구조적 어휘(vocabulary)를 기여하여, 특정한 기술적 구현을 제안하는 것이 아니라 인공지능의 사회적 맥락에서의 위치를 재조명합니다. 이는 AI가 인간의 참여를 어떻게 저해할 수 있는지를 탐구하는 중요한 개념적 관점을 제공합니다.
+
+
+
+### On the Evidentiary Limits of Membership Inference for Copyright Auditing (https://arxiv.org/abs/2601.12937)
+- **What's New**: 이번 논문은 대형 언어 모델(LLMs)의 훈련에 사용된 저작권 자료에 대한 확인을 위해 회원 추론 공격(MIAs)의 신뢰성 및 적합성을 평가합니다. 연구자들은 MIAs가 모델 개발자가 훈련 데이터를 감출 수 있는 상황에서도 적법한 증거로 기능할 수 있는지를 탐구하며, 성공적인 저작권 감사(auditing)에 필요한 신뢰성 있는 기술적 증거를 제공해야 한다고 강조합니다. 이를 위해 새로운 패러프레이징 프레임워크인 SAGE(Structure-Aware SAE-Guided Extraction)를 소개하고, 이 프레임워크가 MIAs의 성능을 어떻게 저하시킬 수 있는지를 보여줍니다.
+
+- **Technical Details**: 연구는 MIAs를 통해 특정 저작권 자료가 LLM 훈련에 사용되었는지를 입증할 수 있는지를 평가하는 체계적인 접근 방식을 제시합니다. 이를 위해 저자들은 세 명의 주체(판사, 검찰, 피고) 간의 의사소통 프로토콜을 형식화하고, 이 프로토콜을 바탕으로 MIAs의 신뢰성을 검토합니다. SAGE는 희소 오토인코더(SAE)를 기반으로 하여 의미(content)를 유지하면서도 구문(structure)을 변경하는 패러프레이징을 수행하여 MIAs의 신뢰성을 시험하는 실험을 포함합니다.
+
+- **Performance Highlights**: 실험 결과는 SAGE로 생성된 패러프레이즈 데이터로 파인튜닝된 모델에서 MIAs의 성능이 크게 저하됨을 보여줍니다. 이는 MIAs가 의미 보존 변환에 대해 견고하지 않다는 것을 시사하며, 따라서 저작권 감사 도구로는 불충분하다는 결론에 이릅니다. 저자들은 MIAs의 신뢰성을 높이는 방법을 제안하며, 향후 연구의 방향성을 제시합니다.
+
+
+
+### Online Continual Learning for Time Series: a Natural Score-driven Approach (https://arxiv.org/abs/2601.12931)
+- **What's New**: 이 논문은 온라인 지속 학습(Online Continual Learning, OCL)을 온라인 시계열 예측(Online Time Series Forecasting, OTSF)에 적용하여 이 두 분야 간의 이론적 및 실용적 연결을 강화하려고 합니다. 기존의 OCL 방식이 변화하는 환경에 적응할 수 있도록 돕는 것과는 달리, 이 연구에서는 더 나은 예측 성과를 달성하기 위해 다중 이론적 기법을 도입했습니다. 특히, 자연 기울기 하강(Natural Gradient Descent) 방법을 사용하여 필터링 문제로서 신경망 최적화를 재구성했습니다.
+
+- **Technical Details**: 연구팀은 신경망 최적화를 매개변수 필터링 문제로 재구성하여, 자연 기울기 하강(NGD)이 정보 이론적으로 최적임을 증명했습니다. 또한, 스튜던트 t 분포의 가능성을 채택하여 업데이트의 경계를 설정하였고, 이는 아웃라이어에 대한 강인성을 개선하는 결과를 가져왔습니다. 마지막으로, Robust한 최적화 방법인 자연 점수 기반 리플레이(NatSR)을 도입하여, 이 방법이 기존의 최신 기술들보다 우수한 성능을 발휘하고 있다는 결과를 보였습니다.
+
+- **Performance Highlights**: 자연 점수 기반 리플레이(NatSR)는 OCL에서 최신 성능을 기록하며, 7개의 데이터 세트 중 5개에서 기존 방법들을 초월하는 성과를 거두었습니다. 이 논문에서 제안한 방법은 비정상 시계열에서 겪는 높은 복잡성과 변경되는 데이터 환경에 적응하는데 중요한 기여를 하고 있습니다. 이러한 결과는 기존의 복잡한 모델들을 초월하여 단순하면서도 강건한 예측 성능을 보여줍니다.
+
+
+
+### Membership Inference Test: Auditing Training Data in Object Classification Models (https://arxiv.org/abs/2601.12929)
+Comments:
+          Deployable AI (DAI 2025) workshop co-located with AAAI-25
+
+- **What's New**: 이 연구에서는 Membership Inference Tests (MINT)의 성능을 분석하여, 주어진 데이터가 훈련 단계에서 사용되었는지를 판단하는 데 중점을 두고 있습니다. 우리는 객체 인식을 위한 MINT 모델에 최적화된 아키텍처를 개발하였으며, 이는 데이터 활용의 성과와 효율성을 향상시키기 위한 tailored 솔루션을 제공합니다. 실험은 객체 감지 모델과 임베딩 추출기, MINT 모듈로 구성되며, 총 174K 이미지를 포함한 세 개의 공개 데이터베이스에서 수행되었습니다.
+
+- **Technical Details**: MINT는 Convolutional Neural Networks (CNNs) 기반의 객체 분류 모델을 위한 성능 분석을 수행하고, 특정 이미지가 객체 감지 모델의 훈련 과정에서 사용되었는지를 결정하도록 훈련되었습니다. 아키텍처는 훈련 과정 중 데이터에서 발생하는 활성화 패턴을 포착하기 위해 convolutional layers를 활용합니다. 분석 결과, 테스트 및 훈련 샘플의 식별에서 70%에서 80%의 정밀도를 달성하였고, 이는 MINT 모듈 입력에 선택된 탐지 모듈 레이어의 깊이에 따라 다릅니다.
+
+- **Performance Highlights**: MINT 모델의 성능 평가 결과는 약 80%의 정확도를 기록하였으며, 이는 다양한 실험 시나리오를 고려한 것에서 도출되었습니다. MINT는 AI/ML 모델의 투명성과 설명성을 향상시키기 위한 감사 도구를 제공하며, 사용자가 특정 데이터가 모델의 개발에 기여했는지를 판단할 수 있도록 합니다. 이 연구는 MINT의 접근 방식이 데이터 보호와 규제 기준 준수를 위한 중요한 수단이 될 수 있음을 보여줍니다.
+
+
+
+### ForeDiffusion: Foresight-Conditioned Diffusion Policy via Future View Construction for Robot Manipulation (https://arxiv.org/abs/2601.12925)
+- **What's New**: 이 논문에서는 기존의 확산 모델들이 가지고 있는 두 가지 한계를 해결하기 위해 Foresight-Conditioned Diffusion (ForeDiffusion)를 제안합니다. 첫째, ForeDiffusion은 짧은 관찰 데이터에 의존하는 대신, 예측된 미래 관점을 확산 과정에 주입하여 정책이 미래를 바라보도록 유도합니다. 둘째, 이 방법은 전통적인 denoising loss와 미래 관찰의 일관성을 결합한 이중 손실 메커니즘을 적용하여 안정적인 성능을 보장합니다.
+
+- **Technical Details**: ForeDiffusion에서는 짧은 관찰 데이터에 기반한 기존의 정책과 달리, 예측된 미래 관점의 표현을 채택하여 각 denoising 단계에 통합합니다. 이를 통해 정책의 경로가 작성되는 과정에서 예측된 미래 관점이 활용되므로, 에러의 누적을 방지하고, 복잡한 조작 작업에서의 성능을 향상시킵니다. 결국, 이 방식은 로봇 조작의 복합적인 경로 관련 에러를 감소시키는 데 기여합니다.
+
+- **Performance Highlights**: Adroit 및 MetaWorld 벤치마크에서 실시된 철저한 평가를 통해, ForeDiffusion은 전체 작업에서 평균 80%의 성공률을 달성하며, 복잡한 작업에서 기존의 주류 확산 방법보다 23% 더 높은 성과를 보였습니다. 이러한 결과는 ForeDiffusion이 복잡한 조작 작업에서 일관된 성능을 유지하며, 다른 모델들에 비해 뛰어난 우위를 차지하고 있음을 보여줍니다.
+
+
+
+### Your Privacy Depends on Others: Collusion Vulnerabilities in Individual Differential Privacy (https://arxiv.org/abs/2601.12922)
+- **What's New**: 이번 연구는 Individual Differential Privacy (iDP)의 고유한 위험을 다루고 있습니다. 특히, 데이터 제공자들이 개인의 프라이버시를 관리할 수 있는 것으로 보이지만 실제로는 집단의 선택이 각 개인의 위험에 영향을 미친다는 점을 강조합니다. 이는 개인의 프라이버시 보호를 위한 시스템 설계를 근본적으로 재검토해야 함을 의미합니다.
+
+- **Technical Details**: 연구에서는 특정한 개인 정보 보호 예산의 분포가 어떤 개인의 프라이버시 위험을 증대시키는 오류를 발견했습니다. 특히, 샘플링 기반 iDP 메커니즘이 동일한 (ε,δ)(\varepsilon,\delta) 보장을 제공하더라도, 샘플링 비율의 차이로 인해 실제 위험도가 다를 수 있다는 점을 이론적으로 분석합니다. 이는 공격자가 조정된 예산을 통해 의도적으로 피해자의 프라이버시 위험을 증대시킬 수 있는 취약점을 제공합니다.
+
+- **Performance Highlights**: 실증 평가 결과, 62%의 표적 개인들이 성공적으로 공격 받았으며, 이로 인해 이들의 유출 위험이 상당히 증가했습니다. 연구팀은 Δ-divergences를 활용하여 과잉 취약성을 상한하는 새로운 프라이버시 계약인 $(varepsilon_i,delta_i,overline{Delta})$-iDP를 제안하고, 이는 프라이버시 위험을 투명하게 전달하면서도 기계 설계의 유연성을 제공합니다. 결과적으로, 이 연구는 현재의 iDP 설계 및 감사 방식이 개선되어야 함을 요구합니다.
+
+
+
+### SciCoQA: Quality Assurance for Scientific Paper--Code Alignmen (https://arxiv.org/abs/2601.12910)
+- **What's New**: SciCoQA는 과학 출판물과 코드베이스 간의 불일치를 탐지하기 위한 데이터셋으로, 신뢰할 수 있는 구현을 보장하기 위한 목적으로 개발되었습니다. 이 데이터셋은 GitHub 이슈 및 재현 논문에서 구축되었으며, 논문-코드 불일치 탐지를 위한 합성 데이터 생성 방법을 제안합니다. 전체적으로 SciCoQA 데이터셋은 611개의 논문-코드 불일치(실제 81개, 합성 530개)로 구성되어 있으며, 이는 AI, 물리학, 정량 생물학 등 다양한 컴퓨팅 과학 분야를 포함합니다.
+
+- **Technical Details**: SciCoQA 데이터셋은 코드 저장소에서 보고된 문제와 기존 작업의 재현을 위한 논문을 활용하여 구축되었습니다. 이를 통해 논문과 코드 간의 불일치를 탐지하는 새로운 품질 보증 작업으로 사용할 수 있습니다. LLM(대형 언어 모델) 21개를 평가하여 이 작업의 어려움을 강조하였으며, 모델들이 논문에서 생략된 세부사항, 긴 맥락 입력, 사전 학습 코퍼스에 없는 데이터와 관련된 불일치를 찾는 데 어려움을 겪는다는 점이 드러났습니다.
+
+- **Performance Highlights**: 평가 결과, 가장 잘 수행된 모델인 GPT-5는 실제 세계의 논문-코드 불일치 중 45.7%만을 탐지할 수 있었습니다. 이는 현재 시스템이 논문과 코드를 신뢰성 있게 구현하는지 검증하는 데 있어 더 효과적인 모델과 시스템 개발이 필요함을 보여줍니다. 연구자들은 LLM을 통해 과학 출판물의 오류를 탐지하는 새로운 정량적 접근 방식에 대한 요구를 강조하며, SciCoQA에서 제안하는 방법론이 다양한 과학 분야에서 활용될 수 있음을 시사합니다.
+
+
+
+### From Prefix Cache to Fusion RAG Cache: Accelerating LLM Inference in Retrieval-Augmented Generation (https://arxiv.org/abs/2601.12904)
+- **What's New**: 이 논문은 Retrieval-Augmented Generation(RAG)의 효율성과 생성 품질을 동시에 향상시키기 위한 새로운 추론 프레임워크인 FusionRAG를 제안합니다. 기존의 KV 캐시 재사용 기술이 갖는 한계를 극복하고, 정보의 질을 보존하면서도 계산 비용을 줄이는 방법을 제시하고 있습니다. 특히, FusionRAG는 오프라인 및 온라인 두 단계에서의 프로세싱을 최적화하여 생성 품질과 효율성 간의 균형을 개선했습니다.
+
+- **Technical Details**: FusionRAG는 관련 텍스트 청크의 정보를 다른 청크에 내장하는 오프라인 전처리 및 모델이 집중하는 토큰에 대한 KV 캐시를 재계산하는 온라인 재처리 단계를 포함합니다. 이 과정에서, 유사도 기반 전처리를 통해 각 청크 내에서의 상호 주의력을 개선하며, 쿼리 기반 선택을 통해 재계산을 위한 토큰 선택의 분포를 고르게 합니다. 이러한 접근 방식은 기존의 KV 캐시 재사용 방식의 한계를 보완합니다.
+
+- **Performance Highlights**: 실험 결과 FusionRAG는 이전의 최첨단 솔루션에 비해 재계산 비율이 동일할 때 생성 품질을 유의미하게 향상시키며, 15% 미만의 토큰을 재계산하여 최대 70% 높은 정규화 F1 점수를 기록했습니다. 또한, FusionRAG는 전체 주의(Full Attention) 방식에 비해 TTFT(Time to First Token)를 2.66배에서 9.39배 감소시키는 성과를 보였습니다.
+
+
+
+### AdaNODEs: Test Time Adaptation for Time Series Forecasting Using Neural ODEs (https://arxiv.org/abs/2601.12893)
+Comments:
+          Accepted by ICASSP 2026
+
+- **What's New**: 본 논문에서는 시간 계열 예측을 위해 특별히 설계된 새로운 소스 프리 테스트 타임 적응(TTA) 방법인 AdaNODEs를 제안합니다. 이는 Neural Ordinary Differential Equations (NODEs)를 활용하여 시간 계열 데이터의 분포 변화를 효과적으로 처리할 수 있는 새로운 프레임워크를 제공합니다. 또한, 예측 작업을 위해 특화된 새로운 손실 함수도 혁신적으로 제안하고 있습니다.
+
+- **Technical Details**: AdaNODEs는 다단계 예측 작업을 해결하며, 모델은 과거 관측치에 기반하여 미래 값을 예측하도록 훈련됩니다. TTA를 통해 알려지지 않은 분포에 적응하기 위해 추가적인 두 개의 매개변수인 α와 γ를 도입합니다. 이들 매개변수는 일반적으로 사용하는 손실 함수 대신, 예측 과정을 가우시안 분포를 통해 모델링하여 예측 값의 신뢰성을 높입니다.
+
+- **Performance Highlights**: 그랜테스 실험을 통해 AdaNODEs는 주어진 데이터에서 기존 최첨단(SOTA) 방법 대비 각각 5.88% 및 28.4%의 상대적 개선을 나타냈으며, 강한 분포 변화에서도 뛰어난 강인성을 보여주었습니다. 이러한 성과는 AdaNODEs가 시간 계열 예측 분야에서 TTA의 새로운 경로를 열어갈 수 있음을 시사합니다.
+
+
+
+### Communication Methods in Multi-Agent Reinforcement Learning (https://arxiv.org/abs/2601.12886)
+Comments:
+          12 pages, 2 figures
+
+- **What's New**: 최근 다중 에이전트 강화 학습(MARL) 분야에서는 통신 방법이 도입되어 부분 관찰 환경, 비정상성, 그리고 기하급수적으로 증가하는 행동 공간 문제를 해결하고 있습니다. 이 논문은 29편의 연구를 분석하여 명시적, 암시적, 주의 기반, 그래프 기반, 계층적/역할 기반 통신 등의 방법의 강점과 약점을 평가합니다. 연구 결과는 특정 문제에 따라 가장 적합한 통신 방식을 선택하는 것이 중요하다는 점을 강조합니다.
+
+- **Technical Details**: 논문에서는 다중 에이전트 강화 학습에서의 협력 메커니즘과 그 효과성에 대한 체계적인 문헌 조사를 진행했습니다. 초기 발전에 대한 연구에서 시작해 현재의 동향을 파악하기 위해 2016년부터 2025년까지의 관련 학술지 및 회의 논문을 포함했습니다. 최종적으로 29편의 동료 검토 논문을 선정하여 각 통신 방식의 기여 유형과 통신 패러다임에 따라 분류했습니다.
+
+- **Performance Highlights**: 비교 분석 결과, 통신 방법은 문제의 특징에 따라 다르게 선택되어야 하며, 계산 오버헤드가 낮은 통신 방식이 에이전트 수가 많은 환경에서의 확장성에 중요하다는 결과를 도출했습니다. 또한, 주의 기반 및 그래프 기반 방법이 최근 연구에서 더욱 주목받고 있으며, 암시적 통신에 대한 관심이 재조명되고 있음을 확인했습니다. 이러한 결과는 다중 에이전트 시스템에서의 협력적 성과 향상에 기여할 것입니다.
+
+
+
+### YOLO26: An Analysis of NMS-Free End to End Framework for Real-Time Object Detection (https://arxiv.org/abs/2601.12882)
+- **What's New**: YOLO26는 실시간 객체 감지의 새로운 이정표가 되어, 기존 모델들의 한계를 극복합니다. 이 아키텍처는 Non-Maximum Suppression(NMS) 단계를 아예 없애고, 원주율의 효과적인 end-to-end 학습 전략을 도입하여 객체 감지의 새로운 패러다임을 제시합니다. MuSGD 최적화기와 STAL, ProgLoss 등의 혁신적인 방법들이 이 전환을 가능하게 했으며, YOLO26은 이전 모델들과 최근 경쟁자들보다도 우수한 성능을 보여줍니다.
+
+- **Technical Details**: YOLO26의 아키텍처는 이전 YOLO 버전들과 달리 비선형 후처리 없이 연산을 해석하며, MuSGD 최적화를 통해 경량 백본의 안정성을 유지합니다. 이 모델은 작고 복잡한 객체 인식에 중점을 두고, 프로그레시브 손실(ProgLoss)을 적용하여 다이나믹한 감독을 구현합니다. 각기 다른 크기의 모델에서 뛰어난 성능을 보이는 YOLO26 시리즈는 저지연 및 고정확도의 견줄 수 없는 조합을 자랑합니다.
+
+- **Performance Highlights**: YOLO26은 모든 모델 스케일에서 성능이 우수하며, nano 변종 모델(26n)은 ≈1.5 ms의 작은 지연 시간에 40 mAP를 초과하는 정밀도를 달성했습니다. 반면, extra-large 모델(26x)은 ≈11.5 ms 내에 ≈57.5 mAP의 높은 정확도를 기록하며, YOLO11x와 RTMDet를 초월한 성능을 입증하였습니다. 이로 인해 YOLO26은 현재 문서화된 가장 빠른 검출기로 자리잡았습니다.
+
+
+
+### Hierarchical Sparse Circuit Extraction from Billion-Parameter Language Models through Scalable Attribution Graph Decomposition (https://arxiv.org/abs/2601.12879)
+- **What's New**: 이번 논문에서는 신경망의 계산을 인식 가능한 알고리즘으로 역설계하기 위해 Hierarchical Attribution Graph Decomposition (HAGD) 프레임워크를 제안합니다. 이는 대규모 언어 모델에서 희소한 계산 회로를 추출하는 어려움을 해결하기 위해 복잡성을 감소시키는 방법론을 개발했습니다. HAGD는 O(2^n)에서 O(n^2 log n)으로 회로 발견(complexity)을 줄이는 데 효과적입니다.
+
+- **Technical Details**: HAGD 프레임워크는 다중 해상도 추상 계층(multi-resolution abstraction hierarchies)과 미분 가능한 회로 검색(differentiable circuit search)을 통해 회로 발견의 복잡성을 줄입니다. 이 방법론은 단일 의미 특성(monosemantic feature) 추출을 위한 Cross-layer transcoders, 토폴로지 예측을 위한 그래프 신경망(meta-learning), 검증을 위한 인과적 개입(causal intervention) 프로토콜을 통합합니다. 이러한 방식은 복잡한 계산을 보다 쉽게 이해할 수 있도록 도와줍니다.
+
+- **Performance Highlights**: HAGD는 GPT-2, Llama-7B부터 Llama-70B, Pythia 모델에 걸쳐 알고리즘적 작업과 자연어 벤치마크를 포함하는 실험에서 91%의 행동 보존(behavioral preservation)을 달성하며, 해석 가능한 하위 그래프(subgraph) 크기를 유지합니다. 다양한 아키텍처 간 전이 실험은 발견된 회로의 구조적 유사성이 평균 67%에 달함을 보여주었습니다. 이러한 결과는 대규모 모델 해석성을 위한 기초를 제공하며 기존 방법론의 한계를 강조합니다.
+
+
+
+### The Cost of EFX: Generalized-Mean Welfare and Complexity Dichotomies with Few Surplus Items (https://arxiv.org/abs/2601.12849)
+- **What's New**: 이 논문은 인디비저블(Indivisible) 재화의 공정한 분배 문제에서, 많은 사람들이 관심 가져온 'envy-freeness up to any good (EFX)' 개념의 존재와 효율성을 탐구합니다. 특히, 재화 수가 에이전트 수보다 약간 많은 경우에 EFX 할당이 존재함을 보장하고, 이를 통해 공정성을 유지하면서 최대 집단 복지를 달성하는 방법론을 제시합니다. 이로 인해, 존재 문제에서 효율성과 계산 문제로 초점을 전환하게 되었습니다.
+
+- **Technical Details**: 연구의 주요 부분은 EFX와 일반화 평균(Generalized-Mean, p-mean) 복지 사이의 상호작용을 분석하는 것입니다. 특정값에서 p=0일 때 EFX 할당이 글로벌 p-mean 최적화를 달성할 수 있는지 결정하는 문제는 NP-hard로 나타났으며, 반면 p<=0의 경우에는 다항식 시간 알고리즘을 통해 최적화할 수 있는 방법을 제시합니다. 이러한 연구는 EFX의 존재 여부에 대한 질문을 넘어 해당 할당 안에서의 복지 특성을 조사하는 데 중점을 둡니다.
+
+- **Performance Highlights**:  연구 결과, EFX를 통해 보장된 집단 복지를 달성하는 데 있어 'fairness'를 강요할 경우 그에 따른 복지의 손실을 수량화하며, p>0의 경우 에이전트 수에 비례하여 손실이 증가하는 반면 p<=0의 경우 멀리 떨어진 상수에 의해 제한된다는 것을 보여줍니다. 또한, EFX와 Pareto-optimality를 동시에 요구하는 것은 NP-hard로 밝혀져 해당 구조의 복잡성을 강조합니다. 결국, 이 결과들은 적은 잉여 아이템을 가진 설정에서 EFX가 집단 복지 극대화와 어떻게 연관될 수 있는지에 대한 명확한 경계를 제시합니다.
+
+
+
+### Cognition spaces: natural, artificial, and hybrid (https://arxiv.org/abs/2601.12837)
+- **What's New**: 이 논문은 다양한 자연적, 인공적, 그리고 혼합 시스템에서 인지 과정을 비교하는 통합된 접근 방식을 제안합니다. 기존의 특정 기반(substrate) 의존적인 정의를 대체하여, 조직적 및 정보적 차원에 기초한 인지 공간(cognition space) 개념을 도입함으로써 인지를 분석합니다. 이 접근법은 세포, 뇌, 인공 에이전트 및 인간-AI 집합체와 같은 다양한 시스템을 공통 개념적 환경에서 다룰 수 있게 합니다.
+
+- **Technical Details**: 연구는 세 가지 인지 공간을 정의하고 분석합니다: 기초 비신경(basal aneural), 신경(neural), 그리고 인간-AI 혼합(human-AI hybrid) 인지 공간입니다. 기초 비신경 인지 공간은 단세포, 간단한 다세포 유기체, 그리고 인체 장기의 근본적인 형태인 오르가노이드 등을 포함하여 최소한의 기억, 학습 및 인지 행동(loop)을 보여줍니다. 신경 인지 공간은 뉴런과 뇌를 가진 다세포 시스템과 인공 에이전트를 포함합니다.
+
+- **Performance Highlights**: 모델들은 다양한 형태의 복잡성을 반영하며, 각 인지 공간에서의 밀집한 점유 지역은 서로 다른 인지 특성의 조합을 나타냅니다. 또한 인공지능(AI) 시스템과 인간 간의 상호작용을 통해 발생하는 하이브리드 인지 생태계도 탐구하였습니다. 연구 결과, 현재 존재하는 인지 시스템의 다양성을 명확히 하고, 하이브리드 인지의 가능성이 새로운 복잡성의 형태 탐구에 유망하다는 점을 강조합니다.
+
+
+
+### Fisher-Orthogonal Projected Natural Gradient Descent for Continual Learning (https://arxiv.org/abs/2601.12816)
+- **What's New**: 이 논문에서는 Fisher-Orthogonal Projected Natural Gradient Descent (FOPNG) 옵티마이저를 제안합니다. 이 옵티마이저는 파라미터 업데이트에 Fisher-orthogonal 제약 조건을 적용하여 새로운 작업을 학습하는 동안 이전에 학습한 작업의 성능을 유지하도록 설계되었습니다. 전통적인 유클리드 공간에서 벗어나 정보 기하학 프레임워크 내에서 자연 기울기 하강(natural gradient descent)과 직교 기울기 메서드를 통합하는 새로운 접근 방식을 제공합니다.
+
+- **Technical Details**: FOPNG는 기하학적 측면에서 진행 방향을 조정하여 이전 작업의 기울기와 Fisher-orthogonal 보완에 기울기를 투영합니다. 이 방법론은 Fisher 정보 행렬(Fisher information matrix)의 성질을 이용하여 파라미터 변경이 모델의 예측에 미치는 영향을 평탄하게 만들어 기존의 업무 결과를 보존합니다. 이를 통해 FOPNG는 비 약물화된 매개변수 조정이 가능하고 Fisher 메트릭에서의 하강을 보장합니다.
+
+- **Performance Highlights**: FOPNG는 Permuted-MNIST, Split-MNIST, Rotated-MNIST, Split-CIFAR10, Split-CIFAR100과 같은 표준 지속 학습 벤치마크에서 강력한 성능을 보였습니다. 이 논문에서 제시된 이론적 분석과 효율적인 구현을 통해 기존 방법들에 비해 더 우수하고 안정적인 성능을 보여 줍니다. 이는 별도의 데이터 저장 없이도 이전 작업의 성능을 유지할 수 있는 잠재력을 지닌 새로운 접근 방식으로 평가됩니다.
+
+
+
+### Left-Right Symmetry Breaking in CLIP-style Vision-Language Models Trained on Synthetic Spatial-Relation Data (https://arxiv.org/abs/2601.12809)
+- **What's New**: 이번 연구에서는 CLIP 스타일의 Transformer 기반 vision-language 모델이 spatial 관계를 어떻게 학습하는지 분석하기 위한 1D 이미지-텍스트 테스트베드를 제안합니다. 이 테스트베드는 단일 및 이중 객체 장면의 레이블과 레이아웃 다양성을 체계적으로 변화시키면서 미지의 객체 쌍에 대한 일반화를 평가합니다. 연구 결과, 대조적 훈련이 left-right 관계를 학습하며, 레이블 다양성이 레이아웃 다양성보다 일반화의 주요 원인이라는 사실을 발견했습니다.
+
+- **Technical Details**: 연구에서는 단순화된 1D 이미지-텍스트 설정을 사용하여 CLIP 스타일의 Transformer 모델이 이미지 내 객체 간 spatial 관계를 학습하는 방식을 평가합니다. 하나의 객체 또는 두 개의 객체로 구성된 이미지를 생성하고, 각 객체는 픽셀 하나를 차지합니다. 텍스트 캡션은 객체의 상대적 위치를 설명하며, 이를 위해 두 가지 캡션 포맷을 정의하였습니다.
+
+- **Performance Highlights**: 연구에서 CLIP 스타일 훈련이 이미지 속 객체의 left-right 관계를 학습하고 미지의 객체 쌍으로 일반화된다는 것을 보여주었습니다. attention 분석을 통해 positional embedding과 token embedding 간의 상호작용이 left-right 대칭을 깨뜨리는 horizontal attention gradient를 유도한다는 메커니즘을 밝혔습니다. 이로 인해 left-right 식별력이 감소함을 입증하였으며, CLIP 스타일 모델이 관계적 능력을 어떻게 얻는지를 설명하는 중요한 통찰을 제공합니다.
+
+
+
+### SciHorizon-GENE: Benchmarking LLM for Life Sciences Inference from Gene Knowledge to Functional Understanding (https://arxiv.org/abs/2601.12805)
+Comments:
+          16 pages
+
+- **What's New**: 본 논문은 SciHorizon-GENE이라는 대규모 유전자 중심 벤치마크를 도입하여 인간 유전자에 대한 190K 이상의 정보와 540K 이상의 질문을 통합합니다. 이 벤치마크는 LLM(대형 언어 모델)이 생물학적 해석에 어떻게 반응하는지를 평가하기 위해 마련되었습니다. 새로운 평가 관점인 연구 주목도, 환각 경향, 답변 완전성 및 문헌 영향을 통해 모델 성능을 분석합니다.
+
+- **Technical Details**: SciHorizon-GENE은 유전자 명명법, 생물학적 지식 및 참조 맥락의 영향을 포함한 세 가지 핵심 시나리오를 커버하며, 자동으로 계산 가능한 모든 메트릭을 제공합니다. 이 벤치마크는 27개의 오픈 소스 및 독점 모델을 평가하여 LLM의 유전자 중심 행동을 포괄적으로 특성화합니다. 유전자 수준의 정보는 이 모델이 유의미하고 신뢰할 수 있는 생물의학 분석을 지원하기 위해 필요한 기반 지식을 제공하는데 필수적입니다.
+
+- **Performance Highlights**: 모델 평가는 다양한 유전자에 따라 상이하게 나타나며, 특정 유전자에 대한 연구 관심에 따라 성능이 달라집니다. 일부 모델은 널리 연구된 유전자에 대해서는 좋지만, 덜 연구된 유전자에 대해서는 환각적 설명이나 불완전한 답변을 생성합니다. 이는 LLM이 생물학 맥락의 변화를 반영하지 못할 수 있음을 나타내며, 지식 기반 해석을 위해서는 보다 신뢰할 수 있는 제너레이션이 필요함을 강조합니다.
+
+
+
+### Distilling Time Series Foundation Models for Efficient Forecasting (https://arxiv.org/abs/2601.12785)
+Comments:
+          Accepted by ICASSP-2026
+
+- **What's New**: 이 논문은 DistilTS라는 새로운 지식 증류(knowledge distillation) 프레임워크를 소개합니다. 이 프레임워크는 시간 시계열 기초 모델(TSFMs) 특유의 과제 난이도 불일치(task difficulty discrepancy)와 아키텍처 불일치(architecture discrepancy) 문제를 해결하기 위해 설계되었습니다. DistilTS는 150분의 1로 파라미터 수를 줄이면서도 TSFMs의 성능을 유지할 수 있도록 합니다.
+
+- **Technical Details**: DistilTS는 두 가지 혁신적인 접근법을 통해 효과적인 증류를 이룹니다. 첫 번째는 'horizon-weighted objectives'로, 이는 예측 지평선( forecasting horizons)에 따라 학습 신호를 재분배하여 쉬운 단기 예측이 아닌 장기 예측에도 주의를 집중하도록 합니다. 두 번째는 'factorized temporal alignment module'로, 이는 Teacher와 Student 모델 간의 아키텍처 격차를 해소하기 위해 설계되었습니다.
+
+- **Performance Highlights**: 여러 실험 결과에 따르면 DistilTS는 전체 TSFM 모델과 유사한 예측 성능을 달성하면서도, 인퍼런스 시간은 6000배 향상되고 성능은 매우 효율적입니다. 모델 파라미터 수를 대폭 줄이면서도 장기 예측의 충실성을 유지하는 것을 목표로 하였으며, 그 결과 DistilTS는 실제 데이터 세트에서 우수한 성과를 보였습니다.
+
+
+
+### Teaching LLMs to Learn Tool Trialing and Execution through Environment Interaction (https://arxiv.org/abs/2601.12762)
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLM)이 외부 도구와 상호작용하여 복잡한 문제를 해결할 수 있도록 하는 새로운 프레임워크인 ToolMaster를 제안합니다. 기존의 기술들은 고정된 도구 사용 경로를 모방하는 데 의존하여 LLM의 일반화 능력을 제한했습니다. ToolMaster는 환경과의 상호작용을 통한 도구 사용 학습을 활성화하여 성능을 크게 향상시킵니다. 이를 통해 LLM이 새로운 도구 사용에 대한 경험적 지식을 쌓을 수 있도록 지원합니다.
+
+- **Technical Details**: ToolMaster는 Trial-and-Execution 패러다임을 기반으로 하여 LLM이 도구를 효과적으로 계획하고 호출하도록 최적화됩니다. 초기에는 교사 모델이 생성한 도구 호출 경로를 통해 감독된 미세 조정을 수행하고, 이후에는 강화 학습을 통해 도구 시험과 실행 단계를 공동으로 조정합니다. 도구 호출 경로를 생성하기 위해 더 능력 있는 LLM을 교사 모델로 활용하며, 피드백을 얻기 위해 도구를 호출하는 훈련을 수행합니다.
+
+- **Performance Highlights**: 실험 결과 ToolMaster는 이전의 기준 모델보다 7% 이상 성능이 향상되었습니다. 도구 시험 단계를 통해 LLM은 도구 호출 상호작용을 더 많이 수행하게 되어 실행 실패를 크게 줄이고 정확도를 높였습니다. 특히 ToolMaster는 이전에 보지 못한 도구에 대한 문제 해결에서 강력한 일반화 능력을 보여주며, 훈련 데이터세트에서 드물게 관찰된 도구 호출 시 불필요한 편향도 완화합니다.
+
+
+
+### VISPA: Pluralistic Alignment via Automatic Value Selection and Activation (https://arxiv.org/abs/2601.12758)
+Comments:
+          WIP
+
+- **What's New**: 본 논문에서는 VISPA(Value-Integrated Steering for Pluralistic Alignment)라는 훈련 없이 사용할 수 있는 다원적 정렬 프레임워크를 도입합니다. VISPA는 가치 표현에 대한 직접적인 제어가 가능하며, 동적인 선택과 내부 모델 활성화 조작을 통해 다원적 관점을 반영하는 출력을 생성합니다. 여러 모델과 평가 설정을 거친 광범위한 연구를 통해 VISPA가 의료 분야와 그 외의 여러 분야에서 모든 다원적 정렬 모드에서 성능을 발휘함을 보였습니다.
+
+- **Technical Details**: VISPA는 다양한 인간 가치 집합 (𝒱mathcal{V})을 활용하여 특정 입력의 관련성을 평가하고, 이에 적합한 가치를 선택합니다. 각 가치는 LLM의 활성화 공간에서 방향으로 표현되며, 이를 통해 내부 활성화를 조작함으로써 모델의 동작을 제어하는 과정을 갖습니다. 이 과정은 선택된 가치에 따라 숨겨진 상태를 수정하며, 각 값을 활성화하는 강도를 조절할 수 있습니다.
+
+- **Performance Highlights**: VISPA는 Overton, Steerable, 및 Distributional 다원적 정렬 모드에서 최첨단 성능을 달성하며, 다양한 크기와 아키텍처의 LLM에서 효과적으로 작동합니다. 본 연구는 또한 VISPA가 다양한 초기화 방법, 모델, 그리고 가치와 함께 조정될 수 있는 적응성이 뛰어난 프레임워크임을 보여주었습니다. 이를 통해 다원적 정렬을 위한 잠재적인 경로를 제시하며, 모든 사람에게 도움이 되는 언어 모델 개발에 기여할 것으로 기대됩니다.
+
+
+
+### PAIR-SAFE: A Paired-Agent Approach for Runtime Auditing and Refining AI-Mediated Mental Health Suppor (https://arxiv.org/abs/2601.12754)
+- **What's New**: 본 논문에서는 PAIR-SAFE라는 새로운 프레임워크를 소개합니다. 이 프레임워크는 정신 건강 지원을 위해 AI가 생성한 응답을 감사(auditing)하고 개선하는데 초점을 맞추고 있습니다. Responder 에이전트와 감독자인 Judge 에이전트를 통합하여 임상적으로 검증된 Motivational Interviewing Treatment Integrity (MITI-4) 프레임워크에 기반합니다.
+
+- **Technical Details**: PAIR-SAFE는 두 개의 에이전트를 사용하여 협력적인 상담 과정을 구성합니다. Judge 에이전트는 Responder의 응답을 감사하고 구조화된 승인(ALLOW) 또는 수정(REVISE) 결정을 내립니다. 이를 통해 AI의 응답을 실시간으로 개선하며, 인간이 주도한 동기 면담(motivational interviewing) 데이터를 기반으로 시뮬레이션을 수행합니다.
+
+- **Performance Highlights**: 본 연구 결과는 Judge 감독 하의 상호작용이 MITI의 주요 차원에서 유의미한 개선을 보였음을 보여줍니다. 파트너십(Partnership), 협력 요청(Seek Collaboration), 전반적인 관계 품질(Relational quality) 등이 포함됩니다. 전문가 평가를 통한 정성적 결과 역시 이러한 실시간 감독(running supervision)의 중요성을 강조합니다.
+
+
+
+### A Graph Prompt Fine-Tuning Method for WSN Spatio-Temporal Correlation Anomaly Detection (https://arxiv.org/abs/2601.12745)
+- **What's New**: 이 논문은 무선 센서 네트워크(WSN)의 다중 시간 모달 데이터(anomaly detection)에서 이상 탐지의 새로운 접근 방식을 제시합니다. 기존 방법들이 공간-시간 상관(feature) 특징을 충분히 추출하지 못하고, 샘플 분류 주석의 비용이 높으며, 이상 샘플의 불균형이 문제였던 점을 해결하고자 합니다. 이를 위해 그래프 신경망(graph neural network) 기반의 이상 탐지 백본 네트워크와 다중 작업(self-supervised) 학습 전략을 도입하여 WSN의 그래프 구조 데이터에 적합하도록 설계하였습니다.
+
+- **Technical Details**: 구체적으로, 이 연구에서는 다중 스케일 전략(multi-scale strategy)과 상호 모달 융합 방법(inter-modal fusion)을 기반으로 개선된 Mamba 모델을 적용하여 WSN의 다중 노드, 다중 시간 모달 시나리오에서 공간-시간 상관 특징을 완전히 추출할 수 있는 네트워크 구조를 구축했습니다. 또한, 부정적인 비교 학습(no-negative comparative learning), 예측(prediction), 그리고 재구성(reconstruction)을 포함하는 세 가지 서브 태스크 학습 기법을 '사전 훈련(pre-training)'으로 설계하여 레이블 없는 데이터에서 WSN 데이터 샘플의 일반 특징(generic features)을 학습하도록 하였습니다.
+
+- **Performance Highlights**: 모델은 '그래프 프롬프팅(graph prompting) - 파인튜닝(fine-tuning)' 메커니즘을 통해 미리 훈련된 자가 감독 학습 모델의 매개변수 조정을 완료하여 학습 비용을 줄이고 탐지 일반화 성능을 향상시킵니다. 공개 데이터셋과 실제 수집된 데이터셋에서 실험한 결과, F1 메트릭스는 각각 91.30%와 92.31%에 달하며, 기존 방법들보다 뛰어난 탐지 성능과 일반화 능력을 제공함을 보여주었습니다.
+
+
+
+### AirHunt: Bridging VLM Semantics and Continuous Planning for Efficient Aerial Object Navigation (https://arxiv.org/abs/2601.12742)
+- **What's New**: 최근 대규모 비전-언어 모델(Vision-Language Models, VLMs)의 발전으로 인해 드론이 자연어 지침을 통해 열린 집합 객체를 검색할 수 있는 풍부한 의미 이해를 제공하게 되었습니다. 하지만 기존 시스템은 VLM 추론과 실시간 계획 간의 주파수 불일치, 그리고 제한된 3D 장면 이해로 인해 실제 비행 시스템에 통합되기 어렵습니다. 이러한 문제를 해결하기 위해, 본 논문에서는 자연어 이해와 연속 경로 계획을 원활하게 결합한 공중 객체 탐색 시스템인 AirHunt를 제안합니다.
+
+- **Technical Details**: AirHunt는 듀얼 경로 비동기 아키텍처를 갖추고 있어 VLM 추론과 경로 계획 간의 시너지를 창출합니다. 이 시스템은 3D 값 맵을 통해 의미 정보를 통합하며, 고주파수 계획 경로와 효율적으로 상호 작용하여 동적인 비상 상황에 적응합니다. 또한, Active Dual-Task Reasoning(ADTR) 및 Semantic-Geometric Coherent Planning(SGCP) 모듈을 도입하여 VLM 쿼리를 선택적으로 수행하고 의미 우선순위와 동작 효율성을 통합하는 최적화 프레임워크를 마련합니다.
+
+- **Performance Highlights**: 다양한 객체 탐색 작업에서 AirHunt를 평가한 결과, 평균 성공률이 73%에 이르며 평균 탐색 오류가 11.6m로, 기존 방법들보다 각각 49.1%와 80.3% 향상되었습니다. 또, 총 비행 시간은 59.2% 줄어들었습니다. 실제 세계 환경에서도 10시간 이상의 검증을 통해 AirHunt의 실용성을 입증합니다.
+
+
+
+### TreeWriter: AI-Assisted Hierarchical Planning and Writing for Long-Form Documents (https://arxiv.org/abs/2601.12740)
+- **What's New**: 이번 논문에서는 TreeWriter라는 새로운 계층적 쓰기 시스템을 소개합니다. TreeWriter는 문서를 나무 구조로 표현하여, 여러 수준에서 AI 지원을 통합하여 장문 작성을 돕습니다. 기존의 AI 공동 저작 도구들이 일회성 제안이나 구조화된 계획만 제공하는 것과는 달리, TreeWriter는 문서의 전반적인 과정을 지원합니다.
+
+- **Technical Details**: TreeWriter는 고급 아이디어에서부터 다듬어진 산문에 이르는 복잡한 작문 과정을 지원하기 위해 설계되었습니다. 사용자는 여러 수준의 문서 개요를 생성, 저장 및 수정할 수 있으며, 내장된 AI 에이전트는 관련 콘텐츠를 동적으로 로드하고 문서 계층을 탐색하여 컨텍스트에 맞는 편집 제안을 제공합니다. 이 시스템은 6명의 연구자를 대상으로 한 기초 연구를 통해 도출된 세 가지 주요 과제에 기반하여 개발되었습니다.
+
+- **Performance Highlights**: 시험 연구 결과, TreeWriter는 Google Docs + Gemini에 비해 아이디어 탐색 및 개발, AI 유용성 및 저자의 자아적 제어를 향상시키는 것으로 나타났습니다. 두 달 간의 현장 배치를 통해 계층적 조직이 협업적인 작문을 지원함을 입증하였습니다. 이는 AI 지원에 통합된 계층적 편집기의 잠재력을 보여주며, 향후 AI 지원 작문 도구 설계에 대한 지침을 제공합니다.
+
+
+
+### A Shared Geometry of Difficulty in Multilingual Language Models (https://arxiv.org/abs/2601.12731)
+- **What's New**: 이 논문에서는 대형 언어 모델(LLMs)에서 문제 난이도를 예측하는 새로운 접근법을 제시합니다. 연구진은 Easy2Hard 벤치마크의 AMC 하위 집합을 사용하여 21개 언어에서 문제 난이도의 다국어 기하학을 조사했습니다. 이들은 완전히 번역된 문제로 훈련된 선형 프로브(linear probes)가 LLM의 내부 표현에서 두 가지 다른 단계에서 나타나는 난이도 신호를 발견했으며, 이는 초기와 깊은 층의 표현과 관련이 있음을 입증했습니다.
+
+- **Technical Details**: 논문은 약 4,000개의 수학 문제가 포함된 AMC 하위 집합을 사용하여 Item Response Theory (IRT)를 통해 난이도를 추정합니다. 연구자들은 각 언어에서 약 3,000개의 문제로 훈련하고 1,000개의 문제로 테스트하여 문제 난이도를 예측하는 선형 프로브를 훈련했습니다. 이 방법론은 Transformers에서 residual stream activations를 추출하고, 각 입력에 대해 선형 회귀 탐침(linear Ridge regression probes)을 훈련하여 난이도 점수를 예측하는 방식을 포함합니다.
+
+- **Performance Highlights**: 결과적으로, LLaMA-3.1-8B 모델을 기반으로 한 실험에서는 동일한 언어에서 훈련된 난이도 프로브가 깊은 층에서 정확도가 높았으나 다국어 전이 성능이 낮음을 보여주었습니다. 반면 초기 층에서 훈련된 프로브는 언어 간 전이가 상당히 향상된 반면, 동일 언어 내 성능은 낮은 경향이 있었습니다. 이러한 결과는 초기에는 언어에 구애받지 않는 표현을 형성한 후, 나중에 언어 특화된 형태로 정제되는 LLM의 두 단계 표현 프로세스를 제안합니다.
+
+
+
+### AI-exhibited Personality Traits Can Shape Human Self-concept through Conversations (https://arxiv.org/abs/2601.12727)
+Comments:
+          ACM CHI 2026
+
+- **What's New**: 최근의 대형 언어 모델(LLM) 기반 AI는 사용자 경험을 향상시키기 위해 대화 중에 인식 가능하고 측정 가능한 성격 특성을 나타낼 수 있다는 점이 주목받고 있습니다. 이 연구는 사용자의 자기 개념이 AI의 성격 특성과 일치하는 경향을 보여주며, 대화 길이가 길어질수록 그 일치도가 증가하는 결과를 나타냈습니다. 이는 AI 성격 특성이 사용자들의 자기 개념에 영향을 미칠 수 있다는 가능성을 탐구합니다.
+
+- **Technical Details**: 연구는 온라인 무작위 행동 실험을 통해 LLM 기반 AI 챗봇(GPT-4o의 기본 성격 특성 설정 사용)과의 대화가 참가자들의 자기 개념 형성에 미치는 영향을 조사했습니다. 대화 주제는 개인적 주제와 비개인적 주제로 나뉘었으며, 참가자들은 두 조건 중 무작위로 배정되었습니다. AI 챗봇의 성격 특성은 AI가 스스로 작성한 성격 척도로 측정하여 사용하였습니다.
+
+- **Performance Highlights**: 연구 결과, 개인적 주제에 대한 대화에서 참가자들의 자기 개념이 AI 챗봇의 측정된 성격 특성과 일치하는 경향이 있음을 발견했습니다. 자기 개념의 일치는 대화 길이에 따라 긍정적인 상관관계를 보였으며, 이는 참가자들의 자기 개념을 보다 유사하게 만들고 동질성을 증가시켰습니다. 이러한 aligned self-concept는 사용자가 대화에서 경험하는 즐거움을 증가시키는 긍정적인 영향을 미쳤습니다.
+
+
+
+### An Evolutionary Framework for Automatic Optimization Benchmark Generation via Large Language Models (https://arxiv.org/abs/2601.12723)
+- **What's New**: 이 논문에서는 알고리즘 성능 평가를 위한 최적화 벤치마크의 한계점을 지적하고, 대규모 언어 모델(LLM)을 활용하여 자동으로 벤치마크를 생성하는 새로운 프레임워크인 LLM-EBG(LLM-driven Evolutionary Benchmark Generator)를 제안합니다. 이 프레임워크는 미세 조정이 가능한 표현 공간 내에서 벤치마크 문제를 생성하고 발전시키는 진화 연산자로서 LLM을 활용합니다.
+
+- **Technical Details**: LLM-EBG는 수학적 표현으로 설계된 비제한 단일 목표 연속 최소화 문제를 생성하는 사례 연구에서, 유전 알고리즘(GA)과 차분 진화(DE) 간의 성능 차이를 유도합니다. 실험 결과에서 LLM-EBG는 지정된 목표 알고리즘이 비교 알고리즘보다 80% 이상의 시험에서 일관되게 우수한 성능을 보여주는 벤치마크 문제를 성공적으로 생성하였음을 입증했습니다.
+
+- **Performance Highlights**: 탐색적 경관 분석을 통해 GA에 유리한 벤치마크 문제들이 변수 스케일링에 매우 민감하다는 사실이 밝혀졌습니다. 이는 제안된 프레임워크가 다양한 최적화 알고리즘의 본질적인 탐색 행동을 반영하는 독특한 기하학적 특성을 가진 문제를 생성할 수 있음을 보여줍니다.
+
+
+
+### RSOD: Reliability-Guided Sonar Image Object Detection with Extremely Limited Labels (https://arxiv.org/abs/2601.12715)
+Comments:
+          Accepted by AAAI 2026,9 pages,10 figures
+
+- **What's New**: 이번 논문에서는 수중 탐지 시스템에 중요한 수산 이미지 객체 감지 기술을 개선하기 위해 RSOD라는 새로운 teacher-student 프레임워크를 제안합니다. 수산 이미지는 텍스처 세부 정보가 부족하고 잡음에 민감하여 전문가가 클래스 간의 미세한 차이를 구별하기 어렵습니다. 이 연구는 극도로 제한된 레이블을 가진 수산 이미지에 적합한 의사 레이블 전략을 개발하고 있습니다.
+
+- **Technical Details**: RSOD는 teacher 모델이 여러 보기에서 예측의 일관성을 평가하여 신뢰성 점수를 계산합니다. 우리는 의사 레이블의 잡음 영향을 줄이기 위해 객체 혼합 의사 레이블 방법을 도입하고, 신뢰성 기반 적응 제약을 통해 학생 모델의 성능을 최적화합니다. 이를 통해 레이블이 극도로 제한적인 상황에서도 성능을 발휘할 수 있습니다.
+
+- **Performance Highlights**: UATD 데이터셋에서 우리의 방법은 단 5%의 레이블로 100% 레이블로 훈련된 기준 알고리즘과 경쟁할 수 있는 결과를 달성했습니다. 새로운 FSOD 데이터셋을 구축하여 수산 이미지 객체 감지 분야의 연구 발전에 기여하고 있습니다. 실험 결과, RSOD는 기존 최첨단 방법보다 우수한 성능을 보였습니다.
+
+
+
+### Exploiting Test-Time Augmentation in Federated Learning for Brain Tumor MRI Classification (https://arxiv.org/abs/2601.12671)
+Comments:
+          21st International Conference on Computer Vision Theory and Applications (VISAPP 2026), 9-11 March 2026, Marbella, Spain
+
+- **What's New**: 이 논문은 뇌 종양 진단을 위한 연합 학습(FL) 환경에서 합성곱 신경망(CNN)을 평가하며, 원본 및 전처리된 MRI 이미지를 비교합니다. 테스트 시간 증강(TTA)과 함께 사용할 경우 전처리가 일관된 통계적 성과 향상을 이끈다는 점을 강조합니다. TTA는 FL 의료 영상에 있어서 기본 추론 전략으로 권장됩니다.
+
+- **Technical Details**: 본 연구는 두 클라이언트를 구성하고, 클라이언트 1은 원본 이미지를, 클라이언트 2는 전처리된 이미지를 사용하여 ResNet-18 모델을 학습합니다. 각 클라이언트의 로컬 매개변수는 서버로 전송되어 전역 모델로 집계됩니다. TTA는 각 테스트 이미지를 여러 스토캐스틱 뷰로 생성하여 최종 예측을 보강합니다.
+
+- **Performance Highlights**: 연구 결과, 원본 MRI 이미지를 보존하는 것이 과도하게 전처리된 입력보다 더 나은 성능을 이끌어낸다는 것을 보여줍니다. TTA는 지속적이고 비용 효율적인 강인성 향상을 제공하며, 이 연구 결과는 분산 의료 AI 시스템에 있어 유용한 설계 선택지를 제공합니다.
+
+
+
+### Generalizable Hyperparameter Optimization for Federated Learning on Non-IID Cancer Images (https://arxiv.org/abs/2601.12664)
+Comments:
+          21st International Conference on Computer Vision Theory and Applications (VISAPP 2026), 9-11 March 2026, Marbella, Spain
+
+- **What's New**: 이 논문은 암 이미징 데이터셋에서 튜닝된 하이퍼파라미터가 비독립적이고 동일하게 분포하지 않은(non-IID) 연합 학습(FL) 환경에서 일반화될 수 있는지를 연구합니다. 이전 작업들은 주로 개별 데이터셋에 대한 하이퍼파라미터 최적화에 집중했으나, 본 연구는 여러 암 유형에 걸쳐 하이퍼파라미터를 조정하는 새로운 접근 방식을 제안합니다. 이를 통해 단순한 데이터셋 간 집계 휴리스틱을 도입하고, 학습률, 최적화 알고리즘, 배치 크기를 평균하여 결합된 구성을 제시합니다.
+
+- **Technical Details**: 본 연구에서는 두 가지 이진 병리학적 작업(난소 및 대장암)을 위해 Tree-structured Parzen Estimator(TPE)를 이용한 중앙 집중식 베이지안 하이퍼파라미터 최적화(Bayesian HPO)를 수행합니다. 이후 이러한 최적 구성을 비독립적 연합 학습(non-IID FL) 설정으로 전송하고 통합하여 비교합니다. 연구의 마지막 단계에서는 여러 CNN 아키텍처를 비교하여 성능에 미치는 영향을 평가합니다.
+
+- **Performance Highlights**: 제안된 하이퍼파라미터 구성은 경쟁력 있는 분류 성능을 달성하며, 비독립적 연합 학습 시나리오에서 하이퍼파라미터가 일반화될 수 있는 가능성을 보여줍니다. 실험을 통해 두 가지 주요 암 유형에 대해 robust한 전략이 될 수 있는 결과를 도출하였습니다. 또한, 연구에서 제시된 쉬운 결합 구성은 비독립적인 연합 학습 환경에서도 효과적으로 작용함을 확인했습니다.
+
+
+
+### Augmenting Question Answering with A Hybrid RAG Approach (https://arxiv.org/abs/2601.12658)
+Comments:
+          10 pages, 5 tables, 2 figures; presented at IEEE CogMI 2025
+
+- **What's New**: 이번 논문에서는 Structured-Semantic RAG (SSRAG)라는 새로운 하이브리드 아키텍처를 제안합니다. SSRAG는 QA 품질을 향상시키기 위해 쿼리 증강(query augmentation), 에이전틱 라우팅(agentic routing), 벡터 및 그래프 기반 기법을 통합한 구조적 검색 메커니즘을 결합합니다. 이 접근 방식은 검색 과정을 정제하고 맥락을 통합하여 응답의 정확성과 정보량을 개선합니다.
+
+- **Technical Details**: SSRAG의 기술적 기여는 세 가지로 나뉩니다: (1) 쿼리 이해 및 증강: 경량 팜프팅 기반의 동적 쿼리 정제 메커니즘을 도입하여 사용자 쿼리를 확장하고 명확히 합니다. (2) 에이전틱 쿼리 라우팅: 규칙 기반의 스마트 쿼리 라우팅 메커니즘을 적용하여 증강된 쿼리를 가장 관련 있는 데이터 소스로 안내합니다. (3) 하이브리드 검색 및 맥락 통합: 벡터 및 그래프 기반 검색 기법을 통합하여 더 풍부하고 신뢰할 수 있는 의미론적 및 구조적 기반을 제공합니다.
+
+- **Performance Highlights**: SSRAG는 TruthfulQA, SQuAD, WikiQA의 세 가지 유명 QA 데이터셋에 대한 광범위한 평가를 통해 응답의 정확성과 사실 일관성을 상당히 개선했습니다. 이를 통해 LLM 구동 질문 응답에서의 혼동을 줄이고, 신뢰성 있는 AI 생성 응답 향상이라는 가능성을 제시했습니다. 이러한 결과는 SSRAG가 기존 RAG 구현 대비 일관되고 높은 품질의 응답을 제공함을 보여주고 있습니다.
+
+
+
+### Explanation Multiplicity in SHAP: Characterization and Assessmen (https://arxiv.org/abs/2601.12654)
+- **What's New**: 본 논문에서는 SHAP와 같은 후속 설명 방법들이 동일한 결정에 대해 여러 가지 설명을 생성하는 현상인 '설명 다중성 (explanation multiplicity)'을 도입합니다. 이러한 현상은 기계 학습 시스템이 고위험 분야에 배치될 때 설명의 일관성에 대한 기대를 혼란스럽게 하며, 법적 및 규제 기준 준수를 위한 결정 설명에 직접적인 영향을 미칩니다.
+
+- **Technical Details**: 설명 다중성의 원인은 주로 확률적 근사화 파이프라인에서 발생하는데, SHAP와 같은 방법은 고정된 모델과 입력에 대해 랜덤 샘플링을 통해 피처 공헌도를 추정합니다. 결과적으로, 동일한 원인에 대해 여러 가지 상이한 피처 가중치 벡터가 생성되는 상황이 발생하며, 이는 설명의 불안정성을 더합니다. 구체적으로, KernelSHAP, LeverageSHAP와 같은 방법이 랜덤 샘플링을 통해 피처의 기여를 근사하는 과정에서 확률적 요소가 도입됩니다.
+
+- **Performance Highlights**: 이 논문은 설명의 안정성을 측정하는 방법론에도 큰 영향을 미침을 보여줍니다. 즉, 설명의 순위 혹은 기여도가 표면적으로 안정적으로 보일 수 있지만, 실제로는 최상위 피처들의 정체성과 순서에서 큰 변동성이 발생할 수 있음을 밝혀냅니다. 이러한 메트릭의 선택이 설명의 불안정성을 드러내거나 감추는 데 중요한 역할을 하며, 실제 응용 프로그램에서 설명의 해석 및 적용 방식과 일치하는 메트릭의 필요성을 강조합니다.
+
+
+
+### Intelligent Documentation in Medical Education: Can AI Replace Manual Case Logging? (https://arxiv.org/abs/2601.12648)
+Comments:
+          51 pages, 12 figures, 8 tables. Feasibility study using retrospective radiology reports. Submitted to JAMIA Open (under review)
+
+- **What's New**: 이번 연구는 방사선학 훈련에서 수행되는 절차 기록의 자동화를 위한 대형 언어 모델(Large Language Models, LLMs)의 활용 가능성을 조사합니다. 연구팀은 414개의 방사선 보고서를 활용하여 LLMs의 성능을 평가하고, 이 모델들이 데이터를 추출하는 능력을 입증했습니다. 자동화된 프로세스는 교육생의 문서 작업 부담을 줄이고 일관성을 높일 수 있는 잠재력을 지니고 있습니다.
+
+- **Technical Details**: 이 연구는 레트로스펙티브(retrospective) 디자인으로, 2018년 10월부터 2024년 9월까지의 기간 동안 작성된 방사선 보고서를 수집했습니다. 39개의 대표적인 방사선 절차에 대한 보고서를 선별해 이들의 내용을 정리하고, 두 명의 주석자에 의해 절차를 이진 레이블로 지정했습니다. 모델 평가는 문서화 정확성과 동시에 비용 및 처리 시간 측면에서도 고려되었습니다.
+
+- **Performance Highlights**: 모델들은 강력한 추출 성능을 보였으며, 가장 높은 F1-score는 0.87에 가까웠습니다. 각 모델은 속도와 비용 간의 다양한 트레이드오프를 내포하고 있으며, 결과적으로 AI 기반의 자동화가 의료 교육에서 문서화 품질을 향상시킬 수 있는 가능성을 보여줍니다. 향후 임상 및 교육 프로세스에 AI 도구의 통합을 위한 추가 연구가 필요합니다.
+
+
+
+### Unbounded Harms, Bounded Law: Liability in the Age of Borderless AI (https://arxiv.org/abs/2601.12646)
+- **What's New**: 이 논문은 지속적으로 성장하는 인공지능(AI) 분야에서 법적 책임과 위험 관리를 다루고 있습니다. 특히, 전 세계 AI 공급망에서 발생하는 외적 피해에 대한 책임 규명과 보상 체계가 미흡함을 강조하며, 국경을 초월하는 위험을 적절히 다룰 수 있는 법적 설계 원칙이 시급하다고 주장합니다. 이러한 문제를 해결하기 위해 과거의 위험 관리 틀을 벗어나 보다 포괄적인 글로벌 AI 책임 및 보상 체계의 필요성을 제시하고 있습니다.
+
+- **Technical Details**: 논문에서는 기존의 AI 위험 관리가 ex ante(사전) 접근 방식에 치우쳐져 있어, ex post(사후) 책임과 보상 메커니즘이 충분히 발전하지 못했다는 점을 지적합니다. 또한, AI 시스템의 복잡성, 자율성 및 적응력이 전통적인 법체계에서의 책임 배분 방식에 도전하고 있음을 설명합니다. 그러면서 다양한 분야의 공적-사적 혼합 구조를 탐구하여 AI 관련 피해에 대한 적절한 보상 및 책임 할당 방안을 제시하기 위한 법적 원칙을 추출합니다.
+
+- **Performance Highlights**: 이 연구는 글로벌 AI 공급망이 어떻게 피해를 생성할 수 있는지를 분석하며, 높은 위험을 수반하는 다양한 전통적인 분야의 사례를 통해 AI 관련 위협에 대한 효과적인 대처 방안을 모색합니다. 국가 간의 정치적 갈등과 경제적 이해관계가 이러한 위험 관리의 국제 협력을 저해하고 있음을 강조하며, 효과적인 리스크 풀링과 책임 배분을 위한 법적 구조의 필요성을 제기합니다. 궁극적으로 이 논문은 AI에 관한 책임 및 보상 메커니즘의 개념적 틀을 제시하며, 특정 정책 제안보다는 문제와 전망을 명확히 하는 데 중점을 둡니다.
+
+
+
+### Mixed Precision PointPillars for Efficient 3D Object Detection with TensorR (https://arxiv.org/abs/2601.12638)
+Comments:
+          6 pages, 3 figures
+
+- **What's New**: 본 연구는 자율주행 자동차를 위한 LIDAR 3D 객체 감지의 성능을 최적화하기 위해 혼합 정밀도(mixed precision) 프레임워크를 제안합니다. PointPillars 모델에 대해 8비트 정수(INT8)와 16비트 부동 소수점(FP16) 데이터 유형을 활용하는 새로운 접근 방식을 제시함으로써, 성능 저하 없이 빠른 모델 실행 시간이 가능합니다. 기존의 정밀도 및 훈련 방법을 바꿔 실시간으로 더 나은 성능을 추구합니다.
+
+- **Technical Details**: 이 프레임워크는 포스트 훈련 정량화(PTQ)를 이용하여 가장 민감한 레이어를 찾아낸 뒤, 그 조합을 탐색하여 혼합 정밀도 모델을 생성합니다. 또한, 극단적인 아웃라이어(outlier)에 대한 대응으로, 적은 수의 보정(calibration) 데이터를 사용하여 PTQ 성능을 향상시키는 방법을 제안하고 있습니다. 이러한 접근은 TensorRT 요구 사항과 호환되도록 설계되었습니다.
+
+- **Performance Highlights**: 모델의 지연(latency) 및 크기를 각각 최대 2.35배 및 2.26배 줄이며, FP 모델에 근접한 성능을 발휘합니다. 본 연구는 혼합 정밀도를 이용한 모델 최적화의 중요성을 강조하고 있으며, 자율주행차에 적합한 3D 객체 감지 모델 구현에 기여할 것으로 기대됩니다. 결과적으로, PTQ 또는 양자화 인식 훈련(QAT)과 함께 사용할 수 있는 더 효율적인 모델을 제공합니다.
+
+
+
+### Topology-Aware Multiscale Mixture of Experts for Efficient Molecular Property Prediction (https://arxiv.org/abs/2601.12637)
+- **What's New**: 이 논문에서는 3D 분자의 기하학적 구조에 따라 다양하게 변하는 상호작용을 모델링하기 위해 Multiscale Interaction Mixture of Experts (MI-MoE) 프레임워크를 제안합니다. MI-MoE는 단계적으로 다양한 거리 컷오프를 가진 전문가(Experts) 집합을 구성하고, 이를 통해 최적의 상호작용을 유도합니다. 특히, 고차원 연결성을 요약하는 필터 기반의 위상학적 설명자를 활용하여 데이터를 기반으로 전문가를 적응적으로 선택하고 결합하는 메커니즘을 설계했습니다.
+
+- **Technical Details**: MI-MoE는 분자의 상호작용을 다양한 기하학적 레짐에서 모델링합니다. 이 시스템은 거리 컷오프에 지정된 전문가를 통해 단거리, 중거리, 장거리 상호작용을 포괄적으로 캡처할 수 있도록 합니다. 또한, 위상학적 게이팅 메커니즘은 위상적 설명자를 사용하여 입력을 전문가로 전송하는 방법을 효율적으로 촉진합니다. 이러한 방법은 필라멘트 기반의 기술을 사용하여 분자가 상호작용 반경에 따라 어떻게 연결성을 변화시키는지를 파악합니다.
+
+- **Performance Highlights**: MI-MoE는 다양한 화합물과 고분자 속성 예측 벤치마크 데이터셋에서 여러 강력한 3D 분자 네트워크를 지속적으로 개선할 수 있는 플러그인 모듈로 확인되었습니다. 이 모듈은 회귀 및 분류 작업 모두에서 기존의 MoE 기반 접근 방식과 최첨단 기준을 초월하는 성능을 보였습니다. 이러한 결과는 위상 인식을 기반으로 한 다중 스케일 라우팅이 3D 분자 그래프 학습에 효과적인 원리이라는 것을 강조합니다.
+
+
+
+### Creating Disability Story Videos with Generative AI: Motivation, Expression, and Sharing (https://arxiv.org/abs/2601.12617)
+- **What's New**: 이번 연구는 장애인 옹호 그룹의 아홉 명의 장애인이 Generative AI(GenAI)를 사용하여 자신들의 장애 경험에 대한 동영상 스토리를 제작한 과정을 살펴봅니다. GenAI가 장애인들이 미디어 제작 장벽을 줄이고 창의력을 북돋우는 데 어떻게 기여하는지 분석하였고, 동시에 이 기술로 인한 편견과 문제점도 탐구하였습니다. 연구의 주요 결과로는 GenAI의 네 가지 핵심 기능이 소개되며, 이는 장애 스토리텔링을 지원하기 위한 개선이 필요한 지점을 제시합니다.
+
+- **Technical Details**: 디지털 스토리텔링 이론에 기반하여, 이번 연구는 GenAI를 통해 제작된 동영상의 표현, 동기가 어떻게 형성되는지를 분석합니다. 연구자들은 참가자들이 ChatGPT를 활용해 동영상 스크립트를 작성하고, DALL-E를 통해 이미지를 생성하며, ElevenLabs를 사용해 음성 해설을 제작하는 과정에서의 경험을 조사하였습니다. 이로써 GenAI 사용의 실질적인 도전 과제를 규명하고, 개인화된 서사를 전달하기 위한 최적의 설계 방향성을 제시하였습니다.
+
+- **Performance Highlights**: 연구 결과, GenAI는 장애인들이 접근 불가능한 환경을 나타내고 감정적인 순간을 불러일으킬 수 있는 진화된 미디어 제작 도구임을 보여주었습니다. 하지만, GenAI가 장애 혹은 보조 기술의 왜곡된 표현을 만들어낼 경우, 개인의 이야기를 정확히 전달할 수 없다는 문제도 발견되었습니다. 따라서, GenAI의 결과물은 일반적이거나 일관성이 없는 캐릭터와 배경을 생성할 때 진정성이 저하되는 경향이 있다는 점이 강조되었습니다.
+
+
+
+### A Cloud-based Multi-Agentic Workflow for Scienc (https://arxiv.org/abs/2601.12607)
+- **What's New**: 이 논문은 **Agentic Framework**를 통해 클라우드에서 실행 가능한 도메인 독립적인 워크플로우를 제시합니다. 이 시스템은 문헌 검토부터 데이터 분석 및 복잡한 시뮬레이션까지 다양한 과학적 작업을 지원하며, 특정 영역에 국한되지 않고 여러 도메인에 적용 가능하다는 특징을 가지고 있습니다. 특히 이 시스템은 화학 및 재료 과학 분야의 촉매 연구를 가속화하기 위한 개념 증명 시스템을 포함하고 있습니다.
+
+- **Technical Details**: 이 시스템은 **LangGraph**를 기반으로 한 그래프 기반의 멀티 에이전트 조정 레이어를 사용하여 구현되어 있습니다. 각 에이전트는 특정 작업을 수행할 수 있도록 설계되었으며, 구성 요소는 모듈화되어 다양한 도구를 통합할 수 있습니다. 시스템 아키텍처는 로드 밸런서 뒤에 여러 인스턴스를 배포하여 높은 가용성을 제공합니다.
+
+- **Performance Highlights**: 논문에 따르면, 제시된 시스템은 작업 요청을 올바른 에이전트로 라우팅하는 성공률이 90%에 달하며, 할당된 작업을 완료하는 데 있어 97.5%의 성공률을 기록했습니다. 실제 작업에서는 91%의 성공률을 보였으며, 대부분의 최신 모델과 비교할 때 더 나은 정확도를 달성했습니다. 이러한 결과는 이 프레임워크가 다른 과학 분야에서도 복제 가능하다는 점을 증명합니다.
+
+
+
+### SLAP: Scalable Language-Audio Pretraining with Variable-Duration Audio and Multi-Objective Training (https://arxiv.org/abs/2601.12594)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 본 연구에서는 Scalable Language-Audio Pretraining (SLAP)라는 새로운 프레임워크를 제안하여, 기존의 CLAP 모델에서 나타나는 여러 제한을 극복합니다. SLAP는 1억 개의 오디오-텍스트 쌍을 사용하여 사전훈련을 확장하고, 다변량 오디오를 지원하는 변형된 Transformer 기반 오디오 인코더를 통해 오디오의 길이에 대한 제약을 없앱니다. 또한, SLAP는 기존의 여러 손실 함수를 통합하여 단일 훈련 단계에서 보다 풍부하고 밀도 있는 오디오 표현을 학습합니다.
+
+- **Technical Details**: SLAP는 오디오 Transformer 인코더를 재설계하여 비변량 오디오 입력을 자연스럽게 처리합니다. 특히, 2D Rotary Positional Embedding (RoPE)을 사용하여 스펙트로그램의 시간 및 스펙트럼 관계를 효과적으로 모델링하고, 긴 오디오 시퀀스를 처리하기 위한 지역 슬라이딩 윈도우 주의(attention)와 글로벌 주의를 혼합한 새로운 주의 메커니즘을 도입합니다. 이러한 설계를 통해 SLAP는 효율성을 유지하면서도 긴 오디오 입력에서 세부적이고 장기적인 패턴을 포착할 수 있습니다.
+
+- **Performance Highlights**: SLAP 모델은 여러 오디오-텍스트 비교 벤치마크에서 최신 성능(State-of-the-Art, SOTA)을 달성하였습니다. 이는 대규모, 유연한 다목적 사전훈련이 오디오 표현 학습에서 중요하다는 점을 강조합니다. SLAP는 오디오 분류 및 검색 과제에서 이전보다 더 우수한 성능을 보여주어, 고품질 및 대규모의 오디오-텍스트 데이터 세트가 필요하다는 기존 문제를 해결하는 견고한 접근 방식을 제시합니다.
+
+
+
+### Do MLLMs See What We See? Analyzing Visualization Literacy Barriers in AI Systems (https://arxiv.org/abs/2601.12585)
+- **What's New**: 이번 연구는 다중 모달 대형 언어 모델(Multimodal Large Language Models, MLLMs)의 데이터 시각화 이해에서의 장벽을 체계적으로 분석한 최초의 연구입니다. 연구자는 4개의 최신 모델을 사용하여, 309개의 잘못된 응답을 코드화하고 MLLM의 시각화 리터러시(visualization literacy)의 실패 원인에 대한 분류체계를 개발했습니다. 결과적으로, 모델들이 간단한 차트에서는 잘 작동하지만 색상 집약적 시각화에서는 일관된 비교 추론을 형성하는 데 어려움을 겪음을 발견했습니다.
+
+- **Technical Details**: 연구는 재생성된 시각화 리터러시 평가 테스트(reVLAT)를 사용하여 MLLM의 시각적 해석 능력을 정량적으로 평가하였습니다. 모델 선택 측면에서는 GPT-5, Claude-Sonnet-4, Gemini 2.5, Qwen3-VL을 포함하여 최신 모델들의 반응을 분석했습니다. 각 모델의 응답을 수집하고 MLLM의 실패 원인을 분류하는 방식으로, 시각적 추론 장벽(Visual Reasoning Barriers)과 일관성 장벽(Coherence Barriers)과 같은 새로운 카테고리를 제시했습니다.
+
+- **Performance Highlights**: 모델들은 시각화 작업에서 기본적으로 인간의 성능과 비슷하지만, 이 연구를 통해 MLLM이 시각화를 이해하는 데 있어 독특한 실패 패턴을 보인다는 것이 밝혀졌습니다. 특히 MLLMs는 복잡한 공간적 또는 지각적 추론을 요구하는 차트 유형에서 성능이 떨어지는 경향이 있으며, 이러한 경향은 MLLMs의 이해의 한계를 보여줍니다. 따라서 이러한 통찰력은 MLLM 기반의 데이터 시각화 보조 도구의 설계와 평가를 개선할 수 있는 기초 자료가 될 것입니다.
+
+
+
+### Ontology-aligned structuring and reuse of multimodal materials data and workflows towards automatic reproduction (https://arxiv.org/abs/2601.12582)
+Comments:
+          39 pages, 7 figures
+
+- **What's New**: 이 논문에서는 재현 가능성(reproducibility) 문제를 해결하기 위해 새로운 자동화된 프레임워크를 제안합니다. 기존의 시뮬레이션 워크플로우는 비구조적 텍스트와 표로만 보고되어, 머신 리더블(machine-readable) 방식의 설명이 부족하여 대규모 관리 및 체계적 비교에 어려움이 있었습니다. 이 연구는 대형 언어 모델(LLM)을 활용하여 문헌에서 계산 워크플로우를 자동으로 추출하고 구조화하는 방법에 중점을 둡니다.
+
+- **Technical Details**: 제안된 접근 방식은 밀도 기능 이론(density functional theory)에 기반한 스태킹 결함 에너지(stacking fault energy, SFE) 계산을 목표로 한다. 이 프레임워크는 방법론 섹션(method sections)과 표(tables)에서 LLM 추출을 위해 프롬프트 엔지니어링(prompt-engineered) 및 다단계 필터링(multi-stage filtering) 전략을 사용합니다. 추출된 정보는 정식 스키마(canonical schema)로 통합되고 기존의 재료 온톨로지(ontology)와 정렬되어 지식 그래프(knowledge graph)가 구성됩니다.
+
+- **Performance Highlights**: 결과로 도출된 지식 그래프는 보고된 SFE 값들을 체계적으로 비교할 수 있게 하며 계산 프로토콜의 구조적 재사용성을 지원합니다. 완전한 계산 재현 가능성은 여전히 누락된 메타데이터로 인해 제약이 있지만, 이 프레임워크는 출판된 결과를 의미적으로 상호 운용 가능한 형태로 조직하고 맥락화하는 토대를 제공합니다. 이는 컴퓨터 재료 데이터의 투명성과 재사용성을 향상시키는 데 기여합니다.
+
+
+
+### Primate-like perceptual decision making emerges through deep recurrent reinforcement learning (https://arxiv.org/abs/2601.12577)
+- **What's New**: 이 논문에서는 영장류의 의사 결정 메커니즘을 이해하는 데 있어 이러한 메커니즘이 왜 존재하는지에 대한 이론적 논의를 다룹니다. 특정한 환경에서 보상을 최대화하기 위해 영장류의 의사 결정 메커니즘과 행동 능력이 어떻게 발전했는지를 규명하고자 합니다. 이를 위해 연구자들은 강화 학습(reinforcement learning)을 기반으로 한 깊은 순환 신경망(deep recurrent neural network)을 훈련시켰습니다.
+
+- **Technical Details**: 훈련된 신경망은 노이즈가 있는 지각적 차별(task of perceptual discrimination) 과제를 수행하면서 영장류와 유사한 의사 결정 능력을 보였습니다. 특히, 속도(speed)와 정확성(accuracy) 간의 균형을 맞추고 새로운 정보(new information)가 주어질 때 유연하게 결정을 변경하는 능력을 배웠습니다. 이러한 내적 역학(internal dynamics)은 영장류 신경생리학(neurophysiological) 연구에서 관찰된 결정 메커니즘과 유사한 특성들을 가지며, 의사 결정 능력의 지원 방식에 대한 통찰을 제공합니다.
+
+- **Performance Highlights**: 이 연구 결과는 영장류가 유연한 결정을 내릴 수 있는 능력이 진화하면서 제공된 주요 압력에 대한 실험적 지지를 제공합니다. 네트워크는 의사 결정에 있어 실제 영장류의 행동 특성과 유사한 방식으로 작동하며, 이는 의사 결정 메커니즘의 진화 과정을 이해하는 데 중요한 진전을 나타냅니다.
+
+
+
+### Life, Machine Learning, and the Search for Habitability: Predicting Biosignature Fluxes for the Habitable Worlds Observatory (https://arxiv.org/abs/2601.12557)
+Comments:
+          8 pages, 4 figures. Submitted and accepted in AAAI-26 (IAAI Emerging Applications track)
+
+- **What's New**: 이번 논문은 NASA의 Habitable Worlds Observatory (HWO)와 같은 미래의 직접 영상 기획 미션이 시간과 자원의 제약 속에서 관측 우선순위를 결정하는 데 도움을 줄 수 있는 두 가지 머신러닝 아키텍처를 소개합니다. 이 아키텍처는 바이오시그니처(biosignature) 종의 플럭스를 예측하는 데 사용됩니다.
+
+- **Technical Details**: 제안된 모델 중 하나인 Bayesian Convolutional Neural Network (BCNN)는 참고문헌의 다양한 관측 조건에서 신뢰할 수 있는 예측을 제공하기 위해 에피스테믹(epistemic) 및 알레아토릭(aleatoric) 불확실성을 강력하게 정량화합니다. 또 다른 모델인 Spectral Query Adaptive Transformer (SQuAT)는 쿼리 기반의 주의 메커니즘을 사용하여 스펙트럼 특성을 특정 바이오시그니처 종과 명시적으로 연관시킴으로써 해석 가능성을 높입니다.
+
+- **Performance Highlights**: 두 모델은 다양한 외계 행성 조건을 포함한 확장된 데이터 세트에서 유사한 높은 예측 정확도를 달성하며, 불확실성 정량화 및 스펙트럼 해석 가능성에서 각각의 강점을 강조합니다. 이러한 기능은 HWO와 같은 미래의 기획 미션에서 목표 선별(target triage)을 가속화하고 관측 일정을 최적화하며 과학적 성과를 극대화하는 데 유망한 도구로 자리매김하게 합니다.
+
+
+
+### Artificial Intelligence in Materials Science and Engineering: Current Landscape, Key Challenges, and Future Trajector (https://arxiv.org/abs/2601.12554)
+- **What's New**: 이번 논문은 인공지능(AI)이 재료 과학(Material Science) 및 공학(Engineering)에 미치는 혁신적인 변화를 다룹니다. AI는 기존의 방법으로는 도달할 수 없었던 복잡성을 탐색하고, 발견 속도를 높이며, 재료 디자인을 최적화할 수 있는 강력한 도구로 자리 잡고 있습니다. 또한, 데이터 가용성이 증가함에 따라 AI는 재료 연구자들에게 필수적인 역량으로 부각되고 있습니다.
+
+- **Technical Details**: 이 리뷰는 재료 과학자들이 데이터 기반 기술을 효과적으로 활용하기 위해 최근 발전과 방법론을 종합적으로 정리합니다. 머신 러닝(Machine Learning) 접근 방식을 대상으로 하며, 전통적인 알고리즘부터 CNN(Convolutional Neural Networks), GNNs(Graph Neural Networks), Transformers와 같은 고급 딥 러닝 아키텍처까지 다양합니다. 또한, 불확실성 정량화(Quantification) 위한 생성 AI(Generative AI)와 확률적 모델인 Gaussian Processes도 다룹니다.
+
+- **Performance Highlights**: 데이터의 중요성도 강조되며, 효과적인 표현(Representation) 및 피쳐화(Featurization) 전략이 성과에 미치는 영향을 설명합니다. 이와 함께 구조적, 이미지 기반, 언어에서 영감을 받은 접근 방식을 포함하여, 적절한 전처리(Preprocessing)가 머신 러닝 모델의 성능을 결정짓는 핵심 요소입니다. 마지막으로, 데이터 품질, 양 및 표준화와 관련된 지속적인 도전과제들이 재료 과학 및 공학에서 모델 개발과 응용에 미치는 영향을 함께 다루고 있습니다.
+
+
+
+### Benchmarking Concept-Spilling Across Languages in LLMs (https://arxiv.org/abs/2601.12549)
+- **What's New**: 이 연구에서는 다국어 대규모 언어 모델(LLMs)의 언어 Spill(언어 넘침) 현상을 정의하였습니다. 이는 모델이 비영어 언어로 콘텐츠 생성 시 다른 언어의 표현에 치우치는 경향을 보이는 것을 말합니다. 새로운 비교 프레임워크를 제안하여 다국어 의미의 견고함을 평가하고자 하였습니다.
+
+- **Technical Details**: 저자들은 여러 언어에 걸쳐 다의어(polysemous words)를 다루는 모델의 능력을 체계적으로 측정하는 방법론을 개발했습니다. 이 방법론은 모델의 성능을 상대적으로 측정할 수 있도록 하며, 강력한 모델은 비영어 의미를 생성하는 과정에서 후반부에 도달하기까지 더 많은 타겟 언어의 의미를 생성하는 경향이 있음을 보여줍니다.
+
+- **Performance Highlights**: 연구 결과, 다양한 개방형 및 폐쇄형 다국어 LLMs를 평가한 결과 모델과 언어에 따라 의미의 견고함에 상당한 차이가 있음을 발견했습니다. 이를 기반으로 다국어 의미 평가를 위한 스케일러블한 기준과 엄격한 검증 파이프라인을 제공하여 언어적으로 균형 잡힌 AI 시스템 개발을 위한 중요한 도구가 되기를 기대합니다.
+
+
+
+### Improving Low-Resource Machine Translation via Round-Trip Reinforcement Learning (https://arxiv.org/abs/2601.12535)
+- **What's New**: 본 연구는 저자원이 확보되지 않은 기계 번역(low-resource MT) 분야에 대한 새로운 접근법을 제시합니다. 기존의 기계 번역 모델에 비해, 자기 감독 방식(self-supervised manner)과 강화 학습(reinforcement learning)을 결합한 방법으로 모델의 번역 품질을 개선합니다. 이를 통해 평행 데이터(parallel data) 없이도 부가적인 번역 품질 향상을 달성할 수 있음을 보여줍니다.
+
+- **Technical Details**: 연구진은 No Language Left Behind(NLLB) 모델군을 활용한 순환 부트스트래핑(round-trip bootstrapping) 기법을 통해 번역 과정을 최적화하였습니다. 이 과정에서 BLEU 및 chrF++와 같은 언어적 지표를 보상 함수(reward function)로 사용하여 번역의 유창성과 의미 적합성을 높였습니다. 모델은 영어를 저자원 언어로 번역한 후, 다시 영어로 번역하는 방식으로 스스로를 개선해 나갑니다.
+
+- **Performance Highlights**: 이 연구에서는 NLLB-MD 데이터셋을 사용하여 600M 및 1.3B 파라미터 모델을 평가하였으며, 중앙 아이마라어(Central Aymara), 프리울리어(Friulian), 울로프어(Wolof), 러시아어(Russian) 등 여러 언어에 대해 일관된 개선을 확인하였습니다. 번역 결과물의 품질은 유창성과 의미적 충실도가 모두 증가하는 모습을 보여 주었으며, 이 접근법은 저자원 언어 환경에서 더욱 효율적으로 활용될 가능성을 제시합니다.
+
+
+
+### Encoding Emotion Through Self-Supervised Eye Movement Reconstruction (https://arxiv.org/abs/2601.12534)
+- **What's New**: 이 연구는 감정 표현과 눈 움직임 간의 관계를 탐구하며, 자연적인 저해상도 비디오에서 감정 표현의 다중 모달 지표를 예측할 수 있는 방법을 제안합니다. 특히, Holocaust 생존자들의 인터뷰 비디오 데이터를 활용하여, 자기 지도 학습(self-supervised learning) 방식으로 새로운 눈 움직임 탐지 모델, GLASS를 개발했습니다. 이 모델은 감정처리에 대한 두 가지 하위 작업에서 기초 모델보다 더 나은 성능을 보였습니다. 또한, 눈 움직임 정보만으로 의미 있는 정서적 신호를 전달하는지 조사한 것도 주목할 만합니다.
+
+- **Technical Details**: 연구에서는 USC Shoah 재단의 비주얼 역사 아카이브에서 제공하는 십 년에 걸친 Holocaust 생존자 인터뷰 비디오를 사용하여 데이터셋을 구축하였습니다. 이 데이터셋은 30fps 및 320x240 해상도로 촬영되어 눈 움직임, 감정 스펙트럼 및 비언어적 행동 마커를 포함한 방대한 양의 정보를 제공합니다. GLASS 모델은 변환기(Transformer)를 기반으로 한 시퀀스-투-시퀀스.encoder-decoder 구조를 이용하여 자기 지도 학습을 통해 미래의 눈 움직임을 예측하도록 훈련되었습니다.
+
+- **Performance Highlights**: GLASS 모델은 감정 예측 실험에서 기초 모델보다 높은 성능을 보여 주목받았습니다. 첫 번째 실험에서 감정 값 예측의 평균 절대 오차(MAE)와 피어슨 상관계수(r)에서 유의미한 결과를 나왔으며, 두 번째 실험인 특정 감정 행동 분류에서도 긍정적인 피드백을 얻었습니다. 우리는 GLASS 모델이 눈 움직임 데이터를 기반으로 감정적 신호를 효과적으로 인코딩할 수 있는 유망한 접근임을 확인하였습니다.
+
+
+
+### Improved Bug Localization with AI Agents Leveraging Hypothesis and Dynamic Cognition (https://arxiv.org/abs/2601.12522)
+Comments:
+          13 pages, 7 tables, 5 figures
+
+- **What's New**: CogniGent이라는 새로운 버그 로컬라이제이션 기법이 소개되었습니다. 이 기법은 여러 AI 에이전트를 활용하여 인과적 추론(causal reasoning)과 호출 그래프(call graph)를 기반으로 한 분석을 수행합니다. 또한, CogniGent는 개발자가 사용하는 디버깅 방법을 모방하여 가설 테스트(hypothesis testing)를 통해 버그 위치를 찾아내는 방식입니다.
+
+- **Technical Details**: CogniGent는 적용된 다양한 AI 에이전트가 각기 다른 역할을 수행하도록 설계되었습니다. 이들은 코드 내부에서 의심스러운 부분을 동적으로 탐색하며 인과 관계를 기반으로 흥미로운 시작점을 선택합니다. 또한 Click2Cause라는 독창적인 알고리즘을 사용하여 호출 그래프(call graph)를 탐색하고, 스크래치패드 기반의 컨텍스트 관리(context management) 기법을 적용하여 탐색 중에 발행될 수 있는 컨텍스트 과부하를 피합니다.
+
+- **Performance Highlights**: CogniGent는 591개의 버그 보고서로 검증한 결과, 기존의 전통적인 기법들과 LLM 기반의 기법들보다 일관되게 우수한 성능을 보였습니다. MAP(Mean Average Precision) 수치는 문서와 메소드 수준에서 23.33-38.57% 향상된 결과를 기록했으며, MRR(Mean Reciprocal Rank)에서도 25.14-53.74%의 성장을 나타냈습니다. 통계적 유의성 검정에서도 CogniGent의 우수성이 확인되었습니다.
+
+
+
+### Cooperative Multi-agent RL with Communication Constraints (https://arxiv.org/abs/2601.12518)
+Comments:
+          33 pages
+
+- **What's New**: 이번 논문에서는 협동 다중 에이전트 강화 학습(Cooperative MARL)에서 제한된 통신 환경에서의 정책 업데이트 문제를 해결하기 위한 새로운 기법인 base policy prediction을 제안합니다. 기존의 importance sampling 방법은 통신이 제한된 상황에서 불안정성이 커지는 문제를 가지고 있었습니다. 새로운 접근법을 통해 우리는 구식 데이터를 활용해 정책 업데이트를 예측하고, 이를 통해 샘플을 수집함으로써 에이전트 간의 통신 비효율성을 낮출 수 있게 됩니다.
+
+- **Technical Details**: 제안된 알고리즘은 전반적으로 잠재적 게임(Potential Games)에 대한 $	ext{ε}$-Nash 균형으로 수렴하며, 통신 라운드는 $O(	ext{ε}^{-3/4})$로 줄일 수 있습니다. 이와 함께, 에이전트 별 최적화를 찾기 위해 일반 마르코프 협동 게임(Markov Cooperative Games)으로 결과를 확장하였습니다. 수정된 importance sampling 기법을 사용하여 구식 그래디언트를 활용해 현재 정책과 기초 정책 간의 간극을 줄이며 정확도를 높입니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 base policy prediction 알고리즘은 복잡한 환경에서도 기존 방법보다 통신 비용을 대폭 줄이면서 동등한 성능을 유지하는 것으로 나타났습니다. 여러 시뮬레이션 게임에서 이를 검증하였으며, MAPPO 알고리즘에 이 아이디어를 적용하여 응용 가능성을 입증하였습니다. 또한 기존 알고리즘들이 같은 통신 간격에서도 성능이 저하되는 문제를 해결하고, 더 효율적인 협동 학습 체계를 제시합니다.
+
+
+
+### Harmonizing the Arabic Audio Space with Data Scheduling (https://arxiv.org/abs/2601.12494)
+Comments:
+          Foundation Models, Large Language Models, Native, Speech Models, Arabic
+
+- **What's New**: 이 논문은 아랍어 중심의 오디오 대형 언어 모델(LLM)의 다중 과제 지침 튜닝(multi-task instruction tuning)을 체계적으로 연구한 첫 번째 사례를 제시합니다. 연구에서는 음성 인식(ASR) 및 음성 요약(speech summarization)과 같은 생성적 과제 및 방언과 감정 식별(emotion identification)과 같은 구별적 과제를 포함하는 계층 구조의 작업을 다룹니다. 또한, 새로운 아랍어 음성 요약 데이터셋인 AraMega-SSum을 소개합니다.
+
+- **Technical Details**: Qwen2.5-Omni(7B)를 세밀하게 조정하고, 태스크 진행 커리큘럼(Task-Progressive Curriculum, TPC) 및 정렬기 기반 다양 샘플링(Aligner-Based Diverse Sampling, ADS) 전략을 제안합니다. ADS는 작업 및 레이블 균형을 고려하여 정보 밀도가 높은 배치를 구성합니다. 연구 결과는 ADS가 초기 수렴(acceleration)과 para-linguistic F1 점수를 향상시킬 수 있지만, 훈련이 길어질 경우 생성적 디코딩(generative decoding)을 불안정하게 만들 수 있음을 보여줍니다.
+
+- **Performance Highlights**: TPC는 핵심 음향 매핑(acoustic mapping)을 안정화하지만, 종종 하위 작업에 부정적인 전이(negative transfer)를 불러일으킬 수 있습니다. 하이브리드 TPC+ADS 전략은 우수한 훈련 조합을 제공하여, 우선 강력한 대표적인 기초를 설정한 후, 세밀한 뉘앙스를 포착하기 위한 다양성을 고려한 정제를 수행합니다. 이러한 발견은 복잡하고 자원이 부족한 다중 모달 환경에서 Omni 모델을 효율적으로 적응시키기 위한 실용적인 지침을 제공합니다.
+
+
+
+### Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty (https://arxiv.org/abs/2601.12471)
+Comments:
+          Equal contribution for the first two authors; To appear in proceedings of the Main Conference of the European Chapter of the Association for Computational Linguistics (EACL) 2026
+
+- **What's New**: 이번 연구는 대형 언어 모델(LLMs)의 평가에서 정확도뿐만 아니라 불확실할 때 응답을 자제하는 능력도 중시한다는 점을 강조합니다. 우리는 의료 다중 선택 질문 응답(MCQA)에서의 자제를 위한 통합 벤치마크인 MedAbstain을 소개하며, 이는 순응 예측(conformal prediction), 적대적 질문 변형, 명시적 자제 옵션을 통합합니다. 시스템적인 평가를 통해 최신 모델들조차 불확실할 때 자제를 잘 하지 못한다는 사실을 발견했습니다.
+
+- **Technical Details**: MedAbstain은 특정 질문의 세부사항이나 혼란스러운 방해 요소가 포함된 수정된 질문을 포함하여 다양한 모델을 평가합니다. 원래의 질문과 체계적으로 수정된 질문(예: 주요 세부사항 결여)으로, 모델의 자제와 불확실성을 정교하게 평가할 수 있습니다. 연구는 흑상자(black-box) 모델에 대해서도 성능을 높이기 위한 방법을 제공하며, 자제 메커니즘의 중심적 역할을 보여줍니다.
+
+- **Performance Highlights**: 우리의 결과는 자제 인식과 모델의 불확실성 간 긍정적인 상관관계를 보여줍니다. 자제 옵션을 명시할 경우 대부분의 모델에서 불확실성이 증가하는 경향이 나타났지만, 특정한 닫힌 소스 모델에서는 이 패턴을 따르지 않았습니다. 마지막으로, 자제 메커니즘이 높은 위험의 애플리케이션에서 안전한 LLM 배포를 위한 필수 요소라는 점을 강조하고 있습니다.
+
+
+
+### Patch-Level Tokenization with CNN Encoders and Attention for Improved Transformer Time-Series Forecasting (https://arxiv.org/abs/2601.12467)
+Comments:
+          6 pages, 2 figures, 3 tables
+
+- **What's New**: 본 연구는 다변량 시계열 데이터의 예측 정확도를 높이기 위한 두 단계의 예측 프레임워크를 제안합니다. 첫 번째 단계에서는 CNN(Convolutional Neural Network)을 사용하여 고정 길이의 시간 패치에서 단기 동적 및 비선형 특성을 추출합니다. 이후, Transformer를 활용하여 패치 간의 장기 의존성을 모델링하고 예측을 수행합니다. 이 방법은 로컬 시간 인코딩을 글로벌 Attention 기반 모델링과 분리하여 예측의 효율성과 안정성을 향상시킵니다.
+
+- **Technical Details**: 이 방법론에서는 다변량 시계열 데이터를 비겹치는 시간 패치로 나누고, 각 패치에서 CNN을 통해 로컬 패턴을 추출합니다. 이후, 각 패치에서 추출한 정보를 바탕으로 Token-level self-attention을 적용하여 패치 간 상호작용을 도모하고, 최종적으로 Transformer 인코더를 통해 패치 간 의존성을 모델링합니다. 이 과정에서, 각 시계열 패치는 독립적으로 처리되어 지역적인 특성과 비선형 상호작용을 효과적으로 학습합니다.
+
+- **Performance Highlights**: 제안된 패치 기반 접근 방식은 컨볼루션 및 패치 기반 Transformer 모델들과 비교하여 경쟁력 있는 예측 성능을 나타냅니다. 특히, 실험은 비선형 동적 및 정적 동적 요소의 상호작용이 포함된 합성 다변량 시계열 데이터에서 진행되었으며, 이 구조적 방법론이 실제 데이터를 반영할 수 있는 효과적인 학습 전략이라는 점을 강조합니다. 이러한 결과는 구조화된 시간 표현의 중요성을 부각시키고 예측 모델의 안정성을 높이는 데 기여합니다.
+
+
+
+### Incentivizing In-depth Reasoning over Long Contexts with Process Advantage Shaping (https://arxiv.org/abs/2601.12465)
+- **What's New**: 이 논문에서는 RLVR(Reinforcement Learning with Verifiable Rewards)를 통해 LLMs의 짧은 문맥에서의 추론 성능 향상은 성공적이나, 긴 문맥에서는 성능 저하가 발생한다는 점을 다룬다. 두 가지 주된 원인으로는 긴 문맥 QA 데이터에서의 고급 추론 밀도 부족과 RL 훈련 중 부분적으로 올바른 경로에 대한 잘못된 결과로 인한 귀중한 학습 신호 손실이 지적된다. 이 문제를 극복하기 위해, DeepReasonQA라는 KG 기반 합성 프레임워크와 Long-context Process Advantage Shaping(LongPAS)라는 새로운 기법을 제안한다.
+
+- **Technical Details**: DeepReasonQA는 고난도의 복합 다중 홉 QA 데이터셋을 자동으로 추출하여 구성하는 프레임워크로, 이는 명확한 추론 체인을 포함하는 QA 쌍을 생성한다. LongPAS는 유효성(Validity)과 관련성(Relevance) 차원에서 추론 단계를 평가하여 세분화된 신용 할당을 수행하는 간단하면서도 효과적인 방법이다. 이 두 접근법은 전체 추론 경로에서 정확한 신용 할당을 가능하게 하여 "거의 도달한" 샘플의 붕괴를 방지한다.
+
+- **Performance Highlights**: DeepReasonQA와 LongPAS를 활용한 실험 결과, 이 방법이 기존 RLVR 기준선보다 상당한 성과 향상을 이루었고, 파라미터 수가 적으면서도 최첨단 LLM과 유사한 성능을 보였다. 장기 문맥 추론에서 효과적인 정책을 유도하며, 정보 그라운딩과 복잡한 추론의 정확성을 개선하는 것으로 확인되었다. 추가 분석을 통해, 제안된 알고리즘이 안정적인 RL 훈련을 지원하고 어려운 긴 문맥 추론 시나리오에서 단계별 추론 유효성을 향상시키는 것을 확인했다.
+
+
+
+### AgenTRIM: Tool Risk Mitigation for Agentic AI (https://arxiv.org/abs/2601.12449)
+Comments:
+          Under review
+
+- **What's New**: AgenTRIM은 LLM 기반 AI 에이전트의 도구 사용과 관련된 리스크를 해결하기 위한 새로운 프레임워크입니다. 이 프레임워크는 에이전트의 내부 추론 과정을 수정하지 않으면서 최소 특권 접근(least-privilege access)을 적용하여 불균형한 도구 접근을 방지합니다. AgenTRIM은 오프라인에서 도구 인터페이스를 분석하고 검증한 후 런타임에서의 도구 호출을 필터링하여 도구 사용의 안전성을 높입니다.
+
+- **Technical Details**: AgenTRIM은 두 단계로 구성된 파이프라인을 통해 작동합니다. 첫 번째 단계인 오프라인에서는 LLM 보조 생성과 결정론적 코드 및 실행 추적 분석을 결합하여 에이전트의 도구 목록을 확보하고 검증된 설명을 생성합니다. 두 번째 단계인 온라인에서는 경량 도구 조정자(lightweight tool orchestrator)가 요청별로 도구 노출을 제한하고 고위험 도구 호출을 검증합니다.
+
+- **Performance Highlights**: AgentDojo 벤치마크에서 평가한 결과, AgenTRIM은 공격 성공률을 크게 감소시키면서도 높은 작업 성능을 유지합니다. 또한, 설명 기반 공격 및 안전 정책의 효과적인 이행을 통해 에이전트의 성능 저하 없이 불충분한 에이전시(insufficient agency)를 완화하는 것을 보여주었습니다. 이로 인해 AgenTRIM은 LLM 기반 에이전트의 안전한 도구 사용을 위한 실용적이고 능력을 보존하는 접근 방식을 제공합니다.
+
+
+
+### Adversarial Defense in Vision-Language Models: An Overview (https://arxiv.org/abs/2601.12443)
+- **What's New**: 최근 Vision Language Models (VLMs), 특히 CLIP의 사용이 증가하면서 이들 모델이 복잡하고 미세한 적대적 공격에 취약하다는 우려가 커지고 있습니다. 이에 따라 적대적 방어 전략이 필수적인 연구 주제가 되었으며, 이 논문에서는 Training-time Defense, Test-time Adaptation Defense, Training-free Defense의 세 가지 주요 방어 패러다임을 제안합니다.
+
+- **Technical Details**: Training-time Defense는 훈련 과정에서 적대적 샘플을 사용하여 모델 파라미터를 조정하여 모델의 강인성을 향상시키는 방법입니다. Test-time Adaptation Defense는 추론 시 모델의 파라미터를 적응시켜 레이블 없는 적대적 샘플에 대응하는 유연성을 제공합니다. Training-free Defense는 모델 자체를 수정하지 않고, 공격 입력이나 그 특성 임베딩을 변경하여 추가적인 훈련 없이도 방어를 구현하는 접근 방식을 채택합니다.
+
+- **Performance Highlights**: 이 논문은 VLM에 대한 적대적 방어 전략의 최근 발전을 체계적으로 검토하고, 다양한 방어 방법의 강점과 제한점을 강조합니다. 여러 실험 비교를 통해 기법 간의 성능 차이를 조정하며, 향후 연구 방향에 대한 통찰도 제시합니다.
+
+
+
+### Constraint-Aware Neurosymbolic Uncertainty Quantification with Bayesian Deep Learning for Scientific Discovery (https://arxiv.org/abs/2601.12442)
+- **What's New**: 이 논문은 기존의 불확실성 정량화 방법이 기호 과학 지식을 통합하는 메커니즘을 결여한 문제를 해결하기 위해 Constraint-Aware Neurosymbolic Uncertainty Framework (CANUF)를 소개합니다. CANUF는 베이지안 딥러닝(Bayesian deep learning)과 미분 가능한 기호 추론(differentiable symbolic reasoning)을 통합하여 과학 예측에 대한 신뢰할 수 있는 불확실성 추정치를 제공합니다. 이 프레임워크는 자동으로 제약 조건을 추출하고, 변별적 신경 네트워크와 물리적 일관성을 보장하는 제약 만족 층을 포함합니다.
+
+- **Technical Details**: CANUF는 세 가지 주요 구성 요소로 이루어져 있습니다: 1) 과학 문헌에서 자동으로 제약 조건을 추출하는 모듈, 2) 변별 추론을 사용하는 확률론적 신경 백본, 그리고 3) 물리적 일관성을 보장하는 미분 가능한 제약 만족 층입니다. 이 구조는 입력 특징을 타겟 특성으로 변환하는 예측 작업을 지원하며, 각 제약 조건은 유효한 출력 영역을 명시합니다. 논문에서 제시하는 수학적 공식은 예측 accuracy, constraint satisfaction, 및 calibration을 최소화하는 목표를 포함합니다.
+
+- **Performance Highlights**: CANUF는 Materials Project 데이터셋(140,000개 이상의 재료), QM9 분자 특성 및 기후 벤치마크 실험에서 평균 보정 오류(Expected Calibration Error)를 34.7% 감소시키면서 99.2%의 제약 만족도를 유지합니다. 또한 제약 기반 재보정(constraint-guided recalibration)은 18.3%의 성능 향상을 기여하며, 제약 추출은 91.4%의 정확도를 달성합니다. CANUF는 불확실성 정량화, 제약 만족, 과학 예측에 대한 해석 가능한 설명을 동시에 처리하는 최초의 엔드 투 엔드 미분 가능한 파이프라인을 제공합니다.
+
+
+
+### Purification Before Fusion: Toward Mask-Free Speech Enhancement for Robust Audio-Visual Speech Recognition (https://arxiv.org/abs/2601.12436)
+Comments:
+          Accepted by ICASSP2026
+
+- **What's New**: 이번 연구에서는 명시적인 노이즈 마스크 생성없이 노이즈에 강한 오디오-비주얼 음성 인식(AVSR) 프레임워크를 제안합니다. 제안된 프레임워크는 언어 인식의 정밀도를 향상시키기 위해 노이즈 정제 모듈과 결합되어 있습니다. 이러한 접근 방식은 노이즈와 관련된 정보를 버릴 위험을 줄이며, 음성 의미의 무결성을 보존할 수 있습니다.
+
+- **Technical Details**: 제안된 AVSR 프레임워크는 Conformer 기반의 병목(fusion) 모듈을 활용하여 비디오 지원으로 노이즈가 포함된 오디오 기능을 정제합니다. 이 구조는 오디오 재구성의 목적에 의해 유도된 강화된 오디오 표현을 생성하며, 이를 통해 신뢰할 수 있는 특성 융합을 가능하게 합니다. 병목 Conformer는 학습 가능한 병목 토큰을 사용하여 오디오 및 비주얼 기능 간의 교차 주의를 계산하여, 중요한 정보를 응집시키고 불필요한 계산을 줄입니다.
+
+- **Performance Highlights**: LRS3 벤치마크에 대한 실험적 평가 결과, 제안한 방법이 기존의 고급 마스크 기반 방법보다도 더 뛰어난 성능을 보여주었습니다. 노이즈가 있는 조건에서도 안정적이고 신뢰할 수 있는 음성 인식을 가능하게 하여, AKSR의 강인성을 크게 향상시킵니다. 이러한 접근은 향후 음성 인식 시스템에서의 실용적인 적용 가능성을 제고합니다.
+
+
+
+### Orthogonalized Policy Optimization:Decoupling Sampling Geometry from Optimization Geometry in RLHF (https://arxiv.org/abs/2601.12415)
+- **What's New**: 최근 대형 언어 모델(LLM) 정렬 방법들은 PPO, DPO, IPO 등으로 대표되며, 개별 알고리즘으로 소개되고 있다. 하지만 이 논문에서는 이러한 접근 방식들이 두 가지 주요 설계 선택을 암묵적으로 결합하고 있다는 점을 강조하고 있다: 샘플링 기하학(sampling geometry)과 최적화 기하학(optimization geometry). 이를 통해, Orthogonalized Policy Optimization (OPO)라는 새로운 프레임워크를 제안하며, 샘플링과 최적화 기하학을 명확하게 분리한다.
+
+- **Technical Details**: OPO 프레임워크는 두 개의 독립적인 축으로 정렬 목적을 분해한다. 샘플링 기하학을 제어하기 위한 α-다이버전스(α-divergence) 기반의 샘플링 가중치와, 최적화 기하학을 제어하기 위한 Bregman 다이버전스(Bregman divergence) 기반의 값 메트릭(value metric)으로, 정렬을 일반화된 거리의 최소화로 표현한다. 이로 인해, KL 다이버전스(KL divergence)가 비경계값 신호에 기하급수적 패널티를 유도하여, 수치 불안정성과 소실 그래디언트 문제를 초래한다는 점을 설명한다.
+
+- **Performance Highlights**: OPO는 α-가중 중요 샘플링(alpha-weighted importance sampling)과 카이 제곱을 기반으로 하는 이차 정규화(quadratic regularization)를 결합하여, 단순하고 안정적인 최적화 목표를 제공한다. 이 제안된 방식은 모델 신뢰도가 높은 상태에서도 그래디언트 포화(gradient saturation)를 피하면서 안정한 최적화를 유지한다. 제안된 OPO는 기존 정렬 방법에 대한 통합 관점을 제공하고, 강건한 추론 중심 교육을 위한 원리를 정립한다.
+
+
+
+### Explainable Machine Learning for Pediatric Dental Risk Stratification Using Socio-Demographic Determinants (https://arxiv.org/abs/2601.12405)
+- **What's New**: 이 연구는 아동 치과 질환의 위험을 평가하기 위한 설명 가능한 머신 러닝 프레임워크를 개발하고 평가하는 데 초점을 맞추었습니다. 기존의 이미지 기반 진단(application in dentistry) 및 블랙박스 예측 모델과는 다르게 이 프레임워크는 해석 가능성과 윤리적 적용을 우선시합니다.
+
+- **Technical Details**: 감독된 머신 러닝 모델은 아동 인구 데이터(대상자 정보)인 나이, 소득-빈곤 비율, 인종/민족, 성별, 의료 기록을 사용하여 훈련되었습니다. 성능 평가는 수신자 작동 특성(receiver operating characteristic, ROC) 분석 및 보정 곡선(calibration curves)을 통해 이루어졌습니다. 예측 해석은 SHapley Additive exPlanations(SHAP)을 사용하여 수행되었습니다.
+
+- **Performance Highlights**: 모델은 AUC(Area Under Curve)가 0.61로 보통 정도의 식별력을 보였으며 높은 확률 수준에서 리스크를 과소평가하는 보수적 보정을 가지고 있었습니다. SHAP 분석 결과, 나이와 소득-빈곤 비율이 예측된 위험의 가장 강한 기여 요소로 나타났으며, 그 다음은 인종/민족 및 성별이었습니다.
+
+
+
+### Weaknesses of Facial Emotion Recognition Systems (https://arxiv.org/abs/2601.12402)
+- **What's New**: 이 연구는 얼굴 감정 인식(FER) 시스템 구현에 있어 핵심적인 모델의 일반화 능력에 초점을 맞추고 있습니다. 특히, 모델을 훈련한 데이터셋과 다른 데이터셋에서 성능을 비교하여 기존 솔루션의 약점을 규명하고 있습니다. 감정 인식이 인간-컴퓨터 상호작용(Human-Computer Interaction)에서 얼마나 중요한지를 강조하며 기술적 진보가 필요함을 어필합니다.
+
+- **Technical Details**: 연구에서는 POSTER++, DMUE, DAN와 같은 최신 딥러닝 모델들을 선택하여, 각 모델이 다양한 데이터셋으로 학습한 후 다중 검증(multi-validation) 통해 성능을 평가했습니다. 특히, AffectNet, RAF-DB, ExpW와 같은 'in-the-wild' 데이터셋을 사용하여 실세계 조건의 복잡성을 모사하려고 했습니다. 이러한 접근은 각각의 모델이 배운 특성에 대한 명확한 비교를 가능하게 합니다.
+
+- **Performance Highlights**: 실험 결과, 훈련에 사용된 데이터셋과 다른 데이터셋에서 모델 성능이 대폭 저하되는 경향을 보였습니다. 예를 들어, POSTER 모델은 AffectNet에서 학습 후 다른 데이터셋에서 약 10% 포인트 내외의 성과 변동을 보였지만, DAN 모델은 RAF-DB에서 76%의 정확도를 보인 반면 ExpW에서는 37%로 떨어졌습니다. 이는 감정 클래스 불균형 문제를 시사하며, 정확도(Accuracy) 지표만으로는 모델의 진정한 성능을 평가하기 어려움을 보여줍니다.
+
+
+
+### Beyond the Dirac Delta: Mitigating Diversity Collapse in Reinforcement Fine-Tuning for Versatile Image Generation (https://arxiv.org/abs/2601.12401)
+- **What's New**: 이번 연구에서는 DRIFT(DiveRsity-Incentivized Reinforcement Fine-Tuning for Versatile Image Generation)라는 혁신적인 프레임워크를 제안하였습니다. 이 프레임워크는 RL(강화학습) 파인튜닝 과정에서 생성물의 다양성을 체계적으로 유도하여, 강력한 작업 정렬과 높은 생성 다양성 사이의 균형을 맞추도록 설계되었습니다. 특히 세 가지 주요 관점에서 문제를 접근하여 샘플링, 프롬프트 사용, 최적화를 통해 다양한 이미지 생성을 가능하게 합니다.
+
+- **Technical Details**: DRIFT는 강화학습의 파인튜닝 과정에서 인센티브로서의 다양성을 주입하여, 높은 적합도(alignment)와 생성 다양성을 모두 성취하기 위한 프레임워크입니다. 구체적으로는, 보상 집중 서브셋(sample a reward-concentrated subset)을 샘플링하여 조기 붕괴를 방지하고, 조건 공간을 확장하기 위해 확률적 변형을 프롬프트에 적용합니다. 또한, 내-집단(intra-group) 다양성을 내재적 보상으로 설정하고 잠재적 기반 보상 변형을 설계하여 최적 정책 불변성을 유지합니다.
+
+- **Performance Highlights**: 실험 결과에 따르면, DRIFT는 다양한 보상 모델에서 작업 적합도와 생성 다양성 간의 우수한 파레토 지배(Pareto dominance)를 달성합니다. DRIFT는 동등한 적합도 수준에서 9.08%에서 43.46%의 다양성 증가를 보여주고, 동등한 다양성 수준에서는 59.65%에서 65.86%의 적합도 증가를 달성했습니다. 이러한 성과는 DRIFT가 저희의 접근 방식에서 효과적으로 다양성 붕괴 문제를 완화한 것을 나타냅니다.
+
+
+
+### NADIR: Differential Attention Flow for Non-Autoregressive Transliteration in Indic Languages (https://arxiv.org/abs/2601.12389)
+Comments:
+          Accepted at the AAAI Conference on Artificial Intelligence (AAAI 2026)
+
+- **What's New**: 본 연구에서는 모든 시퀀스-투-시퀀스(sequence-to-sequence) 작업에 autoregressive (AR) 모델의 강력한 귀납적 편향이 필요하지 않다는 주장을 합니다. 특히 다국어 음역, 코드 리팩토링, 문법 교정 및 텍스트 정규화와 같은 작업은 지역적 의존성에 의존하며, 이 경우 AR 모델의 전체적인 모델링 능력이 과도할 수 있습니다. 이에 따라, 새로운 비자기회귀(non-autoregressive, NAR) 아키텍처인 NADIR를 소개하며, 속도와 정확성 사이의 균형을 맞춥니다.
+
+- **Technical Details**: NADIR는 Differential Transformer와 Mixture-of-Experts (MoE) 메커니즘을 통합한 구조로 설계되어 있습니다. 이 아키텍처는 복잡한 문자 매핑을 상호 의존 없이 견고하게 모델링할 수 있도록 지원하며, 13배 이상의 속도 향상을 달성했습니다. 이 모델은 평균 Character Error Rate (CER)를 15.78%로 유지하며, 기존의 AR 모델보다 높은 성능을 보입니다.
+
+- **Performance Highlights**: NADIR는 Repetition 오류를 49.53%, Substitution 오류를 24.45%, Omission 오류를 32.92%, Insertion 오류를 16.87% 줄임으로써 뛰어난 성능을 선보입니다. 또한, IndicXLIT 모델과 비교했을 때, 180.1k 단어를 2분 55초 만에 처리할 수 있어 대규모 실시간 배치 작업에 적합합니다. 이번 연구는 NAR 시스템 구축을 위한 실질적인 청사진을 제공하여, AR의 정확성과 실시간 대규모 배포의 요구사항을 효과적으로 연결합니다.
+
+
+
+### A Scalable Entity-Based Framework for Auditing Bias in LLMs (https://arxiv.org/abs/2601.12374)
+- **What's New**: 이 논문은 대규모 언어 모델(LLM)의 편향 평가에 대한 새로운 접근 방식을 제안합니다. 기존 방법들은 실제 사용과 잘 맞지 않는 인위적인 프롬프트를 사용하거나, 경직성이 부족한 자연주의적 작업에 의존했습니다. 저자들은 이름 있는 엔티티를 탐침으로 사용하여 모델 행동의 구조적 차이를 측정하는 확장 가능한 편향 감사 프레임워크를 도입합니다.
+
+- **Technical Details**: 제안된 프레임워크는 엔티티 기반으로, 모델 출력에서 엔티티 ID에 기인하는 체계적인 편향을 조작 가능한 템플릿을 사용해 정의합니다. 이를 실현하기 위해 19억 개의 데이터 포인트를 포함한 대규모 감사 작업을 수행하였고, 세 가지 엔티티 유형, 열두 가지 작업, 세 가지 언어, 16개의 모델 및 다양한 프롬프트를 포함했습니다. 데이터 생성 기술을 활용하여 편향 관련 요소를 격리시킬 수 있음을 입증했습니다.
+
+- **Performance Highlights**: 연구의 결과는 LLM이 특정 편향을 보이며, 우파 정치인보다 좌파 정치인을 편애하고, 서구 및 부유한 국가를 선호하고, 국방 및 제약 부문 기업에 대한 처벌을 선호하는 경향이 있음을 보여줍니다. 이런 명확한 편향은 고위험 분야에서 LLM을 배치하기 전에 체계적인 감사가 필요함을 강조합니다. 모델 규모가 증가할수록 편향이 확대되고, 중국어 또는 러시아어로 프롬프트하는 경우에도 서구 선호가 완화되지 않는 것을 발견했습니다.
+
+
+
+### From Prompts to Pavement: LMMs-based Agentic Behavior-Tree Generation Framework for Autonomous Vehicles (https://arxiv.org/abs/2601.12358)
+- **What's New**: 이번 논문은 자율 주행 차량(AVs)을 위한 새로운 행동 계획 프레임워크인 'From Prompts to Pavement'를 소개합니다. 이 프레임워크는 대형 언어 모델(LLMs)과 다중 모달 비전 모델(LVMs)을 활용하여 행동 나무(BTs)를 실시간으로 생성하고 적응할 수 있게 합니다. 특히, 프레임워크는 상황의 중요성을 평가하는 전용 Descriptor 에이전트와, 고수준의 하위 목표를 설정하는 Planner 에이전트를 포함하여, 체계적이고 동적인 의사 결정을 가능하게 합니다.
+
+- **Technical Details**: 제안된 시스템은 ROS 기반 아키텍처로, SLAM Layer, Perception Layer, Navigation and Control Layer의 세 레이어로 구성됩니다. CARLA 시뮬레이션 환경은 고충실도로 구축되어, 자율 주행 스택의 효과를 실험적으로 테스트하는 데 사용됩니다. 시스템은 LiDAR, RGB 카메라 등의 센서를 통해 환경의 데이터를 수집하고, 이 데이터를 바탕으로 행동 나무를 생성합니다.
+
+- **Performance Highlights**: 논문에서 제안한 시스템은 CARLA+Nav2 시뮬레이션에서 기본적인 BT가 실패할 경우에만 트리거되어, 예상치 못한 장애물을 통해서도 성공적으로 내비게이션을 수행하는 것을 보여줍니다. 이는 사람의 개입 없이도 작동하며, static BT와 비교하여 다양한 주행 시나리오에 대한 적응력을 입증하는 사례로 작용합니다. 이 연구는 자율 주행 시스템의 안전성을 크게 향상시킬 것으로 기대됩니다.
+
+
+
+### SimpleMatch: A Simple and Strong Baseline for Semantic Correspondenc (https://arxiv.org/abs/2601.12357)
+- **What's New**: 이 논문에서는 고해상도 이미지를 요구하는 기존의 의미적 대응(semantic correspondence) 방법의 한계를 극복하기 위해 SimpleMatch라는 새로운 프레임워크를 소개합니다. 이 방법은 인접한 키포인트(feature)에서 발생하는 정보를 손실 문제를 해결하고, 저해상도에서도 우수한 성능을 보여줍니다. SimpleMatch는 1/4 해상도로 깊은 특성을 업샘플링하는 경량 디코더와 다양한 공간 스케일에서 판별 가능한 특징을 보장하기 위한 다중 스케일 감독 손실(multiscale supervised loss) 방식으로 구성됩니다.
+
+- **Technical Details**: 기존의 방법들은 깊은 다운샘플링(deep downsampling) 작업으로 인해 키포인트(features) 정보의 불가역적인 융합 문제를 경험합니다. SimpleMatch는 이 문제를 해결하기 위해 효율적인 업샘플링 디코더를 도입하여 기능을 1/4 해상도로 복원합니다. 또한, 우리가 제안하는 희소 매칭(sparse matching)과 윈도우 기반(localization) 기법은 훈련 메모리 사용량을 51%까지 줄이는 데 기여합니다.
+
+- **Performance Highlights**: SimpleMatch 프레임워크는 SPair-71k 벤치마크에서 252x252의 저해상도로 84.1%의 PCK@0.1 성능을 달성하며, 이는 현재 SOTA(state-of-the-art) 방법보다 우수한 결과입니다. 또한, 3.3배 낮은 입력 해상도에서 이루어진 이 성능은 효과성과 효율성을 모두 증명합니다. 이러한 결과는 SimpleMatch가 의미적 대응 분야에서 강력한 기준선(baseline)으로 자리잡을 수 있을 것이라는 믿음을 줍니다.
+
+
+
+### Zero-Permission Manipulation: Can We Trust Large Multimodal Model Powered GUI Agents? (https://arxiv.org/abs/2601.12349)
+- **What's New**: 이 논문은 Android 시스템에서 GUI 에이전트의 실행과 관측 간의 간극을 악용하는 새로운 공격인 Action Rebinding을 제안합니다. 이 공격은 겉보기에는 위험한 권한이 없는 응용 프로그램을 통해 에이전트의 행동을 재결합할 수 있는 가능성을 드러냅니다. 특히, 이 공격은 UI 상태가 관측과 행동 간에 변할 수 있다는 점을 강조하여 기존 시스템의 설계 결함을 지적하고 있습니다.
+
+- **Technical Details**: Action Rebinding은 에이전트의 관측-추론-행동 파이프라인에서 발생하는 관측-행동 간극을 이용하여 공격을 수행합니다. 이 공격은 UI 상태 보존 및 제약 없는 전경 전환을 활용하여 에이전트가 의도한 작업을 다른 목표 앱으로 재결합합니다. Intent Alignment Strategy (IAS)를 통해 에이전트가 UI 상태를 조작하고 검증 게이트를 우회하는 방법을 제시합니다.
+
+- **Performance Highlights**: 실험 결과, Action Rebinding 공격은 여섯 개의 널리 사용되는 Android GUI 에이전트에서 100% 성공률을 기록했습니다. 검증 게이트 우회 시 성공률이 0%에서 100%로 증가하는 IAS 기술이 효과적임을 보여줍니다. 이 연구는 안전한 에이전트 시스템 설계를 위한 중요한 통찰을 제공하며, LMM 기반의 GUI 시스템에서의 근본적인 아키텍처 결함을 드러냅니다.
+
+
+
+### How Well Do LLMs Predict Human Behavior? A Measure of their Pretrained Knowledg (https://arxiv.org/abs/2601.12343)
+- **What's New**: 이번 논문에서는 사전학습된 대형 언어 모델(LLM)이 인간 행동 예측에 기여하는 지식을 평가하기 위한 새로운 측정을 제안합니다. 이 측정은 LLM의 예측 정확성을 맞추기 위해 필요한 작업 특정 데이터의 양인 동등 샘플 크기(equivalent sample size)로 정의됩니다. 연구 결과는 LLM이 특정 경제 변수에 대해 상당한 예측 정보를 포함하고 있음을 밝혔으며, 이는 도메인에 따라 다르게 나타납니다.
+
+- **Technical Details**: 논문에서는 우선 LLM의 예측 규칙과 데이터 크기 증가에 따른 비교를 통해 동등 샘플 크기를 추정하는 방법을 소개합니다. 데이터를 수집하여 모델 훈련을 통해 예측 손실을 측정하는 전통적인 방법과 달리, 고정된 LLM을 사용해 예측 문제를 설명하고 결과를 요청하는 방식으로 분석합니다. 이 과정에서 협의 시험 절차(seqential hypothesis testing)를 통해 제안된 측정의 신뢰 구간을 구축하여 동등 샘플 크기를 통계적으로 추론합니다.
+
+- **Performance Highlights**: Panel Study of Income Dynamics(PSID)를 활용하여 LLM 예측 성능을 평가하였으며, 예측 결과는 평균적으로 시간당 임금 예측을 위해 약 20개의 관찰 데이터가 필요하고, 주택 소유 여부 예측을 위해서는 약 600개의 관찰 데이터가 요구됨을 보였습니다. 이는 사전 학습된 지식이 도메인 특정 데이터에 비해 얼마나 유용한지를 보여주는 결과로, 예측 작업별로 상당한 이질성이 존재함을 드러냈습니다.
+
+
+
+### Time-Continuous Modeling for Temporal Affective Pattern Recognition in LLMs (https://arxiv.org/abs/2601.12341)
+- **What's New**: 이 논문에서는 감정 동역학(emotional dynamics)을 실시간으로 모방할 수 있는 데이터셋과 개념적 프레임워크를 소개합니다. 이 프레임워크는 물리 기반 신경망(physics-informed neural network)을 활용하여 대화 모델링의 해석 가능성을 열어줍니다. 기존의 정적 토큰 생성 방식의 한계를 극복하기 위해, 연속적인 정서 상태를 추적하는 새로운 인코더-디코더 아키텍처를 제안합니다.
+
+- **Technical Details**: 제안된 아키텍처는 지속적인 시간 모델링의 민감성은 물론 대규모 언어 모델의 표현력을 통합합니다. 특히 연속 시간 순환 신경망(CTRNN)과 신경적 보통 미분 방정식(neural ordinary differential equations)을 활용하여 심리적으로 그럴듯한 감정 경로를 따라 토큰 생성을 유도합니다. 또한 물리 기반 신경망(PINN)을 활용하여 시간 동역학을 규제하며 일반화성과 해석 가능성을 향상시킵니다.
+
+- **Performance Highlights**: 이 접근 방식은 자율 회귀생성(autoregressive generation)의 계산 효율성을 유지하면서 생성되는 대화의 감정적 신뢰성(emotional fidelity)을 높입니다. 따라서 감정 인식이 필요한 챗봇, 가상 에이전트 및 정서적으로 반응하는 인터페이스와 같은 다양한 응용 분야에 기여할 것으로 기대됩니다. 최종적으로, 이 시스템은 심리적으로 기반을 둔 대화 모델링을 통해 기계와 인간 간의 자연스러운 상호작용을 촉진하는 데 중점을 두고 있습니다.
+
+
+
+### Efficient Privacy-Preserving Retrieval Augmented Generation with Distance-Preserving Encryption (https://arxiv.org/abs/2601.12331)
+- **What's New**: 이 논문에서는 LLM의 응답 품질을 향상시키기 위한 혁신적인 접근법인 ppRAG(privacy-preserving RAG)를 제안합니다. 기존 RAG 시스템은 신뢰할 수 없는 클라우드 환경에서 데이터 저장과 검색을 안전하게 다루는 데 한계를 가지고 있었지만, ppRAG는 이러한 문제를 해결하는 새로운 프레임워크입니다. 특히, CAPRISE라는 새로운 대칭 암호화 기법을 도입하여 암호화된 쿼리와 데이터베이스의 유사성을 계산할 수 있도록 합니다.
+
+- **Technical Details**: ppRAG는 임베딩을 보호하기 위해 Conditional Approximate Distance-Comparison-Preserving Symmetric Encryption (CAPRISE) 기법을 사용합니다. 이 시스템은 암호화된 쿼리 임베딩과 데이터베이스의 임베딩 간 상대 거리 계산을 가능하게 하여 데이터 유출을 방지합니다. 또한, 사용자 쿼리 임베딩을 암호화 전에 변형시키는 DP(differential privacy) 기법을 통해 쿼리 패턴을 분석하여 민감한 정보를 유추하는 공격을 방어합니다.
+
+- **Performance Highlights**: 실험 결과, ppRAG는 높은 검색 정확도와 효율적인 처리량을 달성하며, 민감한 정보 보호를 위한 강력한 보장 기능을 제공합니다. 클라우드 환경에서 안전하게 LLM을 활용하고자 하는 자원 제약이 있는 사용자들에게 실용적인 솔루션을 제공합니다. 이 연구는 기존 RAG 시스템에서 발생하는 프라이버시 문제를 해결하고, 안전한 데이터 검색을 위한 새로운 기초를 마련하고 있습니다.
+
+
+
+### IceWatch: Forecasting Glacial Lake Outburst Floods (GLOFs) using Multimodal Deep Learning (https://arxiv.org/abs/2601.12330)
+- **What's New**: 본 논문에서는 IceWatch라는 새로운 딥 러닝 프레임워크를 소개합니다. 이 시스템은 Glacial Lake Outburst Floods (GLOFs)의 예측을 위한 공간적(spatial) 및 시간적(temporal) 관점을 통합합니다. 기존의 수문 모델링(hydrological modeling)과 수동적인 위성 이미지 분석에 의존하는 방식의 한계를 극복하고자 합니다.
+
+- **Technical Details**: IceWatch의 비전 컴포넌트인 RiskFlow는 CNN 기반(classifier) 분류기를 통해 Sentinel-2 다중 스펙트럼 위성 이미지를 활용합니다. 이 시스템은 눈(snow), 얼음(ice), 및 녹은 물(meltwater)의 공간적 패턴을 바탕으로 GLOF 이벤트를 예측합니다. TerraFlow는 NASA ITS_LIVE 시계열 데이터를 이용해 빙하 속도(glacier velocity)를 모델링하고, TempFlow는 MODIS LST 기록을 바탕으로 근표면 온도(near-surface temperature)를 예측합니다.
+
+- **Performance Highlights**: IceWatch는 강력한 예측 성능과 빠른 데이터 처리 속도를 자랑하며, 실시간(real-time) 사용에 최적화되어 있습니다. 이 시스템은 노이즈(noise)와 결측 정보(missing information)에 강인성을 제공하며, GLOF 감지를 위한 신뢰성과 해석 가능성을 높입니다. 또한, 다양한 센서 입력 및 글로벌 빙하지도 활동과 통합될 가능성을 지니고 있습니다.
+
+
+
+### The Expert Validation Framework (EVF): Enabling Domain Expert Control in AI Engineering (https://arxiv.org/abs/2601.12327)
+- **What's New**: 이 논문에서는 Generative AI (GenAI) 시스템이 조직 내에서 지식 작업을 자동화할 가능성이 있지만 품질 보증 메커니즘의 부족으로 배치에 큰 장애가 발생하고 있음을 강조합니다. 우리는 domain expert가 중심이 되는 Expert Validation Framework를 제안하여, 이들이 조직 내에서 시스템 동작을 관리하고 지속적으로 모니터링할 수 있도록 하는 체계적인 방법론을 확립합니다.
+
+- **Technical Details**: 이 프레임워크는 명세(specification), 시스템 생성, 검증(validation), 생산 모니터링의 네 단계 구현 프로세스를 통해 AI 역량과 조직의 신뢰 간의 간극을 해소합니다. 영역 전문가들은 시스템 디자인에 활발히 참여하며, 기술 팀은 구현을 지원하지만 최종적인 도메인 적합성에 대한 판단은 전문가의 몫입니다.
+
+- **Performance Highlights**: 전문가와 AI의 협력을 통해 알려지지 않은 맥락에서 질높은 출력물을 생성하는 것이 가능하며, 이는 특히 법률이나 금융과 같은 전문 분야에 필수적입니다. 프레임워크를 사용하면 이러한 과정에서 발생할 수 있는 품질 저하를 방지하고 조직의 신뢰를 구축할 수 있습니다.
+
+
+
+### Explanova: Automatically Discover Data Insights in N \times M Table via XAI Combined LLM Workflow (https://arxiv.org/abs/2601.12317)
+- **What's New**: 이번 연구는 데이터 자동 분석을 위한 새로운 접근 방식인 Explanova를 제안합니다. Explanova는 AutoML과 유사한 사전 설정된 워크플로우를 활용하여, 데이터 분석을 자동화하고 LLM의 성능을 향상시킬 수 있는 가능성을 탐구합니다. 이 시스템은 비용 효율적이며, 소비자용 GPU에서 쉽게 배포될 수 있도록 설계되어 실제 사용 가능성을 높입니다.
+
+- **Technical Details**: Explanova는 세 가지 주요 단계인 Feature Preparation, Feature-to-Feature Statistics, Feature Modeling으로 구성됩니다. Feature Preparation 단계에서는 데이터 전처리 및 단일 특성 통계 분석을 수행합니다. Feature-to-Feature Statistics 단계에서는 특성 쌍 간의 통계적 관계를 계산하고, 마지막으로 Feature Modeling 단계에서는 모든 다른 특성을 사용하여 주어진 특성을 예측합니다. 이 과정에서는 Shapley-value 기반의 해석 방법을 사용하여 복잡한 내부 관계를 추출합니다.
+
+- **Performance Highlights**: Explanova의 실험 결과, 제안된 워크플로우는 주어진 데이터 테이블에서 숨겨진 규칙을 자동으로 발굴할 수 있음을 보여주었습니다. 또한 정확한 신뢰성 점수를 갖춘 상세한 데이터 보고서를 생성하여 사용자가 이해할 수 있도록 자연어 형식으로 설명합니다. 이러한 접근법은 데이터 분석의 효율성을 높이며, 제한된 GPU 자원 환경에서도 실행 가능하다는 장점이 있습니다.
+
+
+
+### GazeFormer-MoE: Context-Aware Gaze Estimation via CLIP and MoE Transformer (https://arxiv.org/abs/2601.12316)
+Comments:
+          accepted at ICASSP 2026
+
+- **What's New**: 이 논문에서는 3D 시선 추정을 위한 의미 조정(mo-dulated) 다중 스케일 Transformer 모델인 GazeFormer-MoE를 제안합니다. CLIP의 글로벌 특징을 학습 가능한 프로토타입 은행(prototype bank)으로 조건화(condi-tion)하고, 이를 CLIP 패치 토큰(patch tokens) 및 고해상도 CNN 토큰과 통합하여 주의(attention) 영역 내에서 융합(fusion)합니다. 또한, 여러 개의 FFN 블록을 라우팅된(shared) 혼합 전문가(MoE)로 대체하여 조건적 용량을 증대시키고 있습니다.
+
+- **Technical Details**: 제안된 방법론은 CLIP 기반의 의미 맥락(semantic context), 패치 레벨(patch-level) 토큰 및 고해상도 CNN 특징을 결합하여 3D 시선 방향을 추정하는 다중 모드 Transformer 구조를 갖추고 있습니다. 각 얼굴 이미지를 입력으로 받아 CLIP의 글로벌 임베딩(global embedding), CLIP 패치 토큰 및 CNN 특징을 통해 출력 토큰을 생성합니다. 이 과정에서 전문성을 기반으로 한 MoE 구조를 채택하여 성능을 향상시키고, 각 토큰 별로 선택적으로 전문성을 활용하고 있습니다.
+
+- **Performance Highlights**: GazeFormer-MoE는 MPIIFaceGaze, EYEDIAP, Gaze360 및 ETH-XGaze와 같은 네 가지 벤치마크에서 2.49°, 3.22°, 10.16°, 1.44°와 같은 최첨단 성능을 기록했으며, 이는 이전 결과보다 최대 64% 향상된 수치입니다. 또한, ablation 연구를 통해 프로토타입 조건화(prototype conditioning), 크로스 스케일 융합(cross scale fusion) 및 MoE의 효과를 확인할 수 있었습니다. 이러한 성과는 다양한 조명 및 배경 조건에 대한 강건성을 크게 향상시켰음을 보여줍니다.
+
+
+
+### A Two-Stage Globally-Diverse Adversarial Attack for Vision-Language Pre-training Models (https://arxiv.org/abs/2601.12304)
+Comments:
+          Accepted to ICASSP 2026
+
+- **What's New**: 이번 논문에서는 VLP 모델의 취약점을 해결하기 위한 새로운 공격 프레임워크인 2S-GDA(Two-Stage Globally-Diverse Attack)를 제안합니다. 기존의 공격 방법들이 가졌던 두 가지 주요 제한 사항인 불안정한 반복적 텍스트 변경과 전역적으로 다양한 변형의 부족을 해결하고자 하였습니다. 2S-GDA는 텍스트와 이미지의 공격 단계 구조를 재구성하여, 세 단계의 복잡성을 줄이고 효과적인 적대적 변형을 달성합니다.
+
+- **Technical Details**: 2S-GDA는 두 단계로 구조화되어 있으며, 첫 번째 단계에서는 전역적으로 인지하는 텍스트 변경 모듈을 사용하여 BERT-MLM과 WordNet를 통해 후보 텍스트를 생성합니다. 두 번째 단계에서는 멀티 스케일 리사이징과 BSR(블록 셔플 및 회전) 기법을 사용하여 이미지의 적대적 변형을 증가시킵니다. 이를 통해 VLP 모델에서의 공격 성공률을 개선하고, 기타 기존 메소드와 통합이 용이한 모듈형 프레임워크를 제공합니다.
+
+- **Performance Highlights**: 실험 결과, 2S-GDA는 특히 블랙박스 설정에서 기존의 최첨단 방법들에 비해 최대 11.17% 향상된 공격 성공률을 달성했습니다. 이 연구는 VLP 모델에서의 적대적 이식성(adversarial transferability) 향상을 위한 강력한 도구를 제공합니다. 마지막으로, 제안된 프레임워크는 모듈형으로 설계되어 다른 방법들과 쉽게 결합하여 성능을 더욱 높일 수 있습니다.
+
+
+
+### TimeGMM: Single-Pass Probabilistic Forecasting via Adaptive Gaussian Mixture Models with Reversible Normalization (https://arxiv.org/abs/2601.12288)
+- **What's New**: 이 논문에서는 TimeGMM이라는 새로운 확률적 예측 프레임워크를 제안합니다. 이는 Gaussian Mixture Models(GMM)를 기반으로 하여 복잡한 미래 분포를 단일 포워드 패스로 포착하는 혁신적인 접근법을 가지고 있습니다. 이 방법은 기존의 반복 샘플링 방식이나 제한적인 파라메트릭 가정을 회피하여 예측 성능을 향상시킵니다.
+
+- **Technical Details**: TimeGMM은 데이터 변환, 인코더 네트워크, 디코더 네트워크, 특별히 설계된 최적화 목적 함수의 네 가지 주요 구성 요소로 이루어져 있습니다. 이 프레임워크는 GMM-adapted Reversible Instance Normalization(GRIN) 모듈을 사용하는데, 이는 확률적 시간 시계열 예측의 분포 이동 문제를 효과적으로 해결합니다. 또한, 인코더와 디코더는 시간적 종속 관계와 혼합 분포 매개변수를 함께 캡처하도록 설계되어 있습니다.
+
+- **Performance Highlights**: 실험 결과, TimeGMM은 기존 최첨단 방법들에 비해 일관되게 향상된 성능을 보여주었으며, CRPS에서는 최대 22.48%, NMAE에서는 21.23%의 성능 개선을 기록했습니다. 이는 TimeGMM이 노이즈가 많은 긴 시간 대역폭의 데이터를 처리하는 데 강점을 가짐을 나타냅니다. 이 성능 향상은 복잡한 시간적 확률적 의존성을 잘 학습할 수 있는 능력에서 기인합니다.
+
+
+
+### Conversational Context Classification: A Representation Engineering Approach (https://arxiv.org/abs/2601.12286)
+- **What's New**: 이번 연구에서는 LLM의 내부 상태를 활용하여 ‘in-context’ 대화와 ‘out-of-context’ 대화를 탐지하는 새로운 방법론을 제시합니다. 이는 Representation Engineering (RepE)와 One-Class Support Vector Machine (OCSVM) 기법을 통해 LLM의 숨겨진 상태 내에서 특정 맥락을 나타내는 서브스페이스를 식별하는 과정입니다. OCSVM을 훈련하여 맥락에 따라 변별력 있는 경계를 수립하고, 두 개의 개방형 LLM 모델인 Llama와 Qwen에서 검증을 수행했습니다.
+
+- **Technical Details**: 연구는 LLM의 숨겨진 상태를 활용하여 대화 턴의 맥락을 분석합니다. 이 모델은 세 가지 단계인 Calibration, Threshold Tuning, Evaluation로 구성됩니다. Calibration 단계에서는 ‘in-context’ 대화의 예시를 사용하여 OCSVM을 훈련시키고, Threshold Tuning 단계에서는 ‘in/out-of-context’ 사례를 바탕으로 최적의 임계값을 설정합니다. Evaluation 단계는 별도의 테스트 데이터셋을 통해 마지막 성능 평가를 수행합니다.
+
+- **Performance Highlights**: 실험 결과는 LLM의 특정 맥락에 대한 서브스페이스를 효과적으로 식별하는 데에 유망한 성과를 보였습니다. 특히, OCSVM을 사용한 탐지기법은 높은 정확도를 달성하며, 다양한 레이어에서의 성능 차이를 평가했습니다. 본 연구는 LLM의 내부 맥락 표현을 이해하고, 더 나은 탐지 전략을 개발하기 위한 귀중한 통찰을 제공합니다.
+
+
+
+### CytoCLIP: Learning Cytoarchitectural Characteristics in Developing Human Brain Using Contrastive Language Image Pre-Training (https://arxiv.org/abs/2601.12282)
+- **What's New**: 이번 연구에서는 CytoCLIP이라는 새로운 시각-언어 모델 집합을 제안합니다. 이 모델은 Contrastive Language-Image Pre-Training (CLIP) 프레임워크를 기반으로 하여 뇌의 세포 구조(cytoarchitecture)를 학습합니다. CytoCLIP은 저해상도와 고해상도로 구분된 두 가지 모델 변형을 포함하여, 뇌의 다양한 영역을 자동으로 식별할 수 있는 가능성을 제공합니다.
+
+- **Technical Details**: CytoCLIP의 저해상도 모델은 전체 지역 이미지를 사용하여 구조적인 패턴을 이해하고, 고해상도 모델은 상세한 세포 레벨 표현을 위해 이미지 타일을 훈련합니다. 훈련 데이터셋은 다양한 주차의 태아 뇌의 NISSL 염색(histological section) 섹션에서 생성되었으며, 86개의 저해상도 지역과 384개의 고해상도 타일로 구성되어 있습니다. 이 모델은 지역 분류와 크로스 모달(Cross-modal) 검색 과제를 통해 세포 구조에 대한 이해도와 일반화 능력을 평가합니다.
+
+- **Performance Highlights**: CytoCLIP은 다양한 데이터를 포함한 여러 실험을 통해 기존 방법들을 능가하는 성능을 입증했습니다. 전체 지역 분류에서 F1 점수 0.87을, 고해상도 이미지 타일 분류에서 0.91를 달성했습니다. 이러한 결과는 CytoCLIP이 뇌의 세포 구조를 자동으로 식별할 수 있는 효율적인 방법임을 보여줍니다.
+
+
+
+### Predictive Prototyping: Evaluating Design Concepts with ChatGP (https://arxiv.org/abs/2601.12276)
+Comments:
+          22 pages, 15 figures, 5 tables
+
+- **What's New**: 이번 논문은 생성적 사전 학습 변환기(generative pretrained transformer, GPT)가 프로토타입 제작을 통해 얻는 정보를 예측할 수 있는지를 조사합니다. 인간 디자이너와 달리, GPT-RAG(검색 증강 생성 방법)는 디자인 피드백을 효과적으로 시뮬레이션하여 비용, 성능 및 사용자 인지성을 예측합니다. 이 연구는 최소한의 물리적 프로토타이핑으로 혁신을 추구하는 현상에 큰 기여를 합니다.
+
+- **Technical Details**: 연구에서는 GPT-4o와 함께 디자인 스케치를 이용하여 비용, 성능 및 사용자 인지를 예측하는 두 가지 주요 실험을 진행합니다. 첫 번째 실험에서는 GPT-RAG와 인간 디자이너의 예측을 비교하며, 두 번째는 GPT-RAG의 추천을 바탕으로 한 물리적 프로토타입을 제작하여 상업용 기준 및 위상 최적화 설계와 비교합니다. 특히 GPT-RAG는 반복적 쿼리와 응답 평균화를 통해 정확성을 향상시키틑 효과가 확인됩니다.
+
+- **Performance Highlights**: 결과적으로, GPT-RAG는 개별 인간 예측이나 군중 예측보다 더 정확한 비용 및 성능 추정을 제공합니다. 사용자 인지성 통찰력은 비슷하게 도출되며, GPT-RAG를 기반으로 한 프로토타입은 비교 대상 프로토타입보다 우수한 성능을 보여줍니다. 이는 대수의 법칙에 일관된 군중 집합 효과를 모방할 수 있는 언어 모델(LLM)의 가능성을 시사합니다.
+
+
+
+### Simulated Annealing Enhances Theory-of-Mind Reasoning in Autoregressive Language Models (https://arxiv.org/abs/2601.12269)
+- **What's New**: 이 연구에서는 Autoregressive language models가 표면적으로 일관된 문장을 생성하는 것에 그치는 비판을 극복하기 위한 새로운 접근 방식을 제안합니다. Theory of Mind (ToM) 작업의 성능을 향상시키기 위해 Markov chain Monte Carlo (MCMC) 기반의 power-sampling 방법을 사용하여, 작은 언어 모델에서도 강력한 ToM 능력을 회복할 수 있음을 보여줍니다. 추가적인 파라미터 조정 없이도 이러한 모델의 기본 성능을 끌어낼 수 있다는 점이 주목할 만합니다.
+
+- **Technical Details**: 이 방법은 고온에서 저온으로 점차적으로 온도를 조정하는 annealing 기법을 포함하여, MCMC 샘플러를 최적화기로 전환합니다. 이 과정을 통해 서열 수준의 분포에서 샘플을 추출하는 것이 가능해지고, 이는 복잡한 서열 수준 분포에서 모드 발견을 용이하게 만듭니다. 이를 통해 자원 소모가 높은 전체 토큰 연속에 대한 샘플링의 어려움을 극복하면서도 ToM 작업에서의 성과를 개선할 수 있습니다.
+
+- **Performance Highlights**: 실험 결과, simulated annealing 방식이 작은 언어 모델의 ToM 성능을 크게 향상시키며, 기존의 test-time compute 방법들을 초월하는 성과를 보여줍니다. Chain-of-Thoughts와 같은 기존 방법들과 비교했을 때도 더 나은 성능을 발휘하며, 잠재적으로 ToM 작업을 수행할 수 있다고 여겨지지 않았던 소형 모델에서 훨씬 더 강력한 능력을 이끌어내는데 성공했습니다.
+
+
+
+### Multimodal Generative Engine Optimization: Rank Manipulation for Vision-Language Model Rankers (https://arxiv.org/abs/2601.12263)
+- **What's New**: 이 논문은 비전-언어 모델(Vision-Language Models, VLMs)의 취약성을 탐구하며, 특히 제품 검색에서의 다중 모달 순위 공격(multimodal ranking attacks)에 대한 새로운 공격 기법을 제안합니다. 기존의 공격이 모달리티를 독립적으로 다뤘던 반면, 이 연구는 이미지 변조와 텍스트 suffix를 함께 최적화하는 방식을 사용하여 VLM의 강점을 약화시키는 새로운 프레임워크인 MGEO(Multimodal Generative Engine Optimization)를 소개합니다.
+
+- **Technical Details**: MGEO는 교대 그래디언트 기반 최적화 전략(alternating gradient-based optimization strategy)을 통해 VLM의 깊은 모달 상호 연결성을 활용합니다. 이 연구는 실제 데이터셋에서 최신 모델을 사용하여 광범위한 실험을 수행하였으며, 이미지만을 사용하는 경우나 텍스트만을 사용하는 경우와 비교하여 훨씬 더 효과적인 공격 결과를 보여주었습니다.
+
+- **Performance Highlights**: 실험 결과, MGEO는 기존의 다중 모달 공격 대비 우수한 성능을 나타내며, 텍스트 및 이미지 전용 베이스라인을 크게 초월하는 성과를 달성했습니다. 이러한 발견은 VLM에서 가장 두드러진 특성인 다중 모달 시너지가 검색 순위의 무결성을 저해할 수 있는 도구로 악용될 수 있음을 시사합니다.
+
+
+
+### Soft Shadow Diffusion (SSD): Physics-inspired Learning for 3D Computational Periscopy (https://arxiv.org/abs/2601.12257)
+- **What's New**: 본 연구는 일반적인 비선로 시점(non-line-of-sight, NLOS) 사진을 사용하여 숨겨진 장면의 3D 재구성을 할 수 있는 새로운 방법을 제안합니다. 이 방법은 고유의 빛 전송 모델을 재구성하고, 숨겨진 장면을 빛을 차단하는(light-occluding) 요소와 차단되지 않는(non-light-occluding) 요소로 나누어 입체적인 시각적 표현을 선보이는 것이 특징입니다. 특히, 새로운 Soft Shadow diffusion (SSD)이라는 물리적 특성을 기반으로 한 신경망 접근법을 통해 성과를 도출하고, 실제 실험에서도 효과성을 입증했습니다.
+
+- **Technical Details**: 본 연구에서는 비밀장소에 대한 데이터를 수집하기 위해 조도와 같은 신호를 활용한 측정값으로부터 NLOS 장면의 정보를 추론하는 기술을 수립했습니다. 기존에 존재하던 방법들과 비교하여, 간단한 사진 하나를 사용하여 3D 구성을 가능하게 하는 separable non-linear least squares (SNLLS) 문제를 제안합니다. 두 가지 해결책을 개발했으며, 하나는 기울기 기반 최적화 방법이고 다른 하나는 SSD라는 새로운 생성 모델입니다.
+
+- **Performance Highlights**: SSD는 훈련이 이루어진 시뮬레이션에서 새로운 클래스에도 잘 일반화되며, 노이즈와 주변 조명에 대해 놀라운 강인성을 보여줍니다. 제안된 방법은 여러 실제 3D 장면에서 효과적이며, 고해상도 3D 포인트 클라우드로서 숨겨진 장면을 재구성하는 데 성공했습니다. 이러한 기술들은 다양한 응용 분야에서의 활용 가능성을 보여줍니다.
+
+
+
+### An Innovative Framework for Breast Cancer Detection Using Pyramid Adaptive Atrous Convolution, Transformer Integration, and Multi-Scale Feature Fusion (https://arxiv.org/abs/2601.12249)
+Comments:
+          13 page
+
+- **What's New**: 이 논문은 유방암 진단을 위한 혁신적인 프레임워크를 제시합니다. Pyramid Adaptive Atrous Convolution (PAAC)과 Transformer 아키텍처를 통합하여 유방조직의 악성 덩어리를 탐지하는 방안을 설명합니다. Multi-Scale Feature Fusion을 활용해 양성 및 악성 조직의 특징 추출을 개선하고, 이를 통해 유방암 분류의 오류를 효과적으로 줄였습니다.
+
+- **Technical Details**: 이 연구에서는 INbreast, MIAS, DDSM의 유방암 이미지로 구성된 포괄적인 데이터셋을 사용합니다. 데이터 증강(data augmentation)과 대비 향상(contrast enhancement)을 통해 모델 훈련에 적합한 크기인 227x227 픽셀로 조정하였습니다. Self-Attention 메커니즘을 활용하여 장거리 의존성(long-range dependencies)을 관리하는 Transformer의 능력을 통해 높은 정확도를 달성하였습니다.
+
+- **Performance Highlights**: 제안된 모델은 98.5%의 정확도(accuracy), 97.8%의 민감도(sensitivity), 96.3%의 특이도(specificity), 98.2%의 F1-score, 97.9%의 정밀도(precision)를 기록했습니다. 이러한 지표들은 전통적인 방법들에 비해 significant improvement를 입증하며, 복잡한 상황과 대규모 데이터셋에서 암성 덩어리를 효과적으로 식별할 수 있는 모델의 효율성을 확인합니다.
+
+
+
+### AQUA-Bench: Beyond Finding Answers to Knowing When There Are None in Audio Question Answering (https://arxiv.org/abs/2601.12248)
+Comments:
+          Accepted to ICASSP 2026. Project Website: this https URL
+
+- **What's New**: 최근 오디오 인식 대형 언어 모델(Audio-aware Large Language Models, ALLMs)의 발전으로 오디오 질문 응답(Audio Question Answering, AQA)에서 뛰어난 성능이 나타났습니다. 그러나 기존의 벤치마크는 답변 가능한 질문에만 초점을 맞추고, 실제로는 답변할 수 없는 질문에 대한 도전을 간과하고 있습니다. 이를 해결하기 위해, 우리는 AQUA-Bench라는 새로운 벤치마크를 제안하여 오디오 질문 비가용성(Audio Question Unanswerability Assessment)을 평가합니다.
+
+- **Technical Details**: AQUA-Bench는 세 가지 시나리오를 체계적으로 평가합니다: (1) Absent Answer Detection (AAD): 정답 선택지가 누락된 경우, (2) Incompatible Answer Set Detection (IASD): 선택지가 질문과 카테고리적으로 불일치하는 경우, (3) Incompatible Audio Question Detection (IAQD): 질문이 오디오와 관련이 없거나 충분한 근거가 없는 경우입니다. 이를 통해 모델이 해결 가능한 질문과 불가능한 질문을 구별할 수 있는지를 테스트합니다.
+
+- **Performance Highlights**: 실험 결과, 기존 모델은 표준 응답 가능한 작업에서 높은 정확도를 보였으나, 비가용한 질문에 대해서는 상당한 도전에 직면했습니다. 이는 현재의 오디오-언어 이해에서 존재하는 주요 노출되지 않은 부분을 강조합니다. 이러한 결과는 신뢰할 수 있고 더 강력한 시스템 개발의 필요성을 보여줍니다.
+
+
+
+### Plan, Verify and Fill: A Structured Parallel Decoding Approach for Diffusion Language Models (https://arxiv.org/abs/2601.12247)
+- **What's New**: 이번 연구에서는 Plan-Verify-Fill (PVF)이라는 새로운 비훈련 기반의 텍스트 생성 패러다임을 제안합니다. PVF는 고수준의 구조를 계획하고 이를 수량적으로 검증하여 텍스트 생성의 효율성을 높입니다. 기존의 수동적 디코딩 전략을 넘어, PVF는 고안된 구조적 스켈레톤을 끌어안고 이를 기반으로 토큰을 생성하는 방식으로, 구조적 계획과 세부적인 내용 생성을 분리합니다.
+
+- **Technical Details**: DLMs (Diffusion Language Models)는 표준 Autoregressive 모델과는 달리 비순차적인 텍스트 생성 방식을 제공합니다. PVF는 'Planning Route'와 'Verification Mechanism'의 이중 경로 구조를 사용하여 고수준의 계획 토큰을 주입하고, 이들이 수학적으로 일관성을 유지하는지를 검증합니다. 이렇게 함으로써 사용자는 구조적 계획의 가치가 감소하는 순간 AR(Autoregressive) Fallback Route를 통해 밀도를 높일 수 있습니다.
+
+- **Performance Highlights**: PVF는 LLaDA-8B-Instruct 및 Dream-7B-Instruct를 사용하여 수행된 테스트에서 기존의 신뢰 기반 병렬 디코딩보다 NFE(Number of Function Evaluations)를 최대 65%까지 줄임으로써 뛰어난 효율성을 보여줍니다. 특히, PVF는 GSM8K, MMLU-Pro, ARC-C와 WinoGrande에서 60% 이상, 복잡한 추론 문제에서 40% 이상의 NFE 감소를 기록했습니다. 이는 PVF가 학습 없이도 강력한 성능을 발휘한다는 것을 입증합니다.
+
+
+
+### Less is More: Label-Guided Summarization of Procedural and Instructional Videos (https://arxiv.org/abs/2601.12243)
+Comments:
+          22 pages, 6 figures
+
+- **What's New**: 본 논문은 PRISM(Procedural Representation via Integrated Semantic and Multimodal analysis)라는 새로운 프레임워크를 제안합니다. PRISM은 비디오 요약 과정을 세 가지 단계로 나누어, 각 단계에서 맞춤형 시각 샘플링, 라벨 기반 키프레임 앵커링, 대규모 언어 모델(LLM)을 활용하여 의미론적으로 정통한 비디오 요약을 생성합니다. 기존의 복잡한 수동 주석이나 고정된 쿼리에 의존하지 않고 동적으로 라벨을 생성하면서도, 구조적으로 일관된 요약을 유지하는 혁신적인 점이 특징입니다.
+
+- **Technical Details**: PRISM 프레임워크는 초과 활용을 위해 의미론적 유사성과 라벨 기반 클러스터링을 지원하는 비전-언어 모델을 사용합니다. 샘플링된 프레임의 맥락을 인지하고, 의미론적으로 체계적인 라벨을 생성하여 각 비디오 단계의 키프레임 선택에 기반점을 제공합니다. 이러한 라벨은 비슷한 시각적 및 의미론적 프레임을 코사인 유사도 기준에 따라 그룹화하여 적절한 구성 요소를 통합합니다.
+
+- **Performance Highlights**: PRISM의 요약은 전체 비디오 길이의 5% 미만의 프레임을 사용하면서 84% 이상의 의미론적 내용을 유지합니다. YouCook2 데이터셋에서 기존 기초선을 33% 이상 초과하는 성과를 달성했으며, ActivityNet Captions에서도 17.9%의 개선을 이루었습니다. 이러한 결과는 비디오 요약에서 '적은 것이 더 많다'는 개념을 뒷받침하며, 의료 비디오 요약 작업에도 적용 가능성을 제시합니다.
+
+
+
+### Proc3D: Procedural 3D Generation and Parametric Editing of 3D Shapes with Large Language Models (https://arxiv.org/abs/2601.12234)
+- **What's New**: Proc3D는 고급 텍스트 입력을 통해 편집 가능한 3D 모델을 생성할 수 있는 시스템입니다. 기존의 3D 모델링 방식과는 달리, Proc3D는 Procedural Compact Graph (PCG)라는 새로운 그래프 표현 방식을 도입하여 사용자가 매개변수를 직관적으로 조정할 수 있도록 합니다. 이 시스템은 실시간으로 수정 가능하며, 자연어 프롬프트를 이용한 자동 수정이 가능하여, 사용자는 최대 400배 빠른 속도로 필요한 수정을 할 수 있습니다.
+
+- **Technical Details**: Proc3D의 핵심 구성 요소는 Procedural Compact Graph (PCG)로, 3D 모델을 고급 연산의 compact sequence로 변환한 것입니다. 이 PCG는 노드 수준에서 매개변수를 노출하여 사용자가 GUI 컨트롤이나 자연어 작업에 따른 진정한 실시간 수정을 가능하게 합니다. 또한, 다양한 실행 환경에 매끄럽게 컴파일할 수 있는 Engine-agnostic 구조로 설계되어 있어, API에 종속되지 않습니다.
+
+- **Performance Highlights**: Proc3D는 최신 방식보다 편집 속도와 품질에서 뛰어난 성능을 기록했습니다. 실험 결과, 3D 모델 편집 효율성이 400배 향상되었으며, ULIP 점수가 28% 증가하여 텍스트 프롬프트와의 일치를 평가하는 데 유리하게 작용합니다. 이러한 성능 개선은 텍스트 기반 이미지 편집 애플리케이션에서도 높은 정확도를 보장합니다.
+
+
+
+### Where It Moves, It Matters: Referring Surgical Instrument Segmentation via Motion (https://arxiv.org/abs/2601.12224)
+- **What's New**: 이 논문에서는 수술 장면과의 직관적이고 언어 기반의 상호작용을 가능하게 하는 SurgRef라는 새로운 동작 안내 프레임워크를 도입합니다. SurgRef는 자연어 표현을 기초로 수술 기구의 위치를 파악하고.segmentation을 수행하여, 기존의 정적인 시각적 신호와 사전에 정의된 기구 이름에 의존하는 방법들의 한계를 극복합니다. 수술 비디오에서의 기구 동작을 모델링함으로써 Occlusion, 불확실성 및 생소한 용어와 같은 상황에서도 기구를 이해하고 분리할 수 있습니다.
+
+- **Technical Details**: SurgRef는 기구의 동작을 매개로 자연어 표현을 구체적으로 모델링하는 참조 비디오 segmentation 프레임워크입니다. 이를 지원하기 위해, 다양한 수술 절차와 환경을 포괄하는 Ref-IMotion 데이터 세트를 구성하며, 기구 행동을 설명하는 동작 중심의 언어 표현을 수작업으로 주석 달아 제공합니다. 또한, 모델의 세부적인 시공간 이해를 가능하게 하는 키 프레임 주의 모듈을 통해 표현 관련 프레임을 선택하여 보다 정확한 segmentation을 수행합니다.
+
+- **Performance Highlights**: SurgRef는 다양한 수술 절차와 도구 세트 전반에서 state-of-the-art 성능과 강력한 일반화 능력을 보여줍니다. 실험 결과, SurgRef는 정밀한 시간적 효과성과 공간-시간적 grounding을 향상시켜 우수한 성과를 달성하고 있음을 입증합니다. 이 연구는 수술 비디오 segmentation 분야에서 새로운 기준을 설정하며, 기계 학습 기반의 수술 지원 시스템의 발전에 기여할 것으로 기대됩니다.
+
+
+
+### Wavelet-Driven Masked Multiscale Reconstruction for PPG Foundation Models (https://arxiv.org/abs/2601.12215)
+- **What's New**: 본 논문은 일상적인 환경에서 수집된 대규모 생체 신호로부터 전이 가능한 표현을 학습하는 웨어러블 기초 모델(wearable foundation models)의 가능성에 대해 다룹니다. 특히, 다양한 주파수 대역에서 생리학적 리듬이 펼쳐지는 광혈류측정법(photoplethysmography, PPG) 신호의 스펙트럼 구조를 간과하는 기존의 접근방식의 한계를 해결하기 위해 다중 스케일 재구성(Masked Multiscale Reconstruction, MMR) 프레임워크를 소개합니다. MMR은 PPG 데이터의 계층적 시간-주파수 스케일에서 명시적으로 학습하여, 신호의 임베딩을 더욱 풍부하게 합니다.
+
+- **Technical Details**: MMR 프레임워크는 이산 웨이브렛 변환(Discrete Wavelet Transform, DWT)을 사용하여 PPG 신호를 여러 시간-주파수 스케일로 변환합니다. 모델은 다중 스케일 재구성 작업을 통해 마스크된 계수를 복원하는 방식으로 훈련되어, 강력한 신호 표현을 학습합니다. 이렇게 생성된 웨이브렛 계수는 2D 계수 맵으로 구성되고, 이 맵은 비전 트랜스포머(Vision Transformer, ViT)를 사용해 처리됩니다.
+
+- **Performance Highlights**: MMR 모델은 약 32,000명의 스마트워치 사용자로부터 수집된 1700만 개의 비라벨링 10초 PPG 세그먼트로 사전 훈련되어, 19개의 다양한 건강 관련 작업에서 기존의 최첨단 PPG 기초 모델에 비해 향상된 성능을 보여줍니다. 이러한 결과는 웨이브렛 기반의 표현이 강력하고 생리학적으로 근거 있는 특성을 포착한다는 것을 강조합니다. MMR은 또한 전반적으로 다양한 건강 모니터링 작업에서 적용할 수 있는 가능성을 제시합니다.
+
+
+
+### Speculative Sampling with Reinforcement Learning (https://arxiv.org/abs/2601.12212)
+Comments:
+          Accepted to AAAI 2026
+
+- **What's New**: 이 논문은 대형 언어 모델(LLMs)에서의 추론 시간 지연 문제를 해결하기 위한 새로운 접근법인 Reinforcement learning for Speculative Sampling (Re-SpS)를 제안합니다. Re-SpS는 초보적(primitive) 하이퍼파라미터 최적화를 위한 RL 기반 프레임워크로서, 생성 속도를 극대화할 수 있는 맥락 인식 정책을 학습하여 동적으로 하이퍼파라미터를 조절합니다. 이는 속도 개선을 이루면서도 정확성을 유지하는 중요한 기술적 혁신으로 평가됩니다.
+
+- **Technical Details**: Re-SpS는 두 가지 주요 혁신을 도입합니다: 첫째, 목표 모델의 숨겨진 상태를 활용하여 복잡한 상태 표현을 효율적으로 재사용하는 메커니즘입니다. 둘째, 다단계 행동 지속 전략을 통해 여러 디코딩 단계에서 선택된 하이퍼파라미터 구성을 캐시하고 재사용함으로써 정책 추론 비용을 분산시킵니다. 이러한 구조는 Re-SpS가 동적으로 하이퍼파라미터를 최적화할 수 있도록 하며, 기존의 정적 접근 방식보다 더 효율적입니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 Re-SpS의 성능을 평가한 결과, EAGLE-3와 비교할 때 최대 1.12배, 기초 LLM에 대해서는 최대 5.45배의 속도 향상이 나타났습니다. 이러한 결과는 정확도를 손상시키지 않으면서도 응답 시간을 유의미하게 단축시킬 수 있음을 보여줍니다. 추가적으로, ablation 연구를 통해 제안된 기술 설계의 유효성이 검증되었습니다.
+
+
+
+### Do Neural Codecs Generalize? A Controlled Study Across Unseen Languages and Non-Speech Tasks (https://arxiv.org/abs/2601.12205)
+- **What's New**: 이번 논문은 신경 오디오 코덱스(NACs)의 일반화 능력에 관한 세 가지 중요한 질문을 다룹니다. 첫째, NACs가 사전 훈련 중에 보지 못한 언어로 일반화할 수 있는지 조사하며, 둘째, 음성 데이터로만 훈련된 NACs가 환경 소리, 음악, 동물의 발성 등 비음성 분야에 잘 적용될 수 있는지를 검토합니다. 셋째, 비음성 데이터를 사전 훈련에 포함하면 음성 및 비음성 작업 모두에서 성능을 향상시킬 수 있는지 검토합니다.
+
+- **Technical Details**: 연구는 NACs를 공정한 비교가 가능하도록 엄격한 설정에서 처음부터 재교육했습니다. NACs의 아키텍처는 인코더, 양자화기, 복원기로 구성되며, GAN(Generative Adversarial Network) 프레임워크를 사용하고 있습니다. 또한, 연구는 신호 재구축 품질과 다운스트림 응용 프로그램에 대한 평가를 11개의 지표를 사용하여 수행하였습니다.
+
+- **Performance Highlights**: 실험 결과 NACs는 사전 훈련 중에 보지 못한 언어로 일반화할 수 있는 것으로 나타났습니다. 그러나 음성 전용 NACs는 비음성 작업에서 성능이 감소하며, 비음성 데이터를 사전 훈련에 통합하면 비음성 작업에서 성능이 향상되는 반면 음성 작업에서는 유사한 성능을 유지합니다. 이러한 결과는 NAC들이 다양한 분야에 어떻게 적용될 수 있는지를 보여줍니다.
+
+
+
+### Aletheia: What Makes RLVR For Code Verifiers Tick? (https://arxiv.org/abs/2601.12186)
+Comments:
+          8 pages, 6 figures
+
+- **What's New**: 이번 연구는 Reinforcement Learning from Verifiable Rewards (RLVR) 기반의 다중 도메인 사고 검증기를 소개하며, 이는 대형 언어 모델(LLM)의 포스트 트레이닝(pipeline)에서 중요한 역할을 합니다. 특히, 코드 생성에 있어 이러한 검증기의 활용이 부족했던 상황을 극복하고, 실행 피드백이 얻기 힘든 경우에도 유효하다는 점을 강조하고 있습니다. 이 연구팀은 Aletheia라는 새로운 테스트베드를 오픈소스화하여 코드 검증기의 강건성을 평가할 수 있게 합니다.
+
+- **Technical Details**: Aletheia는 다양한 정책 모델 및 공변량 변화에 따른 코드 검증기의 성능을 측정할 수 있도록 설계된 통제된 실험환경입니다. 연구팀은 RLVR 기반의 검증기 훈련법에 있어 중간 사고 흔적(intermediate thinking traces), 부정 샘플에서 학습(learning from negative samples), 그리고 온-정책 학습(on-policy training)의 세 가지 주요 요소를 평가합니다. 이 실험에서는 1.5B에서 14B 파라미터를 가진 검증기를 사용하여 보다 간단하고 효율적인 훈련 접근법을 찾아낼 수 있음을 보여줍니다.
+
+- **Performance Highlights**: 실험 결과 RLVR의 최적성을 확인하면서도, 코드를 검증하는 데 있어각각의 요소가 미치는 영향을 분석했습니다. 특히, 작은 검증기 크기에서는 온-정책 학습이 중요한 요소로 부각되며, 큰 스케일에서는 사고 기반 훈련이 가장 중요한 요소로 나타났습니다. 이 연구는 코드 검증기 훈련의 효율성을 크게 향상하는 잠재력을 지니고 있으며, 그 결과는 일반적인 코드 생성 태스크에 유용하게 적용될 수 있습니다.
+
+
+
+### Enhanced Diagnostic Performance via Large-Resolution Inference Optimization for Pathology Foundation Models (https://arxiv.org/abs/2601.12150)
+Comments:
+          8 pages
+
+- **What's New**: 이 논문은 병리학 기초 모델의 입력 해상도와 하위 성능 간의 상호작용을 명확히 논의한 첫 번째 연구이며, 병리학 기초 모델의 추론 최적화에 중점을 두고 있다. 이 방법은 GPU 메모리 사용량을 크게 줄이면서도 성능 개선을 이끌어낸다.
+
+- **Technical Details**: 제안된 방법에서는 공간적으로 인식된 이웃 블록을 사용하여 주의(attention) 행렬을 희소화(sparsify)하고, 글로벌 어텐션(global attention) 점수를 통해 비정보적 토큰을 필터링한다. 이 접근법은 병리학 이미지를 처리할 때 주의 메커니즘의 연산량을 효과적으로 줄인다.
+
+- **Performance Highlights**: 본 연구는 ROI 분류 작업에서 최대 7.67% 성능 향상을 달성했으며, 세분화(segmentation) 작업에서도 호환되는 성과를 보였다. 이는 동일한 GPU 예산 내에서 더 높은 해상도의 입력 이미지로도 추론을 가능하게 하여 효율성을 크게 개선한 결과이다.
+
+
+
+### Segment and Matte Anything in a Unified Mod (https://arxiv.org/abs/2601.12147)
+Comments:
+          AAAI 2026
+
+- **What's New**: 이번 논문에서는 Segment Anything (SAM)의 확장 모델인 Segment And Matte Anything (SAMA)를 소개합니다. SAMA는 고품질의 인터랙티브 이미지 분할 및 마팅을 제공하면서도 최소한의 추가 매개변수로 구성된 경량화된 확장입니다. 이 모델은 다중 뷰 로컬라이제이션 인코더(MVLE)와 로컬 어댑터(Local-Adapter)를 사용하여 상세한 특징을 캡처하고 향상된 마스크 출력을 제공합니다.
+
+- **Technical Details**: SAMA는 두 가지 주요 구성 요소로 나뉩니다. 첫 번째는 MVLE로, 여러 지역 뷰로부터 수집한 세부 정보를 통해 공간 정밀도를 향상시키며, 두 번째는 Local-Adapter로, 마스크 예측을 개선하여 미세한 경계 세부사항을 보완합니다. 또한, 각 작업에 대한 두 개의 예측 헤드를 통합하여 분할 및 마팅 마스크를 동시에 생성할 수 있는 아키텍처를 설계했습니다.
+
+- **Performance Highlights**: SAMA는 공개된 데이터 세트에서 훈련되었으며, 다양한 분할 및 마팅 벤치마크에서 최첨단 성능을 달성하여 그 적응성 및 효율성을 입증했습니다. 특히, SAMA는 SAM의 장점을 유지하며 유연한 프롬프트 기능을 통해 성능을 극대화하였습니다. 이번 연구는 차세대 인터랙티브 세분화 및 마팅 모델의 가능성을 보여줍니다.
+
+
+
+### Human-Human-AI Triadic Programming: Uncovering the Role of AI Agent and the Value of Human Partner in Collaborative Learning (https://arxiv.org/abs/2601.12134)
+- **What's New**: 이 연구는 인간-인간-인공지능(HHAI) 삼중 프로그래밍을 도입하여 AI를 인간 파트너의 대체물이 아니라 추가적인 협력자로 활용하는 방식을 제안합니다. 이렇게 함으로써, 참여자들은 AI 생성 코드에 대한 의존도가 줄어들고 협력 학습과 사회적 존재감이 향상되는 것을 보여주었습니다. 특히, 연구에서는 AI 지원을 통해 프로그래밍 교육의 사회적 및 학습적 측면이 어떻게 활성화될 수 있는지를 밝혔습니다.
+
+- **Technical Details**: 연구에서는 20명의 참가자를 대상으로 한 내적 피험자 연구를 실시하였으며, AI의 위치(공유 AI vs 개인 AI)와 프로그래밍 지원 방식의 필요성에 대해 비교 분석했습니다. 연구 결과, HHAI 조건에서는 참가자들에게 AI의 제안을 이해한 후 사용하는 책임감이 강화되었고, 이는 코드 생성에 대한 의존도를 낮추는 결과로 이어졌습니다. AI를 개인 지원이 아닌 공동 협력자로 사용함으로써, 학습 과정의 사회적 공유 조절이 가능해졌음을 강조합니다.
+
+- **Performance Highlights**: HHAI 삼중 프로그래밍은 인간-AI(HAI) 조건보다 더 강력한 협력 학습 경험과 사회적 존재감을 제공하는 것으로 나타났습니다. 참가자들은 AI와의 상호작용을 통해 서로에게 설명함으로써 학습하는 등의 다양한 학습 방식이 가능해졌으며, AI와의 협업을 통해 더 책임감 있는 AI 사용이 이루어졌다고 밝혔습니다. 이러한 결과는 향후 AI 도구 설계 및 협업 프로그래밍 교육의 방향성을 제시합니다.
+
+
+
+### Bengali Text Classification: An Evaluation of Large Language Model Approaches (https://arxiv.org/abs/2601.12132)
+- **What's New**: 본 연구는 대규모 언어 모델(LLM)을 활용하여 방글라데시 신문 기사를 분류하는 효과를 탐구합니다. 데이터셋은 Kaggle에서 수집된 Prothom Alo 기사로 구성되어 있으며, 총 400,000개 샘플과 25개 이상의 카테고리를 포함합니다. 연구에서는 LLaMA 3.1, LLaMA 3.2, Qwen 2.5 모델 3개를 평가하여, Qwen 2.5 모델이 72%의 분류 정확도를 기록하였습니다.
+
+- **Technical Details**: 텍스트 분류는 내용에 따라 미리 정의된 카테고리 또는 레이블을 텍스트에 할당하는 과정을 의미하며, 이는 지도 학습(supervised learning) 방식으로 수행됩니다. 데이터셋에서 중요한 특성을 인식하는 알고리즘을 학습하여 새로운 텍스트를 분류할 수 있습니다. 연구에서는 정확도(accuracy), F1 스코어, 재현율(recall), 정밀도(precision)와 같은 지표를 사용하여 모델 성능을 평가합니다.
+
+- **Performance Highlights**: Qwen 2.5 모델은 특히 '스포츠' 카테고리에서 72%의 높은 정확도를 기록하며 가장 우수한 성능을 보였습니다. LLaMA 모델들은 각각 53%와 56%의 정확도를 기록하였습니다. 이번 연구는 방글라데시 NLP에서 LLM의 가능성을 보여주며, 향후 연구는 모델 추가 탐색, 클래스 불균형 문제 해결, 세부 조정 접근 방식을 개선하여 분류 성능을 높이는 방향으로 진행될 것입니다.
+
+
+
+### SynQP: A Framework and Metrics for Evaluating the Quality and Privacy Risk of Synthetic Data (https://arxiv.org/abs/2601.12124)
+Comments:
+          7 Pages, 22nd Annual International Conference on Privacy, Security, and Trust (PST2025), Fredericton, Canada
+
+- **What's New**: 이번 연구에서는 SynQP라는 오픈 프레임워크를 도입하여 합성 데이터 생성(Generating Synthetic Data, SDG)에서 개인정보 보호를 평가하는 새로운 벤치마크를 제공합니다. 이 프레임워크는 고유한 정보를 포함하지 않는 실제 데이터를 기반으로 시뮬레이션된 민감한 데이터를 생성하여 원본 데이터의 기밀성을 유지합니다. 또한, 연구에서는 기존 접근 방식보다 더 정확한 개인정보 노출 위험을 평가할 수 있는 새로운 메트릭을 제안합니다.
+
+- **Technical Details**: SynQP는 식별될 수 없는 실제 데이터를 기반으로 시뮬레이션된 데이터 세트를 생성하는 방법론을 사용하여 구축되었습니다. 이 과정에서, 다양한 쿼시 식별자(quasi-identifiers)가 생성되고, 이를 통해 비식별 데이터와 연결하여 시뮬레이션된 데이터를 생성합니다. 또한, 차별적 프라이버시(Differential Privacy, DP) 접근 방식이 적용되어 데이터 학습 과정에서 개인정보를 보호하도록 설계되었습니다.
+
+- **Performance Highlights**: 연구 결과, SynQP 프레임워크는 CTGAN 모델의 프라이버시 성능을 벤치마킹하는 데 사용되었으며, 의도한 범위 내에서 신뢰할 수 있는 프라이버시 평가 결과를 제공합니다. 차별적 프라이버시를 적용한 모델은 모두 규제 기준인 0.09 이하로 유지되며, 기존 방식에 비해 개인정보 노출 위험을 줄이는 데 성공하였습니다. 이는 합성 데이터의 안전한 활용을 위한 중요한 도구로 작용할 것입니다.
+
+
+
+### Powerful Training-Free Membership Inference Against Autoregressive Language Models (https://arxiv.org/abs/2601.12104)
+Comments:
+          9 pages, 2 figures; appendix with additional experiments and derivations
+
+- **What's New**: 최신 연구에서는 EZ-MIA라는 새로운 membership inference attack (MIA) 방법론을 제안했습니다. EZ-MIA는 모델의 오류 위치에서의 확률 변화 패턴을 분석하여 메모리화를 식별합니다. 기존 방법들이 직면했던 한계를 극복하며, 특히 최소한의 false-positive율을 요구하는 실제 프라이버시 감사 상황에서도 높은 탐지율을 기록합니다.
+
+- **Technical Details**: EZ-MIA는 Error Zone (EZ) 스코어라는 단일 통계를 사용하여 오류 위치에서의 확률 변화의 방향성을 측정합니다. 이 방법은 pretrained reference model에 대한 두 번의 forward 패스를 통해 실행되며, 추가적인 모델 훈련이 필요하지 않습니다. EZ-MIA는 GPT-2 및 Llama-2-7B와 같은 다양한 대형 모델에서 높은 탐지 성능을 보여주었습니다.
+
+- **Performance Highlights**: 연구 결과, EZ-MIA는 WikiText 데이터셋에서 1%의 false positive rate(FPR) 환경에서 66.3%의 true positive rate(TPR)을 기록하며, 이전의 최고 성능인 SPV-MIA보다 3.8배 높은 탐지 성능을 나타냅니다. 0.1% FPR에서의 평가에서도 EZ-MIA는 8배 높은 탐지율을 보였으며, 이는 프라이버시 감사의 새로운 기준을 세우는 결과입니다.
+
+
+
+### Large language models struggle with ethnographic text annotation (https://arxiv.org/abs/2601.12099)
+- **What's New**: 최근 연구에서는 대형 언어 모델(LLMs)이 인류학의 민족지적 텍스트에서 구조화된 데이터를 추출하여 교차문화 연구를 가속할 수 있는 가능성을 제시하고 있습니다. 연구팀은 121개의 의식 특성을 포함한 567개의 민족지적 발췌문에 대한 7개의 최신 LLM 성능을 평가했습니다. 결과적으로 이러한 모델들은 신뢰할 수 있는 자동 주석을 위한 기준에 미치지 못하며, 특히 긴 텍스트나 모호한 구성의 주석 처리에서 어려움을 겪고 있습니다.
+
+- **Technical Details**: 이 연구에서는 567개의 민족지적 텍스트에서 유래한 두 개의 상호 보완적 데이터 세트를 사용하여 7개의 LLM을 평가하였습니다. 첫 번째 데이터 세트에는 의식의 기능, 지속 시간 및 수행된 다양한 행동을 포함한 115개의 의식 특성이 포함되어 있으며, 두 번째 데이터 세트는 6가지 동기화 행동에 중점을 두고 있습니다. 모델의 정확도를 예측하기 위해 혼합효과 모델을 사용하여 여러 특성과 태스크의 특성을 통합하였습니다.
+
+- **Performance Highlights**: 모든 모델과 프롬프트 조건에서, LLM의 출력과 전문가 인간 주석을 비교한 결과 성능이 지속적으로 낮았으며 평균 F1 점수는 0.12에서 0.41 사이로 나타났습니다. DeepSeek V3.1 모델이 멀티태스크 프롬프트와 앙상블 샘플링으로 F1=0.41을 기록하며 가장 높은 성능을 보인 반면, GPT-OSS 120B도 같은 조건 하에 F1=0.41로 뒤를 이었습니다. 전반적으로 LLM은 인간 주석자에 비해 신뢰성과 정확도가 낮았습니다.
+
+
+
+### Neural Isomorphic Fields: A Transformer-based Algebraic Numerical Embedding (https://arxiv.org/abs/2601.12095)
+- **What's New**: 이번 연구에서는 수를 직접 사용하지 않고 숫자의 특성을 보존하는 고정 길이의 수 임베딩 벡터를 제안합니다. 특히, 새로운 Neural Isomorphic Field (NIF) 구조를 통해 수의 대수적 특성을 유지하는 임베딩을 생성하여 수학적인 연산에서의 안정성을 높이고자 합니다. 본 논문은 숫자의 연산을 더욱 풍부한 의미로 표현하기 위한 새로운 접근 방식을 제시합니다.
+
+- **Technical Details**: NIF 구조는 합산, 곱셈 및 비교와 같은 대수적 연산을 보존하는 임베딩 벡터를 생성합니다. 이를 통해, 숫자를 구성하는 임베딩 벡터의 집합은 유리수의 이소모픽 구조에 근접하도록 설계되었습니다. 논문에서는 이상적인 조건을 설정하고 이소모픽 필드의 수학적 정리를 증명하여, 실제로는 학습 과정에서 내재된 오류로 인해 이소모픽 구조를 완벽히 구현하지는 못함을 설명합니다.
+
+- **Performance Highlights**: 실험 결과, NIF 구조는 덧셈 연산에서 매우 높은 95% 이상의 정확도를 달성했으며, 대수적 테스트에서 우수한 성능을 나타냈습니다. 반면, 곱셈 연산은 53%에서 73% 사이의 정확도를 보이며 어려움을 겪고 있어 향후 연구에서 개선 방향이 필요함을 확인했습니다.
+
+
+
+### Conditional Random Fields for Interactive Refinement of Histopathological Predictions (https://arxiv.org/abs/2601.12082)
+- **What's New**: 이 논문에서는 HistoCRF라는 새로운 프레임워크를 제안하여, 수작업으로 히스토패솔로지 이미지를 분석하는 패스올로지스트를 돕기 위한 방법을 소개합니다. HistoCRF는 Conditional Random Fields (CRFs)를 활용하여 기존의 Vision-Language Models (VLMs)에서 얻은 패치 레벨의 제로 샷(Zero-shot) 예측을 개선하는 접근법입니다. 이 방법은 추가적인 모델 훈련 없이도 VLM의 예측을 정교화하고, 전문가 주석을 포함하여 예측의 다양성을 촉진하는 새로운 쌍(pairwise) 잠재적(term) 정의를 포함합니다.
+
+- **Technical Details**: HistoCRF는 히스토패톨로지 이미지를 분석하기 위해 패치를 그래프의 정점으로 보고, 각 패치에 대한 클래스 레이블을 추정하는 CRF 모델을 적용합니다. 이 과정에서, CRF의 전통적인 정량적 잠재적 구성을 재구성하여 라벨 다양성을 장려하고 전문가 주석을 통합합니다. 또한, 비훈련 방식을 통해 VLMs로부터 유도된 유니타리(unary) 잠재적(term)을 활용해 패치 레벨 예측을 수행합니다.
+
+- **Performance Highlights**: HistoCRF는 다섯 개의 히스토패톨로지 벤치마크 데이터셋에서 주석 없이 평균 16.0%, 100개의 주석만으로 평균 27.5%의 정확도 향상을 달성했습니다. 마지막으로, 휴먼 인 더 루프(HITL) 구조를 통해 동일한 주석 수로 추가적인 32.6%의 성능 향상을 이끌어내어, 실시간 상황에서도 효과적으로 활용될 수 있음을 보여주었습니다.
+
+
+
+### Bridging the Gap in Bangla Healthcare: Machine Learning Based Disease Prediction Using a Symptoms-Disease Datas (https://arxiv.org/abs/2601.12068)
+- **What's New**: 이 연구는 의료 정보 접근성을 높이기 위해 758개의 고유한 증상-질병 관계를 포함하는 포괄적인 방글라어 증상-질병 데이터셋을 개발했습니다. 이는 방글라어를 사용하는 인구가 질병을 예측할 수 있도록 지원하며, 앞으로의 건강 정보와 진단 도구 개발에 기초 자료로 활용될 것입니다. 연구팀은 이 데이터셋을 공개하여 투명성과 재현성을 보장하고, 질병 예측 모델의 성능을 평가했습니다.
+
+- **Technical Details**: 연구 결과, 여러 머신 러닝 모델을 사용하여 방글라어로 제공된 증상 기반 질병 예측 성과를 분석하였습니다. 특히 soft voting과 hard voting 앙상블 접근법을 통해 상위 성능 모델을 결합하여 98%의 정확도를 달성했습니다. 이러한 결과는 데이터셋의 일반화 및 내구성을 입증하며, 향후 비슷한 연구에 기여할 것으로 보입니다.
+
+- **Performance Highlights**: 이 데이터셋과 머신 러닝 기법을 결합함으로써 조기 질병 식별 및 진단 정확성을 높였습니다. 연구진의 접근법은 방글라어를 사용하는 커뮤니티를 위한 건강 정보의 공정한 접근을 활용하는 데 중점을 둡니다. 궁극적으로, 본 연구는 질병 예측 및 개인화된 건강 관리 방안을 제시하여 의료 개입에 도움을 줄 것으로 기대됩니다.
+
+
+
+### Codebook-Injected Dialogue Segmentation for Multi-Utterance Constructs Annotation: LLM-Assisted and Gold-Label-Free Evaluation (https://arxiv.org/abs/2601.12061)
+Comments:
+          Under Review for ACL 2026
+
+- **What's New**: 이번 논문에서는 대화 행동(Da) 주석 작업에서의 경계 결정 문제를 해결하기 위해 코드북이 주입된 세그멘테이션 방법을 제안합니다. 이 방법은 주석의 기준에 따라 경계 결정을 조건화하여 주석 프로세스에서 두 개념을 명확히 분리합니다. 또한, 대화 흐름에 대한 정확한 검토와 교육적 대화에서의 경계 placement를 다루며, 이는 주석의 품질을 높이는 데 집중합니다.
+
+- **Technical Details**: 논문에서는 대화 세그멘테이션을 위한 LLM(대형 언어 모델) 기법을 평가하고, 기존 NLP 대화 세그멘테이션 알고리즘과의 성능을 비교합니다. 성능 평가를 위해 오프라인 레이블이 없는 기준을 도입하였으며, 세그먼트 간 일관성, 인접 세그먼트의 독특함 및 분포적 동의 수준을 측정합니다. 코드북 주입된 세그멘테이션을 활용해 복잡한 교과 과정 내에서의 교육적 의도를 반영한 주석을 가능하게 합니다.
+
+- **Performance Highlights**: 논문에서 제안한 방법은 LLM에 기반하여 세그먼트를 생성할 때, 텍스트 기반 기준보다 내부적인 일관성이 높음을 보여주었습니다. 그러나 대화 흐름의 전반적인 변화를 감지하는 데 있어서는 여전히 전통적인 기준이 우수함을 확인했습니다. 두 가지 데이터 세트를 통해 성능에는 단일 세그멘터가 우세하지 않으며, 세그먼트 내 일관성의 개선이 경계의 독창성과 인간-AI 분포적 동의 간의 절충을 요구함을 확인했습니다.
+
+
+
+### Automating Parameter Selection in Deep Image Prior for Fluorescence Microscopy Image Denoising via Similarity-Based Parameter Transfer (https://arxiv.org/abs/2601.12055)
+- **What's New**: 이번 연구에서는 비지도 학습 기반으로 흐름 형광 현미경 이미지의 노이즈 제거 방법인 AUTO-DIP를 제안합니다. 기존의 Deep Image Prior (DIP) 기법의 한계를 해결하기 위해, 비슷한 이미지들 간에 최적 파라미터 구성을 전이하여 적용하는 방식을 사용합니다. 이를 통해 알고리즘 구성 시 소모되는 시간을 최소화하고 보다 효율적인 노이즈 제거가 가능합니다.
+
+- **Technical Details**: AUTO-DIP는 U-net 아키텍처를 기반으로 하여, 랜덤하게 초기화된 컨볼루션 신경망(CNN)을 사용합니다. 핵심 아이디어는 이미지 메타데이터의 유사성을 바탕으로, 비슷한 이미지를 통해 파라미터를 전이하여 최적화 없이 노이즈 제거를 가능하게 하는 것입니다. 연구에서는 적절한 유사도 기준을 설정하고 세밀한 파라미터 구현을 통해 성공적으로 자동화된 프로세스를 구성합니다.
+
+- **Performance Highlights**: AUTO-DIP는 기존의 DIP 구성 및 상태-of-the-art의 이미지-특화 변동 노이즈 제거 방법보다 우수한 성능을 보였습니다. 특히 매우 노이즈가 많은 입력에 대해 뚜렷한 개선이 이루어졌으며, 처리 속도 또한 3배 이상 향상되었습니다. 추가적으로, 실제 데이터에 적용했을 때 AUTO-DIP의 우수성이 입증되었습니다.
+
+
+
+### A New Strategy for Artificial Intelligence: Training Foundation Models Directly on Human Brain Data (https://arxiv.org/abs/2601.12053)
+- **What's New**: 이 논문은 기존의 기초 모델들이 인간이 생성한 데이터에 의존하는 한계를 넘어, 직접적으로 인간의 뇌 데이터를 기반으로 기초 모델을 학습하는 새로운 전략을 제안합니다. 저자들은 신경 영상 데이터(neuroimaging data)가 관찰 가능한 행동으로는 접근할 수 없는 인간 인지의 요소들에 대한 통찰을 제공할 수 있다고 가설하고, 이러한 지식을 통해 기초 모델의 현재 한계를 극복할 수 있음을 논의합니다. 또한, 인간 뇌 데이터를 활용한 두 가지 방법, 즉 강화 학습 강화 인간 뇌(reinforcement learning from human brain, RLHB)와 인간 뇌의 사고 사슬(chain of thought from human brain, CoTHB)을 제안합니다.
+
+- **Technical Details**: 기초 모델들은 다양한 데이터 유형에 대해 학습할 수 있지만, 그들의 가장 중요한 지식 원천은 텍스트와 음성 같은 인간이 생성한 방대한 데이터입니다. 저자들은 신경 영상 데이터가 인간의 행동을 추론하기 위한 것이 아니라, 인간의 인지 과정의 생성 과정을 드러내기 위한 진정한 잠재력을 가지고 있다고 주장합니다. 이들은 인간 뇌의 특정 영역과 인지 과정들을 네 가지 수준인 인식(perception), 평가(valuation), 실행(execution), 통합(integration)으로 분류하며, 이들을 활용하여 기초 모델의 한계를 극복할 수 있는 방법을 탐구합니다.
+
+- **Performance Highlights**: 신경 영상 데이터는 인간의 행동 이면에 있는 인지 과정을 더 깊이 이해하는데 이용될 수 있으며, 이를 통해 기초 모델들이 단순한 통계적 패턴을 넘어설 수 있도록 할 수 있습니다. 논문에서는 이러한 새로운 접근 방식이 인공지능(AI) 및 인공지능 일반화(artificial general intelligence, AGI)와 인공지능 초지능(artificial superintelligence)에서도 잠재적인 영향을 미칠 수 있음을 시사합니다. 최종적으로, 뇌 기반 기초 모델들은 기존 아키텍처의 확장을 계속하는 것과 대안적인 신경과학에 영감을 받은 해결책을 탐색하는 것 사이의 현실적이고 효과적인 중간 경로를 제공할 수 있습니다.
+
+
+
+### \textit{FocaLogic}: Logic-Based Interpretation of Visual Model Decisions (https://arxiv.org/abs/2601.12049)
+Comments:
+          12 pages, 13 figures
+
+- **What's New**: 이 논문에서는 FocaLogic이라는 새로운 모델 불가지론적 (model-agnostic) 프레임워크를 제안하여, 시각 모델의 의사 결정 과정을 해석하고 정량화할 수 있도록 합니다. 기존의 해석 방법들이 화이트 박스 모델 접근에 의존하거나 정량적 엄밀성이 부족한 문제를 해결하고자 합니다. FocaLogic은 모델 예측에 결정적으로 영향을 미치는 시각 영역인 시각 집중 (visual focuses)을 식별하고 이를 정확하고 간결한 논리 표현으로 변환합니다.
+
+- **Technical Details**: FocaLogic은 입력 이미지에서 여러 시각 영역을 분할한 후, 모델의 원래 예측을 유지하는 최소한의 시각 집중 부분집합을 반복적으로 식별합니다. 이를 통해 결정적인 논리 표현으로 변환하여 모델의 의사 결정 기준을 압축적으로 표현합니다. 또한, 집중 정확도 (focus precision), 재현율 (recall), 발산 (divergence) 등의 정량적 메트릭을 도입하여 다양한 시나리오에서 모델 행동을 객관적으로 평가합니다.
+
+- **Performance Highlights**: FocaLogic은 기존의 시각 집중 해석 방법들과 비교하여 우수성을 입증하였습니다. 실험을 통해 모델이 훈련 동안 집중하는 방식, 일반화를 통해 정확성을 높이는 방법, 그리고 편향이나 적대적 공격 하에서의 이상 집중을 발견하는 능력 등을 입증했습니다. 전반적으로 FocaLogic은 시각 모델 해석의 체계적이고 확장 가능하며 정량적인 솔루션을 제공합니다.
+
+
+
+### Less Is More -- Until It Breaks: Security Pitfalls of Vision Token Compression in Large Vision-Language Models (https://arxiv.org/abs/2601.12042)
+- **What's New**: 이 논문은 Large Vision-Language Models (LVLMs)의 시각적 토큰 압축이 모델의 강건성을 크게 저하시킨다는 사실을 밝혀냈습니다. 압축된 추론 하에서는 모델이 예상치 못한 취약점을 보이며, 이러한 취약점은 상태에 따라 다르게 나타나기 때문에 식별하기가 어렵습니다. 또한, 전통적인 공격이 압축된 설정에서의 실패를 포착하지 못하는 한계를 지적하며, Compression-Aware Attack (CAA)이라는 새로운 접근 방식을 제안합니다.
+
+- **Technical Details**: LVLMs는 시각적 데이터의 공간 중복성 및 특정 텍스트 프롬프트에 필요한 시각적 증거의 적은 양 요구라는 두 가지 관찰을 바탕으로 시각적 토큰 압축을 사용합니다. 이 방법은 중요도에 따라 토큰을 선택하여 비정보적인 토큰을 폐기하며, 모델 재훈련 없이 작동합니다. 하지만 이 논문에서는 이러한 압축 과정에서 토큰의 중요도 순위가 불안정해지며, 이는 작은 교란에 의해 쉽게 변경될 수 있음을 확인했습니다.
+
+- **Performance Highlights**: 논문은 CAA를 통해 압축된 추론 하에서 LVLM의 강건성이 급격히 저하됨을 확인했습니다. 주요 실험 결과에 따르면, 기존의 공격이 평균 2.36%의 Compression Sensitivity Gap (CSG)를 유발하는 반면, CAA는 평균 47.61%의 CSG를 초래하여 압축으로 인해 발생하는 보안 취약점의 실체를 드러냈습니다. 이런 실험 결과는 시각적 토큰 압축에서의 효율성-보안 간의 균형 문제를 강조하며, 보다 강건한 압축 설계를 위한 필요성을 제기합니다.
+
+
+
+### Acting Flatterers via LLMs Sycophancy: Combating Clickbait with LLMs Opposing-Stance Reasoning (https://arxiv.org/abs/2601.12019)
+- **What's New**: 이번 연구는 클릭베이트(clickbait) 탐지 문제를 해결하는 데 있어 Large Language Models (LLMs)의 특성을 활용하는 새로운 접근 방식을 제안합니다. 기존 LLM에서 나타나는 시콕팬시(sycophancy) 현상을 개선하려고 하는 대신, 이 연구는 이를 장점으로 삼아 서로 다른 관점에서 대조적 의견을 생성하는 방법을 모색합니다. Self-renewal Opposing-stance Reasoning Generation (SORG) 프레임워크를 통해 고품질의 동의 및 비동의 이유 쌍을 생성하며, 이를 통해 클릭베이트 탐지를 더욱 향상시킵니다.
+
+- **Technical Details**: SORG는 사용자가 제시한 뉴스 제목에 대해 클릭베이트인지 비클릭베이트인지를 가정하여 LLM을 유도하여 상반된 주장을 발생시키도록 설계되었습니다. 이를 통해 생성된 대조적 이유는 Opposing Reasoning-based Clickbait Detection (ORCD) 모델에서 사용되며, 이 모델은 세 개의 BERT 인코더를 사용하여 제목과 그에 해당하는 이유를 표현합니다. 이 과정에서 소프트 레이블(soft labels)을 활용하여 대조 학습(contrastive learning)을 진행하며, 이를 통해 탐지의 강 robustness를 높입니다.
+
+- **Performance Highlights**: 실험적으로 연구진은 세 가지 클릭베이트 데이터셋에서 제안한 방법의 효과성을 검증하였고, 기존의 LLM을 기반으로 한 접근법, 소규모 언어 모델의 파인튜닝(fine-tuning), 그리고 최신 클릭베이트 탐지 기준선들과 비교하여 우수한 성능을 보였습니다. ORCD 모델은 다양한 평가 지표에서 기존 방법들보다 일관되게 뛰어난 성능을 나타냈습니다. 본 연구는 LLM의 활용을 클릭베이트 탐지 문제에 있어 새로운 가능성으로 제시하며 혁신적인 전환을 제공합니다.
+
+
+
+### Robust Verification of Concurrent Stochastic Games (https://arxiv.org/abs/2601.12003)
+Comments:
+          Extended version of a paper accepted to TACAS 2026. Main text: 17 pages, 2 figures, 2 tables; Appendix: 37 pages, 3 figures, 3 tables
+
+- **What's New**: 이번 논문에서는 자율 시스템이 불확실한 환경에서 전략적인 결정을 내려야 하는 멀티 에이전트 설정에서 동작한다는 점을 강조합니다. 기존의 동시 확률 게임(concurrent stochastic games, CSGs) 모델은 전이 확률(transition probabilities)을 정밀하게 지정해야 하므로 비현실적인 요구 사항이 있습니다. 이에 따라 저자들은 전이 확률에 대한 인지적 불확실성을 포착하는 강건 CSGs(robust CSGs)와 그 하위 클래스인 구간 CSGs(interval CSGs, ICSGs)를 도입합니다.
+
+- **Technical Details**: 강건 검증(robust verification)을 위한 새로운 프레임워크를 제안하며, 이는 전이 불확실성에 대한 최악의 가정을 기반으로 합니다. 논문에서는 제로-섬(zero-sum) 및 비제로-섬(nonzero-sum) 환경에서 유한(finite) 및 무한(infinite) 목표를 위한 이론적 기초와 효율적인 알고리즘을 개발합니다. 특히, 비제로-섬 환경에서는 사회복지 최적(social-welfare optimal) 내쉬 균형(Nash equilibria)을 활용합니다.
+
+- **Performance Highlights**: PRISM-games 모델 체커(model checker)에서 강건 검증의 구현을 구축하고 이를 통해 구간 CSGs에 대한 강건 검증의 실행 가능성을 다수의 대규모 벤치마크를 통해 보여줍니다. 이 연구는 자율 시스템의 안전성과 신뢰성을 높이는 데 기여할 수 있는 중요한 발전으로 평가됩니다.
+
+
+
+### Hybrid IDS Using Signature-Based and Anomaly-Based Detection (https://arxiv.org/abs/2601.11998)
+Comments:
+          7 pages,The Second National Conference on Artificial Intelligence and Information Technologies (NCAIIT25)
+
+- **What's New**: 이 논문에서는 하이브리드 IDS (Intrusion Detection Systems)의 중요성과 발전 방향에 대한 포괄적인 설문조사를 제공합니다. 하이브리드 IDS는 서명 기반(signature-based) 및 이상 탐지(anomaly-based) 기술을 통합하여 공격 탐지 능력을 향상시키고 있으며, 기존 IDS의 제한사항을 극복하고자 하는 노력을 반영하고 있습니다.
+
+- **Technical Details**: 하이브리드 IDS는 기존의 두 가지 IDS 유형의 장점을 통합하여, 새로운 공격을 탐지하는 데 있어 더 강력한 솔루션을 제공합니다. 이 논문은 하이브리드 IDS의 다양한 모델을 기능적인 범주로 분류하고, 금융 시스템(financial systems), 항공 교통 관제(air traffic control), 소셜 네트워크(social networks) 등 다양한 응용 분야에 대한 장점과 제한사항을 논의합니다.
+
+- **Performance Highlights**: 논문에서는 기계 학습(machine learning) 기반 접근법과 클라우드 기반 배포(cloud-based deployments) 등 하이브리드 IDS 연구의 최근 트렌드를 검토하고 있습니다. 향후 연구 방향으로는 더욱 비용 효과적이고, 진화하는 사이버 공격(evolving cyberattacks)을 탐지하는 능력이 향상된 하이브리드 IDS 솔루션 개발에 초점을 맞추고 있습니다.
+
+
+
+### Learning Audio-Visual Embeddings with Inferred Latent Interaction Graphs (https://arxiv.org/abs/2601.11995)
+Comments:
+          16 pages, 5 figures, 2 tables
+
+- **What's New**: 이번 연구에서는 오디오-비주얼(visual) 임베딩을 강화하기 위해 새로운 프레임워크를 제안합니다. 이 프레임워크는 관련성 있는 신호를 연관 짓고, 불필요한 잡음을 제거하는 데 중점을 두고 있습니다. 기존의 방법들이 단순히 주어진 라벨에 의존하는 것과는 달리, 소프트 라벨(predictions)과 숨겨진 상호작용(inferred latent interactions)을 활용하여 더 정밀한 학습이 이루어지도록 합니다.
+
+- **Technical Details**: 제안된 방법의 핵심 구성 요소로는 (1) Audio-Visual Semantic Alignment Loss (AV-SAL), (2) Inferred Latent Interaction Graph (ILI), 그리고 (3) Latent Interaction Regularizer (LIR)가 있습니다. AV-SAL은 서로 다른 모달리티의 소프트 라벨 분포를 정렬하는데, 이는 주어진 라벨에 없는 사건에 대해서도 비제로 확률을 할당하여 감독 신호를 풍부하게 만듭니다. ILI는 GRaSP 알고리즘을 적용하여 클래스 간의 희소하고 방향성 있는 종속성 그래프를 추론해 내며, LIR은 학생 네트워크가 소프트 라벨 확률에 비례하여 연결된 임베딩을 통합하여 학습하도록 합니다.
+
+- **Performance Highlights**: AVE 및 VEGAS 벤치마크에 대한 실험 결과, 평균 평균 정밀도(mean average precision, mAP)에서 일관된 향상이 관찰되었습니다. 이 연구는 추론된 잠재 상호작용을 임베딩 학습에 통합함으로써 강인성(robustness) 및 의미적 응집력(semantic coherence)을 향상시키는 데 기여합니다. 이러한 기법을 통해 비주얼 및 오디오 신호 간의 관계를 보다 정확하게 파악하게 되었습니다.
+
+
+
+### One-Shot Price Forecasting with Covariate-Guided Experts under Privacy Constraints (https://arxiv.org/abs/2601.11977)
+- **What's New**: 본 연구에서는 기존의 다변량 시계열 예측 모델을 개선하기 위해 새로운 MoE Encoder 모듈을 제안합니다. 이 모듈은 토큰화와 인코딩 사이에 희소 혼합 전문가 계층(sparse mixture-of-experts layer)을 삽입하여, 데이터 프라이버시를 유지하며 효율적인 모델 훈련을 지원합니다. 특히, MoE Encoder는 다변량 예측을 전문가 가이드 단일변량 작업으로 변환할 수 있는 두 가지 주요 기능을 제공합니다: 변수 간 관계를 효과적으로 포착하고, 중앙 집중화 없이 지역화된 훈련을 가능하게 합니다.
+
+- **Technical Details**: 제안된 MoE-Encoder는 다변량 시계열 데이터를 처리하는 데 최적화된 모듈로, 다양한 보조 변수(auxiliary variables)를 기반으로 전문가 서브 네트워크를 선택적으로 활성화합니다. 이 아키텍처는 각 시계열 타임스탬프에 대해 다수의 관계된 변수를 고려하고, 각 변수를 내재화하여 모델의 유연성과 강건성을 높입니다. 이러한 구성을 통해 원시 데이터를 중앙집중화할 수 없는 비동질적 데이터 상황에서도 훈련할 수 있는 방안을 제공합니다.
+
+- **Performance Highlights**: 공식 데이터셋을 통한 광범위한 실험 결과, MoE-Encoder는 기존의 강력한 기준선(model)과 비교하여 예측 정확도를 대폭 향상시킨 것으로 나타났습니다. 또한, 비독립 및 비동질 환경에서 MoE-Encoder 파라미터만을 전송함으로써 새로운 지역에 대한 효율적인 적응이 가능하며, 성능 손실이 최소화되는 것을 확인했습니다. 이러한 성과는 MoE-Encoder가 에너지 분야와 같은 규제가 있는 도메인에서도 확장 가능하고 개인정보를 고려한 모델의 진화에 기여할 수 있음을 시사합니다.
+
+
+
+### $\texttt{MemoryRewardBench}$: Benchmarking Reward Models for Long-Term Memory Management in Large Language Models (https://arxiv.org/abs/2601.11969)
+- **What's New**: 본 연구에서는 메모리 품질을 자동적이고 신뢰성 있게 평가하기 위해 보상 모델(Reward Models, RMs)을 활용하는 것이 중요하다는 점을 강조합니다. 새로운 벤치마크인 $	exttt{MemoryRewardBench}$를 도입하여 RMs의 장기 메모리 관리 능력을 체계적으로 연구합니다. 이 벤치마크는 8K에서 128K 토큰 길이의 다양한 메모리 관리 패턴을 포함한 10개의 설정을 포함하고 있습니다.
+
+- **Technical Details**: 메모리 관리 방식에는 두 가지 주요 패러다임이 있습니다: 전방위적 처리와 세분화된 처리입니다. 세분화된 처리는 각 단계에서 메모리의 상태를 고정 크기로 유지하면서 이력을 요약하고 새로운 정보를 통합하는 방법으로 작동합니다. MemRewardBench는 장기 기억의 품질을 평가하기 위해 RMs가 메모리 관리 프로세스를 어떻게 감독할 수 있는지를 비교하는 데 초점을 맞추고 있습니다.
+
+- **Performance Highlights**: 13개의 최첨단 RM의 평가 결과, 오픈 소스와 독점 모델 간의 성능 격차가 줄어들었음을 보여주었습니다. 새로운 세대 모델들이 설정된 매개변수 수에 관계없이 이전 모델보다 지속적으로 더 나은 성능을 보임을 발견했습니다. 이는 메모리 관리 평가의 질이 모델의 기본 성능과 밀접하게 연결되어 있음을 시사합니다.
+
+
+
+### R$^2$PO: Decoupling Training Trajectories from Inference Responses for LLM Reasoning (https://arxiv.org/abs/2601.11960)
+- **What's New**: 이 연구에서는 대화형 시스템의 추론 응답과 훈련 최적화 경로 사이의 갈등을 해결하기 위해 R$^2$PO (Residual Rollout Policy Optimization)를 제안합니다. 기존 방법들은 단일 정책을 사용하여 두 가지 다른 목표를 동시에 수행하지만, 이로 인해 탐색 부족이 발생하여 추론 능력에 부정적인 영향을 미칩니다. R$^2$PO는 Residual Rollout-Head를 도입하여 훈련과 추론을 분리하여 훈련 중 다양한 경로 탐색을 가능하게 합니다.
+
+- **Technical Details**: R2PO는 훈련 경로와 추론 응답을 분리하는 경량 Residual Rollout-Head를 사용하여 안정적인 추론 생성을 유지하면서 다양한 경로 탐색을 수행합니다. 이 방법은 기본 정책의 안정성을 강화하고, 독립적인 Residual Rollout-Head를 통해 탐색을 촉진합니다. 구조적으로, Rollout-Head는 트랜스포머 백본 위에 통합되어 탐색과 최적화를 조정하는 역할을 합니다.
+
+- **Performance Highlights**: 다양한 벤치마크에서 R2PO는 기존 방법과 비교해 평균 정확도가 MATH-500에서 3.1%, APPS에서 2.4% 향상되었습니다. 또한, 형식 오류를 줄이고 길이 편향을 완화하여 훈련 안정성을 높였습니다. 이를 통해 R2PO는 여러 테스트에서 일관되게 우수한 성능을 발휘하였으며, 계산 비용이 거의 발생하지 않는 이상적인 솔루션으로 자리 잡았습니다.
+
+
+
+### Double-Calibration: Towards Trustworthy LLMs via Calibrating Knowledge and Reasoning Confidenc (https://arxiv.org/abs/2601.11956)
+- **What's New**: 이 논문에서는 Large Language Models (LLMs)의 신뢰성 문제를 해결하고자 새로운 더블-캘리브레이션(double-calibration) 원리를 도입합니다. 이 원리는 Knowledge Graphs (KGs)와 함께 사용되어, LLM의 추론 과정에서의 신뢰도를 명확히 측정하고, 이를 통해 더욱 정확하고 믿을 수 있는 예측을 제공합니다. 그 결과, DoublyCal이라는 프레임워크가 구축되어 KG 증강 방식의 최신 기술을 적용한 것이 주목할 만한 점입니다.
+
+- **Technical Details**: DoublyCal 프레임워크는 두 가지 단계로 구성됩니다. 첫 번째 단계에서는 경량 프록시 모델이 KG 증거와 그에 따른 캘리브레이션된 신뢰도를 생성합니다. 이후 이 KG 증거는 LLM의 최종 예측을 안내하는 데 사용되며, 최종 예측의 신뢰도 역시 이론적으로 근거를 두고 신뢰할 수 있도록 보장합니다.
+
+- **Performance Highlights**: DoublyCal을 활용한 실험 결과에 따르면, 이 프레임워크는 지식 중심의 벤치마크에서 LLM의 정확성과 신뢰성 캘리브레이션을 유의미하게 향상시킵니다. 특히, 저렴한 토큰 비용으로도 더 정확한 예측을 구현할 수 있음을 증명하고 있습니다.
+
+
+
+### Big Data Workload Profiling for Energy-Aware Cloud Resource Managemen (https://arxiv.org/abs/2601.11935)
+Comments:
+          10 pages, 3 figures. Accepted and presented at the 2026 International Conference on Data Analytics for Sustainability and Engineering Technology (DASET 2026), Track: Big Data and Machine Learning Applications
+
+- **What's New**: 이 논문은 클라우드 데이터 센터의 에너지 소비를 줄이기 위한 새로운 스케줄링 프레임워크를 제안합니다. 이 시스템은 CPU 활용도, 메모리 수요 및 스토리지 I/O 행동을 프로파일링하여 가상 머신(Virtual Machine) 배치 결정을 안내합니다. 제안된 방법은 과거 실행 로그와 실시간 텔레메트리를 결합하여 후보 배치의 에너지 및 성능 영향을 예측하고 SLA(서비스 수준 계약)를 준수하는 동안 적응형 통합을 가능하게 합니다.
+
+- **Technical Details**: 제안된 방법론은 세 가지 단계로 구성됩니다: 작업 프로파일링, 예측 모델링 및 에너지 인식 배치입니다. 각 작업은 CPU, 메모리, 디스크 I/O 및 네트워크 사용량을 포함하는 자원 이용 벡터로 표현됩니다. 예측 엔진은 워크로드를 특정 호스트에 할당할 때 에너지 및 성능 영향을 추정하며, 결정 트리를 통해 후보 호스트를 에너지 영향과 SLA 위험에 따라 순위를 매깁니다.
+
+- **Performance Highlights**: 실험 결과는 기준 스케줄러에 비해 15~20%의 일관된 에너지 절감을 보여주었습니다. 특히 TeraSort 작업은 실행 시간의 증가 없이 19%의 전력 소비 감소를 기록했습니다. 모든 워크로드는 제안된 스케줄러 하에서 SLA 요구사항을 충족했으며, 평균 작업 완료 시간은 기준 구성으로부터 5% 미만의 편차를 보였습니다.
+
+
+
+### Enhancing LLM-Based Data Annotation with Error Decomposition (https://arxiv.org/abs/2601.11920)
+- **What's New**: 본 논문은 LLM(대형 언어 모델)을 이용한 데이터 주석 업무의 새로운 진단 평가 패러다임을 제안합니다. 기존에는 주석 오류를 단일 정렬 메트릭으로 평가했으나, 저자들은 이를 모델의 근본적인 오차와 태스크에서 발생하는 모호성을 분리하여 평가하는 접근법을 소개했습니다. 이는 LLM 성능의 불일치 및 주관적인 주석 작업에 대한 실질적인 통찰을 제공하려는 목표를 가지고 있습니다.
+
+- **Technical Details**: 저자들은 주어진 작업에서 발생하는 오류를 두 가지 차원, 즉 출처(모델 특정 vs. 태스크 고유)와 유형(경계 모호성 vs. 개념 오인식)을 기준으로 분류하는 진단 세분화법을 제안했습니다. 또한, LLM 주석의 질을 개선하기 위해 태스크에서 고유한 모호성을 추정하는 경량 인간 주석 테스트를 소개하고, 오류의 출처와 유형을 구별하여 LLM 주석 오류를 분해하는 통계적 방법을 개발했습니다.
+
+- **Performance Highlights**: 제안된 평가 패러다임은 공개된 네 가지 교육 주석 작업에서 검증되어 그 개념적 유효성과 실용성을 입증했습니다. 연구 결과, 주관적 주석 작업에서는 LLM의 높은 일치성이 항상 기대될 수 없음을 보여주며, 단일 정렬 메트릭의 한계를 지적합니다. 또한, 저자들은 LLM 주석의 효과성을 평가할 수 있는 저비용 진단 접근법을 통해 실제적 최적화 가능성을 제시하며, 이를 통해 LLM 주석의 신뢰성과 해석 가능성을 개선하고자 합니다.
+
+
+
+### LSTM-MAS: A Long Short-Term Memory Inspired Multi-Agent System for Long-Context Understanding (https://arxiv.org/abs/2601.11913)
+Comments:
+          12 pages, 5 figures
+
+- **What's New**: 이 논문은 대형 언어 모델(LLMs)에서 긴 컨텍스트 처리를 위한 새로운 접근 방식을 제안합니다. 연구자들은 Long Short-Term Memory (LSTM) 구조에서 영감을 받아, 정보 흐름과 메모리 메커니즘을 모방한 Multi-Agent System인 LSTM-MAS를 설계하였습니다. 이 시스템은 에이전트를 체인 형태로 배치하여 오류 축적과 환상 전파 문제를 효과적으로 해결하려고 합니다.
+
+- **Technical Details**: LSTM-MAS는 여러 기능의 에이전트로 구성됩니다. Worker Agent는 현재 텍스트 세그먼트를 처리하고 이전 컨텍스트 정보를 통합하여 숨겨진 표현을 생성합니다. Filter Agent는 불필요하거나 비관련된 정보를 제거하며, Judge Agent는 일관성 검증을 통해 오류를 탐지하고, Manager Agent는 글로벌 특성을 유지하여 최종 출력을 요약합니다. 이러한 설계는 메모리 셀과 게이팅 메커니즘을 시뮬레이션하여 오류 축적을 방지합니다.
+
+- **Performance Highlights**: LSTM-MAS는 다양한 데이터셋에서 실험을 진행한 결과, 기존 다중 에이전트 방법인 CoA에 비해 상당한 성능 향상을 보여주었습니다. NarrativeQA, Qasper, HotpotQA 및 MuSiQue에서 각각 40.93%, 43.70%, 121.57%, 33.12%의 성능 개선을 기록하는 등, 광범위한 작업에서 강력한 결과를 자랑합니다. 이는 LSTM-MAS가 기존 다중 에이전트 프레임워크에서 자주 나타나는 오류 축적 문제를 효과적으로 완화한다는 것을 보여줍니다.
+
+
+
+### Towards Airborne Object Detection: A Deep Learning Analysis (https://arxiv.org/abs/2601.11907)
+- **What's New**: 이번 연구는 대형 항공기, 드론 및 UAV(무인 항공기)의 신속한 증가에 따른 실시간 자동 위협 평가 시스템의 필요성을 강조합니다. EfficientNetB4에 기반한 이 듀얼 태스크 모델은 항공 물체 분류와 위협 수준 예측을 동시에 수행할 수 있도록 설계되었습니다. 또한 AODTA Dataset이라는 새로운 데이터셋을 구축하여 기존의 제한된 훈련 데이터를 보완하고 연구 결과에 따르면 EfficientNetB4 모델이 ResNet-50에 비해 우수한 성능을 보였습니다.
+
+- **Technical Details**: 이 모델은 AVD Dataset과 AODTA Dataset을 사용하여 벤치마킹 되었으며, AODTA Dataset은 다양한 공공 소스를 통합하여 구축되었습니다. 항공 물체는 비행기, 드론, 헬리콥터, UAV의 네 가지 범주로 분류되며, 위협 수준은 낮음, 중간, 높음으로 예측됩니다. 데이터 전처리 과정에서는 이미지의 청결성과 해상도를 유지하기 위해 정제 작업이 이루어졌으며, 이미지 확장을 위한 다양한 기법이 적용되었습니다.
+
+- **Performance Highlights**: EfficientNetB4 모델은 물체 분류에서 96%의 정확도, 위협 수준 예측에서 90%의 정확도를 달성하여 감시, 방어 및 공역 관리에 활용 가능성을 부각시킵니다. 연구는 정확한 항공 물체 인식과 실시간 위협 평가의 중요성을 강조하며 향후 YOLO나 Faster R-CNN과 같은 객체 탐지 시스템과 통합될 수 있는 가능성도 제시하고 있습니다.
+
+
+
+### DevBench: A Realistic, Developer-Informed Benchmark for Code Generation Models (https://arxiv.org/abs/2601.11895)
+- **What's New**: DevBench는 큰 언어 모델(LLMs)을 평가하기 위한 새로운 벤치마크로, 현실적인 코드 완성 작업을 기반으로 설계되었습니다. 이 벤치마크는 1,800개의 평가 인스턴스로 구성되어 있으며, 실제 개발자의 행동을 반영한 여섯 개의 프로그래밍 언어 및 여섯 개의 작업 범주에서 파생되었습니다. 기존 벤치마크와는 달리 위험한 데이터 오염을 피하고, 평가 과정에서의 생태학적 타당성을 강조하여 다양한 모델의 성능을 면밀히 분석할 수 있도록 합니다.
+
+- **Technical Details**: DevBench는 API 사용, 코드 목적 이해 등 다양한 개발 능력을 평가하기 위해 여섯 개의 벤치마크 범주로 구조화되었습니다. 각 인스턴스는 제공된 접두사와 접미사로부터 해결할 수 있는 맥락을 제공하며, 이는 실제 개발 상의 상호작용을 기반으로 합성된 데이터에서 유래합니다. 사용자의 개인 정보를 보호하면서도 관찰된 복잡성과 사용 패턴을 재현하는 평가 인스턴스가 생성됩니다.
+
+- **Performance Highlights**: 이 연구에서 평가된 9개의 최신 LLM들은 구문적 정확도와 의미적 추론, 실제 유용성에서 서로 다른 성과를 보였습니다. DevBench는 모델 선택과 개선을 위한 실행 가능한 통찰을 제공하며, 이는 실무 배치 및 목표형 모델 개발에서 매우 중요합니다. 전체 평가가 가능한 DevBench는 정확한 진단을 통해 향후 연구를 위한 탄탄한 기초가 되어 줍니다.
+
+
+
+### TF-CoDiT: Conditional Time Series Synthesis with Diffusion Transformers for Treasury Futures (https://arxiv.org/abs/2601.11880)
+- **What's New**: 본 논문은 TF-CoDiT라는 새로운 Diffusion Transformer (DiT) 프레임워크를 소개합니다. 이 프레임워크는 언어 제어를 통해 재무 선물 데이터인 treasury futures를 합성하는 최초의 시스템입니다. TF-CoDiT는 표준 DiT를 수정하여 다중 채널 1차원 시계열을 이산 웨이블릿 변환(Discrete Wavelet Transform, DWT) 계수 행렬로 변환함으로써 저데이터 학습을 촉진합니다.
+
+- **Technical Details**: TF-CoDiT는 U-형 변량 오토인코더(U-VAE)를 통해 교차 채널 의존성을 계층적으로 압축하고, 잠재 변수와 DWT 공간 간의 브릿지를 제공하는 디코딩 프로세스를 포함합니다. 이를 통해 잠재 확산(latent diffusion) 생성을 지원하며, 재무 시장의 중요한 조건을 다루는 프로프트를 생성하기 위해 금융 시장 속성 프로토콜(FinMAP)을 도입합니다. 이 시스템은 17개의 경제 지표를 기준으로 시장 다이나믹스를 표준화합니다.
+
+- **Performance Highlights**: 실험 결과, TF-CoDiT는 최대 0.433의 평균 제곱 오차(Mean Squared Error, MSE) 및 0.453의 평균 절대 오차(Mean Absolute Error, MAE)를 달성하며, 예측된 데이터의 신뢰도가 높음을 입증합니다. 이전 방법들에 비해 MSE/MAE를 각각 13.4% 및 12.8% 감소시켰으며, 계약의 종류나 기간에 관계없이 뛰어난 성능을 보여주고 있습니다.
+
+
+
+### AI for Green Spaces: Leveraging Autonomous Navigation and Computer Vision for Park Litter Remova (https://arxiv.org/abs/2601.11876)
+Comments:
+          Published in IEEE/SICE SII 2025
+
+- **What's New**: 이 논문에서는 미국에서 발생하는 500억 개의 쓰레기 문제를 해결하기 위해 공원에서 쓰레기를 자동으로 탐지하고 수거할 수 있는 로봇을 제안합니다. 기존의 문제 해결 방법들과 비교하여, 이 로봇은 자율적으로 탐색하고 작업을 수행할 수 있는 혁신적인 접근 방식을 제공합니다.
+
+- **Technical Details**: 로봇은 Spanning Tree Coverage (STC) 알고리즘을 사용하여 탐색 경로를 생성합니다. 자율 항법을 위해 Real-Time Kinematic (RTK) GPS를 활용하여 매초 센티미터 단위의 정확도로 위치를 파악합니다. 또한, 컴퓨터 비전에는 ResNet50 Convolutional Neural Network (CNN)를 사용하여 94.52%의 높은 정확도로 쓰레기를 인식합니다.
+
+- **Performance Highlights**: 새로운 수거 메커니즘이 도입되어 공원에서 발견되는 쓰레기를 효과적으로 집중적으로 수거할 수 있습니다. 이 로봇의 전체 성공률은 80%에 달하며, 풀밭에서의 자율 쓰레기 수거 로봇이 실현 가능한 해결책임을 입증하였습니다.
+
+
+
+### Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces (https://arxiv.org/abs/2601.11868)
+- **What's New**: 이 논문에서는 AI 에이전트가 자율적으로 유용한 장기 작업을 수행할 수 있도록 하는 새로운 강력한 벤치마크인 Terminal-Bench 2.0을 소개합니다. 이 벤치마크는 실제 워크플로에서 영감을 받은 89개의 컴퓨터 터미널 환경 과제를 포함하고 있으며, 각각의 작업은 독특한 환경과 직접 작성된 솔루션, 철저한 검증 테스트를 제공합니다. 또한, 최전선 모델들이 이 벤치마크에서 평균 65% 미만의 성적을 거두었다는 점에서 모델 개선을 위한 에러 분석을 진행하였습니다.
+
+- **Technical Details**: Terminal-Bench는 에이전트가 터미널을 사용하여 해결할 수 있는 현실적인 작업을 위한 프레임워크입니다. 각 작업은 지침, Docker 이미지, 테스트 세트, 예제 솔루션 및 시간 제한을 포함합니다. 이 프레임워크는 결과 중심으로 설계되어 있어, 다양한 방법으로 작업을 수행할 수 있는 유연성을 제공합니다. 또한, 26개의 기존 벤치마크를 Terminal-Bench 형식으로 변환할 수 있도록 하여 호환성을 확보하였습니다.
+
+- **Performance Highlights**: 우리는 6개의 최신 에이전트를 Terminal-Bench 2.0에 대해 평가하며, 총 32,155회 실험을 수행하였습니다. 테스트 결과, 최전선 모델들은 평균적으로 65% 미만의 성적을 올렸으며, 작은 모델들은 약 15%의 점수에 불과했습니다. 이러한 결과는 현재 AI 에이전트의 성능 개선이 필요한 분야를 확인하는 데 기여할 것입니다.
+
+
+
+### Utilizing Metadata for Better Retrieval-Augmented Generation (https://arxiv.org/abs/2601.11863)
+Comments:
+          The 48th European Conference on Information Retrieval (ECIR 2026)
+
+- **What's New**: 이 논문은 메타데이터(metadata) 통합이 Retrieval-Augmented Generation (RAG) 시스템에서 검색 품질 및 답변 정확성을 향상시키는 효능을 처음으로 체계적으로 분석했습니다. 연구팀은 메타데이터를 필터가 아닌 기본 입력으로 삼아 이점을 조사하며, 단순히 텍스트에 메타데이터를 플래트닝(flattening)하는 방법뿐만 아니라, 독립적인 방식으로 메타데이터와 내용을 임베드하는 이중 인코더(Dual-Encoder) 아키텍처를 제안합니다.
+
+- **Technical Details**: 메타데이터를 텍스트로 통합하는 전통적인 방법 외에, 이중 인코더를 사용해 메타데이터와 내용을 별도로 임베딩한 후 결합하는 방법도 도입되었습니다. 연구에서는 메타데이터를 통해 텍스트의 전후에 붙이는(prefixing) 또는 문서의 각 조각(chunk)의 후단에 붙이는(suffix) 방법을 검토하여, 텍스트 기반의 기본선과 비교했습니다. 그 결과, 메타데이터와 내용을 통합된 임베딩(unified embedding)으로 처리했을 때 일관되게 더 높은 정확성을 보였습니다.
+
+- **Performance Highlights**: 이 연구는 메타데이터 통합이 문서 내 응집력(intra-document cohesion)을 증가시키고, 문서 간 혼란(inter-document confusion)을 줄여 검색의 효과성을 크게 개선하는 것을 보여주었습니다. SEC 보고서를 대상으로 한 이 연구는 금융 질문 응답(QA) 벤치마크에서 RAG 시스템의 한계를 극복하는 방안을 제시하며, RAGMATE-10K라는 메타데이터가 풍부한 벤치마크와 코드 및 평가 프레임워크를 공개하여 재현 가능한 평가가 가능하도록 하였습니다.
+
+
+
+### Cascaded Transformer for Robust and Scalable SLA Decomposition via Amortized Optimization (https://arxiv.org/abs/2601.11859)
+- **What's New**: 본 논문에서는 Casformer라는 새로운 cascaded Transformer 아키텍처를 제안하여 SLA(Service Level Agreement) 분해의 기존 문제를 해결합니다. 기존의 반복 최적화 방식 대신, Casformer는 이 과정에서 발생하는 지연(latency)과 복잡성(complexity)을 줄여주는 혁신적인 솔루션입니다. Casformer는 도메인별 피드백과 Transformer 구조를 활용하여 고속 SLA 분해를 가능하게 하며, 이는 특히 동적이고 대규모 네트워크 환경에서 유리합니다.
+
+- **Technical Details**: Casformer는 두 개의 Transformer 레이어로 구성되어 있으며, 첫 번째 레이어는 도메인별 피드백을 인코딩하고 두 번째 레이어는 크로스 도메인 의존성을 통합합니다. 이 모델은 Domain-Informed Neural Networks(DINNs)에서 영감을 받아 위험을 고려한 모델링과 분해 정책 학습을 포함합니다. Casformer는 기존의 위험 모델 기반 프레임워크에서 생성된 최적의 결정을 시뮬레이션하도록 훈련되어 SLA의 지식을 효과적으로 통합합니다.
+
+- **Performance Highlights**: 포괄적인 평가를 통해 Casformer는 기존 최첨단 최적화 기반 프레임워크보다 우수한 SLA 분해 품질을 달성했습니다. 또한, 이 모델은 불확실성과 잡음이 있는 네트워크 환경에서도 향상된 확장성(scalability)과 강건성(robustness)을 보입니 다. 이러한 혁신을 통해 Casformer는 5G 이상의 네트워크 환경에서 실시간 SLA 관리를 위한 효과적이고 효율적인 솔루션을 제공할 수 있음을 보여줍니다.
+
+
+
+### ATOD: An Evaluation Framework and Benchmark for Agentic Task-Oriented Dialogue System (https://arxiv.org/abs/2601.11854)
+- **What's New**: 이번 논문에서는 ATOD라는 새로운 벤치마크와 합성 대화 생성 파이프라인을 소개함으로써 장기 기억(long-term memory)과 상호 작용이 얽힌 목표(interleaved goals)를 필요로 하는 대화를 평가할 수 있는 기반을 마련했습니다. 이 새로운 시스템은 고급 단계의 TOD(task-oriented dialogue) 기능을 평가할 수 있는 통합된 벤치마크와 전반적인 평가 프레임워크인 ATOD-Eval을 제안하고 있습니다. 이를 통해 목표 달성, 의존성 관리, 기억 일관성 등을 체계적으로 평가할 수 있는 시 기준 세부 지표를 제공합니다.
+
+- **Technical Details**: ATOD는 다중 목표 조정(multi-goal coordination), 의존성 관리(dependency management), 메모리(memory), 적응성(adaptability) 및 능동성(proactivity) 등 고급 TOD의 주요 특성을 포착합니다. ATOD-Eval는 이러한 특성을 정량화하기 위해 정교한 메트릭(metrics)을 도입하고 오프라인 및 온라인 환경에서 모두 활용 가능한 재생산 가능한(reproducible) 평가를 지원합니다. 또한, ATOD에 대한 벤치마킹을 위해서는 메모리에 기반한 평가 기법을 제시합니다.
+
+- **Performance Highlights**: 실험 결과, ATOD-Eval은 작업 완료(task completion), 에이전트 능력(agentic capability) 및 응답 품질(response quality)에 걸쳐 포괄적인 평가를 가능하게 합니다. 제안된 평가자는 기존의 메모리 및 LLM 기반 접근법에 비해 더 나은 정확도-효율성(accuracy-efficiency) 거래를 제공합니다. 따라서, 이 연구는 고급 TOD 시스템 기능에 대한 포괄적이고 일관된 평가를 제공하는 데 기여하게 됩니다.
+
+
+
+### RobotDesignGPT: Automated Robot Design Synthesis using Vision Language Models (https://arxiv.org/abs/2601.11801)
+- **What's New**: 이번 연구에서는 RobotDesignGPT라는 새로운 자동 로봇 설계 프레임워크를 제안합니다. 이 프레임워크는 사전 훈련된 비전-언어 모델(Vision-Language Models, VLMs)의 일반적인 지식과 추론 능력을 활용하여 로봇 설계 과정을 자동화합니다. 사용자의 간단한 프롬프트와 참조 이미지를 기반으로 초기 로봇 설계를 합성하고, 차별화된 시각 피드백 접근법을 통해 설계 품질을 크게 향상시킵니다.
+
+- **Technical Details**: RobotDesignGPT는 사용자의 텍스트 레이블(예: '코뿔소' 또는 '무당벌레')과 선택적인 참조 이미지를 입력으로 받아 구조적 설계를 생성합니다. 이 후, RobotDesignGPT API를 통해 관절과 몸체를 합성하며, 연결성과 운동학적 유효성을 보장하기 위해 VLMs에 특화된 compact API를 제공합니다. 또한 자동화된 시각 피드백 메커니즘을 개발하여 생성된 디자인을 해석하고 사용자 제공 텍스트와 이미지 입력과 비교하여 지속적으로 개선합니다.
+
+- **Performance Highlights**: 연구 결과, 평균 2.15회의 인간 피드백을 통해 다양한 로봇 디자인이 생성되는 것을 확인했습니다. 디자인을 독립적으로 평가한 결과, 44명의 응답자가 생성된 로봇 디자인이 참조 생물과 얼마나 유사한지를 평가한 평균 사용자 만족도 점수는 2.93/5로 나타났습니다. 자동화된 시각 피드백이 convincing한 로봇 디자인 생성에 매우 중요하다는 것을 ablation study를 통해 입증했습니다.
+
+
+
+### Translation as a Scalable Proxy for Multilingual Evaluation (https://arxiv.org/abs/2601.11778)
+- **What's New**: 최근 대형 언어 모델(LLMs)의 급속한 발전은 이러한 모델의 다국어 능력에 대한 평가는 여전히 미비하다는 중요한 역설을 만들어냈습니다. 7,000여 개 언어 중 30개 언어에 대해 비기계 번역 기준이 마련되어 있을 뿐이며, 이는 전체 언어 커뮤니티가 AI 개발에서 배제되고 있다는 것을 의미합니다. 이 연구에서는 번역 품질이 모델의 다국어 능력을 가늠하는 신뢰할 수 있는 대체 지표가 될 수 있는지 조사합니다.
+
+- **Technical Details**: 이번 연구는 14개 모델(1B-72B 파라미터)을 9개 다국어 벤치마크와 7개 번역 메트릭을 통해 체계적으로 평가했습니다. 연구 결과 번역 성능은 하위 작업 성공을 잘 예측하는 지표였으며, 이는 의미 보존과 같은 복잡한 언어 작업에 필요한 표현 능력이 다국어 이해와 겹치는 지점이 있을 것임을 시사합니다. 이에 따라 번역 품질은 낮은 비용으로 다국어 성능을 측정하는 유력한 첫 번째 신호로 제안됩니다.
+
+- **Performance Highlights**: 연구 결과 번역 품질은 다양한 언어-task 조합에서 하위 작업 성과와 잘 일치했습니다. MetricX는 0.89, xCOMET은 0.91, SSA-COMET은 0.87의 중위 Pearson 상관계수를 기록해, 높은 품질의 번역이 복잡한 추론과도 긴밀하게 관련이 있음을 보여주었습니다. 따라서 번역 메트릭을 통해 수천 개 언어에서 신속한 평가를 할 수 있으며, 특정 작업에 대해서만 목표 벤치마크 평가를 수행하는 실용적인 두 단계 평가 파이프라인을 가능하게 합니다.
+
+
+
+### Cleansing the Artificial Mind: A Self-Reflective Detoxification Framework for Large Language Models (https://arxiv.org/abs/2601.11776)
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLMs)의 고유한 능력을 활용하여 독성 콘텐츠를 감지하고 교정하는 완전한 자기 반영적 해독(framework) 프레임워크를 소개합니다. 기존의 해독 기법은 외부 모듈이나 데이터 주석, 인간 개입에 의존하는데 반해, 제안된 방법은 이러한 요소들 없이도 독성 텍스트를 비독성 형태로 변환하는 양식적 처리를 통해 LLMs의 내재적 자기 해독(Self-Detoxification) 능력을 강조합니다. 이 프레임워크를 통해 안전하고 일관된 텍스트 생성을 위한 기틀을 마련하고자 합니다.
+
+- **Technical Details**: 제안된 자기 반영적 해독(Self-Reflective Detoxification, SRD) 프레임워크는 먼저 LLM이 생성한 콘텐츠를 반영하여 해독 신호 리스트를 구축합니다. 이어서 이 신호 리스트를 활용해 원본 독성 출력과 비독성 출력으로 구성된 대조 데이터셋을 생성하고, 이를 바탕으로 모델을 미세 조정하여 독성 생성을 줄입니다. 이 과정에서 LLM 스스로 독성 신호를 감지하고 개입하는 능력을 활용하여 고품질의 데이터셋을 형성합니다.
+
+- **Performance Highlights**: 실험 결과, 제안된 SRD 방식은 DetoxLLM 및 ParaDetox와 같은 벤치마크 데이터셋에서 최첨단 해독 기법보다 더 나은 성과를 보여주며, 의미적 일관성을 유지한 채 독성 콘텐츠를 효과적으로 감축하는 것을 입증했습니다. SRD는 인간 개입이나 외부 구성 요소의 필요성을 제거함으로써, 자가 조절(self-regulated) 언어 모델의 잠재력을 강조하며, 보다 책임감 있고 윤리적인 텍스트 생성 시스템으로 나아가는 길을 열어줍니다.
+
+
+
+### Lightweight Self-Supervised Detection of Fundamental Frequency and Accurate Probability of Voicing in Monophonic Music (https://arxiv.org/abs/2601.11768)
+Comments:
+          12 pages, 6 figures, 3 tables, and an appendix, Accepted for publication at ICPRAM 2026 in Marbella, Spain, on March 2, 2026
+
+- **What's New**: 이 논문은 신뢰할 수 있는 기본 주파수(F0) 및 음성 추정의 필요성을 강조하며, 실제 녹음 아티팩트에 강한 경량 자가 감독(self-supervised) 프레임워크를 제안합니다. 이 방법은 제한된 오디오에서 단일 악기를 신속하게 학습할 수 있도록 설계되었습니다. 기존 피치 추출기는 대량의 라벨링된 데이터를 필요로 하지만, 본 연구에서는 Shift Cross-Entropy (SCE) 일관성을 신뢰성 신호로 사용하여 유용하지 않은 노이즈 및 무음 프레임을 억제합니다.
+
+- **Technical Details**: 이 방법은 Constant-Q Transform (CQT) 특징의 변환 불변 학습을 이용하며, EM 스타일의 반복 가중치 조정 방식을 도입하여 모델의 신뢰도를 향상시킵니다. 훈련 데이터는 MedleyDB에서 수집된 멀티트랙 오디오로 이루어져 있으며, 실제 환경의 간섭과 노이즈를 효과적으로 처리하기 위해 다양한 방법론을 사용합니다. 이 과정에서 음성 검출을 위한 경량 이진 분류기를 빠르게 구축하기 위해 안정성 신호에서 생성된 신뢰성 점수를 활용합니다.
+
+- **Performance Highlights**: 실험 결과, 이 방법은 MDB-stem-synth의 정확한 기준 데이터셋을 기반으로 경쟁력 있는 성과(RPA 95.84, RCA 96.24)를 달성하며, 다양한 악기 간의 일반화 능력을 입증합니다. 특히, 이 접근 방식은 빠른 훈련 및 적응을 허용하면서도 실제 녹음에서의 신뢰성을 보장합니다. 본 연구의 결과는 신경 합성(neural synthesis) 및 음악 정보 검색(Music Information Retrieval) 분야에 중요한 기여를 할 것으로 기대됩니다.
+
+
+
+### Industry-Aligned Granular Topic Modeling (https://arxiv.org/abs/2601.11762)
+- **What's New**: 이 논문은 TIDE라는 새로운 프레임워크를 소개합니다. TIDE는 비즈니스 애플리케이션에 대한 다양한 기능을 제공하는 동시에 대규모 언어 모델(large language models, LLM)에 기반한 세분화된 주제 모델링 방식을 통해 보다 깊은 통찰력을 제공합니다. TIDE를 활용한 여러 실험 결과, 현대의 주제 모델링 방법과 비교했을 때 TIDE의 성능이 우수함을 입증하였습니다.
+
+- **Technical Details**: TIDE 프레임워크는 파이썬 라이브러리로 개발되었으며, 주제 모델링의 성과를 극대화하기 위해 K-평균 군집화(K-means clustering) 기법을 사용합니다. 이 과정은 LLM을 통해 만들어진 주제의 세분화를 가능하게 하며, 처음에는 유사한 텍스트를 군집화한 후 각 군집에 대한 주제를 생성합니다. TIDE는 또한 비즈니스 정의에 따른 주제 추출 기능을 통해 더 실용적인 주제 인사이트를 도출합니다.
+
+- **Performance Highlights**: 실험 결과 TIDE는 다양한 공공 데이터셋과 실제 비즈니스 데이터셋에서 일관되게 우수한 성능을 보여주었습니다. 전통적인 주제 모델링 방법들에 비해 더 높은 수준의 일관성과 성능을 유지했으며, 이는 산업적인 활용에 매우 유리한 특징입니다. 또한 TIDE는 세부적인 주제를 생성할 뿐만 아니라 자동화된 평가 도구를 통해 생성된 주제의 품질을 평가하는 기능도 제공합니다.
+
+
+
+### Early Linguistic Pattern of Anxiety from Social Media Using Interpretable Linguistic Features: A Multi-Faceted Validation Study with Author-Disjoint Evaluation (https://arxiv.org/abs/2601.11758)
+Comments:
+          9 figures, more than 1o pages
+
+- **What's New**: 이 연구는 소셜 미디어 기반의 불안(anxiety) 탐지를 위해 투명한 방법론을 제시합니다. 언어적 해석이 가능한 특징(feature)을 활용하여 모델을 구축하고, 다양한 도메인에서 검증하는 과정을 포함하여 더 높은 신뢰성을 보장합니다. Reddit에서 수집한 데이터셋을 통해 구축된 로지스틱 회귀(classifier)는 불안 감정을 높은 정확도로 감지합니다.
+
+- **Technical Details**: 이 모델은 13개의 언어적 특징을 사용하여 높은 자기 집중(self-focused attention)과 부정적 감정(negative sentiment)을 포착합니다. 데이터 누수를 방지하기 위해 엄격한 저자 분리(author-disjoint) 평가를 실시하여 신뢰성을 높였습니다. 과정 중 키워드를 마스킹하거나 감정을 제거해도 모델 성능 저하는 미미한 수준입니다.
+
+- **Performance Highlights**: 이 연구는 사용자의 첫 세 개의 게시글만으로도 88.44%의 F1 점수를 기록하며 불안을 조기에 감지할 수 있음을 보여줍니다. 이는 무작위 분류(random classification)보다 훨씬 우수한 성과를 보이며, 외부 데이터(DAIC-WOZ)와의 비교에서도 높은 일관성을 나타냅니다. 언어적 특징이 다양한 온라인 맥락에서 신뢰할 수 있는 정신 건강 스크리닝을 위한 재현 가능한 기준선을 제공합니다.
+
+
+
+### LIME-LLM: Probing Models with Fluent Counterfactuals, Not Broken Tex (https://arxiv.org/abs/2601.11746)
+- **What's New**: 본 연구에서는 기존 LIME의 단점을 개선한 LIME-LLM 프레임워크를 도입합니다. LIME-LLM은 무작위 잡음을 학습된 가설 기반의 제어된 섭동(hypothesis-driven controlled perturbations)으로 대체하여 보다 신뢰할 수 있는 설명을 제공합니다. 이 방법은 'Single Mask–Single Sample' 프로토콜을 철저하게 적용하여 특정 피처 기여를 명확히 고립시킵니다.
+
+- **Technical Details**: LIME-LLM은 대분류 클래스 (C classes)에 대해 입력 시퀀스(x)로부터의 확률 분포를 추정하는 블랙박스 텍스트 분류기(f)와 연계하여 작동합니다. 이 프레임워크는 각 고정된 이진 피처 마스크에 대해 LLM을 의미론적인 인필러(semantic infiller)로 활용하여 통제된 섭동을 생성합니다. 이러한 접근 방식은 데이터 매니폴드(data manifold) 위에서 모든 샘플이 유지되도록 하며 특성 고립(feature isolation)을 보장합니다.
+
+- **Performance Highlights**: LIME-LLM은 기존의 LIME, SHAP, 그리고 생성적 기법인 LLiMe와 비교하여 세 가지 다양한 벤치마크(CoLA, SST-2, HateXplain)에서 유의미한 향상을 보여주었습니다. 특히 LIME-LLM은 ROC-AUC에서 34%에서 135%까지 성능이 향상되었으며, 전통적인 섭동 기반 방법 및 최근의 생성적 방법들에 비해 지역 설명의 신뢰성을 크게 개선했습니다. 이로 인해 LIME-LLM은 현대 NLP 모델의 지역 설명 신뢰성을 향상시키는 데 기여하고 있습니다.
+
+
+
+### Inter-Cell Interference Rejection Based on Ultrawideband Walsh-Domain Wireless Autoencoding (https://arxiv.org/abs/2601.11713)
+Comments:
+          This preprint was submitted to The 2026 EuCNC & 6G Summit
+
+- **What's New**: 이 논문은 초광대역 통신 시스템에서 부분 대역 간섭(Inter-Cell Interference, ICI)을 거부하기 위한 새로운 기법을 제안합니다. 전달자 및 수신자의 인코딩/디코딩을 월시(Walsh) 도메인에서 공동으로 최적화하여 5G 기지국으로부터의 간섭을 완화하는 엔드-투-엔드 무선 오토인코더 아키텍처를 설계했습니다. 이 시스템은 월시 함수의 직교성과 자기 역전 특성을 활용하여 비트워드를 병렬 월시 가지에 분산 인코딩하는 방식을 학습합니다.
+
+- **Technical Details**: 연구의 방법론은 레거시 5G 서비스에서 발생하는 셀 간섭의 효과를 완화하는 방식으로 데이터가 월시 도메인에서 인코딩될 수 있는 능력을 평가하는 것입니다. 물리적 무선 인터페이스에서 전송된 신호는 전송 채널에 의해 왜곡되며, 수신 측에서는 월시 도메인 신호를 복구하고 월시 인코딩된 기호를 추정된 메시지 비트로 디코딩합니다. 또한, 초광대역 신호는 공유된 스펙트럼에서 레거시 5G 기지국의 다양한 수준의 ICI로 인해 왜곡됩니다.
+
+- **Performance Highlights**: 제안된 오토인코더는 동일한 기준 채널 잡음에서 블록 오류율(Block Error Rate, BLER)을 유지하면서 최대 12 dB의 ICI 거부율을 달성했습니다. 분석 모델링 및 시뮬레이션을 통해 5G CPOFDM 간섭이 월시 도메인으로 어떻게 매핑되는지 특성화하였고, 최적의 전송 주파수 비율 및 샘플링 주파수를 식별했습니다. 이 결과는 월시 기반 초광대역 통신 시스템이 레거시 기술과 공존할 수 있는 가능성을 제시합니다.
+
+
+
+### PASTA: A Scalable Framework for Multi-Policy AI Compliance Evaluation (https://arxiv.org/abs/2601.11702)
+Comments:
+          28 pages, 7 figures
+
+- **What's New**: AI 준수(Compliance)의 중요성이 점점 커지고 있는 가운데, PASTA라는 혁신적인 도구가 소개되었습니다. PASTA는 정책 준수 접근 방식에서 다루지 못했던 다수의 정책을 처리할 수 있는 솔루션을 제공합니다. 이 도구는 사용자로 하여금 낮은 노력으로 다수의 정책에 대한 준수를 쉽게 평가할 수 있도록 설계되었습니다.
+
+- **Technical Details**: PASTA는 네 가지 혁신을 통합한 도구로, 첫째로 다양한 개발 단계에서 설명할 수 있는 포괄적인 모델 카드 형식을 지원합니다. 둘째, 정책 정규화(scheme)를 통해 정책을 체계적으로 정리하고, 셋째, 비용 절감을 위한 LLM(Large Language Model) 기반 쌍방향 평가 엔진을 갖추고 있습니다. 넷째, 준수 상태를 해석할 수 있게 도와주는 히트맵과 실행 가능 권장사항을 포함한 인터페이스를 제공합니다.
+
+- **Performance Highlights**: 사용자 연구(N = 12) 결과, PASTA의 출력물은 이해하기 쉬우며 실행 가능한 것으로 평가되었습니다. PASTA는 다섯 가지 주요 정책을 평균 2분 이내에 약 $3의 비용으로 평가할 수 있으며, 전문가의 평가와도 밀접하게 일치하는 결과를 보였습니다. 이러한 결과는 PASTA가 AI 준수 평가의 접근성과 행동 가능성을 어떻게 개선했는지를 입증합니다.
+
+
+
+### Telling Human and Machine Handwriting Apar (https://arxiv.org/abs/2601.11700)
+- **What's New**: 본 연구에서는 필기 움직임(handwriting movements)을 행동 생체 인식(behavioral biometrics)으로 활용하여 실제 사용자가 기기나 애플리케이션을 조작하고 있는지 검증할 수 있는 방법을 제안합니다. 이는 입력 인스턴스가 인간에 의해 생성되었는지 인공지능에 의해 생성되었는지를 탐지하는 역 튜링 테스트(reverse Turing test)로 볼 수 있습니다. 이번 연구에서는 다양한 합성 기법을 통해 인위적으로 재생산된 필기 기호에 대한 공공 데이터셋을 조사하였습니다.
+
+- **Technical Details**: 연구에서는 Kinematic Theory(Sigma h model), 생성적 적대 신경망(generative adversarial networks), Transformers, Diffusion models 등 7가지 합성기법을 사용하여 재생산된 10개의 공개 데이터셋을 분석합니다. 비특성화된 궤적 데이터(non-featurized trajectory data)를 입력으로 하여 얕은 순환 신경망(shallow recurrent neural network)을 훈련시킴으로써 ROC 곡선 아래 면적(AUC) 98.3%와 평균 1.4%의 동등 오류율(equal error rate)을 달성하는 성과를 보였습니다. 또한, 데이터셋의 10%로 훈련했음에도 불구하고, 나머지 90%의 데이터에서 우수한 성능을 발휘하였습니다.
+
+- **Performance Highlights**: 우리는 아 Domain(setting) 외의 상황에서도 분류기가 경쟁력 있는 성과를 내는 것을 관찰하였습니다. 이는 인간의 존재를 검증해야 하는 전산 시스템(computerized systems)에 대한 시사점을 제공합니다. 우리의 연구는 공격자로부터의 방어력을 강화하기 위한 추가 보안 레이어를 제안하며, 실제 필기 움직임을 통한 사용자 검증의 중요성을 강조합니다.
+
+
+
+### SpecMap: Hierarchical LLM Agent for Datasheet-to-Code Traceability Link Recovery in Systems Engineering (https://arxiv.org/abs/2601.11688)
+- **What's New**: 본 논문에서는 임베디드 시스템 데이터 시트와 해당 코드 구현 간의 정확한 추적 가능성 (traceability) 을 확립하는 데 있어 새로운 접근 방식을 제안합니다. 특히 기존의 Traceability Link Recovery 방식은 레몬릭 유사성과 정보 검색 기법에 의존하고 있어, 임베디드 소프트웨어의 의미적, 구조적, 기호 수준의 관계를 포착하는 데 한계를 겪고 있습니다. 본 연구에서는 다계층 (hierarchical) 데이터 시트-코드 매핑 방법론을 개발하여 대규모 언어 모델을 활용하여 의미적 분석을 수행하고 있습니다.
+
+- **Technical Details**: 제안된 방법론은 매핑 프로세스를 여러 추상화 레벨에 따라 명시적으로 구성합니다. 이 방법은 직접적인 사양-코드 매칭을 수행하지 않고, Folders 레벨의 구조 추론, Files 레벨의 관련성 추정, 그리고 세분화된 기호 수준 맞춤으로 탐색 공간을 점진적으로 좁힙니다. 기능 중심의 매핑 방식을 넘어 매크로, 구조체, 상수 등과 같은 다양한 코드 요소를 포함하며, 실험 결과 전통적인 정보 검색 기반 접근 방식보다 뛰어난 성능을 나타냅니다.
+
+- **Performance Highlights**: 본 연구에서는 여러 오픈 소스 임베디드 시스템 저장소를 기반으로 실험을 진행하여, 수동으로 수집된 데이터 시트-코드 기반 진실과 활용하고 있습니다. 최종 결과로, 최대 73.3%의 파일 매핑 정확도를 달성하며, 전체 LLM 토큰 소비량을 84% 줄이고, 끝에서 끝까지의 실행 시간을 약 80% 감소시켰습니다. 이 방법론은 대규모 임베디드 소프트웨어 시스템의 자동화된 분석을 지원하고, 시스템 인식 머신 러닝 모델 교육 데이터 생성, 표준 준수 검증 및 대규모 사양 커버리지 분석 등 하위 응용을 가능하게 합니다.
+
+
+
+### Semantic Caching and Intent-Driven Context Optimization for Multi-Agent Natural Language to Code Systems (https://arxiv.org/abs/2601.11687)
+- **What's New**: 이번 논문에서는 자연어 쿼리를 실행 가능한 Python 코드로 변환하는 생산 최적화된 멀티 에이전트 시스템을 소개합니다. 이 시스템은 경량의 LLM 기반의 의미적 캐시와 이중 임계치 결정 메커니즘을 통해 고정밀도 및 비용효율성을 달성하며, 기업의 인벤토리 관리에 성공적으로 배포되었습니다. 이는 94.3%의 의미적 정확도와 함께 평균 8.2초의 응답 시간으로 10,000개 이상의 쿼리를 처리합니다.
+
+- **Technical Details**: 시스템 아키텍처는 LangGraph를 통해 멀티 에이전트 워크플로우를 구성하며, 각각의 에이전트는 특정 작업을 수행합니다. 가드 에이전트는 초기 쿼리 관련성을 필터링하고, 의도 분류기는 심층적인 쿼리 의도를 분류합니다. 추론기(Planner)는 데이터 로딩, 필터링, 조인 및 집계에 대한 분석 계획을 생성하며, 이를 바탕으로 Python 코드로 변환된 결과를 실행합니다.
+
+- **Performance Highlights**: 제출된 자료에 따르면, 이 시스템은 10,000개 이상의 쿼리에 대한 실험적 데이터를 통해 94.3%의 의미적 정확성과 8.2초의 평균 지연 시간을 보여주었습니다. 또한, 의도 기반의 동적 프롬프트 조립 시스템을 통해 토큰 소비를 40-60% 줄이는 성과를 거두었습니다. 이와 같은 성과는 기업 환경에서의 대규모 LLM 기반 분석 시스템 운영의 실제 적용 가능성을 시사합니다.
+
+
+
+### Proof of Concept: Multi-Target Wildfire Risk Prediction and Large Language Model Synthesis (https://arxiv.org/abs/2601.11686)
+- **What's New**: 현재의 산불 위험 평가 접근법은 실제 소방 서비스의 운영 필요를 간과하고 있어 실용성에 한계가 있습니다. 본 논문은 기상 위험, 발화 활동, 개입 복잡성, 자원 동원 등 다양한 산불 위험 차원을 포착하는 다중 목표 분석을 제안합니다. 이를 위해 한 가지 예측 지표에 의존하는 대신 예측 모델과 대형 언어 모델(LLMs)을 결합하여 이질적인 출력 결과를 구조화된 작전 지향 보고서로 합성하는 하이브리드 프레임워크 개발을 목표로 합니다.
+
+- **Technical Details**: 이 연구는 프랑스 알프 마리팀 지역의 소방 및 구조 서비스와 협력하여 진행되었습니다. 알프 마리팀 지역은 지중해 기후와 산악 지형으로 인해 산불에 매우 취약합니다. 본 연구에서는 6개의 예측 구역으로 나누어 각 구역의 기상 및 식생 조건에 따라 별도로 위험 예측을 실시하여 산불 행동의 공간적 변동성을 고려하였습니다.
+
+- **Performance Highlights**: 제안된 멀티타겟 예측 프레임워크는 환경 위험, 발화 압력, 개입 복잡성 및 물류 동원이라는 네 가지 상호 보완적인 산불 위험 차원을 동시에 예측하여 보다 풍부하고 운영적으로 관련된 representation을 제공합니다. 또한, 이 연구는 다중 목표 예측 모델과 생성적 다중 에이전트 합성 레이어를 결합한 최초의 하이브리드 아키텍처를 도입하여 구조화되고 맥락화된 운영 산불 위험 보고서 생성을 가능하게 하고 있습니다.
+
+
+
+### Towards Efficient Image Deblurring for Edge Deploymen (https://arxiv.org/abs/2601.11685)
+- **What's New**: 본 연구는 모바일 이미지 신호 처리 파이프라인에서 이미지 블러 제거(image deblurring)의 효율성을 높이기 위한 하드웨어 인식(adaptation) 프레임워크를 제안합니다. 기존의 모델을 감도 기반 블록 대체(sensitivity-guided block substitution), 대리 증류(surrogate distillation), 그리고 장치 프로파일링에 의한 훈련 없는 다목적 검색(multi-objective search)을 통해 재구성하는 방법론을 포함합니다.
+
+- **Technical Details**: 제안된 방법은 36블록 NAFNet 기준 모델에 적용되어 GMACs에서 최대 55% 감소를 달성했습니다. 이는 최근의 transformer 기반 SOTA와 비교했을 때 경쟁력을 유지하면서도 우수한 효율성을 보여줍니다. 특히, 실제 디바이스에 배포했을 때 기본 모델보다 1.25배 더 낮은 지연 시간(latency)을 기록했습니다.
+
+- **Performance Highlights**: 모션 블러 제거(GoPro), 디포커스 블러 제거(DPDD), 및 보조 벤치마크(RealBlur-J/R, HIDE) 실험에서 이 방법의 일반성을 입증했습니다. 이전의 효율적인 기준 모델과의 비교를 통해 정확성과 효율성 간의 상충 관계를 확인하였으며, 알고리즘 설계와 실제 배포 가능한 블러 제거 모델 간의 간극을 줄이기 위한 원칙적인 전략으로 피드백 기반 적응(feedback-driven adaptation)을 확립했습니다.
+
+
+
+### Mobile-friendly Image de-noising: Hardware Conscious Optimization for Edge Application (https://arxiv.org/abs/2601.11684)
+Comments:
+          Accepted at ICASSP 2025
+
+- **What's New**: 이번 연구는 모바일 장치에서 사용할 수 있는 새로운 이미지 디노이징(decoying) 네트워크를 소개합니다. 이는 엔트로피 정규화(entropy regularization) 기법을 사용하여 하드웨어 인식 하에서 U-Net 아키텍처의 차별화된 신경망 구조 검색을 통해 개발되었습니다. 기존의 전통적인 이미지 신호 처리(Image Signal Processing, ISP) 방법보다 더 효과적인 접근 방식으로, 최신 인공지능(AI) 기술을 기반으로 한 것입니다.
+
+- **Technical Details**: 제안된 모델은 파라미터 수가 12% 감소하였으며, 장치에서의 지연(latency) 시간이 약 2배 향상되고 메모리 사용량은 1.5배 개선되었습니다. PSNR(peak signal-to-noise ratio) 측정 시 0.7%의 손실을 보였지만, 성능 저하는 미미했습니다. 또한, 이미지 복원(Image Restoration) 분야에서의 매개변수(GMAC) 수치가 약 18배 감소하여 경쟁력 있는 정확도를 보였다는 점이 주목할 만합니다.
+
+- **Performance Highlights**: 이 네트워크는 가우시안(Gaussian) 노이즈 제거 테스트에서 3개 강도와 4개의 벤치마크에서 성공적으로 평가되었습니다. 또한, 현실 세계의 노이즈 제거 작업에서도 1개의 벤치마크를 통해 일반화(generalization) 능력을 입증하였습니다. 전체적으로 이 연구는 최신 스마트폰에서 최신 딥러닝 기술을 효과적으로 적용할 수 있는 가능성을 보여 줍니다.
+
+
+
+### Attesting Model Lineage by Consisted Knowledge Evolution with Fine-Tuning Trajectory (https://arxiv.org/abs/2601.11683)
+Comments:
+          Accepted to the 35th USENIX Security Symposium (USENIX Security 2026)
+
+- **What's New**: 이 논문에서 제안하는 새로운 모델 계보 증명(framework) 방법론은 모델 파라미터의 변화를 정량화하기 위해 모델 수정 기법을 활용하고, 수정된 모델의 지식을 압축 표현으로 변환하는 지식 벡터화(knowledge vectorization) 메커니즘을 소개합니다. 이는 기존의 정적 구조 유사성으로만 모델의 계보를 추적하는 접근 방식을 넘어, 모델의 동적 지식 진화를 탐구하여 보다 강력한 계보 증명을 가능하게 합니다.
+
+- **Technical Details**: 연구진은 인간 진화의 유전적 메커니즘에서 영감을 받아, 모델의 지식 진화(process)를 통해 계보를 증명하는 방법을 제안합니다. 모델 수정 기법(task editing)을 이용하면 자식 모델의 파라미터와 그 부모 모델의 파라미터를 분리할 수 있으며, 이러한 지식을 지식 벡터(knowledge vectors)로 인코딩하여 다양한 모델 유형에 대한 일관성을 검증하게 됩니다. 이러한 과정은 각기 다른 모델 구조에 맞춘 프로빙(probing) 전략을 통해 이루어집니다.
+
+- **Performance Highlights**: Extensive 실험 평가를 통해 각기 다른 모델 유형 및 적대적(adversarial) 상황에서 모델 계보 증명의 효과성과 회복력을 입증하였습니다. 제안하는 방식은 분류기, 확산 모델(diffusion models), 대형 언어 모델(large language models)을 포함한 다양한 모델에서 신뢰할 수 있는 계보 확인을 제공합니다. 이러한 결과들은 모델의 지식 변화를 진화론적 관점에서 이해하고 이를 실용적으로 적용한 점에서 중요한 의미가 있습니다.
+
+
+
+### HALO: Semantic-Aware Distributed LLM Inference in Lossy Edge Network (https://arxiv.org/abs/2601.11676)
+Comments:
+          Accepted by IEEE International Conference on Computer Communications (INFOCOM) 2026
+
+- **What's New**: 본 논문은 패킷 손실이 발생하는 엣지 네트워크에서 분산 대형 언어 모델(LLM)의 추론을 가속화하기 위한 새로운 프레임워크인 HALO를 제안합니다. HALO는 안정적이지 않은 장치에 덜 중요한 뉴런 그룹을 할당하여 과도한 대기 시간을 피하며, 유연하면서도 효과적인 동기화 방식을 가능하게 합니다. 이를 통해 LLM의 추론 성능을 유지하면서도 여러 장치의 계산 자원을 효율적으로 활용할 수 있습니다.
+
+- **Technical Details**: HALO의 핵심 혁신에는 3가지 주요 메커니즘이 포함됩니다. 첫째, 뉴런 그룹의 중요성을 평가하기 위한 의미 중심 예측기(semantic-aware predictor)를 도입하여, 활성화 전에 뉴런 그룹의 중요성을 식별합니다. 둘째, 모델 추론 중에 뉴런 그룹 로딩을 병렬로 실행하는 파라렐 실행 방식(parallel execution scheme)을 도입하여 처리 속도를 개선합니다. 마지막으로, 이종 리소스를 가진 여러 장치를 효율적으로 조정하는 부하 균형 스케줄러(load-balancing scheduler)를 통해 자원의 효율성을 극대화합니다.
+
+- **Performance Highlights**: Raspberry Pi 클러스터에서의 실험 결과, HALO는 신뢰할 수 없는 네트워크 환경에서 LLaMA 시리즈 LLM에 대해 3.41배의 종단 간 속도 향상을 달성하였습니다. HALO는 최적 조건에서의 성능과 동등한 성능을 유지하며, 다양한 시나리오에서 기존의 최신 기술(State-of-the-art)을 크게 초월합니다. 따라서 HALO는 손실이 발생하는 엣지 네트워크에서 LLM 추론의 효율성을 높이는 데 중요한 기여를 합니다.
+
+
+
+### Generating metamers of human scene understanding (https://arxiv.org/abs/2601.11675)
+- **What's New**: 이 논문에서는 MetamerGen이라는 도구를 소개합니다. MetamerGen은 인간의 시각 장면 표현과 일치하는 장면을 생성하는 것으로, 주로 주변 시각에서 얻은 'gist' 정보와 고정된 위치에서의 고해상도 정보를 결합하여 이미지를 생성합니다. 이 모델은 전통적인 생성 모델과 차별화된 점에서 새로운 이미지-투-이미지 합성 문제를 해결하고 있습니다.
+
+- **Technical Details**: MetamerGen은 latent diffusion model을 기반으로 하며, DINOv2 토큰을 사용하여 고정된 영역의 세부 특징과 주변에서 약화된 특징을 융합해 장면을 생성합니다. 이 모델은 시각 시선의 진행에 따라 입력 정보를 기반으로 점진적으로 영상 이해를 생성하는데, 이는 고정된 영역이 더욱 풍부하게 표현될 수 있도록 돕습니다. 이를 통해 MetamerGen은 인간의 시각 이해에 더욱 가까운 장면을 생성할 수 있는 기능을 갖추고 있습니다.
+
+- **Performance Highlights**: 행동 실험을 통해 MetamerGen이 생성한 장면이 인간의 장면 이해와 일치하는지 평가했습니다. 실험 결과, 생성된 장면이 실제 장면과 일치한다고 판단된 경우, 고수준의 의미적 특징이 메타머리즘을 예측하는 데 가장 강력한 요소로 나타났습니다. 이는 MetamerGen이 사실적 이미지 생성 및 시각 인식 연구에 사용될 가능성을 시사합니다.
+
+
+
+### Pigment Network Detection and Classification in Dermoscopic Images Using Directional Imaging Algorithms and Convolutional Neural Networks (https://arxiv.org/abs/2601.11674)
+- **What's New**: 이 연구는 멜라노마 조기 진단을 위한 점 피부사진(dermoscopic image) 분석의 자동화를 목적으로 하며, 이를 위해 새로운 방향성 이미지 알고리즘(directional imaging algorithm)을 사용했습니다. 이 알고리즘은 주요 구성 요소 분석(Principal Component Analysis, PCA), 대비 향상(contrast enhancement), 필터링(filtering) 및 잡음 감소(noise reduction)를 포함하여 비정상적인 색소망(pigment network, PN)을 식별하는 데 중요한 역할을 합니다.
+
+- **Technical Details**: 연구에서 사용된 방향성 이미지 알고리즘은 PH2 데이터셋에 적용되어 96%의 성공률을 나타냈으며, 픽셀 강도 조정(pixel intensity adjustments)을 통해 100%로 향상되었습니다. 이후, 얻어진 PN 이미지로 새로운 데이터셋을 생성하였고, 두 가지 분류기(Convolutional Neural Network, CNN 및 Bag of Features, BoF)를 활용하여 PN을 비정상적(atypical) 및 정상적(typical) 클래스로 분류했습니다. 제한된 200장의 이미지 데이터셋을 사용하여, 두 개의 합성곱 레이어와 두 개의 배치 정규화(batch normalization) 레이어를 가진 간단하고 효과적인 CNN을 설계했습니다.
+
+- **Performance Highlights**: 제안된 CNN 모델은 90%의 정확도(accuracy), 90%의 민감도(sensitivity), 89%의 특이도(specificity)를 기록했습니다. 최신 방법들과 비교했을 때, 제안된 CNN은 더욱 우수한 성능을 보여주었습니다. 연구 결과는 PN 분류에 대한 CNN 모델의 유력성을 강조하며, 향후 연구에서는 데이터셋 확장 및 추가적인 피부과적 특징을 통합하여 멜라노마 진단을 더욱 향상시킬 것을 제안합니다.
+
+
+
+### A Confidence-Variance Theory for Pseudo-Label Selection in Semi-Supervised Learning (https://arxiv.org/abs/2601.11670)
+- **What's New**: 본 논문은 Confidence-Variance (CoVar) 이론 프레임워크를 도입하여 기존의 고정된 신뢰도 기준에 의존하는 의사 라벨 선택 전략의 문제를 해결합니다. 연구진은 예측 신뢰도가 올바름을 신뢰있게 나타내지 않았다는 점을 강조하고, 분포의 불확실성을 통합하여 신뢰성 있는 의사 라벨을 선택하는 새로운 기준을 제시합니다. 이를 통해 예측의 최대 신뢰도(Maximum Confidence, MC)와 잔여 클래스 분산(Residual Class Variance, RCV)을 조합하여 보다 신뢰할 수 있는 의사 라벨을 식별하는 방법론을 제안합니다.
+
+- **Technical Details**: CoVar 프레임워크는 엔트로피 최소화 원리에 기반하여 신뢰도 기준을 정립하고, 높은 MC와 낮은 RCV를 결합하여 예측의 신뢰도를 측정합니다. 연구진은 신뢰할 수 있는 의사 라벨을 정의하기 위해 MC와 RCV 간의 동적 상호작용을 밝혀내며, 이러한 요소들이 예측 신뢰도와 상관관계를 어떻게 조정하는지를 설명합니다. CoVar의 통합 모듈을 반영하여 다양한 반감독( semi-supervised) 방법에 적용한 결과, 고신뢰 예측과 저신뢰 예측을 효과적으로 구별할 수 있는 효율적인 솔루션이 도출되었습니다.
+
+- **Performance Highlights**: PASCAL VOC 2012, Cityscapes, CIFAR-10 및 Mini-ImageNet과 같은 여러 데이터 세트에서 CoVar는 기존의 강력한 기준선 모델에 대해 일관되게 성능 향상을 보였습니다. 신뢰도와 잔여 클래스 분산을 조합한 것이 고정된 신뢰도 기준보다 더 신뢰할 수 있는 의사 라벨 선택의 근거가 됨을 보여주었습니다. 또한, CoVar는 다양한 레이블 비율과 백본(backbone)에 대해 안정적이며 우수한 결과를 유지하였습니다.
+
+
+
+### Distill-then-Replace: Efficient Task-Specific Hybrid Attention Model Construction (https://arxiv.org/abs/2601.11667)
+- **What's New**: 이 논문에서는 기존의 pretrained full-attention 모델로부터 hybrid 모델을 효율적으로 생성하는 새로운 방법을 제안합니다. 구체적으로, 블록별 local distillation을 통해 full-attention 모듈에서 linear attention으로 가중치를 전이하고, greedy 레이어 교체 전략을 통해 성능을 모니터링하며 full-attention 블록을 linear 블록으로 대체합니다. 이를 통해 각각의 다운스트림 태스크에 최적화된 하이브리드 모델을 빠르고 비용 효율적으로 생성할 수 있습니다.
+
+- **Technical Details**: Methodology 섹션에서는 블록별 local distillation과 greedy 레이어 교체 알고리즘의 두 가지 핵심 요소가 설명됩니다. linear attention 모듈은 각 full-attention 모듈의 출력을 정확하게 재현하도록 독립적으로 훈련되며, 이 과정에서 차별화된 distillation을 통해 전체 신경망을 재훈련할 필요가 없어 연산 비용을 크게 줄입니다. 최종적으로, 성능 저하를 피하면서 max한 수의 full-attention 블록이 linear counterpart로 대체됩니다.
+
+- **Performance Highlights**: 이 논문에서 제안된 접근 방식은 기존의 하이브리드 모델을 훈련하는 데 필요한 높은 계산 비용 없이，非常 효율적인 프로세스를 통해 작업에 특정한 하이브리드 모델을 생성합니다. 이는 검증 성능을 지속적으로 모니터링하면서 진행되므로, 각 태스크의 요구 사항에 맞춰 성능을 최적화할 수 있습니다. 궁극적으로 이 같은 모델 생성 방법은 다양한 다운스트림 태스크에 적용 가능하며, 감축된 시간 비용과 메모리 사용을 통한 효율성을 달성합니다.
+
+
+
+### MATEX: Multi-scale Attention and Text-guided Explainability of Medical Vision-Language Models (https://arxiv.org/abs/2601.11666)
+Comments:
+          12 pages, 3 figures, 1 table
+
+- **What's New**: MATEX(다중 스케일 주의와 텍스트 기반 설명 가능성)라는 새로운 프레임워크는 의학적 비전-언어 모델의 해석 가능성을 높이기 위해 해부학적으로 유도된 공간 추론을 통합합니다. 이 프레임워크는 다층 주의 롤아웃, 텍스트 기반의 공간 사전, 그리고 층 일관성 분석을 결합하여 정밀하고 안정적이며 임상적으로 유의미한 기울기 기여도 맵을 생성합니다. MATEX는 이러한 방법의 한계를 극복하고, MS-CXR 데이터셋에서 최첨단 M2IB 방법을 능가하는 성능을 보여줍니다.
+
+- **Technical Details**: MATEX의 기본 구조는 시각적 주의 맵, 텍스트 주의 맵, 기울기 기여도 계산, 텍스트 기반 공간 사전 및 다중 스케일 융합 등 5개의 상호 연결된 구성 요소로 이루어져 있습니다. 특히, 시각적 주의 맵은 이미지 인코더에서 파생되며, 텍스트 주의 맵은 텍스트 인코더에서 임베딩된 토큰을 가중치화하여 생성됩니다. 이러한 내용은 의료 이미지의 해석 가능성을 크게 향상시키며, 임상적으로 의미 있는 설명을 제공합니다.
+
+- **Performance Highlights**: MATEX는  수치적 지표에서 기존의 해석 가능성 기법보다 우수한 성능을 보이며, 전문가 주석과의 정성적 정렬에서도 개선된 결과를 나타냅니다. 특별히, MATEX는 다층 Attention을 통해 신뢰할 수 있는 예측을 위한 해부학적이고 세분화된 기여도 맵을 생성하는 데 중점을 두고 있습니다. 이로 인해 MATEX는 의료 비즈니스 환경에서 높은 수준의 신뢰성을 보장할 수 있는 잠재력을 가지고 있습니다.
+
+
+
+### Serverless AI Security: Attack Surface Analysis and Runtime Protection Mechanisms for FaaS-Based Machine Learning (https://arxiv.org/abs/2601.11664)
+Comments:
+          17 Pages, 2 Figures, 4 Tables
+
+- **What's New**: 본 논문은 서버리스(serveless) 환경에서 머신러닝(ML) 워크로드의 보안을 종합적으로 분석한 최초의 연구이다. 최근 머신러닝 추론 작업이 서버리스 플랫폼으로 이동하면서 이를 통한 경량화와 비용 효율성은 증가하지만, 이에 따라 보안 취약점 또한 기하급수적으로 증가하고 있다. 논문에서는 함수 수준의 취약점, 모델별 위협, 인프라 공격, 공급망 위험 및 IAM 복잡성 등 5가지 카테고리로 공격 표면을 체계적으로 분류하였다.
+
+- **Technical Details**: 서버리스 AI 보안 분석에서는 AWS Lambda, Azure Functions 및 Google Cloud Functions와 같은 주요 서버리스 플랫폼에서의 보안 실험을 통해 실제 공격 시나리오를 보여주었다. 면밀한 평가를 통해, 함수 호출 지연(cold start)이나 종속성(poisoning) 공격 등을 포함한 다양한 취약점을 파악했다. 본 연구의 결과로 제안된 Serverless AI Shield(SAS)는 다층 방어 구조를 가지고 있으며, 사전 배포 검증, 런타임 모니터링, 사후 포렌식 등을 통해 공격으로부터 시스템을 보호한다.
+
+- **Performance Highlights**: SAS는 94%의 탐지율을 달성하면서도, 추론 지연에 대한 성능 오버헤드를 9% 미만으로 유지하는 것으로 평가되었다. 이 시스템은 서버리스 환경에서의 ML 워크로드의 보안성을 높이는 동시에, 기존의 서버리스 컴퓨팅 모델이 제공하는 신속성과 비용 효율성을 보장한다. 또한, 오픈 소스 보안 툴킷이 제공되어 실무자들이 서버리스 AI 배포 환경의 보안을 강화할 수 있도록 지원한다.
+
+
+
+### Activation Sensitivity as a Unifying Principle for Post-Training Quantization (https://arxiv.org/abs/2601.11663)
+- **What's New**: 이 논문에서는 대규모 언어 모델(LLMs)의 포스트 트레이닝 양자화(PTQ) 방법의 통합 이론적 틀을 제시합니다. 특히, 채널별 미세 조정이 모델 손실에 미치는 기대 영향을 정의한 활성화 민감도(activation sensitivity)를 도입하여, 기존 방법들이 어떤 기초적 수량을 근사하는지 명확히 합니다. 저자들은 PTQ의 설계 공간을 분석하고, 이론적 관점에서 기존 방법의 관계를 명확히 하고자 합니다.
+
+- **Technical Details**: 활성화 민감도는 채널별 작은 가중치 변동이 손실에 미치는 영향을 분석하여 정의됩니다. 이 논문은 이를 첫 번째 차수 Taylor 전개를 통해 설명하며, 이로 인해 생성된 민감도 지표는 손실 구조에서 직접 유도됩니다. 기존의 두 가지 주요 방법인 AWQ와 GPTQ는 서로 다른 간소화 가정 하에서 민감도를 근사하는 상호 보완적인 방법으로 해석됩니다.
+
+- **Performance Highlights**: 기존 PTQ 방법들은 민감도를 모델링하는 방식이 아니라, 그것을 근사할 때 채택하는 가정의 차이에 따라 다릅니다. 논문은 민감도의 최적화를 통해 최적의 양자화된 모델이 반드시 도출되지 않는 이유를 설명하고, 이러한 초점 설정이 PTQ의 기존 방법들을 비교하고 이해하는 데 도움을 줍니다. 결과적으로 이 작업은 PTQ 방법에 대한 더 깊은 이해를 제공하며, 차세대 양자화 알고리즘의 개발을 위한 기초를 마련합니다.
+
+
+
+### Towards AGI A Pragmatic Approach Towards Self Evolving Agen (https://arxiv.org/abs/2601.11658)
+- **What's New**: 이번 논문은 대형 언어 모델(LLM) 기반 에이전트의 한계를 극복하기 위한 새로운 프레임워크를 제안합니다. 기존의 정적인 특성 대신, 에이전트가 자율적으로 기능을 확장하고 새로운 도구를 생성할 수 있는 계층적 자기 진화 멀티 에이전트 구조를 도입합니다. 이 구조는 Base LLM, Operational SLM 에이전트, 코드 생성 LLM, Teacher-LLM을 통합하여 지속적인 적응을 가능하게 합니다.
+
+- **Technical Details**: 제안된 워크플로우는 에이전트가 주어진 작업을 해결하려고 시도하는 것으로 시작합니다. 만약 실패할 경우, Code-Gen LLM을 통해 도구를 합성하게 되며, 이후에도 실패가 지속되면 커리큘럼 학습(Curriculum Learning, CL), 보상 기반 학습(Reward-Based Learning, RL), 유전자 알고리즘(Genetic Algorithm, GA) 진화 단계를 통해 진화가 유발됩니다.
+
+- **Performance Highlights**: TaskCraft 데이터셋을 이용한 평가 결과, CL은 빠른 회복과 강한 일반화를 제공하며, RL은 높은 난이도 작업에서 뛰어난 성능을 보입니다. GA는 높은 행동 다양성을 제공하여, 모든 설정에서 진화된 에이전트가 원래의 에이전트보다 우수한 성능을 나타내며, 강력하고 자율적인 자기 개선을 가능하게 한다는 것을 보여줍니다.
+
+
+
+### Size is Not the Solution: Deformable Convolutions for Effective Physics Aware Deep Learning (https://arxiv.org/abs/2601.11657)
+- **What's New**: 본 논문은 물리학적으로 인식된 딥러닝(Physics-aware deep learning, PADL)에 관한 새로운 접근법인 변형 가능 물리학 인식 순환 합성곱(Deformable Physics-aware Recurrent Convolutions, D-PARC)을 소개합니다. D-PARC는 CNN의 경직성을 해결하기 위해 Hybrid Lagrangian-Eulerian(HLE) 수치 방법에서 영감을 얻었습니다. 이 새로운 구조는 많은 파라미터를 가지는 전통적인 CNN 아키텍처보다 더 나은 성능을 보여주며, 고난이도의 비선형 유동 현상을 효과적으로 예측할 수 있습니다.
+
+- **Technical Details**: 현재 PADL 모델에서 대부분 CNN이 백본으로 사용되지만, 이는 정적 카르테시안 그리드에서 물리량을 해석해야 하는 제약이 있습니다. 반면, D-PARC는 각 합성곱 커널이 독립적으로 이동하는 것을 가능하게 하는 변형 가능한 합성곱을 통해 진화하는 필드 내에서 동적으로 리셉티브 필드를 재구성합니다. 이로 인해 복잡한 지역적 특징을 더 잘 반영할 수 있는 학습 전략이 마련됩니다.
+
+- **Performance Highlights**: D-PARC는 다양한 물리 현상을 설명하는 세 가지 데이터셋에서 테스트되었으며, 특히 Navier-Stokes 방정식과 관련된 유동에서 성능을 크게 향상시켰습니다. D-PARC는 속도 RMSE를 9.61% 감소시키고, 압력 RMSE를 1.56% 줄이면서 PARCv2-L 모델을 초월하는 성과를 보였습니다. 특히, 핫스팟 복원에서 D-PARC는 IoU 점수에서 12.0% 개선을 기록하며, 일반적인 깊이 증가가 복잡한 물리적 동역학에서 최적화를 저해할 수 있음을 입증하였습니다.
+
+
+
+### WISP: Waste- and Interference-Suppressed Distributed Speculative LLM Serving at the Edge via Dynamic Drafting and SLO-Aware Batching (https://arxiv.org/abs/2601.11652)
+Comments:
+          28 Pages, 11 Figures, 12 Tables
+
+- **What's New**: 본 논문에서는 분산된 파라다임을 통해 LLM(대형 언어 모델)의 추론 과정에서의 비효율성을 해소하기 위해 새로운 시스템인 WISP를 제안합니다. 이는 최근의 갑작스러운 LLM 수요 증가로 인해 데이터 센터에 가해진 부담을 줄이며, 사용자 기기의 활용도를 높이는 데 중점을 두고 있습니다. WISP는 지능형 컨트롤러와 검증 일정 계획자를 포함하여 효율적인 작업 분배를 위해 설계되었습니다.
+
+- **Technical Details**: WISP는 LLM 추론 과정에서 Wasted Drafting Time(WDT)과 Verification Interference 두 가지 주요 병목 현상을 공식화하여, 이러한 문제들을 해결하기 위한 체계적인 접근을 제공합니다. 또한, SLO(서비스 수준 목표)를 인식한 배치 구성 방식과 동적 검증 촉진을 통해 효율성을 극대화합니다. 이 시스템은 실시간 검증 요청 일정을 최적화하며, 다양한 하드웨어 자원의 효율적 사용을 도모합니다.
+
+- **Performance Highlights**: WISP를 통해 시스템 용량은 최대 2.1배, 4.1배 향상되며, 시스템의 실제 처리량(goodput)은 최대 1.94배, 3.7배 증가하는 결과를 보였습니다. 또한, 멀티 테넌트 환경에서의 SLO 위반을 현저히 줄이는 데 성공했습니다. 이러한 성과는 WISP가 기존의 중앙화된 처리 방식과 SLED보다 개선된 효율성을 제공함을 나타냅니다.
+
+
+
+### Aesthetics as Structural Harm: Algorithmic Lookism Across Text-to-Image Generation and Classification (https://arxiv.org/abs/2601.11651)
+Comments:
+          22 pages, 15 figures
+
+- **What's New**: 본 논문은 텍스트-이미지(T2I) 생성 AI에서 신체 외모에 근거한 우대 처리인 알고리즘적 외모주의(algorithmic lookism)를 탐구합니다. Stable Diffusion 2.1과 3.5로 생성된 26,400개의 합성 얼굴을 분석하여, 생성 AI 모델이 얼굴의 매력과 긍정적 특성을 체계적으로 연관짓는 방식을 밝혀냅니다. 이 연구는 성별 분류 작업에서도 유의미한 성별 편향이 존재함을 나타내고, 기존의 사회적 편견을 증폭시키는 구조적 해악을 드러냅니다.
+
+- **Technical Details**: 연구 방법론에 따르면, 독립적인 연구 질문을 다루기 위해 두 개의 데이터세트를 생성했습니다. 각 데이터세트는 13,200개의 이미지를 포함하며, 인종(Asian, Black, White) 및 성별(여성, 남성)에 따라 다르게 구성된 이미지들을 담고 있습니다. 또한, 알고리즘적 외모주의의 영향을 조사하기 위해 얼굴의 특정 속성을 분석하고, 무작위로 생성된 이미지들이 특정 특성(매력, 지능 등)과 어떻게 연관되어 있는지를 평가합니다.
+
+- **Performance Highlights**: 성별 분류 알고리즘의 성능 차이를 진단하여, AI 비전 시스템에서의 외관 기반 편향을 확인했습니다. 연구 결과는 알고리즘적 외모주의가 단순한 기술적 실패가 아니라, AI 시스템의 일반화된 규범적 프레임워크의 일환임을 드러냅니다. 마지막으로, 데이터 관리의 개선에도 불구하고, SD 3.5 모델이 미적 제약을 강화하고 다양성의 축소를 초래할 수 있음을 경고하고 있습니다.
+
+
+
+### Large Language Model Agent for User-friendly Chemical Process Simulations (https://arxiv.org/abs/2601.11650)
+- **What's New**: 이 논문은 화학 공정 시뮬레이터와 대형 언어 모델(LLM) 에이전트를 통합하여 사용자들이 복잡한 시뮬레이션 작업을 자연어로 수행할 수 있도록 하는 새로운 프레임워크를 제안합니다. 이 프레임워크는 AVEVA Process Simulation(APS) 소프트웨어와 통신할 수 있는 Model Context Protocol(MCP) 서버 도구 모음을 활용하여, 비전문가들도 쉽게 시뮬레이션 작업을 수행할 수 있게 돕습니다. 이를 통해 독립적으로 분리된 영어 입력을 기반으로 복잡한 시뮬레이션을 실행하고, 교육 및 전문가 모두에 대해 효율성을 높일 수 있는 기회를 제공합니다.
+
+- **Technical Details**: 이 연구는 두 가지 사례 연구를 통해 제안된 프레임워크의 실제 적용 가능성을 평가합니다. 첫 번째 사례에서 에이전트는 흐름도를 분석하고 최적화 기회를 발견하며, 데이터를 추출하고 결과를 명확하게 제시하는 작업을 독립적으로 수행합니다. 두 번째 사례 연구에서는 단계별 대화 방식과 단일 프롬프트 방식에서의 흐름도 합성을 평가하여, 초보자와 전문가 모두에게 유용성을 입증합니다. 이 연구에서 제안된 프레임워크는 기존의 시뮬레이션 방법론을 대체하는 것이 아니라 보완하는 방식으로 설계되어 있습니다.
+
+- **Performance Highlights**: 이 프레임워크는 특정 설정이나 환경에서의 최적 앞으로 나아가는 데 도움을 주며, 조작과 최적화 과정에서의 전문 지식을 필요로 하지 않도록 하여 사용자들이 더 쉽게 접근할 수 있도록 만듭니다. 이러한 연구 결과는 화학 공학 분야에서의 실무 적용 가능성을 보여주며, 신규 사용자도 복잡한 작업을 쉽게 수행하도록 안내함으로써 더 넓은 접근을 가능하게 합니다. 그러나 여전히 전문가의 감독이 필요하며, 시스템의 오류나 과도한 단순화 문제 등을 해결하기 위한 노력이 요구됩니다.
+
+
+
+### Reinforcement Learning for Dynamic Workflow Optimization in CI/CD Pipelines (https://arxiv.org/abs/2601.11647)
+Comments:
+          Accepted and presented at CICN 2025 (International Conference on Computational Intelligence and Communication Networks). 7 pages, 5 figures
+
+- **What's New**: 이 논문에서는 현대 소프트웨어 배포에 중요한 지속적인 통합 및 배포(CI/CD) 파이프라인의 비효율성을 해결하기 위해 강화 학습(RL) 기반 접근 방식을 제안합니다. 기존의 정적 워크플로우 대신, 마르코프 결정 프로세스(MDP)로 모델링하여 파이프라인의 각 커밋 단계에서 동적으로 의사 결정을 할 수 있도록 합니다. 이를 통해, 테스팅 오버헤드를 최소화하면서 처리량을 극대화할 수 있는 RL 에이전트를 훈련시키는 방법론을 소개합니다.
+
+- **Technical Details**: 이 방법론의 핵심은 각 커밋의 메타데이터와 파이프라인 맥락을 포함한 상태(S), 세 가지 테스트 작업(전체, 부분, 생략) 중 선택하는 행동(A), 선택된 행동에 대한 결과를 시뮬레이트하는 전이 함수(T)와 리워드(R)로 구성된 MDP 구조입니다. 테스트 실행 시간과 결함 누출에 대한 벌점을 조합하여 파이프라인의 효율성과 신뢰성을 균형 있게 유지하는 리워드 시스템을 설계했습니다. 에이전트는 DQN(Deep Q-Network) 알고리즘에 기반하여 훈련되며, 2000개의 에피소드를 통해 최적의 테스트 선택 정책을 학습합니다.
+
+- **Performance Highlights**: 실험 결과에 따르면, RL 최적화된 파이프라인은 정적 기준선과 비교하여 최대 30%의 처리량 개선과 약 25%의 테스트 실행 시간 단축을 달성했습니다. 결함 누출률은 5% 이하로 유지되면서, 저위험 커밋에 대해 테스트를 생략하거나 축약하여 피드백 주기를 가속화하는 데 성공했습니다. 이러한 결과는 강화 학습을 통한 적응형 DevOps 워크플로의 가능성을 보여주며, 효율적이고 지속 가능한 CI/CD 자동화를 위한 실질적인 경로를 제시합니다.
+
+
+
+### Predicting When to Trust Vision-Language Models for Spatial Reasoning (https://arxiv.org/abs/2601.11644)
+Comments:
+          9 pages, 5 figures, 6 tables
+
+- **What's New**: 이번 연구에서는 Vision-Language Models (VLMs)의 공간적 추론에서 발생하는 체계적인 실패를 해결하기 위한 새로운 접근 방식을 제안합니다. 기존의 VLM들은 방향 관계를 파악하는 데 49%에서 54%의 낮은 정확도를 보였으며, 이는 로봇 공학 및 자율 시스템의 안전한 배포에 문제가 됩니다. 저자들은 외부 기하학적 검증을 통해 VLM 예측을 평가하는 비전 기반 신뢰도 추정 프레임워크를 제안하여, 신뢰할 수 있는 예측을 가능하게 합니다.
+
+- **Technical Details**: 제안된 프레임워크는 VLM이 공간 예측을 생성한 후, 객체 감지를 통해 기하학적 관계를 검증하는 네 단계로 구성됩니다. 이 과정에서 VLM의 예측과 좌표 간의 기하학적 정합, 겹침으로 인한 공간 모호성, 감지 품질, 그리고 VLM 내부의 불확실성을 포함한 네 가지 신뢰 신호를 융합하여 최종 신뢰도를 계산합니다. 이 모델은 705개의 샘플에서 훈련되었고, VSR 벤치마크의 312개 이미지를 통해 평가되었습니다.
+
+- **Performance Highlights**: BLIP-2에서 0.674 AUROC, CLIP에서 0.583 AUROC를 달성하여 기존 텍스트 기반 방법보다 각각 34.0% 및 16.1% 개선되었습니다. 선택적 예측 능력을 통해 BLIP-2의 경우 60% 목표 정확도에서 61.9%의 커버리지를 달성하였으며, 정밀도를 향상시키기 위해 신뢰도 기반 가지치기를 통해 그래프 추출의 정밀도를 52.1%에서 78.3%로 증가시켰음을 보여주었습니다.
+
+
+
+### Syllabic Agglutinative Tokenizations for Indonesian LLM: A Study from Gasing Literacy Learning System (https://arxiv.org/abs/2601.11643)
+Comments:
+          12 pages, 1 figures
+
+- **What's New**: 이 논문은 인도네시아 대형 언어 모델에 대한 새로운 음절 기반 토크나이제이션(tokenization) 접근법을 제안합니다. Gasing Literacy Learning System의 교육 방법론에서 영감을 받아, 본 연구는 정보 이론적 원칙을 바탕으로 인도네시아어 텍스트를 음절 경계에서 분할한 후 바이트 쌍 인코딩(byte-pair encoding)을 적용하는 프레임워크를 개발했습니다. 이를 통해 3,500개의 토큰으로 구성된 어휘를 생성하고, 의미 있는 언어 단위를 보존하면서 문자 수준의 대체 기능도 유지합니다.
+
+- **Technical Details**: 이 연구에서 제안하는 음절 점착 기반 토크나이제이션 방법은 고주파 음절을 규칙 기반으로 식별한 후, 언어의 형태음운론적 구조에 맞춘 compact한 어휘를 생성하는 방식으로 이루어집니다. 이러한 접근 방식을 통해 기계학습 모델의 메모리 및 캐시 사용을 효율적으로 하여 학습의 빠른 수렴(convergence)과 훈련 안정성을 개선합니다. 연구에서 사용된 실험은 기존의 Byte-Pair Encoding, WordPiece, GPT-2 및 BERT 토크나이저와 비교하며, 내재적(metrics) 및 외재적(metrics) 성능을 평가합니다.
+
+- **Performance Highlights**: 음절 기반 접근법은 프리트레인된 다국어 토크나이저가 보이는 0.50-0.64의 Rényi 효율성에 비해 0.74의 효율성을 달성하며, 평균 토큰 길이도 더 길(3.67 문자 대 2.72 문자)어 특정 코드와 부호화 규칙을 효과적으로 반영합니다. 이러한 성장은 음절 단위에서 문자 수준의 의존성을 내재화(internalize)할 수 있는 방법의 덕분이며, 인도네시아어의 교착 형태학을 존중합니다. 이로써 TOBA LLM(Tokenisasi Optimum Berbasis Aglutinasi)이라는 새로운 대형 언어 모델이 제안되며, 이는 컴퓨터 최적화 원칙과 인간 문해 교육 방법론의 융합을 통해 언어 정보 기반 토크나이제이션 전략 개발에 유망한 패러다임이 될 것으로 기대됩니다.
+
+
+
+### NoiseFormer -- Noise Diffused Symmetric Attention Transformer (https://arxiv.org/abs/2601.11619)
+- **What's New**: 이 논문에서는 Sparse Attention 기술 중 하나인 대칭 점곱 주의(Symmetric Dot-Product Attention)를 분석하고, 모델 성능을 향상시키기 위한 Noise Diffused Symmetric Attention Transformer라는 통합 모델 아키텍처를 제안합니다. 대칭 주의의 메모리 이점을 유지하면서도 모델 매개변수와 계산 부하를 최소화하여 정확도와 샘플링 속도에서 향상된 성능을 제공합니다. 이번 연구의 핵심은 새로운 AI 기술을 적용하여 주요 구성 요소의 효율성을 극대화하기 위한 시도입니다.
+
+- **Technical Details**: Transformer 아키텍처에서 대칭 점곱 주의는 쿼리(Query), 키(Key), 값(Value) 행렬 간의 상관관계를 기반으로 합니다. 이를 통해 입력 토큰의 잠재 표현을 생성하기 위해 각각의 Attention Score를 계산하게 되며, 제안된 대칭 주의 메커니즘은 Q=K의 관계를 통해 모델의 메모리 사용량을 줄입니다. 이 논문에서는 대칭 주의에 잡음 노이즈를 추가함으로써 성능 향상을 도모하며, 이는 새로운 Attention Scores를 추정하는 데 도움을 줍니다.
+
+- **Performance Highlights**: 제안된 모델은 GPT2 기본 모델을 기반으로 테스트 되었으며, 다양한 GLUE 벤치마크 작업에서 정확도 면에서 대칭 주의 및 기본 모델 간의 성능 향상이 관찰되었습니다. 모델의 크기를 상당히 줄이면서도 성능을 유지하여 인퍼런스 비용을 절감하는 데 성공했습니다. 이러한 결과를 통해 논문이 제안하는 Noise Diffused Symmetric Attention이 모델의 표현력을 극대화하는 데 기여함을 입증합니다.
+
+
+
+### Geometric Attention: A Regime-Explicit Operator Semantics for Transformer Attention (https://arxiv.org/abs/2601.11618)
+Comments:
+          57 pages
+
+- **What's New**: 이 논문은 Geometric Attention (GA) 메커니즘을 소개하며, 이를 통해 Attention Layer의 구조를 네 가지 독립적인 입력으로 구성합니다: 유한한 Carrier, evidence-kernel 규칙, Probe Family, 앵커/업데이트 규칙. 이 연구는 Transformer의 표준 수식이 이 네 가지 요소의 제약에서 어떻게 유도될 수 있는지를 명시하는 데 초점을 두고 있습니다. 이러한 접근 방식은 Attention 메커니즘과 아키텍처의 비교 및 확장을 가능하게 합니다.
+
+- **Technical Details**: GA는 Attention을 구성하는 운영자의 네 가지 구성 요소로 설명합니다: (i) Carrier, (ii) evidence kernel, (iii) Probe Family, (iv) Anchor/Update. 논문 전반에 걸쳐, Prune 과정에서의 제약 조건을 통해 어떤 링크가 지수적으로 보장되는지를 수학적으로 증명하며, row anchoring을 통해 softmax 조건이 어떻게 유도되는지를 보여줍니다. 특히, 이 연구는 고유의 interaction component를 분리하고, Eckart-Young/SVD 이론을 적용하여 저차 원의 도트 곱 차트를 구현합니다.
+
+- **Performance Highlights**: 표준 Transformer 모델은 고정된 Carrier가 있는 전개/토큰 체제와 일치하는 반면, Carrier가 깊이에 따라 변할 수 있도록 허용하는 것은 적응형 Carrier 체제를 만들 수 있습니다. 다양한 조합을 통해, 멀티헤드 및 혼합 커널, 계획 기반 앵커(Others)와 같은 다양한 선택이 가능하다는 점에서 주목받습니다. 이 접근은 Attention 메커니즘의 비교와 확장을 가능하게 하여, 보다 유연하고 효율적인 AI 모델 설계에 기여합니다.
+
+
+
+### Mixture-of-Experts as Soft Clustering: A Dual Jacobian-PCA Spectral Geometry Perspectiv (https://arxiv.org/abs/2601.11616)
+- **What's New**: 이번 연구에서는 Mixture-of-Experts (MoE) 아키텍처를 기하학적 관점에서 탐구합니다. 특히, 라우팅(routing)을 로컬 차트를 겹치는 형태로 해석하며, 함수 및 표현의 기하학이 어떻게 변화하는지를 분석합니다. 이러한 접근은 MoE 아키텍처의 효율성과 조건부 계산 외에도 면밀한 기하학적 특성을 드러내는 데 기여합니다.
+
+- **Technical Details**: 우리는 Dual Jacobian-PCA Spectral Geometry 프로브를 도입합니다. 이 프로브는 Jacobian의 고유값 스펙트럼을 통해 로컬 함수 기하학을 분석하며, 라우팅된 히든 상태의 가중치 PCA를 통해 표현 기하학을 분석합니다. 또한, MLP-MoE 설정을 통해 정확한 Jacobian 계산을 가능하게 하여, 밀집(dense), Top-k, 완전 소프트(routing) 아키텍처를 비교합니다.
+
+- **Performance Highlights**: 연구에서 MoE 라우팅은 로컬 민감도를 일관되게 감소시키는 경향을 보였습니다. 전문가 전용 Jacobians는 밀집 기준선보다 더 작은 주요 고유값과 빠른 스펙트럼 감쇠를 나타냈습니다. 또한, 가중치 PCA를 활용한 분석에서 전문가 전용 표현이 더 많은 방향으로 분산되며, 이는 동일한 입력 분포에서 더 높은 효과적인 차원을 나타냅니다.
+
+
+
+### Multifaceted Scenario-Aware Hypergraph Learning for Next POI Recommendation (https://arxiv.org/abs/2601.11610)
+- **What's New**: 이번 논문에서는 다양한 Location-Based Social Networks (LBSNs)에서 유저의 과거 체크인 경로를 분석하여 다음에 방문할 장소(POI)를 추천하는 방법을 제안합니다. 기존 방법들이 서로 다른 맥락, 예를 들어 관광객과 지역 주민 간의 이동 패턴 변화를 제대로 반영하지 못한점을 해결하기 위해, Multifaceted Scenario-Aware Hypergraph Learning (MSAHG) 방법론을 소개합니다. 이 접근법은 각 시나리오에 맞는 하이퍼그래프를 구축하고, 매개변수를 적응적으로 분리하여 서로 다른 맥락에서의 추천 성능을 개선합니다.
+
+- **Technical Details**: MSAHG는 사용자의 유형, 시간적 맥락, 지역에 따라서 세 가지 주요 차원으로 시나리오를 구분하고, 각 시나리오에 대한 다중 뷰 해체 하이퍼그래프(sub-hypergraphs)를 생성하여 뚜렷한 이동 패턴을 포착합니다. 이 방법은 각 시나리오에서 발생하는 최적화 방향의 충돌을 해소하기 위해 매개변수 분할 메커니즘을 도입하며, 이는 일반화 능력을 보존하면서 훈련 중 시나리오 간의 갈등을 처리하는 데 도움을 줍니다. 이러한 설계로 인해 MSAHG는 다양한 맥락에서 정밀한 이동 특성을 효과적으로 포착할 수 있습니다.
+
+- **Performance Highlights**: 세 가지 실제 LBSN 데이터셋에 대한 광범위한 실험을 통해 MSAHG의 성능을 평가한 결과, 기존의 다섯 가지 최신 기술보다 일관되게 높은 성과를 보였습니다. 이는 다양한 시나리오에 걸쳐 MSAHG의 유효성을 입증하며, 특히 사용자 맞춤형 POI 추천에 있어 뚜렷한 이점을 나타냅니다. 이러한 결과는 MSAHG 모델이 멀티 시나리오 POI 추천 임무를 해결하는 데 있어 중요한 기여를 하고 있음을 시사합니다.
+
+
+
+### Hardware-Aware Reformulation of Convolutions for Efficient Execution on Specialized AI Hardware: A Case Study on NVIDIA Tensor Cores (https://arxiv.org/abs/2601.11608)
+- **What's New**: 이번 논문에서는 CNN (Convolutional Neural Network) 컴퓨테이션을 하드웨어 정렬(hardware alignment) 요구사항에 맞춰 재구성하는 새로운 방법인 semantic tuning을 제안합니다. 이 접근법은 네트워크 가중치의 변경 없이, 사후 훈련 후에 CNN 수학적 표현을 재작성하여 특정 하드웨어의 실행 효율을 높입니다. 기존의 제로 패딩(zero padding) 방법보다 더 효율적인 방식으로, 텐서 차원을 최적화할 수 있습니다.
+
+- **Technical Details**: 핵심적으로, 이 연구에서는 width folding이라는 변환 기법을 사용하여 입력의 너비 차원을 높이는 동시에 하드웨어 정렬 요구사항을 만족시키며, 원래 모델의 적합성을 보존합니다. 이 방법은 일반적으로 박스 타원 기준을 준수하며, 필터는 채널 차원을 따라 반복된 형태로 복사되어 적용됩니다. 이러한 변환은 광범위한 하드웨어 아키텍처에 일반화될 수 있는 기초를 마련합니다.
+
+- **Performance Highlights**: NVIDIA A100에서 cuDNN 및 TensorRT에 비해 최대 3배의 성능 향상이 보고되었습니다. 이 연구는 CNN의 하드웨어 인식 최적화(hardware-aware optimization)가 가능하다는 것을 보여주며, 고성능 AI 하드웨어에서 CNN 모델을 효율적으로 배포하는 새로운 가능성을 제시합니다.
+
+
+
+### Hindsight Preference Replay Improves Preference-Conditioned Multi-Objective Reinforcement Learning (https://arxiv.org/abs/2601.11604)
+- **What's New**: 이 논문에서는 다목적 강화 학습(Multi-Objective Reinforcement Learning, MORL)에서 사용자 선호도를 고려한 CAPQL(Preference-Conditioned Actor-Critic) 메소드와 Hindsight Preference Replay(HPR)를 도입합니다. HPR은 저장된 전이(transition)의 선호 벡터를 소급하여 재라벨링하여 샘플의 효율성을 높이고 지도 학습을 강화합니다. 이를 통해 기존의 CAPQL 구조나 손실 함수에 변화를 주지 않고도 성능 개선을 달성할 수 있습니다.
+
+- **Technical Details**: HPR-CAPQL은 다중 선호도를 다루기 위해 저장된 전이에 대해 다른 선호 벡터로 재라벨링하는 메커니즘을 적용합니다. 이 메커니즘은 Hindsight Experience Replay(HER)의 원리를 기반으로 하며, 전이의 보상 벡터는 변경하지 않고 새로운 선호 벡터로만 대체하여 다양한 스칼라화 선호도를 가능하게 합니다. 이렇게 수집된 전이는 저장 버퍼에 보관되며, 훈련 중에 이는 다양한 업데이트와 환경 상호작용을 통해 활용됩니다.
+
+- **Performance Highlights**: HPR-CAPQL은 MO-Gymnasium에서 6개의 로코모션 태스크를 평가하면서, 6개 환경 중 5개에서 하이퍼볼륨(Hypervolume) 개선을 보여주었고, EUM(Expected Utility Metric)에서는 6개 환경 중 4개에서 성능 향상을 기록하였습니다. 예를 들어, mo-humanoid-v5 작업에서는 EUM이 $323\\pm 125$에서 $1613\\pm 464$로 상승하고, HV는 0.52M에서 9.63M으로 증가하는 효과를 보였습니다. 그러나 mo-halfcheetah-v5 환경에서는 CAPQL이 더 높은 HV를 달성하면서 여전히 도전적인 상황임을 보여주었습니다.
+
+
+
+### Toward Youth-Centered Privacy-by-Design in Smart Devices: A Systematic Review (https://arxiv.org/abs/2601.11598)
+Comments:
+          To appear in the IEEE CCWC 2026 proceedings
+
+- **What's New**: 이번 문헌 리뷰는 AI 지원 스마트 기기에서 청소년을 보호하기 위한 프라이버시-바이-디자인 (privacy-by-design) 프레임워크, 도구 및 정책을 평가했습니다. PRISMA 가이드라인에 따라 수행된 이 연구는 지난 10년 동안의 주요 학술 및 회색 문헌 (grey literature) 리포지토리에서 자료를 검색했습니다. 결과적으로 2,216개의 자료가 식별되었고, 122개 기사가 분석을 위해 포함되었습니다.
+
+- **Technical Details**: 찾은 자료는 기술적 솔루션, 정책/규제 조치, 교육/인식 전략이라는 세 가지 주제 범주로 정리되었습니다. 기술적 개입은 데이터 노출을 줄이는 데 효과적이지만, 채택이 제한적입니다. 예를 들어, 디바이스 내 처리(on-device processing), 연합 학습(federated learning), 경량 암호화(lightweight encryption) 등이 그 예입니다.
+
+- **Performance Highlights**: 정책 프레임워크, 특히 EU의 GDPR, 영국의 연령 적합 디자인 코드(UK Age-Appropriate Design Code), 캐나다의 PIPEDA는 중요한 기준을 설정하지만, 시행의 공백(gaps in enforcement)과 연령에 적합한 디자인 의무의 부족이 문제입니다. 또한 교육적 이니셔티브는 학습 과정에 체계적으로 통합되는 경우가 드물었습니다. 전반적으로 수집된 자료는 기술적 솔루션이 67%를 차지하며, 정책은 21%, 교육은 12%에 불과하여 기술적 영역 외에 구현의 격차가 있음을 나타냅니다.
+
+
+
+### EPD-Serve: A Flexible Multimodal EPD Disaggregation Inference Serving System On Ascend (https://arxiv.org/abs/2601.11590)
+- **What's New**: 본 논문은 대규모 다중 모달 모델의 효율적인 추론을 위해 EPD-Serve라는 새로운 시스템을 제안합니다. 기존의 모놀리식 아키텍처가 다양한 하드웨어 특성을 간과함에 따라 성능 병목 현상이 발생하고 있다는 점을 강조합니다. EPD-Serve는 인코드, 프리필, 디코드 단계의 독립적인 분리로 유연한 배치를 가능하게 하여 성능을 크게 향상합니다.
+
+- **Technical Details**: EPD-Serve는 인코드(Encode), 프리필(Prefill), 디코드(Decode) 단계로 나뉘어진 추론 파이프라인을 기반으로 하며, 각 단계 간의 비동기 데이터 전송 및 계층적 KV 캐시 전송 메커니즘을 도입합니다. Asynchronous feature prefetching을 통해 E-P 데이터 전송을 계산과 겹치게 하고, 계층적 KV 캐시 전송 메커니즘으로 Prefill-Decode 간의 전송을 줄이었습니다. 이 시스템은 다양한 다중 모달 워크로드를 지원하기 위해 멀티 경로 스케줄링 및 인스턴스 수준의 부하 균형을 통합합니다.
+
+- **Performance Highlights**: EPD-Serve는 OpenPangu-7B-VL 모델과 ShareGPT-4o 워크로드에서 전반적인 성능을 평가했습니다. 초당 평균 12개의 요청 부하에서도 EPD-Serve는 PD 분산 배치에 비해 57.37-69.48%의 처리량 개선을 보였으며, Time-To-First-Token(TTFT)은 2000ms 이하, Time-Per-Output-Token(TPOT)은 50ms 이하로 유지되었습니다. 이러한 결과는 다중 모달 대규모 모델 추론 시스템 최적화를 위한 단계 수준의 분리가 실질적이고 효과적임을 보여줍니다.
+
+
+
+### PLA-Serve: A Prefill-Length-Aware LLM Serving System (https://arxiv.org/abs/2601.11589)
+Comments:
+          12 pages
+
+- **What's New**: PLA-Serve는 LLM(대형 언어 모델) 서비스에서 요청을 서로 다른 프롬프트 길이로 분리하여 TTFT(첫 토큰의 시간)를 줄이는 혁신적인 방법입니다. 기존 시스템들이 사전 채우기와 디코딩 단계를 분리했지만, 이들은 여전히 다양한 워크로드 특성에 적응하지 못하는 통합 스케줄링 정책에 의존하고 있었습니다. PLA-Serve는 이러한 문제를 해결하기 위해 프롬프트 길이에 대한 동적 스케줄링 전략을 도입합니다.
+
+- **Technical Details**: PLA-Serve는 멀티 턴의 긴 프리필 요청과 짧은 프리필 요청을 분리하고, 짧은 프리필 워크로드에 대해 길이 인지 스마트 배칭 메커니즘을 제공합니다. 이 시스템은 단일 프리필 인스턴스에서의 시간적 분리나 여러 인스턴스 간의 공간적 분리를 지원하는 이중 큐 설계를 채택합니다. CUDA Graph 기반의 클러스터링과 결합된 배치 대기 창을 통해 다양한 계산에서 오는 간섭을 완화하고 대기 시간을 줄입니다.
+
+- **Performance Highlights**: 실제 멀티 턴 워크로드에서 PLA-Serve는 vanilla SGLang과 비교해 사전 채우기 지연 시간을 30% 이상 줄였으며, 다중 인스턴스 배치에서 SLO(서비스 수준 목표) 위반을 28% 감소시킵니다. 또한, 다중 GPU 환경에서 로드 밸런싱을 가지는 SGLang 라우터와 비교했을 때 SLO 위반을 12% 더 줄였습니다. PLA-Serve는 높은 동시성과 혼합 요청 시 35%의 요청 처리량 향상을 보여주어 이질적인 LLM 서비스 워크로드 최적화의 효과를 입증합니다.
+
+
+
+### Let Me Try Again: Examining Replay Behavior by Tracing Students' Latent Problem-Solving Pathways (https://arxiv.org/abs/2601.11586)
+Comments:
+          16 pages, 7 figures, LAK2026
+
+- **What's New**: 이 연구는 게임 기반 학습 환경에서 학생들이 문제 해결 경로를 어떻게 탐색하는지를 Markov Chains 및 Hidden Markov Models (HMMs)을 사용하여 분석했습니다. 연구 결과는 성공적인 완료 후 학생들이 즉각적으로 재재 시도를 하거나 특정 상태에서 지속적으로 머물렀다는 것을 보여주었습니다. 이는 학생들의 개념적 이해, 절차적 지식 및 유연성과 관련이 있습니다.
+
+- **Technical Details**: 이 연구는 777명의 7학년 학생이 사용하는 'From Here to There!' 플랫폼에서의 로그 데이터를 분석하여, 문제 해결 경로의 동적 변화를 파악했습니다. HMM을 통해 네 가지 잠재 상태(지속적 미완료, 최적 종료, 재재, 혼합)가 도출되었으며, 회귀 분석을 통해 재재 및 최적 종료 상태가 더 높은 개념적 지식 및 성과를 예측한다는 결과를 제시했습니다.
+
+- **Performance Highlights**: 즉각적인 재재는 학습 결과를 지속적으로 지원하는 반면, 지연된 재재는 성과에 부정적인 영향을 미치는 것으로 나타났습니다. 채점 과정에서의 학생의 경로는 그들이 마주하는 문제들 간의 효율성과 문제 해결 유연성을 반영하며, 발견된 데이터는 학습자에게 최적의 학습 전략을 제시하는 데 중요한 통찰력을 제공합니다.
+
+
+
+### Bit-politeia: An AI Agent Community in Blockchain (https://arxiv.org/abs/2601.11583)
+- **What's New**: 이 논문은 현재 자원 배분 패러다임의 기존 한계를 극복하기 위해 'Bit-politeia'라는 새로운 AI 에이전트 커뮤니티를 블록체인( blockchain) 위에 제안합니다. 이 시스템은 공정하고 효율적이며 지속 가능한 자원 할당 구조를 구축하는 것을 목표로 합니다. 주민들은 자신의 독점 대리인 역할을 하는 AI 에이전트를 통해 상호작용하며, 이는 공정성과 가치 정렬을 최적화하게 설계되었습니다.
+
+- **Technical Details**: Bit-politeia는 민주적 중앙집권(democratic centralism)을 통합하여 결정 과정의 효율성과 신뢰 메커니즘을 조화롭게 하는 '클러스터화 그룹+계층 구조(clustered grouping + hierarchical architecture)'를 채택합니다. 에이전트들은 비공식적인 대화(casual chat)와 심의적 상호작용(deliberative interactions)을 통해 연구 결과를 평가하고, 가상 화폐를 보상으로 배포합니다. 이를 통해 합의(concensus)에 기반한 평가를 통해 인센티브 호환성(incentive compatibility)을 달성하면서 블록체인 기술이 모든 거래 및 평판 데이터의 불변 기록을 보장합니다.
+
+- **Performance Highlights**: 이 시스템은 AI에 기반하여 객관적인 평가와 분산 검증(decentralized verification)을 통해 기존 피어 리뷰(peer review)의 인적 편향 문제를 최소화하고 자원의 집중화(centralization) 문제를 완화합니다. 'Bit-politeia'는 자동화된 자원 구성 프로세스를 통해 과학 혁신(scientific innovation)을 최적화할 수 있는 혁신적인 경로(new pathway)를 제공합니다.
+
+
+
+### Overview of the SciHigh Track at FIRE 2025: Research Highlight Generation from Scientific Papers (https://arxiv.org/abs/2601.11582)
+Comments:
+          7 pages, 2 tables
+
+- **What's New**: ‘SciHigh: Research Highlight Generation from Scientific Papers’는 과학 논문 초록에서 직접 간결하고 의미 있는 하이라이트를 자동으로 생성하는 작업에 중점을 두고 있습니다. 이 연구의 목표는 컴퓨터 모델이 논문의 주요 기여 및 발견을 포착하는 하이라이트를 얼마나 효과적으로 생성할 수 있는지를 평가하는 것입니다. 하이라이트는 독자가 필수 아이디어를 신속하게 파악하는 데 도움을 주며, 특히 모바일 기기에서 긴 문단보다 읽고 이해하기 더 쉽습니다.
+
+- **Technical Details**: SciHigh 트랙은 MixSub 데이터셋을 사용하여 12개 팀이 다양한 접근 방식을 통해 과학 논문 초록에서 하이라이트를 생성하는 작업에 참여했습니다. 이 데이터셋은 2020년 출판된 19,785개의 연구 논문을 포함하고 있으며, 각 논문에는 초록과 해당 저자가 작성한 하이라이트가 포함되어 있습니다. 모든 제출물은 ROUGE, METEOR 및 BERTScore와 같은 기존 메트릭을 사용하여 평가되었으며, ROUGE-L 점수를 기반으로 팀이 순위가 매겨졌습니다.
+
+- **Performance Highlights**: 대회에서 가장 높은 점수를 기록한 Text_highlights_gen 팀은 Pegasus 모델과 NER 기능을 활용하여 성능을 최적화했습니다. 이 모델은 ROUGE-L F1 점수 23.45%로 1위를 기록했습니다. AiNauts 팀은 추출적 및 요약적 접근 방식을 결합하여 하이라이트를 생성하여 23.24%의 ROUGE-L F1 점수로 2위를 차지했으며, SVNIT_CSE 팀은 다양한 변형의 transformer 기반 모델을 조합하여 23%의 ROUGE-L F1 점수를 기록했습니다.
+
+
+
+### Enhancing the QA Model through a Multi-domain Debiasing Framework (https://arxiv.org/abs/2601.11581)
+Comments:
+          5 pages, 7 tables
+
+- **What's New**: 이번 연구는 QA(Question-Answering) 모델에서 발생하는 편향(bias)을 다루기 위한 다중 도메인 디바이싱(debiasing) 프레임워크를 개발하여, Stanford Question Answering Dataset(SQuAD) 및 추가의 적대적 데이터셋(AddSent, AddOneSent)을 평가합니다. 이를 통해 편향과 관련된 오류를 파악하고, 지식 증류(knowledge distillation), 디바이싱 기법, 도메인 확장을 통합하여 개선된 모델을 제시합니다. 연구 결과는 정확한 일치(Exact Match, EM) 및 F1 점수에서 최대 2.6% 향상을 보여줍니다.
+
+- **Technical Details**: 기본 모델로 활용된 ELECTRA-small은 자연어 처리(NLP) 작업에서 효율성과 경쟁력 있는 성능으로 알려진 트랜스포머 기반 아키텍처입니다. 이 모델은 SQuAD v1.1에서 훈련되었고, AddSent 및 AddOneSent 적대적 데이터셋을 통해 평가되었습니다. 분석 과정에서 Lexical bias, Numerical reasoning errors 및 Entity recognition errors의 세 가지 주요 오류 유형이 파악되었습니다.
+
+- **Performance Highlights**: 디바이싱을 통해 개선된 모델은 SQuAD 개발 데이터셋 및 적대적 데이터셋 모두에서 EM과 F1 점수에서 약 1% 향상된 결과를 보여줍니다. 이러한 개선은 고유한 편향 완화 전략을 통해 자연어 이해 시스템의 강인성과 신뢰성을 높일 수 있는 가능성을 제시합니다. 그러나, SQuAD처럼 비교적 깔끔하고 잘 구조화된 데이터에서는 결과가 쉽게 개선될 수 있지만, 노이즈가 많은 적대적 데이터셋에서는 개선이 어려운 점도 나타났습니다.
+
+
+
+### Speculative Decoding: Performance or Illusion? (https://arxiv.org/abs/2601.11580)
+- **What's New**: 이 논문은 생산 등급의 추론 엔진(vLLM)에서의 Speculative Decoding(SD)의 체계적인 연구를 최초로 제시합니다. 여러 SD 변종(예: n-gram, EAGLE/EAGLE-3, Draft-Model)과 다양한 작업 부하, 모델 스케일 및 배치 크기를 고려하여 SD의 실제 효과성을 분석합니다. 연구를 통해 SD 속도의 이론적 상한을 정량화하고, 실제 모델에 의한 검증이 실행의 주된 비용 요소임을 확인하였습니다.
+
+- **Technical Details**: SD는 대형 언어 모델을 활용하여 추론을 가속화하는 기법입니다. LLM은 입력 프롬프트에 기반하여 텍스트를 자동으로 생성하는데, 이 과정에서 여러 후보 토큰에 대해 동시에 확률 분포를 평가함으로써 성능을 최적화합니다. 우리는 시간 및 메모리 분해와 토큰 수용 동태성을 분석하여 성능 저해 요소를 확인하고, 각 SD 변형의 성능을 체계적으로 비교하였습니다.
+
+- **Performance Highlights**: SD는 모든 작업에서 비-SD 기준선보다 향상된 성능을 보여주었습니다. 특히, 긴 생성이 필요한 사고 기반 작업에서 표준 언어 모델 작업과 유사한 속도 향상을 보였으며, 일부 SD 방법에서는 상대적으로 4.9배 향상된 결과를 도출할 수 있었습니다. 이러한 결과는 SD의 효율성과 다양한 변형에 따른 성능 차이를 강조하며, 향후 최적화를 위한 중요한 방향성을 제시합니다.
+
+
+
+### Bielik 11B v3: Multilingual Large Language Model for European Languages (https://arxiv.org/abs/2601.11579)
+- **What's New**: Bielik 11B v3는 폴란드어에 최적화된 최신 언어 모델로, 다른 유럽 언어에서도 강력한 성능을 자랑합니다. 이 모델은 Mistral 7B v0.2 아키텍처를 기반으로 11B 파라미터로 확장되었습니다. 이 모델의 개발에는 지속적인 사전 훈련(continuous pre-training), 감독식 미세 조정(supervised fine-tuning, SFT), 직접 선호 최적화(Direct Preference Optimization, DPO), 강화 학습(reinforcement learning) 등 4단계의 종합적인 훈련 파이프라인이 포함되어 있습니다.
+
+- **Technical Details**: Bielik 11B v3는 뛰어난 성능을 나타내며, 다른 전문 폴란드어 모델을 크게 초과합니다. 여러 가지 기본 언어 이해(basic linguistic understanding) 및 복잡한 추론(complex reasoning) 작업에서 2배에서 6배 더 많은 파라미터를 가진 큰 모델들보다 뛰어난 결과를 보입니다. 모델의 파라미터 효율성(parameter efficiency)과 다양한 양자화 옵션(quantization options)은 다양한 하드웨어 구성에서도 효과적인 배포를 가능하게 합니다.
+
+- **Performance Highlights**: Bielik 11B v3는 폴란드어의 AI 능력을 진화시키는 것뿐만 아니라, 자원이 적게 사용되는 고성능 모델 개발을 위한 새로운 기준을 세우고 있습니다. 이 모델은 언어 모델 개발에 있어 중요한 이정표를 제공하며 덜 대표되는 언어에 대한 발전을 이끌어 갑니다. 광범위한 작업에서의 뛰어난 성능은 특히 주목할 만합니다.
+
+
+
+### LimAgents: Multi-Agent LLMs for Generating Research Limitations (https://arxiv.org/abs/2601.11578)
+Comments:
+          18 Pages, 9 figures
+
+- **What's New**: 이 논문에서는 LimAgents라는 다중 에이전트 LLM 프레임워크를 제안합니다. 이 프레임워크는 연구 논문의 제한사항을 보다 실질적으로 생성하는 데 중점을 두며, OpenReview 코멘트와 저자 진술의 제한 사항을 통합하여 강력한 기준 진실을 제공합니다. 또한, 인용된 문헌을 활용해 더 넓은 맥락에서의 약점을 포착하여 더욱 신뢰할 수 있는 한계를 제공합니다.
+
+- **Technical Details**: LimAgents 프레임워크는 여러 에이전트가 각각 특정 역할을 수행하는 구조입니다. Extractor Agent는 저자가 명시한 제한 사항을 추출하고, Analyzer Agent는 방법론적 감사로 임시적인 약점을 분석합니다. Reviewer Agent는 동료 평가자의 관점을 채택해 재현성, 투명성, 윤리성에 대한 우려를 강조하며, Citation Agent는 맥락적 제한 사항을 통합합니다. 최종적으로 Judge Agent는 출력물을 평가하여 품질을 개선하고, Master Agent는 모든 출력을 통합하는 역할을 합니다.
+
+- **Performance Highlights**: 실험 결과, LimAgents는 성능이 크게 향상됨을 보여줍니다. RAG + 다중 에이전트 GPT-4o 미니 구성은 제로 샷 베이스라인보다 15.51%의 범위 증가를 달성했으며, Llama 3 8B 다중 에이전트 설정은 4.41% 개선을 보입니다. 이는 제안된 프레임워크가 과학적 문서의 한계를 보다 정교하게 식별하고 기술하기 위해 설계되었음을 나타냅니다.
+
+
+
+### Concept Attractors in LLMs and their Applications (https://arxiv.org/abs/2601.11575)
+- **What's New**: 이번 연구는 대형 언어 모델(LLM)이 서로 다른 개념의 프롬프트를 특정 레이어에서 유사한 내부 표현으로 매핑하는 현상을 설명합니다. 우리는 이 현상이 반복 함수 시스템(Iterated Function Systems, IFS)을 통해 설명될 수 있으며, 이를 활용하여 다양한 실용적 작업을 처리할 수 있는 훈련이 필요 없는 방법을 개발했습니다.
+
+- **Technical Details**: 연구에서는 특정 개념에 대한 프롬프트 세트가 특정 레이어에서 가까운 영역으로 맵핑되는 역동적 시스템으로서 LLM을 이해할 것을 제안합니다. 이는 반복적으로 작용하는 축소성 맵을 통해 개념 구체적 집합인 Attractor로 수렴하는 과정을 통해 이루어집니다. 다양한 LLM에 대한 실험을 통해 이 개념이 잘 맞아떨어짐을 입증합니다.
+
+- **Performance Highlights**: 제안된 Attractor 기반의 개입은 기존의 전문화된 기준과 비교하여 비슷하거나 더 나은 성능을 보이며, 복잡한 미세 조정이 필요 없는 효율적인 대안을 제시합니다. 이러한 방법은 프로그래밍 언어 번역, 허상 줄이기, 가드레일 수립, 합성 데이터 생성 등 다양한 문제에 적용될 수 있습니다.
+
+
+
+### GRADE: Replacing Policy Gradients with Backpropagation for LLM Alignmen (https://arxiv.org/abs/2601.11574)
+- **What's New**: GRADE(Gradient-Relaxed Alignment via Differentiable Estimation)라는 새로운 방법을 소개합니다. 이 방법은 정책 경량 추정(policy gradient estimation)을 완전히 배제하여 기존의 높은 분산을 가진 기법을 개선합니다. GRADE는 Gumbel-Softmax 재매개화(Gumbel-Softmax reparameterization)를 활용하여 보상 신호에서 모델 매개변수까지의 직관적인 그래디언트 흐름을 가능하게 합니다.
+
+- **Technical Details**: GRADE는 Gumbel-Softmax 분포를 이용하여 이산 토큰 샘플링을 부드럽게 만들어 직접적인 역전파가 가능하도록 합니다. 이 방법은 불확실한 경량 추정 대신 결정론적 그래디언트(Deterministic Gradients)를 사용하여 높은 그래디언트 분산을 현저히 줄입니다. Straight-through Estimator(Ste)와 결합하여 생성된 토큰에서 그래디언트 흐름을 유지하면서 안정적인 훈련을 보장합니다.
+
+- **Performance Highlights**: IMDB 데이터셋을 이용한 감정 제어 텍스트 생성 실험에서, GRADE-STE는 0.763의 테스트 보상을 기록하며 PPO의 0.510에 비해 50% 이상의 상대적 개선을 보여주었습니다. GRADE-STE는 REINFORCE보다 14배 이상 낮은 그래디언트 분산을 보이며, 모든 테스트된 방법 중에서 가장 우수한 일반화 특성을 나타냈습니다.
+
+
+
+### Discrete Semantic States and Hamiltonian Dynamics in LLM Embedding Spaces (https://arxiv.org/abs/2601.11572)
+Comments:
+          23 pages, 5 figures
+
+- **What's New**: 이 논문은 대형 언어 모델(LLM)의 임베딩 공간 구조를 수학적 개념, 특히 선형 대수학과 해밀토니안(formalism)에서의 유사성을 통해 탐구합니다. LLM 임베딩이 이산적인 상태를 나타내어 문맥의 의미 표현을 시사한다는 점에 동기부여를 받았으며, 해밀토니안 형식을 통한 분석이 가능함을 보여줍니다. 특히, L2 정규화 제약으로 인해 나타나는 구조가 이러한 분석에 유용하다는 점을 강조하고 있습니다.
+
+- **Technical Details**: LLM 임베딩 공간의 구조를 이해하기 위해 다양한 수학적 도구를 적용하는 것이 목표입니다. 해밀토니안(formalism)과 관련된 개념을 이용하여 LLM의 임베딩 벡터 간의 관계 및 코사인 유사성에 대한 perturbations을 도출하고 있습니다. 이 접근법은 LLM 임베딩 시스템을 둘 이상의 임베딩 벡터로 모델링하여 의미적 전환을 탐구하는 데에도 중점을 두고 있습니다.
+
+- **Performance Highlights**: 임베딩 공간의 구조에 대한 이해는 LLM의 효율성을 향상시키고 허위 출력을 줄이는 새로운 방법으로 이어질 수 있습니다. 특히, 제로 포인트 에너지와 유사한 개념을 도출하며, 이러한 수학적 분석을 통해 LLM에서의 실험적 결과와 연결고리를 찾을 수 있습니다. 이러한 연구는 LLM의 성능, 안정성 및 신뢰성을 높이는 데 기여할 것으로 기대됩니다.
+
+
+
+### AdaFRUGAL: Adaptive Memory-Efficient Training with Dynamic Contro (https://arxiv.org/abs/2601.11568)
+- **What's New**: 이번 연구에서는 AdaFRUGAL을 도입하여 기존의 FRUGAL 프레임워크가 가진 몇 가지 한계를 극복합니다. AdaFRUGAL은 두 가지 동적 제어 메커니즘을 도입하여 메모리와 계산 자원을 효율적으로 관리하고 훈련 효율성을 높입니다. 특히, 고정된 하이퍼파라미터 대신 자동으로 조정되는 동적 원리로 훈련 진행에 따라 성능과 메모리 사용 간의 균형을 최적화합니다.
+
+- **Technical Details**: AdaFRUGAL은 초기 훈련 단계에서 더 높은 상태 완전 비율(ρ)부터 시작하여 훈련 진행에 따라 선형적으로 감소시키고, 손실에 기반하여 업데이트 주기(T)를 동적으로 조정합니다. 이를 통해 훈련 초기에는 강력한 AdamW 옵티마이저의 도움으로 빠르게 수렴하고, 후반부에는 메모리 효율적인 SignSGD를 사용하여 더 적은 메모리로도 최적화를 수행할 수 있습니다. 이 접근법은 메모리 소비를 줄이면서도 경쟁력 있는 성능을 유지할 수 있게 해줍니다.
+
+- **Performance Highlights**: 실험 결과, AdaFRUGAL은 영어 C4 및 베트남어 VietVault 데이터셋에서의 대규모 사전 훈련과 GLUE 벤치마크에서의 미세 조정 작업에서 AdamW와 기존의 정적 FRUGAL 프레임워크와 비교하여 경쟁력 있는 성능을 보여줍니다. 또한, AdaFRUGAL은 훈련 시간과 GPU 메모리 사용량을 대폭 줄이면서 보다 실용적이고 자율적인 LLM 훈련 솔루션을 제공합니다.
+
+
+
+### Measuring Stability Beyond Accuracy in Small Open-Source Medical Large Language Models for Pediatric Endocrinology (https://arxiv.org/abs/2601.11567)
+Comments:
+          20 pages, 11 figures, accepted at 47 workshop Reproducible Artificial Intelligence (AAAI 2026, Singapore, January 27, 2026)
+
+- **What's New**: 이번 연구에서는 소규모 오픈소스 의료 대형 언어 모델(LLM)의 성능을 평가하기 위해 소아내분비학 사례에 대한 다차원적 평가를 실시하였다. 기존의 의료 다지선다 문제(MCQ) 평가 방식은 정확도에 제한되어 있었으나, 이 연구에서는 일관성, 견고성, 추론 행동을 종합적으로 분석하였다. 총 6개의 모델(HuatuoGPT-o1, Diabetica-7B 등)을 조사하여, 이들이 실제 임상 상황에서 얼마나 신뢰할 수 있는지를 검토하였다.
+
+- **Technical Details**: 이 연구에서 사용된 데이터셋은 Pediatric Endocrine Self-Assessment Program 2021-2022(ESAP) 기반으로, 100개의 임상 사례 및 사실적 질문으로 구성된다. 실험은 세 가지 주요 전략을 통해 이루어지며, 각 모델은 주어진 질문에 대한 가장 적절한 선택지를 제공하고 임상적 이유를 뒷받침하도록 지시받았다. 이에 따라 모델의 응답 일관성 및 판단의 정확성을 비교 분석하였다.
+
+- **Performance Highlights**: 연구결과, HuatuoGPT-o1-8B가 가장 높은 성능을 보였으며, 일관성이 높은 응답이 항상 정확성을 의미하지 않음을 보여주었다. 특히, 여러 요인에 따라 모델의 출력이 통계적으로 유의미하게 변화할 수 있음을 확인하였다. 본 연구는 LLM이 실제 임상 결정 지원에 적합한지를 판단하기 위해서는 보다 포괄적인 진단 체계가 필요하다는 점을 강조하며, 이는 향후 의료 분야에서의 AI 활용 가능성을 제시한다.
+
+
+
+### Compass-Embedding v4: Robust Contrastive Learning for Multilingual E-commerce Embeddings (https://arxiv.org/abs/2601.11565)
+- **What's New**: 이 논문은 동남아시아(SEA) 전자상거래 시나리오에 최적화된 고효율 다국어 임베딩 프레임워크인 Compass-Embedding v4를 소개합니다. 전 세계 전자상거래가 급속히 확장되는 가운데, 저자원 언어에 대한 질 높은 의미적 표현의 부족이 검색 및 추천 시스템에서 주요 병목현상으로 작용하고 있습니다. 이 연구는 데이터 부족, 잡음 있는 감독, 엄격한 생산 제약을 해결하기 위해 세 가지 핵심 과제를 다룹니다.
+
+- **Technical Details**: Compass-Embedding v4는 먼저 혼합 태스크 감독 하의 대규모 배치 대비 훈련에 의한 체계적인 잘못된 부정 예제를 해결하기 위한 Class-Aware Masking (CAM) 기법을 제안합니다. 다음으로, 저자원 SEA 언어의 제한적이고 불균형한 데이터 커버리지를 극복하기 위해, 컨텍스트 기반 합성 데이터 생성, 교차 언어 번역, 구조화된 전자상거래 데이터 구축을 통해 다양화된 훈련 말뭉치를 구성합니다. 마지막으로, 높은 처리량의 추론 요구를 충족하기 위해 로버스트성 기반의 대규모 배치 교육과 구형 모델 병합을 결합하여 재앙적 망각(catastrophic forgetting)을 완화하고, vLLM 및 FP8 양자화를 통해 추론을 최적화합니다.
+
+- **Performance Highlights**: 다양한 멀티링구얼 벤치마크 및 자체 전자상거래 과제에 대한 광범위한 평가 결과, Compass-Embedding v4는 주요 SEA 언어에서 최첨단 성능을 달성하며, 도메인 특정 검색 및 분류에서 일반 용도의 임베딩 모델에 비해 상당한 성능 향상을 보여줍니다. 또한, 고자원 언어에 대해서도 경쟁력 있는 성능을 유지합니다.
+
+
+
+### Context Discipline and Performance Correlation: Analyzing LLM Performance and Quality Degradation Under Varying Context Lengths (https://arxiv.org/abs/2601.11564)
+Comments:
+          22 pages, 6 figures
+
+- **What's New**: 이번 연구에서는 대형 언어 모델(LLMs)에서의 긴 컨텍스트 제공과 이로 인한 성능 저하 간의 중요한 상충 관계를 조사했습니다. 특히 Llama-3.1-70B와 Qwen1.5-14B 모델을 대상으로 많은 양의 무관한 데이터를 처리할 때의 성능 저하를 측정했습니다. 결과적으로, 성능 저하는 비선형적으로 증가하며, 이는 Key-Value (KV) 캐시의 용량 증가와 관련이 있습니다.
+
+- **Technical Details**: 이 연구는 두 가지 주요 질문인 성능 영향과 품질 저하를 다루었습니다. 다양한 길이의 컨텍스트 크기를 설정하여 모델의 응답시간과 정확도를 측정하고, 무관한 데이터로 인해 모델이 신호를 구분하는 능력을 평가했습니다. 실험은 고성능 컴퓨팅 인스턴스에서 수행되었으며, NVIDIA A100 GPU를 활용하여 대규모 LLM을 평가했습니다.
+
+- **Performance Highlights**: 모델 Llama-3.1-70B-Instruct와 Qwen1.5-14B-Chat의 성능 결과에 따르면, 컨텍스트 길이가 증가함에 따라 성능 저하가 발생했습니다. 특히, 4,096단어에서 15,000단어로 증가할 때 비선형적인 추세 볼 수 있었으며, 이때 정확도와 검색 신뢰성이 함께 저하되었습니다. 최악의 성능 저하는 최대 컨텍스트 로드에서 관찰되었으며, 이는 모델의 추론 능력에 심각한 영향을 미치는 요소가 되는 것으로 확인되었습니다.
+
+
+
+### DeepEvidence: Empowering Biomedical Discovery with Deep Knowledge Graph Research (https://arxiv.org/abs/2601.11560)
+- **What's New**: DeepEvidence는 이종 생물 의학 지식 그래프를 대상으로 깊은 연구를 수행하기 위해 설계된 AI 에이전트 시스템입니다. 기존의 일반적인 Deep Research 시스템이 인터넷 규모의 텍스트에 의존하는 것과 달리, DeepEvidence는 특화된 지식 그래프 도구를 활용하여 이질적인 그래프 간의 연결을 탐색합니다. 이 시스템은 Breadth-First ReSearch (BFRS)와 Depth-First ReSearch (DFRS)라는 두 가지 보완적인 전략을 통해 조정된 탐사 방식을 통해 지식 그래프를 체계적으로 탐색합니다.
+
+- **Technical Details**: DeepEvidence는 내부 근거 그래프를 지속적으로 업데이트하여, 에이전트가 정보 탐색 및 합성을 수행하는 동안 수집된 주요 엔터티와 관계를 기록합니다. BFRS는 다중 그래프 쿼리를 통해 넓은 범위의 후보 엔터티를 빠르게 조사한 후, DFRS는 이들 엔터티를 기반으로 다단계 추론 및 풍부한 근거 검색을 수행합니다. 이를 통해 BFRS와 DFRS는 고유한 그래프 탐색 모드를 제공하며, 에이전트들은 이종 지식 그래프 간의 관계를 인식하고 전이합니다.
+
+- **Performance Highlights**: DeepEvidence는 Humanity’s Last Exam (HLE), LabBench-LitQA2, SuperGPQA, TrialPanorama-EvidenceQA와 같은 기존 생물학적 기초 연구 벤치마크에서 성능을 평가 받았습니다. 이 결과는 DeepEvidence가 생물의학 발견 주기에 있어 약물 발견, 임상 실험, 임상 시험 개발 및 증거 기반 의학의 네 가지 주요 단계에서 실질적인 이점을 입증함을 보여줍니다. DeepEvidence는 모든 벤치마크에서 가장 뛰어난 성능을 발휘하며, 기존 생물의학 에이전트와 강력한 LLM 기반 시스템에 대한 비교에서 두드러진 성과를 나타냅니다.
+
+
+
+### CSyMR: Benchmarking Compositional Symbolic Muisc Reasoning With MIR Tool Integration (https://arxiv.org/abs/2601.11556)
+- **What's New**: 본 논문에서는 CSyMR-Bench라는 새로운 벤치마크를 소개하며, 이는 126개의 선택 문제가 포함된 데이터셋으로, 음악 이론 포럼과 전문 시험에서 유래한 질문으로 구성되어 있습니다. 기존의 벤치마크가 소수의 지식이나 단일 분석에 집중하는 것에 비해, 이 연구는 음악 구조를 연결하는 데 필요한 종합적인 구성 reasoning을 강조합니다. 또한, 음악21 라이브러리의 도구를 활용한 보조 에이전트 프레임워크를 도입하여 CSyMR-Bench의 도전에 대응합니다.
+
+- **Technical Details**: CSyMR-Bench는 Humdrum kern 표기법으로 표현된 악보 입력을 사용하고, 여러 개의 원자 분석을 결합하여 일관된 reasoning 체인을 형성하는 방식으로 질문에 답하는 것에 중점을 둡니다. 이 벤치마크는 두 가지 출처에서 유래한 126개의 선택 문제를 포함하며, 각 질문은 여러 원자 분석을 체이닝하는 과정을 요구합니다. 문제는 Pitch & Interval 분석, Chord & Harmony 분석 등 6가지 분석 차원에 따라 분류됩니다.
+
+- **Performance Highlights**: 우리가 개발한 도구 보조 에이전트는 모든 기준선에 비해 일관되게 더 높은 성능을 보여 5-7%의 절대 정확도 향상률을 기록했습니다. CSyMR-Bench는 커뮤니티 출처와 시험 스타일 질문 모두에서 비간단한 도전 과제를 제시하며, 이로 인해 그 유용성이 강조됩니다. 이러한 성능 개선은 LLM의 일반적인 reasoning 능력과 음악21 기반의 도메인 특정 분석을 결합하여 이루어졌습니다.
+
+
+
+### Medication counseling with large language models: balancing flexibility and rigidity (https://arxiv.org/abs/2601.11544)
+Comments:
+          Accepted for 2025 IEEE International Conference on Agentic AI (ICA). 14 pages, 2 figures
+
+- **What's New**: 이번 연구에서는 약국 환경에서의 약물 상담을 제공하기 위해 대화형 소프트웨어 에이전트를 개발하는 방법을 제안합니다. 이전의 연구들은 주로 여러 약물에 대한 짧은 상호작용에 초점을 맞추었으나, 본 연구는 단일 약물에 대한 장기적인 대화 인터페이스를 개발합니다. 이러한 접근은 더욱 깊은 문제 이해와 대화의 복잡성을 분석하는 데 도움을 줍니다. 또한, 대화 요구와 유연성 간의 균형을 유지하는 것이 큰 도전 과제로 남아 있습니다.
+
+- **Technical Details**: 시스템은 Conversationalist(대화자), Medicine Interpreter(약물 해석기), Symptom Assessor(증상 평가자)라는 세 개의 ReAct 에이전트로 구성됩니다. 이들은 그래프 기반 구현에서 노드와 엣지를 통해 구현되어 서로의 상호작용을 통해 상담을 진행합니다. 각 에이전트는 계층적 작업 분석 방법을 통해 할당된 작업을 수행하며, 장기적인 대화 처리를 위해 작업을 분해하고 안전성을 확보합니다.
+
+- **Performance Highlights**: 이 시스템은 ReAct 에이전트를 활용하여 잘못된 응답 확률을 줄이면서도 대화의 유연성을 유지할 수 있습니다. 각 에이전트는 서로의 출력을 교차 검증하며, 오류 발생 시 스스로 교정할 수 있는 기능을 갖추고 있습니다. 초기 실험 결과는 상담 품질이 향상되는 것으로 나타났으며, 향후 지속적인 테스트와 인간의 피드백을 통한 개선이 필요합니다.
+
+
+
+### A Comparative Study of Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics (https://arxiv.org/abs/2601.11541)
+- **What's New**: 이번 연구는 컴퓨터 과학 교육에서 피드백의 질을 조사하며, 대형 언어 모델(LLMs)과 소형 언어 모델(SLMs)이 인간 피드백과 비교하여 어떻게 작동하는지를 탐구합니다. 세 가지 컴퓨터 과학 코스를 대상으로 하여, LLM과 SLM이 제공하는 피드백이 명확하고 실행 가능한지, 그리고 학생들이 이를 어떻게 인식하는지를 분석합니다. 연구는 AI 기반 피드백이 대규모로 효과적인지에 대한 가능성을 강조합니다.
+
+- **Technical Details**: 이 연구는 정량적 리커트 척도 질문과 질적 댓글을 통합한 혼합 방법론을 사용하여 학생들의 피드백 질에 대한 시각을 평가합니다. LLM으로는 GPT-4를 사용하며, SLM으로는 Meta LLaMA 3.1 8B를 활용하여 피드백을 생성하는 시스템을 설계하였습니다. LLM은 Azure OpenAI에 호스팅되며, SLM은 지역적으로 운영되며 메모리와 계산 오버헤드를 줄이도록 최적화되었습니다.
+
+- **Performance Highlights**: 결과 분석에 따르면, 상위 학년 운영 체제 과정에서는 SLM과 LLM이 명확하고 구조화된 피드백을 제공하는 반면, 인간은 맥락적으로 더 세밀한 지침을 제공합니다. 반면, CS2 과정에서는 AI 도구의 피드백이 인식되지만, 학생들은 AI의 피드백이 인간이 제공하는 간결하고 직접적인 안내에는 미치지 못한다고 언급하였습니다. 작은 규모의 AI 주제 기술 작문 과정에서는 모든 학생이 강사의 세부적이고 개인화된 피드백을 선호하는 것으로 나타났습니다.
+
+
+
+### Augmented Assembly: Object Recognition and Hand Tracking for Adaptive Assembly Instructions in Augmented Reality (https://arxiv.org/abs/2601.11535)
+Comments:
+          Submitted to the Association for Computing Machinery (ACM) Conference on Tangible, Embedded, and Embodied Interaction (TEI'26)
+
+- **What's New**: 이번 연구에서는 증강현실(AR) 시스템을 활용하여 물리적 조립 작업을 지원하는 새로운 워크플로우를 제안합니다. 이 시스템은 객체 인식(object recognition)과 핸드 트래킹(hand tracking) 기술을 통해 사용자와의 상호작용을 동적으로 반영하여 단계별 지침을 제공하고 조립 오류를 감지합니다. 사용자는 고정된 시퀀스에 얽매이지 않고 즉각적인 피드백을 받으며, 실시간으로 조립 지침이 조정되어 보다 창의적인 조립을 경험할 수 있습니다.
+
+- **Technical Details**: 이 시스템은 HoloLens 2에서 입력을 받아 객체 인식과 핸드 트래킹을 결합합니다. LEGO 블록과 3D 프린트 부품을 사용하는 두 가지 데모를 통해 조립 과정 중 오류를 감지하고 지침을 동적으로 업데이트하는 기능이 시연됩니다. 또한, 모델 학습을 위해 약 9,000개의 합성 이미지와 16,000개의 실제 이미지가 사용되어 YOLOv5 모델로 객체 감지를 수행하며, 이 모든 계산은 NVIDIA RTX 3060과 Intel i9 CPU가 장착된 GPU 워크스테이션에서 이루어집니다.
+
+- **Performance Highlights**: 연구 결과, 이 시스템은 물리적 조립 중 수동으로 부품을 검색, 정렬하거나 라벨링할 필요성을 없애며, 사용자가 조립 중 의도적으로 수정한 구성을 실시간으로 반영합니다. 조립의 유연성을 높이고, 오류를 단지 수정해야 할 것이 아닌 창의적인 기회로 해석하여, 사용자가 보다 자유롭게 조립할 수 있도록 돕습니다. 이러한 접근 방식은 조립 상태에 대한 실시간 피드백과 사용자 행동에 적응하는 지침을 제공하여 보다 효율적인 조립 작업을 가능하게 합니다.
+
+
+
+### Modular AI-Powered Interviewer with Dynamic Question Generation and Expertise Profiling (https://arxiv.org/abs/2601.11534)
+Comments:
+          Accepted and Waiting to be published in conference AIR-RES'25 ( this http URL )
+
+- **What's New**: 이 연구에서는 AI 기반의 인터뷰어가 기존의 비효율적인 자동 시스템의 한계를 극복할 수 있는 새로운 접근 방식을 제안하고 있다. 이 시스템은 로컬 호스팅된 대규모 언어 모델(LLM)을 사용하여 맥락에 적합하고 사용자 전문성에 맞춘 질문을 동적으로 생성한다. 이를 통해 연구와 고객 서비스, 교육 등에서 보다 효과적인 대화형 인터뷰를 구현할 수 있다.
+
+- **Technical Details**: 제안된 AI 인터뷰어는 모듈식 프롬프트 엔지니어링(pipeline) 구조를 채택하여 인터뷰 대화가 확장 가능하고 적응력이 있으며 의미적으로 풍부하도록 설계되었다. 이 인터뷰어는 인터뷰 세션 중에 참가자 전문성을 실시간으로 프로파일링하여 지식 기반의 질문과 정확한 응답을 제공하는 기능을 갖추고 있다. 이를 통해 기존의 정형화된 질문 리스트로 인한 대화 반복 문제를 해결한다.
+
+- **Performance Highlights**: AI 인터뷰어는 다양한 참가자와의 테스트에서 평균 4.45의 높은 만족도와 평균 4.33의 참여도를 기록했다. 이는 이 시스템이 생성하는 질문과 응답이 사용자 맞춤형으로 적절하게 진행되었음을 나타낸다. 따라서 제안된 인터뷰어는 데이터 수집 과정에서 개인 정보 보호 측면을 고려한 확장 가능한 솔루션으로 평가된다.
+
+
+
+### Artificial Intelligence as a Training Tool in Clinical Psychology: A Comparison of Text-Based and Avatar Simulations (https://arxiv.org/abs/2601.11533)
+Comments:
+          38 pages, 2 figures
+
+- **What's New**: 본 연구에서는 임상 심리학 학생들이 실제 클라이언트와의 치료 작업에서 필요한 대인 기술에 대한 준비 부족을 자주 보고하고 있음을 강조합니다. AI (인공지능)의 발전을 활용하여, 학생들이 핵심 상담 기술을 연습할 수 있는 접근 가능한 시뮬레이션 기회를 제공하는 필요성이 대두되었습니다.
+
+- **Technical Details**: 24명의 대학원 심리학 학생들이 두 가지 AI 기반 시뮬레이션, 즉 텍스트 기반 챗봇(ChatGPT)과 음성 기반 아바타(HeyGen)를 사용하여 각각의 짧은 인지 행동 역할극(cognitive-behavioral role-plays)을 수행했습니다. 학생들은 도구에 대한 유용성, 기술 적용, 반응성, 몰입도, 기술 향상에 대한 포괄적인 평가를 quantitative 및 qualitative 방법으로 제공했습니다.
+
+- **Performance Highlights**: AI 도구들은 모든 차원에서 긍정적으로 평가되었으며, 특히 음성 기반 아바타가 챗봇보다 유용성, 기술 적용 및 기술 향상에 있어서 훨씬 높은 평가를 받았습니다. 학생들은 음성 기반 상호작용이 사회적 및 정서적 신호를 전달하는데 추가적인 가치를 제공한다고 강조했습니다. 이러한 결과는 AI 기반 시뮬레이션이 초기 임상 기술 훈련을 보완할 수 있음을 시사하며, 향후 연구에서는 이러한 시뮬레이션 상호작용이 실제 치료 성과의 객관적인 향상으로 이어지는지를 검토해야 합니다.
+
+
+
+### "Jutters" (https://arxiv.org/abs/2601.11532)
+Comments:
+          Accepted at 39th Conference on Neural Information Processing Systems (NeurIPS 2025) Creative AI Track
+
+- **What's New**: 이 프로젝트는 AI가 생성하는 콘텐츠에 대한 우리의 참여 방식을 탐구합니다. 전통적인 'jutter'(여름철 폭풍 후 해변에서 유물이나 물체를 수집하는 사람들)의 관점에서, 우리는 실제 해변의 잔해물과 AI로 변형된 이미지 및 비디오를 혼합한 설치를 창조합니다. 관객은 지금의 jutter로서 이 공간을 탐험하고 무엇을 유지하고 무엇을 버릴지 결정할 수 있습니다.
+
+- **Technical Details**: 설치는 약 2x3 미터의 공간에 모래로 덮여 있으며, 해변 근처의 구역을 연상시키도록 디자인되었습니다. Noordwijk 해변에서 수집한 조개, 부유목 및 기타 조수 잔해와 함께 77개의 AI 생성 이미지 프린트와 22개의 스크린이 설치되어 있습니다. 참가자들은 다양한 AI 변형 개체들과 함께 작업하기 위해 걷고 비디오와 오디오 내레이션을 따라 진행합니다.
+
+- **Performance Highlights**: 저자들은 Hoek van Holland 해변과 Zandvoort 해변에서 수집된 물체들을 기반으로 AI 이미지를 생성했습니다. 비디오는 WarpFusion과 Stable Diffusion을 사용하여 제작되었으며, AI가 생성한 형태와 움직임의 변형을 통해 참가자들에게 새로운 해석의 기회를 제공합니다. 이 설치는 대중이 AI 생성 콘텐츠와의 관계를 재상상하는 데 도움을 주며, 디지털 세계를 탐색하는 데 있어 중요한 역할을 수행합니다.
+
+
+
+### NOVAID: Natural-language Observability Visualization Assistant for ITOps Dashboard Widget Generation (https://arxiv.org/abs/2601.11531)
+Comments:
+          15 pages, 6 figures, accepted IAAI 26
+
+- **What's New**: 이 논문에서 제안하는 NOVAID는 대규모 언어 모델(LLMs)을 활용하여 사용자의 자연어 쿼리로부터 직접 IT 모니터링 위젯을 생성할 수 있도록 하는 인터랙티브 챗봇입니다. 기존의 자연어-비주얼라이제이션 툴과 달리, NOVAID는 IT 운영에 특화된 도전 과제를 해결하며, 다양한 위젯 유형과 복잡한 컨텍스트 필터를 지원합니다. 이러한 도구는 사용자가 복잡한 위젯 생성 흐름을 이해하지 않고도 사용자의 요구를 신속하게 반영하여 커스터마이즈된 대시보드를 구성할 수 있게 돕습니다.
+
+- **Technical Details**: NOVAID 시스템은 도메인 인식적인 시맨틱 파서와 퍼지 엔티티 매칭(fuzzy entity matching)을 결합하여 사용자 의도를 파악하고, 누락된 쿼리를 보완하는 상호작용 클리피케이션 루프(interactive clarification loop)를 구현합니다. 사용자의 쿼리에서 추출된 요소들은 표준화된 JSON 사양으로 구성되어, 최종적인 대시보드 위젯을 렌더링하는 데 사용됩니다. 이를 통해 시스템은 최대 94.10%의 정확도로 메트릭을 추출할 수 있으며, IT 엔지니어들과의 사용자 연구에서도 좋은 유용성 점수를 기록했습니다.
+
+- **Performance Highlights**: NOVAID는 271개의 실제 쿼리 데이터셋을 기반으로 평가되었으며, LLM들을 통해 강력한 성능을 보여줍니다. 사용자 연구 결과, NOVAID의 시스템 유용성 점수는 74.2로, 이는 좋은 사용자 경험을 나타냅니다. 이 연구는 NOVAID가 기업의 ITOps 모니터링 플랫폼에 배포될 수 있는 잠재력을 지닌 도구임을 보여줍니다.
+
+
+
+### AI for Proactive Mental Health: A Multi-Institutional, Longitudinal, Randomized Controlled Tria (https://arxiv.org/abs/2601.11530)
+- **What's New**: 이번 연구에서는 젊은 성인들이 정신 건강 문제를 경험하는 가운데, 개인화된(interactive) 및 확장 가능한( scalable) 기술을 통한 개입이 필요하다는 점을 강조합니다. 특히, 'Flourish'라는 이름의 생성적 AI(generative AI) 기반 모바일 앱을 통해 이러한 필요를 해결하고자 합니다.
+
+- **Technical Details**: 이 연구는 2024년 가을에 진행된 첫 번째 다기관(multi-institutional) 연속 코호트(lon gitudinal) 등록된 무작위 대조 시험(randomized controlled trial)입니다. 486명의 학부 학생들이 연구에 참여했으며, 이들은 앱 사용군과 대기(control)군으로 무작위 배정되었습니다.
+
+- **Performance Highlights**: 치료군의 참가자들은 긍정적 정서(positive affect), 회복력(resilience), 사회적 웰빙(social well-being)에서 유의미한 개선을 보고하였으며, 이는 소속감(belonging) 및 공동체와의 친밀감(closeness to community)을 증가시키고 외로움(loneliness)을 감소시키는 효과를 가져왔습니다. 이러한 결과는 생성적 AI가 목적 있는 설계를 통해 인구 수준의 웰빙 개입을 제공할 수 있음을 시사합니다.
+
+
+
+### SNAP: A Plan-Driven Framework for Controllable Interactive Narrative Generation (https://arxiv.org/abs/2601.11529)
+Comments:
+          5 pages, 3 figures
+
+- **What's New**: 이 논문에서는 SNAP (Story and Narrative-based Agent with Planning)라는 새로운 프레임워크를 제안하여, 웹 환경에서의 내러티브 드리프트를 방지하고 일관된 대화를 유지하도록 설계하였습니다. SNAP은 'Cells'라는 구조로 이야기의 맥락을 분리하고, 세부 계획을 통해 사용자 입력에 다르게 적응할 수 있습니다. 이러한 접근법은 LLM 중심의 대화형 에이전트들이 발생시키는 시공간 왜곡(spatiotemporal distortion) 문제를 해결하는 데 중점을 두었습니다.
+
+- **Technical Details**: SNAP에서 각 Cell은 자율적인 내러티브 단위로, 명확한 경계를 가지고 있습니다. 각 Cell은 현재 장면, 캐릭터의 특성, 이전 요약, 사용자 입력 등으로 구성되어 있으며, GPT-4o 모델을 사용하여 계획을 생성합니다. 이러한 계획은 목표, 세부 사항 및 제약 조건을 명확히 정의하며, 이를 통해 대화의 자연스러움과 내러티브의 진행을 동시에 고려할 수 있도록 합니다.
+
+- **Performance Highlights**: 실험 결과, SNAP는 자동화된 시나리오에서 모든 평가 기준에서 Vanilla GPT-4o를 초과하여, 내러티브 일관성에 대한 수행 능력을 입증했습니다. 특히, 실험 참가자들은 SNAP의 대화가 적절한 템포를 유지하고 성공적으로 리디렉션하였다고 보고했습니다. Cell 기반의 분할 구조는 내러티브의 질을 높이는 데 중요한 역할을 하며, 사용자 경험에서도 일관된 개선을 보여주었습니다.
+
+
+
+### Knowledge Graph Construction for Stock Markets with LLM-Based Explainable Reasoning (https://arxiv.org/abs/2601.11528)
+Comments:
+          6 pages, 3 figures, CIKM 2025 Workshop - Advances in Financial AI: Innovations, Risk, and Responsibility in the Era of LLMs
+
+- **What's New**: 본 연구는 주식 시장의 복잡성을 이해하고 설명 가능한 투자 분석을 지원하기 위해 한국 상장 기업의 데이터를 기반으로 한 지식 그래프(knowledge graph) 스키마를 제안합니다. 전통적인 주식 가격 예측 방식에서 벗어나, 다중 관계 Graph Database(GraphDB)와 대형 언어 모델(large language models, LLMs)을 통합하였습니다. 이를 통해 은밀한 패턴과 상호 의존성을 발견할 수 있으며, 금융 질문에 대한 해답을 보다 깊이 있게 제공할 수 있습니다.
+
+- **Technical Details**: 연구에서는 공공 API를 기반으로 한 한국 주식 시장의 지식 그래프를 구축하였으며, 여기에는 일일 주식 가격, PER, PBR 등의 주요 투자 지표가 포함됩니다. 수집된 데이터는 약 2,879개의 상장 기업에 대한 금융 데이터로 전처리된 후 GraphDB에 통합되었습니다. 이를 통해 사용자가 입력한 자연어 질문이 Cypher 쿼리로 변환되어 GraphDB에서 실행되고, 이 결과를 바탕으로 최종 답변이 생성되는 시스템을 구축하였습니다.
+
+- **Performance Highlights**: 사례 연구를 통해 제안된 프레임워크의 타당성을 검증하였으며, 주식 시장에 대한 다중 연도 재정 비교 등 실제 분석 가능성을 보여주었습니다. 이러한 접근은 전통적인 데이터베이스 쿼리만으로는 얻기 어려운 인사이트를 추출할 수 있게 하여, 투자 분석 및 의사 결정을 위한 유용한 도구가 될 수 있음을 입증하였습니다.
+
+
+
+### Do LLMs Give Good Romantic Relationship Advice? A Study on User Satisfaction and Attitude Chang (https://arxiv.org/abs/2601.11527)
+Comments:
+          Accepted at the 39th Conference on Neural Information Processing Systems (NeurIPS 2025) First Workshop on LLM Persona Modeling
+
+- **What's New**: 본 연구는 개인적 영역에서 제안된 대화형 인공지능 모델(LLM)에 대한 사용자의 인식을 조사하였습니다. 특히 로맨틱한 관계에 대한 LLM 생성 조언에 대한 사람들의 평가를 분석하였습니다.
+
+- **Technical Details**: 참여자들은 LLM이 생성한 조언에 대한 만족도를 평가하고, 모델의 신뢰성(reliability)과 유용성(helpfulness)을 측정하였습니다. 연구 시작 전과 후에 LLM에 대한 일반적인 태도에 대한 조사를 수행하였습니다.
+
+- **Performance Highlights**: 전반적으로, 참여자들은 LLM이 제공한 조언에 대해 매우 만족하였으며, 높은 만족도는 모델의 신뢰성과 유용성에 대한 긍정적인 인식과 강력하게 연관되어 있음을 나타냈습니다. 조언을 접한 후, 참여자들은 LLM에 대한 신뢰와 개방성이 크게 향상되었음을 보여주었습니다.
+
+
+
+### Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs (https://arxiv.org/abs/2601.11526)
+Comments:
+          Accepted to AAAI 2026 Demonstration Track
+
+- **What's New**: 최근 LLMs(대형 언어 모델)가 챗봇으로 널리 사용되고 있지만, 현재의 인터페이스는 사용자가 모델의 흐름이나 잘못된 출력을 알아차리지 못하게 만들고 있습니다. 본 논문에서는 이러한 문제를 해결하기 위해 Chatsparent라는 대화형 데모를 소개하며, 이는 인공지능의 피로도를 실시간으로 감지하고 시각화하여 사용자가 이해하고 개입할 수 있게 합니다.
+
+- **Technical Details**: Chatsparent 시스템은 세 가지 실시간 신호(attention-to-prompt decay, embedding drift, entropy collapse)를 측정하고 이를 통합하여 피로 지수를 생성합니다. 피로 지수가 임계값을 초과할 경우, 사용자는 피로를 줄이기 위한 다양한 개입(예: attention reset)을 수행할 수 있도록 되어 있습니다. 이 시스템은 사용자에게 LLM의 동작을 이해하고 신뢰성을 개선할 수 있는 도구를 제공합니다.
+
+- **Performance Highlights**: 데모 시스템을 통해 시연된 실험에서, 여러 신호를 기반으로 LLM의 피로도를 효과적으로 모니터링하고 피로 개입을 수행함으로써 QA(질문-답변) 작업에서의 장기 신뢰성을 개선합니다. 이는 모델의 지속적인 성능 저하 문제를 가시화하고 즉각적으로 해결할 수 있는 방법을 제시합니다.
+
+
+

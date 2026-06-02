@@ -80,9 +80,9 @@ WORKSPACE_CONFIGS = [
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-BASE_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "cache"  # os.getcwd()
-)
+REPO_DIR = os.path.dirname(os.path.abspath(__file__))  # git 저장소 루트
+
+BASE_DIR = os.path.join(REPO_DIR, "cache")  # 캐시(pickle) 저장 위치
 if not os.path.exists(BASE_DIR):
     os.makedirs(BASE_DIR)
 
@@ -91,5 +91,5 @@ PAPER_ABSTRACTS_PATH = os.path.join(BASE_DIR, "paper_abstracts.pickle")
 PAPER_FULL_CONTENTS_PATH = os.path.join(BASE_DIR, "paper_full_contents.pickle")
 PAPER_SUMMARIZATIONS_PATH = os.path.join(BASE_DIR, "paper_summarizations.pickle")
 
-SUMMARIES_DIR = os.path.join(BASE_DIR, "summaries")
+SUMMARIES_DIR = os.path.join(REPO_DIR, "summaries")  # git에 추적/푸시되는 요약본
 TODAY_SUMMARIES_DIR = os.path.join(SUMMARIES_DIR, time.strftime("%Y-%m-%d"))
