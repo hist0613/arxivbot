@@ -1,4 +1,5 @@
 import concurrent.futures
+import time
 from threading import Lock
 from tqdm import tqdm
 from typing import Union
@@ -7,7 +8,7 @@ from api.arxiv import ArxivClient, get_paper_info
 from api.agent import Agent, Encoder
 from api.cache import CacheManager
 from api.logger import logger
-from settings import NB_THREADS
+from settings import NB_THREADS, TIME_PAUSE_CRAWL_SEC
 
 
 class Service:
@@ -25,8 +26,10 @@ class Service:
 
     def crawl_arxiv(self, fields: list[str]) -> dict[str, list[tuple[str, str, str]]]:
         new_papers = {}
-        for field in fields:
+        for i, field in enumerate(fields):
             logger.info("Processing {} field...".format(field))
+            if i > 0:
+                time.sleep(TIME_PAUSE_CRAWL_SEC)  # arXiv throttle 예방
             paper_set = self.arxiv.crawl_arxiv(field)
             self.summarize_arxiv(paper_set)
             new_papers[field] = paper_set

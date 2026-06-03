@@ -8,6 +8,13 @@ from api.cache import CacheManager
 from api.logger import logger
 from settings import MAX_LLM_TRIALS, MAX_NB_CRAWL
 
+# arXiv는 기본 python-requests UA로 과도하게 요청하면 throttle하므로
+# 식별 가능한 User-Agent를 붙이고 타임아웃을 둔다.
+REQUEST_HEADERS = {
+    "User-Agent": "arxivbot/1.0 (+https://github.com/hist0613/arxivbot)"
+}
+REQUEST_TIMEOUT = 60
+
 
 def get_paper_info(paper_url: str, paper_title: str) -> str:
     return "{} ({})".format(paper_title, paper_url)
@@ -50,15 +57,41 @@ class ArxivClient:
         list_url = "https://arxiv.org/list/{}/pastweek?skip=0&show={}".format(
             field, MAX_NB_CRAWL
         )
+
+        # arXiv가 throttle하면 200이지만 논문 목록이 없는 빈 페이지를 돌려준다.
+        # 빈 결과를 "새 논문 없음"으로 조용히 넘기지 않고, 재시도 후에도 비면 경고를 남긴다.
+        list_soup = None
         for trial in range(MAX_LLM_TRIALS):
             try:
-                list_page = requests.get(list_url)
+                list_page = requests.get(
+                    list_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT
+                )
                 if list_page.status_code == requests.codes.ok:
-                    break
-            except requests.exceptions.ConnectionError as e:
-                logger.info(e)
+                    soup = BeautifulSoup(list_page.text, "html.parser")
+                    if soup.find_all("dt"):  # 실제 논문 목록이 있으면 성공
+                        list_soup = soup
+                        break
+                    logger.warning(
+                        f"[{field}] empty listing (likely rate-limited by arXiv) "
+                        f"- trial {trial + 1}/{MAX_LLM_TRIALS}"
+                    )
+                else:
+                    logger.warning(
+                        f"[{field}] HTTP {list_page.status_code} from arXiv "
+                        f"- trial {trial + 1}/{MAX_LLM_TRIALS}"
+                    )
+            except requests.exceptions.RequestException as e:
+                logger.warning(f"[{field}] request failed: {e} - trial {trial + 1}/{MAX_LLM_TRIALS}")
+
+            if trial < MAX_LLM_TRIALS - 1:
                 time.sleep(trial * 30 + 15)
-        list_soup = BeautifulSoup(list_page.text, "html.parser")
+
+        if list_soup is None:
+            logger.error(
+                f"[{field}] failed to fetch listing after {MAX_LLM_TRIALS} trials "
+                f"(arXiv likely rate-limiting). Skipping this field for now."
+            )
+            return []
 
         # <dd> 태그 추출
         dt_tags = list_soup.find_all("dt")
@@ -93,7 +126,9 @@ class ArxivClient:
     def get_paper_abstract(self, paper_url: str) -> str:
         for trial in range(MAX_LLM_TRIALS):
             try:
-                paper_page = requests.get(paper_url)
+                paper_page = requests.get(
+                    paper_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT
+                )
                 if paper_page.status_code == 200:
                     break
             except requests.exceptions.ConnectionError as e:
@@ -110,7 +145,9 @@ class ArxivClient:
         return paper_abstract
 
     def get_html_experimental_link(self, paper_url: str) -> str:
-        response = requests.get(paper_url)
+        response = requests.get(
+            paper_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT
+        )
         soup = BeautifulSoup(response.text, "html.parser")
 
         # 'HTML (experimental)' 링크 찾기
@@ -123,7 +160,9 @@ class ArxivClient:
     def get_paper_full_content(self, paper_url: str) -> dict[str, dict[str, str]]:
         for trial in range(MAX_LLM_TRIALS):
             try:
-                paper_page = requests.get(paper_url)
+                paper_page = requests.get(
+                    paper_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT
+                )
                 if paper_page.status_code == 200:
                     break
             except requests.exceptions.ConnectionError as e:

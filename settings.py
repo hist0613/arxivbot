@@ -9,6 +9,7 @@ MAX_NB_CRAWL = 500
 MAX_NB_SHOW = 20
 MAX_LLM_TRIALS = 3
 TIME_PAUSE_SEC = 15
+TIME_PAUSE_CRAWL_SEC = 5  # 필드 간 크롤링 간격 (arXiv throttle 예방)
 # MODEL = "gpt-4o"  # "gpt-4-turbo", "gemini-1.5-flash-latest"
 MODEL = "gpt-4o-mini"
 EMBEDDING_MODEL = "text-embedding-3-small"
@@ -40,7 +41,7 @@ WORKSPACE_CONFIGS = [
         "allowed_channel": "arxivbot",          # Slack 채널 이름
         "allowed_channel_id": "C0B7V0V8U7N",        # Slack 채널 ID
         "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
-        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI"],
+        "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],
     },
     # {
     #     "service_type": "slack",
