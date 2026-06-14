@@ -53,7 +53,10 @@ class AutoAgent:
 class Encoder:
     def __init__(self, model_name: str):
         self.model_name = model_name
-        self.encoding = tiktoken.encoding_for_model(model_name)
+        try:
+            self.encoding = tiktoken.encoding_for_model(model_name)
+        except KeyError:
+            self.encoding = tiktoken.get_encoding("o200k_base")
 
     def truncate_text(self, text: str) -> str:
         # Calculate the set of disallowed special tokens, excluding '<|endofprompt|>'
