@@ -34,6 +34,13 @@ class TestSummaryDict(unittest.TestCase):
         self.assertEqual(d["Core Contribution"], "핵심 기여")
 
 
+class TestSettings(unittest.TestCase):
+    def test_model_and_budget(self):
+        import settings
+        self.assertEqual(settings.MODEL, "gpt-5.4-nano")
+        self.assertGreaterEqual(settings.MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION, 4000)
+
+
 class TestEncoder(unittest.TestCase):
     def test_fallback_for_unmapped_model(self):
         from api.agent import Encoder

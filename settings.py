@@ -10,11 +10,11 @@ MAX_NB_SHOW = 20
 MAX_LLM_TRIALS = 3
 TIME_PAUSE_SEC = 15
 TIME_PAUSE_CRAWL_SEC = 5  # 필드 간 크롤링 간격 (arXiv throttle 예방)
-# MODEL = "gpt-4o"  # "gpt-4-turbo", "gemini-1.5-flash-latest"
-MODEL = "gpt-4o-mini"
+# MODEL = "gpt-4o"  # "gpt-4-turbo", "gemini-1.5-flash-latest", "gpt-4o-mini"
+MODEL = "gpt-5.4-nano"
 EMBEDDING_MODEL = "text-embedding-3-small"
 MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
-MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 1024
+MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 4000  # reasoning + 출력 합산 예산 (max_completion_tokens)
 NB_THREADS = 5
 
 WORKSPACE_CONFIGS = [
