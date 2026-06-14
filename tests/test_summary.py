@@ -15,6 +15,25 @@ class TestSchema(unittest.TestCase):
         )
 
 
+class TestSummaryDict(unittest.TestCase):
+    def test_summary_to_dict_maps_four_english_keys(self):
+        from prompts import SummarizationResponse
+        from api.agent import _summary_to_dict
+        parsed = SummarizationResponse(
+            prior_approaches="기존 방법",
+            core_contribution="핵심 기여",
+            technical_challenges="기술 난제",
+            empirical_impact="실증 의미",
+        )
+        d = _summary_to_dict(parsed)
+        self.assertEqual(
+            list(d.keys()),
+            ["Prior Approaches", "Core Contribution",
+             "Technical Challenges", "Empirical Impact"],
+        )
+        self.assertEqual(d["Core Contribution"], "핵심 기여")
+
+
 class TestEncoder(unittest.TestCase):
     def test_fallback_for_unmapped_model(self):
         from api.agent import Encoder

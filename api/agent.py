@@ -73,6 +73,15 @@ class Encoder:
         )
 
 
+def _summary_to_dict(parsed) -> dict:
+    return {
+        "Prior Approaches": parsed.prior_approaches,
+        "Core Contribution": parsed.core_contribution,
+        "Technical Challenges": parsed.technical_challenges,
+        "Empirical Impact": parsed.empirical_impact,
+    }
+
+
 class GptAgent(Agent):
     def __init__(self, model_name: str):
         super().__init__(model_name=model_name)
@@ -86,29 +95,30 @@ class GptAgent(Agent):
         return self._generate_content(
             system_prompt=self.system_prompt_for_summarization,
             user_prompt=content,
-            max_tokens=MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
+            max_completion_tokens=MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION,
         )
 
+    def _is_reasoning_model(self) -> bool:
+        n = self.model_name.lower()
+        return n.startswith("gpt-5") or n.startswith("o")
+
     def _generate_content(
-        self, system_prompt: str, user_prompt: str, max_tokens=None
+        self, system_prompt: str, user_prompt: str, max_completion_tokens=None
     ) -> str:
-        response = self.client.beta.chat.completions.parse(
+        kwargs = dict(
             model=self.model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            max_tokens=max_tokens,
+            max_completion_tokens=max_completion_tokens,
             response_format=self.response_format,
         )
-        # 기존 코드를 안 바꾸려면
-        response = response.choices[0].message.parsed
-        response_text = {
-            "What's New": response.whats_new,
-            "Technical Details": response.technical_details,
-            "Performance Highlights": response.performance_highlights,
-        }
-        return json.dumps(response_text)
+        if self._is_reasoning_model():
+            kwargs["reasoning_effort"] = "low"
+        response = self.client.beta.chat.completions.parse(**kwargs)
+        parsed = response.choices[0].message.parsed
+        return json.dumps(_summary_to_dict(parsed))
 
 
 # class GeminiAgent(Agent):
