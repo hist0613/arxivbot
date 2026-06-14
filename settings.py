@@ -13,7 +13,7 @@ TIME_PAUSE_CRAWL_SEC = 5  # 필드 간 크롤링 간격 (arXiv throttle 예방)
 # MODEL = "gpt-4o"  # "gpt-4-turbo", "gemini-1.5-flash-latest", "gpt-4o-mini"
 MODEL = "gpt-5.4-nano"
 EMBEDDING_MODEL = "text-embedding-3-small"
-MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 2048
+MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 6000  # related work 포착 (2048→6000, RW 완전포함 57%→90%)
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 4000  # reasoning + 출력 합산 예산 (max_completion_tokens)
 NB_THREADS = 5
 

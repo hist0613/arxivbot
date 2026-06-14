@@ -39,6 +39,8 @@ class TestSettings(unittest.TestCase):
         import settings
         self.assertEqual(settings.MODEL, "gpt-5.4-nano")
         self.assertGreaterEqual(settings.MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION, 4000)
+        # related work 포착을 위해 입력 캡 상향 (2048→6000, RW 완전포함 57%→90%)
+        self.assertGreaterEqual(settings.MAX_INPUT_TOKENS_FOR_SUMMARIZATION, 6000)
 
 
 class TestEncoder(unittest.TestCase):
