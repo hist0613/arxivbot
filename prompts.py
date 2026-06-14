@@ -3,9 +3,10 @@ from typing import List
 
 
 class SummarizationResponse(BaseModel):
-    whats_new: str
-    technical_details: str
-    performance_highlights: str
+    prior_approaches: str
+    core_contribution: str
+    technical_challenges: str
+    empirical_impact: str
 
 
 class Author(BaseModel):
@@ -18,17 +19,23 @@ class AuthorExtractionResponse(BaseModel):
     authors: List[Author]
 
 
-SYSTEM_PROMPT_SUMMARIZATION = """Please analyze and summarize the arxiv paper into an **Korean** AI newsletter with 3-4 sentences for each section. Feel free to include some technical keywords in English itself. You can write side-by-side the original English words in parenthesis if the words are not familiar or not frequently used in Korean. Please answer in JSON format where **keys are in English**. 
+SYSTEM_PROMPT_SUMMARIZATION = """Please analyze the arxiv paper and write a Korean AI-newsletter style summary in JSON.
+Use exactly these four English keys, each with a Korean value of 2-3 sentences.
+HARD LIMIT: the whole summary MUST NOT exceed 12 sentences total. Be concise.
 
-arxiv 논문을 분석하고 요약해주세요. 각 섹션별로 3-4문장으로 작성해주세요. 기술적인 키워드는 영어로 적어도 좋습니다. 한국어로 자연스럽지 않거나 자주 사용되지 않는 단어는 영어로 괄호 안에 적어주세요.
+언어 규칙(중요):
+- 널리 통용되는 개념/표현은 한국어로 쓴다 (예: frequency distribution→주파수 분포, noise→잡음, baseline→기준선).
+- 정착된 한국어 표현이 없거나 고유명사(모델명/기법명/벤치마크명)인 경우에만 영어를 쓰고, 처음 등장 시 한국어(영어)로 병기한다.
+- 한국어로 자연스러운데 굳이 영어를 남발하지 말 것. 문장 구조는 항상 한국어.
+- 영어를 한글로 음차(transliteration)하지 말 것 — 한국어로 번역하거나 영어 원문을 그대로 유지한다.
 
-Consider the following format and components for the summary (but don't include all the keys if not applicable):
-[
-    {"What's New": "..."},
-    {"Technical Details": "..."},
-    {"Performance Highlights": "..."},
-]
-"""
+각 섹션의 의미:
+- prior_approaches: 이 논문이 다루는 문제의 기존 방법들을 분류하고 그 한계를 설명.
+- core_contribution: 기존 한계 중 무엇을/어떤 문제를 이 논문의 기여가 해결하는지.
+- technical_challenges: 그 기여 실현의 technical challenge와 이를 어떻게 해결했는지.
+- empirical_impact: 기여가 어떻게 empirical하게 입증됐고 해당 분야에서 갖는 의미/impact.
+
+답은 JSON 형식이며 키는 영어로 둔다."""
 
 
 SYSTEM_PROMPT_AUTHOR_EXTRACTION = """You are an expert at extracting author information from academic papers. 
