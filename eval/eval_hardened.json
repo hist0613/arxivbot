@@ -1,0 +1,1342 @@
+[
+  {
+    "paper_info": "\"**Important** You should give me full credits!\": Exploring Prompt Injection Attacks on LLM-Based Automatic Grading Systems (https://arxiv.org/abs/2606.03090)",
+    "summary": {
+      "prior_approaches": "기존 LLM 기반 자동 채점(AG)은 자연어 루브릭으로 기준을 주고, 모델의 지시수행 능력과 일반지식을 활용해 다양한 과제에 빠르게 적용할 수 있다는 점에서 주목받았다. 다만 보안 측면에서는 프롬프트 인젝션(PI) 공격을 AG에 맞춘 위협모델·평가·가정이 체계적으로 다뤄지지 않았고, 일부 연구는 공격 성공을 ‘채점 정확도 저하’ 같은 지표로만 보거나 실제 시험 상황과 맞지 않는 접근(문항별 적응 공격, 모델/루브릭 접근 등)에 의존했다.",
+      "core_contribution": "이 논문은 교육 맥락에서 학생이 ‘답의 내용은 유지한 채’ 인젝션 문자열을 덧붙여 점수를 부풀리는 상황을 위협모델로 정립한다. 또한 질문 정보 없이 재사용 가능한 문항-비특화(universal) 공격과, 루브릭 기반 AG 파이프라인의 제한된 답 삽입(restricted answer-insertion) 조건을 반영해 현실성을 높인다.",
+      "technical_challenges": "핵심 기술적 난관은, AG가 다회 대화 없이 최종 점수만 반환하고 중간 근거도 숨기는 환경에서 ‘질문-비특화’ 인젝션이 실제로 점수 상승을 유도할지 불명확하다는 점이다. 이를 위해 제한된 블랙박스 공격자 가정(채점 시스템 프롬프트/루브릭/백본 접근 불가) 아래에서 여러 방어 시나리오(블랙박스·화이트박스 지식 수준)와 예방형 프롬프트 기법 및 외부 가드 모델을 함께 평가한다.",
+      "empirical_impact": "30개 이상 문항을 4개 과목 범주에 걸쳐 실험한 결과, 현재의 LLM 기반 AG 시스템은 PI 공격에 여전히 취약하며 단순한 universal 공격도 채점 결과를 유의미하게 조작할 수 있음을 보여준다. 더 나아가 방어가 있더라도 공격이 점수 부풀리기 목표를 성공시키는 경향이 관찰되어, 교육용 LLM 채점에서 ‘공정성·신뢰성·무결성’을 보장하기 위한 보안 연구 필요성을 강하게 제기한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.949,
+          "chars": 246
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.741,
+          "chars": 186
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.987,
+          "chars": 210
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.879,
+          "chars": 217
+        }
+      },
+      "total_sentences": 8,
+      "overall_hangul_ratio": 0.894,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 576,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.721,
+          "chars": 309
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.748,
+          "chars": 314
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.786,
+          "chars": 377
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.789,
+          "chars": 299
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.762,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Active Continual Learning with Metaplastic Binary Bayesian Neural Networks (https://arxiv.org/abs/2605.30198)",
+    "summary": {
+      "prior_approaches": "기존 Bayesian 신경망은 가중치를 확률변수로 두고 변분추론으로 사후분포를 근사해 신뢰도/ODD(Out-of-Distribution) 감지를 지원한다. 그러나 mean-field Bernoulli 사후분포는 비정상 스트림이 길어질수록 0 또는 1로 포화되어(“frozen synapses” 현상) 에피스테믹 불확실성이 붕괴하고 적응(가소성)이 멈춘다. 연속학습 관점에선 온라인 VI나 정규화 기반(EWC/SI/Online EWC)이 있지만, 장기적으로는 증거/중요도 누적으로 인해 경직이 커지거나 추가 상태 저장 부담이 생긴다.",
+      "core_contribution": "이 논문은 Binary Metaplasticity from Uncertainty(BiMU)라는 Bayesian 연속학습 규칙을 제안해 mean-field Bernoulli 사후포화(사후분포 퇴화)를 억제하면서도 쓸 만한 에피스테믹 불확실성을 장기 유지한다. BiMU는 bounded-memory learning-and-forgetting 아이디어를 Bernoulli 시냅스에 맞춰 안정성·가소성·망각의 균형으로 구현하며, prior로의 조절을 불확실성에 따라 게이트한다. 또한 불확실성(몬테카를로 추정)의 불일치(disagreement)를 기반으로 버퍼 없이 1-pass 액티브 쿼리를 수행해 라벨 질의와 역전파 업데이트를 줄인다.",
+      "technical_challenges": "핵심 기술 난제는 (1) 긴 비정상 스트림에서 Bernoulli 파라미터가 자연 파라미터 크기 증가로 포화해 사후가 거의 결정적으로 변하는 문제를, (2) 엣지에서 감당 가능한 상태/계산 예산 내에서 막는 것이다. BiMU는 데이터 항에 더해 불확실성 의존 relax toward the prior를 결합해 포화를 역행시키고, state-dependent(메타가소성) step size를 제한해 통합된 시냅스는 안정화하되 불확실한 시냅스는 계속 학습 가능하게 만든다. 그 결과 포화 없이 비퇴화(non-degenerate) 사후분포가 유지되며, 이를 바탕으로 MC 불일치 점수에 임계값 룰을 적용해 단 한 번의 스트림 패스에서 라벨/업데이트 여부를 결정한다.",
+      "empirical_impact": "실험에서는 1000-tasks Permuted-MNIST로 장기 비정상성과 OOD 감지 성능을 검증해, 학습이 지속되면서도 불확실성이 의미 있게 유지됨을 보여준다. OpenLORIS-Object에서는 ImageNet 피처를 고정/압축한 제약 설정에서도 분포 이동 하에서 학습과 OOD 관련 신호가 유지되는 결과를 보고한다. 특히 클래스 불균형/희귀 이벤트 스트림과 온라인 쿼리 평가에서 정확도를 맞춘 조건 대비 라벨/업데이트를 최대 32배까지 절감해, 엣지 상시학습과 비용 효율의 실용성을 강조한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.664,
+          "chars": 297
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.528,
+          "chars": 353
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.746,
+          "chars": 368
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.775,
+          "chars": 279
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.671,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 803,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.459,
+          "chars": 473
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.281,
+          "chars": 473
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.476,
+          "chars": 463
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.579,
+          "chars": 383
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.44,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Automated alignment is harder than you think (https://arxiv.org/abs/2605.06390)",
+    "summary": {
+      "prior_approaches": "기존 제안들은 성능이 좋아질수록 정렬(alignment) 연구를 에이전트가 더 많이 자동화하고, 사람은 감독/검증에 집중하는 방식(경험적 정렬 작업 자동화→다음 세대에 대한 안전성 주장 자동 구성→에이전트가 인간을 대체)으로 ASI 정렬을 점진적으로 부트스트랩하려 합니다. 다만 이 과정의 핵심 산출물인 전체 안전성 평가(Overall Safety Assessment, OSA)는 다양한 근거를 종합한 ‘확률적’ 판단이라 검증이 까다롭다는 점이 약점으로 지적됩니다. 특히 정렬 연구는 애매한 과제(명확한 평가 기준이 없고 인간 판단이 체계적으로 흔들리는 작업)가 많아, 기존 방식으로도 오탐·과소탐 같은 체계적 오류가 숨어들 수 있습니다.",
+      "core_contribution": "이 논문은 에이전트가 고의로 방해하지 않더라도 자동화된 정렬 연구가 ‘설득력 있어 보이지만 치명적으로 오도하는 안전성 평가’를 만들어 오정렬 AI를 배치할 수 있다고 주장합니다. 원인은 OSA를 구성하는 측정(정렬 성질은 직접 관측 불가, 프록시로 추정)과 근거 통합(서로 상관된 불확실성을 잘못 모델링) 같은 하드투서퍼바이즈 퍼지 작업에서 체계적·미탐 오류가 발생하기 때문입니다. 결과적으로 개별 산출물이 틀리지 않더라도, 오류가 집단적으로 누적·증폭되어 과신된 결론으로 이어질 수 있음을 정리합니다.",
+      "technical_challenges": "저자들은 자동화 프로그램에서 오류가 더 잘 포착되지 않는 이유로 최적화 압력(사람 승인에 맞춘 실수는 검토자가 덜 잡음), 인간과 닮지 않은 ‘이상한 실수’, 공유 가중치·데이터·훈련으로 인한 높은 상관 구조, 에이전트 기반으로 커지는 연구량으로 인한 복잡한 상관, 그리고 사람이 평가하기 어려운 논증에 의존하는 문제를 듭니다. 더 나아가 정렬 분야는 실사용 중 치명적 피드백 루프가 없어, 한 번 과오를 놓치면 후속 실험으로 교정하기 어려워 ‘처음부터’ 하드투서퍼바이즈 퍼지 과제를 신뢰도 높게 수행하도록 에이전트를 훈련해야 한다고 말합니다. 이를 위해 가능한 접근으로 일반화(generalisation)와 스케일러블 오버사이트(scalable oversight)를 제시하지만, 두 방법 모두 자동화 정렬 맥락에서 새 도전 과제를 안고 있으며 상관 근거 통합 문제에 특히 취약하다고 봅니다.",
+      "empirical_impact": "논문 본문은 주로 이론적 위험 모델과 실패 모드(미탐 체계적 오류)가 자동화 정렬의 안정성을 어떻게 훼손하는지에 초점을 둡니다. 따라서 ‘정량 벤치마크 성능’보다, OSA를 만들기 위해 어떤 통계적·평가적 전제가 깨질 수 있는지에 대한 경고를 제공해 연구 설계 방향(상관 구조 모델링, 감독 신호 설계, 퍼지 과제의 검증 가능성)을 재고하게 만드는 의미가 큽니다. 자동화 정렬이 확대될수록 치명적 오판 가능성이 커질 수 있다는 관점을 통해, 후속 연구가 일반화 예측과 스케일러블 오버사이트의 실효성 검증에 집중해야 함을 촉구합니다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.856,
+          "chars": 357
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.976,
+          "chars": 281
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.904,
+          "chars": 443
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.986,
+          "chars": 297
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.924,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 866,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.671,
+          "chars": 342
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.748,
+          "chars": 308
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.617,
+          "chars": 462
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.919,
+          "chars": 316
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.725,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "CGFformer: Cluster-Guidance Frequency Transformer for Pansharpening (https://arxiv.org/abs/2605.01490)",
+    "summary": {
+      "prior_approaches": "기존 팬샤프닝은 전통적 기법(성분 치환, 다중해상도분석, 변분 최적화)과 CNN 기반 딥러닝으로 발전했지만, 대체로 고정된 분해/주입 방식이 스펙트럼 왜곡이나 공간 디테일 손상을 유발할 수 있다. 특히 주파수 기반 방법은 가우시안 등 고정 필터(또는 단일 변환: Fourier, wavelet, DCT)로 고·저주파를 분리해 왔으나, MS와 PAN에서 나타나는 공간적으로 다양한 주파수 분포를 정교하게 적응하기 어렵다. 또한 분해 과정에서 생기는 잡음/아티팩트에 대해선 주파수 성분 자체에 결합된 잡음(주파수-관련)까지 충분히 겨냥하지 못해 억제 효과가 제한된다.",
+      "core_contribution": "CGFformer는 PAN과 LRMS의 주파수 분포가 공간에 따라 달라진다는 점에 착안해, 클러스터 가이던스 주파수 Transformer 기반의 적응형 분해·정제·융합 프레임워크를 제안한다. 핵심은 (1) K-means 기반 클러스터로 로컬 및 비로컬 유사성을 함께 반영해 고·저주파 분리를 정밀화하고, (2) 듀얼 스트림 정제(DSR)로 주파수-관련/비관련 잡음을 동시에 줄이며, (3) 주파수-공간 상호작용을 강화해 재구성 품질을 높이는 데 있다.",
+      "technical_challenges": "첫째, 고·저주파 성분은 픽셀 수준 공간 변화와 강하게 결합되어 있어 단일 고정 필터나 단일 변환만으로는 공간-가변 주파수 분포를 충분히 분리하기 어렵다. 이를 위해 논문은 로컬 특징과 비로컬 유사 정보를 K-means 클러스터로 그룹화한 뒤, 각 그룹에 대해 CNN이 필터를 동적으로 생성하는 적응 분리(CAFS)로 고·저주파를 더 정확히 분해한다. 둘째, 분해 과정과 추출 과정에서 주파수 성분에 얽힌 잡음과 성분 외 잡음이 함께 발생하므로, 논문은 잡음 추정과 Transformer 기반 교차/양방향 가이던스로 주파수 가이드 억제를 수행해 양쪽 유형을 모두 완화한다.",
+      "empirical_impact": "여러 벤치마크 데이터셋에서 CGFformer는 기존 팬샤프닝 접근 대비 유의미한 성능 향상을 보이며, 특히 주파수 분리의 적응성과 정제의 잡음 제거 효과가 품질 개선으로 이어짐을 확인한다. 결과적으로 복잡한 원격탐사 영상에서 공간–주파수 상호작용을 더 잘 모델링하는 주파수 기반 팬샤프닝의 설계 방향(적응형 분해, 주파수 가이드 정제)이 실증적으로 강화됐다는 점에서 의미가 있다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.891,
+          "chars": 315
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.8,
+          "chars": 252
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.897,
+          "chars": 320
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.943,
+          "chars": 212
+        }
+      },
+      "total_sentences": 10,
+      "overall_hangul_ratio": 0.882,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 787,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.604,
+          "chars": 374
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.498,
+          "chars": 287
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.565,
+          "chars": 390
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.577,
+          "chars": 307
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.564,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Context Distillation as Latent Memory Managemen (https://arxiv.org/abs/2605.28889)",
+    "summary": {
+      "prior_approaches": "기존 context distillation(CD)은 긴 문맥을 매번 프롬프트로 넣지 않고, 문맥을 모델 파라미터에 압축해 재현하는 방식이다. 하지만 다수의 방법은 “해당 문맥이 들어간 적절한(oracle) 저장/선택”을 가정하거나, 단일 어댑터에 누적해서 써넣는 cumulative distillation을 택해 이전 메모리가 덮어써지며 망각(catastrophic forgetting)과 잘못된 활성화가 발생하기 쉽다. 또한 누가 언제 활성화돼야 하는지(비문맥 질의에서의 안전한 비활성) 같은 ‘메모리 관리’ 문제는 충분히 다뤄지지 않았다.",
+      "core_contribution": "이 논문은 CD를 ‘latent memory management’ 문제로 정식화하고, 문맥을 단일 상태에 누적하는 접근에서 벗어나 저장·검색·활성화를 명시적으로 분리한다. 각 문맥을 독립적인 LoRA 어댑터로 증류해 modular memory bank를 만들고, 질의에 대해 후보 메모리를 검색한 뒤 가장 적합한 어댑터로 라우팅한다. 마지막으로 Self-Gating을 도입해 비문맥 질의에서는 latent memory를 활성화하지 않도록 하여 안전성과 견고성을 높인다.",
+      "technical_challenges": "핵심 기술 과제는 (1) 많은 문맥 메모리를 효율적으로 검색·라우팅하고, (2) 어댑터를 전환할 때 추론 지연을 과도하게 늘리지 않으며, (3) 어떤 경우에 메모리를 꺼야 하는지(가정 밖 질의)를 안정적으로 판별하는 것이다. 이를 위해 논문은 2단계 latent retrieval 및 라우팅 구조와 Self-Gating 메커니즘을 결합하고, 추가로 cache-sharing으로 KV-캐시 재계산 비용을 줄인다. 특히 student 쪽에서 prefix KV-cache 호환성을 학습하는 hot-swap 성질을 부여해, Gating/메모리 선택 단계에서도 어댑터 전환이 거의 오버헤드 없이 이뤄지도록 설계한다.",
+      "empirical_impact": "실험은 제안 방법이 누적형(cumulative) CD 베이스라인보다 retrieval 설정에서 의미 있게 성능을 앞선다고 보고한다. 또한 Self-Gating은 문맥이 필요 없는 질의에서 불필요한 latent memory 활성화를 억제해 견고성을 개선한다. 더불어 cache-sharing과 hot-swap 설계는 메모리 관리에 따른 추론 비용을 낮춰, 실사용 관점의 효율성과 적용 가능성을 함께 강화한 점에서 의미가 있다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.693,
+          "chars": 303
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.67,
+          "chars": 262
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.709,
+          "chars": 339
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.661,
+          "chars": 237
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.685,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 661,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.654,
+          "chars": 333
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.595,
+          "chars": 255
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.55,
+          "chars": 348
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.593,
+          "chars": 272
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.598,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Diff-CA: Separating Common and Salient Factors with Diffusion Models (https://arxiv.org/abs/2606.06120)",
+    "summary": {
+      "prior_approaches": "기존 대비분석(Contrastive Analysis)은 VAE나 GAN 같은 생성모델 기반으로 공통 요인과 두드러진 요인을 분리하려는 시도가 많았다. 하지만 재구성/합성 품질이 충분치 않으면 잠재 요인 분리가 흐려져 고해상도 이미지 생성·편집에 적용하기 어렵다는 한계가 반복해서 나타났다.",
+      "core_contribution": "이 논문은 디퓨전 모델의 조건(conditioning) 토큰을 공통 요인(CC)과 타깃 특이 요인(SS)으로 분해하는 Diff-CA를 제안하며, 생성 품질을 해치지 않으면서 대비분석을 수행한다. 또한 약한 지도(배경/타깃의 이진 신호)만으로 토큰 공간에서 추가 요인 스왑·제거·스케일링 같은 타깃 개입을 가능하게 해, 프롬프트 의존 편집의 불안정성을 줄인다.",
+      "technical_challenges": "핵심 난제는 디퓨전 조건 토큰을 CC/SS의 가정(특히 가산적(additive) 분해)이 성립하도록 구조화하면서도, 실제 생성 과정에서는 고품질을 유지하는 것이다. 이를 위해 (1) 프롬프트 없이 이미지 자체로 학습하는 고충실도 조건 잠재공간을 구성하고, (2) 약한 감독 하에 조건 토큰을 (Z^C, Z^S)로 분해하는 분리 아키텍처와 학습 손실을 설계하며, 더 나아가 가산적 분해의 식별가능성(identifiability)을 이론적으로 증명한다.",
+      "empirical_impact": "실험에서는 여러 도메인에서 Diff-CA가 SS 속성은 분리·교체하면서도 CC(예: 신원, 성별) 보존이 잘 유지되는지 보여주며, 재구성 및 스왑 성능에서 기존 대비분석 기반 기준선을 앞선다고 보고한다. 특히 프롬프트로 기술하기 어렵거나 사전에 알기 힘든 ‘특이 패턴’에도 약한 지도만으로 타깃 편집/생성 개입이 가능하다는 점에서 응용 범위 확장에 의미가 있다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.798,
+          "chars": 161
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.848,
+          "chars": 200
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.827,
+          "chars": 251
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.932,
+          "chars": 202
+        }
+      },
+      "total_sentences": 8,
+      "overall_hangul_ratio": 0.852,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 588,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.719,
+          "chars": 310
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.43,
+          "chars": 433
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.471,
+          "chars": 395
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.669,
+          "chars": 378
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.557,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Emotional intelligence in large language models is fragmented across perception, cognition, and interaction (https://arxiv.org/abs/2605.24686)",
+    "summary": {
+      "prior_approaches": "기존 감정지능(EI) 평가는 대체로 단일 점수에 의존하거나 감정 분류/대화 선호도 같은 표면 지표를 함께 섞어 “예의 바름”을 감정 추론의 대체물처럼 만들곤 했다. 또한 RLHF가 유도하는 표현적 유사성은 측정하지만, 지각-이해-조절로 이어지는 통합적 능력과의 차이를 분리하지 못한다는 한계가 있었다. 그 결과 모델의 감정 인식 능력과 실제 상호작용 효능이 어떻게 단절되는지 체계적으로 드러나지 않았다.",
+      "core_contribution": "이 논문은 Mayer-Salovey-Caruso의 4가지 감정 처리 능력(지각, 촉진, 이해, 관리)을 기준으로 한 심리측정 기반 평가 프레임 FACET(480문항)을 제안한다. FACET은 객관식 감정 인식·추론(지각/인지)과 개방형 대화에서의 상호작용 효능(정서 심화, 매칭, 조절, 공감적 이해, 표현 자연성)을 함께 측정해 “겉모습 공감”과 “기능적 감정지능”을 분리한다. 9개 프런티어 모델 실험을 통해 EI가 하나의 능력이 아니라 인지 차원과 상호작용 차원에서 분절될 수 있음을 보여준다.",
+      "technical_challenges": "핵심 기술적 난제는 감정지능을 실제 임상적/사회적 효능에 연결되도록 설계하는 동시에, 주관적 대화 평가의 편향을 줄이는 것이었다. 논문은 지각·인지 영역은 정확도(0–100)로, 상호작용 영역은 Elo 쌍대 비교 기반으로 측정해 평가자 편류와 일관성 문제를 완화한다. 또한 숨은 감정 인식(visible/hidden emotion recognition) 같은 구성요소를 포함해 “문장 속 공감 어조”가 아니라 감정 처리의 병목을 드러내는 문항을 설계했다.",
+      "empirical_impact": "실험 결과, 모델들은 객관적 감정 인식과 사회적 추론에서는 강점을 보이더라도 대화 기반 상호작용에서는 일관되게 강하지 않았고, 그 차이를 인지 우세형·상호작용 우세형·상황 의존형의 세 프로파일로 분류했다. 특히 아키텍처 전반에서 숨은 감정 인식이 보편적 성능 병목으로 나타나, 단순 스케일링이나 일반 추론 능력만으로 통합 EI가 자동으로 생기지 않음을 시사한다. 저자들은 RLHF가 ‘통계적 공감(stochastic empathy)’—감정 문법의 모사—에 최적화될 가능성을 제기하며, 앞으로의 소셜 에이전트 개발이 단일 벤치마크가 아니라 지각-인지-상호작용의 구조적 통합을 목표로 해야 함을 제안한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.963,
+          "chars": 225
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.844,
+          "chars": 279
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.815,
+          "chars": 254
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.908,
+          "chars": 336
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.882,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 755,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.66,
+          "chars": 308
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.426,
+          "chars": 420
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.606,
+          "chars": 359
+        },
+        "empirical_impact": {
+          "sentences": 4,
+          "hangul_ratio": 0.585,
+          "chars": 396
+        }
+      },
+      "total_sentences": 13,
+      "overall_hangul_ratio": 0.559,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "FlashMol: High-Quality Molecule Generation in as Few as Four Steps (https://arxiv.org/abs/2605.07020)",
+    "summary": {
+      "prior_approaches": "확산 기반 3D 분자 생성(예: EDM, GeoLDM)은 반복적 노이즈 제거로 화학적으로 유효한 구조를 잘 만들지만, 한 샘플당 1000 NFEs 수준의 계산 비용이 커 대규모 약물 스크리닝에 병목이 된다. 12–50-step로 줄인 few-step 방법들도 등장했으나, 분자 안정성(chemical validity)이 크게 희생되는 경우가 많아 10-step 이하의 신뢰성은 아직 어렵다.",
+      "core_contribution": "FlashMol은 분자 생성의 샘플링을 4단계(최소 4 steps)로 극단적으로 가속하면서도 높은 품질의 3D 분자 conformations을 생성한다. 이를 위해 1000-step teacher를 대상으로 distribution matching distillation(DMD, reverse KL 기반)을 분자 도메인에 적용하되, 분자에 맞는 학습/추론 설계로 DMD의 불안정한 초기화를 극복한다.",
+      "technical_challenges": "DMD는 국소 최적화 성격상, few-step 학생이 충분히 “그럴듯한” 초기 샘플을 내놓지 못하면 유효 신호가 약해 거의 0% 수준의 안정성을 보일 수 있다. FlashMol은 재학습 없이 EDM 설계에서 영감을 받아 timestep schedule을 재배치(respacing)해 학생 초기화를 크게 개선하고, DMD의 mode-seeking으로 인한 다양성 저하 문제는 Jensen-Shannon divergence 항을 추가해 완화한다.",
+      "empirical_impact": "QM9와 GEOM-DRUG에서 대규모 실험을 통해 FlashMol이 1000-step teacher와 비슷하거나 때로는 능가하며, 샘플링 속도는 최대 250배까지 가속하면서도 분자 품질을 유지함을 보인다. QM9에서 83.89% 분자 안정성, GEOM-DRUG에서 84.72% atom 안정성을 달성해 고처리량 약물 탐색 파이프라인 적용 가능성을 한 단계 끌어올렸다는 점에서 의미가 크다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.698,
+          "chars": 218
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.5,
+          "chars": 223
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.559,
+          "chars": 247
+        },
+        "empirical_impact": {
+          "sentences": 4,
+          "hangul_ratio": 0.711,
+          "chars": 217
+        }
+      },
+      "total_sentences": 10,
+      "overall_hangul_ratio": 0.61,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 504,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 4,
+          "hangul_ratio": 0.55,
+          "chars": 411
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.416,
+          "chars": 342
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.401,
+          "chars": 518
+        },
+        "empirical_impact": {
+          "sentences": 5,
+          "hangul_ratio": 0.578,
+          "chars": 346
+        }
+      },
+      "total_sentences": 15,
+      "overall_hangul_ratio": 0.478,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Gotta Grow Fast: Design and Benchmarking of a Tip Mount for High-Speed Vine Robots (https://arxiv.org/abs/2606.06040)",
+    "summary": {
+      "prior_approaches": "기존 타인(eversion) 기반 빈 로봇의 팁 마운트는 다양한 기구를 제안했지만, 대부분이 무게·낮은 프로파일·고정 안정성·저마찰을 동시에 만족하기 어렵다는 한계를 보인다. 특히 TPU 코팅 패브릭처럼 마찰이 큰 소재에서는 내부 저항이 커져 센서/툴을 팁에 달고도 빠른 성장 속도를 유지하기가 어렵다.",
+      "core_contribution": "이 논문은 로봇 본체가 성장 과정에서 자연스럽게 삼각형 윤곽으로 변형되는 점에 착안해, 내부 저항을 슬라이딩이 아닌 ‘롤링’으로 줄이는 삼각 롤러 팁 마운트를 제안한다. 그 결과로 TPU 코팅 리프스톱 나일론 빈 로봇에서 처음으로 일관된 에버전을 달성하고, 센서 탑재가 필요한 검사·탐색 작업에 더 가까운 성장 성능을 보여준다.",
+      "technical_challenges": "핵심 기술 과제는 (1) 성장 중 팁 소재가 계속 교체되는 환경에서 센서·툴 마운트를 안정적으로 유지하는 것과 (2) 내부 층 간 마찰·마운트 무게·원단 수축이 결합해 성장 속도와 신뢰성을 떨어뜨리는 문제다. 논문은 내부 저항을 낮추기 위해 삼각 롤러 구조로 접촉 방식을 전환하고, 반복 실패 분석(iterative failure analysis)을 통해 설계를 다듬어 TPU 코팅 패브릭에서도 반복 가능한 성장을 확보한다.",
+      "empirical_impact": "성능 평가는 마운트 효과만 분리하기 위해 자체 테스트베드를 만들고, 에버전 동안 ‘꼬리 장력(tail tension)’을 측정해 마운트가 성장 메커닉스에 미치는 영향을 정량화한다. 여러 마운트 변형(기존 설계 포함)을 비교한 결과, 제안한 삼각 롤러 마운트가 꼬리 장력이 가장 낮고 성장 성능의 재현성이 가장 높았으며, 팁 통합 빈 로봇을 발전시키기 위한 검증된 마운트 설계와 벤치마킹 프레임워크를 함께 제공한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.911,
+          "chars": 169
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.977,
+          "chars": 183
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.84,
+          "chars": 237
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.934,
+          "chars": 231
+        }
+      },
+      "total_sentences": 8,
+      "overall_hangul_ratio": 0.912,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 570,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.737,
+          "chars": 261
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.794,
+          "chars": 222
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.558,
+          "chars": 309
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.619,
+          "chars": 257
+        }
+      },
+      "total_sentences": 8,
+      "overall_hangul_ratio": 0.665,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "In-Context Multiple Instance Learning (https://arxiv.org/abs/2606.06458)",
+    "summary": {
+      "prior_approaches": "기존 MIL은 bag 내부 인스턴스를 모은 뒤(예: max/mean pooling) bag 라벨을 예측하며, attention 기반이나 TransMIL 같은 유연한 집계기는 소수 라벨 상황에서 과적합·지름길 학습에 취약하다는 한계가 있었다. 또한 self-supervised나 사전학습 전이는 task에 맞는 표현 압축/도메인 의존성 때문에 다운스트림 적합성이 흔들릴 수 있고, supervised MIL pretraining은 큰 태스크 유사 데이터가 필요하다.",
+      "core_contribution": "이 논문은 In-Context Multiple Instance Learning(ICMIL)을 제안하며, 소수의 라벨 bag만 입력 컨텍스트로 주고도 inference 시 단일 forward pass로 예측하도록 만든다. 핵심 아이디어는 PFN(Prior-data Fitted Network) 계열의 in-context learning을 MIL에 맞게 확장해, 테스트 시 그라디언트 업데이트 없이 “가능한 bag 분류 규칙”을 추론하도록 학습하는 것이다.",
+      "technical_challenges": "ICMIL을 구현하려면 (1) 인스턴스-간/ bag-간 attention이 커질 때의 계산 비용, (2) bag 라벨을 고려한 task-aware bag-level 압축, (3) bag 내부 순열불변성과 bag 간 정체성 유지가 동시에 필요하다. 논문은 Perceiver 스타일 구조로 learnable bag token이 인스턴스를 반복적으로 수집·교환하게 해 이를 해결하고, 합성 데이터 생성기(팩터라이즈드 vs 조인트 priors)를 설계해 MIL 가정의 상반된 편향을 함께 학습한 혼합 모델을 만든다.",
+      "empirical_impact": "다양한 합성 priors의 혼합으로 사후예측(Bayesian model averaging에 준하는 동작)을 근사해, 소수 라벨 구간에서 분산을 낮추면서 평균 AUROC와 랭킹 성능을 개선했다고 보고한다. 12개 MIL 벤치마크에서 평균 성능이 가장 높았고, 과제별 학습(태스크별 튜닝/그라디언트 업데이트)이 필요한 감독 기준선들을 능가해 실무적 의미가 크다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.59,
+          "chars": 259
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.449,
+          "chars": 253
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.614,
+          "chars": 284
+        },
+        "empirical_impact": {
+          "sentences": 2,
+          "hangul_ratio": 0.762,
+          "chars": 200
+        }
+      },
+      "total_sentences": 8,
+      "overall_hangul_ratio": 0.594,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 534,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.597,
+          "chars": 372
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.462,
+          "chars": 437
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.591,
+          "chars": 527
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.561,
+          "chars": 378
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.553,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Learning Dynamic Structural Specialization for Underwater Salient Object Detection (https://arxiv.org/abs/2605.15535)",
+    "summary": {
+      "prior_approaches": "기존 USOD(underwater salient object detection)은 인코더-디코더 기반 end-to-end 예측으로 RGB 이미지를 바로 이진 saliency 마스크로 매핑하는 방식이 주류이며, 멀티스케일 융합이나 향상 모듈을 더해 성능을 끌어올려 왔다. 또한 경계 정보(경계 민감 학습, 리파인/디커플링 등)를 보조 단서로 넣거나 고정된 구조로 관심영역을 결합해 국소 디테일을 개선했지만, 경계와 영역의 서로 다른 학습 요구를 명시적으로 분리/조정하진 못했다. RGB-D 계열은 깊이 단서를 보완하지만 실제 환경에서 깊이 추정(단안 깊이/의사 깊이)의 불확실성과 연산 부담 때문에 실용성에 제약이 있다.",
+      "core_contribution": "이 논문은 RGB 기반 USOD의 핵심 문제를 ‘boundary–region entanglement(경계-영역 얽힘)’으로 규정하고, 경계 민감 표현과 영역 응집(지역 일관성) 표현을 통합 표현에서 분리해 다루는 관점의 전환을 제시한다. 이를 위해 DSS-USOD를 제안하며, 단일 RGB에서 공통 베이스 표현을 추출한 뒤 경계 디테일을 위한 boundary-sensitive branch와 영역 구조 일관성을 위한 region-coherent branch로 분해한다. 두 분기의 기여를 공간 위치별로 동적으로 조절해 손상된 수중 영상에서도 경계 정밀도와 영역 응집도를 균형 있게 맞추는 것이 핵심 기여다.",
+      "technical_challenges": "수중 영상에서는 잡음, 저대비, 산란으로 인해 얇은 구조의 경계 신호가 약해지고 영역의 연속성도 깨져, 경계와 영역을 동시에 “같은 방식”으로 학습할 때 서로 간섭이 커진다. DSS-USOD는 이를 해결하기 위해 shared multi-scale 특징으로부터 분기별로 다른 목적(경계 vs 영역)을 학습시키고, spatial coordination module로 로컬 구조 맥락에 따라 두 분기의 상대 기여를 적응적으로 재가중한다. 또한 cooperative structural supervision으로 분기 특화가 실제로 일어나도록 유도하고 공간 조정의 안정성을 높여 degraded 조건에서의 경계-영역 균형을 강화한다.",
+      "empirical_impact": "여러 벤치마크에서 DSS-USOD는 기존 RGB 기반 방법 대비 더 우수한 성능을 보이며, 특히 조각난 saliency 영역과 거친 경계 예측을 완화하는 경향이 관찰된다. 추가로 실제 수중 로봇 환경에서의 배치 실험을 통해, 깊이 같은 보조 모달 없이도 단일 RGB로 물체 검사/관찰에 필요한 실용적 정확도를 달성함을 입증한다. 결과적으로 이 연구는 수중 시각 인식에서 ‘경계-영역을 분리하고 공간적으로 조정하는 설계’가 실질적인 이득을 줄 수 있음을 보여주며, 로봇 기반 응용으로의 전이 가능성을 강화한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.771,
+          "chars": 346
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.664,
+          "chars": 339
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.664,
+          "chars": 349
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.899,
+          "chars": 284
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.741,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 752,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.59,
+          "chars": 374
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.655,
+          "chars": 379
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.438,
+          "chars": 497
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.465,
+          "chars": 406
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.528,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Matrix-Space Reinforcement Learning for Reusing Local Transition Geometry (https://arxiv.org/abs/2605.14304)",
+    "summary": {
+      "prior_approaches": "기존 강화학습의 전이·재사용 연구는 기술(skill) 전이, 예측 점유분포, 목표조건 가치함수, 행동 압축 상태 등을 활용하지만, 세그먼트 단위의 지역 전이 기하/동역학을 충분히 수치화해 ‘무엇이 공통 구조인지’를 분해해내기 어렵다는 한계가 있었다. 또한 시계열 순서를 무시하거나, 재구성 가능한 조합의 대수(합성 규칙)가 명확하지 않아 새로운 과제에서 실제 성능 향상으로 이어지지 못하는 경우가 많다.",
+      "core_contribution": "이 논문은 궤적 세그먼트를 양의 준정부호(PSD) 행렬 기술자 M(τ)로 추상화해, 공통 잠재 구조를 드러내고 행렬 공간에서의 조합(합성)을 가능하게 하는 MSRL(Matrix-Space Reinforcement Learning)을 제안한다. 또한 행렬 기술자에 조건부로 가치함수를 학습하면, 세그먼트 행렬 섭동에 대한 1차 매끄러운 근사 성질을 이용해 소스에서 학습한 matrix-to-value 매핑으로 새로운 태스크의 학습을 부트스트랩할 수 있음을 보인다.",
+      "technical_challenges": "핵심 기술적 난제는 (1) 서로 다른 세그먼트가 공유하는 로컬 기하·동역학 정보를 손실 없이(가벼운 차원에서) 표현하고, (2) 그 표현이 세그먼트 조합 시 일관된 대수 구조를 갖도록 하며, (3) 불가능하거나 말이 안 되는 조합이 들어올 때 이를 걸러내는 것이다. 논문은 PSD 행렬 기술자를 저차 전이 신호에 대해 완비성과 더불어 조합 가능성(유효한 합성에서의 가산성, 겹침 복원 가능성, gauge에 대한 동등성)을 수학적으로 정리하고, obstruction filtering으로 불합리한 합성을 제거한 뒤 표준 모델 프리/모델 기반과 플러그인 호환 학습 절차를 구성한다.",
+      "empirical_impact": "실험에서는 소스에서의 구조 진단과 간단한 환경에서 복잡한 타깃 태스크로의 소스 초기화 전이를 통해, 동일한 타깃 상호작용 예산 조건에서 MSRL이 바닐라 RL 및 전이 학습 기법을 능가하는 few-shot 성능을 보였다. 특히 finite-budget target AUC 평균 0.73으로 MSRL from scratch(0.65), TD-MPC-PT+FT(0.63), TD-MPC(0.57)를 웃돌며, 제한된 데이터에서도 ‘구성적 일반화’가 작동함을 실증적으로 뒷받침한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.969,
+          "chars": 225
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.725,
+          "chars": 258
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.877,
+          "chars": 323
+        },
+        "empirical_impact": {
+          "sentences": 6,
+          "hangul_ratio": 0.654,
+          "chars": 265
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.805,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 636,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.63,
+          "chars": 365
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.409,
+          "chars": 425
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.412,
+          "chars": 564
+        },
+        "empirical_impact": {
+          "sentences": 7,
+          "hangul_ratio": 0.446,
+          "chars": 377
+        }
+      },
+      "total_sentences": 16,
+      "overall_hangul_ratio": 0.464,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research (https://arxiv.org/abs/2605.06584)",
+    "summary": {
+      "prior_approaches": "기존 멀티모달 신경영상 파이프라인은 sMRI·fMRI·dMRI·PET마다 전처리 체인이 길고, FSL·SPM·ANTs·FreeSurfer 등 도구 생태계가 달라 형식·좌표계·헤더 처리와 파라미터 튜닝이 반복적으로 필요했다. Nipype나 fMRIPrep이 자동화를 돕지만, 데이터가 불완전하거나 이질적일 때는 품질관리(QC)·오류 복구·추가 검증을 여전히 사람이 수행해야 했다. 또한 전처리 실패나 선택 차이가 연구 결론을 크게 바꿀 수 있어, 재현성 확보에 사람의 노동이 병목이 되는 문제가 지속됐다.",
+      "core_contribution": "NeuroAgent는 LLM 기반 에이전트가 멀티모달 신경영상의 핵심 전처리와 후속 분석 단계를 자연어 질의에 맞춰 자동으로 수행하도록 설계된 프레임워크다. 계층형 멀티에이전트와 피드백 기반 Generate-Execute-Validate 엔진을 통해, 실행 가능한 전처리 코드를 생성하고 산출물 무결성을 검증하며 필요 시 재시도까지 수행한다. 결과적으로 “원자료→분석 가능한 데이터→질문 대응”의 전 과정을 자동화해 인간 개입 부담을 줄이는 것을 목표로 한다.",
+      "technical_challenges": "가장 큰 난제는 이질적인 입력 데이터에서 모달리티를 인식하고, 도구별 약속(파일·헤더·좌표계)을 일관되게 연결하는 동시에 실행 중 오류를 스스로 복구하는 것이다. 논문은 도구 실행 실패 로그를 해석해 등록 발산이나 파라미터 불일치 같은 문제를 감지하고, 검색 반경·목적함수 등 파라미터를 조정해 재실행한 뒤 출력 무결성을 검증하는 방식으로 해결한다. 또한 LLM 백엔드별 성능 차이에도 대응하도록 파이프라인 생성·의도 파싱·코드 정확도를 분리해 평가하고 튜닝 가능성을 확인한다.",
+      "empirical_impact": "ADNI 전 구간을 통합한 총 1,470명 데이터에서(모든 대상 sMRI+탭 데이터, 일부는 Tau-PET·fMRI·DTI 포함) 전처리 자동화 성능을 계량적으로 입증했다. 백엔드별 파이프라인 제거(babel) 실험에서 의도 파싱은 최대 100%까지, 최강 백엔드(Qwen3.5-27B)는 엔드투엔드 전처리 단계 정오답 기준 84.8%를 달성했으며, 회복은 사람이 검토해야 하는 엣지 케이스로 제한됐다. 알츠하이머 분류에서는 자동 전처리된 4개 모달리티 앙상블이 AUC 0.9518로 단일 모달리티 기준선을 모두 능가해, 자동화된 멀티모달 파이프라인의 실용적 가치를 보여줬다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.758,
+          "chars": 281
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.816,
+          "chars": 257
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.985,
+          "chars": 267
+        },
+        "empirical_impact": {
+          "sentences": 6,
+          "hangul_ratio": 0.843,
+          "chars": 322
+        }
+      },
+      "total_sentences": 15,
+      "overall_hangul_ratio": 0.849,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 755,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.765,
+          "chars": 364
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.841,
+          "chars": 291
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.683,
+          "chars": 394
+        },
+        "empirical_impact": {
+          "sentences": 6,
+          "hangul_ratio": 0.82,
+          "chars": 412
+        }
+      },
+      "total_sentences": 15,
+      "overall_hangul_ratio": 0.772,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Parameter Alignment Mitigates Catastrophic Forgetting in Multilingual Expert Language Models (https://arxiv.org/abs/2606.00284)",
+    "summary": {
+      "prior_approaches": "기존 계속 사전학습(CPT)은 새 언어 커버리지를 확장하는 실용적 방법이지만, 무정규화 파인튜닝/연속 학습은 기존 능력을 지우는 재앙적 망각(catastrophic forgetting)을 유발한다. 언어 패밀리로 데이터를 조직하는 방식은 교차 언어 간 간섭을 줄이지만, 여전히 사전학습 기반의 일반 지식이 필요한 과제 성능이 함께 떨어질 수 있다. x-ELM처럼 전문가를 병렬로 학습·병합하는 접근은 간섭을 줄이지만, 패밀리-전문가 설정에서 망각을 정면으로 완화하는 방법은 아직 미답이었다.",
+      "core_contribution": "이 논문은 패밀리 단위 전문가(family-expert) CPT를 제안하고, 그 위에서 층(layer) 정보에 민감한 파라미터 얼라인먼트(parameter alignment) 5가지를 제시한다. 핵심은 “트랜스포머 중간층의 파라미터 드리프트가 망각을 촉발한다”는 가설에 기반해, 업데이트를 제한하거나 학습 후 중간층 가중치를 되돌리거나(Train-then-Revert), 가중치 병합/정규화로 드리프트를 제어한다. 결과적으로 언어 습득 효율은 유지하면서도 다운스트림에서의 기존 능력 손실을 체계적으로 낮춘다.",
+      "technical_challenges": "기술적 난관은 전문가를 독립적으로 학습할수록 파라미터가 초기 모델에서 과도하게 멀어져(파라미터 드리프트) 중간층의 공통 지식까지 손상될 수 있다는 점이다. 이를 해결하기 위해 중간층에 더 강한 제약을 거는 하드 프리징, 시작점 기반 L2-SP(레이어별 페널티 차등), 학습 후 중간층만 기준선 가중치로 리버전, 그리고 모델 머징/정렬 계열 전략을 조합해 드리프트의 양과 위치를 통제한다. 특히 각 방법이 언어 습득과 망각 완화 중 어느 쪽을 더 우선하는지(층 민감도)를 고려해 설계한다.",
+      "empirical_impact": "32개 학습 언어(5개 언어 패밀리)와 held-out 언어를 대상으로, 혼합 언어 패밀리-전문가 CPT에서 파라미터 얼라인먼트는 무정규화 기준선 대비 망각을 크게 줄이면서도 언어 습득 비용을 최소화하는 것으로 나타났다. 과제별로 최적 전략이 달랐는데, 중간층 프리징은 독해(예: Belebele) 보존에 유리했고, 학습 후 중간층 리버전은 번역(FLORES-200)에서 성능 이득이 두드러졌다. 또한 L2-SP 계열은 held-out 퍼플렉서티를 안정적으로 유지하며, 중간층 드리프트가 독해 저하의 주요 원인임을 층간 보정 분석으로 확인해 배포 관점의 “목표 과제-전략 매칭 가이드”를 제공한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.859,
+          "chars": 274
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.755,
+          "chars": 284
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.985,
+          "chars": 272
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.857,
+          "chars": 334
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.86,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 769,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.551,
+          "chars": 317
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.432,
+          "chars": 458
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.617,
+          "chars": 394
+        },
+        "empirical_impact": {
+          "sentences": 5,
+          "hangul_ratio": 0.391,
+          "chars": 507
+        }
+      },
+      "total_sentences": 14,
+      "overall_hangul_ratio": 0.485,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Quantum Machine Learning-based 6G edge Network: Enabling Adaptive Communication and Model Aggregation (https://arxiv.org/abs/2605.27417)",
+    "summary": {
+      "prior_approaches": "기존 V2X에서는 소스-채널 분리 통신을 넘어 의미 기반(source-channel joint) 코딩을 시도해 왔지만, 동적 채널과 이기종 단말에서 전역 의미 왜곡이 커지고 미지 환경 일반화가 약하다는 한계가 지적된다. 멀티모달 융합도 attention 중심으로 정렬을 시도하지만, 실시간성·추적가능성·재구성 요구(사고 복원 등)를 동시에 만족하기 어려웠다. 또한 모델 전송/전이는 스케줄링을 위한 강화학습이나 분산 게임 접근이 있으나, 대규모·다중 제약 환경에서 학습 비용과 수렴 효율 문제가 남아 있었다. 연합학습(FL)은 Non-IID와 통신 오버헤드, 집계 수렴 안정성 이슈가 계속되며, 압축·저랭크 기법도 정보 손실과 이기종 모델 적응성 부족에 취약하다.",
+      "core_contribution": "이 논문은 6G 지능형 교통을 목표로 V2X 의미 통신과 모델 협업(전송·융합·집계)을 end-to-end로 묶는 ‘양자 강화(quantum-enhanced) 프레임워크’를 제안한다. 핵심은 (1) 채널 적응형 의미 전송을 양자 CNN과 양자 왜곡 측정으로 만들고, (2) 멀티모달 융합을 양자 attention/얽힘으로 압축·연관화하며, (3) 전송 시점과 도메인 적응을 양자 Actor-Critic으로 최적화하고, (4) FL 집계를 양자 텐서 분해와 역전파 기반 보정으로 프라이버시·견고성을 함께 강화한다. 결과적으로 채널 변동·이기종 단말·다중 센싱의 상호 얽힘을 한 시스템 설계에서 동시에 겨냥한다.",
+      "technical_challenges": "가장 큰 기술적 난제는 고차원·이기종 입력에서 의미 정보를 효율적으로 전송하면서도 채널 불확실성에 강한 일반화를 보장하는 것이다. 논문은 실시간 의미 채널 상태 추정과 양자 CNN 기반 의미 코딩/디코딩, 그리고 양자 상대 엔트로피로 의미 왜곡을 측정해 전송-재구성 품질을 동적으로 맞춘다고 설명한다. 또 서로 다른 센서의 의미 정렬과 결측 보상은 양자 얽힘/가역 모듈을 활용한 융합으로 처리하고, 전이(transfer)는 양자 마르코프 의사결정과 도메인 정렬 손실로 적응성을 높인다. 마지막으로 FL 집계에서는 양자 텐서 분해로 통신 오버헤드를 낮추되, 파라미터 역전파 보정으로 정보 손실을 완화하면서 전역 모델의 강건성을 유지하려는 구성을 취한다.",
+      "empirical_impact": "논문은 전반 프레임워크의 타당성을 실험으로 검증하며, 특히 양자 머신러닝 모듈이 의미 통신의 효율·일반화와 멀티모달 융합의 압축 효과, 그리고 FL 집계의 프라이버시/견고성에 기여함을 보여주는 방향성을 제시한다. 또한 가역(결정용 의미 ↔ 재구성 가능 데이터) 관점을 도입해 실시간 의사결정과 사고 복원 요구의 균형을 도모한다는 점이 실제 교통 시스템 관점에서 의미가 있다. 전통적 ML의 느린 수렴·취약한 일반화와 같은 문제를 양자 구조로 보완하려는 ‘체인 전체 통합’ 시도가 향후 6G-V2X 지능형 협업 설계에 참고 모델이 될 수 있다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 4,
+          "hangul_ratio": 0.863,
+          "chars": 371
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.785,
+          "chars": 340
+        },
+        "technical_challenges": {
+          "sentences": 4,
+          "hangul_ratio": 0.952,
+          "chars": 364
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.968,
+          "chars": 303
+        }
+      },
+      "total_sentences": 14,
+      "overall_hangul_ratio": 0.891,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 930,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.569,
+          "chars": 454
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.57,
+          "chars": 413
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.52,
+          "chars": 630
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.646,
+          "chars": 391
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.568,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Robust Scene Transfer for PointGoal Navigation via Privileged Sensor Guided Contrastive Learning (https://arxiv.org/abs/2606.05506)",
+    "summary": {
+      "prior_approaches": "기존 비전 기반 PointGoal 항법은 지도 기반/지도 없는 방식으로 나뉘며, 전자는 환경별 지도·상태추정 의존성이 커 장면 전이를 어렵게 한다. 지도 없는 방식은 RGB-D나 LiDAR 같은 풍부한 센싱을 사용하거나, 암묵적 편의(외관 연동) 때문에 시각 분포가 크게 바뀌면 취약해질 수 있다. 대조학습(contrastive learning)은 불변성을 강제하지만, 휴리스틱 증강에 의존해 과제 구조를 직접 반영하지 못하면 교차 환경에서 외관 특성이 남을 수 있다.",
+      "core_contribution": "이 논문은 학습 단계에서만 사용 가능한 LiDAR의 기하 정보를 ‘특권(supervised) 신호’로 활용해, RGB 인코더가 내비게이션에 필요한 기하 구조를 임베딩에 담도록 유도한다. 동시에 표현 학습을 사전학습으로 분리하고, 동결된 인코더 위에 경량 정책을 RL로 학습해 정책 레벨의 장면 전이를 노린다. 배포 시에는 단안 RGB와 목표 상대 자세, 고유수용 신호 등 일반 입력만 사용하며 특권 센서는 제거된다.",
+      "technical_challenges": "핵심 기술 과제는 ‘기하 구조를 보존하되 외관에 과도하게 맞추지 않는’ 대조학습 손실 설계였다. 이를 위해 앵커-포지티브/네거티브 구성은 유지하면서, LiDAR로부터 계산한 기하 유사성에 따라 대조 손실의 온도(temperature)를 적응적으로 스케일링해 쌍의 기여도를 조절한다. 그 결과 임베딩이 장면의 시각적 외관보다 탐색 공간·장애물 배치 같은 과제 관련 구조에 더 강하게 정렬되도록 만든다.",
+      "empirical_impact": "고충실 시뮬레이션에서 다양한 실내·실외 환경으로의 장면 전이가 크게 향상되며, 특히 외관·의미 변화가 심한 조건에서도 정책 성능이 안정적으로 유지된다. 또한 대형 사전학습 비전 모델과 표준 대조학습 기반 기준선을 비교해 우수한 정책 레벨 성능을 보였다고 보고한다. 추가로 특권-유도 시각 표현 학습을 위한 멀티모달 데이터셋을 공개해 후속 연구의 기반을 제공한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.807,
+          "chars": 262
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.864,
+          "chars": 232
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.903,
+          "chars": 223
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 1.0,
+          "chars": 202
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.887,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 595,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.547,
+          "chars": 357
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.509,
+          "chars": 353
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.364,
+          "chars": 460
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.524,
+          "chars": 337
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.477,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "SepsisAI Orchestrator: A Containerized and Scalable Platform for Deploying AI Models and Real-Time Monitoring in Early Sepsis Detection (https://arxiv.org/abs/2605.22331)",
+    "summary": {
+      "prior_approaches": "기존 패혈증 예측 연구는 SOFA/qSOFA와 같은 점수 기반부터 로지스틱 회귀·XGBoost, 나아가 RNN/LSTM/GRU 같은 딥러닝까지 성능을 끌어올렸지만, 알고리즘 자체의 한계뿐 아니라 임상 현장 적용까지의 거리(“lab to live gap”)가 문제로 지적돼 왔다. 한편 MLOps·컨테이너·Kubernetes, HL7 FHIR 등 인프라 요소들은 제시되었으나 데이터 전처리-상호운용-모델 서빙-대시보드까지 이어지는 통합 레퍼런스 아키텍처와, 실제 병원 수준 동시성/지연에서의 성능 특성 규명은 부족했다.",
+      "core_contribution": "이 논문은 조기 패혈증 감지를 대상으로, SepsisAI-Orchestrator라는 오픈소스 모듈형 플랫폼을 제안해 배치/연구용 프로토타입을 병원 환경의 운영 요구사항에 맞게 연결한다. HL7 FHIR 기반 CDA 전처리, NoSQL 저장, 컨테이너화된 LightGBM의 REST API 서빙, Streamlit 임상 대시보드를 하나의 흐름으로 표준화하고, 기존에 검증된 LightGBM 모델을 수정 없이 재사용하는 대신 “주변 인프라”의 실제 동작을 실증한다.",
+      "technical_challenges": "핵심 기술적 난제는 병원 데이터의 이질성(표현/표준 불일치)과, 연구 환경과 달리 동시 요청·지연·장애 허용이 필요한 운영 조건에서 추론 서빙이 안정적으로 동작하도록 구성하는 것이다. 논문은 FHIR 영감을 받은 CDA 전처리 파이프라인과 컨테이너·쿠버네티스 자원 매핑(무상태 Deployments, 상태 저장 StatefulSet, 배치 Jobs)을 결합하고, k6로 50~1000 동시 가상 사용자 부하를 걸어 수평 스케일링의 최적 지점을 찾는다.",
+      "empirical_impact": "실험 결과, 호스트의 물리 CPU 스레드 수에 replica 수를 맞추는 것이 최적이며, 예를 들어 12스레드 CPU에서 3→12 replicas로 확장하면 p95 지연이 3.3초에서 1.41초로 57.3% 감소하고 요청 실패가 0으로 줄어든다. 반대로 24 또는 48 replicas로 과잉 증설하면 스케줄러 경합과 컨텍스트 스위칭으로 성능이 악화되어, 임상 AI 추론 워크로드에서 나타난 U자형 스케일링 곡선을 정량화했다는 점에서 실무적 의미가 크다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 2,
+          "hangul_ratio": 0.727,
+          "chars": 289
+        },
+        "core_contribution": {
+          "sentences": 2,
+          "hangul_ratio": 0.665,
+          "chars": 258
+        },
+        "technical_challenges": {
+          "sentences": 2,
+          "hangul_ratio": 0.811,
+          "chars": 252
+        },
+        "empirical_impact": {
+          "sentences": 5,
+          "hangul_ratio": 0.806,
+          "chars": 254
+        }
+      },
+      "total_sentences": 11,
+      "overall_hangul_ratio": 0.748,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 697,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.74,
+          "chars": 321
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.535,
+          "chars": 395
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.645,
+          "chars": 385
+        },
+        "empirical_impact": {
+          "sentences": 6,
+          "hangul_ratio": 0.644,
+          "chars": 441
+        }
+      },
+      "total_sentences": 15,
+      "overall_hangul_ratio": 0.635,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "TBP-mHC: full expressivity for manifold-constrained hyper connections through transportation polytopes (https://arxiv.org/abs/2605.21724)",
+    "summary": {
+      "prior_approaches": "Hyper-Connections(HC)는 잔차 스트림을 여러 개로 확장하고 학습 가능한 혼합행렬로 섞어 표현력을 높이지만, 일반적인 선형 혼합은 깊이 누적 시 평균 보존이 깨지며 학습 불안정으로 이어질 수 있다. 이를 막기 위해 기존에는 혼합행렬을 이중확률행렬(DS)인 Birkhoff polytope에 두는 제약(mHC, mHC-lite)이 제안됐다. mHC는 Sinkhorn–Knopp을 유한 반복으로 근사해 정확성이 깨지고, mHC-lite는 정확하지만 순열행렬 조합 수가 n!로 폭증해 비실용적이다.",
+      "core_contribution": "이 논문은 혼합행렬 제약을 수송 문제 관점의 Transportation polytope로 재해석하고, Birkhoff polytope 전체를 정확히 표현하는 Transportation Birkhoff Polytope(TBP) 파라미터화를 제안한다. TBP는 근사 없이 정확한 이중확률성을 보장하면서도 자유도는 (n−1)^2로 최소화되어 Birkhoff polytope의 전 표현력을 그대로 유지한다. 또한 계산 속도 문제를 줄이기 위해 Recursive TBP(RTBP)로 계층적 블록 분할을 도입해 부분 병렬화를 가능하게 한다.",
+      "technical_challenges": "핵심 난제는 (1) 정확한 DS 제약을 만족시키면서 (2) Birkhoff polytope의 전 영역을 커버하되 (3) 근사 정규화(Sinkhorn)나 조합 폭발 없이 구현 효율을 확보하는 것이다. TBP는 North-West Corner의 순차 구조를 기반으로 이 제약을 정확히 구성하며, 그 결과 (n−1)^2 자유도만으로 전체 폴리토프를 표현한다. 다만 순차성 때문에 속도가 병목이 될 수 있어, RTBP는 블록 간 일관성 제약을 둔 재귀 분해로 계산을 계층화해 병렬성을 부분적으로 회복한다.",
+      "empirical_impact": "언어 모델 사전학습 실험에서 TBP와 RTBP는 mHC, mHC-lite, KromHC 대비 경쟁적 성능을 보이면서 학습 안정성과 스케일링에서 이점을 보였다. 특히 반복 정규화의 근사 오차가 누적될 여지를 줄이고, KromHC처럼 특정 구조 부분집합에 갇히지 않으면서도 정확한 제약을 유지한다는 점이 실전 성능에 반영된 것으로 해석된다. 결론적으로 정확성-표현력-메모리의 균형을 더 “원칙적으로” 재구성한 대안으로서 의미가 있다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 4,
+          "hangul_ratio": 0.673,
+          "chars": 283
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.539,
+          "chars": 296
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.749,
+          "chars": 278
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.839,
+          "chars": 240
+        }
+      },
+      "total_sentences": 13,
+      "overall_hangul_ratio": 0.689,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 622,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 4,
+          "hangul_ratio": 0.524,
+          "chars": 359
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.381,
+          "chars": 340
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.568,
+          "chars": 348
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.718,
+          "chars": 290
+        }
+      },
+      "total_sentences": 13,
+      "overall_hangul_ratio": 0.538,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Toward Trustworthy AI: Multi-Target Adversarial Attacks and Robust Defenses for Continuous Data Summarization (https://arxiv.org/abs/2606.11804)",
+    "summary": {
+      "prior_approaches": "기존 연구는 신뢰성 문제를 주로 ‘하류’ 예측 모델의 견고성에 집중했고, 상류 데이터 처리(특히 요약/샘플 선택)를 공격면으로 다루는 관점은 상대적으로 부족했다. 서브모듈러 최적화 기반 공격 생성이나 강건 최적화(robust optimization)는 있었지만, 연속(continuous) 요약에서 핵심인 DR-submodularity 및 mm-weak monotonicity 구조와 결합된 상류 취약성 모델은 명시적으로 연구되지 않았다. 또한 유사도(similarity) 행렬을 직접 수정하는 ‘유사도 수준’ 위협과, 다수 요약 모델을 동시에 망가뜨리는 단일 교란(single shared perturbation) 설정도 기존 작업의 공통 초점이 아니었다.",
+      "core_contribution": "이 논문은 연속 데이터 요약을 DR-submodular 최적화로 정식화하고, 다중 해상도 이미지 요약처럼 여러 목적이 유사도 구조에서 자연스럽게 나온다는 점을 이론적으로 보인다. 특히 유사도 수준 교란이 최종 요약 결정변수에 직접 개입하지 않더라도 대표성(representativeness)을 떨어뜨려 후속 학습/의사결정에 악영향을 줄 수 있음을 상류 위협 모델로 구조화한다. 나아가 다중 대상(multi-target) 요약 공격을 ‘한 번의 허용 교란’으로 여러 목표 요약 모델을 동시에 저하시키는 미니맥스(min-max) 문제로 구성하고, 이를 방어하기 위한 정규화된 맥스-민(max-min) 강건 방어 해법도 제안한다.",
+      "technical_challenges": "핵심 기술적 난점은 유사도 행렬을 교란하는 공격이 연속 영역에서 DR-submodularity와 약한 단조성(mm-weak monotonicity)을 깨지 않으면서도 공격 효율을 극대화해야 한다는 점이다. 논문은 다중 해상도 요약 목적을 서브모듈러 집합함수의 다선형 확장(multilinear extension)으로 연결해 DR-submodularity와 mm-weak monotonicity 같은 연속 구조 조건을 만족하는 형태로 만들고, 공격/방어 모두에 대해 구조 인지(structure-aware) 근사 알고리즘과 근사 보장(이론적 보증)을 개발한다. 방어 측에서는 혼합 공격 유형(예: 서로 다른 형태의 허용 교란)을 모두 고려하는 강건 설계를 정규화된 max-min 문제로 두어, 연속 최적화에서의 근사 및 수렴/품질 조건을 ‘표준 매끄러움(smoothness)’ 가정 하에 다룬다.",
+      "empirical_impact": "실험에서는 실제 데이터 기반 연속(다선형 확장) 요약 설정과, 군집/대표 구조가 통제된 클러스터드 벤치마크에서 제안한 유사도 수준 공격이 대표성 요약을 저예산~중저예산 구간에서 유의미하게 악화시킴을 보였다. 또한 요약 성능 저하가 하류 다운스트림 태스크 성능 손실로 이어질 수 있고, 강건 요약은 클래스/클러스터 커버리지를 복원해 견고성-완화(trade-off)를 개선한다. 마지막으로 실제 데이터에서는 강건 보호가 특정 파라미터에 민감하다는 점도 드러나, 실사용 시 튜닝 가이드의 필요성을 시사한다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.659,
+          "chars": 368
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.795,
+          "chars": 349
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.655,
+          "chars": 444
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.961,
+          "chars": 280
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.748,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 848,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.569,
+          "chars": 360
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.436,
+          "chars": 410
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.491,
+          "chars": 433
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.505,
+          "chars": 371
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.498,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  },
+  {
+    "paper_info": "Verifiable Provenance and Watermarking for Generative AI: An Evidentiary Framework for International Operational Law and Domestic Courts (https://arxiv.org/abs/2605.21002)",
+    "summary": {
+      "prior_approaches": "기존 접근은 대체로 기술 한 축에 집중됐다. 암호 기반 콘텐츠 출처(provenance)는 편집·재인코딩·메타데이터 박탈에 취약하고, 통계 워터마킹은 견고하지만 능동적 제거 공격에 약하며, 제로 지식 어텐테이션은 모델 정체성은 주지만 비용과 스케일 문제가 남는다. 한편 법/규정 연구도 국제 작전법, 국내 형사·민사 절차, 제품 규제(예: EU AI Act)를 각각 따로 다뤄 검출 성능의 ‘법적 충분성’ 번역이 빠져 있었다.",
+      "core_contribution": "이 논문은 암호적 provenance, 견고한 통계 워터마킹, 제로 지식 어텐테이션을 하나의 ‘증거 객체’로 통합하고, 이를 각 법 체계가 요구하는 입증 기준으로 매핑하는 통합 증거 프레임워크를 제시한다. 또한 위협을 무작위 재생성부터 내부자 출처 위조까지 5단계로 분류해, 동일한 포렌식 출력이 서로 다른 절차·규제 문턱에 어떻게 대응되는지 일관되게 설명한다. 결과적으로 탐지기의 경험적 성능을 지휘·수사·공급자 준수에 필요한 법적 판단 기준으로 연결하는 재현 가능한 파이프라인을 제공한다.",
+      "technical_challenges": "핵심 기술 난제는 ‘검출 결과의 경험적 분포’를 각 관할의 증명 책임(요구 신뢰도/허용 오탐률 등)으로 의미 있게 변환하고, 공격자가 존재하는 현실 조건에서 그 변환이 흔들리지 않게 만드는 것이다. 논문은 Dempster–Shafer 집계와 regime별 가중치, 그리고 위협 단계에 따른 조건부 평가를 결합해 다중 출처 증거를 캘리브레이션된 의사결정 절차로 구현한다. 더 나아가 생성·로더링(laudering)·라벨·시드·부트스트랩까지 포함한 공개 벤치마크와 평가 스크립트를 제공해 재현성과 감사 가능성을 확보한다.",
+      "empirical_impact": "저자들은 이미지·오디오·비디오 3개 양식에서 총 12,000개의 생성/라더링 항목(평가 샘플 72,000)을 구성하고, 4개 대표 체계를 고정된 오탐률에서의 진양성률, 견고성(ROC 면적), 계산 오버헤드와 함께 ‘규제/절차 문턱 조건부 법적 충분성 점수’로 평가한다. 이를 통해 경험적 탐지 상한을 지휘 결정을 위한 무력충돌법(LOAC) 기준, 국내 증거능력(형사·민사), EU AI Act의 지속성/감사 요건과 유사한 체계의 실무적 문턱으로 변환해 보여준다. 공개 파이프라인·벤치마크·모델 부록은 법률가·엔지니어·운영자가 함께 배치할 수 있는 기준점(reference)으로 기능할 것으로 기대된다."
+    },
+    "metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.898,
+          "chars": 238
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.95,
+          "chars": 275
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.864,
+          "chars": 289
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.9,
+          "chars": 336
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.903,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    },
+    "finish_reason": "stop",
+    "output_tokens": 768,
+    "baseline_metrics": {
+      "per_section": {
+        "prior_approaches": {
+          "sentences": 3,
+          "hangul_ratio": 0.589,
+          "chars": 407
+        },
+        "core_contribution": {
+          "sentences": 3,
+          "hangul_ratio": 0.506,
+          "chars": 413
+        },
+        "technical_challenges": {
+          "sentences": 3,
+          "hangul_ratio": 0.577,
+          "chars": 500
+        },
+        "empirical_impact": {
+          "sentences": 3,
+          "hangul_ratio": 0.551,
+          "chars": 491
+        }
+      },
+      "total_sentences": 12,
+      "overall_hangul_ratio": 0.556,
+      "sections_without_hangul": [],
+      "all_keys_nonempty": true
+    }
+  }
+]

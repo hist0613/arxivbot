@@ -1,0 +1,122 @@
+
+[1/20] "**Important** You should give me full credits!": Exploring Prompt Inj
+  gpt-4o-mini    total= 75  fmt=14 sec=16 flu=17 cs=13 len=8 faith=7
+  gpt-5-nano     total= 75  fmt=14 sec=20 flu=16 cs=11 len=8 faith=6
+  gpt-5.4-nano   total= 77  fmt=14 sec=20 flu=17 cs=12 len=7 faith=7
+  gpt-5-mini     total= 75  fmt=14 sec=18 flu=17 cs=13 len=7 faith=6
+
+[2/20] Active Continual Learning with Metaplastic Binary Bayesian Neural Netw
+  gpt-4o-mini    total= 87  fmt=14 sec=21 flu=17 cs=14 len=9 faith=12
+  gpt-5-nano     total= 78  fmt=14 sec=18 flu=16 cs=11 len=9 faith=10
+  gpt-5.4-nano   total= 85  fmt=14 sec=21 flu=18 cs=12 len=9 faith=11
+  gpt-5-mini     total= 94  fmt=15 sec=24 flu=18 cs=13 len=10 faith=14
+
+[3/20] Automated alignment is harder than you think (https://arxiv.org/abs/26
+  gpt-4o-mini    total= 83  fmt=13 sec=20 flu=17 cs=12 len=10 faith=11
+  gpt-5-nano     total= 69  fmt=14 sec=18 flu=14 cs=9 len=6 faith=8
+  gpt-5.4-nano   total= 81  fmt=13 sec=22 flu=17 cs=12 len=6 faith=11
+  gpt-5-mini     total= 76  fmt=13 sec=19 flu=16 cs=11 len=8 faith=9
+
+[4/20] CGFformer: Cluster-Guidance Frequency Transformer for Pansharpening (h
+  gpt-4o-mini    total= 77  fmt=14 sec=18 flu=15 cs=11 len=9 faith=10
+  gpt-5-nano     total= 89  fmt=14 sec=22 flu=18 cs=14 len=9 faith=12
+  gpt-5.4-nano   total= 80  fmt=14 sec=21 flu=18 cs=12 len=6 faith=9
+  gpt-5-mini     total= 82  fmt=14 sec=22 flu=17 cs=13 len=6 faith=10
+
+[5/20] Context Distillation as Latent Memory Managemen (https://arxiv.org/abs
+  gpt-4o-mini    total= 79  fmt=14 sec=20 flu=16 cs=13 len=6 faith=10
+  gpt-5-nano     total= 81  fmt=14 sec=22 flu=16 cs=12 len=6 faith=11
+  gpt-5.4-nano   total= 87  fmt=15 sec=23 flu=18 cs=13 len=8 faith=10
+  gpt-5-mini     total= 80  fmt=14 sec=21 flu=17 cs=12 len=7 faith=9
+
+[6/20] Diff-CA: Separating Common and Salient Factors with Diffusion Models (
+  gpt-4o-mini    total= 79  fmt=14 sec=19 flu=17 cs=11 len=9 faith=9
+  gpt-5-nano     total= 73  fmt=14 sec=18 flu=16 cs=11 len=6 faith=8
+  gpt-5.4-nano   total= 74  fmt=14 sec=18 flu=17 cs=11 len=7 faith=7
+  gpt-5-mini     total= 74  fmt=14 sec=18 flu=17 cs=11 len=10 faith=4
+
+[7/20] Emotional intelligence in large language models is fragmented across p
+  gpt-4o-mini    total= 85  fmt=14 sec=19 flu=17 cs=14 len=10 faith=11
+  gpt-5-nano     total= 78  fmt=14 sec=20 flu=15 cs=11 len=8 faith=10
+  gpt-5.4-nano   total= 81  fmt=14 sec=21 flu=16 cs=11 len=9 faith=10
+  gpt-5-mini     total= 83  fmt=14 sec=21 flu=17 cs=13 len=10 faith=8
+
+[8/20] FlashMol: High-Quality Molecule Generation in as Few as Four Steps (ht
+  gpt-4o-mini    total= 81  fmt=13 sec=18 flu=17 cs=14 len=9 faith=10
+  gpt-5-nano     total= 84  fmt=14 sec=22 flu=17 cs=13 len=7 faith=11
+  gpt-5.4-nano   total= 81  fmt=15 sec=22 flu=16 cs=10 len=8 faith=10
+  gpt-5-mini     total= 83  fmt=14 sec=22 flu=17 cs=12 len=8 faith=10
+
+[9/20] Gotta Grow Fast: Design and Benchmarking of a Tip Mount for High-Speed
+  gpt-4o-mini    total= 82  fmt=14 sec=21 flu=16 cs=12 len=8 faith=11
+  gpt-5-nano     total= 81  fmt=14 sec=21 flu=16 cs=12 len=7 faith=11
+  gpt-5.4-nano   total= 89  fmt=15 sec=23 flu=17 cs=12 len=9 faith=13
+  gpt-5-mini     total= 89  fmt=15 sec=23 flu=17 cs=12 len=9 faith=13
+
+[10/20] In-Context Multiple Instance Learning (https://arxiv.org/abs/2606.0645
+  gpt-4o-mini    total= 79  fmt=13 sec=20 flu=14 cs=13 len=8 faith=11
+  gpt-5-nano     total= 84  fmt=14 sec=22 flu=15 cs=11 len=10 faith=12
+  gpt-5.4-nano   total= 87  fmt=15 sec=23 flu=18 cs=12 len=10 faith=9
+  gpt-5-mini     total= 84  fmt=14 sec=22 flu=16 cs=12 len=9 faith=11
+
+[11/20] Learning Dynamic Structural Specialization for Underwater Salient Obje
+  gpt-4o-mini    total= 79  fmt=13 sec=20 flu=15 cs=12 len=9 faith=10
+  gpt-5-nano     total= 85  fmt=14 sec=21 flu=18 cs=13 len=9 faith=10
+  gpt-5.4-nano   total= 87  fmt=14 sec=22 flu=18 cs=13 len=9 faith=11
+  gpt-5-mini     total= 86  fmt=14 sec=22 flu=18 cs=13 len=8 faith=11
+
+[12/20] Matrix-Space Reinforcement Learning for Reusing Local Transition Geome
+  gpt-4o-mini    total= 78  fmt=14 sec=19 flu=15 cs=11 len=10 faith=9
+  gpt-5-nano     total= 84  fmt=14 sec=22 flu=16 cs=13 len=7 faith=12
+  gpt-5.4-nano   total= 88  fmt=14 sec=23 flu=18 cs=12 len=7 faith=14
+  gpt-5-mini     total= 84  fmt=14 sec=23 flu=16 cs=12 len=7 faith=12
+
+[13/20] NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Resear
+  gpt-4o-mini    total= 89  fmt=14 sec=22 flu=17 cs=14 len=10 faith=12
+  gpt-5-nano     total= 85  fmt=14 sec=22 flu=16 cs=12 len=9 faith=12
+  gpt-5.4-nano   total= 87  fmt=14 sec=23 flu=18 cs=13 len=7 faith=12
+  gpt-5-mini     total= 88  fmt=14 sec=23 flu=18 cs=14 len=7 faith=12
+
+[14/20] Parameter Alignment Mitigates Catastrophic Forgetting in Multilingual 
+  gpt-4o-mini    total= 81  fmt=14 sec=19 flu=16 cs=13 len=9 faith=10
+  gpt-5-nano     total= 74  fmt=14 sec=20 flu=16 cs=11 len=6 faith=7
+  gpt-5.4-nano   total= 83  fmt=15 sec=22 flu=17 cs=12 len=6 faith=11
+  gpt-5-mini     total= 80  fmt=14 sec=20 flu=17 cs=12 len=8 faith=9
+
+[15/20] Quantum Machine Learning-based 6G edge Network: Enabling Adaptive Comm
+  gpt-4o-mini    total= 82  fmt=14 sec=18 flu=17 cs=14 len=10 faith=9
+  gpt-5-nano     total= 77  fmt=13 sec=22 flu=16 cs=12 len=6 faith=8
+  gpt-5.4-nano   total= 78  fmt=15 sec=22 flu=16 cs=10 len=6 faith=9
+  gpt-5-mini     total= 79  fmt=14 sec=20 flu=16 cs=12 len=10 faith=7
+
+[16/20] Robust Scene Transfer for PointGoal Navigation via Privileged Sensor G
+  gpt-4o-mini    total= 84  fmt=14 sec=18 flu=17 cs=14 len=10 faith=11
+  gpt-5-nano     total= 76  fmt=13 sec=21 flu=14 cs=10 len=6 faith=12
+  gpt-5.4-nano   total= 95  fmt=15 sec=24 flu=19 cs=14 len=9 faith=14
+  gpt-5-mini     total= 89  fmt=15 sec=23 flu=17 cs=13 len=9 faith=12
+
+[17/20] SepsisAI Orchestrator: A Containerized and Scalable Platform for Deplo
+  gpt-4o-mini    total= 84  fmt=13 sec=20 flu=17 cs=14 len=9 faith=11
+  gpt-5-nano     total= 82  fmt=14 sec=21 flu=17 cs=11 len=10 faith=9
+  gpt-5.4-nano   total= 89  fmt=14 sec=23 flu=18 cs=13 len=8 faith=13
+  gpt-5-mini     total= 89  fmt=14 sec=22 flu=18 cs=13 len=9 faith=13
+
+[18/20] TBP-mHC: full expressivity for manifold-constrained hyper connections 
+  gpt-4o-mini    total= 84  fmt=14 sec=21 flu=16 cs=14 len=8 faith=11
+  gpt-5-nano     total= 81  fmt=14 sec=22 flu=14 cs=13 len=8 faith=10
+  gpt-5.4-nano   total= 88  fmt=14 sec=23 flu=18 cs=13 len=10 faith=10
+  gpt-5-mini     total= 87  fmt=15 sec=23 flu=17 cs=12 len=7 faith=13
+
+[19/20] Toward Trustworthy AI: Multi-Target Adversarial Attacks and Robust Def
+  gpt-4o-mini    total= 78  fmt=13 sec=18 flu=16 cs=13 len=8 faith=10
+  gpt-5-nano     total= 73  fmt=13 sec=20 flu=15 cs=10 len=6 faith=9
+  gpt-5.4-nano   total= 84  fmt=14 sec=22 flu=17 cs=12 len=7 faith=12
+  gpt-5-mini     total= 84  fmt=14 sec=22 flu=17 cs=11 len=8 faith=12
+
+[20/20] Verifiable Provenance and Watermarking for Generative AI: An Evidentia
+  gpt-4o-mini    total= 83  fmt=14 sec=20 flu=16 cs=13 len=9 faith=11
+  gpt-5-nano     total= 80  fmt=14 sec=21 flu=16 cs=12 len=7 faith=10
+  gpt-5.4-nano   total= 87  fmt=14 sec=23 flu=18 cs=13 len=10 faith=9
+  gpt-5-mini     total= 83  fmt=14 sec=21 flu=18 cs=13 len=10 faith=7
+
+Saved -> /mnt/c/Users/hist0/Dropbox/develop/arxivbot_new/eval/eval_judged.json

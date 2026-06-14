@@ -1,0 +1,123 @@
+Selected 20 papers
+
+[1/20] "**Important** You should give me full credits!": Exploring Prompt Injection Att
+  gpt-4o-mini    ok  sent=12 hangul=0.93 fin=stop   out_tok=486 reas=0 8.19s
+  gpt-5-nano     ok  sent=13 hangul=0.91 fin=stop   out_tok=885 reas=320 5.69s
+  gpt-5.4-nano   ok  sent=12 hangul=0.76 fin=stop   out_tok=732 reas=32 5.24s
+  gpt-5-mini     ok  sent=12 hangul=0.72 fin=stop   out_tok=786 reas=128 7.44s
+
+[2/20] Active Continual Learning with Metaplastic Binary Bayesian Neural Networks (http
+  gpt-4o-mini    ok  sent=12 hangul=0.83 fin=stop   out_tok=408 reas=0 9.01s
+  gpt-5-nano     ok  sent=15 hangul=0.55 fin=stop   out_tok=1046 reas=384 6.12s
+  gpt-5.4-nano   ok  sent=12 hangul=0.44 fin=stop   out_tok=793 reas=28 4.83s
+  gpt-5-mini     ok  sent= 8 hangul=0.48 fin=stop   out_tok=725 reas=192 6.97s
+
+[3/20] Automated alignment is harder than you think (https://arxiv.org/abs/2605.06390)
+  gpt-4o-mini    ok  sent= 8 hangul=0.87 fin=stop   out_tok=304 reas=0 7.25s
+  gpt-5-nano     ok  sent=12 hangul=0.85 fin=stop   out_tok=907 reas=384 9.95s
+  gpt-5.4-nano   ok  sent=12 hangul=0.72 fin=stop   out_tok=766 reas=0 5.2s
+  gpt-5-mini     ok  sent= 9 hangul=0.55 fin=stop   out_tok=596 reas=128 6.31s
+
+[4/20] CGFformer: Cluster-Guidance Frequency Transformer for Pansharpening (https://arx
+  gpt-4o-mini    ok  sent= 8 hangul=0.85 fin=stop   out_tok=381 reas=0 8.32s
+  gpt-5-nano     ok  sent=12 hangul=0.90 fin=stop   out_tok=907 reas=320 7.07s
+  gpt-5.4-nano   ok  sent=12 hangul=0.56 fin=stop   out_tok=701 reas=30 7.05s
+  gpt-5-mini     ok  sent=12 hangul=0.60 fin=stop   out_tok=731 reas=64 7.31s
+
+[5/20] Context Distillation as Latent Memory Managemen (https://arxiv.org/abs/2605.2888
+  gpt-4o-mini    ok  sent=12 hangul=0.85 fin=stop   out_tok=575 reas=0 10.4s
+  gpt-5-nano     ok  sent=12 hangul=0.79 fin=stop   out_tok=910 reas=320 5.66s
+  gpt-5.4-nano   ok  sent=12 hangul=0.60 fin=stop   out_tok=594 reas=19 4.5s
+  gpt-5-mini     ok  sent=12 hangul=0.64 fin=stop   out_tok=829 reas=192 10.32s
+
+[6/20] Diff-CA: Separating Common and Salient Factors with Diffusion Models (https://ar
+  gpt-4o-mini    ok  sent= 8 hangul=0.84 fin=stop   out_tok=346 reas=0 8.94s
+  gpt-5-nano     ok  sent=13 hangul=0.67 fin=stop   out_tok=1511 reas=896 8.72s
+  gpt-5.4-nano   ok  sent=12 hangul=0.56 fin=stop   out_tok=735 reas=0 4.33s
+  gpt-5-mini     ok  sent= 8 hangul=0.56 fin=stop   out_tok=617 reas=128 8.8s
+
+[7/20] Emotional intelligence in large language models is fragmented across perception,
+  gpt-4o-mini    ok  sent= 8 hangul=0.80 fin=stop   out_tok=375 reas=0 8.4s
+  gpt-5-nano     ok  sent=13 hangul=0.70 fin=stop   out_tok=773 reas=192 4.81s
+  gpt-5.4-nano   ok  sent=13 hangul=0.56 fin=stop   out_tok=798 reas=39 5.57s
+  gpt-5-mini     ok  sent= 8 hangul=0.62 fin=stop   out_tok=753 reas=192 7.97s
+
+[8/20] FlashMol: High-Quality Molecule Generation in as Few as Four Steps (https://arxi
+  gpt-4o-mini    ok  sent= 9 hangul=0.83 fin=stop   out_tok=313 reas=0 8.27s
+  gpt-5-nano     ok  sent=14 hangul=0.77 fin=stop   out_tok=877 reas=320 5.42s
+  gpt-5.4-nano   ok  sent=15 hangul=0.48 fin=stop   out_tok=751 reas=26 4.92s
+  gpt-5-mini     ok  sent=14 hangul=0.62 fin=stop   out_tok=890 reas=256 10.98s
+
+[9/20] Gotta Grow Fast: Design and Benchmarking of a Tip Mount for High-Speed Vine Robo
+  gpt-4o-mini    ok  sent= 9 hangul=0.83 fin=stop   out_tok=361 reas=0 7.89s
+  gpt-5-nano     ok  sent=12 hangul=0.87 fin=stop   out_tok=822 reas=256 8.29s
+  gpt-5.4-nano   ok  sent= 8 hangul=0.67 fin=stop   out_tok=614 reas=34 3.76s
+  gpt-5-mini     ok  sent= 9 hangul=0.78 fin=stop   out_tok=658 reas=128 6.41s
+
+[10/20] In-Context Multiple Instance Learning (https://arxiv.org/abs/2606.06458)
+  gpt-4o-mini    ok  sent= 8 hangul=0.75 fin=stop   out_tok=334 reas=0 6.21s
+  gpt-5-nano     ok  sent= 8 hangul=0.68 fin=stop   out_tok=522 reas=128 3.98s
+  gpt-5.4-nano   ok  sent=12 hangul=0.55 fin=stop   out_tok=844 reas=39 5.12s
+  gpt-5-mini     ok  sent= 8 hangul=0.52 fin=stop   out_tok=671 reas=192 9.65s
+
+[11/20] Learning Dynamic Structural Specialization for Underwater Salient Object Detecti
+  gpt-4o-mini    ok  sent=12 hangul=0.83 fin=stop   out_tok=478 reas=0 8.21s
+  gpt-5-nano     ok  sent=12 hangul=0.82 fin=stop   out_tok=1202 reas=704 7.07s
+  gpt-5.4-nano   ok  sent=12 hangul=0.53 fin=stop   out_tok=767 reas=33 5.13s
+  gpt-5-mini     ok  sent= 9 hangul=0.52 fin=stop   out_tok=683 reas=192 6.58s
+
+[12/20] Matrix-Space Reinforcement Learning for Reusing Local Transition Geometry (https
+  gpt-4o-mini    ok  sent= 8 hangul=0.62 fin=stop   out_tok=332 reas=0 9.68s
+  gpt-5-nano     ok  sent=13 hangul=0.87 fin=stop   out_tok=694 reas=192 4.76s
+  gpt-5.4-nano   ok  sent=16 hangul=0.46 fin=stop   out_tok=735 reas=0 4.74s
+  gpt-5-mini     ok  sent=16 hangul=0.51 fin=stop   out_tok=800 reas=64 7.13s
+
+[13/20] NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research (https:
+  gpt-4o-mini    ok  sent= 9 hangul=0.84 fin=stop   out_tok=410 reas=0 6.5s
+  gpt-5-nano     ok  sent=15 hangul=0.75 fin=stop   out_tok=925 reas=320 8.41s
+  gpt-5.4-nano   ok  sent=15 hangul=0.77 fin=stop   out_tok=922 reas=41 5.52s
+  gpt-5-mini     ok  sent=12 hangul=0.77 fin=stop   out_tok=922 reas=320 7.95s
+
+[14/20] Parameter Alignment Mitigates Catastrophic Forgetting in Multilingual Expert Lan
+  gpt-4o-mini    ok  sent= 8 hangul=0.89 fin=stop   out_tok=355 reas=0 9.32s
+  gpt-5-nano     ok  sent=15 hangul=0.63 fin=stop   out_tok=966 reas=320 5.67s
+  gpt-5.4-nano   ok  sent=14 hangul=0.48 fin=stop   out_tok=779 reas=43 8.41s
+  gpt-5-mini     ok  sent=12 hangul=0.52 fin=stop   out_tok=793 reas=128 7.73s
+
+[15/20] Quantum Machine Learning-based 6G edge Network: Enabling Adaptive Communication 
+  gpt-4o-mini    ok  sent= 8 hangul=0.99 fin=stop   out_tok=382 reas=0 7.75s
+  gpt-5-nano     ok  sent=11 hangul=0.96 fin=stop   out_tok=855 reas=320 6.28s
+  gpt-5.4-nano   ok  sent=12 hangul=0.57 fin=stop   out_tok=964 reas=24 6.28s
+  gpt-5-mini     ok  sent= 8 hangul=0.50 fin=stop   out_tok=756 reas=128 10.11s
+
+[16/20] Robust Scene Transfer for PointGoal Navigation via Privileged Sensor Guided Cont
+  gpt-4o-mini    ok  sent= 8 hangul=0.98 fin=stop   out_tok=294 reas=0 5.96s
+  gpt-5-nano     ok  sent=12 hangul=0.65 fin=stop   out_tok=712 reas=256 4.45s
+  gpt-5.4-nano   ok  sent=12 hangul=0.48 fin=stop   out_tok=674 reas=32 4.98s
+  gpt-5-mini     ok  sent=12 hangul=0.53 fin=stop   out_tok=713 reas=64 7.8s
+
+[17/20] SepsisAI Orchestrator: A Containerized and Scalable Platform for Deploying AI Mo
+  gpt-4o-mini    ok  sent= 8 hangul=0.83 fin=stop   out_tok=347 reas=0 10.43s
+  gpt-5-nano     ok  sent=14 hangul=0.79 fin=stop   out_tok=994 reas=320 7.4s
+  gpt-5.4-nano   ok  sent=15 hangul=0.64 fin=stop   out_tok=830 reas=21 4.9s
+  gpt-5-mini     ok  sent= 8 hangul=0.72 fin=stop   out_tok=684 reas=128 6.95s
+
+[18/20] TBP-mHC: full expressivity for manifold-constrained hyper connections through tr
+  gpt-4o-mini    ok  sent= 8 hangul=0.68 fin=stop   out_tok=352 reas=0 6.6s
+  gpt-5-nano     ok  sent=12 hangul=0.67 fin=stop   out_tok=784 reas=256 8.42s
+  gpt-5.4-nano   ok  sent=13 hangul=0.54 fin=stop   out_tok=658 reas=0 4.01s
+  gpt-5-mini     ok  sent= 9 hangul=0.54 fin=stop   out_tok=802 reas=192 7.68s
+
+[19/20] Toward Trustworthy AI: Multi-Target Adversarial Attacks and Robust Defenses for 
+  gpt-4o-mini    ok  sent= 8 hangul=0.81 fin=stop   out_tok=372 reas=0 7.05s
+  gpt-5-nano     ok  sent=13 hangul=0.61 fin=stop   out_tok=1109 reas=448 7.81s
+  gpt-5.4-nano   ok  sent=12 hangul=0.50 fin=stop   out_tok=673 reas=0 7.37s
+  gpt-5-mini     ok  sent=12 hangul=0.56 fin=stop   out_tok=991 reas=320 8.61s
+
+[20/20] Verifiable Provenance and Watermarking for Generative AI: An Evidentiary Framewo
+  gpt-4o-mini    ok  sent=12 hangul=0.79 fin=stop   out_tok=411 reas=0 10.87s
+  gpt-5-nano     ok  sent=12 hangul=0.83 fin=stop   out_tok=852 reas=320 5.78s
+  gpt-5.4-nano   ok  sent=12 hangul=0.56 fin=stop   out_tok=899 reas=34 8.5s
+  gpt-5-mini     ok  sent= 8 hangul=0.54 fin=stop   out_tok=613 reas=64 6.39s
+
+Saved -> /mnt/c/Users/hist0/Dropbox/develop/arxivbot_new/eval/eval_results.json
