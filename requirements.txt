@@ -1,7 +1,7 @@
 tqdm
 requests
 beautifulsoup4
-openai
+openai>=2.0
 slack-sdk
 discord.py
 tiktoken
