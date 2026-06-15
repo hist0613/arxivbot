@@ -89,5 +89,28 @@ class TestHarvest(unittest.TestCase):
         self.assertIsNone(store["999.1"]["reactions"])  # 윈도우 밖 미갱신
 
 
+class TestPrepareContentFields(unittest.TestCase):
+    def test_thread_content_has_url_and_field(self):
+        import json as _json
+        from settings import WORKSPACE_CONFIGS
+        from api.arxiv import get_paper_info
+        from api.workspace import Workspace
+        cfg = next(c for c in WORKSPACE_CONFIGS if c["service_type"] == "slack")
+        ws = Workspace(cfg)
+        ws.old_paper_set = set()
+        ws.fields = ["cs.CL"]
+        url, title = "https://arxiv.org/abs/1234.5678", "Test Paper"
+        info = get_paper_info(url, title)
+
+        class Cache:
+            paper_summarizations = {info: _json.dumps({"Prior Approaches": "a",
+                "Core Contribution": "b", "Technical Challenges": "c",
+                "Empirical Impact": "d"})}
+        threads = ws.prepare_field_threads({"cs.CL": [(url, title, "")]}, Cache())
+        content = threads[0]["thread_contents"][0]
+        self.assertEqual(content["paper_url"], url)
+        self.assertEqual(content["field"], "cs.CL")
+
+
 if __name__ == "__main__":
     unittest.main()

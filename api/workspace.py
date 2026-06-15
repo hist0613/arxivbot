@@ -2,6 +2,7 @@ import os
 import json
 import pickle
 import asyncio
+from datetime import datetime, timezone
 from tqdm import tqdm
 
 from slack_sdk import WebClient
@@ -10,6 +11,7 @@ from discord import HTTPException
 
 from api.arxiv import get_paper_info
 from api.cache import CacheManager
+from api.reactions import load_store, save_store, add_posted
 from api.logger import logger
 from settings import (
     OLD_PAPER_SET_PATH,
@@ -128,6 +130,8 @@ class Workspace:
                 field_thread["thread_contents"].append(
                     {
                         "paper_info": paper_info,
+                        "paper_url": paper_url,
+                        "field": field,
                         "message_content": message_content,
                         "file_content": file_content,
                     }
@@ -157,6 +161,7 @@ class Workspace:
 
     async def _send_slack_messages(self, threads: list[dict]):
         client = WebClient(self.slack_token)
+        store = load_store()
         for thread in threads:
             result = client.chat_postMessage(
                 channel=self.allowed_channel, text=thread["thread_title"]
@@ -164,13 +169,25 @@ class Workspace:
             thread_ts = result["ts"]
 
             for content in thread["thread_contents"]:
-                client.chat_postMessage(
+                reply = client.chat_postMessage(
                     channel=self.allowed_channel,
                     text=content["message_content"],
                     thread_ts=thread_ts,
                 )
+                add_posted(
+                    store,
+                    ts=reply["ts"],
+                    thread_ts=thread_ts,
+                    channel_id=self.allowed_channel_id,
+                    workspace=self.workspace,
+                    paper_info=content["paper_info"],
+                    paper_url=content["paper_url"],
+                    field=content["field"],
+                    posted_at=datetime.now(timezone.utc).isoformat(),
+                )
                 self._update_old_paper_set(content["paper_info"])
                 await self._apply_rate_limit()
+        save_store(store)
 
     async def _send_discord_messages(self, threads: list[dict]):
         try:
