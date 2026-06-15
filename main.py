@@ -1,7 +1,9 @@
 import asyncio
 import time
+from datetime import datetime, timezone
 
 import git
+from slack_sdk import WebClient
 
 from api.logger import logger
 from api.arxiv import ArxivClient
@@ -9,7 +11,14 @@ from api.agent import AutoAgent, Encoder
 from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
-from settings import WORKSPACE_CONFIGS, MODEL, REPO_DIR, SUMMARIES_DIR
+from api.reactions import load_store, save_store, harvest_reactions
+from settings import (
+    WORKSPACE_CONFIGS,
+    MODEL,
+    REPO_DIR,
+    SUMMARIES_DIR,
+    HARVEST_WINDOW_DAYS,
+)
 
 
 async def main():
@@ -41,6 +50,23 @@ async def main():
 
         # save summaries
         workspace.save_summaries(threads)
+
+    # 리액션 수확 (slack 워크스페이스 한정)
+    for workspace in workspaces:
+        if workspace.service_type != "slack":
+            continue
+        store = load_store()
+        client = WebClient(workspace.slack_token)
+        bot_user_id = client.auth_test()["user_id"]
+        n = harvest_reactions(
+            client,
+            store,
+            window_days=HARVEST_WINDOW_DAYS,
+            bot_user_id=bot_user_id,
+            now=datetime.now(timezone.utc),
+        )
+        save_store(store)
+        logger.info(f"Harvested reactions for {n} papers ({workspace.workspace}).")
 
     repo = git.Repo(REPO_DIR)
     repo.git.add(SUMMARIES_DIR)
