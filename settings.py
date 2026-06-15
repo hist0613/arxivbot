@@ -94,3 +94,11 @@ PAPER_SUMMARIZATIONS_PATH = os.path.join(BASE_DIR, "paper_summarizations.pickle"
 
 SUMMARIES_DIR = os.path.join(REPO_DIR, "summaries")  # git에 추적/푸시되는 요약본
 TODAY_SUMMARIES_DIR = os.path.join(SUMMARIES_DIR, time.strftime("%Y-%m-%d"))
+
+# --- 리액션 수집 (Feature 1) ---
+REACTIONS_DIR = os.path.join(REPO_DIR, "reactions")  # gitignore됨 (비공개)
+if not os.path.exists(REACTIONS_DIR):
+    os.makedirs(REACTIONS_DIR)
+PAPERS_STORE_PATH = os.path.join(REACTIONS_DIR, "papers.json")
+HARVEST_WINDOW_DAYS = 14
+REACTION_HASH_SALT = os.getenv("REACTION_HASH_SALT", "")
