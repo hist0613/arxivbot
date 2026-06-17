@@ -116,5 +116,81 @@ class TestSummarizeOne(unittest.TestCase):
         self.assertNotIn("P (url)", cache.paper_summarizations)
 
 
+class _FakeWorkspace:
+    workspace = "seungtaek-lab"
+
+    def prepare_content(self, paper_info, paper_comment, paper_summarization):
+        msg = f"*{paper_info}*\n{paper_summarization}"
+        return msg, msg
+
+
+class _FakeService:
+    def __init__(self, result):
+        self.result = result
+        self.calls = []
+
+    def summarize_one(self, paper_info, abstract, full_content):
+        self.calls.append(paper_info)
+        return self.result
+
+
+class TestResolveThreadTs(unittest.TestCase):
+    def test_uses_thread_ts_when_present(self):
+        from api.on_demand import resolve_thread_ts
+        self.assertEqual(
+            resolve_thread_ts({"ts": "1.1", "thread_ts": "9.9"}), "9.9"
+        )
+
+    def test_falls_back_to_ts(self):
+        from api.on_demand import resolve_thread_ts
+        self.assertEqual(resolve_thread_ts({"ts": "1.1"}), "1.1")
+
+
+class TestProcessMention(unittest.TestCase):
+    def _fetch_ok(self, url):
+        return ("Some Title", "an abstract", "")
+
+    def test_no_url_returns_guidance(self):
+        from api.on_demand import process_mention
+        result = process_mention(
+            "no link here",
+            cache=None,
+            service=_FakeService('{"x": 1}'),
+            workspace=_FakeWorkspace(),
+            fetch_paper=self._fetch_ok,
+        )
+        self.assertFalse(result["ok"])
+        self.assertIn("arxiv", result["message"].lower())
+
+    def test_ok_path_builds_message_and_meta(self):
+        from api.on_demand import process_mention
+        svc = _FakeService('{"Core Contribution": "c"}')
+        result = process_mention(
+            "see https://arxiv.org/pdf/2501.12345v2",
+            cache=None,
+            service=svc,
+            workspace=_FakeWorkspace(),
+            fetch_paper=self._fetch_ok,
+        )
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["paper_url"], "https://arxiv.org/abs/2501.12345")
+        self.assertEqual(
+            result["paper_info"],
+            "Some Title (https://arxiv.org/abs/2501.12345)",
+        )
+        self.assertIn("Some Title", result["message"])
+
+    def test_empty_summary_returns_error(self):
+        from api.on_demand import process_mention
+        result = process_mention(
+            "https://arxiv.org/abs/2501.12345",
+            cache=None,
+            service=_FakeService(""),
+            workspace=_FakeWorkspace(),
+            fetch_paper=self._fetch_ok,
+        )
+        self.assertFalse(result["ok"])
+
+
 if __name__ == "__main__":
     unittest.main()
