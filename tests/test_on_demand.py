@@ -192,5 +192,17 @@ class TestProcessMention(unittest.TestCase):
         self.assertFalse(result["ok"])
 
 
+class TestSettingsAppToken(unittest.TestCase):
+    def test_active_slack_workspace_has_app_token_key(self):
+        import settings
+        active_slack = [
+            c for c in settings.WORKSPACE_CONFIGS
+            if c.get("service_type") == "slack"
+        ]
+        self.assertTrue(active_slack, "활성 slack 워크스페이스가 없음")
+        for c in active_slack:
+            self.assertIn("app_token", c, msg=f"app_token 누락: {c['workspace']}")
+
+
 if __name__ == "__main__":
     unittest.main()

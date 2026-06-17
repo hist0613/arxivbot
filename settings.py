@@ -41,6 +41,7 @@ WORKSPACE_CONFIGS = [
         "allowed_channel": "arxivbot",          # Slack 채널 이름
         "allowed_channel_id": "C0B7V0V8U7N",        # Slack 채널 ID
         "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
+        "app_token": os.getenv("SLACK_APP_TOKEN_SEUNGTAEK_LAB"),  # Socket Mode(xapp-)
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],
     },
     # {
