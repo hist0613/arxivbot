@@ -25,6 +25,7 @@ HARD LIMIT: the whole summary MUST NOT exceed 12 sentences total. Be concise.
 
 언어 규칙(중요):
 - 널리 통용되는 개념/표현은 한국어로 쓴다 (예: frequency distribution→주파수 분포, noise→잡음, baseline→기준선).
+- 단, 국내 ML/로보틱스 커뮤니티에서 관용적으로 영어로 쓰는 전문용어는 번역·음차하지 말고 영어 원문 그대로 둔다 (예: zero-shot, few-shot, fine-tuning, end-to-end, closed-loop, force closure, embodiment, flow matching, point cloud, self-supervised, in-context learning). "영샷"·"폐루프"·"영점샷" 같은 번역/음차는 금지.
 - 정착된 한국어 표현이 없거나 고유명사(모델명/기법명/벤치마크명)인 경우에만 영어를 쓰고, 처음 등장 시 한국어(영어)로 병기한다.
 - 한국어로 자연스러운데 굳이 영어를 남발하지 말 것. 문장 구조는 항상 한국어.
 - 영어를 한글로 음차(transliteration)하지 말 것 — 한국어로 번역하거나 영어 원문을 그대로 유지한다.

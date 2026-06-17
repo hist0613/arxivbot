@@ -34,6 +34,19 @@ class TestSummaryDict(unittest.TestCase):
         self.assertEqual(d["Core Contribution"], "핵심 기여")
 
 
+class TestSummarizationPromptGlossary(unittest.TestCase):
+    def test_keep_english_terms_are_listed(self):
+        from prompts import SYSTEM_PROMPT_SUMMARIZATION
+        # 커뮤니티가 영어로 쓰는 전문용어는 번역/음차 금지 — 대표 앵커가 프롬프트에 있어야
+        for term in ["zero-shot", "closed-loop", "force closure", "embodiment"]:
+            self.assertIn(term, SYSTEM_PROMPT_SUMMARIZATION, msg=f"누락: {term}")
+
+    def test_bans_transliterations(self):
+        from prompts import SYSTEM_PROMPT_SUMMARIZATION
+        # 대표적 오역/음차를 명시적으로 금지
+        self.assertIn("영샷", SYSTEM_PROMPT_SUMMARIZATION)
+
+
 class TestSettings(unittest.TestCase):
     def test_model_and_budget(self):
         import settings
