@@ -41,6 +41,37 @@ def parse_arxiv_ref(text: str) -> str | None:
     return f"https://arxiv.org/abs/{m.group(1)}"
 
 
+def _extract_title(soup) -> str:
+    """arXiv abs 페이지의 <h1 class="title">에서 'Title:' 접두를 떼고 제목 반환."""
+    h1 = soup.find("h1", class_="title")
+    if h1 is None:
+        return ""
+    descriptor = h1.find("span", class_="descriptor")
+    if descriptor:
+        descriptor.decompose()
+    return h1.text.strip()
+
+
+def get_paper_title(paper_url: str) -> str:
+    """abs 페이지를 받아 제목을 반환한다. get_paper_abstract와 동일한
+    헤더/타임아웃/재시도 패턴을 따른다."""
+    paper_page = None
+    for trial in range(MAX_LLM_TRIALS):
+        try:
+            paper_page = requests.get(
+                paper_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT
+            )
+            if paper_page.status_code == 200:
+                break
+        except requests.exceptions.ConnectionError as e:
+            logger.info(e)
+            time.sleep(trial * 30 + 15)
+    if paper_page is None:
+        return ""
+    soup = BeautifulSoup(paper_page.text, "html.parser")
+    return _extract_title(soup)
+
+
 class ArxivClient:
     def __init__(self, cache: CacheManager):
         self.cache = cache

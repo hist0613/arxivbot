@@ -37,5 +37,24 @@ class TestParseArxivRef(unittest.TestCase):
         self.assertIsNone(parse_arxiv_ref(""))
 
 
+class TestExtractTitle(unittest.TestCase):
+    def test_strips_title_descriptor(self):
+        from bs4 import BeautifulSoup
+        from api.arxiv import _extract_title
+        html = (
+            '<h1 class="title mathjax">'
+            '<span class="descriptor">Title:</span>'
+            'Attention Is All You Need</h1>'
+        )
+        soup = BeautifulSoup(html, "html.parser")
+        self.assertEqual(_extract_title(soup), "Attention Is All You Need")
+
+    def test_returns_empty_when_no_title(self):
+        from bs4 import BeautifulSoup
+        from api.arxiv import _extract_title
+        soup = BeautifulSoup("<div>nope</div>", "html.parser")
+        self.assertEqual(_extract_title(soup), "")
+
+
 if __name__ == "__main__":
     unittest.main()
