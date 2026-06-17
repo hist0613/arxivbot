@@ -1,3 +1,4 @@
+import re
 import time
 from tqdm import tqdm
 
@@ -18,6 +19,26 @@ REQUEST_TIMEOUT = 60
 
 def get_paper_info(paper_url: str, paper_title: str) -> str:
     return "{} ({})".format(paper_title, paper_url)
+
+
+_ARXIV_ID_RE = re.compile(
+    r"(?:arxiv\.org/(?:abs|pdf|html)/)?"
+    r"(\d{4}\.\d{4,5}|[a-z\-]+(?:\.[A-Za-z]{2})?/\d{7})"
+    r"(?:v\d+)?",
+    re.IGNORECASE,
+)
+
+
+def parse_arxiv_ref(text: str) -> str | None:
+    """임의 텍스트(/abs//pdf//html/, .pdf, vN, bare id, 구형 id)에서
+    arXiv 논문을 찾아 배치와 동일한 정규형 URL로 변환한다.
+    매칭 실패 시 None."""
+    if not text:
+        return None
+    m = _ARXIV_ID_RE.search(text)
+    if not m:
+        return None
+    return f"https://arxiv.org/abs/{m.group(1)}"
 
 
 class ArxivClient:
