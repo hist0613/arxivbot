@@ -56,5 +56,65 @@ class TestExtractTitle(unittest.TestCase):
         self.assertEqual(_extract_title(soup), "")
 
 
+class _FakeCache:
+    def __init__(self, summarizations=None):
+        self.paper_summarizations = dict(summarizations or {})
+        self.updated = []
+
+    def has_paper_summarization(self, paper_info):
+        return (
+            paper_info in self.paper_summarizations
+            and self.paper_summarizations[paper_info] != ""
+        )
+
+    def update_paper_summarizations(self, paper_info, summarization):
+        self.paper_summarizations[paper_info] = summarization
+        self.updated.append(paper_info)
+
+
+class _FakeAgent:
+    def __init__(self, result):
+        self.result = result
+        self.calls = 0
+        self.model_name = "fake"
+
+    def summarize(self, content):
+        self.calls += 1
+        return self.result
+
+
+class TestSummarizeOne(unittest.TestCase):
+    def _service(self, agent, cache):
+        from api.service import Service
+        from api.agent import Encoder
+        from settings import MODEL
+        return Service(arxiv=None, agent=agent, encoder=Encoder(MODEL), cache=cache)
+
+    def test_cache_hit_skips_agent(self):
+        cache = _FakeCache({"P (url)": '{"Core Contribution": "x"}'})
+        agent = _FakeAgent('{"Core Contribution": "y"}')
+        svc = self._service(agent, cache)
+        out = svc.summarize_one("P (url)", "abstract", "")
+        self.assertEqual(out, '{"Core Contribution": "x"}')
+        self.assertEqual(agent.calls, 0)
+
+    def test_cache_miss_calls_agent_and_stores(self):
+        cache = _FakeCache()
+        agent = _FakeAgent('{"Core Contribution": "y"}')
+        svc = self._service(agent, cache)
+        out = svc.summarize_one("P (url)", "abstract", "")
+        self.assertEqual(out, '{"Core Contribution": "y"}')
+        self.assertEqual(agent.calls, 1)
+        self.assertEqual(cache.paper_summarizations["P (url)"], out)
+
+    def test_empty_result_not_cached(self):
+        cache = _FakeCache()
+        agent = _FakeAgent("")
+        svc = self._service(agent, cache)
+        out = svc.summarize_one("P (url)", "abstract", "")
+        self.assertEqual(out, "")
+        self.assertNotIn("P (url)", cache.paper_summarizations)
+
+
 if __name__ == "__main__":
     unittest.main()

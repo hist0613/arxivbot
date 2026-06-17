@@ -68,6 +68,21 @@ class Service:
                 with cache_lock:
                     self.cache.update_paper_summarizations(paper_info, summarization)
 
+    def summarize_one(
+        self, paper_info: str, paper_abstract: str, paper_full_content
+    ) -> str:
+        """단건 요약. 캐시에 있으면 재사용, 없으면 배치와 동일 입력으로 요약 후
+        비어 있지 않을 때만 캐시에 저장한다."""
+        if self.cache.has_paper_summarization(paper_info):
+            return self.cache.paper_summarizations[paper_info]
+        summarization_input = self.prepare_summarization_input(
+            paper_abstract, paper_full_content
+        )
+        summarization = self.agent.summarize(summarization_input)
+        if summarization:
+            self.cache.update_paper_summarizations(paper_info, summarization)
+        return summarization
+
     def prepare_summarization_input(
         self,
         paper_abstract: str,
