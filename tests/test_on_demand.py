@@ -192,6 +192,21 @@ class TestProcessMention(unittest.TestCase):
         self.assertFalse(result["ok"])
 
 
+class TestListenerChannelConfig(unittest.TestCase):
+    def test_active_slack_workspace_has_listener_channel_id(self):
+        import settings
+        active = [
+            c for c in settings.WORKSPACE_CONFIGS
+            if c.get("service_type") == "slack"
+        ]
+        self.assertTrue(active, "활성 slack 워크스페이스가 없음")
+        for c in active:
+            self.assertIn(
+                "listener_channel_id", c,
+                msg=f"listener_channel_id 누락: {c['workspace']}",
+            )
+
+
 class TestSettingsAppToken(unittest.TestCase):
     def test_active_slack_workspace_has_app_token_key(self):
         import settings

@@ -27,15 +27,22 @@ def make_app(workspace_config: dict):
         arxiv_client, AutoAgent.from_model_name(MODEL), Encoder(MODEL), cache
     )
     fetch_paper = build_fetch_paper(arxiv_client, cache)
+    # on-demand 멘션을 받을 채널 (배치 게시 채널 allowed_channel_id와 분리)
+    listener_channel_id = workspace_config["listener_channel_id"]
     app = App(token=workspace_config["slack_token"])
 
     @app.event("app_mention")
     def handle_app_mention(event, client):
         channel = event.get("channel")
-        # 지정 채널 밖 멘션은 무시 (배치 allowed_channel과 동일 스코프)
-        if channel != workspace.allowed_channel_id:
+        # 지정 채널 밖 멘션은 무시. 조용히 버리면 디버깅이 불가능하므로 로그를 남긴다.
+        if channel != listener_channel_id:
+            logger.info(
+                f"app_mention ignored: channel {channel} "
+                f"!= listener channel {listener_channel_id}"
+            )
             return
         thread_ts = resolve_thread_ts(event)
+        logger.info(f"app_mention in {channel}: {event.get('text')!r}")
         try:
             result = process_mention(
                 event.get("text", ""),
