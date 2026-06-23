@@ -59,5 +59,56 @@ class TestFindPdfLink(unittest.TestCase):
         self.assertIsNone(find_pdf_link(soup, "https://h.org"))
 
 
+from unittest import mock
+
+
+class TestResolveCascade(unittest.TestCase):
+    def test_direct_pdf_url(self):
+        from api import resolvers
+        with mock.patch.object(resolvers, "download_pdf", return_value=b"%PDF-x"), \
+             mock.patch.object(resolvers, "extract_text", return_value="z" * 600), \
+             mock.patch.object(resolvers, "pdf_title", return_value="Direct Title"):
+            r = resolvers.build_resolver(None, None)("https://h.org/p.pdf")
+        self.assertEqual(r.source, "pdf")
+        self.assertEqual(r.title, "Direct Title")
+        self.assertTrue(r.text.startswith("z"))
+
+    def test_generic_html(self):
+        from bs4 import BeautifulSoup
+        from api import resolvers
+        html = '<html><head><title>Cool Paper</title></head>' \
+               '<body><a href="/p/cool.pdf">PDF</a></body></html>'
+        with mock.patch.object(resolvers, "_fetch_soup",
+                               return_value=BeautifulSoup(html, "html.parser")), \
+             mock.patch.object(resolvers, "download_pdf", return_value=b"%PDF-"), \
+             mock.patch.object(resolvers, "extract_text", return_value="y" * 600), \
+             mock.patch.object(resolvers, "pdf_title", return_value=""):
+            r = resolvers.build_resolver(None, None)("https://openaccess.thecvf.com/x.html")
+        self.assertIn("Cool Paper", r.title)
+        self.assertEqual(r.source, "html")
+
+    def test_short_text_is_none(self):
+        from bs4 import BeautifulSoup
+        from api import resolvers
+        with mock.patch.object(resolvers, "_fetch_soup",
+                               return_value=BeautifulSoup('<a href="/x.pdf">PDF</a>', "html.parser")), \
+             mock.patch.object(resolvers, "download_pdf", return_value=b"%PDF-"), \
+             mock.patch.object(resolvers, "extract_text", return_value="tiny"), \
+             mock.patch.object(resolvers, "pdf_title", return_value=""):
+            r = resolvers.build_resolver(None, None)("https://h.org/p.html")
+        self.assertIsNone(r)
+
+    def test_progress_downloading_emitted(self):
+        from api import resolvers
+        seen = []
+        with mock.patch.object(resolvers, "download_pdf", return_value=b"%PDF-"), \
+             mock.patch.object(resolvers, "extract_text", return_value="z" * 600), \
+             mock.patch.object(resolvers, "pdf_title", return_value="T"):
+            resolvers.build_resolver(None, None)(
+                "https://h.org/p.pdf", on_progress=seen.append
+            )
+        self.assertIn("downloading", seen)
+
+
 if __name__ == "__main__":
     unittest.main()
