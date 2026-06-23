@@ -14,9 +14,17 @@ from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
 from api.reactions import load_store, save_store, add_posted
-from api.on_demand import process_mention, resolve_thread_ts, build_fetch_paper
+from api.on_demand import process_mention, resolve_thread_ts
+from api.resolvers import build_resolver
 from api.logger import logger
 from settings import WORKSPACE_CONFIGS, MODEL
+
+
+STAGE = {
+    "fetching": "🔄 논문 페이지 가져오는 중…",
+    "downloading": "🔄 PDF 다운로드 중…",
+    "summarizing": "🔄 AI가 요약하는 중…",
+}
 
 
 def make_app(workspace_config: dict):
@@ -26,7 +34,7 @@ def make_app(workspace_config: dict):
     service = Service(
         arxiv_client, AutoAgent.from_model_name(MODEL), Encoder(MODEL), cache
     )
-    fetch_paper = build_fetch_paper(arxiv_client, cache)
+    resolve = build_resolver(arxiv_client, cache)
     # on-demand 멘션을 받을 채널 (배치 게시 채널 allowed_channel_id와 분리)
     listener_channel_id = workspace_config["listener_channel_id"]
     app = App(token=workspace_config["slack_token"])
@@ -44,21 +52,33 @@ def make_app(workspace_config: dict):
         thread_ts = resolve_thread_ts(event)
         logger.info(f"app_mention in {channel}: {event.get('text')!r}")
         try:
+            # 진행 상황을 메시지 1개를 편집하며 표시(새 메시지 X → 알림 스팸 방지)
+            posted = client.chat_postMessage(
+                channel=channel, text=STAGE["fetching"], thread_ts=thread_ts
+            )
+            ts = posted["ts"]
+            last = {"text": STAGE["fetching"]}
+
+            def on_progress(stage):
+                msg = STAGE.get(stage)
+                if msg and msg != last["text"]:
+                    last["text"] = msg
+                    client.chat_update(channel=channel, ts=ts, text=msg)
+
             result = process_mention(
                 event.get("text", ""),
                 cache=cache,
                 service=service,
                 workspace=workspace,
-                fetch_paper=fetch_paper,
+                resolve=resolve,
+                on_progress=on_progress,
             )
-            reply = client.chat_postMessage(
-                channel=channel, text=result["message"], thread_ts=thread_ts
-            )
+            client.chat_update(channel=channel, ts=ts, text=result["message"])
             if result["ok"]:
                 store = load_store()
                 add_posted(
                     store,
-                    ts=reply["ts"],
+                    ts=ts,
                     thread_ts=thread_ts,
                     channel_id=channel,
                     workspace=workspace.workspace,
