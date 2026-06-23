@@ -33,6 +33,14 @@ class TestExtractText(unittest.TestCase):
         out = extract_text(_make_pdf("MultiSourceSummaryHello"))
         self.assertIn("MultiSourceSummaryHello", out)
 
+    def test_falls_back_when_pymupdf4llm_raises(self):
+        from unittest import mock
+        from api import pdf
+        with mock.patch.object(pdf.pymupdf4llm, "to_markdown",
+                               side_effect=RuntimeError("onnx boom")):
+            out = pdf.extract_text(_make_pdf("FallbackWordXYZ"))
+        self.assertIn("FallbackWordXYZ", out)
+
 
 if __name__ == "__main__":
     unittest.main()

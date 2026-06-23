@@ -62,6 +62,22 @@ class TestFindPdfLink(unittest.TestCase):
 from unittest import mock
 
 
+class TestCitationTitle(unittest.TestCase):
+    def test_prefers_citation_title_meta(self):
+        from bs4 import BeautifulSoup
+        from api.resolvers import _citation_title
+        soup = BeautifulSoup(
+            '<meta name="citation_title" content="Segment Anything"><title>Repo</title>',
+            "html.parser",
+        )
+        self.assertEqual(_citation_title(soup), "Segment Anything")
+
+    def test_empty_when_absent(self):
+        from bs4 import BeautifulSoup
+        from api.resolvers import _citation_title
+        self.assertEqual(_citation_title(BeautifulSoup("<title>x</title>", "html.parser")), "")
+
+
 class TestResolveCascade(unittest.TestCase):
     def test_direct_pdf_url(self):
         from api import resolvers

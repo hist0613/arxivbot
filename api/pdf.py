@@ -35,10 +35,18 @@ def download_pdf(url: str):
 
 
 def extract_text(pdf_bytes: bytes, max_pages: int = 8) -> str:
-    """앞 max_pages 페이지를 reading-order 마크다운 텍스트로 추출."""
+    """앞 max_pages 페이지를 텍스트로 추출.
+
+    pymupdf4llm 신형 layout(ONNX) 경로가 일부 환경(Windows Store python 등)에서
+    int32/int64 ONNX 오류로 깨지므로, 실패하면 PyMuPDF 기본 추출(get_text sort)로
+    폴백한다. 둘 다 reading-order를 어느 정도 보존하며, 후자는 ONNX 미사용으로 견고."""
     doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
-    pages = list(range(min(max_pages, doc.page_count)))
-    return pymupdf4llm.to_markdown(doc, pages=pages)
+    n = min(max_pages, doc.page_count)
+    try:
+        return pymupdf4llm.to_markdown(doc, pages=list(range(n)))
+    except Exception as e:
+        logger.info(f"pymupdf4llm failed, fallback to get_text(sort): {e}")
+        return "\n\n".join(doc[i].get_text(sort=True) for i in range(n))
 
 
 def pdf_title(pdf_bytes: bytes) -> str:

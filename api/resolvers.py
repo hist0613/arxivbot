@@ -47,6 +47,12 @@ def _citation_pdf(soup, base_url):
     return urljoin(base_url, meta["content"]) if meta and meta.get("content") else None
 
 
+def _citation_title(soup):
+    """<meta name="citation_title"> (대부분 학회 페이지 제공). 없으면 빈 문자열."""
+    meta = soup.find("meta", attrs={"name": "citation_title"})
+    return meta["content"].strip() if meta and meta.get("content") else ""
+
+
 def _fetch_soup(url):
     r = requests.get(url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
     return BeautifulSoup(r.text, "html.parser")
@@ -72,8 +78,10 @@ def _resolve_direct_pdf(url, *, source, on_progress):
 
 def _resolve_via_html(url, *, on_progress):
     soup = _fetch_soup(url)
-    title_tag = soup.find("h1") or soup.find("title")
-    title = title_tag.get_text(strip=True) if title_tag else ""
+    title = _citation_title(soup)
+    if not title:
+        title_tag = soup.find("h1") or soup.find("title")
+        title = title_tag.get_text(strip=True) if title_tag else ""
     pdf_link = _citation_pdf(soup, url) or find_pdf_link(soup, url)
     if not pdf_link:
         return None
