@@ -150,6 +150,35 @@ class TestSummarizeOne(unittest.TestCase):
         self.assertNotIn("P (url)", cache.paper_summarizations)
 
 
+class TestSummarizeText(unittest.TestCase):
+    def _service(self, agent, cache):
+        from api.service import Service
+        from api.agent import Encoder
+        from settings import MODEL
+        return Service(arxiv=None, agent=agent, encoder=Encoder(MODEL), cache=cache)
+
+    def test_current_schema_cache_hit_skips_agent(self):
+        cache = _FakeCache({"P (u)": VALID_SUMMARY})
+        agent = _FakeAgent(VALID_SUMMARY)
+        out = self._service(agent, cache).summarize_text("P (u)", "some text")
+        self.assertEqual(out, VALID_SUMMARY)
+        self.assertEqual(agent.calls, 0)
+
+    def test_stale_schema_resummarized_and_stored(self):
+        cache = _FakeCache({"P (u)": OLD_SUMMARY})
+        agent = _FakeAgent(VALID_SUMMARY)
+        out = self._service(agent, cache).summarize_text("P (u)", "some text")
+        self.assertEqual(out, VALID_SUMMARY)
+        self.assertEqual(agent.calls, 1)
+        self.assertEqual(cache.paper_summarizations["P (u)"], VALID_SUMMARY)
+
+    def test_empty_result_not_cached(self):
+        cache = _FakeCache()
+        out = self._service(_FakeAgent(""), cache).summarize_text("P (u)", "t")
+        self.assertEqual(out, "")
+        self.assertNotIn("P (u)", cache.paper_summarizations)
+
+
 class _FakeWorkspace:
     workspace = "seungtaek-lab"
 

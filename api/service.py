@@ -69,22 +69,25 @@ class Service:
                 with cache_lock:
                     self.cache.update_paper_summarizations(paper_info, summarization)
 
-    def summarize_one(
-        self, paper_info: str, paper_abstract: str, paper_full_content
-    ) -> str:
-        """단건 요약. 캐시가 '현재 4섹션 스키마'일 때만 재사용한다.
-        캐시의 대다수는 옛 포맷("What's New" 등)이므로, 스키마가 맞지 않으면
-        캐시 미스로 보고 재요약 후 덮어쓴다(self-healing). 빈 결과는 저장 안 함."""
+    def summarize_text(self, paper_info: str, text: str) -> str:
+        """출처 무관 통일 진입점. 현재 4섹션 스키마 캐시면 재사용(self-healing),
+        아니면 truncate 후 요약하고 비어있지 않을 때만 저장한다."""
         cached = self.cache.paper_summarizations.get(paper_info, "")
         if is_current_summary_schema(cached):
             return cached
-        summarization_input = self.prepare_summarization_input(
-            paper_abstract, paper_full_content
-        )
-        summarization = self.agent.summarize(summarization_input)
+        summarization = self.agent.summarize(self.encoder.truncate_text(text))
         if summarization:
             self.cache.update_paper_summarizations(paper_info, summarization)
         return summarization
+
+    def summarize_one(
+        self, paper_info: str, paper_abstract: str, paper_full_content
+    ) -> str:
+        """arXiv 구조화 입력(abstract+섹션)을 만들어 summarize_text로 위임."""
+        return self.summarize_text(
+            paper_info,
+            self.prepare_summarization_input(paper_abstract, paper_full_content),
+        )
 
     def prepare_summarization_input(
         self,
