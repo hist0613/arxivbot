@@ -10,3 +10,4 @@ python-dotenv
 google-generativeai
 llama-index 
 slack-bolt
+pymupdf4llm
