@@ -88,11 +88,6 @@ def _resolve_via_html(url, *, on_progress):
     return _pdf_to_paper(pdf_link, title=title, source="html", on_progress=on_progress)
 
 
-def _openreview_pdf_url(url):
-    m = re.search(r"[?&]id=([^&]+)", url)
-    return f"https://openreview.net/pdf?id={m.group(1)}" if m else url
-
-
 def _resolve_arxiv(abs_url, arxiv_client, cache, on_progress):
     from api.arxiv import get_paper_info
     title = get_paper_title(abs_url)
@@ -124,10 +119,11 @@ def build_resolver(arxiv_client, cache):
             arxiv_abs = parse_arxiv_ref(url)
             if arxiv_abs:
                 return _resolve_arxiv(arxiv_abs, arxiv_client, cache, on_progress)
-            if "openreview.net" in urlparse(url).netloc:
-                return _resolve_direct_pdf(
-                    _openreview_pdf_url(url), source="openreview", on_progress=on_progress
-                )
+            parsed = urlparse(url)
+            # OpenReview 직접 PDF(pdf?id=)만 direct, forum 링크는 HTML 경로
+            # (forum 정적 HTML이 citation_title/citation_pdf_url 메타를 제공 → 제목 정확)
+            if "openreview.net" in parsed.netloc and "/pdf" in parsed.path:
+                return _resolve_direct_pdf(url, source="openreview", on_progress=on_progress)
             if is_pdf_url(url):
                 return _resolve_direct_pdf(url, source="pdf", on_progress=on_progress)
             return _resolve_via_html(url, on_progress=on_progress)  # omnivorous

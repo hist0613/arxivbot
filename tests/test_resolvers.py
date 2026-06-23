@@ -114,6 +114,19 @@ class TestResolveCascade(unittest.TestCase):
             r = resolvers.build_resolver(None, None)("https://h.org/p.html")
         self.assertIsNone(r)
 
+    def test_openreview_forum_uses_html_title(self):
+        from bs4 import BeautifulSoup
+        from api import resolvers
+        html = '<meta name="citation_title" content="OR Paper">' \
+               '<a href="/pdf?id=X">PDF</a>'
+        with mock.patch.object(resolvers, "_fetch_soup",
+                               return_value=BeautifulSoup(html, "html.parser")), \
+             mock.patch.object(resolvers, "download_pdf", return_value=b"%PDF-"), \
+             mock.patch.object(resolvers, "extract_text", return_value="o" * 600), \
+             mock.patch.object(resolvers, "pdf_title", return_value=""):
+            r = resolvers.build_resolver(None, None)("https://openreview.net/forum?id=X")
+        self.assertEqual(r.title, "OR Paper")
+
     def test_progress_downloading_emitted(self):
         from api import resolvers
         seen = []
