@@ -46,6 +46,11 @@ class TestSummarizationPromptGlossary(unittest.TestCase):
         # 대표적 오역/음차를 명시적으로 금지
         self.assertIn("영샷", SYSTEM_PROMPT_SUMMARIZATION)
 
+    def test_prompt_is_source_agnostic_and_artifact_tolerant(self):
+        from prompts import SYSTEM_PROMPT_SUMMARIZATION
+        self.assertNotIn("arxiv paper", SYSTEM_PROMPT_SUMMARIZATION.lower())
+        self.assertIn("아티팩트", SYSTEM_PROMPT_SUMMARIZATION)
+
 
 class TestSettings(unittest.TestCase):
     def test_model_and_budget(self):

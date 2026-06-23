@@ -45,7 +45,7 @@ class AuthorExtractionResponse(BaseModel):
     authors: List[Author]
 
 
-SYSTEM_PROMPT_SUMMARIZATION = """Please analyze the arxiv paper and write a Korean AI-newsletter style summary in JSON.
+SYSTEM_PROMPT_SUMMARIZATION = """Please analyze the paper and write a Korean AI-newsletter style summary in JSON.
 Use exactly these four English keys, each with a Korean value of 2-3 sentences.
 HARD LIMIT: the whole summary MUST NOT exceed 12 sentences total. Be concise.
 
@@ -55,6 +55,7 @@ HARD LIMIT: the whole summary MUST NOT exceed 12 sentences total. Be concise.
 - 정착된 한국어 표현이 없거나 고유명사(모델명/기법명/벤치마크명)인 경우에만 영어를 쓰고, 처음 등장 시 한국어(영어)로 병기한다.
 - 한국어로 자연스러운데 굳이 영어를 남발하지 말 것. 문장 구조는 항상 한국어.
 - 영어를 한글로 음차(transliteration)하지 말 것 — 한국어로 번역하거나 영어 원문을 그대로 유지한다.
+- 입력에 PDF 추출 아티팩트(깨진 수식·하이픈 분리·열 섞임·머리말/꼬리말)가 섞일 수 있다. 깨진 기호·잡음은 무시하고 산문 의미로 요약한다.
 
 각 섹션의 의미:
 - prior_approaches: 이 논문이 다루는 문제의 기존 방법들을 분류하고 그 한계를 설명.
