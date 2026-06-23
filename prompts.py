@@ -1,3 +1,5 @@
+import json
+
 from pydantic import BaseModel
 from typing import List
 
@@ -7,6 +9,30 @@ class SummarizationResponse(BaseModel):
     core_contribution: str
     technical_challenges: str
     empirical_impact: str
+
+
+# 현재 요약 스키마(4섹션). 캐시에 남은 옛 포맷("What's New" 등)을 재사용하지 않도록
+# _summary_to_dict가 만드는 표시 키와 동일하게 유지한다(test_summary가 정합성 검증).
+CURRENT_SUMMARY_KEYS = {
+    "Prior Approaches",
+    "Core Contribution",
+    "Technical Challenges",
+    "Empirical Impact",
+}
+
+
+def is_current_summary_schema(summarization: str) -> bool:
+    """캐시된 요약 문자열이 현재 4섹션 스키마인지 검사.
+    옛 포맷/파싱불가/빈값/비-dict면 False → 호출부가 재요약하도록."""
+    if not summarization:
+        return False
+    try:
+        obj = json.loads(summarization)
+    except (json.JSONDecodeError, TypeError):
+        return False
+    if isinstance(obj, list):
+        obj = obj[0] if obj else {}
+    return isinstance(obj, dict) and set(obj.keys()) == CURRENT_SUMMARY_KEYS
 
 
 class Author(BaseModel):

@@ -8,6 +8,7 @@ from api.arxiv import ArxivClient, get_paper_info
 from api.agent import Agent, Encoder
 from api.cache import CacheManager
 from api.logger import logger
+from prompts import is_current_summary_schema
 from settings import NB_THREADS, TIME_PAUSE_CRAWL_SEC
 
 
@@ -71,10 +72,12 @@ class Service:
     def summarize_one(
         self, paper_info: str, paper_abstract: str, paper_full_content
     ) -> str:
-        """단건 요약. 캐시에 있으면 재사용, 없으면 배치와 동일 입력으로 요약 후
-        비어 있지 않을 때만 캐시에 저장한다."""
-        if self.cache.has_paper_summarization(paper_info):
-            return self.cache.paper_summarizations[paper_info]
+        """단건 요약. 캐시가 '현재 4섹션 스키마'일 때만 재사용한다.
+        캐시의 대다수는 옛 포맷("What's New" 등)이므로, 스키마가 맞지 않으면
+        캐시 미스로 보고 재요약 후 덮어쓴다(self-healing). 빈 결과는 저장 안 함."""
+        cached = self.cache.paper_summarizations.get(paper_info, "")
+        if is_current_summary_schema(cached):
+            return cached
         summarization_input = self.prepare_summarization_input(
             paper_abstract, paper_full_content
         )

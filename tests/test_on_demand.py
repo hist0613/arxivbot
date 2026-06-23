@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -83,6 +84,30 @@ class _FakeAgent:
         return self.result
 
 
+VALID_SUMMARY = json.dumps({
+    "Prior Approaches": "a", "Core Contribution": "b",
+    "Technical Challenges": "c", "Empirical Impact": "d",
+})
+OLD_SUMMARY = json.dumps({
+    "What's New": "x", "Technical Details": "y", "Performance Highlights": "z",
+})
+
+
+class TestSummarySchemaGuard(unittest.TestCase):
+    def test_accepts_current_four_section(self):
+        from prompts import is_current_summary_schema
+        self.assertTrue(is_current_summary_schema(VALID_SUMMARY))
+
+    def test_rejects_old_format(self):
+        from prompts import is_current_summary_schema
+        self.assertFalse(is_current_summary_schema(OLD_SUMMARY))
+
+    def test_rejects_garbage_or_empty(self):
+        from prompts import is_current_summary_schema
+        self.assertFalse(is_current_summary_schema(""))
+        self.assertFalse(is_current_summary_schema("not json"))
+
+
 class TestSummarizeOne(unittest.TestCase):
     def _service(self, agent, cache):
         from api.service import Service
@@ -90,20 +115,29 @@ class TestSummarizeOne(unittest.TestCase):
         from settings import MODEL
         return Service(arxiv=None, agent=agent, encoder=Encoder(MODEL), cache=cache)
 
-    def test_cache_hit_skips_agent(self):
-        cache = _FakeCache({"P (url)": '{"Core Contribution": "x"}'})
-        agent = _FakeAgent('{"Core Contribution": "y"}')
+    def test_current_schema_cache_hit_skips_agent(self):
+        cache = _FakeCache({"P (url)": VALID_SUMMARY})
+        agent = _FakeAgent(VALID_SUMMARY)
         svc = self._service(agent, cache)
         out = svc.summarize_one("P (url)", "abstract", "")
-        self.assertEqual(out, '{"Core Contribution": "x"}')
+        self.assertEqual(out, VALID_SUMMARY)
         self.assertEqual(agent.calls, 0)
+
+    def test_stale_schema_cache_is_resummarized(self):
+        cache = _FakeCache({"P (url)": OLD_SUMMARY})
+        agent = _FakeAgent(VALID_SUMMARY)
+        svc = self._service(agent, cache)
+        out = svc.summarize_one("P (url)", "abstract", "")
+        self.assertEqual(out, VALID_SUMMARY)        # 옛 포맷이면 재요약
+        self.assertEqual(agent.calls, 1)
+        self.assertEqual(cache.paper_summarizations["P (url)"], VALID_SUMMARY)  # 덮어씀
 
     def test_cache_miss_calls_agent_and_stores(self):
         cache = _FakeCache()
-        agent = _FakeAgent('{"Core Contribution": "y"}')
+        agent = _FakeAgent(VALID_SUMMARY)
         svc = self._service(agent, cache)
         out = svc.summarize_one("P (url)", "abstract", "")
-        self.assertEqual(out, '{"Core Contribution": "y"}')
+        self.assertEqual(out, VALID_SUMMARY)
         self.assertEqual(agent.calls, 1)
         self.assertEqual(cache.paper_summarizations["P (url)"], out)
 
