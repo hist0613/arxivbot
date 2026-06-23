@@ -192,9 +192,14 @@ class _FakeService:
         self.result = result
         self.calls = []
 
-    def summarize_one(self, paper_info, abstract, full_content):
+    def summarize_text(self, paper_info, text):
         self.calls.append(paper_info)
         return self.result
+
+
+class _FakeResolved:
+    def __init__(self, title, url, text):
+        self.title, self.url, self.text = title, url, text
 
 
 class TestResolveThreadTs(unittest.TestCase):
@@ -210,47 +215,53 @@ class TestResolveThreadTs(unittest.TestCase):
 
 
 class TestProcessMention(unittest.TestCase):
-    def _fetch_ok(self, url):
-        return ("Some Title", "an abstract", "")
+    def _resolve_ok(self):
+        def resolve(url, on_progress=lambda s: None):
+            on_progress("downloading")
+            return _FakeResolved("Some Title", "https://arxiv.org/abs/2501.12345", "body")
+        return resolve
 
     def test_no_url_returns_guidance(self):
         from api.on_demand import process_mention
         result = process_mention(
-            "no link here",
-            cache=None,
-            service=_FakeService('{"x": 1}'),
-            workspace=_FakeWorkspace(),
-            fetch_paper=self._fetch_ok,
+            "no link here", cache=None, service=_FakeService(VALID_SUMMARY),
+            workspace=_FakeWorkspace(), resolve=self._resolve_ok(),
+            on_progress=lambda s: None,
         )
         self.assertFalse(result["ok"])
         self.assertIn("arxiv", result["message"].lower())
 
-    def test_ok_path_builds_message_and_meta(self):
+    def test_ok_path_stage_order_and_meta(self):
         from api.on_demand import process_mention
-        svc = _FakeService('{"Core Contribution": "c"}')
+        seen = []
         result = process_mention(
-            "see https://arxiv.org/pdf/2501.12345v2",
-            cache=None,
-            service=svc,
-            workspace=_FakeWorkspace(),
-            fetch_paper=self._fetch_ok,
+            "see <https://arxiv.org/abs/2501.12345>", cache=None,
+            service=_FakeService(VALID_SUMMARY), workspace=_FakeWorkspace(),
+            resolve=self._resolve_ok(), on_progress=seen.append,
         )
         self.assertTrue(result["ok"])
+        self.assertEqual(seen, ["fetching", "downloading", "summarizing"])
         self.assertEqual(result["paper_url"], "https://arxiv.org/abs/2501.12345")
         self.assertEqual(
-            result["paper_info"],
-            "Some Title (https://arxiv.org/abs/2501.12345)",
+            result["paper_info"], "Some Title (https://arxiv.org/abs/2501.12345)"
         )
         self.assertIn("Some Title", result["message"])
+
+    def test_unsupported_returns_error(self):
+        from api.on_demand import process_mention
+        result = process_mention(
+            "https://x.org/p", cache=None, service=_FakeService(VALID_SUMMARY),
+            workspace=_FakeWorkspace(), resolve=lambda u, on_progress=None: None,
+            on_progress=lambda s: None,
+        )
+        self.assertFalse(result["ok"])
 
     def test_empty_summary_returns_error(self):
         from api.on_demand import process_mention
         result = process_mention(
-            "https://arxiv.org/abs/2501.12345",
-            cache=None,
-            service=_FakeService(""),
-            workspace=_FakeWorkspace(),
-            fetch_paper=self._fetch_ok,
+            "https://arxiv.org/abs/2501.12345", cache=None,
+            service=_FakeService(""), workspace=_FakeWorkspace(),
+            resolve=self._resolve_ok(), on_progress=lambda s: None,
         )
         self.assertFalse(result["ok"])
 
