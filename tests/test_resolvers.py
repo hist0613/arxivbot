@@ -139,5 +139,55 @@ class TestResolveCascade(unittest.TestCase):
         self.assertIn("downloading", seen)
 
 
+class TestAcm(unittest.TestCase):
+    def test_extract_doi(self):
+        from api.resolvers import _extract_doi
+        self.assertEqual(
+            _extract_doi("https://dl.acm.org/doi/10.1145/3583780.3614816"),
+            "10.1145/3583780.3614816",
+        )
+        self.assertEqual(
+            _extract_doi("https://dl.acm.org/doi/pdf/10.1145/3583780.3614816"),
+            "10.1145/3583780.3614816",
+        )
+        self.assertIsNone(_extract_doi("https://dl.acm.org/about"))
+
+    def test_acm_not_misrouted_to_arxiv(self):
+        # DOI 숫자(3780.36148)를 arXiv id로 오인식하면 안 됨 → ACM 분기로 가야 함
+        from api import resolvers
+        with mock.patch.object(resolvers, "_semantic_scholar", return_value=None) as m:
+            resolvers.build_resolver(None, None)(
+                "https://dl.acm.org/doi/10.1145/3583780.3614816"
+            )
+        m.assert_called_once()  # ACM 경로(_semantic_scholar)를 탔다
+
+    def test_acm_arxiv_route_sets_note(self):
+        from api import resolvers
+        from api.resolvers import ResolvedPaper
+        with mock.patch.object(resolvers, "_semantic_scholar",
+                               return_value={"title": "T", "externalIds": {"ArXiv": "2106.14052"}}), \
+             mock.patch.object(resolvers, "_resolve_arxiv",
+                               return_value=ResolvedPaper("T", "https://arxiv.org/abs/2106.14052", "body", "arxiv")):
+            r = resolvers.build_resolver(None, None)("https://dl.acm.org/doi/10.1145/x.y")
+        self.assertEqual(r.source, "arxiv")
+        self.assertIn("프리프린트", r.note)
+
+    def test_acm_abstract_fallback(self):
+        from api import resolvers
+        with mock.patch.object(resolvers, "_semantic_scholar",
+                               return_value={"title": "T", "abstract": "the abstract here",
+                                             "externalIds": {}, "openAccessPdf": {}}):
+            r = resolvers.build_resolver(None, None)("https://dl.acm.org/doi/10.1145/x.y")
+        self.assertEqual(r.source, "acm-abstract")
+        self.assertIn("초록", r.note)
+        self.assertIn("the abstract here", r.text)
+
+    def test_acm_none_when_no_data(self):
+        from api import resolvers
+        with mock.patch.object(resolvers, "_semantic_scholar", return_value=None):
+            r = resolvers.build_resolver(None, None)("https://dl.acm.org/doi/10.1145/x.y")
+        self.assertIsNone(r)
+
+
 if __name__ == "__main__":
     unittest.main()

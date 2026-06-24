@@ -3,7 +3,7 @@
 listener.py가 resolve_thread_ts/process_mention을 실제 의존성(resolve 클로저, Service,
 Workspace)과 on_progress 콜백으로 wiring한다.
 """
-from api.arxiv import get_paper_info
+from api.arxiv import get_paper_info, parse_arxiv_ref
 from api.resolvers import extract_first_url
 
 
@@ -30,7 +30,8 @@ def process_mention(text, *, cache, service, workspace, resolve,
     resolve(url, on_progress) -> ResolvedPaper | None  (주입)
     on_progress(stage) 단계: "fetching" → ("downloading") → "summarizing"
     """
-    url = extract_first_url(text)
+    # http URL 우선, 없으면 bare arXiv id(예: "2106.14052") 폴백
+    url = extract_first_url(text) or parse_arxiv_ref(text)
     if url is None:
         return {"ok": False, "message": _NO_URL_MSG,
                 "paper_info": None, "paper_url": None}
@@ -49,5 +50,8 @@ def process_mention(text, *, cache, service, workspace, resolve,
                 "paper_info": None, "paper_url": None}
 
     message_content, _ = workspace.prepare_content(paper_info, "", summarization)
+    note = getattr(resolved, "note", "")
+    if note:
+        message_content += f"\n\n{note}"
     return {"ok": True, "message": message_content,
             "paper_info": paper_info, "paper_url": resolved.url}

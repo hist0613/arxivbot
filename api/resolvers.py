@@ -15,6 +15,7 @@ class ResolvedPaper(NamedTuple):
     url: str
     text: str
     source: str
+    note: str = ""  # 요청과 다른 출처(프리프린트/초록 등)를 쓸 때의 안내 문구
 
 
 _URL_RE = re.compile(r"https?://[^\s|>]+")
@@ -112,17 +113,77 @@ def _resolve_arxiv(abs_url, arxiv_client, cache, on_progress):
     return ResolvedPaper(title=title, url=abs_url, text=text, source="arxiv")
 
 
+_ACM_PREPRINT_NOTE = (
+    "⚠️ ACM 게재본 대신 arXiv 프리프린트를 요약했어요. 최종 게재본과 다를 수 있습니다."
+)
+_ACM_OAPDF_NOTE = (
+    "⚠️ ACM 게재본이 아닌 공개 PDF를 요약했어요. 최종 게재본과 다를 수 있습니다."
+)
+_ACM_ABSTRACT_NOTE = "⚠️ 본문을 구하지 못해 초록만으로 요약했어요."
+
+
+def _extract_doi(url):
+    m = re.search(r"/doi/(?:abs/|pdf/|full/|e?pub/)?(10\.\d{4,}/[^?#\s]+)", url)
+    return m.group(1) if m else None
+
+
+def _semantic_scholar(doi):
+    """DOI로 Semantic Scholar 메타 조회. 실패하면 None."""
+    try:
+        r = requests.get(
+            f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}",
+            params={"fields": "title,abstract,externalIds,openAccessPdf"},
+            headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT,
+        )
+        return r.json() if r.status_code == 200 else None
+    except requests.exceptions.RequestException as e:
+        logger.info(f"semantic scholar failed for {doi}: {e}")
+        return None
+
+
+def _resolve_acm(url, arxiv_client, cache, on_progress):
+    """dl.acm.org는 Cloudflare로 막혀 있어, DOI→Semantic Scholar로 우회한다.
+    arXiv 프리프린트 > ACM 외 공개 PDF > 초록 순으로 폴백하며, 대체 출처면 note를 단다."""
+    doi = _extract_doi(url)
+    if not doi:
+        return None
+    data = _semantic_scholar(doi)
+    if not data:
+        return None
+    arxiv_id = (data.get("externalIds") or {}).get("ArXiv")
+    if arxiv_id:
+        resolved = _resolve_arxiv(
+            f"https://arxiv.org/abs/{arxiv_id}", arxiv_client, cache, on_progress
+        )
+        return resolved._replace(note=_ACM_PREPRINT_NOTE) if resolved else None
+    oa_url = (data.get("openAccessPdf") or {}).get("url")
+    if oa_url and "dl.acm.org" not in oa_url:
+        paper = _pdf_to_paper(oa_url, title=data.get("title") or "",
+                              source="acm-oa", on_progress=on_progress)
+        return paper._replace(note=_ACM_OAPDF_NOTE) if paper else None
+    abstract = data.get("abstract")
+    if abstract:
+        return ResolvedPaper(title=data.get("title") or doi, url=url,
+                             text=f"Abstract: {abstract}", source="acm-abstract",
+                             note=_ACM_ABSTRACT_NOTE)
+    return None
+
+
 def build_resolver(arxiv_client, cache):
     """url을 ResolvedPaper로 변환하는 cascade 클로저. 미지원/실패는 None."""
     def resolve(url, on_progress=lambda s: None):
         try:
-            arxiv_abs = parse_arxiv_ref(url)
-            if arxiv_abs:
-                return _resolve_arxiv(arxiv_abs, arxiv_client, cache, on_progress)
             parsed = urlparse(url)
+            host = parsed.netloc
+            # arXiv 라우팅은 arxiv.org 호스트일 때만 (DOI 숫자 오인식 방지)
+            if "arxiv.org" in host:
+                arxiv_abs = parse_arxiv_ref(url)
+                if arxiv_abs:
+                    return _resolve_arxiv(arxiv_abs, arxiv_client, cache, on_progress)
+            if "dl.acm.org" in host:
+                return _resolve_acm(url, arxiv_client, cache, on_progress)
             # OpenReview 직접 PDF(pdf?id=)만 direct, forum 링크는 HTML 경로
-            # (forum 정적 HTML이 citation_title/citation_pdf_url 메타를 제공 → 제목 정확)
-            if "openreview.net" in parsed.netloc and "/pdf" in parsed.path:
+            if "openreview.net" in host and "/pdf" in parsed.path:
                 return _resolve_direct_pdf(url, source="openreview", on_progress=on_progress)
             if is_pdf_url(url):
                 return _resolve_direct_pdf(url, source="pdf", on_progress=on_progress)

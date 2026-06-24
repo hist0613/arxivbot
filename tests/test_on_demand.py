@@ -198,8 +198,8 @@ class _FakeService:
 
 
 class _FakeResolved:
-    def __init__(self, title, url, text):
-        self.title, self.url, self.text = title, url, text
+    def __init__(self, title, url, text, note=""):
+        self.title, self.url, self.text, self.note = title, url, text, note
 
 
 class TestResolveThreadTs(unittest.TestCase):
@@ -255,6 +255,33 @@ class TestProcessMention(unittest.TestCase):
             on_progress=lambda s: None,
         )
         self.assertFalse(result["ok"])
+
+    def test_note_appended_to_message(self):
+        from api.on_demand import process_mention
+
+        def resolve(url, on_progress=lambda s: None):
+            return _FakeResolved("T", "https://arxiv.org/abs/2106.14052", "body",
+                                 note="⚠️ 프리프린트 안내")
+        result = process_mention(
+            "https://dl.acm.org/doi/10.1145/x.y", cache=None,
+            service=_FakeService(VALID_SUMMARY), workspace=_FakeWorkspace(),
+            resolve=resolve, on_progress=lambda s: None,
+        )
+        self.assertTrue(result["ok"])
+        self.assertIn("⚠️ 프리프린트 안내", result["message"])
+
+    def test_bare_arxiv_id_without_url(self):
+        from api.on_demand import process_mention
+        captured = {}
+
+        def resolve(url, on_progress=lambda s: None):
+            captured["url"] = url
+            return _FakeResolved("T", url, "body")
+        process_mention(
+            "@arxivbot 2106.14052", cache=None, service=_FakeService(VALID_SUMMARY),
+            workspace=_FakeWorkspace(), resolve=resolve, on_progress=lambda s: None,
+        )
+        self.assertEqual(captured["url"], "https://arxiv.org/abs/2106.14052")
 
     def test_empty_summary_returns_error(self):
         from api.on_demand import process_mention
