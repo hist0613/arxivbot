@@ -25,6 +25,22 @@ class TestExtractFirstUrl(unittest.TestCase):
         self.assertIsNone(extract_first_url("no link"))
 
 
+class TestExtractUrls(unittest.TestCase):
+    def test_all_urls_in_order_deduped(self):
+        from api.resolvers import extract_urls
+        text = ("<@U1> <https://a.org/1.pdf> then <https://b.org/2|label> "
+                "and https://a.org/1.pdf again")
+        self.assertEqual(
+            extract_urls(text),
+            ["https://a.org/1.pdf", "https://b.org/2"],
+        )
+
+    def test_empty(self):
+        from api.resolvers import extract_urls
+        self.assertEqual(extract_urls("no link"), [])
+        self.assertEqual(extract_urls(""), [])
+
+
 class TestIsPdfUrl(unittest.TestCase):
     def test_true(self):
         from api.resolvers import is_pdf_url

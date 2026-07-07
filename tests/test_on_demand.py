@@ -214,6 +214,66 @@ class TestResolveThreadTs(unittest.TestCase):
         self.assertEqual(resolve_thread_ts({"ts": "1.1"}), "1.1")
 
 
+class TestExtractTargets(unittest.TestCase):
+    def test_multiple_urls_in_order(self):
+        from api.on_demand import extract_targets
+        text = (
+            "<@U1> <https://arxiv.org/pdf/2410.24114> "
+            "<@U1> <https://arxiv.org/pdf/2511.08544> "
+            "<@U1> <https://openaccess.thecvf.com/x/paper.pdf>"
+        )
+        self.assertEqual(extract_targets(text), [
+            "https://arxiv.org/pdf/2410.24114",
+            "https://arxiv.org/pdf/2511.08544",
+            "https://openaccess.thecvf.com/x/paper.pdf",
+        ])
+
+    def test_dedupes_same_arxiv_paper_across_abs_pdf(self):
+        from api.on_demand import extract_targets
+        text = ("https://arxiv.org/abs/2501.12345 "
+                "https://arxiv.org/pdf/2501.12345")
+        self.assertEqual(
+            extract_targets(text), ["https://arxiv.org/abs/2501.12345"]
+        )
+
+    def test_bare_arxiv_id_fallback(self):
+        from api.on_demand import extract_targets
+        self.assertEqual(
+            extract_targets("<@U1> 2106.14052"),
+            ["https://arxiv.org/abs/2106.14052"],
+        )
+
+    def test_no_target(self):
+        from api.on_demand import extract_targets
+        self.assertEqual(extract_targets("no link here"), [])
+        self.assertEqual(extract_targets(""), [])
+
+
+class TestProcessUrlPartialFailure(unittest.TestCase):
+    """멀티 링크 처리의 코어 계약: URL별 독립 결과 dict."""
+
+    def test_each_url_processed_independently(self):
+        from api.on_demand import process_url
+
+        def resolve(url, on_progress=lambda s: None):
+            if "bad" in url:
+                return None
+            return _FakeResolved("T", url, "body")
+
+        ok = process_url(
+            "https://arxiv.org/abs/2501.12345", cache=None,
+            service=_FakeService(VALID_SUMMARY), workspace=_FakeWorkspace(),
+            resolve=resolve,
+        )
+        bad = process_url(
+            "https://x.org/bad", cache=None,
+            service=_FakeService(VALID_SUMMARY), workspace=_FakeWorkspace(),
+            resolve=resolve,
+        )
+        self.assertTrue(ok["ok"])
+        self.assertFalse(bad["ok"])
+
+
 class TestProcessMention(unittest.TestCase):
     def _resolve_ok(self):
         def resolve(url, on_progress=lambda s: None):

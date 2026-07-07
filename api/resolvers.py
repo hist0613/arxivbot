@@ -28,6 +28,20 @@ def extract_first_url(text: str):
     return m.group(0).rstrip(".,);") if m else None
 
 
+def extract_urls(text: str) -> list:
+    """텍스트의 모든 http URL — 등장 순서 유지, 문자열 단위 중복 제거."""
+    if not text:
+        return []
+    cleaned = text.replace("<", " ").replace(">", " ")
+    seen, urls = set(), []
+    for m in _URL_RE.finditer(cleaned):
+        url = m.group(0).rstrip(".,);")
+        if url not in seen:
+            seen.add(url)
+            urls.append(url)
+    return urls
+
+
 def is_pdf_url(url: str) -> bool:
     return urlparse(url).path.lower().endswith(".pdf")
 

@@ -16,7 +16,8 @@ from api.agent import AutoAgent, Encoder
 from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
-from api.on_demand import process_mention, build_fetch_paper
+from api.on_demand import process_mention
+from api.resolvers import build_resolver
 from settings import WORKSPACE_CONFIGS, MODEL
 
 EXPECTED_KEYS = ["Prior Approaches", "Core Contribution",
@@ -31,12 +32,12 @@ def main():
     arxiv_client = ArxivClient(cache)
     service = Service(arxiv_client, AutoAgent.from_model_name(MODEL),
                       Encoder(MODEL), cache)
-    fetch_paper = build_fetch_paper(arxiv_client, cache)
+    resolve = build_resolver(arxiv_client, cache)
 
     result = process_mention(
         f"@arxivbot {url}",
         cache=cache, service=service, workspace=workspace,
-        fetch_paper=fetch_paper,
+        resolve=resolve,
     )
     print("ok:", result["ok"])
     print("paper_info:", result["paper_info"])

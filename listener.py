@@ -14,7 +14,12 @@ from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
 from api.reactions import load_store, save_store, add_posted
-from api.on_demand import process_mention, resolve_thread_ts
+from api.on_demand import (
+    NO_URL_MSG,
+    extract_targets,
+    process_url,
+    resolve_thread_ts,
+)
 from api.resolvers import build_resolver
 from api.logger import logger
 from settings import WORKSPACE_CONFIGS, MODEL
@@ -52,43 +57,66 @@ def make_app(workspace_config: dict):
         thread_ts = resolve_thread_ts(event)
         logger.info(f"app_mention in {channel}: {event.get('text')!r}")
         try:
-            # 진행 상황을 메시지 1개를 편집하며 표시(새 메시지 X → 알림 스팸 방지)
-            posted = client.chat_postMessage(
-                channel=channel, text=STAGE["fetching"], thread_ts=thread_ts
-            )
-            ts = posted["ts"]
-            last = {"text": STAGE["fetching"]}
-
-            def on_progress(stage):
-                msg = STAGE.get(stage)
-                if msg and msg != last["text"]:
-                    last["text"] = msg
-                    client.chat_update(channel=channel, ts=ts, text=msg)
-
-            result = process_mention(
-                event.get("text", ""),
-                cache=cache,
-                service=service,
-                workspace=workspace,
-                resolve=resolve,
-                on_progress=on_progress,
-            )
-            client.chat_update(channel=channel, ts=ts, text=result["message"])
-            if result["ok"]:
-                store = load_store()
-                add_posted(
-                    store,
-                    ts=ts,
-                    thread_ts=thread_ts,
-                    channel_id=channel,
-                    workspace=workspace.workspace,
-                    paper_info=result["paper_info"],
-                    paper_url=result["paper_url"],
-                    field="on-demand",
-                    posted_at=datetime.now(timezone.utc).isoformat(),
+            targets = extract_targets(event.get("text", ""))
+            if not targets:
+                client.chat_postMessage(
+                    channel=channel, text=NO_URL_MSG, thread_ts=thread_ts
                 )
-                save_store(store)
-                logger.info(f"on-demand summary posted: {result['paper_info']}")
+                return
+            # 링크가 여러 개면 논문마다 답글 1개씩. 개별 실패는 그 답글만
+            # 실패 문구로 바뀌고 나머지 논문은 계속 처리한다.
+            total = len(targets)
+            for i, url in enumerate(targets, 1):
+                prefix = f"({i}/{total}) " if total > 1 else ""
+                # 진행 상황을 메시지 1개를 편집하며 표시(새 메시지 X → 알림 스팸 방지)
+                posted = client.chat_postMessage(
+                    channel=channel,
+                    text=prefix + STAGE["fetching"],
+                    thread_ts=thread_ts,
+                )
+                ts = posted["ts"]
+                last = {"text": STAGE["fetching"]}
+
+                def on_progress(stage, ts=ts, last=last, prefix=prefix):
+                    msg = STAGE.get(stage)
+                    if msg and msg != last["text"]:
+                        last["text"] = msg
+                        client.chat_update(channel=channel, ts=ts, text=prefix + msg)
+
+                try:
+                    result = process_url(
+                        url,
+                        cache=cache,
+                        service=service,
+                        workspace=workspace,
+                        resolve=resolve,
+                        on_progress=on_progress,
+                    )
+                except Exception as e:
+                    logger.error(f"on-demand process_url error for {url}: {e}")
+                    client.chat_update(
+                        channel=channel, ts=ts,
+                        text=f"처리 중 오류가 났어요: {e}\n({url})",
+                    )
+                    continue
+                text = result["message"] if result["ok"] \
+                    else f"{result['message']}\n({url})"
+                client.chat_update(channel=channel, ts=ts, text=text)
+                if result["ok"]:
+                    store = load_store()
+                    add_posted(
+                        store,
+                        ts=ts,
+                        thread_ts=thread_ts,
+                        channel_id=channel,
+                        workspace=workspace.workspace,
+                        paper_info=result["paper_info"],
+                        paper_url=result["paper_url"],
+                        field="on-demand",
+                        posted_at=datetime.now(timezone.utc).isoformat(),
+                    )
+                    save_store(store)
+                    logger.info(f"on-demand summary posted: {result['paper_info']}")
         except Exception as e:
             logger.error(f"app_mention handler error: {e}")
             try:
