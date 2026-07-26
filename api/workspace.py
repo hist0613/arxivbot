@@ -15,7 +15,6 @@ from api.reactions import load_store, save_store, add_posted
 from api.logger import logger
 from settings import (
     OLD_PAPER_SET_PATH,
-    TODAY_SUMMARIES_DIR,
     MAX_NB_SHOW,
     TIME_PAUSE_SEC,
 )
@@ -333,15 +332,3 @@ class Workspace:
         if self._message_count >= MAX_NB_SHOW:
             self._message_count = 0
             await asyncio.sleep(TIME_PAUSE_SEC)
-
-    def save_summaries(self, threads: list[dict]):
-        os.makedirs(TODAY_SUMMARIES_DIR, exist_ok=True)
-        for field in self.fields:
-            today_summaries_field_path = os.path.join(
-                TODAY_SUMMARIES_DIR, field + ".md"
-            )
-            with open(today_summaries_field_path, "w", encoding="utf-8") as fp:
-                for thread in threads:
-                    fp.write(thread["thread_title"] + "\n")
-                    for content in thread["thread_contents"]:
-                        fp.write(content["file_content"] + "\n\n")

@@ -1,5 +1,4 @@
 import os
-import time
 
 from dotenv import load_dotenv
 
@@ -93,9 +92,6 @@ OLD_PAPER_SET_PATH = os.path.join(BASE_DIR, "old_paper_set_{}.pickle")
 PAPER_ABSTRACTS_PATH = os.path.join(BASE_DIR, "paper_abstracts.pickle")
 PAPER_FULL_CONTENTS_PATH = os.path.join(BASE_DIR, "paper_full_contents.pickle")
 PAPER_SUMMARIZATIONS_PATH = os.path.join(BASE_DIR, "paper_summarizations.pickle")
-
-SUMMARIES_DIR = os.path.join(REPO_DIR, "summaries")  # git에 추적/푸시되는 요약본
-TODAY_SUMMARIES_DIR = os.path.join(SUMMARIES_DIR, time.strftime("%Y-%m-%d"))
 
 # --- 리액션 수집 (Feature 1) ---
 REACTIONS_DIR = os.path.join(REPO_DIR, "reactions")  # gitignore됨 (비공개)
