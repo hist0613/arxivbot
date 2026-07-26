@@ -16,6 +16,13 @@ MAX_INPUT_TOKENS_FOR_SUMMARIZATION = 6000  # related work 포착 (2048→6000, R
 MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 4000  # reasoning + 출력 합산 예산 (max_completion_tokens)
 NB_THREADS = 5
 
+# --- on-demand 에이전트 리스너 ---
+AGENT_MODEL = "gpt-5.4"  # 요약(MODEL)과 분리. 도구를 쓰는 대화용
+AGENT_MAX_STEPS = 8  # 도구 호출 왕복 상한
+AGENT_DEADLINE_SEC = 90  # 넘기면 그때까지 내용으로 답한다
+CONTEXT_TOKEN_BUDGET = 6000  # 스레드 원문에 쓸 예산. 넘치면 요지로 접는다
+CONTEXT_MAX_MESSAGES = 60  # conversations_replies로 읽어올 최대 메시지 수
+
 WORKSPACE_CONFIGS = [
     # {
     #     "service_type": "slack",
