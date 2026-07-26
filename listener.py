@@ -24,7 +24,13 @@ from api.on_demand import NO_URL_MSG, extract_targets, process_url, resolve_thre
 from api.reactions import add_posted, load_store, save_store
 from api.resolvers import build_resolver
 from api.service import Service
-from api.tools import build_page_fetcher, build_tools, post_paper_summary
+from api.tools import (
+    build_page_fetcher,
+    build_tools,
+    collect_allowed_urls,
+    match_allowed_url,
+    post_paper_summary,
+)
 from api.workspace import Workspace, markdown_links_to_slack
 from prompts import SYSTEM_PROMPT_AGENT, THREAD_DIGEST_PROMPT
 from settings import (
@@ -244,10 +250,29 @@ def make_app(workspace_config: dict):
                     for m in older[-int(limit or 10):]
                 ]
 
+            # 요약 대상은 대화에 실제로 등장한 링크로 제한한다. 스레드 것까지
+            # 허용해야 "아까 그 논문 요약해줘"가 된다.
+            allowed_urls = collect_allowed_urls(
+                text, *[m.get("text", "") for m in messages]
+            )
+
+            def guarded_post_summary(url):
+                target = match_allowed_url(url, allowed_urls)
+                if target is None:
+                    logger.info(f"대화에 없는 URL이라 거절: {url!r}")
+                    return {
+                        "ok": False,
+                        "url": url,
+                        "error": (
+                            "대화에 없는 URL이다. 멘션이나 이 스레드에 실제로 "
+                            "올라온 링크만 요약할 수 있다. 지금 쓸 수 있는 링크: "
+                            + (", ".join(allowed_urls[:5]) or "없음")
+                        ),
+                    }
+                return summarize_and_post(client, channel, thread_ts, target)
+
             tool_specs, dispatch = build_tools(
-                post_summary=lambda url: summarize_and_post(
-                    client, channel, thread_ts, url
-                ),
+                post_summary=guarded_post_summary,
                 fetch_page=fetch_page,
                 read_thread=read_thread,
             )

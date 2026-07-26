@@ -9,8 +9,9 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from api.arxiv import REQUEST_HEADERS, REQUEST_TIMEOUT
+from api.arxiv import REQUEST_HEADERS, REQUEST_TIMEOUT, parse_arxiv_ref
 from api.logger import logger
+from api.resolvers import extract_urls
 
 STAGE = {
     "fetching": "🔄 논문 페이지 가져오는 중…",
@@ -39,6 +40,39 @@ PAPER_HOSTS = (
     "isca-archive.org",
     "dl.acm.org",
 )
+
+
+def _canonical_url(url: str) -> str:
+    """arXiv는 abs/pdf/버전 표기가 갈리므로 id로 통일한다."""
+    return parse_arxiv_ref(url) or url.rstrip("/")
+
+
+def collect_allowed_urls(*texts) -> list:
+    """대화에 실제로 등장한 URL 목록. 등장 순서를 지키고 중복은 뺀다."""
+    seen, urls = set(), []
+    for text in texts:
+        for url in extract_urls(text or ""):
+            key = _canonical_url(url)
+            if key not in seen:
+                seen.add(key)
+                urls.append(url)
+    return urls
+
+
+def match_allowed_url(url: str, allowed: list):
+    """모델이 넘긴 URL을 대화에 등장한 URL과 대조한다.
+
+    모델이 URL을 지어내거나 잘못 옮겨 적으면 엉뚱한 논문을 요약해 올리게
+    된다. 대조에 걸리면 대화에 있던 원문 URL을 돌려주고(모델이 다시 쓴
+    문자열 대신 그걸 쓴다), 없으면 None이다.
+    """
+    if not url:
+        return None
+    key = _canonical_url(url)
+    for candidate in allowed:
+        if _canonical_url(candidate) == key:
+            return candidate
+    return None
 
 
 def post_paper_summary(client, *, channel, thread_ts, url, prefix, process, on_posted):
