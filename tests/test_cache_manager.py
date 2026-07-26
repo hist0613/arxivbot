@@ -19,6 +19,19 @@ class TestCacheManager(unittest.TestCase):
         self.cache.store.close()
         os.unlink(self.tmp.name)
 
+    def test_empty_abstract_counts_as_already_fetched(self):
+        """arxiv.py가 `in`을 "이미 받아봤다"로 쓴다. 빈 값이라고 매일 다시
+        크롤링하면 실패하는 논문에 계속 요청이 나간다."""
+        self.cache.update_paper_abstracts("A", "")
+        self.assertIn("A", self.cache.paper_abstracts)
+        self.assertEqual(self.cache.paper_abstracts["A"], "")
+        self.assertNotIn("B", self.cache.paper_abstracts)
+
+    def test_empty_summary_counts_as_missing(self):
+        self.cache.update_paper_summarizations("A", "")
+        self.assertFalse(self.cache.has_paper_summarization("A"))
+        self.assertNotIn("A", self.cache.paper_summarizations)
+
     def test_dict_like_reads(self):
         self.assertEqual(self.cache.paper_abstracts["없음"], "")
         self.assertNotIn("없음", self.cache.paper_abstracts)
