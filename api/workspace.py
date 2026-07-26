@@ -173,6 +173,58 @@ class Workspace:
             )
         return blocks
 
+    def prepare_text_blocks(self, text: str):
+        """에이전트의 자유 답변("한 줄 요지 + '- ' 항목")을 글머리 기호 목록으로.
+
+        prepare_slack_blocks는 4섹션 요약 전용이라 여기서는 평문을 다룬다.
+        목록이 없거나 너무 길면 None을 반환하고 호출부는 text로 폴백한다.
+        """
+        if self.service_type != "slack" or not text.strip():
+            return None
+
+        lead, items = [], []
+        for line in text.splitlines():
+            stripped = line.strip()
+            if stripped.startswith(("- ", "* ", "• ")):
+                items.append(stripped[2:].strip())
+            elif stripped:
+                if items:  # 목록 뒤에 다시 산문이 나오면 통째로 폴백
+                    return None
+                lead.append(stripped)
+        if not items:
+            return None
+        if any(len(i) > SLACK_BLOCK_TEXT_LIMIT for i in items):
+            return None
+
+        blocks = []
+        lead_text = "\n".join(lead).strip()
+        if lead_text:
+            if len(lead_text) > SLACK_BLOCK_TEXT_LIMIT:
+                return None
+            blocks.append(
+                {"type": "section", "text": {"type": "mrkdwn", "text": lead_text}}
+            )
+        blocks.append(
+            {
+                "type": "rich_text",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "style": "bullet",
+                        "indent": 0,
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [{"type": "text", "text": item}],
+                            }
+                            for item in items
+                        ],
+                    }
+                ],
+            }
+        )
+        return blocks
+
     def _format_bold(self, text: str):
         if self.service_type == "slack":
             return f"*{text}*"
