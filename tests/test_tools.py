@@ -196,6 +196,57 @@ class TestDispatch(unittest.TestCase):
         self.assertIn("error", out)
 
 
+class TestUrlGuard(unittest.TestCase):
+    """모델이 URL을 지어내거나 잘못 옮겨 적으면 엉뚱한 논문이 올라간다."""
+
+    def test_collects_urls_from_mention_and_thread(self):
+        from api.tools import collect_allowed_urls
+
+        urls = collect_allowed_urls(
+            "<@B> 이거 봐 https://arxiv.org/abs/2410.05229",
+            "앞서 https://nvlabs.github.io/Sana/ 얘기했었지",
+        )
+        self.assertEqual(
+            urls, ["https://arxiv.org/abs/2410.05229", "https://nvlabs.github.io/Sana/"]
+        )
+
+    def test_same_paper_in_abs_and_pdf_is_one_entry(self):
+        from api.tools import collect_allowed_urls
+
+        urls = collect_allowed_urls(
+            "https://arxiv.org/abs/2410.05229 https://arxiv.org/pdf/2410.05229v2"
+        )
+        self.assertEqual(len(urls), 1)
+
+    def test_matches_arxiv_across_url_forms(self):
+        from api.tools import match_allowed_url
+
+        allowed = ["https://arxiv.org/abs/2410.05229"]
+        for asked in [
+            "https://arxiv.org/pdf/2410.05229",
+            "https://arxiv.org/abs/2410.05229v3",
+            "2410.05229",
+        ]:
+            # 대조에 걸리면 모델이 쓴 문자열이 아니라 대화의 원문을 쓴다
+            self.assertEqual(match_allowed_url(asked, allowed), allowed[0])
+
+    def test_matches_ignoring_trailing_slash(self):
+        from api.tools import match_allowed_url
+
+        allowed = ["https://nvlabs.github.io/Sana"]
+        self.assertEqual(
+            match_allowed_url("https://nvlabs.github.io/Sana/", allowed), allowed[0]
+        )
+
+    def test_url_not_in_conversation_is_rejected(self):
+        from api.tools import match_allowed_url
+
+        allowed = ["https://arxiv.org/abs/2410.05229"]
+        self.assertIsNone(match_allowed_url("https://arxiv.org/abs/1706.03762", allowed))
+        self.assertIsNone(match_allowed_url("", allowed))
+        self.assertIsNone(match_allowed_url("https://a.test", []))
+
+
 class TestFetchPageText(unittest.TestCase):
     def setUp(self):
         from api.store import Store
