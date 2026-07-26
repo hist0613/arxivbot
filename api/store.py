@@ -165,6 +165,13 @@ class Store:
             time.time(),
         )
 
+    def bulk(self, sql: str, rows) -> int:
+        """마이그레이션처럼 수십만 건을 넣을 때. 건건이 commit하면 너무 느리다."""
+        with self._lock:
+            cur = self._conn.executemany(sql, rows)
+            self._conn.commit()
+            return cur.rowcount
+
     def count(self, table: str) -> int:
         if table not in TABLES:
             raise ValueError(f"모르는 테이블: {table}")
