@@ -82,15 +82,27 @@ def match_allowed_url(url: str, allowed: list):
     return None
 
 
-def post_paper_summary(client, *, channel, thread_ts, url, prefix, process, on_posted):
+def post_paper_summary(
+    client, *, channel, thread_ts, url, prefix, process, on_posted, existing_ts=None
+):
     """답글 1개를 만들어 진행 상황으로 편집하다가 최종 요약으로 채운다.
+
+    existing_ts를 주면 새 답글을 만들지 않고 그 메시지를 이어서 쓴다. 리스너가
+    이미 올려둔 "생각하는 중…"을 재활용해, 링크 하나짜리 흔한 경우에 진행
+    표시가 둘로 늘었다 하나가 사라지는 어수선함을 없앤다.
 
     반환: {"ok": bool, "title": str, "url": str, "error": str}
     """
-    posted = client.chat_postMessage(
-        channel=channel, text=prefix + STAGE["fetching"], thread_ts=thread_ts
-    )
-    ts = posted["ts"]
+    if existing_ts:
+        ts = existing_ts
+        client.chat_update(
+            channel=channel, ts=ts, text=prefix + STAGE["fetching"]
+        )
+    else:
+        posted = client.chat_postMessage(
+            channel=channel, text=prefix + STAGE["fetching"], thread_ts=thread_ts
+        )
+        ts = posted["ts"]
     last = {"text": STAGE["fetching"]}
 
     # 새 메시지를 쌓지 않고 같은 답글을 편집한다. 단계마다 새로 올리면

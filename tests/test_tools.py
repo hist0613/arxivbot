@@ -77,6 +77,26 @@ class TestPostPaperSummary(unittest.TestCase):
         self.assertTrue(all(u["ts"] == "ts1" for u in client.updated))
         self.assertTrue(client.updated[0]["text"].startswith("(1/2) "))
 
+    def test_existing_message_is_reused(self):
+        """리스너가 올려둔 "생각하는 중…"을 이어서 쓴다. 새로 올리면 진행
+        표시가 둘로 늘었다 하나가 사라진다."""
+        from api import tools
+
+        client = FakeClient()
+        result = tools.post_paper_summary(
+            client,
+            channel="C1",
+            thread_ts="1.1",
+            url="https://arxiv.org/abs/1",
+            prefix="",
+            process=lambda url, on_progress: SUMMARY_RESULT,
+            on_posted=lambda **kw: None,
+            existing_ts="ts-생각중",
+        )
+        self.assertTrue(result["ok"])
+        self.assertEqual(client.posted, [])  # 새 답글을 만들지 않고
+        self.assertTrue(all(u["ts"] == "ts-생각중" for u in client.updated))
+
     def test_blocks_rejection_falls_back_to_text(self):
         from api import tools
 

@@ -177,13 +177,14 @@ def make_app(workspace_config: dict):
         )
         save_store(store)
 
-    def summarize_and_post(client, channel, thread_ts, url, prefix=""):
+    def summarize_and_post(client, channel, thread_ts, url, prefix="", existing_ts=None):
         return post_paper_summary(
             client,
             channel=channel,
             thread_ts=thread_ts,
             url=url,
             prefix=prefix,
+            existing_ts=existing_ts,
             process=lambda u, on_progress: process_url(
                 u,
                 cache=cache,
@@ -269,10 +270,16 @@ def make_app(workspace_config: dict):
             # 이번 멘션에서 실제로 스레드에 올라간 요약. 폴백 중복 방지와
             # "정말 아무것도 못 올렸는지" 판정에 쓴다.
             posted_urls = []
+            # 첫 요약은 이 진행 표시 답글을 이어서 쓴다. 링크가 하나뿐인 흔한
+            # 경우에 메시지가 둘로 늘었다 하나가 사라지는 걸 없앤다.
+            placeholder_free = {"value": True}
 
             def post_and_track(url, prefix=""):
+                reuse = ts if placeholder_free["value"] else None
+                if reuse:
+                    placeholder_free["value"] = False
                 result = summarize_and_post(
-                    client, channel, thread_ts, url, prefix=prefix
+                    client, channel, thread_ts, url, prefix=prefix, existing_ts=reuse
                 )
                 if result.get("ok"):
                     posted_urls.append(result.get("url") or url)
@@ -345,10 +352,13 @@ def make_app(workspace_config: dict):
 
             answer = out["text"]
             if not answer:
-                # 요약 도구가 자기 답글을 이미 올렸다. 진행 표시만 남으면
-                # 스레드에 "생각하는 중…"이 영영 떠 있으므로 치운다.
-                # 봇이 올린 메시지라 chat:write로 지워지지만, 워크스페이스
-                # 정책으로 막히는 경우가 있어 편집으로 폴백한다.
+                # 첫 요약이 이 답글을 이어서 썼다면 지금 요약이 들어 있다.
+                # 그대로 두고 끝낸다.
+                if not placeholder_free["value"]:
+                    return
+                # 아니면 "생각하는 중…"만 남은 것이라 치운다. 봇이 올린
+                # 메시지라 chat:write로 지워지지만 정책으로 막힐 수 있어
+                # 편집으로 폴백한다.
                 try:
                     client.chat_delete(channel=channel, ts=ts)
                 except Exception:
