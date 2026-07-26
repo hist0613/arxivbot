@@ -17,6 +17,10 @@ $log = Join-Path $logDir "listener.log"
 # -u: 출력 버퍼링 끄기(장시간 프로세스의 로그가 즉시 파일에 쌓이도록).
 # *>> : stdout/stderr/모든 스트림(트레이스백 포함)을 로그에 append.
 & $Python -u listener.py *>> $log
+$code = $LASTEXITCODE
 
-"==== $(Get-Date -Format o) EXITED code=$LASTEXITCODE ====" |
+"==== $(Get-Date -Format o) EXITED code=$code ====" |
     Out-File -FilePath $log -Append -Encoding utf8
+
+# 종료 코드를 그대로 넘겨야 Task Scheduler의 실패 시 재시작 정책이 동작한다.
+exit $code
