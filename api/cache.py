@@ -1,79 +1,50 @@
-import os
-import pickle
-from collections import defaultdict
+"""초록·본문·요약 캐시.
 
-from settings import (
-    PAPER_ABSTRACTS_PATH,
-    PAPER_SUMMARIZATIONS_PATH,
-    PAPER_FULL_CONTENTS_PATH,
-)
+저장은 api.store의 SQLite가 맡고, 여기서는 기존 호출부가 쓰던 사전 모양만
+유지한다. 그래서 service.py / arxiv.py / workspace.py는 손대지 않는다.
+"""
+from api.store import Store
+from prompts import is_current_summary_schema
+from settings import MODEL
+
+
+class _View:
+    """읽기 전용 사전 흉내. 없는 키는 빈 문자열(옛 defaultdict(str) 동작 유지)."""
+
+    def __init__(self, getter):
+        self._get = getter
+
+    def __getitem__(self, key):
+        return self._get(key)
+
+    def get(self, key, default=""):
+        value = self._get(key)
+        return value if value else default
+
+    def __contains__(self, key):
+        return bool(self._get(key))
 
 
 class CacheManager:
-    def __init__(self):
-        self.paper_abstracts = self.get_paper_abstracts()
-        self.paper_full_contents = self.get_paper_full_contents()
-        self.paper_summarizations = self.get_paper_summarizations()
-
-    def get_paper_abstracts(self):
-        if os.path.exists(PAPER_ABSTRACTS_PATH):
-            try:
-                with open(PAPER_ABSTRACTS_PATH, "rb") as fp:
-                    paper_abstracts = pickle.load(fp)
-            except (EOFError, pickle.UnpicklingError) as e:
-                print(
-                    f"Warning: Failed to load paper abstracts cache ({e}). Using empty cache."
-                )
-                paper_abstracts = defaultdict(str)
-        else:
-            paper_abstracts = defaultdict(str)
-        return paper_abstracts
-
-    def update_paper_abstracts(self, paper_info: str, paper_abstract: str):
-        self.paper_abstracts[paper_info] = paper_abstract
-        with open(PAPER_ABSTRACTS_PATH, "wb") as fp:
-            pickle.dump(self.paper_abstracts, fp)
-
-    def get_paper_full_contents(self):
-        if os.path.exists(PAPER_FULL_CONTENTS_PATH):
-            try:
-                with open(PAPER_FULL_CONTENTS_PATH, "rb") as fp:
-                    paper_full_contents = pickle.load(fp)
-            except (EOFError, pickle.UnpicklingError) as e:
-                print(
-                    f"Warning: Failed to load paper full contents cache ({e}). Using empty cache."
-                )
-                paper_full_contents = defaultdict(str)
-        else:
-            paper_full_contents = defaultdict(str)
-        return paper_full_contents
-
-    def update_paper_full_contents(self, paper_info: str, paper_full_content: str):
-        self.paper_full_contents[paper_info] = paper_full_content
-        with open(PAPER_FULL_CONTENTS_PATH, "wb") as fp:
-            pickle.dump(self.paper_full_contents, fp)
-
-    def get_paper_summarizations(self):
-        if os.path.exists(PAPER_SUMMARIZATIONS_PATH):
-            try:
-                with open(PAPER_SUMMARIZATIONS_PATH, "rb") as fp:
-                    paper_summarizations = pickle.load(fp)
-            except (EOFError, pickle.UnpicklingError) as e:
-                print(
-                    f"Warning: Failed to load paper summarizations cache ({e}). Using empty cache."
-                )
-                paper_summarizations = defaultdict(str)
-        else:
-            paper_summarizations = defaultdict(str)
-        return paper_summarizations
+    def __init__(self, store: Store = None):
+        self.store = store or Store()
+        self.paper_abstracts = _View(self.store.get_abstract)
+        self.paper_full_contents = _View(self.store.get_full_content)
+        self.paper_summarizations = _View(self.store.get_summary)
 
     def has_paper_summarization(self, paper_info: str) -> bool:
-        return (
-            paper_info in self.paper_summarizations
-            and self.paper_summarizations[paper_info] != ""
-        )
+        return self.store.has_summary(paper_info)
+
+    def update_paper_abstracts(self, paper_info: str, paper_abstract: str):
+        self.store.put_abstract(paper_info, paper_abstract)
+
+    def update_paper_full_contents(self, paper_info: str, paper_full_content):
+        self.store.put_full_content(paper_info, paper_full_content)
 
     def update_paper_summarizations(self, paper_info: str, paper_summarization: str):
-        self.paper_summarizations[paper_info] = paper_summarization
-        with open(PAPER_SUMMARIZATIONS_PATH, "wb") as fp:
-            pickle.dump(self.paper_summarizations, fp)
+        schema = (
+            "4sections" if is_current_summary_schema(paper_summarization) else "legacy"
+        )
+        self.store.put_summary(
+            paper_info, paper_summarization, schema_version=schema, model=MODEL
+        )
