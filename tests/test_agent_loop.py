@@ -134,6 +134,38 @@ class TestRunAgent(unittest.TestCase):
         self.assertEqual(seen[0], {})
         self.assertEqual(result.text, "그래도 답한다")
 
+    def test_output_only_fields_are_not_echoed_back(self):
+        """서버가 붙인 status를 되보내면 모델에 따라 400이 난다."""
+        client = FakeClient(
+            [
+                FakeResponse(
+                    [
+                        FakeItem(
+                            type="function_call",
+                            name="fetch_page",
+                            arguments='{"url": "u"}',
+                            call_id="c1",
+                            status="completed",
+                        )
+                    ]
+                ),
+                FakeResponse([], "끝"),
+            ]
+        )
+        run(client)
+        echoed = client.responses.calls[1]["input"]
+        self.assertTrue(any(i.get("type") == "function_call" for i in echoed))
+        self.assertFalse(any("status" in i for i in echoed if isinstance(i, dict)))
+
+    def test_builtin_tool_is_recorded(self):
+        """내장 web_search는 함수 호출로 안 오지만 무엇을 했는지는 남겨야 한다."""
+        client = FakeClient(
+            [FakeResponse([FakeItem(type="web_search_call", id="w1")], "찾아봤다")]
+        )
+        result = run(client)
+        self.assertEqual(result.tool_calls, ["web_search"])
+        self.assertEqual(result.text, "찾아봤다")
+
     def test_on_step_is_notified(self):
         client = FakeClient(
             [

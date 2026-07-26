@@ -6,7 +6,12 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from api.workspace import Workspace, SLACK_BLOCK_TEXT_LIMIT  # noqa: E402
+from api.workspace import (  # noqa: E402
+    SLACK_BLOCK_TEXT_LIMIT,
+    Workspace,
+    markdown_links_to_slack,
+    rich_text_elements,
+)
 
 
 def _workspace(service_type="slack"):
@@ -108,6 +113,45 @@ class TestPrepareTextBlocks(unittest.TestCase):
     def test_none_when_item_too_long(self):
         long_item = "- " + "x" * (SLACK_BLOCK_TEXT_LIMIT + 1)
         self.assertIsNone(_workspace().prepare_text_blocks(long_item))
+
+    def test_markdown_link_in_bullet_becomes_link_element(self):
+        blocks = _workspace().prepare_text_blocks(
+            "- critic이 없다 ([arxiv.org](https://arxiv.org/abs/2402.03300?utm_source=openai))"
+        )
+        elements = blocks[-1]["elements"][0]["elements"][0]["elements"]
+        link = [e for e in elements if e["type"] == "link"][0]
+        self.assertEqual(link["url"], "https://arxiv.org/abs/2402.03300")
+        self.assertEqual(link["text"], "arxiv.org")
+        self.assertTrue(any(e["type"] == "text" for e in elements))
+
+
+class TestLinkConversion(unittest.TestCase):
+    """web_search를 쓰면 모델이 마크다운 링크를 뱉는다. Slack은 그걸 모른다."""
+
+    def test_markdown_to_mrkdwn(self):
+        self.assertEqual(
+            markdown_links_to_slack("근거 [논문](https://arxiv.org/abs/1)"),
+            "근거 <https://arxiv.org/abs/1|논문>",
+        )
+
+    def test_tracking_param_is_stripped(self):
+        out = markdown_links_to_slack("[x](https://a.test/p?utm_source=openai)")
+        self.assertEqual(out, "<https://a.test/p|x>")
+
+    def test_tracking_param_among_others_is_stripped(self):
+        out = markdown_links_to_slack("[x](https://a.test/p?id=3&utm_source=openai)")
+        self.assertEqual(out, "<https://a.test/p?id=3|x>")
+
+    def test_plain_text_without_links_is_one_element(self):
+        self.assertEqual(
+            rich_text_elements("링크 없는 문장"),
+            [{"type": "text", "text": "링크 없는 문장"}],
+        )
+
+    def test_bare_url_becomes_link(self):
+        elements = rich_text_elements("여기 https://a.test/p 참고")
+        self.assertEqual(elements[1], {"type": "link", "url": "https://a.test/p"})
+        self.assertEqual(elements[2]["text"], " 참고")
 
 
 if __name__ == "__main__":

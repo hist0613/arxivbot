@@ -1,6 +1,7 @@
 import os
 import json
 import pickle
+import re
 import asyncio
 from datetime import datetime, timezone
 from tqdm import tqdm
@@ -21,6 +22,52 @@ from settings import (
 
 # Slack 블록 하나에 들어갈 수 있는 텍스트 상한(3000)에서 여유를 둔 값.
 SLACK_BLOCK_TEXT_LIMIT = 2800
+
+# web_search를 쓴 답변에는 `[huggingface.co](https://...)` 같은 마크다운 링크가
+# 섞여 나온다. Slack은 이 문법을 모르고 대괄호를 그대로 보여준다.
+_MD_LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^\s)]+)\)")
+_SLACK_LINK_RE = re.compile(r"<(https?://[^\s|>]+)(?:\|([^>]*))?>")
+_BARE_URL_RE = re.compile(r"https?://[^\s<>|]+")
+_TRACKING_RE = re.compile(r"[?&]utm_[a-z_]+=[^&\s)]+")
+
+
+def _clean_url(url: str) -> str:
+    url = _TRACKING_RE.sub("", url)
+    return url.rstrip("?&")
+
+
+def markdown_links_to_slack(text: str) -> str:
+    """`[글자](url)` -> `<url|글자>`. mrkdwn(text 필드)용 변환."""
+
+    def repl(m):
+        return f"<{_clean_url(m.group(2))}|{m.group(1)}>"
+
+    return _MD_LINK_RE.sub(repl, text)
+
+
+def rich_text_elements(text: str) -> list:
+    """한 줄을 rich_text_section의 요소 목록으로 쪼갠다.
+
+    rich_text 블록 안에서는 `<url|글자>` mrkdwn이 통하지 않는다. 링크는
+    {"type": "link"} 요소로 넣어야 눌린다. 그래서 마크다운 링크와 맨 URL을
+    찾아 텍스트/링크 요소를 번갈아 만든다.
+    """
+    normalized = markdown_links_to_slack(text)
+    elements, cursor = [], 0
+    pattern = re.compile(f"{_SLACK_LINK_RE.pattern}|{_BARE_URL_RE.pattern}")
+    for m in pattern.finditer(normalized):
+        if m.start() > cursor:
+            elements.append({"type": "text", "text": normalized[cursor:m.start()]})
+        url = _clean_url(m.group(1) or m.group(0))
+        label = m.group(2)
+        link = {"type": "link", "url": url}
+        if label:
+            link["text"] = label
+        elements.append(link)
+        cursor = m.end()
+    if cursor < len(normalized):
+        elements.append({"type": "text", "text": normalized[cursor:]})
+    return elements or [{"type": "text", "text": normalized}]
 
 
 class Workspace:
@@ -205,7 +252,13 @@ class Workspace:
             if len(lead_text) > SLACK_BLOCK_TEXT_LIMIT:
                 return None
             blocks.append(
-                {"type": "section", "text": {"type": "mrkdwn", "text": lead_text}}
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": markdown_links_to_slack(lead_text),
+                    },
+                }
             )
         blocks.append(
             {
@@ -218,7 +271,7 @@ class Workspace:
                         "elements": [
                             {
                                 "type": "rich_text_section",
-                                "elements": [{"type": "text", "text": item}],
+                                "elements": rich_text_elements(item),
                             }
                             for item in items
                         ],

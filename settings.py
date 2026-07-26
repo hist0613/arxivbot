@@ -17,7 +17,9 @@ MAX_OUTPUT_TOKENS_FOR_SUMMARIZATION = 4000  # reasoning + 출력 합산 예산 (
 NB_THREADS = 5
 
 # --- on-demand 에이전트 리스너 ---
-AGENT_MODEL = "gpt-5.4"  # 요약(MODEL)과 분리. 도구를 쓰는 대화용
+# 요약(MODEL)과 분리. 도구를 쓰는 대화용. 스모크에서 gpt-5.4보다 Slack 형식
+# 지시(링크 <url|글자>, 수식 금지)를 잘 지키고 응답도 빨랐다(3~6초).
+AGENT_MODEL = "gpt-5.6-luna"
 AGENT_MAX_STEPS = 8  # 도구 호출 왕복 상한
 AGENT_DEADLINE_SEC = 90  # 넘기면 그때까지 내용으로 답한다
 CONTEXT_TOKEN_BUDGET = 6000  # 스레드 원문에 쓸 예산. 넘치면 요지로 접는다
