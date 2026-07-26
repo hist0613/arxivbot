@@ -43,9 +43,15 @@ CREATE TABLE IF NOT EXISTS thread_digests (
 class Store:
     def __init__(self, path: str = CACHE_DB_PATH):
         self.path = path
+        # 한 프로세스 안에서도 여러 스레드가 쓴다. 배치는 요약 스레드 5개
+        # (NB_THREADS), 리스너는 slack_bolt가 이벤트마다 스레드를 잡는다.
+        # check_same_thread=False로 연결을 공유하되 락으로 직렬화한다.
         self._lock = threading.Lock()
         self._conn = sqlite3.connect(path, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
+        # WAL: 배치와 리스너가 다른 프로세스에서 같은 파일을 열어도 읽기가
+        # 쓰기를 막지 않는다. busy_timeout: 상대 쓰기가 끝날 때까지 10초
+        # 기다린다(즉시 "database is locked"로 죽지 않게).
         self._conn.execute("PRAGMA journal_mode=WAL")
         self._conn.execute("PRAGMA busy_timeout=10000")
         with self._lock:
@@ -86,6 +92,8 @@ class Store:
         row = self._one("SELECT text FROM full_contents WHERE paper_info=?", paper_info)
         if not row:
             return ""
+        # 본문은 보통 섹션 dict이라 JSON으로 넣지만, PDF에서 뽑은 평문이
+        # 그대로 들어온 것도 있다. 파싱이 안 되면 평문으로 본다.
         try:
             return json.loads(row["text"])
         except (ValueError, TypeError):

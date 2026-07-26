@@ -18,7 +18,13 @@ class AgentResult(NamedTuple):
 
 
 def _as_input_item(item):
-    """SDK 응답 객체를 다음 요청의 input 항목으로 되돌린다."""
+    """SDK 응답 객체를 다음 요청의 input 항목으로 되돌린다.
+
+    Responses API에 previous_response_id를 넘기지 않으므로 서버는 앞 턴을
+    기억하지 않는다. 모델이 만든 출력(도구 호출 포함)을 우리가 직접 다음
+    input에 다시 실어야 대화가 이어진다. SDK 객체는 그대로 못 보내고
+    dict으로 풀어야 한다(테스트의 가짜 객체는 dict을 그대로 준다).
+    """
     if hasattr(item, "model_dump"):
         return item.model_dump()
     return item
@@ -49,11 +55,15 @@ def run_agent(
         response = client.responses.create(
             model=model, input=conversation, tools=tool_specs
         )
+        # 도구 호출이 하나도 없으면 그게 최종 답이다. web_search 같은 내장
+        # 도구는 서버가 알아서 실행하므로 여기서 처리할 게 없다.
         calls = [i for i in response.output if getattr(i, "type", "") == "function_call"]
         if not calls:
             text = getattr(response, "output_text", "") or ""
             break
 
+        # 도구 호출만이 아니라 출력 전체를 되싣는다. 추론 항목 등을 빼먹으면
+        # 다음 요청에서 call_id 짝이 맞지 않는다.
         conversation += [_as_input_item(i) for i in response.output]
         for c in calls:
             try:
@@ -64,6 +74,8 @@ def run_agent(
                 )
             except ValueError:
                 args = {}
+            # 인자가 깨져도 여기서 죽지 않는다. 빈 dict을 넘기면 dispatch가
+            # "빠진 인자" 오류를 돌려주고, 모델이 그걸 보고 다시 부른다.
             if not isinstance(args, dict):
                 args = {}
             tool_calls.append(c.name)
@@ -78,11 +90,15 @@ def run_agent(
                 }
             )
 
+        # 시간 확인은 도구를 다 돌린 뒤에 한다. 중간에 끊으면 이미 게시된
+        # 요약과 모델이 아는 상태가 어긋난다.
         if now() - started > deadline_sec:
             truncated = True
             logger.info(f"agent loop deadline 초과: {steps} 스텝, 도구 {tool_calls}")
             break
     else:
+        # while이 break 없이 끝났다 = max_steps를 다 썼는데도 도구만 부르고
+        # 있었다. 이때 text는 빈 문자열이고 호출부가 폴백을 태운다.
         truncated = True
         logger.info(f"agent loop max_steps 도달: 도구 {tool_calls}")
 

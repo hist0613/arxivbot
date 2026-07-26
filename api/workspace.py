@@ -182,13 +182,16 @@ class Workspace:
         if self.service_type != "slack" or not text.strip():
             return None
 
+        # 기대하는 모양은 "한 줄 요지 + '- ' 항목들" 하나뿐이다. 산문과
+        # 목록이 여러 번 번갈아 나오면 순서를 지켜 블록으로 옮기기 어려우니
+        # 통째로 포기하고 평문으로 보낸다(하이픈이 보이는 편이 낫다).
         lead, items = [], []
         for line in text.splitlines():
             stripped = line.strip()
             if stripped.startswith(("- ", "* ", "• ")):
                 items.append(stripped[2:].strip())
             elif stripped:
-                if items:  # 목록 뒤에 다시 산문이 나오면 통째로 폴백
+                if items:
                     return None
                 lead.append(stripped)
         if not items:

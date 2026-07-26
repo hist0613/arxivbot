@@ -20,9 +20,13 @@ STAGE = {
 
 TOOL_NAMES = ("summarize_paper", "fetch_page", "read_thread")
 
+# 페이지 본문을 그대로 넘기면 모델 입력이 터지고, 어차피 요약에 앞부분이면
+# 충분하다. 프로젝트 페이지 기준으로 2만자면 본문이 거의 다 들어온다.
 MAX_PAGE_CHARS = 20000
 
-# 이 호스트들은 논문 경로(resolvers)가 훨씬 잘 다룬다.
+# 이 호스트로 fetch_page가 들어오면 본문을 긁지 않고 summarize_paper로 되돌려
+# 보낸다. 학회 페이지는 HTML 본문이 초록 몇 줄뿐이고, PDF까지 따라가는 건
+# resolvers의 논문 경로가 한다.
 PAPER_HOSTS = (
     "arxiv.org",
     "aclanthology.org",
@@ -48,6 +52,8 @@ def post_paper_summary(client, *, channel, thread_ts, url, prefix, process, on_p
     ts = posted["ts"]
     last = {"text": STAGE["fetching"]}
 
+    # 새 메시지를 쌓지 않고 같은 답글을 편집한다. 단계마다 새로 올리면
+    # 채널 알림이 논문 하나당 서너 번 울린다.
     def on_progress(stage):
         msg = STAGE.get(stage)
         if msg and msg != last["text"]:
@@ -184,6 +190,9 @@ def build_tools(*, post_summary, fetch_page, read_thread):
         try:
             if name == "summarize_paper":
                 r = post_summary(args["url"])
+                # 요약 본문은 일부러 빼고 영수증만 돌려준다. 본문을 주면
+                # 모델이 그걸 자기 말로 다시 옮겨 스레드에 두 번 올리거나,
+                # 4섹션 구조를 흐트러뜨린 채 옮겨 적는다.
                 return json.dumps(
                     {
                         "posted": bool(r.get("ok")),

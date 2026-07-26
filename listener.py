@@ -70,7 +70,10 @@ def handle_mention_core(*, user_input, run, fallback):
 
     answer = (result.text or "").strip()
     if not answer:
-        # 요약 도구가 이미 답글을 올렸으면 덧붙일 말이 없는 게 정상이다.
+        # 빈 답이 나오는 경우는 둘인데 뜻이 정반대다.
+        # (1) summarize_paper가 이미 게시를 마쳐 덧붙일 말이 없다 -> 정상
+        # (2) 스텝 상한에 걸려 도구만 돌다 끝났거나 모델이 아무것도 안 했다
+        #     -> 사용자는 답을 못 받으므로 예전 경로로라도 요약을 준다
         if "summarize_paper" in getattr(result, "tool_calls", []):
             return {"mode": "agent", "text": ""}
         logger.info("agent가 빈 답을 줬다. 결정론 경로로 폴백")
@@ -94,9 +97,13 @@ def make_app(workspace_config: dict):
     # on-demand 멘션을 받을 채널 (배치 게시 채널 allowed_channel_id와 분리)
     listener_channel_id = workspace_config["listener_channel_id"]
     app = App(token=workspace_config["slack_token"])
+    # 첫 멘션 때 한 번만 auth_test로 채운다. 기동 시점에 부르면 Slack이
+    # 잠깐 죽어 있을 때 리스너가 아예 안 뜬다.
     bot_user_id = {"value": None}
 
     def count_tokens(text):
+        # 특수 토큰을 만나도 예외를 던지지 않게 한다. 사용자가 붙여넣은
+        # 텍스트에 <|endoftext|> 같은 문자열이 섞일 수 있다.
         return len(encoder.encoding.encode(text, disallowed_special=()))
 
     def summarize_digest(previous, texts):
@@ -113,6 +120,11 @@ def make_app(workspace_config: dict):
             return previous
 
     def read_replies(client, channel, thread_ts, exclude_ts):
+        """스레드 원문을 읽는다. 지금 온 멘션은 따로 넣으므로 빼둔다.
+
+        channels:history 스코프가 없으면 여기서 막힌다. 그때는 문맥 없이
+        단발로 답하되(빈 목록), 왜 그런지 로그에는 남긴다.
+        """
         try:
             r = client.conversations_replies(
                 channel=channel, ts=thread_ts, limit=CONTEXT_MAX_MESSAGES
@@ -158,7 +170,11 @@ def make_app(workspace_config: dict):
         )
 
     def deterministic_fallback(client, channel, thread_ts, text):
-        """에이전트를 못 쓸 때의 예전 경로 — 링크마다 답글 1개."""
+        """에이전트를 못 쓸 때의 예전 경로 — 링크마다 답글 1개.
+
+        OpenAI가 죽었거나 모델이 빈 답을 줘도 매일 쓰는 논문 요약만은
+        되게 하는 안전망이다. 에이전트 도입 전 동작과 같다.
+        """
         targets = extract_targets(text)
         if not targets:
             return {"mode": "fallback", "text": NO_URL_MSG}
@@ -216,6 +232,8 @@ def make_app(workspace_config: dict):
                     client.chat_update(channel=channel, ts=ts, text=stage)
 
             def read_thread(before_ts, limit=10):
+                # 이미 받아둔 messages에서 꺼낸다. 접힌 건 예산 때문이지
+                # 안 읽어서가 아니므로 Slack을 다시 부를 이유가 없다.
                 older = [m for m in messages if m.get("ts", "") < str(before_ts)]
                 return [
                     {
@@ -254,7 +272,10 @@ def make_app(workspace_config: dict):
 
             answer = out["text"]
             if not answer:
-                # 요약 도구가 자기 답글을 이미 올렸다. 진행 표시는 치운다.
+                # 요약 도구가 자기 답글을 이미 올렸다. 진행 표시만 남으면
+                # 스레드에 "생각하는 중…"이 영영 떠 있으므로 치운다.
+                # 봇이 올린 메시지라 chat:write로 지워지지만, 워크스페이스
+                # 정책으로 막히는 경우가 있어 편집으로 폴백한다.
                 try:
                     client.chat_delete(channel=channel, ts=ts)
                 except Exception:
