@@ -15,6 +15,7 @@ class Context(NamedTuple):
     digest: str
     kept: list
     folded_until_ts: str
+    folded: list = []
 
 
 def fold_bot_message(text: str) -> str:
@@ -49,7 +50,9 @@ def build_context(messages, *, bot_user_id, count_tokens, budget, digest="") -> 
 
     folded = prepared[: len(prepared) - len(kept)]
     folded_until_ts = folded[-1]["ts"] if folded else None
-    return Context(digest=digest, kept=kept, folded_until_ts=folded_until_ts)
+    return Context(
+        digest=digest, kept=kept, folded_until_ts=folded_until_ts, folded=folded
+    )
 
 
 def render_context(context: Context, *, mention_text: str) -> str:

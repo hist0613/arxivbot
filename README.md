@@ -53,15 +53,41 @@ python main.py
 
 ---
 
-## On-demand 요약 (@멘션 리스너)
+## On-demand 에이전트 리스너 (@멘션)
 
-`main.py`(일별 배치)와 별개로, Slack 채널에서 봇을 **`@arxivbot <arxiv-url>`** 로 멘션하면 그 스레드에 즉석 요약을 달아주는 상시 리스너(`listener.py`)입니다. 모델·프롬프트·요약 구조·캐시는 배치와 동일하며, 멘션을 받을 채널은 `settings.py`의 `listener_channel_id`로 지정합니다(배치 게시 채널 `allowed_channel_id`와 분리).
+`main.py`(일별 배치)와 별개로, Slack 채널에서 봇을 멘션하면 답하는 상시 리스너(`listener.py`)입니다. 멘션을 받을 채널은 `settings.py`의 `listener_channel_id`로 지정합니다(배치 게시 채널 `allowed_channel_id`와 분리). 멘션은 계속 필수이며, 멘션 없는 스레드 메시지는 보지 않습니다.
+
+받는 것은 셋입니다.
+
+- **논문 링크** (arXiv, ACL, CVPR/ICCV, NeurIPS, ICML, OpenReview, AAAI, IJCAI, Interspeech, 직접 PDF, ACM은 Semantic Scholar 우회): 배치와 똑같은 4섹션 요약을 그 스레드에 답니다. 링크가 여러 개면 논문마다 답글 1개.
+- **일반 웹페이지** (프로젝트 페이지, 블로그, 릴리스 노트): 본문을 읽고 한 줄 요지 + 항목 5~8개로 정리합니다.
+- **그냥 질문** ("attention residual 쉽게 설명해"): 필요하면 웹 검색을 해서 답합니다.
+
+### 동작 방식
+
+멘션이 오면 스레드 문맥을 토큰 예산(`CONTEXT_TOKEN_BUDGET`, 기본 6000) 안에서 조립한 뒤 OpenAI Responses API 루프(`AGENT_MODEL`)를 돌립니다.
+
+- 도구는 `summarize_paper`, `fetch_page`, `read_thread`, 그리고 내장 `web_search`.
+- `summarize_paper`는 **게시까지 도구가 직접** 합니다(진행 표시 편집 -> 글머리 기호 블록 게시 -> 리액션 store 등록). 모델에는 게시 여부와 제목만 돌려주므로 요약 본문을 모델이 다시 쓸 일이 없고, 매일 쓰는 요약 품질은 코드가 쥡니다.
+- 문맥은 최신 메시지부터 예산 안에서 원문으로 담고, 봇이 올린 긴 요약은 `[요약 게시: 제목 (URL)]` 한 줄로 접습니다. 예산을 넘겨 밀려난 앞부분은 한 문단 요지로 접어 `thread_digests`에 캐시하며, 다음 멘션 때는 새로 밀려난 구간만 이어 붙입니다. 접힌 원문이 필요하면 모델이 `read_thread`로 직접 가져옵니다.
+- 상한은 도구 호출 `AGENT_MAX_STEPS`(8스텝), 전체 `AGENT_DEADLINE_SEC`(90초). 넘기면 그때까지 내용으로 답하고 잘렸음을 알립니다.
+- 에이전트 호출이 실패하면 **예전의 결정론적 경로**(링크를 뽑아 논문마다 요약)로 폴백합니다.
+
+### 캐시 (SQLite)
+
+초록·본문·요약·웹페이지·스레드 요지는 `cache/arxivbot.db` 한 파일에 들어갑니다(WAL). 키 단위 upsert라 배치와 리스너가 동시에 써도 서로를 덮어쓰지 않습니다. 옛 pickle에서 옮길 때는 배치·리스너를 멈추고 한 번 실행합니다.
+
+```powershell
+python scripts\migrate_cache_to_sqlite.py
+```
+
+요약은 현재 4섹션 스키마인 것만 옮깁니다(옛 포맷은 어차피 재요약 대상).
 
 ### 1. Slack 앱 설정 (api.slack.com/apps → 해당 앱, 1회)
 
 - **Socket Mode** 활성화 → app-level 토큰(`xapp-`, scope `connections:write`) 생성
 - **Event Subscriptions** → Subscribe to bot events에 **`app_mention`** 추가
-- **OAuth & Permissions** Bot Token Scopes에 **`app_mentions:read`** 추가 (`chat:write`는 기존 보유)
+- **OAuth & Permissions** Bot Token Scopes에 **`app_mentions:read`**, **`channels:history`**(스레드 문맥 읽기) 추가 (`chat:write`는 기존 보유)
 - 앱을 **Reinstall to Workspace** (위 변경 적용)
 - 리스너를 쓸 채널에 봇 초대: `/invite @arxivbot`
 

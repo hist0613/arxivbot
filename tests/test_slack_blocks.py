@@ -80,5 +80,35 @@ class TestPrepareSlackBlocks(unittest.TestCase):
         )
 
 
+class TestPrepareTextBlocks(unittest.TestCase):
+    """에이전트 자유 답변(한 줄 요지 + 항목)의 글머리 기호 조립."""
+
+    def test_lead_and_bullets(self):
+        blocks = _workspace().prepare_text_blocks(
+            "Sana Video2는 실시간 비디오 생성 모델이다.\n- 512x512에서 30fps\n- 오픈 가중치"
+        )
+        self.assertEqual(blocks[0]["type"], "section")
+        items = blocks[-1]["elements"][0]["elements"]
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["elements"][0]["text"], "512x512에서 30fps")
+
+    def test_bullets_only(self):
+        blocks = _workspace().prepare_text_blocks("- 가\n- 나")
+        self.assertEqual(blocks[0]["type"], "rich_text")
+
+    def test_none_without_bullets(self):
+        self.assertIsNone(_workspace().prepare_text_blocks("그냥 한 문단 설명"))
+
+    def test_none_when_prose_follows_bullets(self):
+        self.assertIsNone(_workspace().prepare_text_blocks("- 가\n뒤에 산문이 붙는다"))
+
+    def test_none_for_discord(self):
+        self.assertIsNone(_workspace("discord").prepare_text_blocks("- 가\n- 나"))
+
+    def test_none_when_item_too_long(self):
+        long_item = "- " + "x" * (SLACK_BLOCK_TEXT_LIMIT + 1)
+        self.assertIsNone(_workspace().prepare_text_blocks(long_item))
+
+
 if __name__ == "__main__":
     unittest.main()
