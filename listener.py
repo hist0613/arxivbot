@@ -25,7 +25,7 @@ from api.reactions import add_posted, load_store, save_store
 from api.resolvers import build_resolver
 from api.service import Service
 from api.tools import build_page_fetcher, build_tools, post_paper_summary
-from api.workspace import Workspace
+from api.workspace import Workspace, markdown_links_to_slack
 from prompts import SYSTEM_PROMPT_AGENT, THREAD_DIGEST_PROMPT
 from settings import (
     AGENT_DEADLINE_SEC,
@@ -284,6 +284,8 @@ def make_app(workspace_config: dict):
                     )
                 return
             blocks = workspace.prepare_text_blocks(answer)
+            # 블록을 못 만들어 평문으로 갈 때도 링크는 Slack 문법이어야 한다.
+            answer = markdown_links_to_slack(answer)
             try:
                 client.chat_update(
                     channel=channel,

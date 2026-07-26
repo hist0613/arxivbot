@@ -17,6 +17,11 @@ class AgentResult(NamedTuple):
     tool_calls: list
 
 
+# 서버가 응답에만 붙이는 필드. 그대로 되보내면 모델에 따라
+# "Unknown parameter: input[N].status"로 400을 낸다(gpt-5.6-luna에서 확인).
+_OUTPUT_ONLY_KEYS = ("status",)
+
+
 def _as_input_item(item):
     """SDK 응답 객체를 다음 요청의 input 항목으로 되돌린다.
 
@@ -25,9 +30,10 @@ def _as_input_item(item):
     input에 다시 실어야 대화가 이어진다. SDK 객체는 그대로 못 보내고
     dict으로 풀어야 한다(테스트의 가짜 객체는 dict을 그대로 준다).
     """
-    if hasattr(item, "model_dump"):
-        return item.model_dump()
-    return item
+    data = item.model_dump() if hasattr(item, "model_dump") else item
+    if isinstance(data, dict):
+        data = {k: v for k, v in data.items() if k not in _OUTPUT_ONLY_KEYS}
+    return data
 
 
 def run_agent(
@@ -55,8 +61,14 @@ def run_agent(
         response = client.responses.create(
             model=model, input=conversation, tools=tool_specs
         )
-        # 도구 호출이 하나도 없으면 그게 최종 답이다. web_search 같은 내장
-        # 도구는 서버가 알아서 실행하므로 여기서 처리할 게 없다.
+        # web_search 같은 내장 도구는 서버가 알아서 실행하고 결과만 함께
+        # 온다. 우리가 할 일은 없지만 무엇을 했는지는 로그에 남긴다.
+        for i in response.output:
+            kind = getattr(i, "type", "")
+            if kind.endswith("_call") and kind != "function_call":
+                tool_calls.append(kind.removesuffix("_call"))
+
+        # 처리할 함수 호출이 없으면 그게 최종 답이다.
         calls = [i for i in response.output if getattr(i, "type", "") == "function_call"]
         if not calls:
             text = getattr(response, "output_text", "") or ""
