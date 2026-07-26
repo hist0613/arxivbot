@@ -93,6 +93,8 @@ PAPER_ABSTRACTS_PATH = os.path.join(BASE_DIR, "paper_abstracts.pickle")
 PAPER_FULL_CONTENTS_PATH = os.path.join(BASE_DIR, "paper_full_contents.pickle")
 PAPER_SUMMARIZATIONS_PATH = os.path.join(BASE_DIR, "paper_summarizations.pickle")
 
+CACHE_DB_PATH = os.path.join(BASE_DIR, "arxivbot.db")  # 초록·본문·요약·페이지 캐시
+
 # --- 리액션 수집 (Feature 1) ---
 REACTIONS_DIR = os.path.join(REPO_DIR, "reactions")  # gitignore됨 (비공개)
 if not os.path.exists(REACTIONS_DIR):
