@@ -9,7 +9,13 @@ from settings import MODEL
 
 
 class _View:
-    """읽기 전용 사전 흉내. 없는 키는 빈 문자열(옛 defaultdict(str) 동작 유지)."""
+    """읽기 전용 사전 흉내.
+
+    호출부는 `cache.paper_abstracts[key]`, `key in cache.paper_abstracts`,
+    `.get(key, "")` 세 가지만 쓴다. 옛 구현이 defaultdict(str)이라 없는 키는
+    빈 문자열이었고, `in`도 사실상 "값이 있느냐"로 쓰였다(빈 값이면 다시
+    크롤링). 그 동작을 그대로 흉내내야 호출부를 고치지 않는다.
+    """
 
     def __init__(self, getter):
         self._get = getter
@@ -22,6 +28,8 @@ class _View:
         return value if value else default
 
     def __contains__(self, key):
+        # 행의 존재가 아니라 값이 비지 않았는지를 본다. 빈 값이 캐시에 남아
+        # 있으면 "캐시 없음"으로 취급해 다시 받아오는 게 옛 동작이었다.
         return bool(self._get(key))
 
 

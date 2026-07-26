@@ -7,6 +7,8 @@
 import re
 from typing import NamedTuple
 
+# 이 길이를 넘는 봇 메시지는 요약 게시로 본다. 4섹션 요약은 보통 1500자를
+# 넘고 사람이 봇에게 하는 짧은 답("고마워")은 여기 한참 못 미친다.
 FOLD_THRESHOLD_CHARS = 400
 _URL_RE = re.compile(r"https?://[^\s|>)]+")
 
@@ -32,6 +34,8 @@ def fold_bot_message(text: str) -> str:
 
 def build_context(messages, *, bot_user_id, count_tokens, budget, digest="") -> Context:
     """messages는 오래된 것부터 정렬된 Slack 메시지 목록."""
+    # 접기를 먼저 한다. 접은 뒤의 길이로 예산을 세야 요약 한 건 때문에
+    # 대화 열 줄이 통째로 밀려나는 일이 없다.
     prepared = []
     for m in messages:
         text = m.get("text", "") or ""
@@ -39,9 +43,12 @@ def build_context(messages, *, bot_user_id, count_tokens, budget, digest="") -> 
             text = fold_bot_message(text)
         prepared.append({**m, "text": text})
 
+    # 최신부터 거꾸로 담는다. 예산이 모자랄 때 버려야 하는 건 오래된 쪽이다.
     kept, used = [], 0
     for m in reversed(prepared):
         cost = count_tokens(m["text"])
+        # `kept and`가 없으면 첫 메시지 하나가 예산보다 클 때 문맥이 통째로
+        # 비어버린다. 최신 메시지 하나는 예산을 넘겨도 반드시 넣는다.
         if kept and used + cost > budget:
             break
         kept.append(m)
@@ -82,6 +89,10 @@ def update_digest(store, thread_ts: str, folded_messages, summarize) -> str:
     row = store.get_digest(thread_ts) or {}
     previous = row.get("digest", "") or ""
     covered_until = row.get("covered_until_ts") or ""
+    # Slack ts는 "1719900000.000200"처럼 자리수가 고정된 문자열이라 사전순
+    # 비교가 곧 시간순 비교다. 그래서 float 변환 없이 그냥 비교한다.
+    # 이미 요지에 반영된 구간을 걸러내야 스레드가 길어져도 매번 전체를
+    # 다시 요약하지 않는다(모델 호출 1회는 앞으로 밀려난 만큼만).
     fresh = [m for m in folded_messages if m["ts"] > covered_until]
     if not fresh:
         return previous
