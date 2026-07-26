@@ -45,14 +45,16 @@ def process_url(url, *, cache, service, workspace, resolve,
                 on_progress=lambda s: None) -> dict:
     """URL 1개를 요약 결과 dict로 처리한다.
 
-    반환: {"ok": bool, "message": str, "paper_info": str|None, "paper_url": str|None}
+    반환: {"ok": bool, "message": str, "blocks": list|None,
+           "paper_info": str|None, "paper_url": str|None}
+    blocks는 Slack rich_text 글머리 기호 목록. None이면 message 문자열로 보낸다.
     resolve(url, on_progress) -> ResolvedPaper | None  (주입)
     on_progress(stage) 단계: "fetching" → ("downloading") → "summarizing"
     """
     on_progress("fetching")
     resolved = resolve(url, on_progress=on_progress)
     if resolved is None or not resolved.text:
-        return {"ok": False, "message": _UNSUPPORTED_MSG,
+        return {"ok": False, "message": _UNSUPPORTED_MSG, "blocks": None,
                 "paper_info": None, "paper_url": None}
 
     paper_info = get_paper_info(resolved.url, resolved.title)
@@ -61,13 +63,16 @@ def process_url(url, *, cache, service, workspace, resolve,
     if not summarization:
         return {"ok": False,
                 "message": "요약 생성에 실패했어요. 잠시 후 다시 시도해 주세요.",
-                "paper_info": None, "paper_url": None}
+                "blocks": None, "paper_info": None, "paper_url": None}
 
     message_content, _ = workspace.prepare_content(paper_info, "", summarization)
     note = getattr(resolved, "note", "")
     if note:
         message_content += f"\n\n{note}"
-    return {"ok": True, "message": message_content,
+    blocks = workspace.prepare_slack_blocks(
+        paper_info, "", summarization, extra_text=note
+    )
+    return {"ok": True, "message": message_content, "blocks": blocks,
             "paper_info": paper_info, "paper_url": resolved.url}
 
 

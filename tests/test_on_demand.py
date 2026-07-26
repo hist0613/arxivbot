@@ -186,6 +186,11 @@ class _FakeWorkspace:
         msg = f"*{paper_info}*\n{paper_summarization}"
         return msg, msg
 
+    def prepare_slack_blocks(self, paper_info, paper_comment,
+                             paper_summarization, extra_text=""):
+        return [{"type": "section", "paper_info": paper_info,
+                 "extra_text": extra_text}]
+
 
 class _FakeService:
     def __init__(self, result):

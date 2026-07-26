@@ -3,6 +3,7 @@
 부팅 시 자동 실행(Task Scheduler) + 죽으면 재시작 전제로 상시 동작한다.
 이벤트 처리 로직은 api.on_demand의 테스트된 코어를 사용한다.
 """
+import os
 from datetime import datetime, timezone
 
 from slack_bolt import App
@@ -24,6 +25,9 @@ from api.resolvers import build_resolver
 from api.logger import logger
 from settings import WORKSPACE_CONFIGS, MODEL
 
+
+PID_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "logs", "listener.pid")
 
 STAGE = {
     "fetching": "🔄 논문 페이지 가져오는 중…",
@@ -101,7 +105,19 @@ def make_app(workspace_config: dict):
                     continue
                 text = result["message"] if result["ok"] \
                     else f"{result['message']}\n({url})"
-                client.chat_update(channel=channel, ts=ts, text=text)
+                # blocks가 있으면 글머리 기호 목록으로, text는 알림 폴백으로.
+                # 블록이 거절당하면 요약이 통째로 날아가므로 text로 재시도한다.
+                blocks = result.get("blocks")
+                try:
+                    client.chat_update(
+                        channel=channel, ts=ts, text=text,
+                        **({"blocks": blocks} if blocks else {}),
+                    )
+                except Exception as e:
+                    if not blocks:
+                        raise
+                    logger.error(f"chat_update with blocks failed ({e}); text로 폴백")
+                    client.chat_update(channel=channel, ts=ts, text=text)
                 if result["ok"]:
                     store = load_store()
                     add_posted(
@@ -131,7 +147,24 @@ def make_app(workspace_config: dict):
     return workspace, app
 
 
+def write_pid_file():
+    """자기 PID를 기록한다.
+
+    Stop-ScheduledTask는 래퍼 powershell만 끝내고 이 python 자식은 고아로
+    남긴다. 그 상태로 다음 인스턴스가 뜨면 Socket Mode 연결이 둘이 되어
+    멘션이 옛 프로세스로 배정되기도 한다. run_listener.ps1이 시작 전에
+    이 파일을 읽어 남아 있는 프로세스를 정리한다.
+    """
+    try:
+        os.makedirs(os.path.dirname(PID_PATH), exist_ok=True)
+        with open(PID_PATH, "w") as fp:
+            fp.write(str(os.getpid()))
+    except OSError as e:
+        logger.error(f"PID 파일 기록 실패({PID_PATH}): {e}")
+
+
 def run():
+    write_pid_file()
     handlers = []
     for cfg in WORKSPACE_CONFIGS:
         if cfg.get("service_type") != "slack":

@@ -97,6 +97,7 @@ Start-ScheduledTask -TaskName arxivbot-listener
 - 작업은 `python`을 직접 띄우지 않고, **`scripts\run_listener.ps1` 래퍼**를 통해 실행합니다. 래퍼가 ① 등록 시 확보한 python.exe 절대경로로 실행해 Store판 python 별칭 문제를 우회하고 ② 모든 출력을 로그 파일에 남깁니다.
 - 등록 후 **수동으로 띄워둔 `python listener.py` 창은 닫으세요**(중복 실행 방지).
 - 재등록해도 **이미 돌던 프로세스는 옛 설정 그대로**입니다. `Stop-ScheduledTask` 후 `Start-ScheduledTask`로 교체하세요.
+- `Stop-ScheduledTask`는 래퍼 powershell만 끝내고 **python 자식은 고아로 남습니다**. 그대로 두면 Socket Mode 연결이 둘이 되어 멘션이 옛 프로세스로 배정되기도 합니다. 래퍼가 시작할 때 `logs\listener.pid`를 보고 남은 인스턴스를 정리하므로 보통은 신경 쓸 필요가 없지만, 확인하려면 `Get-CimInstance Win32_Process -Filter "Name like 'python%'"`로 리스너 python이 하나인지 보세요(일별 배치가 도는 시간대면 2개일 수 있습니다).
 - PC 전원이 꺼져 있거나 절전이면 당연히 멈춥니다. 자리를 오래 비울 거면 절전 진입을 꺼두세요(`powercfg /change standby-timeout-ac 0`).
 
 ### 5. 로그 확인 (스케줄러로 돌 때)

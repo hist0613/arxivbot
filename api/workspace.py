@@ -20,6 +20,9 @@ from settings import (
     TIME_PAUSE_SEC,
 )
 
+# Slack 블록 하나에 들어갈 수 있는 텍스트 상한(3000)에서 여유를 둔 값.
+SLACK_BLOCK_TEXT_LIMIT = 2800
+
 
 class Workspace:
     def __init__(self, workspace_config: dict):
@@ -85,14 +88,91 @@ class Workspace:
             message_content += f"\n{paper_comment}"
             markdown_content += f"{paper_comment}\n\n"
 
-        paper_summarization = json.loads(paper_summarization)
-        if isinstance(paper_summarization, list):
-            paper_summarization = paper_summarization[0]
+        paper_summarization = self._load_summarization(paper_summarization)
         for key, value in paper_summarization.items():
             message_content += f"\n\n- {self._format_bold(key)}: {value}"
             markdown_content += f"- **{key}**: {value}\n\n"
 
         return message_content, markdown_content
+
+    @staticmethod
+    def _load_summarization(paper_summarization: str) -> dict:
+        data = json.loads(paper_summarization)
+        if isinstance(data, list):
+            data = data[0]
+        return data
+
+    def prepare_slack_blocks(
+        self,
+        paper_info: str,
+        paper_comment: str,
+        paper_summarization: str,
+        extra_text: str = "",
+    ):
+        """요약을 Slack rich_text 글머리 기호 목록으로 조립한다.
+
+        Slack의 text 필드(mrkdwn)에는 목록 문법이 아예 없어서 "- "가 하이픈
+        문자 그대로 남는다. 진짜 목록(둘째 줄부터 들여쓰기가 붙는)은
+        rich_text_list 블록으로만 만들 수 있다.
+
+        blocks를 못 만들면 None을 반환하고, 호출부는 기존 text 문자열로
+        폴백한다(요약이 아예 안 붙는 것보다 하이픈이 낫다).
+        """
+        if self.service_type != "slack":
+            return None
+
+        items = []
+        for key, value in self._load_summarization(paper_summarization).items():
+            value = str(value)
+            # 블록 하나가 길이 제한을 넘으면 Slack이 invalid_blocks로 거절한다.
+            if len(value) > SLACK_BLOCK_TEXT_LIMIT:
+                return None
+            items.append(
+                {
+                    "type": "rich_text_section",
+                    "elements": [
+                        {"type": "text", "text": f"{key}: ", "style": {"bold": True}},
+                        {"type": "text", "text": value},
+                    ],
+                }
+            )
+        if not items:
+            return None
+
+        blocks = [
+            {
+                "type": "section",
+                "text": {"type": "mrkdwn", "text": self._format_bold(paper_info)},
+            }
+        ]
+        if paper_comment.strip():
+            blocks.append(
+                {
+                    "type": "section",
+                    "text": {"type": "mrkdwn", "text": paper_comment.strip()},
+                }
+            )
+        blocks.append(
+            {
+                "type": "rich_text",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "style": "bullet",
+                        "indent": 0,
+                        "elements": items,
+                    }
+                ],
+            }
+        )
+        if extra_text:
+            blocks.append(
+                {
+                    "type": "context",
+                    "elements": [{"type": "mrkdwn", "text": extra_text}],
+                }
+            )
+        return blocks
 
     def _format_bold(self, text: str):
         if self.service_type == "slack":
@@ -126,6 +206,11 @@ class Workspace:
                     paper_comment,
                     cache.paper_summarizations[paper_info],
                 )
+                message_blocks = self.prepare_slack_blocks(
+                    paper_info,
+                    paper_comment,
+                    cache.paper_summarizations[paper_info],
+                )
 
                 field_thread["thread_contents"].append(
                     {
@@ -133,6 +218,7 @@ class Workspace:
                         "paper_url": paper_url,
                         "field": field,
                         "message_content": message_content,
+                        "message_blocks": message_blocks,
                         "file_content": file_content,
                     }
                 )
@@ -169,11 +255,25 @@ class Workspace:
             thread_ts = result["ts"]
 
             for content in thread["thread_contents"]:
-                reply = client.chat_postMessage(
-                    channel=self.allowed_channel,
-                    text=content["message_content"],
-                    thread_ts=thread_ts,
-                )
+                # text는 blocks가 있어도 알림 미리보기용 폴백으로 함께 보낸다.
+                # 블록이 거절당하면 요약이 통째로 날아가므로 text로 재시도한다.
+                blocks = content.get("message_blocks")
+                try:
+                    reply = client.chat_postMessage(
+                        channel=self.allowed_channel,
+                        text=content["message_content"],
+                        thread_ts=thread_ts,
+                        **({"blocks": blocks} if blocks else {}),
+                    )
+                except Exception as e:
+                    if not blocks:
+                        raise
+                    logger.error(f"postMessage with blocks failed ({e}); text로 폴백")
+                    reply = client.chat_postMessage(
+                        channel=self.allowed_channel,
+                        text=content["message_content"],
+                        thread_ts=thread_ts,
+                    )
                 add_posted(
                     store,
                     ts=reply["ts"],
