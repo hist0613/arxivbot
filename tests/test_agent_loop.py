@@ -157,6 +157,35 @@ class TestRunAgent(unittest.TestCase):
         self.assertTrue(any(i.get("type") == "function_call" for i in echoed))
         self.assertFalse(any("status" in i for i in echoed if isinstance(i, dict)))
 
+    def test_request_timeout_follows_remaining_budget(self):
+        """요청 타임아웃이 없으면 멈춘 요청 하나가 deadline을 무력화한다."""
+        clock = iter([0, 0, 30, 30, 60])
+        client = FakeClient(
+            [
+                FakeResponse([call("fetch_page", '{"url": "u"}')]),
+                FakeResponse([], "끝"),
+            ]
+        )
+        run(client, deadline_sec=90, now=lambda: next(clock))
+        timeouts = [c["timeout"] for c in client.responses.calls]
+        self.assertEqual(timeouts[0], 90)
+        self.assertLess(timeouts[1], 90)
+
+    def test_timeout_has_a_floor(self):
+        from api.agent_loop import MIN_REQUEST_TIMEOUT_SEC
+
+        clock = iter([0, 500, 500, 500])
+        client = FakeClient(
+            [
+                FakeResponse([call("fetch_page", '{"url": "u"}')]),
+                FakeResponse([], "끝"),
+            ]
+        )
+        run(client, deadline_sec=90, now=lambda: next(clock))
+        self.assertGreaterEqual(
+            client.responses.calls[-1]["timeout"], MIN_REQUEST_TIMEOUT_SEC
+        )
+
     def test_builtin_tool_is_recorded(self):
         """내장 web_search는 함수 호출로 안 오지만 무엇을 했는지는 남겨야 한다."""
         client = FakeClient(

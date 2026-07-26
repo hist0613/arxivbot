@@ -18,7 +18,7 @@ from api.agent import AutoAgent, Encoder
 from api.agent_loop import run_agent
 from api.arxiv import ArxivClient
 from api.cache import CacheManager
-from api.context import build_context, render_context, update_digest
+from api.context import build_context, load_digest, render_context, update_digest
 from api.logger import logger
 from api.on_demand import NO_URL_MSG, extract_targets, process_url, resolve_thread_ts
 from api.reactions import add_posted, load_store, save_store
@@ -50,12 +50,15 @@ PID_PATH = os.path.join(
 )
 
 THINKING = "🔄 생각하는 중…"
+# web_search는 서버가 직접 실행해 함수 호출로 오지 않으므로 여기 없다.
+# 검색 중에는 "생각하는 중…"이 그대로 떠 있다.
 AGENT_STAGE = {
-    "web_search": "🔄 검색하는 중…",
     "fetch_page": "🔄 페이지 읽는 중…",
     "read_thread": "🔄 이전 대화 확인하는 중…",
 }
 TRUNCATED_NOTE = "\n\n(시간이 걸려 도중에 끊었습니다. 더 필요하면 다시 불러 주세요.)"
+# 아주 긴 스레드에서도 최근 대화까지는 따라가되, 무한정 호출하지는 않는다.
+REPLIES_MAX_PAGES = 10
 
 
 def stage_for_tool(name: str):
@@ -63,8 +66,13 @@ def stage_for_tool(name: str):
     return AGENT_STAGE.get(name)
 
 
-def handle_mention_core(*, user_input, run, fallback):
+def handle_mention_core(*, user_input, run, fallback, posted_count):
     """에이전트를 돌리고, 실패하면 결정론 경로로 넘긴다.
+
+    posted_count()는 이번 멘션에서 실제로 스레드에 올라간 요약 수다. 도구를
+    불렀는지가 아니라 이걸 봐야 한다. 도구를 불렀어도 URL 가드에 걸려 아무것도
+    안 올라갔을 수 있고, 그때 빈 답을 정상으로 넘기면 사용자는 아무 응답도
+    못 받는다.
 
     반환: {"mode": "agent"|"fallback", "text": str}
     """
@@ -78,11 +86,11 @@ def handle_mention_core(*, user_input, run, fallback):
     if not answer:
         # 빈 답이 나오는 경우는 둘인데 뜻이 정반대다.
         # (1) summarize_paper가 이미 게시를 마쳐 덧붙일 말이 없다 -> 정상
-        # (2) 스텝 상한에 걸려 도구만 돌다 끝났거나 모델이 아무것도 안 했다
+        # (2) 상한에 걸렸거나 가드에 막혀 아무것도 못 올렸다
         #     -> 사용자는 답을 못 받으므로 예전 경로로라도 요약을 준다
-        if "summarize_paper" in getattr(result, "tool_calls", []):
+        if posted_count() > 0:
             return {"mode": "agent", "text": ""}
-        logger.info("agent가 빈 답을 줬다. 결정론 경로로 폴백")
+        logger.info("agent가 빈 답을 줬고 게시된 것도 없다. 결정론 경로로 폴백")
         return fallback()
     if getattr(result, "truncated", False):
         answer += TRUNCATED_NOTE
@@ -128,17 +136,31 @@ def make_app(workspace_config: dict):
     def read_replies(client, channel, thread_ts, exclude_ts):
         """스레드 원문을 읽는다. 지금 온 멘션은 따로 넣으므로 빼둔다.
 
+        conversations_replies는 스레드 처음부터 돌려주므로, 긴 스레드에서
+        한 번만 부르면 정작 지금 얘기 중인 최근 대화를 못 본다. 커서를 따라
+        끝까지 간 뒤 뒤에서 CONTEXT_MAX_MESSAGES개만 남긴다.
+
         channels:history 스코프가 없으면 여기서 막힌다. 그때는 문맥 없이
         단발로 답하되(빈 목록), 왜 그런지 로그에는 남긴다.
         """
+        messages, cursor = [], None
         try:
-            r = client.conversations_replies(
-                channel=channel, ts=thread_ts, limit=CONTEXT_MAX_MESSAGES
-            )
-            return [m for m in r.get("messages", []) if m.get("ts") != exclude_ts]
+            for _ in range(REPLIES_MAX_PAGES):
+                r = client.conversations_replies(
+                    channel=channel,
+                    ts=thread_ts,
+                    limit=CONTEXT_MAX_MESSAGES,
+                    **({"cursor": cursor} if cursor else {}),
+                )
+                messages += r.get("messages", [])
+                cursor = (r.get("response_metadata") or {}).get("next_cursor")
+                if not r.get("has_more") or not cursor:
+                    break
         except Exception as e:
             logger.error(f"스레드 읽기 실패({thread_ts}): {e}")
-            return []
+            return messages[-CONTEXT_MAX_MESSAGES:]
+        recent = [m for m in messages if m.get("ts") != exclude_ts]
+        return recent[-CONTEXT_MAX_MESSAGES:]
 
     def register_posted(client, channel, thread_ts, ts, paper_info, paper_url):
         store = load_store()
@@ -175,19 +197,29 @@ def make_app(workspace_config: dict):
             ),
         )
 
-    def deterministic_fallback(client, channel, thread_ts, text):
+    def deterministic_fallback(client, channel, thread_ts, text, post, already_posted):
         """에이전트를 못 쓸 때의 예전 경로 — 링크마다 답글 1개.
 
         OpenAI가 죽었거나 모델이 빈 답을 줘도 매일 쓰는 논문 요약만은
         되게 하는 안전망이다. 에이전트 도입 전 동작과 같다.
+
+        already_posted: 이번 멘션에서 에이전트가 이미 올린 URL. 요약을 올린
+        뒤에 다음 API 호출이 죽어 여기로 떨어지는 경우가 있는데, 그때 같은
+        논문을 다시 올리면 스레드에 요약이 두 번 뜨고 리액션 store에도 두 번
+        기록된다.
         """
-        targets = extract_targets(text)
+        targets = [
+            url
+            for url in extract_targets(text)
+            if match_allowed_url(url, already_posted) is None
+        ]
         if not targets:
-            return {"mode": "fallback", "text": NO_URL_MSG}
+            # 이미 다 올렸으면 조용히 끝낸다. 하나도 없었으면 안내를 남긴다.
+            return {"mode": "fallback", "text": "" if already_posted else NO_URL_MSG}
         total = len(targets)
         for i, url in enumerate(targets, 1):
             prefix = f"({i}/{total}) " if total > 1 else ""
-            summarize_and_post(client, channel, thread_ts, url, prefix=prefix)
+            post(url, prefix=prefix)
         return {"mode": "fallback", "text": ""}
 
     @app.event("app_mention")
@@ -210,6 +242,7 @@ def make_app(workspace_config: dict):
             except Exception as e:
                 logger.error(f"auth_test 실패: {e}")
 
+        ts = None  # 진행 표시 답글. except 절에서도 봐야 한다
         try:
             messages = read_replies(client, channel, thread_ts, event.get("ts"))
             context = build_context(
@@ -217,19 +250,33 @@ def make_app(workspace_config: dict):
                 bot_user_id=bot_user_id["value"],
                 count_tokens=count_tokens,
                 budget=CONTEXT_TOKEN_BUDGET,
+                digest=load_digest(cache.store, thread_ts),
             )
             if context.folded:
-                digest = update_digest(
-                    cache.store, thread_ts, context.folded, summarize_digest
+                context = context._replace(
+                    digest=update_digest(
+                        cache.store, thread_ts, context.folded, summarize_digest
+                    )
                 )
-                context = context._replace(digest=digest)
             user_input = render_context(context, mention_text=text)
 
-            posted = client.chat_postMessage(
+            placeholder = client.chat_postMessage(
                 channel=channel, text=THINKING, thread_ts=thread_ts
             )
-            ts = posted["ts"]
+            ts = placeholder["ts"]
             last = {"text": THINKING}
+
+            # 이번 멘션에서 실제로 스레드에 올라간 요약. 폴백 중복 방지와
+            # "정말 아무것도 못 올렸는지" 판정에 쓴다.
+            posted_urls = []
+
+            def post_and_track(url, prefix=""):
+                result = summarize_and_post(
+                    client, channel, thread_ts, url, prefix=prefix
+                )
+                if result.get("ok"):
+                    posted_urls.append(result.get("url") or url)
+                return result
 
             def on_step(tool_name):
                 stage = stage_for_tool(tool_name)
@@ -269,7 +316,7 @@ def make_app(workspace_config: dict):
                             + (", ".join(allowed_urls[:5]) or "없음")
                         ),
                     }
-                return summarize_and_post(client, channel, thread_ts, target)
+                return post_and_track(target)
 
             tool_specs, dispatch = build_tools(
                 post_summary=guarded_post_summary,
@@ -291,8 +338,9 @@ def make_app(workspace_config: dict):
                     on_step=on_step,
                 ),
                 fallback=lambda: deterministic_fallback(
-                    client, channel, thread_ts, text
+                    client, channel, thread_ts, text, post_and_track, posted_urls
                 ),
+                posted_count=lambda: len(posted_urls),
             )
 
             answer = out["text"]
@@ -326,12 +374,19 @@ def make_app(workspace_config: dict):
             logger.info(f"agent 답변 게시({out['mode']}): {answer[:80]!r}")
         except Exception as e:
             logger.error(f"app_mention handler error: {e}")
+            # 진행 표시 답글을 이미 올렸으면 그걸 오류 문구로 바꾼다. 새
+            # 메시지를 올리면 "생각하는 중…"이 스레드에 영영 남는다.
             try:
-                client.chat_postMessage(
-                    channel=channel,
-                    text=f"처리 중 오류가 났어요: {e}",
-                    thread_ts=thread_ts,
-                )
+                if ts:
+                    client.chat_update(
+                        channel=channel, ts=ts, text=f"처리 중 오류가 났어요: {e}"
+                    )
+                else:
+                    client.chat_postMessage(
+                        channel=channel,
+                        text=f"처리 중 오류가 났어요: {e}",
+                        thread_ts=thread_ts,
+                    )
             except Exception:
                 pass
 

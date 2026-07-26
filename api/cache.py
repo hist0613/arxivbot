@@ -12,32 +12,36 @@ class _View:
     """읽기 전용 사전 흉내.
 
     호출부는 `cache.paper_abstracts[key]`, `key in cache.paper_abstracts`,
-    `.get(key, "")` 세 가지만 쓴다. 옛 구현이 defaultdict(str)이라 없는 키는
-    빈 문자열이었고, `in`도 사실상 "값이 있느냐"로 쓰였다(빈 값이면 다시
-    크롤링). 그 동작을 그대로 흉내내야 호출부를 고치지 않는다.
+    `.get(key, "")` 세 가지만 쓴다. 옛 구현은 pickle에서 읽은
+    defaultdict(str)이었고 `in`은 키 존재 여부였다. api/arxiv.py가 그걸
+    "이미 받아봤다"로 쓰기 때문에, 값이 비었는지로 바꾸면 초록이 빈 논문을
+    매일 다시 크롤링하게 된다. 그래서 존재 여부를 그대로 흉내낸다.
     """
 
-    def __init__(self, getter):
+    def __init__(self, getter, exists=None):
         self._get = getter
+        self._exists = exists or (lambda key: bool(getter(key)))
 
     def __getitem__(self, key):
         return self._get(key)
 
     def get(self, key, default=""):
-        value = self._get(key)
-        return value if value else default
+        # dict.get과 같게: 행이 있으면 빈 값이라도 그대로 돌려준다.
+        return self._get(key) if self._exists(key) else default
 
     def __contains__(self, key):
-        # 행의 존재가 아니라 값이 비지 않았는지를 본다. 빈 값이 캐시에 남아
-        # 있으면 "캐시 없음"으로 취급해 다시 받아오는 게 옛 동작이었다.
-        return bool(self._get(key))
+        return self._exists(key)
 
 
 class CacheManager:
     def __init__(self, store: Store = None):
         self.store = store or Store()
-        self.paper_abstracts = _View(self.store.get_abstract)
-        self.paper_full_contents = _View(self.store.get_full_content)
+        self.paper_abstracts = _View(self.store.get_abstract, self.store.has_abstract)
+        self.paper_full_contents = _View(
+            self.store.get_full_content, self.store.has_full_content
+        )
+        # 요약만은 "비어 있으면 없는 것"이 맞다. 옛 코드도 여기서만
+        # `paper_info in ... and != ""`로 빈 값을 걸러냈다.
         self.paper_summarizations = _View(self.store.get_summary)
 
     def has_paper_summarization(self, paper_info: str) -> bool:

@@ -49,11 +49,13 @@ class Store:
         self._lock = threading.Lock()
         self._conn = sqlite3.connect(path, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
-        # WAL: 배치와 리스너가 다른 프로세스에서 같은 파일을 열어도 읽기가
-        # 쓰기를 막지 않는다. busy_timeout: 상대 쓰기가 끝날 때까지 10초
-        # 기다린다(즉시 "database is locked"로 죽지 않게).
-        self._conn.execute("PRAGMA journal_mode=WAL")
+        # busy_timeout을 먼저 건다. WAL 전환은 잠깐 배타 락을 잡는데,
+        # 그 순간 배치가 쓰고 있으면 timeout이 0인 상태라 "database is
+        # locked"로 여기서 죽는다(= 리스너가 기동조차 못 한다).
         self._conn.execute("PRAGMA busy_timeout=10000")
+        # WAL: 배치와 리스너가 다른 프로세스에서 같은 파일을 열어도 읽기가
+        # 쓰기를 막지 않는다.
+        self._conn.execute("PRAGMA journal_mode=WAL")
         with self._lock:
             self._conn.executescript(SCHEMA)
             self._conn.commit()
@@ -75,6 +77,12 @@ class Store:
     def get_abstract(self, paper_info: str) -> str:
         row = self._one("SELECT text FROM abstracts WHERE paper_info=?", paper_info)
         return row["text"] if row else ""
+
+    def has_abstract(self, paper_info: str) -> bool:
+        """행이 있느냐. 빈 초록도 "이미 받아봤다"로 친다(옛 동작)."""
+        return self._one(
+            "SELECT 1 FROM abstracts WHERE paper_info=?", paper_info
+        ) is not None
 
     def put_abstract(self, paper_info: str, text: str):
         self._write(
@@ -98,6 +106,11 @@ class Store:
             return json.loads(row["text"])
         except (ValueError, TypeError):
             return row["text"]
+
+    def has_full_content(self, paper_info: str) -> bool:
+        return self._one(
+            "SELECT 1 FROM full_contents WHERE paper_info=?", paper_info
+        ) is not None
 
     def put_full_content(self, paper_info: str, value):
         text = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
@@ -140,7 +153,7 @@ class Store:
         row = self._one("SELECT title, text, fetched_at FROM pages WHERE url=?", url)
         return dict(row) if row else None
 
-    def put_page(self, url: str, title: str, text: str):
+    def put_page(self, url: str, title: str, text: str, fetched_at: float = None):
         self._write(
             "INSERT INTO pages(url, title, text, fetched_at) VALUES(?,?,?,?) "
             "ON CONFLICT(url) DO UPDATE SET title=excluded.title, "
@@ -148,7 +161,7 @@ class Store:
             url,
             title,
             text,
-            time.time(),
+            time.time() if fetched_at is None else fetched_at,
         )
 
     # --- 스레드 요지 ---

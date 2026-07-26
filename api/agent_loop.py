@@ -21,6 +21,9 @@ class AgentResult(NamedTuple):
 # "Unknown parameter: input[N].status"로 400을 낸다(gpt-5.6-luna에서 확인).
 _OUTPUT_ONLY_KEYS = ("status",)
 
+# 남은 예산이 거의 없어도 이만큼은 준다. 0초를 넘기면 즉시 실패한다.
+MIN_REQUEST_TIMEOUT_SEC = 10
+
 
 def _as_input_item(item):
     """SDK 응답 객체를 다음 요청의 input 항목으로 되돌린다.
@@ -58,8 +61,12 @@ def run_agent(
 
     while steps < max_steps:
         steps += 1
+        # 요청마다 남은 예산만큼만 기다린다. 이게 없으면 한 번 멈춘 요청이
+        # SDK 기본 타임아웃(수 분)까지 리스너 스레드를 붙잡고, deadline_sec은
+        # 사실상 상한 구실을 못 한다.
+        remaining = max(MIN_REQUEST_TIMEOUT_SEC, deadline_sec - (now() - started))
         response = client.responses.create(
-            model=model, input=conversation, tools=tool_specs
+            model=model, input=conversation, tools=tool_specs, timeout=remaining
         )
         # web_search 같은 내장 도구는 서버가 알아서 실행하고 결과만 함께
         # 온다. 우리가 할 일은 없지만 무엇을 했는지는 로그에 남긴다.

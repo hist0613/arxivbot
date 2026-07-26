@@ -115,6 +115,26 @@ class TestPostPaperSummary(unittest.TestCase):
         self.assertEqual(len(client.posted), 1)
         self.assertIn("가져오지 못했어요", client.updated[-1]["text"])
 
+    def test_bookkeeping_failure_still_reports_success(self):
+        """리액션 등록이 실패해도 요약은 이미 올라갔다. 실패로 알리면 두 번 올라간다."""
+        from api import tools
+
+        client = FakeClient()
+
+        def boom(**kw):
+            raise OSError("papers.json 잠김")
+
+        result = tools.post_paper_summary(
+            client,
+            channel="C1",
+            thread_ts="1.1",
+            url="https://arxiv.org/abs/1",
+            prefix="",
+            process=lambda url, on_progress: SUMMARY_RESULT,
+            on_posted=boom,
+        )
+        self.assertTrue(result["ok"])
+
     def test_exception_becomes_error_message(self):
         from api import tools
 
@@ -195,6 +215,17 @@ class TestDispatch(unittest.TestCase):
         out = json.loads(dispatch("fetch_page", {}))
         self.assertIn("error", out)
 
+    def test_keyerror_from_inside_tool_is_not_reported_as_missing_argument(self):
+        """도구 안쪽 KeyError를 "빠진 인자"로 알리면 모델이 같은 인자로 재호출한다."""
+
+        def broken(url):
+            raise KeyError("ts")
+
+        _, dispatch = build(post_summary=broken)
+        out = json.loads(dispatch("summarize_paper", {"url": "https://arxiv.org/abs/1"}))
+        self.assertIn("error", out)
+        self.assertNotIn("인자", out["error"])
+
 
 class TestUrlGuard(unittest.TestCase):
     """모델이 URL을 지어내거나 잘못 옮겨 적으면 엉뚱한 논문이 올라간다."""
@@ -247,6 +278,11 @@ class TestUrlGuard(unittest.TestCase):
         self.assertIsNone(match_allowed_url("https://a.test", []))
 
 
+def _allow(url):
+    """단위 테스트용 주소 검사기. 가짜 도메인에 DNS를 쏘지 않는다."""
+    return None
+
+
 class TestFetchPageText(unittest.TestCase):
     def setUp(self):
         from api.store import Store
@@ -268,7 +304,7 @@ class TestFetchPageText(unittest.TestCase):
             calls.append(url)
             return "Sana Video2", "본문 텍스트"
 
-        fetch = build_page_fetcher(self.store, download=download)
+        fetch = build_page_fetcher(self.store, download=download, check=_allow)
         first = fetch("https://x.test")
         second = fetch("https://x.test")
         self.assertEqual(first["title"], "Sana Video2")
@@ -278,16 +314,72 @@ class TestFetchPageText(unittest.TestCase):
     def test_paper_host_is_redirected_to_summarize_paper(self):
         from api.tools import build_page_fetcher
 
-        fetch = build_page_fetcher(self.store, download=lambda url: ("", ""))
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("", ""), check=_allow
+        )
         out = fetch("https://arxiv.org/abs/2410.05229")
         self.assertIn("summarize_paper", out.get("hint", ""))
 
     def test_empty_page_is_reported(self):
         from api.tools import build_page_fetcher
 
-        fetch = build_page_fetcher(self.store, download=lambda url: ("", ""))
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("", ""), check=_allow
+        )
         out = fetch("https://x.test")
         self.assertIn("error", out)
+
+    def test_stale_cache_is_refetched(self):
+        from api.tools import PAGE_CACHE_TTL_SEC, build_page_fetcher
+
+        calls = []
+        clock = {"t": 1_000_000.0}
+        fetch = build_page_fetcher(
+            self.store,
+            download=lambda url: (calls.append(url), ("제목", f"본문{len(calls)}"))[1],
+            now=lambda: clock["t"],
+            check=_allow,
+        )
+        fetch("https://blog.test/notes")
+        clock["t"] += PAGE_CACHE_TTL_SEC + 1
+        out = fetch("https://blog.test/notes")
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(out["text"], "본문2")
+
+
+class TestFetchGuard(unittest.TestCase):
+    """fetch_page의 URL은 모델이 만든다. 페이지에 심긴 지시문이 내부망을
+    부르게 할 수 있다."""
+
+    def test_loopback_is_rejected(self):
+        from api.tools import check_fetchable
+
+        for url in [
+            "http://127.0.0.1:8000/admin",
+            "http://localhost:8080/",
+            "http://[::1]/",
+        ]:
+            self.assertIsNotNone(check_fetchable(url), url)
+
+    def test_cloud_metadata_address_is_rejected(self):
+        from api.tools import check_fetchable
+
+        self.assertIsNotNone(check_fetchable("http://169.254.169.254/latest/meta-data/"))
+
+    def test_private_range_is_rejected(self):
+        from api.tools import check_fetchable
+
+        self.assertIsNotNone(check_fetchable("http://192.168.0.10/status"))
+
+    def test_non_http_scheme_is_rejected(self):
+        from api.tools import check_fetchable
+
+        self.assertIsNotNone(check_fetchable("file:///etc/passwd"))
+
+    def test_public_https_passes(self):
+        from api.tools import check_fetchable
+
+        self.assertIsNone(check_fetchable("https://nvlabs.github.io/Sana/"))
 
 
 if __name__ == "__main__":

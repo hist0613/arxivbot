@@ -3,7 +3,10 @@
 논문 요약은 도구가 게시까지 끝내고 모델에는 영수증만 준다. 모델이 요약을
 자기 말로 다시 옮기면 매일 쓰는 4섹션 요약 품질이 모델 판단에 걸리기 때문이다.
 """
+import ipaddress
 import json
+import socket
+import time
 from urllib.parse import urlparse
 
 import requests
@@ -24,6 +27,10 @@ TOOL_NAMES = ("summarize_paper", "fetch_page", "read_thread")
 # 페이지 본문을 그대로 넘기면 모델 입력이 터지고, 어차피 요약에 앞부분이면
 # 충분하다. 프로젝트 페이지 기준으로 2만자면 본문이 거의 다 들어온다.
 MAX_PAGE_CHARS = 20000
+# 본문 2만자를 뽑기 위해 받을 바이트 상한. 이보다 큰 페이지는 앞부분만 쓴다.
+MAX_PAGE_BYTES = 4 * 1024 * 1024
+# 블로그·릴리스 노트는 갱신된다. 이 시간이 지나면 다시 받는다.
+PAGE_CACHE_TTL_SEC = 7 * 24 * 3600
 
 # 이 호스트로 fetch_page가 들어오면 본문을 긁지 않고 summarize_paper로 되돌려
 # 보낸다. 학회 페이지는 HTML 본문이 초록 몇 줄뿐이고, PDF까지 따라가는 건
@@ -120,9 +127,14 @@ def post_paper_summary(client, *, channel, thread_ts, url, prefix, process, on_p
         client.chat_update(channel=channel, ts=ts, text=text)
 
     if result["ok"]:
-        on_posted(
-            ts=ts, paper_info=result["paper_info"], paper_url=result["paper_url"]
-        )
+        # 요약은 이미 스레드에 떠 있다. 여기서 예외가 새어 나가면 모델이
+        # 게시 실패로 알고 도구를 다시 불러 같은 요약이 두 번 올라간다.
+        try:
+            on_posted(
+                ts=ts, paper_info=result["paper_info"], paper_url=result["paper_url"]
+            )
+        except Exception as e:
+            logger.error(f"리액션 store 등록 실패(요약은 게시됨): {e}")
         logger.info(f"on-demand summary posted: {result['paper_info']}")
         return {
             "ok": True,
@@ -133,11 +145,62 @@ def post_paper_summary(client, *, channel, thread_ts, url, prefix, process, on_p
     return {"ok": False, "title": "", "url": url, "error": result["message"]}
 
 
+def check_fetchable(url: str):
+    """가져와도 되는 주소인지. 문제가 있으면 이유 문자열을 돌려준다.
+
+    fetch_page의 인자는 모델이 만든다. 모델은 우리가 방금 가져온 페이지
+    내용을 읽고 다음 행동을 정하므로, 페이지에 심어둔 지시문이 내부망
+    주소를 부르게 만들 수 있다. 그 응답이 다시 모델을 거쳐 Slack에 실린다.
+    """
+    parts = urlparse(url)
+    if parts.scheme not in ("http", "https"):
+        return "http(s) 주소만 가져올 수 있다."
+    host = (parts.hostname or "").lower()
+    if not host:
+        return "호스트가 없는 주소다."
+    if host in ("localhost",) or host.endswith(".local") or host.endswith(".internal"):
+        return "내부 주소는 가져오지 않는다."
+    try:
+        infos = socket.getaddrinfo(host, None)
+    except socket.gaierror:
+        return "주소를 찾을 수 없다."
+    for info in infos:
+        try:
+            ip = ipaddress.ip_address(info[4][0])
+        except ValueError:
+            continue
+        # 사설망·루프백·링크로컬(클라우드 메타데이터 169.254.169.254 포함)
+        if (
+            ip.is_private
+            or ip.is_loopback
+            or ip.is_link_local
+            or ip.is_reserved
+            or ip.is_multicast
+        ):
+            return "내부 주소는 가져오지 않는다."
+    return None
+
+
 def download_page(url: str):
     """일반 웹페이지에서 제목과 본문 텍스트를 뽑는다."""
-    r = requests.get(url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
-    r.raise_for_status()
-    soup = BeautifulSoup(r.text, "html.parser")
+    with requests.get(
+        url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT, stream=True
+    ) as r:
+        r.raise_for_status()
+        content_type = (r.headers.get("content-type") or "").lower()
+        # 큰 바이너리를 통째로 메모리에 올리지 않는다. 어차피 HTML만 쓴다.
+        if content_type and not any(
+            t in content_type for t in ("text/html", "text/plain", "xml")
+        ):
+            return "", ""
+        chunks, size = [], 0
+        for chunk in r.iter_content(chunk_size=65536):
+            chunks.append(chunk)
+            size += len(chunk)
+            if size >= MAX_PAGE_BYTES:
+                break
+        raw = b"".join(chunks)
+    soup = BeautifulSoup(raw.decode("utf-8", errors="replace"), "html.parser")
     for tag in soup(["script", "style", "noscript", "svg"]):
         tag.decompose()
     title = soup.title.get_text(strip=True) if soup.title else ""
@@ -145,8 +208,13 @@ def download_page(url: str):
     return title, text[:MAX_PAGE_CHARS]
 
 
-def build_page_fetcher(store, download=download_page):
-    """pages 테이블을 앞에 둔 fetch_page 구현을 만든다."""
+def build_page_fetcher(store, download=download_page, now=time.time,
+                       check=check_fetchable):
+    """pages 테이블을 앞에 둔 fetch_page 구현을 만든다.
+
+    check는 주소 검사기. 기본값은 DNS를 실제로 조회하므로 단위 테스트에서는
+    통과시키는 함수를 넣는다(검사기 자체는 따로 테스트한다).
+    """
 
     def fetch(url: str) -> dict:
         host = (urlparse(url).netloc or "").lower()
@@ -156,13 +224,23 @@ def build_page_fetcher(store, download=download_page):
                 "title": "",
                 "text": "",
             }
+        problem = check(url)
+        if problem:
+            logger.info(f"fetch_page 거절({url!r}): {problem}")
+            return {"error": problem}
         cached = store.get_page(url)
-        if cached and cached.get("text"):
+        # 블로그·릴리스 노트는 내용이 바뀐다. 오래된 건 다시 받는다.
+        if (
+            cached
+            and cached.get("text")
+            and now() - (cached.get("fetched_at") or 0) < PAGE_CACHE_TTL_SEC
+        ):
             return {"title": cached.get("title", ""), "text": cached["text"]}
         title, text = download(url)
         if not text:
             return {"error": "페이지에서 본문을 얻지 못했다."}
-        store.put_page(url, title, text)
+        # 저장 시각도 같은 시계로 찍어야 TTL 계산이 어긋나지 않는다.
+        store.put_page(url, title, text, fetched_at=now())
         return {"title": title, "text": text}
 
     return fetch
@@ -221,6 +299,14 @@ def build_tools(*, post_summary, fetch_page, read_thread):
     ]
 
     def dispatch(name: str, args: dict) -> str:
+        # 인자 확인은 try 밖에서. 안에서 하면 도구 안쪽에서 올라온 KeyError까지
+        # "빠진 인자"로 보고돼 모델이 같은 인자로 다시 부른다.
+        if name in ("summarize_paper", "fetch_page") and not args.get("url"):
+            return json.dumps({"error": "url 인자가 필요하다."}, ensure_ascii=False)
+        if name == "read_thread" and not args.get("before_ts"):
+            return json.dumps(
+                {"error": "before_ts 인자가 필요하다."}, ensure_ascii=False
+            )
         try:
             if name == "summarize_paper":
                 r = post_summary(args["url"])
@@ -244,8 +330,6 @@ def build_tools(*, post_summary, fetch_page, read_thread):
                     ensure_ascii=False,
                 )
             return json.dumps({"error": f"모르는 도구: {name}"}, ensure_ascii=False)
-        except KeyError as e:
-            return json.dumps({"error": f"빠진 인자: {e}"}, ensure_ascii=False)
         except Exception as e:
             logger.error(f"tool {name} 실패: {e}")
             return json.dumps({"error": str(e)}, ensure_ascii=False)

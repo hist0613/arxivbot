@@ -142,13 +142,40 @@ class TestUpdateDigest(unittest.TestCase):
         update_digest(self.store, "T1", folded, summarize)
         self.assertEqual(len(calls), 1)
 
-    def test_nothing_folded_returns_empty(self):
-        from api.context import update_digest
+    def test_nothing_folded_keeps_previous_digest(self):
+        """접힌 게 없다고 앞선 요지를 버리면 긴 스레드의 문맥이 통째로 날아간다."""
+        from api.context import load_digest, update_digest
 
         def summarize(previous, texts):
+            return "요지"
+
+        update_digest(self.store, "T1", [msg("1", "가")], summarize)
+
+        def must_not_run(previous, texts):
             raise AssertionError("불려서는 안 된다")
 
-        self.assertEqual(update_digest(self.store, "T1", [], summarize), "")
+        self.assertEqual(update_digest(self.store, "T1", [], must_not_run), "요지")
+        self.assertEqual(load_digest(self.store, "T1"), "요지")
+
+    def test_no_digest_yet_is_empty(self):
+        from api.context import load_digest
+
+        self.assertEqual(load_digest(self.store, "없는스레드"), "")
+
+    def test_digest_is_capped(self):
+        from api.context import MAX_DIGEST_CHARS, update_digest
+
+        digest = update_digest(
+            self.store, "T1", [msg("1", "가")], lambda p, t: "다" * 5000
+        )
+        self.assertEqual(len(digest), MAX_DIGEST_CHARS)
+
+    def test_empty_summary_keeps_previous(self):
+        from api.context import update_digest
+
+        update_digest(self.store, "T1", [msg("1", "가")], lambda p, t: "요지")
+        out = update_digest(self.store, "T1", [msg("2", "나")], lambda p, t: "")
+        self.assertEqual(out, "요지")
 
 
 if __name__ == "__main__":
