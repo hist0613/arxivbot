@@ -432,6 +432,19 @@ class TestFetchPageText(unittest.TestCase):
         out = fetch("https://blog.test/postmortem")
         self.assertEqual(out.get("title"), "장애 회고")
 
+    def test_short_page_about_captcha_still_passes(self):
+        """차단 문구는 그걸 다루는 글에도 나온다. 실측(developers.cloudflare.com/
+        turnstile 4754자)에선 살았지만, 같은 주제의 짧은 릴리스 노트는 오판
+        대상이었다. 판정 창을 본문이라 보기 어려운 길이로 좁혀서 막는다."""
+        from api.tools import build_page_fetcher
+
+        note = "이번 릴리스에서 captcha 검증 단계를 추가했다. 로그인 흐름도 함께 손봤다. " * 15
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("릴리스 노트", note), check=_allow
+        )
+        out = fetch("https://product.test/releases/1.2")
+        self.assertEqual(out.get("title"), "릴리스 노트")
+
     def test_cached_junk_is_refetched(self):
         """수정 전에 캐시된 차단 안내문이 이미 들어 있다. 읽을 때도 걸러
         다시 받는다(요약 캐시의 lazy self-healing과 같은 방식)."""

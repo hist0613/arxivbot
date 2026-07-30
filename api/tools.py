@@ -36,23 +36,27 @@ PAGE_CACHE_TTL_SEC = 7 * 24 * 3600
 # 주므로 "Loading…" 같은 몇 글자로 걸린다.
 MIN_PAGE_CHARS = 200
 # 차단·로그인·자바스크립트 안내문. x.com은 HTTP 200에 껍데기를 주고 본문 자리에
-# 이 문구만 남기므로, 상태 코드로는 실패를 알 수 없다.
+# 이 문구만 남기므로, 상태 코드로는 실패를 알 수 없다. 차단 화면에서나 쓰는
+# 문구만 넣는다. "captcha"처럼 글의 주제어가 될 수 있는 낱말은 뺐다 — 그걸
+# 다루는 짧은 릴리스 노트가 통째로 막힌다.
 BLOCK_MARKERS = (
     "something went wrong",
     "just a moment",
     "attention required",
+    "checking your browser",
+    "verify you are human",
     "enable javascript",
     "javascript is disabled",
     "please enable cookies",
-    "please enable js",
     "sign in to continue",
     "log in to continue",
-    "verify you are human",
-    "captcha",
     "access denied",
 )
-# 이보다 긴 본문에 위 문구가 있으면 글이 그 화면을 인용한 것으로 본다.
-MAX_BLOCK_MARKER_CHARS = 3000
+# 이보다 긴 본문에 위 문구가 있으면 글이 그 화면을 인용한 것으로 본다. 실측한
+# 차단 화면은 전부 200자 하한에서 이미 걸렸고(x.com 170자, Cloudflare 54자),
+# 이 창은 메뉴·푸터가 붙어 길어진 로그인 벽에만 쓴다. 넓게 잡을수록 정상 글을
+# 막을 위험만 커진다.
+MAX_BLOCK_MARKER_CHARS = 1200
 
 # 이 호스트로 fetch_page가 들어오면 본문을 긁지 않고 summarize_paper로 되돌려
 # 보낸다. 학회 페이지는 HTML 본문이 초록 몇 줄뿐이고, PDF까지 따라가는 건
