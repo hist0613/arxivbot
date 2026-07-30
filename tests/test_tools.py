@@ -303,6 +303,11 @@ def _allow(url):
     return None
 
 
+# 본문 품질 검사(page_problem)를 통과할 만큼 긴 가짜 본문. 캐시 동작을 보는
+# 테스트가 본문 길이에 걸리지 않게 한다.
+LONG_BODY = "가져온 본문 텍스트다. " * 30
+
+
 class TestFetchPageText(unittest.TestCase):
     def setUp(self):
         from api.store import Store
@@ -322,13 +327,13 @@ class TestFetchPageText(unittest.TestCase):
 
         def download(url):
             calls.append(url)
-            return "Sana Video2", "본문 텍스트"
+            return "Sana Video2", LONG_BODY
 
         fetch = build_page_fetcher(self.store, download=download, check=_allow)
         first = fetch("https://x.test")
         second = fetch("https://x.test")
         self.assertEqual(first["title"], "Sana Video2")
-        self.assertEqual(second["text"], "본문 텍스트")
+        self.assertEqual(second["text"], LONG_BODY)
         self.assertEqual(len(calls), 1)
 
     def test_paper_host_is_redirected_to_summarize_paper(self):
@@ -349,6 +354,103 @@ class TestFetchPageText(unittest.TestCase):
         out = fetch("https://x.test")
         self.assertIn("error", out)
 
+    def test_javascript_shell_is_reported_as_failure(self):
+        """x.com은 HTTP 200에 자바스크립트 껍데기를 준다. 여기서 뽑히는 건
+        차단 안내문 170자뿐인데, 이걸 본문으로 넘기면 모델이 그대로 옮긴다."""
+        from api.tools import build_page_fetcher
+
+        shell = (
+            "Something went wrong, but don't fret — let's give it another shot. "
+            "Try again Some privacy related extensions may cause issues on x.com. "
+            "Please disable them and try again."
+        )
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("", shell), check=_allow
+        )
+        out = fetch("https://x.com/omarsar0/article/2065880971031834786")
+        self.assertIn("error", out)
+        self.assertNotIn("text", out)
+
+    def test_failure_tells_the_model_to_search_instead(self):
+        """도구가 성공으로 보고하면 모델은 web_search 폴백을 하지 않는다."""
+        from api.tools import build_page_fetcher
+
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("", "Just a moment..."), check=_allow
+        )
+        out = fetch("https://blocked.test/post")
+        self.assertIn("web_search", out.get("hint", ""))
+
+    def test_blocked_page_is_not_cached(self):
+        """차단 안내문이 캐시에 들어가면 7일간 같은 오답이 즉시 나온다."""
+        from api.tools import build_page_fetcher
+
+        calls = []
+
+        def download(url):
+            calls.append(url)
+            return "", "Attention Required! | Cloudflare Please enable cookies."
+
+        fetch = build_page_fetcher(self.store, download=download, check=_allow)
+        fetch("https://blocked.test/post")
+        fetch("https://blocked.test/post")
+        self.assertEqual(len(calls), 2)
+        self.assertIsNone(self.store.get_page("https://blocked.test/post"))
+
+    def test_login_wall_is_reported_as_failure(self):
+        from api.tools import build_page_fetcher
+
+        fetch = build_page_fetcher(
+            self.store,
+            download=lambda url: ("Medium", "Sign in to continue reading this story."),
+            check=_allow,
+        )
+        self.assertIn("error", fetch("https://walled.test/post"))
+
+    def test_page_with_nothing_to_summarize_is_reported_as_failure(self):
+        """알려진 차단 문구가 없어도, 본문이 이만큼 짧으면 요약할 게 없다.
+        자바스크립트로 그리는 사이트가 대개 이 꼴로 걸린다."""
+        from api.tools import build_page_fetcher
+
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("앱", "Loading…"), check=_allow
+        )
+        self.assertIn("error", fetch("https://spa.test/post"))
+
+    def test_long_page_quoting_a_block_message_still_passes(self):
+        """차단 문구를 인용한 긴 글은 정상 본문이다. 판정이 본문 길이에 걸려
+        있으므로, 짧으면서 그 문구가 있는 글은 차단으로 본다(오판해도 검색으로
+        우회하니 손해가 작고, 놓치면 차단 안내문이 그대로 올라간다)."""
+        from api.tools import build_page_fetcher
+
+        article = (
+            "우리 서비스가 왜 Something went wrong 화면을 띄우는지 분석했다. " * 90
+        )
+        fetch = build_page_fetcher(
+            self.store, download=lambda url: ("장애 회고", article), check=_allow
+        )
+        out = fetch("https://blog.test/postmortem")
+        self.assertEqual(out.get("title"), "장애 회고")
+
+    def test_cached_junk_is_refetched(self):
+        """수정 전에 캐시된 차단 안내문이 이미 들어 있다. 읽을 때도 걸러
+        다시 받는다(요약 캐시의 lazy self-healing과 같은 방식)."""
+        from api.tools import build_page_fetcher
+
+        url = "https://x.com/omarsar0/article/2065880971031834786"
+        self.store.put_page(url, "", "Something went wrong, but don't fret", 1e9)
+        good = "제대로 받아온 본문이다. " * 30
+        calls = []
+        fetch = build_page_fetcher(
+            self.store,
+            download=lambda u: (calls.append(u), ("기사 제목", good))[1],
+            now=lambda: 1e9 + 10,
+            check=_allow,
+        )
+        out = fetch(url)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(out["title"], "기사 제목")
+
     def test_stale_cache_is_refetched(self):
         from api.tools import PAGE_CACHE_TTL_SEC, build_page_fetcher
 
@@ -356,7 +458,10 @@ class TestFetchPageText(unittest.TestCase):
         clock = {"t": 1_000_000.0}
         fetch = build_page_fetcher(
             self.store,
-            download=lambda url: (calls.append(url), ("제목", f"본문{len(calls)}"))[1],
+            download=lambda url: (
+                calls.append(url),
+                ("제목", f"{LONG_BODY}{len(calls)}"),
+            )[1],
             now=lambda: clock["t"],
             check=_allow,
         )
@@ -364,7 +469,7 @@ class TestFetchPageText(unittest.TestCase):
         clock["t"] += PAGE_CACHE_TTL_SEC + 1
         out = fetch("https://blog.test/notes")
         self.assertEqual(len(calls), 2)
-        self.assertEqual(out["text"], "본문2")
+        self.assertEqual(out["text"], f"{LONG_BODY}2")
 
 
 class TestFetchGuard(unittest.TestCase):

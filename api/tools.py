@@ -32,6 +32,28 @@ MAX_PAGE_BYTES = 4 * 1024 * 1024
 # 블로그·릴리스 노트는 갱신된다. 이 시간이 지나면 다시 받는다.
 PAGE_CACHE_TTL_SEC = 7 * 24 * 3600
 
+# 본문이 이보다 짧으면 요약할 게 없다. 자바스크립트로 그리는 사이트는 껍데기만
+# 주므로 "Loading…" 같은 몇 글자로 걸린다.
+MIN_PAGE_CHARS = 200
+# 차단·로그인·자바스크립트 안내문. x.com은 HTTP 200에 껍데기를 주고 본문 자리에
+# 이 문구만 남기므로, 상태 코드로는 실패를 알 수 없다.
+BLOCK_MARKERS = (
+    "something went wrong",
+    "just a moment",
+    "attention required",
+    "enable javascript",
+    "javascript is disabled",
+    "please enable cookies",
+    "please enable js",
+    "sign in to continue",
+    "log in to continue",
+    "verify you are human",
+    "captcha",
+    "access denied",
+)
+# 이보다 긴 본문에 위 문구가 있으면 글이 그 화면을 인용한 것으로 본다.
+MAX_BLOCK_MARKER_CHARS = 3000
+
 # 이 호스트로 fetch_page가 들어오면 본문을 긁지 않고 summarize_paper로 되돌려
 # 보낸다. 학회 페이지는 HTML 본문이 초록 몇 줄뿐이고, PDF까지 따라가는 건
 # resolvers의 논문 경로가 한다.
@@ -220,6 +242,22 @@ def download_page(url: str):
     return title, text[:MAX_PAGE_CHARS]
 
 
+def page_problem(text: str):
+    """본문 대신 차단·껍데기 화면을 받은 것 같으면 이유를 돌려준다.
+
+    이게 없으면 170자짜리 "Something went wrong"도 성공으로 통과해 모델에
+    본문으로 전달되고, 모델은 도구가 성공했다고 보므로 검색으로 우회하지 않는다.
+    """
+    if not text or len(text) < MIN_PAGE_CHARS:
+        return "페이지에서 본문을 얻지 못했다. 자바스크립트로 그리거나 차단된 페이지로 보인다."
+    if len(text) < MAX_BLOCK_MARKER_CHARS:
+        lowered = text.lower()
+        for marker in BLOCK_MARKERS:
+            if marker in lowered:
+                return f"페이지가 본문 대신 차단 안내를 돌려줬다({marker})."
+    return None
+
+
 def build_page_fetcher(store, download=download_page, now=time.time,
                        check=check_fetchable):
     """pages 테이블을 앞에 둔 fetch_page 구현을 만든다.
@@ -241,16 +279,27 @@ def build_page_fetcher(store, download=download_page, now=time.time,
             logger.info(f"fetch_page 거절({url!r}): {problem}")
             return {"error": problem}
         cached = store.get_page(url)
-        # 블로그·릴리스 노트는 내용이 바뀐다. 오래된 건 다시 받는다.
+        # 블로그·릴리스 노트는 내용이 바뀐다. 오래된 건 다시 받는다. 수정 전에
+        # 캐시된 차단 안내문도 여기서 걸러 다시 받는다(요약 캐시와 같은 방식).
         if (
             cached
             and cached.get("text")
             and now() - (cached.get("fetched_at") or 0) < PAGE_CACHE_TTL_SEC
+            and not page_problem(cached["text"])
         ):
             return {"title": cached.get("title", ""), "text": cached["text"]}
         title, text = download(url)
-        if not text:
-            return {"error": "페이지에서 본문을 얻지 못했다."}
+        problem = page_problem(text)
+        if problem:
+            logger.info(f"fetch_page 본문 없음({url!r}): {problem}")
+            # 차단 안내문을 캐시에 넣으면 7일간 같은 오답이 즉시 나온다.
+            return {
+                "error": problem,
+                "hint": (
+                    "web_search로 이 주소의 제목·내용을 찾아 답하고, 원문을 직접 "
+                    "읽지 못했다는 것을 밝혀라."
+                ),
+            }
         # 저장 시각도 같은 시계로 찍어야 TTL 계산이 어긋나지 않는다.
         store.put_page(url, title, text, fetched_at=now())
         return {"title": title, "text": text}
