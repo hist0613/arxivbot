@@ -48,7 +48,8 @@ WORKSPACE_CONFIGS = [
         "workspace": "seungtaek-lab",
         "allowed_channel": "arxivbot",          # 배치 게시 채널 이름
         "allowed_channel_id": "C0B7V0V8U7N",        # 배치 채널 ID (리액션 store/harvest용; 미검증)
-        "listener_channel_id": "C0B79ULKNDV",   # on-demand @멘션 리스너 채널
+        # on-demand @멘션을 받을 채널들 (#arxivbot-ondemand, #random)
+        "listener_channel_ids": ["C0B79ULKNDV", "C0B7P3CT84W"],
         "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
         "app_token": os.getenv("SLACK_APP_TOKEN_SEUNGTAEK_LAB"),  # Socket Mode(xapp-)
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],

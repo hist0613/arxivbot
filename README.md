@@ -55,7 +55,7 @@ python main.py
 
 ## On-demand 에이전트 리스너 (@멘션)
 
-`main.py`(일별 배치)와 별개로, Slack 채널에서 봇을 멘션하면 답하는 상시 리스너(`listener.py`)입니다. 멘션을 받을 채널은 `settings.py`의 `listener_channel_id`로 지정합니다(배치 게시 채널 `allowed_channel_id`와 분리). 멘션은 계속 필수이며, 멘션 없는 스레드 메시지는 보지 않습니다.
+`main.py`(일별 배치)와 별개로, Slack 채널에서 봇을 멘션하면 답하는 상시 리스너(`listener.py`)입니다. 멘션을 받을 채널은 `settings.py`의 `listener_channel_ids`(목록)로 지정합니다(배치 게시 채널 `allowed_channel_id`와 분리). 멘션은 계속 필수이며, 멘션 없는 스레드 메시지는 보지 않습니다.
 
 받는 것은 셋입니다.
 
@@ -98,8 +98,11 @@ python scripts\migrate_cache_to_sqlite.py
   SLACK_APP_TOKEN_SEUNGTAEK_LAB=xapp-...
   ```
   (기존 봇 토큰 `SLACK_TOKEN_SEUNGTAEK_LAB`(xoxb-)은 그대로 두고, 별도로 추가)
-- `settings.py`의 해당 워크스페이스에 `"listener_channel_id": "<채널 ID>"` 지정
-  (채널 ID는 Slack 채널 우클릭 → 채널 세부정보 맨 아래, 또는 멘션 시 로그의 `channel=...` 값)
+- `settings.py`의 해당 워크스페이스에 `"listener_channel_ids": ["<채널 ID>", ...]` 지정
+  (채널 ID는 Slack 채널 우클릭 → 채널 세부정보 맨 아래, 또는 채널 링크 `/archives/<채널 ID>`,
+  또는 멘션 시 로그의 `channel=...` 값). 채널을 늘릴 때는 이 목록에 ID를 더하고
+  그 채널에 봇을 초대(`/invite @arxivbot`)한 뒤 리스너를 재시작합니다.
+  옛 설정의 단수 `"listener_channel_id"`도 계속 동작합니다.
 
 ### 3. 수동 실행 (먼저 이걸로 검증)
 
@@ -143,4 +146,4 @@ Stop-ScheduledTask    -TaskName arxivbot-listener
 Disable-ScheduledTask -TaskName arxivbot-listener   # 자동 재시작 멈추기
 Unregister-ScheduledTask -TaskName arxivbot-listener -Confirm:$false  # 등록 해제
 ```
-- 멘션해도 무반응이면 `logs\listener.log`에 `app_mention ignored: channel ... != listener channel ...` 가 있는지 확인 → 있으면 `settings.py`의 `listener_channel_id`가 실제 채널과 다른 것.
+- 멘션해도 무반응이면 `logs\listener.log`에 `app_mention ignored: channel ... not in listener channels ...` 가 있는지 확인 → 있으면 그 채널 ID가 `settings.py`의 `listener_channel_ids`에 빠져 있는 것(로그의 `channel` 값을 목록에 추가 후 리스너 재시작). 이 줄조차 없으면 봇이 그 채널에 초대되지 않은 것.

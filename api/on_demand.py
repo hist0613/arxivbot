@@ -22,6 +22,23 @@ def resolve_thread_ts(event: dict) -> str:
     return event.get("thread_ts") or event["ts"]
 
 
+def resolve_listener_channels(workspace_config: dict) -> set:
+    """멘션을 받을 채널 ID 집합.
+
+    설정 키는 복수형 `listener_channel_ids`가 정본이고, 단수 `listener_channel_id`는
+    옛 설정을 그대로 둔 워크스페이스를 위해 계속 받는다. 문자열 하나를 넘겨도
+    글자 단위로 쪼개지지 않게 감싼다.
+    """
+    ids = workspace_config.get("listener_channel_ids")
+    if ids is None:
+        ids = workspace_config.get("listener_channel_id")
+    if ids is None:
+        return set()
+    if isinstance(ids, str):
+        ids = [ids]
+    return {c for c in ids if c}
+
+
 def extract_targets(text) -> list:
     """멘션 텍스트에서 처리할 URL 목록.
 

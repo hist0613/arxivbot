@@ -359,7 +359,7 @@ class TestProcessMention(unittest.TestCase):
 
 
 class TestListenerChannelConfig(unittest.TestCase):
-    def test_active_slack_workspace_has_listener_channel_id(self):
+    def test_active_slack_workspace_has_listener_channels(self):
         import settings
         active = [
             c for c in settings.WORKSPACE_CONFIGS
@@ -367,10 +367,31 @@ class TestListenerChannelConfig(unittest.TestCase):
         ]
         self.assertTrue(active, "활성 slack 워크스페이스가 없음")
         for c in active:
-            self.assertIn(
-                "listener_channel_id", c,
-                msg=f"listener_channel_id 누락: {c['workspace']}",
+            self.assertTrue(
+                c.get("listener_channel_ids") or c.get("listener_channel_id"),
+                msg=f"리스너 채널 설정 누락: {c['workspace']}",
             )
+
+
+class TestResolveListenerChannels(unittest.TestCase):
+    @staticmethod
+    def _resolve(cfg):
+        from api.on_demand import resolve_listener_channels
+        return resolve_listener_channels(cfg)
+
+    def test_reads_plural_key(self):
+        self.assertEqual(
+            self._resolve({"listener_channel_ids": ["C1", "C2"]}), {"C1", "C2"}
+        )
+
+    def test_falls_back_to_singular_key(self):
+        self.assertEqual(self._resolve({"listener_channel_id": "C1"}), {"C1"})
+
+    def test_string_is_not_split_into_characters(self):
+        self.assertEqual(self._resolve({"listener_channel_ids": "C1"}), {"C1"})
+
+    def test_missing_config_allows_nothing(self):
+        self.assertEqual(self._resolve({}), set())
 
 
 class TestSettingsAppToken(unittest.TestCase):

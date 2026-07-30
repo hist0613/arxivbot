@@ -20,7 +20,13 @@ from api.arxiv import ArxivClient
 from api.cache import CacheManager
 from api.context import build_context, load_digest, render_context, update_digest
 from api.logger import logger
-from api.on_demand import NO_URL_MSG, extract_targets, process_url, resolve_thread_ts
+from api.on_demand import (
+    NO_URL_MSG,
+    extract_targets,
+    process_url,
+    resolve_listener_channels,
+    resolve_thread_ts,
+)
 from api.reactions import add_posted, load_store, save_store
 from api.resolvers import build_resolver
 from api.service import Service
@@ -66,6 +72,7 @@ def stage_for_tool(name: str):
     return AGENT_STAGE.get(name)
 
 
+
 def handle_mention_core(*, user_input, run, fallback, posted_count):
     """에이전트를 돌리고, 실패하면 결정론 경로로 넘긴다.
 
@@ -108,8 +115,8 @@ def make_app(workspace_config: dict):
     encoder = Encoder(MODEL)
     openai_client = OpenAI(api_key=OPENAI_API_KEY)
     fetch_page = build_page_fetcher(cache.store)
-    # on-demand 멘션을 받을 채널 (배치 게시 채널 allowed_channel_id와 분리)
-    listener_channel_id = workspace_config["listener_channel_id"]
+    # on-demand 멘션을 받을 채널들 (배치 게시 채널 allowed_channel_id와 분리)
+    listener_channel_ids = resolve_listener_channels(workspace_config)
     app = App(token=workspace_config["slack_token"])
     # 첫 멘션 때 한 번만 auth_test로 채운다. 기동 시점에 부르면 Slack이
     # 잠깐 죽어 있을 때 리스너가 아예 안 뜬다.
@@ -227,10 +234,10 @@ def make_app(workspace_config: dict):
     def handle_app_mention(event, client):
         channel = event.get("channel")
         # 지정 채널 밖 멘션은 무시. 조용히 버리면 디버깅이 불가능하므로 로그를 남긴다.
-        if channel != listener_channel_id:
+        if channel not in listener_channel_ids:
             logger.info(
                 f"app_mention ignored: channel {channel} "
-                f"!= listener channel {listener_channel_id}"
+                f"not in listener channels {sorted(listener_channel_ids)}"
             )
             return
         thread_ts = resolve_thread_ts(event)
