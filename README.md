@@ -53,9 +53,13 @@ python main.py
 
 ---
 
-## On-demand 에이전트 리스너 (@멘션)
+## On-demand 에이전트 리스너 (@멘션 / DM)
 
-`main.py`(일별 배치)와 별개로, Slack 채널에서 봇을 멘션하면 답하는 상시 리스너(`listener.py`)입니다. 멘션을 받을 채널은 `settings.py`의 `listener_channel_ids`(목록)로 지정합니다(배치 게시 채널 `allowed_channel_id`와 분리). 멘션은 계속 필수이며, 멘션 없는 스레드 메시지는 보지 않습니다.
+`main.py`(일별 배치)와 별개로, Slack에서 부르면 답하는 상시 리스너(`listener.py`)입니다.
+
+- **채널**: 봇을 초대한 채널이면 공개·비공개 어디서든 `@arxivbot` 멘션에 답합니다. 채널 목록을 따로 등록할 필요가 없습니다. 멘션은 계속 필수이며, 멘션 없는 채널 메시지는 보지 않습니다(그룹 DM도 멘션 필요).
+- **1:1 DM**: 봇과의 DM에서는 멘션 없이 링크나 질문만 보내면 됩니다.
+- 특정 채널만 받게 다시 좁히려면 `settings.py`의 `listener_channel_ids`에 채널 ID를 채웁니다. **빈 목록이 전체 허용**입니다(배치 게시 채널 `allowed_channel_id`와는 무관).
 
 받는 것은 셋입니다.
 
@@ -86,10 +90,11 @@ python scripts\migrate_cache_to_sqlite.py
 ### 1. Slack 앱 설정 (api.slack.com/apps → 해당 앱, 1회)
 
 - **Socket Mode** 활성화 → app-level 토큰(`xapp-`, scope `connections:write`) 생성
-- **Event Subscriptions** → Subscribe to bot events에 **`app_mention`** 추가
-- **OAuth & Permissions** Bot Token Scopes에 **`app_mentions:read`**, **`channels:history`**(스레드 문맥 읽기) 추가 (`chat:write`는 기존 보유)
+- **Event Subscriptions** → Subscribe to bot events에 **`app_mention`**, **`message.im`**(DM) 추가
+- **OAuth & Permissions** Bot Token Scopes에 **`app_mentions:read`**, **`im:history`**(DM), **`channels:history`**·**`groups:history`**(비공개 채널)·**`mpim:history`**(그룹 DM) 추가 (`chat:write`는 기존 보유). history 스코프는 대화 종류마다 따로라, 빠지면 그 종류에서 스레드 문맥 읽기가 막힙니다.
+- **App Home** → Messages Tab을 켜고 *Allow users to send Slash commands and messages from the messages tab* 체크 (이게 꺼져 있으면 봇에게 DM을 보낼 수 없습니다)
 - 앱을 **Reinstall to Workspace** (위 변경 적용)
-- 리스너를 쓸 채널에 봇 초대: `/invite @arxivbot`
+- 쓰려는 채널에 봇 초대: `/invite @arxivbot` (초대 자체가 관문입니다)
 
 ### 2. 설정 값
 
@@ -98,11 +103,13 @@ python scripts\migrate_cache_to_sqlite.py
   SLACK_APP_TOKEN_SEUNGTAEK_LAB=xapp-...
   ```
   (기존 봇 토큰 `SLACK_TOKEN_SEUNGTAEK_LAB`(xoxb-)은 그대로 두고, 별도로 추가)
-- `settings.py`의 해당 워크스페이스에 `"listener_channel_ids": ["<채널 ID>", ...]` 지정
+- 채널 제한은 기본이 없음입니다(`settings.py`의 `"listener_channel_ids": []`). 채널을 늘릴 때
+  할 일은 `/invite @arxivbot` 하나뿐이고, 설정 수정도 리스너 재시작도 필요 없습니다.
+- 특정 채널만 받게 좁히려면 `"listener_channel_ids": ["<채널 ID>", ...]`를 채웁니다
   (채널 ID는 Slack 채널 우클릭 → 채널 세부정보 맨 아래, 또는 채널 링크 `/archives/<채널 ID>`,
-  또는 멘션 시 로그의 `channel=...` 값). 채널을 늘릴 때는 이 목록에 ID를 더하고
-  그 채널에 봇을 초대(`/invite @arxivbot`)한 뒤 리스너를 재시작합니다.
-  옛 설정의 단수 `"listener_channel_id"`도 계속 동작합니다.
+  또는 로그의 `channel=...` 값). 목록을 채우면 **DM도 그 목록의 대상이 되므로**, DM을 계속
+  쓰려면 DM 대화 ID(`D...`)도 함께 넣어야 합니다. 옛 설정의 단수 `"listener_channel_id"`도
+  계속 동작합니다.
 
 ### 3. 수동 실행 (먼저 이걸로 검증)
 
@@ -110,7 +117,7 @@ python scripts\migrate_cache_to_sqlite.py
 cd C:\Users\hist0\Dropbox\develop\arxivbot_new
 python listener.py
 ```
-`Starting to receive messages` 가 뜨면 대기 상태. 지정 채널에서 `@arxivbot https://arxiv.org/abs/1706.03762` 멘션 → 스레드에 요약이 달리면 정상. Ctrl+C로 종료.
+`Starting to receive messages` 가 뜨면 대기 상태. 아무 채널에서 `@arxivbot https://arxiv.org/abs/1706.03762` 멘션 → 스레드에 요약이 달리면 정상. 봇과의 DM에 멘션 없이 같은 링크만 보내도 같은 요약이 와야 합니다. Ctrl+C로 종료.
 
 ### 4. 부팅 시 자동 실행 등록 (Task Scheduler)
 
@@ -146,4 +153,5 @@ Stop-ScheduledTask    -TaskName arxivbot-listener
 Disable-ScheduledTask -TaskName arxivbot-listener   # 자동 재시작 멈추기
 Unregister-ScheduledTask -TaskName arxivbot-listener -Confirm:$false  # 등록 해제
 ```
-- 멘션해도 무반응이면 `logs\listener.log`에 `app_mention ignored: channel ... not in listener channels ...` 가 있는지 확인 → 있으면 그 채널 ID가 `settings.py`의 `listener_channel_ids`에 빠져 있는 것(로그의 `channel` 값을 목록에 추가 후 리스너 재시작). 이 줄조차 없으면 봇이 그 채널에 초대되지 않은 것.
+- 멘션해도 무반응이면 `logs\listener.log`를 봅니다. `app_mention ignored: channel ... not in listener channels ...` 가 있으면 `listener_channel_ids`를 채워 좁혀 둔 상태입니다(목록에 추가하거나 목록을 비운 뒤 리스너 재시작). 이 줄조차 없으면 봇이 그 채널에 초대되지 않았거나(`/invite @arxivbot`) 리스너가 죽어 있는 것입니다.
+- DM만 무반응이면 이벤트 구독 `message.im`·스코프 `im:history`·App Home의 Messages Tab 셋 중 하나가 빠진 것입니다(변경 후 **Reinstall** 필요). 로그에 `message.im ignored: subtype=...`이 찍힌다면 편집·봇 메시지라 일부러 거른 것이니 정상입니다.

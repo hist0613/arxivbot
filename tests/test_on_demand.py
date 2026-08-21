@@ -359,7 +359,8 @@ class TestProcessMention(unittest.TestCase):
 
 
 class TestListenerChannelConfig(unittest.TestCase):
-    def test_active_slack_workspace_has_listener_channels(self):
+    def test_active_slack_workspace_channel_setting_is_a_list(self):
+        """비어 있어도 된다(전체 허용). 다만 목록/문자열 형태는 지켜야 한다."""
         import settings
         active = [
             c for c in settings.WORKSPACE_CONFIGS
@@ -367,9 +368,9 @@ class TestListenerChannelConfig(unittest.TestCase):
         ]
         self.assertTrue(active, "활성 slack 워크스페이스가 없음")
         for c in active:
-            self.assertTrue(
-                c.get("listener_channel_ids") or c.get("listener_channel_id"),
-                msg=f"리스너 채널 설정 누락: {c['workspace']}",
+            ids = c.get("listener_channel_ids", c.get("listener_channel_id", []))
+            self.assertIsInstance(
+                ids, (list, tuple, str), msg=f"리스너 채널 설정 형태 이상: {c['workspace']}"
             )
 
 
@@ -390,8 +391,81 @@ class TestResolveListenerChannels(unittest.TestCase):
     def test_string_is_not_split_into_characters(self):
         self.assertEqual(self._resolve({"listener_channel_ids": "C1"}), {"C1"})
 
-    def test_missing_config_allows_nothing(self):
+    def test_missing_config_is_empty(self):
         self.assertEqual(self._resolve({}), set())
+
+
+class TestChannelAllowed(unittest.TestCase):
+    @staticmethod
+    def _allowed(channel, allowed):
+        from api.on_demand import channel_allowed
+        return channel_allowed(channel, allowed)
+
+    def test_empty_allowlist_allows_every_channel(self):
+        self.assertTrue(self._allowed("C_ANY", set()))
+        self.assertTrue(self._allowed("D_DM", set()))
+
+    def test_non_empty_allowlist_restricts(self):
+        self.assertTrue(self._allowed("C1", {"C1", "C2"}))
+        self.assertFalse(self._allowed("C9", {"C1", "C2"}))
+
+
+class TestShouldHandleDm(unittest.TestCase):
+    @staticmethod
+    def _dm(**over):
+        event = {"channel_type": "im", "user": "U1", "text": "안녕", "ts": "1.0"}
+        event.update(over)
+        return event
+
+    def _should(self, event):
+        from api.on_demand import should_handle_dm
+        return should_handle_dm(event)
+
+    def test_plain_user_dm_is_handled(self):
+        self.assertTrue(self._should(self._dm()))
+
+    def test_channel_message_is_not_handled(self):
+        self.assertFalse(self._should(self._dm(channel_type="channel")))
+        self.assertFalse(self._should(self._dm(channel_type="mpim")))
+
+    def test_bot_own_message_is_ignored(self):
+        # 봇이 올린 요약이 되돌아온 것. 안 막으면 봇이 자기 말에 답한다.
+        self.assertFalse(self._should(self._dm(bot_id="B1")))
+
+    def test_message_changed_is_ignored(self):
+        # 진행 표시를 chat_update로 고칠 때마다 오는 이벤트.
+        self.assertFalse(self._should(self._dm(subtype="message_changed")))
+
+    def test_empty_text_is_ignored(self):
+        self.assertFalse(self._should(self._dm(text="   ")))
+
+    def test_missing_user_is_ignored(self):
+        self.assertFalse(self._should(self._dm(user=None)))
+
+    def test_bot_user_id_is_ignored(self):
+        # bot_id가 안 붙는 경로가 있어도 자기 메시지에는 답하지 않는다.
+        from api.on_demand import should_handle_dm
+        self.assertFalse(should_handle_dm(self._dm(user="UBOT"), bot_user_id="UBOT"))
+        self.assertTrue(should_handle_dm(self._dm(user="U1"), bot_user_id="UBOT"))
+
+
+class TestSeenEvents(unittest.TestCase):
+    def test_same_event_is_processed_once(self):
+        from api.on_demand import SeenEvents
+        seen = SeenEvents()
+        # DM 멘션은 app_mention과 message.im으로 두 번 온다.
+        self.assertTrue(seen.add(("D1", "1.0")))
+        self.assertFalse(seen.add(("D1", "1.0")))
+        self.assertTrue(seen.add(("D1", "2.0")))
+
+    def test_capacity_is_bounded(self):
+        from api.on_demand import SeenEvents
+        seen = SeenEvents(capacity=2)
+        for i in range(5):
+            seen.add(("D1", str(i)))
+        self.assertEqual(len(seen._order), 2)
+        # 밀려난 오래된 키는 다시 새 것으로 취급된다(중복 위험보다 누수가 나쁨).
+        self.assertTrue(seen.add(("D1", "0")))
 
 
 class TestSettingsAppToken(unittest.TestCase):

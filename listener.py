@@ -5,6 +5,9 @@
 무엇을 할지만 정한다. 에이전트가 실패하면 예전의 결정론적 요약 경로로
 폴백하기 때문에 매일 쓰는 기능이 모델 사정으로 죽지 않는다.
 
+채널에서는 멘션이 방아쇠고, 봇과의 1:1 DM에서는 멘션 없이 보낸 말에 바로
+답한다. 봇이 초대된 곳이면 어디서든 받는다(설정으로 다시 좁힐 수 있다).
+
 부팅 시 자동 실행(Task Scheduler) + 죽으면 재시작 전제로 상시 동작한다.
 """
 import os
@@ -22,10 +25,14 @@ from api.context import build_context, load_digest, render_context, update_diges
 from api.logger import logger
 from api.on_demand import (
     NO_URL_MSG,
+    SeenEvents,
+    channel_allowed,
     extract_targets,
+    is_direct_message,
     process_url,
     resolve_listener_channels,
     resolve_thread_ts,
+    should_handle_dm,
 )
 from api.reactions import add_posted, load_store, save_store
 from api.resolvers import build_resolver
@@ -115,8 +122,10 @@ def make_app(workspace_config: dict):
     encoder = Encoder(MODEL)
     openai_client = OpenAI(api_key=OPENAI_API_KEY)
     fetch_page = build_page_fetcher(cache.store)
-    # on-demand 멘션을 받을 채널들 (배치 게시 채널 allowed_channel_id와 분리)
+    # on-demand 요청을 받을 채널들. 비어 있으면 제한 없음(초대된 모든 곳).
     listener_channel_ids = resolve_listener_channels(workspace_config)
+    # app_mention과 message.im이 같은 DM 멘션으로 둘 다 오는 걸 한 번만 처리한다.
+    seen_events = SeenEvents()
     app = App(token=workspace_config["slack_token"])
     # 첫 멘션 때 한 번만 auth_test로 채운다. 기동 시점에 부르면 Slack이
     # 잠깐 죽어 있을 때 리스너가 아예 안 뜬다.
@@ -230,19 +239,25 @@ def make_app(workspace_config: dict):
             post(url, prefix=prefix)
         return {"mode": "fallback", "text": ""}
 
-    @app.event("app_mention")
-    def handle_app_mention(event, client):
+    def handle_request(event, client, source):
+        """멘션이든 DM이든 여기서 같은 길을 탄다. source는 로그용 꼬리표."""
         channel = event.get("channel")
-        # 지정 채널 밖 멘션은 무시. 조용히 버리면 디버깅이 불가능하므로 로그를 남긴다.
-        if channel not in listener_channel_ids:
+        # 허용 목록을 채워 뒀다면 그 밖은 무시. 조용히 버리면 디버깅이
+        # 불가능하므로 로그를 남긴다(기본값인 빈 목록이면 전부 통과).
+        if not channel_allowed(channel, listener_channel_ids):
             logger.info(
-                f"app_mention ignored: channel {channel} "
+                f"{source} ignored: channel {channel} "
                 f"not in listener channels {sorted(listener_channel_ids)}"
             )
             return
+        # DM에서 멘션을 쓰면 app_mention과 message.im이 둘 다 온다. 먼저 온
+        # 쪽만 처리하지 않으면 같은 요약이 두 번 올라간다.
+        if not seen_events.add((channel, event.get("ts"))):
+            logger.info(f"{source} ignored: 이미 처리한 이벤트 {channel}/{event.get('ts')}")
+            return
         thread_ts = resolve_thread_ts(event)
         text = event.get("text", "")
-        logger.info(f"app_mention in {channel}: {text!r}")
+        logger.info(f"{source} in {channel}: {text!r}")
 
         if bot_user_id["value"] is None:
             try:
@@ -390,7 +405,7 @@ def make_app(workspace_config: dict):
                 client.chat_update(channel=channel, ts=ts, text=answer)
             logger.info(f"agent 답변 게시({out['mode']}): {answer[:80]!r}")
         except Exception as e:
-            logger.error(f"app_mention handler error: {e}")
+            logger.error(f"{source} handler error: {e}")
             # 진행 표시 답글을 이미 올렸으면 그걸 오류 문구로 바꾼다. 새
             # 메시지를 올리면 "생각하는 중…"이 스레드에 영영 남는다.
             try:
@@ -406,6 +421,28 @@ def make_app(workspace_config: dict):
                     )
             except Exception:
                 pass
+
+    @app.event("app_mention")
+    def handle_app_mention(event, client):
+        handle_request(event, client, source="app_mention")
+
+    @app.event("message")
+    def handle_message(event, client):
+        """봇과의 1:1 DM만 멘션 없이 받는다.
+
+        채널 메시지는 여기로 오더라도(구독 설정에 따라) 멘션이 방아쇠라는
+        규칙을 지키기 위해 흘려보낸다. 봇 자신의 메시지와 편집 이벤트도
+        should_handle_dm에서 걸러지는데, 안 걸러내면 진행 표시를 고칠 때마다
+        되돌아오는 message_changed에 봇이 자기 자신과 대화하게 된다.
+        """
+        if not should_handle_dm(event, bot_user_id=bot_user_id["value"]):
+            if is_direct_message(event):
+                logger.info(
+                    f"message.im ignored: subtype={event.get('subtype')} "
+                    f"bot_id={event.get('bot_id')}"
+                )
+            return
+        handle_request(event, client, source="message.im")
 
     return workspace, app
 

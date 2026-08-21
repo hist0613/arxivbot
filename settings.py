@@ -48,8 +48,10 @@ WORKSPACE_CONFIGS = [
         "workspace": "seungtaek-lab",
         "allowed_channel": "arxivbot",          # 배치 게시 채널 이름
         "allowed_channel_id": "C0B7V0V8U7N",        # 배치 채널 ID (리액션 store/harvest용; 미검증)
-        # on-demand @멘션을 받을 채널들 (#arxivbot-ondemand, #random)
-        "listener_channel_ids": ["C0B79ULKNDV", "C0B7P3CT84W"],
+        # on-demand 요청을 받을 채널 제한. 빈 목록이면 제한 없음 —
+        # 봇이 초대된 모든 채널의 멘션과 1:1 DM에 답한다. 시끄러운 채널이
+        # 생기면 여기에 ID를 채워 화이트리스트로 되돌린다.
+        "listener_channel_ids": [],
         "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
         "app_token": os.getenv("SLACK_APP_TOKEN_SEUNGTAEK_LAB"),  # Socket Mode(xapp-)
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],
