@@ -155,3 +155,4 @@ Unregister-ScheduledTask -TaskName arxivbot-listener -Confirm:$false  # 등록 �
 ```
 - 멘션해도 무반응이면 `logs\listener.log`를 봅니다. `app_mention ignored: channel ... not in listener channels ...` 가 있으면 `listener_channel_ids`를 채워 좁혀 둔 상태입니다(목록에 추가하거나 목록을 비운 뒤 리스너 재시작). 이 줄조차 없으면 봇이 그 채널에 초대되지 않았거나(`/invite @arxivbot`) 리스너가 죽어 있는 것입니다.
 - DM만 무반응이면 이벤트 구독 `message.im`·스코프 `im:history`·App Home의 Messages Tab 셋 중 하나가 빠진 것입니다(변경 후 **Reinstall** 필요). 로그에 `message.im ignored: subtype=...`이 찍힌다면 편집·봇 메시지라 일부러 거른 것이니 정상입니다.
+- DM만 무반응인데 로그에 `Failed to run a request listener: 'thread_ts'` 가 보이면 **slack-bolt가 낡은 것**입니다. 1.21은 `assistant_thread` 이벤트를 파싱하다 KeyError를 내는데, 이게 요청 객체를 만드는 단계라 핸들러가 아예 안 돌고 우리 로그도 안 남습니다(`pip install -U slack-bolt` 후 리스너 재시작).

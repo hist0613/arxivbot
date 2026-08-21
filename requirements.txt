@@ -9,5 +9,5 @@ GitPython
 python-dotenv
 google-generativeai
 llama-index 
-slack-bolt
+slack-bolt>=1.30  # 1.21은 assistant_thread 이벤트 파싱에서 KeyError로 DM이 통째로 막힌다
 pymupdf4llm
