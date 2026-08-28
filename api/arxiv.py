@@ -84,15 +84,14 @@ class ArxivClient:
         # abstract crawling
         logger.info("- Crawling the abstracts of papers ...")
         for paper_url, paper_title, _ in tqdm(paper_set):
-            # remove duplicates
             paper_info = get_paper_info(paper_url, paper_title)
-            if paper_info in self.cache.paper_abstracts:
-                continue
 
-            paper_abstract = self.get_paper_abstract(paper_url)
-            self.cache.update_paper_abstracts(paper_info, paper_abstract)
+            # 초록과 본문은 따로 판정한다. 예전에는 초록이 캐시에 있으면 여기서
+            # 넘어가버려서, 초록만 받힌 논문은 본문을 영영 받지 못했다.
+            if paper_info not in self.cache.paper_abstracts:
+                paper_abstract = self.get_paper_abstract(paper_url)
+                self.cache.update_paper_abstracts(paper_info, paper_abstract)
 
-            # remove duplicates
             if paper_info in self.cache.paper_full_contents:
                 continue
 
