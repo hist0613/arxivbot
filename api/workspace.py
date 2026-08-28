@@ -22,6 +22,14 @@ from settings import (
 
 # Slack 블록 하나에 들어갈 수 있는 텍스트 상한(3000)에서 여유를 둔 값.
 SLACK_BLOCK_TEXT_LIMIT = 2800
+# Slack 메시지 하나에 넣을 수 있는 블록 수(50)에서 여유를 둔 값.
+MAX_BLOCKS = 45
+# rich_text_list가 받는 들여쓰기 깊이 상한.
+MAX_LIST_INDENT = 3
+
+# "- ", "* ", "• ", "1. ", "2) " 로 시작하는 목록 줄. 기호 뒤 공백을 요구해서
+# `*굵은 제목*` 한 줄이 목록으로 오인되지 않게 한다.
+_LIST_LINE_RE = re.compile(r"^([ \t]*)([-*\u2022]|\d+[.)])\s+(.*)$")
 
 # web_search를 쓴 답변에는 `[huggingface.co](https://...)` 같은 마크다운 링크가
 # 섞여 나온다. Slack은 이 문법을 모르고 대괄호를 그대로 보여준다.
@@ -45,26 +53,48 @@ def markdown_links_to_slack(text: str) -> str:
     return _MD_LINK_RE.sub(repl, text)
 
 
+# rich_text 안에서는 mrkdwn이 하나도 안 통해서 `*굵게*`가 별표째 보인다.
+# 굵은 글씨·코드는 style 플래그로 넣어야 하므로 링크와 같이 훑는다. 별표
+# 짝은 한 줄 안에서만 찾는다(곱셈 기호가 여러 줄에 걸쳐 엮이는 걸 막는다).
+_INLINE_RE = re.compile(
+    _SLACK_LINK_RE.pattern
+    + r"|(?P<bare>https?://[^\s<>|]+)"
+    + r"|\*\*(?P<strong>[^*\n]+)\*\*"
+    + r"|\*(?P<bold>[^*\n]+)\*"
+    + r"|`(?P<code>[^`\n]+)`"
+)
+
+
 def rich_text_elements(text: str) -> list:
     """한 줄을 rich_text_section의 요소 목록으로 쪼갠다.
 
-    rich_text 블록 안에서는 `<url|글자>` mrkdwn이 통하지 않는다. 링크는
-    {"type": "link"} 요소로 넣어야 눌린다. 그래서 마크다운 링크와 맨 URL을
-    찾아 텍스트/링크 요소를 번갈아 만든다.
+    rich_text 블록 안에서는 mrkdwn이 통하지 않는다. 링크는 {"type": "link"}
+    요소로 넣어야 눌리고, 굵은 글씨와 코드는 style 플래그로 넣어야 한다.
+    그냥 넘기면 `<url|글자>`도 `*굵게*`도 문자 그대로 보인다.
     """
     normalized = markdown_links_to_slack(text)
     elements, cursor = [], 0
-    pattern = re.compile(f"{_SLACK_LINK_RE.pattern}|{_BARE_URL_RE.pattern}")
-    for m in pattern.finditer(normalized):
+    for m in _INLINE_RE.finditer(normalized):
         if m.start() > cursor:
             elements.append({"type": "text", "text": normalized[cursor:m.start()]})
-        url = _clean_url(m.group(1) or m.group(0))
-        label = m.group(2)
-        link = {"type": "link", "url": url}
-        if label:
-            link["text"] = label
-        elements.append(link)
         cursor = m.end()
+        if m.group(1) or m.group("bare"):
+            link = {"type": "link", "url": _clean_url(m.group(1) or m.group("bare"))}
+            if m.group(2):
+                link["text"] = m.group(2)
+            elements.append(link)
+        elif m.group("strong") or m.group("bold"):
+            elements.append(
+                {
+                    "type": "text",
+                    "text": m.group("strong") or m.group("bold"),
+                    "style": {"bold": True},
+                }
+            )
+        else:
+            elements.append(
+                {"type": "text", "text": m.group("code"), "style": {"code": True}}
+            )
     if cursor < len(normalized):
         elements.append({"type": "text", "text": normalized[cursor:]})
     return elements or [{"type": "text", "text": normalized}]
@@ -221,64 +251,98 @@ class Workspace:
         return blocks
 
     def prepare_text_blocks(self, text: str):
-        """에이전트의 자유 답변("한 줄 요지 + '- ' 항목")을 글머리 기호 목록으로.
+        """에이전트의 자유 답변을 Slack 블록으로 옮긴다.
 
-        prepare_slack_blocks는 4섹션 요약 전용이라 여기서는 평문을 다룬다.
-        목록이 없거나 너무 길면 None을 반환하고 호출부는 text로 폴백한다.
+        Slack의 text 필드(mrkdwn)에는 목록 문법이 아예 없어서 "- "가 하이픈
+        문자 그대로 남는다. 진짜 글머리 기호는 rich_text_list 블록뿐이다.
+
+        산문과 목록이 몇 번을 번갈아 나오든 **나온 순서대로** 블록을 쌓는다.
+        예전에는 "요지 한 줄 + 항목들" 한 가지 모양만 받고 목록 뒤에 산문이
+        한 줄이라도 붙으면 통째로 포기했는데, 에이전트 답변이 대개 그 모양이라
+        사실상 늘 하이픈이 보였다.
+
+        블록을 못 만들거나 길이 제한에 걸리면 None을 반환하고 호출부는 text로
+        폴백한다(목록이 아예 안 붙는 것보다 하이픈이 낫다).
         """
         if self.service_type != "slack" or not text.strip():
             return None
 
-        # 기대하는 모양은 "한 줄 요지 + '- ' 항목들" 하나뿐이다. 산문과
-        # 목록이 여러 번 번갈아 나오면 순서를 지켜 블록으로 옮기기 어려우니
-        # 통째로 포기하고 평문으로 보낸다(하이픈이 보이는 편이 낫다).
-        lead, items = [], []
-        for line in text.splitlines():
-            stripped = line.strip()
-            if stripped.startswith(("- ", "* ", "• ")):
-                items.append(stripped[2:].strip())
-            elif stripped:
-                if items:
-                    return None
-                lead.append(stripped)
-        if not items:
-            return None
-        if any(len(i) > SLACK_BLOCK_TEXT_LIMIT for i in items):
-            return None
+        blocks, prose, runs = [], [], []
+        too_long = []
 
-        blocks = []
-        lead_text = "\n".join(lead).strip()
-        if lead_text:
-            if len(lead_text) > SLACK_BLOCK_TEXT_LIMIT:
-                return None
+        def flush_prose():
+            joined = "\n".join(prose).strip()
+            del prose[:]
+            if not joined:
+                return
+            if len(joined) > SLACK_BLOCK_TEXT_LIMIT:
+                too_long.append(True)
+                return
             blocks.append(
                 {
                     "type": "section",
-                    "text": {
-                        "type": "mrkdwn",
-                        "text": markdown_links_to_slack(lead_text),
-                    },
+                    "text": {"type": "mrkdwn", "text": markdown_links_to_slack(joined)},
                 }
             )
-        blocks.append(
-            {
-                "type": "rich_text",
-                "elements": [
+
+        def flush_runs():
+            """연달아 나온 목록 줄들을 rich_text 블록 하나로 묶는다.
+
+            들여쓰기나 기호가 바뀌면 run이 갈리고, 같은 블록 안의 다음
+            rich_text_list가 된다(그래야 Slack이 중첩으로 그린다).
+            """
+            if not runs:
+                return
+            elements = []
+            for run in runs:
+                if any(len(i) > SLACK_BLOCK_TEXT_LIMIT for i in run["items"]):
+                    too_long.append(True)
+                elements.append(
                     {
                         "type": "rich_text_list",
-                        "style": "bullet",
-                        "indent": 0,
+                        "style": run["style"],
+                        "indent": run["indent"],
                         "elements": [
                             {
                                 "type": "rich_text_section",
                                 "elements": rich_text_elements(item),
                             }
-                            for item in items
+                            for item in run["items"]
                         ],
                     }
-                ],
-            }
-        )
+                )
+            del runs[:]
+            blocks.append({"type": "rich_text", "elements": elements})
+
+        for line in text.splitlines():
+            m = _LIST_LINE_RE.match(line)
+            if m:
+                flush_prose()
+                indent = min(len(m.group(1).expandtabs(4)) // 2, MAX_LIST_INDENT)
+                style = "ordered" if m.group(2)[0].isdigit() else "bullet"
+                item = m.group(3).strip()
+                if runs and runs[-1]["style"] == style and runs[-1]["indent"] == indent:
+                    runs[-1]["items"].append(item)
+                else:
+                    runs.append({"style": style, "indent": indent, "items": [item]})
+                continue
+            if not line.strip():
+                # 빈 줄은 목록을 끊지 않는다. 모델이 항목 사이를 띄우기도 한다.
+                if prose:
+                    prose.append("")
+                continue
+            flush_runs()
+            prose.append(line.strip())
+        # 목록으로 끝났으면 prose가 비어 있고, 산문으로 끝났으면 runs가 비어 있다.
+        flush_prose()
+        flush_runs()
+
+        if too_long or len(blocks) > MAX_BLOCKS:
+            return None
+        # 목록이 하나도 없으면 블록으로 보낼 이유가 없다. 평문 mrkdwn이
+        # 오히려 굵은 글씨·인용을 그대로 살린다.
+        if not any(b["type"] == "rich_text" for b in blocks):
+            return None
         return blocks
 
     def _format_bold(self, text: str):

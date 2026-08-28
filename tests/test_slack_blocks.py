@@ -104,8 +104,46 @@ class TestPrepareTextBlocks(unittest.TestCase):
     def test_none_without_bullets(self):
         self.assertIsNone(_workspace().prepare_text_blocks("그냥 한 문단 설명"))
 
-    def test_none_when_prose_follows_bullets(self):
-        self.assertIsNone(_workspace().prepare_text_blocks("- 가\n뒤에 산문이 붙는다"))
+    def test_prose_after_bullets_keeps_the_order(self):
+        """예전에는 목록 뒤 산문 한 줄에 통째로 포기해 하이픈이 그대로 보였다."""
+        blocks = _workspace().prepare_text_blocks(
+            "들어가는 말\n- 가\n- 나\n뒤에 산문이 붙는다\n- 다"
+        )
+        self.assertEqual(
+            [b["type"] for b in blocks],
+            ["section", "rich_text", "section", "rich_text"],
+        )
+        self.assertEqual(blocks[2]["text"]["text"], "뒤에 산문이 붙는다")
+        self.assertEqual(len(blocks[1]["elements"][0]["elements"]), 2)
+
+    def test_blank_line_does_not_break_a_list(self):
+        blocks = _workspace().prepare_text_blocks("- 가\n\n- 나")
+        self.assertEqual(len(blocks), 1)
+        self.assertEqual(len(blocks[0]["elements"][0]["elements"]), 2)
+
+    def test_numbered_list_becomes_ordered(self):
+        blocks = _workspace().prepare_text_blocks("1. 첫째\n2) 둘째")
+        self.assertEqual(blocks[0]["elements"][0]["style"], "ordered")
+        self.assertEqual(len(blocks[0]["elements"][0]["elements"]), 2)
+
+    def test_indented_items_become_a_nested_list(self):
+        blocks = _workspace().prepare_text_blocks("- 가\n  - 가1\n- 나")
+        lists = blocks[0]["elements"]
+        self.assertEqual([l["indent"] for l in lists], [0, 1, 0])
+
+    def test_bold_marker_is_a_style_not_a_literal_asterisk(self):
+        """rich_text 안에서는 mrkdwn이 안 통해 `*굵게*`가 별표째 보인다."""
+        blocks = _workspace().prepare_text_blocks("- *제목*: 내용")
+        elements = blocks[0]["elements"][0]["elements"][0]["elements"]
+        self.assertEqual(elements[0], {
+            "type": "text", "text": "제목", "style": {"bold": True}
+        })
+        self.assertEqual(elements[1]["text"], ": 내용")
+
+    def test_bold_title_line_is_not_mistaken_for_a_list(self):
+        blocks = _workspace().prepare_text_blocks("*Audio LLM 정리*\n- 가")
+        self.assertEqual(blocks[0]["type"], "section")
+        self.assertEqual(blocks[0]["text"]["text"], "*Audio LLM 정리*")
 
     def test_none_for_discord(self):
         self.assertIsNone(_workspace("discord").prepare_text_blocks("- 가\n- 나"))
