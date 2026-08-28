@@ -8,18 +8,35 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class FakeClient:
-    def __init__(self, update_fails_on_blocks=False):
-        self.posted, self.updated = [], []
-        self.update_fails_on_blocks = update_fails_on_blocks
+    def __init__(
+        self,
+        fails_on_blocks=False,
+        post_fails=False,
+        delete_fails=False,
+    ):
+        self.posted, self.updated, self.deleted = [], [], []
+        self.fails_on_blocks = fails_on_blocks
+        self.post_fails = post_fails
+        self.delete_fails = delete_fails
 
     def chat_postMessage(self, **kw):
+        if self.post_fails:
+            raise RuntimeError("channel_not_found")
+        if self.fails_on_blocks and "blocks" in kw:
+            raise RuntimeError("invalid_blocks")
         self.posted.append(kw)
         return {"ts": f"ts{len(self.posted)}"}
 
     def chat_update(self, **kw):
-        if self.update_fails_on_blocks and "blocks" in kw:
+        if self.fails_on_blocks and "blocks" in kw:
             raise RuntimeError("invalid_blocks")
         self.updated.append(kw)
+        return {"ok": True}
+
+    def chat_delete(self, **kw):
+        if self.delete_fails:
+            raise RuntimeError("cant_delete_message")
+        self.deleted.append(kw["ts"])
         return {"ok": True}
 
 
@@ -49,9 +66,71 @@ class TestPostPaperSummary(unittest.TestCase):
         )
         self.assertTrue(result["ok"])
         self.assertEqual(result["title"], "제목 (https://arxiv.org/abs/1)")
-        self.assertEqual(len(client.posted), 1)  # 답글 1개를 만들고
-        self.assertIn("blocks", client.updated[-1])  # 그걸 결과로 편집한다
-        self.assertEqual(registered[0]["ts"], "ts1")  # 리액션 store 등록까지
+        # 진행 표시 답글을 만들고(ts1), 완성된 요약은 새 답글로 올린다(ts2).
+        self.assertEqual(len(client.posted), 2)
+        self.assertIn("blocks", client.posted[-1])
+        self.assertEqual(client.deleted, ["ts1"])  # 진행 표시는 지운다
+        # 리액션 store에는 살아남은 메시지의 ts가 들어가야 harvest가 된다.
+        self.assertEqual(registered[0]["ts"], "ts2")
+
+    def test_final_summary_is_a_new_message_for_the_notification(self):
+        """chat.update는 알림을 안 울린다. 완료를 알리려면 새로 올려야 한다."""
+        from api import tools
+
+        client = FakeClient()
+        tools.post_paper_summary(
+            client,
+            channel="C1",
+            thread_ts="1.1",
+            url="https://arxiv.org/abs/1",
+            prefix="",
+            process=lambda url, on_progress: SUMMARY_RESULT,
+            on_posted=lambda **kw: None,
+        )
+        # 요약 본문이 편집으로만 들어가면 조용히 완성돼 사용자가 모른다.
+        self.assertFalse(
+            any("Prior Approaches" in u["text"] for u in client.updated)
+        )
+        self.assertIn("Prior Approaches", client.posted[-1]["text"])
+        self.assertEqual(client.posted[-1]["thread_ts"], "1.1")
+
+    def test_post_failure_falls_back_to_editing_in_place(self):
+        """새 답글을 못 올리면 알림은 포기하고 답이라도 남긴다."""
+        from api import tools
+
+        client = FakeClient(post_fails=True)
+        registered = []
+        result = tools.post_paper_summary(
+            client,
+            channel="C1",
+            thread_ts="1.1",
+            url="https://arxiv.org/abs/1",
+            prefix="",
+            process=lambda url, on_progress: SUMMARY_RESULT,
+            on_posted=lambda **kw: registered.append(kw),
+            existing_ts="ts-생각중",
+        )
+        self.assertTrue(result["ok"])
+        self.assertIn("Prior Approaches", client.updated[-1]["text"])
+        self.assertEqual(client.deleted, [])
+        self.assertEqual(registered[0]["ts"], "ts-생각중")
+
+    def test_delete_failure_leaves_a_pointer_not_the_progress_text(self):
+        """삭제가 막혀도 요약은 이미 올라갔다. 진행 표시 문구만 정리한다."""
+        from api import tools
+
+        client = FakeClient(delete_fails=True)
+        result = tools.post_paper_summary(
+            client,
+            channel="C1",
+            thread_ts="1.1",
+            url="https://arxiv.org/abs/1",
+            prefix="",
+            process=lambda url, on_progress: SUMMARY_RESULT,
+            on_posted=lambda **kw: None,
+        )
+        self.assertTrue(result["ok"])
+        self.assertEqual(client.updated[-1]["text"], tools.PROGRESS_LEFTOVER_NOTE)
 
     def test_progress_edits_the_same_message(self):
         from api import tools
@@ -73,9 +152,10 @@ class TestPostPaperSummary(unittest.TestCase):
             process=process,
             on_posted=lambda **kw: None,
         )
-        self.assertEqual(len(client.posted), 1)
+        # 단계 표시는 같은 답글을 편집한다(알림 폭탄 방지).
         self.assertTrue(all(u["ts"] == "ts1" for u in client.updated))
         self.assertTrue(client.updated[0]["text"].startswith("(1/2) "))
+        self.assertEqual(len(client.posted), 2)  # 진행 표시 + 완성된 요약
 
     def test_existing_message_is_reused(self):
         """리스너가 올려둔 "생각하는 중…"을 이어서 쓴다. 새로 올리면 진행
@@ -94,13 +174,17 @@ class TestPostPaperSummary(unittest.TestCase):
             existing_ts="ts-생각중",
         )
         self.assertTrue(result["ok"])
-        self.assertEqual(client.posted, [])  # 새 답글을 만들지 않고
+        # 진행 표시를 새로 만들지 않고 "생각하는 중…"을 이어서 편집한다.
         self.assertTrue(all(u["ts"] == "ts-생각중" for u in client.updated))
+        self.assertNotIn("Prior Approaches", client.updated[-1]["text"])
+        # 완성된 요약은 새 답글이고, 물려받은 진행 표시는 지운다.
+        self.assertEqual(len(client.posted), 1)
+        self.assertEqual(client.deleted, ["ts-생각중"])
 
     def test_blocks_rejection_falls_back_to_text(self):
         from api import tools
 
-        client = FakeClient(update_fails_on_blocks=True)
+        client = FakeClient(fails_on_blocks=True)
         result = tools.post_paper_summary(
             client,
             channel="C1",
@@ -111,8 +195,8 @@ class TestPostPaperSummary(unittest.TestCase):
             on_posted=lambda **kw: None,
         )
         self.assertTrue(result["ok"])
-        self.assertNotIn("blocks", client.updated[-1])
-        self.assertIn("Prior Approaches", client.updated[-1]["text"])
+        self.assertNotIn("blocks", client.posted[-1])
+        self.assertIn("Prior Approaches", client.posted[-1]["text"])
 
     def test_failure_is_reported_in_place(self):
         from api import tools
@@ -131,8 +215,10 @@ class TestPostPaperSummary(unittest.TestCase):
             },
             on_posted=lambda **kw: None,
         )
+        # 실패 안내는 진행 표시를 그대로 편집한다. 알림까지 울릴 일은 아니다.
         self.assertFalse(result["ok"])
         self.assertEqual(len(client.posted), 1)
+        self.assertEqual(client.deleted, [])
         self.assertIn("가져오지 못했어요", client.updated[-1]["text"])
 
     def test_bookkeeping_failure_still_reports_success(self):

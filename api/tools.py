@@ -108,6 +108,76 @@ def match_allowed_url(url: str, allowed: list):
     return None
 
 
+PROGRESS_LEFTOVER_NOTE = "완성된 답변을 아래에 새로 올렸습니다."
+
+
+def post_message(client, *, channel, thread_ts, text, blocks=None):
+    """스레드에 답글을 올린다. 블록이 거절당하면 평문으로 재시도한다."""
+    try:
+        return client.chat_postMessage(
+            channel=channel,
+            thread_ts=thread_ts,
+            text=text,
+            **({"blocks": blocks} if blocks else {}),
+        )
+    except Exception as e:
+        if not blocks:
+            raise
+        logger.error(f"chat_postMessage with blocks failed ({e}); text로 폴백")
+        return client.chat_postMessage(channel=channel, thread_ts=thread_ts, text=text)
+
+
+def _update_message(client, *, channel, ts, text, blocks=None):
+    """이미 올린 답글을 고친다. 블록이 거절당하면 평문으로 재시도한다."""
+    try:
+        client.chat_update(
+            channel=channel,
+            ts=ts,
+            text=text,
+            **({"blocks": blocks} if blocks else {}),
+        )
+    except Exception as e:
+        if not blocks:
+            raise
+        logger.error(f"chat_update with blocks failed ({e}); text로 폴백")
+        client.chat_update(channel=channel, ts=ts, text=text)
+
+
+def repost_as_new_message(client, *, channel, thread_ts, ts, text, blocks=None):
+    """진행 표시를 지우고 완성된 답을 새 답글로 올린다.
+
+    chat.update는 Slack 알림을 울리지 않는다. 진행 표시를 편집해 답을 채우면
+    스레드가 조용히 완성돼 사용자가 끝난 줄을 모른다. 단계 표시는 편집으로
+    두되(알림 폭탄 방지) 완료 순간에만 새 메시지를 올려 알림을 얻는다.
+
+    순서가 중요하다 — **새로 올리고 나서 옛 것을 지운다**. 반대로 하면 게시가
+    실패했을 때 답이 통째로 사라진다.
+
+    반환: 최종 메시지의 ts. 리액션 store에는 반드시 이 ts를 기록해야 한다.
+    지워진 진행 표시의 ts를 남기면 harvest가 영영 빈손이 된다.
+    """
+    try:
+        posted = post_message(
+            client, channel=channel, thread_ts=thread_ts, text=text, blocks=blocks
+        )
+    except Exception as e:
+        # 새 답글을 못 올리면 알림은 포기하고 답이라도 남긴다.
+        logger.error(f"새 답글 게시 실패({e}); 진행 표시 편집으로 폴백")
+        _update_message(client, channel=channel, ts=ts, text=text, blocks=blocks)
+        return ts
+    try:
+        client.chat_delete(channel=channel, ts=ts)
+    except Exception as e:
+        # 삭제가 정책으로 막힐 수 있다. 답은 이미 올라갔으니 진행 표시 문구만
+        # 정리하고 넘어간다.
+        logger.error(f"진행 표시 삭제 실패({e}); 문구만 정리한다")
+        try:
+            client.chat_update(channel=channel, ts=ts, text=PROGRESS_LEFTOVER_NOTE)
+        except Exception:
+            pass
+    return posted["ts"]
+
+
 def post_paper_summary(
     client, *, channel, thread_ts, url, prefix, process, on_posted, existing_ts=None
 ):
@@ -148,39 +218,44 @@ def post_paper_summary(
         )
         return {"ok": False, "title": "", "url": url, "error": str(e)}
 
-    text = result["message"] if result["ok"] else f"{result['message']}\n({url})"
     blocks = result.get("blocks")
-    # 블록이 거절당하면 요약이 통째로 날아가므로 text로 재시도한다.
-    try:
-        client.chat_update(
+    if not result["ok"]:
+        # 실패 안내는 진행 표시를 그대로 편집한다. 알림까지 울릴 일은 아니다.
+        _update_message(
+            client,
             channel=channel,
             ts=ts,
-            text=text,
-            **({"blocks": blocks} if blocks else {}),
+            text=f"{result['message']}\n({url})",
+            blocks=blocks,
+        )
+        return {"ok": False, "title": "", "url": url, "error": result["message"]}
+
+    # 완성된 요약은 진행 표시를 지우고 새 답글로 올린다(알림).
+    final_ts = repost_as_new_message(
+        client,
+        channel=channel,
+        thread_ts=thread_ts,
+        ts=ts,
+        text=result["message"],
+        blocks=blocks,
+    )
+    # 요약은 이미 스레드에 떠 있다. 여기서 예외가 새어 나가면 모델이
+    # 게시 실패로 알고 도구를 다시 불러 같은 요약이 두 번 올라간다.
+    try:
+        on_posted(
+            ts=final_ts,
+            paper_info=result["paper_info"],
+            paper_url=result["paper_url"],
         )
     except Exception as e:
-        if not blocks:
-            raise
-        logger.error(f"chat_update with blocks failed ({e}); text로 폴백")
-        client.chat_update(channel=channel, ts=ts, text=text)
-
-    if result["ok"]:
-        # 요약은 이미 스레드에 떠 있다. 여기서 예외가 새어 나가면 모델이
-        # 게시 실패로 알고 도구를 다시 불러 같은 요약이 두 번 올라간다.
-        try:
-            on_posted(
-                ts=ts, paper_info=result["paper_info"], paper_url=result["paper_url"]
-            )
-        except Exception as e:
-            logger.error(f"리액션 store 등록 실패(요약은 게시됨): {e}")
-        logger.info(f"on-demand summary posted: {result['paper_info']}")
-        return {
-            "ok": True,
-            "title": result["paper_info"],
-            "url": result["paper_url"],
-            "error": "",
-        }
-    return {"ok": False, "title": "", "url": url, "error": result["message"]}
+        logger.error(f"리액션 store 등록 실패(요약은 게시됨): {e}")
+    logger.info(f"on-demand summary posted: {result['paper_info']}")
+    return {
+        "ok": True,
+        "title": result["paper_info"],
+        "url": result["paper_url"],
+        "error": "",
+    }
 
 
 def check_fetchable(url: str):

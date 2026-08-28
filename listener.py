@@ -42,7 +42,9 @@ from api.tools import (
     build_tools,
     collect_allowed_urls,
     match_allowed_url,
+    post_message,
     post_paper_summary,
+    repost_as_new_message,
 )
 from api.workspace import Workspace, markdown_links_to_slack
 from prompts import SYSTEM_PROMPT_AGENT, THREAD_DIGEST_PROMPT
@@ -265,7 +267,11 @@ def make_app(workspace_config: dict):
             except Exception as e:
                 logger.error(f"auth_test 실패: {e}")
 
-        ts = None  # 진행 표시 답글. except 절에서도 봐야 한다
+        # 진행 표시 답글의 상태. except 절에서도 봐야 해서 try 밖에 둔다.
+        #   free  = 아직 아무 요약도 이 답글을 물려받지 않았다
+        #   alive = 이 ts가 Slack에 그대로 남아 있다(요약이 물려받아 새 메시지로
+        #           다시 올라갔으면 이미 지워졌으므로 건드리면 안 된다)
+        progress = {"ts": None, "free": True, "alive": False}
         try:
             messages = read_replies(client, channel, thread_ts, event.get("ts"))
             context = build_context(
@@ -286,20 +292,21 @@ def make_app(workspace_config: dict):
             placeholder = client.chat_postMessage(
                 channel=channel, text=THINKING, thread_ts=thread_ts
             )
-            ts = placeholder["ts"]
+            progress.update(ts=placeholder["ts"], alive=True)
             last = {"text": THINKING}
 
             # 이번 멘션에서 실제로 스레드에 올라간 요약. 폴백 중복 방지와
             # "정말 아무것도 못 올렸는지" 판정에 쓴다.
             posted_urls = []
-            # 첫 요약은 이 진행 표시 답글을 이어서 쓴다. 링크가 하나뿐인 흔한
-            # 경우에 메시지가 둘로 늘었다 하나가 사라지는 걸 없앤다.
-            placeholder_free = {"value": True}
 
             def post_and_track(url, prefix=""):
-                reuse = ts if placeholder_free["value"] else None
+                # 첫 요약은 이 진행 표시 답글을 이어받아 단계를 보여준다. 링크가
+                # 하나뿐인 흔한 경우에 진행 표시가 둘로 늘어나지 않는다. 완성된
+                # 요약은 새 답글로 올라가고 이 답글은 지워지므로(알림) 넘겨준
+                # 순간부터 여기서는 죽은 것으로 친다.
+                reuse = progress["ts"] if progress["free"] else None
                 if reuse:
-                    placeholder_free["value"] = False
+                    progress.update(free=False, alive=False)
                 result = summarize_and_post(
                     client, channel, thread_ts, url, prefix=prefix, existing_ts=reuse
                 )
@@ -309,9 +316,12 @@ def make_app(workspace_config: dict):
 
             def on_step(tool_name):
                 stage = stage_for_tool(tool_name)
-                if stage and stage != last["text"]:
+                # 요약이 물려받은 답글은 이미 다른 내용이거나 지워졌다.
+                if stage and progress["alive"] and stage != last["text"]:
                     last["text"] = stage
-                    client.chat_update(channel=channel, ts=ts, text=stage)
+                    client.chat_update(
+                        channel=channel, ts=progress["ts"], text=stage
+                    )
 
             def read_thread(before_ts, limit=10):
                 # 이미 받아둔 messages에서 꺼낸다. 접힌 건 예산 때문이지
@@ -374,44 +384,56 @@ def make_app(workspace_config: dict):
 
             answer = out["text"]
             if not answer:
-                # 첫 요약이 이 답글을 이어서 썼다면 지금 요약이 들어 있다.
-                # 그대로 두고 끝낸다.
-                if not placeholder_free["value"]:
+                # 요약이 이 답글을 물려받아 이미 답으로 올라갔으면 끝이다.
+                if not progress["alive"]:
                     return
                 # 아니면 "생각하는 중…"만 남은 것이라 치운다. 봇이 올린
                 # 메시지라 chat:write로 지워지지만 정책으로 막힐 수 있어
                 # 편집으로 폴백한다.
                 try:
-                    client.chat_delete(channel=channel, ts=ts)
+                    client.chat_delete(channel=channel, ts=progress["ts"])
                 except Exception:
                     client.chat_update(
-                        channel=channel, ts=ts, text="요약을 위에 올렸습니다."
+                        channel=channel,
+                        ts=progress["ts"],
+                        text="요약을 위에 올렸습니다.",
                     )
+                progress["alive"] = False
                 return
             blocks = workspace.prepare_text_blocks(answer)
             # 블록을 못 만들어 평문으로 갈 때도 링크는 Slack 문법이어야 한다.
             answer = markdown_links_to_slack(answer)
-            try:
-                client.chat_update(
+            # 완성된 답은 새 메시지로 올린다. 편집만 하면 Slack 알림이 안 울려
+            # 사용자가 끝난 걸 모른다.
+            if progress["alive"]:
+                repost_as_new_message(
+                    client,
                     channel=channel,
-                    ts=ts,
+                    thread_ts=thread_ts,
+                    ts=progress["ts"],
                     text=answer,
-                    **({"blocks": blocks} if blocks else {}),
+                    blocks=blocks,
                 )
-            except Exception as e:
-                if not blocks:
-                    raise
-                logger.error(f"chat_update with blocks failed ({e}); text로 폴백")
-                client.chat_update(channel=channel, ts=ts, text=answer)
+                progress["alive"] = False
+            else:
+                post_message(
+                    client,
+                    channel=channel,
+                    thread_ts=thread_ts,
+                    text=answer,
+                    blocks=blocks,
+                )
             logger.info(f"agent 답변 게시({out['mode']}): {answer[:80]!r}")
         except Exception as e:
             logger.error(f"{source} handler error: {e}")
             # 진행 표시 답글을 이미 올렸으면 그걸 오류 문구로 바꾼다. 새
             # 메시지를 올리면 "생각하는 중…"이 스레드에 영영 남는다.
             try:
-                if ts:
+                if progress["alive"]:
                     client.chat_update(
-                        channel=channel, ts=ts, text=f"처리 중 오류가 났어요: {e}"
+                        channel=channel,
+                        ts=progress["ts"],
+                        text=f"처리 중 오류가 났어요: {e}",
                     )
                 else:
                     client.chat_postMessage(
