@@ -54,6 +54,9 @@ WORKSPACE_CONFIGS = [
         "listener_channel_ids": [],
         "slack_token": os.getenv("SLACK_TOKEN_SEUNGTAEK_LAB"),
         "app_token": os.getenv("SLACK_APP_TOKEN_SEUNGTAEK_LAB"),  # Socket Mode(xapp-)
+        # /gpu 명령이 리포트를 받아 올 서버(~/.ssh/config Host 이름, 이 순서로 붙인다).
+        # 비우면 /gpu 를 등록하지 않는다.
+        "gpu_status_hosts": ["gpu-status-hufs5090", "gpu-status-hufs4090"],
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],
     },
     # {

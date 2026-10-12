@@ -11,6 +11,7 @@
 부팅 시 자동 실행(Task Scheduler) + 죽으면 재시작 전제로 상시 동작한다.
 """
 import os
+import time
 from datetime import datetime, timezone
 
 from openai import OpenAI
@@ -22,6 +23,7 @@ from api.agent_loop import run_agent
 from api.arxiv import ArxivClient
 from api.cache import CacheManager
 from api.context import build_context, load_digest, render_context, update_digest
+from api.gpu_status import gather_reports
 from api.logger import logger
 from api.on_demand import (
     NO_URL_MSG,
@@ -443,6 +445,26 @@ def make_app(workspace_config: dict):
                     )
             except Exception:
                 pass
+
+    gpu_status_hosts = workspace_config.get("gpu_status_hosts")
+    if gpu_status_hosts:
+
+        @app.command("/gpu")
+        def handle_gpu_command(ack, respond, command):
+            # Slack은 3초 안에 ack가 와야 명령을 받은 걸로 친다. ssh는 그보다 오래
+            # 걸릴 수 있어 먼저 ack하고 결과는 response_url로 보낸다.
+            ack()
+            logger.info(f"/gpu from {command.get('user_id')} in {command.get('channel_id')}")
+            started = time.monotonic()
+            text = gather_reports(gpu_status_hosts)
+            # respond는 Slack이 거절해도 예외 없이 응답 객체만 돌려준다. 남기지 않으면
+            # 채널에 아무것도 안 떴을 때 로그만으로는 원인을 알 수 없다.
+            response = respond(response_type="in_channel", text=text)
+            logger.info(
+                f"/gpu answered in {time.monotonic() - started:.1f}s "
+                f"(server warnings: {text.count('⚠️')}) -> "
+                f"{response.status_code} {response.body!r}"
+            )
 
     @app.event("app_mention")
     def handle_app_mention(event, client):
