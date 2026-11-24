@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from api.cache import CacheManager  # noqa: E402
-from api.gpu_batch import GpuBatch, to_cached_summary  # noqa: E402
+from api.gpu_batch import GpuBatch, text_to_sections, to_cached_summary  # noqa: E402
 from api.store import Store  # noqa: E402
 from prompts import is_current_summary_schema  # noqa: E402
 
@@ -65,8 +65,10 @@ class TestGpuBatch(unittest.TestCase):
         self.store.close()
         shutil.rmtree(self.tmp)
 
-    def _finish(self, batch_id, records, status="done", fig_for=None):
+    def _finish(self, batch_id, records, status="done", fig_for=None, papers=None):
         b = self.remote.root / "batches" / batch_id
+        if papers is not None:
+            (b / "papers.jsonl").write_text("".join(json.dumps(p, ensure_ascii=False) + "\n" for p in papers), encoding="utf-8")
         (b / "results.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8")
         if fig_for:
             (b / "figs").mkdir(exist_ok=True)
@@ -96,6 +98,28 @@ class TestGpuBatch(unittest.TestCase):
         self.assertEqual((fig["label"], fig["description"]), ("Figure 1", "구조도"))
         self.assertTrue(os.path.exists(fig["path"]))
         self.assertEqual(self.gpu.pending_infos(), set())
+
+    def test_collect_stores_full_text_as_sections(self):
+        batch_id = self.gpu.submit([(URL, "Paper One", INFO)])
+        text = "Abstract 초록\n\n## 1 Introduction\n서론 문단\n[Figure 1 | id=S1.F1] 캡션\n\n## 2 Method\n방법"
+        self._finish(batch_id, [{"arxiv_id": "2611.00001", "paper_info": INFO, "model": "m", "summary": SUMMARY}],
+                     papers=[{"arxiv_id": "2611.00001", "paper_info": INFO, "text": text, "figures": []}])
+        self.gpu.collect()
+        full = self.cache.paper_full_contents[INFO]
+        self.assertEqual([s["title"] for s in full.values()], ["Front matter", "1 Introduction", "2 Method"])
+        self.assertIn("[Figure 1 | id=S1.F1] 캡션", full["S1"]["content"])
+        # 사본은 남기지 않는다
+        self.assertFalse((self.gpu.state_dir / batch_id / "papers.jsonl").exists())
+
+    def test_missing_papers_file_does_not_block_summaries(self):
+        batch_id = self.gpu.submit([(URL, "Paper One", INFO)])
+        self._finish(batch_id, [{"arxiv_id": "2611.00001", "paper_info": INFO, "model": "m", "summary": SUMMARY}])
+        self.assertEqual(self.gpu.collect(), 1)
+        self.assertNotIn(INFO, self.cache.paper_full_contents)
+
+    def test_text_to_sections_skips_empty(self):
+        self.assertEqual(text_to_sections(""), {})
+        self.assertEqual(list(text_to_sections("## A\n\n## B\n내용").values()), [{"title": "B", "content": "내용"}])
 
     def test_running_batch_stays_pending(self):
         batch_id = self.gpu.submit([(URL, "Paper One", INFO)])
