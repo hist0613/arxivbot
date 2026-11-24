@@ -9,12 +9,27 @@ from api.agent import AutoAgent, Encoder
 from api.cache import CacheManager
 from api.service import Service
 from api.workspace import Workspace
+from api.arxiv import get_paper_info
+from api.gpu_batch import GpuBatch, Remote
 from api.reactions import load_store, save_store, harvest_reactions
 from settings import (
     WORKSPACE_CONFIGS,
     MODEL,
     HARVEST_WINDOW_DAYS,
+    SUMMARY_BACKEND,
+    GPU_SSH_HOST,
+    GPU_REMOTE_DIR,
+    GPU_BATCH_DIR,
+    GPU_BATCH_MAX_AGE_HOURS,
+    FIGURE_DIR,
 )
+
+
+def make_gpu_batch(cache):
+    if not GPU_SSH_HOST or not GPU_REMOTE_DIR:
+        raise RuntimeError("SUMMARY_BACKEND=gpu 인데 .env 에 GPU_SSH_HOST·GPU_REMOTE_DIR 가 없다")
+    return GpuBatch(cache, Remote(GPU_SSH_HOST, GPU_REMOTE_DIR), GPU_BATCH_DIR, FIGURE_DIR,
+                    GPU_BATCH_MAX_AGE_HOURS)
 
 
 async def main():
@@ -35,7 +50,26 @@ async def main():
     )
 
     fields = set(field for workspace in workspaces for field in workspace.fields)
-    new_papers = service.crawl_arxiv(fields)
+    use_gpu = SUMMARY_BACKEND == "gpu"
+    gpu = make_gpu_batch(cache) if use_gpu else None
+    if gpu:
+        # 지난 실행 때 보낸 배치 중 끝난 것을 먼저 받아 온다
+        gpu.collect()
+
+    new_papers = service.crawl_arxiv(fields, summarize=not use_gpu)
+
+    if gpu:
+        papers = [(url, title, get_paper_info(url, title))
+                  for field in new_papers for url, title, _ in new_papers[field]]
+        try:
+            gpu.submit(papers)
+        except Exception as e:  # 서버가 안 받아도 이미 요약된 논문 게시는 계속한다
+            logger.error(f"[gpu] submit 실패: {e}")
+        # 요약이 아직 없는 논문은 이번에 게시하지 않는다. 결과가 온 뒤의 실행에서 게시된다.
+        new_papers = {
+            field: [p for p in papers_ if cache.has_paper_summarization(get_paper_info(p[0], p[1]))]
+            for field, papers_ in new_papers.items()
+        }
 
     for workspace in workspaces:
         # prepare messages

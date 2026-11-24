@@ -76,7 +76,7 @@ class ArxivClient:
     def __init__(self, cache: CacheManager):
         self.cache = cache
 
-    def crawl_arxiv(self, field: str) -> set[str]:
+    def crawl_arxiv(self, field: str, fetch_full_content: bool = True) -> set[str]:
         # collect new arXiv papers
         logger.info("- Collecting new arXiv papers...")
         paper_set = self.get_paper_set_of(field)
@@ -92,7 +92,8 @@ class ArxivClient:
                 paper_abstract = self.get_paper_abstract(paper_url)
                 self.cache.update_paper_abstracts(paper_info, paper_abstract)
 
-            if paper_info in self.cache.paper_full_contents:
+            # GPU 배치는 서버가 HTML 을 직접 받아 그림까지 뽑으므로 여기서는 받지 않는다
+            if not fetch_full_content or paper_info in self.cache.paper_full_contents:
                 continue
 
             html_experimental_link = self.get_html_experimental_link(paper_url)
