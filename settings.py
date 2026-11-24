@@ -56,7 +56,10 @@ WORKSPACE_CONFIGS = [
         "app_token": os.getenv("SLACK_APP_TOKEN_SEUNGTAEK_LAB"),  # Socket Mode(xapp-)
         # /gpu 명령이 리포트를 받아 올 서버(~/.ssh/config Host 이름, 이 순서로 붙인다).
         # 비우면 /gpu 를 등록하지 않는다.
-        "gpu_status_hosts": ["gpu-status-hufs5090", "gpu-status-hufs4090"],
+        # /gpu 로 조회할 서버의 ssh config Host 별칭(쉼표로). 서버 이름은 저장소에 두지 않는다
+        "gpu_status_hosts": [
+            h.strip() for h in os.getenv("GPU_STATUS_HOSTS", "").split(",") if h.strip()
+        ],
         "fields": ["cs.CL", "cs.IR", "cs.CV", "cs.AI", "cs.RO", "cs.MA"],
     },
     # {

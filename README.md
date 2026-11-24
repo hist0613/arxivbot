@@ -159,21 +159,9 @@ Unregister-ScheduledTask -TaskName arxivbot-listener -Confirm:$false  # 등록 �
 
 ## `/gpu` 명령 (랩 GPU 서버 현황)
 
-Slack에서 `/gpu`를 입력하면 hufs5090·hufs4090의 지금 GPU 상태가 그 채널에 올라옵니다.
-형식은 서버마다 #server에 10분마다 올라오는 리포트(dilab `tools/gpu-slack-bot`)와 같습니다.
-리스너가 각 서버에 ssh로 `monitor.py --report`를 불러 받은 출력을 그대로 붙입니다(`api/gpu_status.py`).
-`/status`는 Slack 내장 명령(내 상태 설정)이라 쓸 수 없습니다.
+Slack에서 `/gpu`를 입력하면 랩 GPU 서버들의 지금 상태가 그 채널에 올라옵니다. 리스너가 서버마다 ssh로 리포트를 받아 그대로 붙입니다(`api/gpu_status.py`).
 
-설정 (1회)
-- **Slack 앱**: Slash Commands → Create New Command → Command `/gpu`. Socket Mode라 Request URL은 비워도 됩니다. `commands` 스코프가 추가되므로 **Reinstall to Workspace** 후 리스너를 재시작합니다.
-- **ssh 키**: `%USERPROFILE%\.ssh\gpu_status_ed25519`(passphrase 없음)와 `%USERPROFILE%\.ssh\config`의 `gpu-status-hufs5090`·`gpu-status-hufs4090` 항목. hufs4090은 외부 포트가 없어 hufs5090을 `ProxyJump`로 거칩니다.
-- **서버 `~/.ssh/authorized_keys`**: 이 키로 들어오면 리포트만 실행되게 묶습니다. hufs5090 줄에는 hufs4090으로 넘어가는 연결 하나만 열어 주는 `permitopen`이 붙습니다.
-  ```
-  # hufs5090
-  command="cd ~/Workspace/dilab/tools/gpu-slack-bot && ~/miniconda3/bin/python monitor.py --report",permitopen="203.253.80.77:3001",no-X11-forwarding,no-agent-forwarding,no-pty ssh-ed25519 AAAA... gpu-status@arxivbot-desktop
-  # hufs4090
-  command="cd ~/Workspace/dilab/tools/gpu-slack-bot && ~/miniconda3/bin/python monitor.py --report",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-ed25519 AAAA... gpu-status@arxivbot-desktop
-  ```
-- 조회할 서버 목록은 `settings.py`의 `"gpu_status_hosts"`입니다. 비우면 `/gpu`를 등록하지 않습니다.
-
-확인: PowerShell에서 `ssh gpu-status-hufs4090 whoami`를 쳐서 `whoami` 대신 hufs4090 리포트가 나오면 됩니다. 한 서버만 못 받으면 그 서버 자리에 `⚠️ [...] 상태를 받아오지 못했습니다`와 ssh 오류가 붙습니다.
+설정
+- Slack 앱: Slash Commands에 `/gpu`를 만들고 **Reinstall to Workspace** 후 리스너를 재시작합니다.
+- `.env`의 `GPU_STATUS_HOSTS`에 ssh config의 Host 별칭을 쉼표로 적습니다. 비우면 `/gpu`를 등록하지 않습니다.
+- 이 별칭들이 쓰는 키는 서버 `authorized_keys`에서 `command=`로 리포트만 실행되게 묶어 둡니다.
