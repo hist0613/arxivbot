@@ -47,16 +47,22 @@ class CacheManager:
     def has_paper_summarization(self, paper_info: str) -> bool:
         return self.store.has_summary(paper_info)
 
+    def get_figure(self, paper_info: str):
+        """GPU 배치가 고른 대표 그림 {path, label, description, model} 또는 None."""
+        return self.store.get_figure(paper_info)
+
     def update_paper_abstracts(self, paper_info: str, paper_abstract: str):
         self.store.put_abstract(paper_info, paper_abstract)
 
     def update_paper_full_contents(self, paper_info: str, paper_full_content):
         self.store.put_full_content(paper_info, paper_full_content)
 
-    def update_paper_summarizations(self, paper_info: str, paper_summarization: str):
+    def update_paper_summarizations(
+        self, paper_info: str, paper_summarization: str, model: str = MODEL
+    ):
         schema = (
             "4sections" if is_current_summary_schema(paper_summarization) else "legacy"
         )
         self.store.put_summary(
-            paper_info, paper_summarization, schema_version=schema, model=MODEL
+            paper_info, paper_summarization, schema_version=schema, model=model
         )

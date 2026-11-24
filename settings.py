@@ -117,3 +117,14 @@ if not os.path.exists(REACTIONS_DIR):
 PAPERS_STORE_PATH = os.path.join(REACTIONS_DIR, "papers.json")
 HARVEST_WINDOW_DAYS = 14
 REACTION_HASH_SALT = os.getenv("REACTION_HASH_SALT", "")
+
+# --- 배치 요약을 GPU 서버에 맡기기 ---
+# "openai": 배치가 MODEL 로 바로 요약한다(예전 방식). "gpu": 서버 slurm job 에 넘기고, 끝난 결과를
+# 다음 배치 실행 때 받아 그림과 함께 게시한다. 멘션 답변(리스너)은 어느 쪽이든 OpenAI 를 쓴다.
+SUMMARY_BACKEND = os.getenv("SUMMARY_BACKEND", "openai")
+# 서버 접속은 ssh config 의 Host 별칭으로만 받는다. 주소·계정·경로는 저장소에 두지 않는다(.env).
+GPU_SSH_HOST = os.getenv("GPU_SSH_HOST", "")
+GPU_REMOTE_DIR = os.getenv("GPU_REMOTE_DIR", "")
+GPU_BATCH_MAX_AGE_HOURS = 36  # 이보다 오래 안 끝난 배치는 버리고 그 논문들을 다시 보낸다
+GPU_BATCH_DIR = os.path.join(BASE_DIR, "gpu_batches")  # 배치 상태·받아 온 결과
+FIGURE_DIR = os.path.join(BASE_DIR, "figures")  # 대표 그림 PNG

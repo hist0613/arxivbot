@@ -25,14 +25,18 @@ class Service:
         self.encoder = encoder
         self.cache = cache
 
-    def crawl_arxiv(self, fields: list[str]) -> dict[str, list[tuple[str, str, str]]]:
+    def crawl_arxiv(
+        self, fields: list[str], summarize: bool = True
+    ) -> dict[str, list[tuple[str, str, str]]]:
+        """summarize=False 면 초록만 받고 요약하지 않는다(GPU 배치가 서버에서 전문을 받아 요약한다)."""
         new_papers = {}
         for i, field in enumerate(fields):
             logger.info("Processing {} field...".format(field))
             if i > 0:
                 time.sleep(TIME_PAUSE_CRAWL_SEC)  # arXiv throttle 예방
-            paper_set = self.arxiv.crawl_arxiv(field)
-            self.summarize_arxiv(paper_set)
+            paper_set = self.arxiv.crawl_arxiv(field, fetch_full_content=summarize)
+            if summarize:
+                self.summarize_arxiv(paper_set)
             new_papers[field] = paper_set
         return new_papers
 

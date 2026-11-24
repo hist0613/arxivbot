@@ -10,7 +10,7 @@ import time
 
 from settings import CACHE_DB_PATH
 
-TABLES = ("abstracts", "full_contents", "summaries", "pages", "thread_digests")
+TABLES = ("abstracts", "full_contents", "summaries", "pages", "thread_digests", "figures")
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS abstracts (
@@ -32,6 +32,13 @@ CREATE TABLE IF NOT EXISTS pages (
     title TEXT,
     text TEXT NOT NULL,
     fetched_at REAL NOT NULL);
+CREATE TABLE IF NOT EXISTS figures (
+    paper_info TEXT PRIMARY KEY,
+    path TEXT NOT NULL,
+    label TEXT,
+    description TEXT,
+    model TEXT,
+    created_at REAL NOT NULL);
 CREATE TABLE IF NOT EXISTS thread_digests (
     thread_ts TEXT PRIMARY KEY,
     digest TEXT NOT NULL,
@@ -143,6 +150,31 @@ class Store:
             paper_info,
             text,
             schema_version,
+            model,
+            time.time(),
+        )
+
+    # --- 대표 그림 (GPU 배치가 고른 것. PNG 는 디스크에 두고 경로만) ---
+
+    def get_figure(self, paper_info: str):
+        row = self._one(
+            "SELECT path, label, description, model FROM figures WHERE paper_info=?",
+            paper_info,
+        )
+        return dict(row) if row else None
+
+    def put_figure(
+        self, paper_info: str, path: str, label: str, description: str, model: str = ""
+    ):
+        self._write(
+            "INSERT INTO figures(paper_info, path, label, description, model, created_at) "
+            "VALUES(?,?,?,?,?,?) ON CONFLICT(paper_info) DO UPDATE SET "
+            "path=excluded.path, label=excluded.label, description=excluded.description, "
+            "model=excluded.model, created_at=excluded.created_at",
+            paper_info,
+            path,
+            label,
+            description,
             model,
             time.time(),
         )

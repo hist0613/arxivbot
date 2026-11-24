@@ -385,6 +385,9 @@ class Workspace:
 
                 field_thread["thread_contents"].append(
                     {
+                        "figure": cache.get_figure(paper_info)
+                        if hasattr(cache, "get_figure")
+                        else None,
                         "paper_info": paper_info,
                         "paper_url": paper_url,
                         "field": field,
@@ -445,6 +448,7 @@ class Workspace:
                         text=content["message_content"],
                         thread_ts=thread_ts,
                     )
+                self._upload_figure(client, content.get("figure"), thread_ts)
                 add_posted(
                     store,
                     ts=reply["ts"],
@@ -459,6 +463,25 @@ class Workspace:
                 self._update_old_paper_set(content["paper_info"])
                 await self._apply_rate_limit()
         save_store(store)
+
+    def _upload_figure(self, client, figure: dict | None, thread_ts: str):
+        """GPU 배치가 고른 대표 그림을 요약 바로 아래 스레드 답글로 올린다.
+
+        arXiv HTML 그림의 절반 이상이 SVG 라 Slack image 블록에 URL 로 넣을 수 없어서,
+        서버가 PNG 로 바꾼 파일을 올린다(files:write). 실패해도 요약 게시는 계속한다.
+        """
+        if not figure or not os.path.exists(figure.get("path", "")):
+            return
+        try:
+            client.files_upload_v2(
+                channel=self.allowed_channel_id,
+                thread_ts=thread_ts,
+                file=figure["path"],
+                title=figure.get("label") or "figure",
+                initial_comment=f"*{figure.get('label') or 'Figure'}* {figure.get('description', '')}".strip(),
+            )
+        except Exception as e:
+            logger.error(f"figure upload failed ({e}); 요약만 게시")
 
     async def _send_discord_messages(self, threads: list[dict]):
         try:

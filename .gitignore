@@ -8,3 +8,9 @@ logs/
 cache/*.db
 cache/*.db-wal
 cache/*.db-shm
+
+# GPU 배치
+cache/gpu_batches/
+cache/figures/
+gpu/server.env
+gpu/prompts.py
