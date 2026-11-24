@@ -53,27 +53,13 @@ python main.py
 
 ---
 
-## 배치 요약을 GPU 서버에서 (`SUMMARY_BACKEND=gpu`)
+## GPU 서버로 배치 요약 (선택)
 
-매일 배치 요약을 OpenAI 대신 랩 GPU 서버의 slurm job 에 맡깁니다. 서버는 논문 HTML 을 직접 받아 참고문헌을 뺀 전문(부록 포함)을 읽히고, 논문마다 대표 그림 한 장을 골라 한 줄 설명을 붙입니다. 멘션·DM 답변(리스너)은 그대로 OpenAI 를 씁니다.
+`.env` 에 `SUMMARY_BACKEND=gpu` 를 넣으면 매일 배치 요약을 랩 GPU 서버의 slurm job 이 맡습니다. 논문 전문을 읽고, 대표 그림 한 장을 골라 요약 아래에 올립니다. job 이 끝난 뒤의 배치 실행에서 게시되므로 몇 시간 늦을 수 있습니다. 멘션 답변은 그대로 OpenAI 를 씁니다.
 
-흐름 (`main.py` 한 번 실행마다, `api/gpu_batch.py`)
-1. 지난번에 보낸 배치 가운데 서버에서 끝난 것을 받아 요약은 `summaries`, 그림은 `figures` 테이블과 `cache/figures/` 에 넣습니다.
-2. arXiv 를 크롤합니다(초록만. 본문은 서버가 받습니다).
-3. 요약이 없고 아직 보내지 않은 논문을 한 묶음으로 서버에 올리고 `gpu/run_batch.sh` 를 띄웁니다. 서버는 HTML 을 받아 전문·그림을 뽑은 뒤 GPU job 을 큐에 넣습니다.
-4. 요약이 있는 논문만 게시합니다. 그림이 있으면 요약 바로 아래 스레드에 PNG 로 올립니다. 아직 요약이 없는 논문은 결과가 들어온 다음 실행에서 게시됩니다.
-
-job 은 카드가 빌 때까지 기다리므로 게시가 몇 시간 늦어질 수 있습니다. 36시간 안에 끝나지 않은 배치는 버리고 그 논문을 다시 보내며, 두 번 보내도 요약이 오지 않은 논문은 더 보내지 않습니다.
-
-설정
-- `.env`: `SUMMARY_BACKEND=gpu`, `GPU_SSH_HOST`(ssh config 의 Host 별칭), `GPU_REMOTE_DIR`(서버 작업 폴더). 서버 주소·계정·경로는 저장소에 두지 않습니다.
-- ssh: 배치를 돌리는 계정에서 비밀번호 없이 `ssh <GPU_SSH_HOST>` 가 되어야 합니다(`BatchMode=yes` 로 부릅니다).
-- 서버 작업 폴더: `gpu/server.env.example` 을 `server.env` 로 복사해 파이썬 경로·모델·피할 GPU 번호를 채웁니다. 파이썬은 `beautifulsoup4 requests openai pillow resvg-py` 가 필요하고, vLLM 은 모델에 맞는 버전이 깔린 쪽을 씁니다. 코드 파일은 배치가 보낼 때마다 서버에 다시 올립니다.
-- Slack 앱: 그림 업로드에 `files:write` 스코프가 필요합니다.
-
-모델 설정: thinking 을 켜고, sampling 은 요청에 넣지 않아 모델 `generation_config.json` 의 권장값을 씁니다. job 은 시작 전에 `gpu/preflight.py` 로 thinking·reasoning parser·권장 sampling·출력 한도(32768)·context 를 검사해 기준과 다르면 vLLM 을 띄우지 않습니다.
-
-비교 실험: 같은 폴더에서 `PAPERS=<papers.jsonl> RUN_TAG=<이름> MODEL_ID=... SERVED=... REASONING_PARSER=... sbatch --output=logs/%x-%j.out job.sh` 로 모델별 결과를 `results/<이름>/` 에 모으고, desktop 에서 `python gpu/judge.py` 로 `eval/eval_judge.py` 루브릭 채점을 합니다(사실 충실도는 본문에 대어 봅니다).
+- `.env`: `GPU_SSH_HOST`(ssh config 의 Host 별칭), `GPU_REMOTE_DIR`(서버 작업 폴더)
+- 서버 작업 폴더: `gpu/server.env.example` 을 `server.env` 로 복사해 채웁니다
+- Slack 앱: `files:write` 스코프
 
 ---
 
