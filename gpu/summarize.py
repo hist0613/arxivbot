@@ -31,7 +31,8 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from prompts import SYSTEM_PROMPT_SUMMARIZATION  # noqa: E402
 
 UA = {"User-Agent": "arxivbot/1.0 (+https://github.com/hist0613/arxivbot)"}
-MAX_TEXT_CHARS = 300_000  # 약 75K 토큰. 넘는 논문은 뒤(부록 끝)를 자른다
+# 넘는 논문은 뒤(부록 끝)를 자른다. 토큰당 3자로 넉넉히 잡아도 출력 한도와 함께 context 131072 에 들어가는 값
+MAX_TEXT_CHARS = 280_000
 MAX_TOKENS = 32768  # thinking 포함 출력 한도
 FIG_MAX_SIDE = 1600
 

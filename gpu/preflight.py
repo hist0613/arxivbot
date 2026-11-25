@@ -40,8 +40,10 @@ recommended = {k: gen.get(k) for k in ["temperature", "top_p", "top_k"]}
 
 longest = 0
 if papers and Path(papers).exists():
-    longest = max(len(json.loads(l).get("text", "")) for l in open(papers))
-need = min(longest, max_chars) // 3 + max_tokens + 4096  # 영어 전문은 토큰당 약 3.5~4자, 여유 있게 3자
+    longest = max((len(json.loads(l).get("text", "")) for l in open(papers)), default=0)
+# 입력은 MAX_TEXT_CHARS 에서 잘리므로 논문 길이가 아니라 이 상한으로 잰다.
+# 예전에는 그날 가장 긴 논문으로 재서, 31만 자 논문 하나 때문에 677편 job 이 통째로 멈췄다(2026-11-25).
+need = max_chars // 3 + max_tokens + 4096  # 영어 전문은 토큰당 약 3.5~4자, 여유 있게 3자
 
 rows = [("model", model_id), ("recommended sampling", recommended), ("sampling in request", sampling_in_request),
         ("thinking", thinking), ("reasoning parser", parser or "-"), ("max_tokens", max_tokens),
